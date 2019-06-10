@@ -1,0 +1,98 @@
+    <ion-header >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning">
+      </ion-menu-button>
+          </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+<ion-content fullscreen >
+  <ion-grid> 
+    <ion-row >
+      <ion-col>
+        <ion-card color="primary">
+          <img src="../../assets/logo-md.svg">
+                  
+            <div *ngIf="auth.afAuth.user | async as user; else login">
+                <h1 class="h2">User Profile</h1>
+              <ion-item color="primary">
+                <ion-thumbnail slot="start">
+                  <img src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">     
+                </ion-thumbnail>
+                <ion-label>
+                  <p>Welcome: {{ user.displayName }}</p>
+                  <p>Email:{{ user.email }}</p>
+                  <!-- <p>Subscription: {{subscription.id}}</p> -->
+                  <!-- <p><ion-button color="success" size="large" *ngIf="[subscription.id] == 'active'">You Are Subscribed</ion-button> </p>-->
+                  </ion-label>
+              </ion-item>
+                        
+            </div>
+          </ion-card>
+          <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else other">
+                <ion-button color="warning" (click)="auth.SignOut()">
+                    <ion-label color="dark">Logout</ion-label>
+                    <ion-icon slot="icon-only" name="exit"></ion-icon>
+                  </ion-button>
+             </ion-card>
+      </ion-col>
+      
+      <ion-col>
+        <app-checkout [amount]='1000' planId='plan_FCqY9lBJ46mNp2'></app-checkout>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer translucent="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="float">
+    <ion-fab-button color="secondary">
+      <ion-icon name="rocket"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top" >
+      <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button color="medium" href="https://twitter.com/rankfsports"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-toolbar color="medium">
+    <ion-buttons>
+      <ion-button color="success"  href="mailto://support@rankfantasysports.com>">
+        Support Request
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- User NOT logged in -->
+<ng-template #login>
+  
+ <app-sign-in></app-sign-in>
+
+</ng-template>
+
+<ng-template #other>
+  <ion-card color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-text color="light">
+            Need an account?
+          </ion-text>
+          <br>
+          <ion-button color="success" routerLink="/sign-up">Sign Up</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-text color="light">
+            Forgot Password?
+          </ion-text>
+          <br>
+          <ion-button color="warning" routerLink="/forgot-password">Reset</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ng-template>
+
+  
+  

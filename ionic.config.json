@@ -1,5 +1,7 @@
 {
   "name": "ionic-rfs",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,25 @@
+
+    <!-- <ion-card > -->
+      <ion-text color="secondary">
+        <h2><strong>Account Sign In</strong></h2>
+      </ion-text>  
+      <!-- <ion-card> -->
+        <ion-item color="medium">
+          <ion-label color="dark" position="floating">Email</ion-label>
+          <ion-input  #userName required inputmode="email" ></ion-input>
+        </ion-item>
+      <!-- </ion-card> -->
+
+      <!-- <ion-card> -->
+        <ion-item color="medium">
+          <ion-label color="dark" position="floating">Password</ion-label>
+            <ion-input #userPassword pattern="password" type="password" minlength="7" maxlength="50" required>
+              </ion-input>
+        </ion-item>
+      <!-- </ion-card> -->
+        
+      <ion-button color="tertiary" (click)="authService.SignIn(userName.value, userPassword.value)">Sign In</ion-button>
+      <ion-button color="danger"  (click)="authService.GoogleAuth()">Google Sign In</ion-button>
+        <hr>
+    <!-- </ion-card> -->
+      

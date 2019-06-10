@@ -1,3 +1,97 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+
+  <ion-menu  type="overlay">
+    <ion-header>
+      <ion-menu-toggle>
+          
+          <ion-toolbar color="primary">
+            <img src="../assets/img/the-drop-logo-optimum.svg" height="50rem" slot="start" >
+            
+        </ion-toolbar>
+        
+        </ion-menu-toggle>
+      </ion-header>
+      
+      
+      <ion-content >
+        <ion-menu-toggle>
+          <ion-list>
+            <ion-item-group>
+
+            <ion-item  href="home">
+              <ion-icon color="warning" slot="start" name="home"></ion-icon>
+              <ion-label color="dark">Home</ion-label>
+            </ion-item>
+
+            <ion-item  href="launch-page">
+              <ion-icon color="danger" slot="start" name="contact"></ion-icon>
+              <ion-label color="dark">Sign-Up/Login</ion-label>
+            </ion-item>
+
+
+          <ion-item href="sign-in">
+            <ion-icon color="warning" color="tertiary" slot="start" name="rocket"></ion-icon>
+            <ion-label color="dark">Login</ion-label>
+             </ion-item>
+
+          <ion-list-header color="primary">
+            <ion-label >DFS Toolbox</ion-label>
+          </ion-list-header>
+
+          <ion-item  href="list">
+            <ion-icon color="success" slot="start" name="stats"></ion-icon>
+            <ion-label color="dark">Data-tables</ion-label>
+          </ion-item>
+
+          <ion-item disabled >
+            <ion-icon slot="start" name="trending-up"></ion-icon>
+           <ion-label color="dark">Line-up Optimizers</ion-label>
+          </ion-item>
+
+          <ion-item disabled>
+           <ion-icon slot="start" name="chatboxes"></ion-icon>
+           <ion-label color="dark">Chat</ion-label>
+          </ion-item>
+
+              <ion-list-header color="primary">
+                <ion-label>RF💲 University
+                </ion-label>
+              </ion-list-header>
+
+          <ion-item disabled>
+            <ion-icon slot="start" name="book"></ion-icon>
+            <ion-label color="dark">Courseware</ion-label>
+          </ion-item>
+
+
+          <!-- <ion-item color="light" *ngIf="auth.user$" (click)="auth.signOut()">
+            <ion-label color="dark">Logout</ion-label>
+              <ion-icon color="warning" slot="start" name="exit"></ion-icon>
+          </ion-item> -->
+
+      </ion-item-group>
+    </ion-list>
+      <ion-text color="success" ><sup>*</sup>Greyed-out Items are Coming Soon!</ion-text>
+
+  </ion-menu-toggle>
+
+</ion-content>
+
+
+<ion-footer translucent="true">
+  <ion-menu-toggle>
+
+    <ion-toolbar color="medium" >
+        <ion-text color="danger" >
+          <sub>
+            Made with 🚀 by <strong>RF$</strong> ©2019
+          </sub>
+
+        </ion-text>
+    </ion-toolbar>
+    </ion-menu-toggle>
+  </ion-footer>
+
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>
+
+

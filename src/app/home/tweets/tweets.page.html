@@ -1,0 +1,43 @@
+<ion-header >
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home" color="warning">
+          </ion-back-button>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+<ion-content>          
+        <ion-card padding color="primary" style="max-width:500px;">
+            <div class="twitter-container">
+              <ngx-twitter-timeline
+              [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+              [opts]="{chrome: ['nofooter', 'noscrollbar'], theme: 'dark', tweetLimit: '20', borderColor: '#02ed25'}">
+              </ngx-twitter-timeline>
+            </div>
+          </ion-card>
+  </ion-content>
+  <ion-footer translucent="true">
+      <ion-fab vertical="bottom" horizontal="end" slot="float">
+          <ion-fab-button color="secondary">
+            <ion-icon name="rocket"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-list side="top" >
+                  <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+                  <ion-fab-button color="medium" href="https://twitter.com/rankfsports"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+                  <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+                </ion-fab-list>
+            </ion-fab>
+  
+              <ion-toolbar color="medium">
+                <ion-buttons>
+                  <ion-button color="success"  href="mailto://support@rankfantasysports.com>">
+  
+                    <ion-text ion-text-center>
+                      Support Request
+                    </ion-text>
+                  </ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+  
+            </ion-footer>
+  

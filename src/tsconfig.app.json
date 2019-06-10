@@ -2,7 +2,8 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "module": "es2015",
+    "types": ["stripe-v3"]
   },
   "exclude": [
     "test.ts",
