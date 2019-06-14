@@ -9,36 +9,104 @@
 <ion-content fullscreen >
   <ion-grid> 
     <ion-row >
-      <ion-col>
-        <ion-card color="primary">
-          <img src="../../assets/logo-md.svg">
-                  
-            <div *ngIf="auth.afAuth.user | async as user; else login">
-                <h1 class="h2">User Profile</h1>
-              <ion-item color="primary">
+      <ion-col size-md="4">
+        <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else login">
+          <ion-img src="../../assets/logo-md.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>User Profile</ion-card-title>
+          </ion-card-header>
+            <ion-card-content>
+              <ion-item color="medium">
                 <ion-thumbnail slot="start">
-                  <img src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">     
+                  <img [src]="user.photoURL || '/assets/dummy-user.png'">     
                 </ion-thumbnail>
                 <ion-label>
                   <p>Welcome: {{ user.displayName }}</p>
                   <p>Email:{{ user.email }}</p>
-                  <!-- <p>Subscription: {{subscription.id}}</p> -->
-                  <!-- <p><ion-button color="success" size="large" *ngIf="[subscription.id] == 'active'">You Are Subscribed</ion-button> </p>-->
-                  </ion-label>
+                  <p>Firebase UID: {{ user.uid }}</p>
+                  <p>Stripe ID: {{ user?.stripeCustomerId || 'provisioning' }}</p>
+               </ion-label>
               </ion-item>
-                        
-            </div>
+              <ion-button color="danger" expand="block"  (click)="auth.SignOut()">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-label color="dark">Logout</ion-label>
+                <ion-icon slot="icon-only" name="exit"></ion-icon>
+              </ion-button>
+            </ion-card-content>
           </ion-card>
-          <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else other">
-                <ion-button color="warning" (click)="auth.SignOut()">
-                    <ion-label color="dark">Logout</ion-label>
-                    <ion-icon slot="icon-only" name="exit"></ion-icon>
-                  </ion-button>
-             </ion-card>
-      </ion-col>
-      
-      <ion-col>
-        <app-checkout [amount]='1000' planId='plan_FCqY9lBJ46mNp2'></app-checkout>
+          
+          <ion-card color="primary">
+            <pre *ngIf="subscription">
+              <p>
+                {{ subscription | json }}
+              </p>
+              <ion-button color="danger" href="subscription-plan">Cancel Subscription</ion-button>
+            </pre>
+          </ion-card>
+          
+        </ion-col>
+    
+     <ion-col size-md="8">
+
+
+      <ion-card  color="primary">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-label color="secondary">
+                <ion-text color="light">RF$™</ion-text>  Pro Subscription
+                </ion-label>
+                </ion-card-title>  
+    
+              </ion-card-header>
+                
+                  <ion-text text-wrap color="medium"><h6>
+                    Sign up now and start building your winning DFS lineups today!
+                  </h6>
+                  </ion-text>
+              
+    
+                <ion-item color="medium">
+                  <ion-label text-wrap color="dark">
+                    Access to all DFS data-tables 
+                    </ion-label>  
+                  </ion-item>
+                  <ion-item color="medium">
+                    <ion-label text-wrap color="dark">
+                      Video playlists providing DFS stats analysis
+                    </ion-label>
+                  </ion-item>
+                  <ion-item color="medium">
+                    <ion-label text-wrap color="dark">
+                      Past and future livestream events
+                    </ion-label>
+                  </ion-item>
+                  <ion-item color="medium">
+                  <ion-label text-wrap color="dark">
+                    Exclusive DFS chat room access 
+                    <br> 
+                   <sub>
+                     Get the info you need, when you need it...
+                    </sub>
+                  </ion-label>
+    
+                </ion-item>
+                  <ion-item color="medium">
+                    <ion-label text-wrap color="dark">
+                      And many other upcoming tools and resources 
+                    </ion-label>
+                  </ion-item>
+                <ion-item color="medium">
+                  <ion-label text-wrap color="dark">
+    
+                    <strong>One (1) user per account</strong>
+                  </ion-label>
+                  </ion-item>
+               </ion-card>
+
+        <ion-card color="primary">
+
+          <subscription-page></subscription-page>
+        </ion-card>
       </ion-col>
 
     </ion-row>
@@ -58,6 +126,7 @@
   <ion-toolbar color="medium">
     <ion-buttons>
       <ion-button color="success"  href="mailto://support@rankfantasysports.com>">
+        <ion-ripple-effect></ion-ripple-effect>
         Support Request
       </ion-button>
     </ion-buttons>
@@ -66,12 +135,12 @@
 
 <!-- User NOT logged in -->
 <ng-template #login>
-  
- <app-sign-in></app-sign-in>
-
+ 
+          <app-sign-up></app-sign-up>
+      
 </ng-template>
 
-<ng-template #other>
+<!-- <ng-template #other>
   <ion-card color="primary">
     <ion-grid>
       <ion-row>
@@ -92,7 +161,244 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-</ng-template>
+</ng-template> -->
 
   
+          <!-- <ion-card  color="primary">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-label color="secondary">
+            <ion-text color="light">RF$™</ion-text>  Pro Subscription
+            </ion-label>
+            </ion-card-title>  
+
+          </ion-card-header>
+            
+              <ion-text text-wrap color="light"><h6>
+                The Pro Subscription includes:
+              </h6>
+              </ion-text>
+          
+
+            <ion-item color="medium">
+              <ion-label text-wrap color="dark">
+                Access to all DFS data-tables 
+                </ion-label>  
+              </ion-item>
+              <ion-item color="medium">
+                <ion-label text-wrap color="dark">
+                  Video playlists providing DFS stats analysis
+                </ion-label>
+              </ion-item>
+              <ion-item color="medium">
+                <ion-label text-wrap color="dark">
+                  Past and future livestream events
+                </ion-label>
+              </ion-item>
+              <ion-item color="medium">
+              <ion-label text-wrap color="dark">
+                Exclusive DFS chat room access 
+                <br> 
+               <sub>
+                 Get the info you need, when you need it...
+                </sub>
+              </ion-label>
+
+            </ion-item>
+              <ion-item color="medium">
+                <ion-label text-wrap color="dark">
+                  And many other upcoming tools and resources 
+                </ion-label>
+              </ion-item>
+            <ion-item color="medium">
+              <ion-label text-wrap color="dark">
+
+                <strong>One (1) user per account</strong>
+              </ion-label>
+              </ion-item>
+            <ion-card color="success">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-label>
+                    Credit | Debit Accepted
+                  </ion-label>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card>
+                
+                <ion-item>
+                  <ion-label color="success" position="floating" >*Promo Code</ion-label>
+                  <ion-input minlength="7" maxlength="7" name="coupon" type="text" clearInput></ion-input>
+                </ion-item>
+              </ion-card>
+              
+              <ion-card color="light" padding>
+
+        <app-elements [amount]='1000' planId='plan_FCqXwICAOJTNVw'></app-elements>
+
+      </ion-card>
+                          
+    </ion-card>
+
+  <!-- Plan 2 -->
+<!-- </ion-card>
+<ion-card  color="primary">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-label color="secondary">
+    <ion-text color="light">RF$™</ion-text>Six Month Pro Subscription
+    </ion-label>
+    </ion-card-title>  
+
+  </ion-card-header>
+    
+      <ion-text text-wrap color="light"><h6>
+        The Pro Subscription includes everthing in the Pro Subscription plus a great low price
+      </h6>
+      </ion-text>
+   -->
+
+    <!-- <ion-item color="medium">
+      <ion-label text-wrap color="dark">
+        Access to all DFS data-tables 
+        </ion-label>  
+      </ion-item>
+      <ion-item color="medium">
+        <ion-label text-wrap color="dark">
+          Video playlists providing DFS stats analysis
+        </ion-label>
+      </ion-item>
+      <ion-item color="medium">
+        <ion-label text-wrap color="dark">
+          Past and future livestream events
+        </ion-label>
+      </ion-item>
+      <ion-item color="medium">
+      <ion-label text-wrap color="dark">
+        Exclusive DFS chat room access 
+        <br> 
+       <sub>
+         Get the info you need, when you need it...
+        </sub>
+      </ion-label>
+
+    </ion-item>
+      <ion-item color="medium">
+        <ion-label text-wrap color="dark">
+          And many other upcoming tools and resources 
+        </ion-label>
+      </ion-item>
+    <ion-item color="medium">
+      <ion-label text-wrap color="dark">
+
+        <strong>One (1) user per account</strong>
+      </ion-label>
+      </ion-item> -->
+
+
+      <!-- <ion-card color="success">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-label>
+            Credit | Debit Accepted
+          </ion-label>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card>
+        
+        <ion-item>
+          <ion-label color="success" position="floating" >*Promo Code</ion-label>
+          <ion-input minlength="7" maxlength="7" name="coupon" type="text" clearInput></ion-input>
+        </ion-item>
+      </ion-card>
+      
+      <ion-card color="light" padding>
+
+<app-elements [amount]='5000' planId='plan_FCqY9lBJ46mNp2'></app-elements>
+
+</ion-card>
+                  
+</ion-card>
+
+
+</ion-card> -->
+
+<!-- Plan 3 -->
+<!-- <ion-card  color="primary">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-label color="secondary">
+    <ion-text color="light">RF$™</ion-text>  Pro Annual Subscription
+    </ion-label>
+    </ion-card-title>  
+
+  </ion-card-header>
+    
+      <ion-text text-wrap color="light"><h6>
+        The Annual Pro Subscription includes everything from the Pro Subsciption, with a deeply discounted price
+      </h6>
+      </ion-text> -->
   
+<!-- 
+    <ion-item color="medium">
+      <ion-label text-wrap color="dark">
+        Access to all DFS data-tables 
+        </ion-label>  
+      </ion-item>
+      <ion-item color="medium">
+        <ion-label text-wrap color="dark">
+          Video playlists providing DFS stats analysis
+        </ion-label>
+      </ion-item>
+      <ion-item color="medium">
+        <ion-label text-wrap color="dark">
+          Past and future livestream events
+        </ion-label>
+      </ion-item>
+      <ion-item color="medium">
+      <ion-label text-wrap color="dark">
+        Exclusive DFS chat room access 
+        <br> 
+       <sub>
+         Get the info you need, when you need it...
+        </sub>
+      </ion-label>
+
+    </ion-item>
+      <ion-item color="medium">
+        <ion-label text-wrap color="dark">
+          And many other upcoming tools and resources 
+        </ion-label>
+      </ion-item>
+    <ion-item color="medium">
+      <ion-label text-wrap color="dark">
+
+        <strong>One (1) user per account</strong>
+      </ion-label>
+      </ion-item> -->
+    <!-- <ion-card color="success">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-label>
+            Credit | Debit Accepted
+          </ion-label>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card>
+        
+        <ion-item>
+          <ion-label color="success" position="floating" >*Promo Code</ion-label>
+          <ion-input minlength="7" maxlength="7" name="coupon" type="text" clearInput></ion-input>
+        </ion-item>
+      </ion-card>
+      
+      <ion-card color="light" padding>
+
+<app-elements [amount]='9000' planId='plan_FEieRbYUInS7co'></app-elements>
+
+</ion-card>
+                  
+</ion-card>
+
+
+</ion-card> -->

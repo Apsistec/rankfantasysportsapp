@@ -1,29 +1,20 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { AngularFireFunctions, AngularFireFunctionsModule } from '@angular/fire/functions';
-import { getSubscriptions } from 'functions/src/subscriptions';
 // import { User } from '../core/user';
-// import { FirebaseFunctions } from '@angular/fire';
-@Component({
+import { PaymentService } from '../core/payment.service';
+@Component ({
   selector: 'app-launch-page',
   templateUrl: './launch-page.component.html',
   styleUrls: ['./launch-page.component.scss']
 })
-export class LaunchPageComponent {
 
+export class LaunchPageComponent {
+subscription;
   constructor(
     public auth: AuthService,
-    public aff: AngularFireFunctions
+    public functions: AngularFireFunctions,
+    public pmt: PaymentService
     ) { }
-  // subs;
-  // subscription;
-  // user;
-  // plan;
-  // async getSubscriptions() {
-  //   const user = await this.auth.afAuth.user;
 
-  //   const subs = this.aff.httpsCallable('stripeGetSubscriptions');
-  //   this.subscription = await subs({uid: this.user.uid})
-  // }
-
-  }
+}

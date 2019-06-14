@@ -1,4 +1,3 @@
-    
 import * as functions from 'firebase-functions';
 
 // A simple callable function for a sanity check
@@ -8,6 +7,7 @@ export const testFunction = functions.https.onCall( async (data, context) => {
 
     return `${uid} sent a message of ${message}`
 });
+
 
 export { 
     stripeAttachSource 

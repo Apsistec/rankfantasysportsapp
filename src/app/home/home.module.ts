@@ -4,25 +4,28 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { IonicModule } from '@ionic/angular';
-// import { HttpClientModule } from '@angular/common/http';
 import { HomePage} from './home.page';
-import { from } from 'rxjs';
-import { TestimonialsPage } from './testimonials/testimonials.page';
-import { TweetsPage } from './tweets/tweets.page';
+// import { HttpClientModule } from '@angular/common/http';
+// import { from } from 'rxjs';
+// import { TestimonialsPage } from './testimonials/testimonials.page';
+// import { TweetsPage } from './tweets/tweets.page';
+// import { TestimonialsPage } from './testimonials/testimonials.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: HomePage,
+    // children: [
+    //   {
+    //     path: 'testimonials',
+    //     loadChildren: './testimonials/testimonials.module#TestimonialsPageModule'
+    //   },
+    //   {
+    //     path: 'tweets',
+    //     loadChildren: './tweets/tweets.module#TweetsPageModule'
+    //   }
+    // ]
   },
-  {
-    path: 'testimonials',
-    component: TestimonialsPage
-  },
-  {
-    path: 'tweets',
-    component: TweetsPage
-  }
 ];
 
 @NgModule({

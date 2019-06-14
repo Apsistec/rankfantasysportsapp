@@ -1,9 +1,10 @@
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
 import { stripe, db } from './config'; 
-import { getOrCreateCustomer, getCustomer } from './customers';
+import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
 
+// tslint:disable-next-line: prefer-const
 
 /**
 Gets a user's subscriptions
@@ -18,12 +19,12 @@ Creates and charges user for a new subscription
 */
 export const createSubscription = async(uid:string, source:string, plan: string, coupon?: string) => {
  
-    const customer: any = await getOrCreateCustomer(uid);
+    const customer = await getOrCreateCustomer(uid);
 
     await attachSource(uid, source);
 
     const subscription = await stripe.subscriptions.create({
-        customer,
+        customer: customer.id,
         coupon,
         items: [
             {
