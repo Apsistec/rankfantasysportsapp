@@ -4,7 +4,6 @@ import { stripe, db } from './config';
 import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
 
-// tslint:disable-next-line: prefer-const
 
 /**
 Gets a user's subscriptions
@@ -17,7 +16,7 @@ export const getSubscriptions = async(uid: string) => {
 /**
 Creates and charges user for a new subscription
 */
-export const createSubscription = async(uid:string, source:string, plan: string, coupon?: string) => {
+export const createSubscription = async(uid: string, source: string, plan: string, coupon?: string) => {
  
     const customer = await getOrCreateCustomer(uid);
 

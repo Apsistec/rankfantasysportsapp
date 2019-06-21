@@ -38,7 +38,8 @@ const routes: Routes = [
   { path: 'table6', component: Table6Component, canActivate: [AuthGuard] },
   { path: 'table7', component: Table7Component, canActivate: [AuthGuard] },
   { path: 'table8', component: Table8Component, canActivate: [AuthGuard] },
-  { path: 'table9', component: Table9Component, canActivate: [AuthGuard] }
+  { path: 'table9', component: Table9Component, canActivate: [AuthGuard] },  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' }
+
 ];
 
 @NgModule({

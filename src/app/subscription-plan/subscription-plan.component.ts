@@ -1,10 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
 import { PaymentService } from '../core/payment.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AuthService } from '../core/auth.service';
 import { Observable } from 'rxjs';
 import { AngularFireFunctions } from '@angular/fire/functions';
-// import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from '../models';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'subscription-plan',
@@ -15,35 +14,43 @@ export class SubscriptionPlanComponent implements OnInit {
 
   @Input() planId: string;
   @Input() sourceId: string;
-
+  
   subscriptions$: Observable<any>;
   loading = false;
-  cancelSub;
-  getSubs;
+  
+  // State of async activity
   constructor(
     public auth: AuthService,
     public pmt: PaymentService,
-    public functions: AngularFireFunctions
+    public functions: AngularFireFunctions,
+  
     ) { }
 
   ngOnInit() {
-    this.subscriptions$ = this.auth.user.map( user => user.subscriptions || {} );
+    // this.subscriptions$ = this.auth.user.map(user => user.subscriptions || {});
+
   }
 
-    async cancelSubscription() {
-      this.loading = true;
-      const funSub = this.functions.httpsCallable('stripeCancelSubscription');
-      this.cancelSub = await funSub({plan: this.planId}).toPromise();
+  cancelHandler() {
+    this.loading = true;
+    const funSub = this.functions.httpsCallable('stripeCancelSubscription');
+    const cancelSubs = funSub({ plan: this.planId }).subscribe(data => {
       this.loading = false;
       alert('You have been unsubscribed');
+    });
   }
+      
 
-  async getSubscriptions() {
+  createHandler() {
     this.loading = true;
-    const user = await this.auth.getUser();
-    const getFun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.getSubs = await getFun({ uid: user.uid}).toPromise();
-    this.loading = false;
+    const user = this.auth.getUser();
+    const getFun = this.functions.httpsCallable('stripeCreateSubscription');
+    const createSubs = getFun({ source: this.sourceId, plan: this.planId }).subscribe(data => {
+      this.loading = false;
+    });
   }
-
+      
+  // ngOnDestroy() {
+  //   this.card.destroy();
+  // }
 }

@@ -1,8 +1,22 @@
     .cta{
-        background: linear-gradient(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.5)), url('../../assets/field20.jpg');
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)), url('../../assets/field20.jpg');
 
         // background-image: url('../../assets/field20.jpg');
         background-repeat: no-repeat;
         background-size: cover;
    }
-
+    .testi{
+        background:url('../../assets/img/bball-drive.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+    .twit{
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/img/tennis-court.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+    .utuub{
+        background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url('../../assets/img/golf-gimmie.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+   }

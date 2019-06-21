@@ -11,7 +11,8 @@ export const environment = {
   storageBucket: 'browser-landing.appspot.com',
   messagingSenderId: '436994807324',
   appId: '1:436994807324:web:3688c0cd49139837'
-  }
+  },
+  stripePublishable: 'pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook'
 };
 
 /*

@@ -1,124 +1,71 @@
 // import { environment } from '../../environments/environment';
-import { switchMap, map } from 'rxjs/operators';
-import { from } from 'rxjs';
-import { Observable } from 'rxjs';
+// import { switchMap, map } from 'rxjs/operators';
 // import { HttpClient } from '@angular/common/http';
-
-import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from '../models';
-import { Injectable, EventEmitter, ViewChild, ElementRef, Output, Input } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
+import { Observable, pipe, from } from 'rxjs';
+import { switchMap} from 'rxjs/operators';
 import { AuthService } from '../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { ArgumentOutOfRangeError } from 'rxjs';
-// import { Charge, Source } from '../models';
+import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from '../models';
+import { User } from './user';
+import { environment } from '../../environments/environment';
 
-
-
-@Injectable()
-
-
-
+@Injectable({
+  providedIn: 'root'
+})
 export class PaymentService {
+  user: User;
+  // readonly api = `${environment.functionsURL}/app`;
 
+  private stripe = Stripe(environment.stripePublishable);
   elements: any;
-
-  constructor(public auth: AuthService, public functions: AngularFireFunctions) {}
+  constructor(public auth: AuthService, public functions: AngularFireFunctions) {
+    this.elements = this.stripe.elements()
+  }
+  source;
+  cancle;
+  confirmation;
   @Input() planId: string;
   @Input() amount: number;
-  @Input() description: string;
-  @ViewChild('cardElement') cardElement: ElementRef;
-
-
-  stripe: stripe.Stripe;
   card;
-  // cardErrors;
-  loading = false;
-  confirmation;
- customer;
-    async handleForm(e) {
-      e.preventDefault();
-
-      const { source, error } = await this.stripe.createSource(this.card);
-      console.log(this.planId);
-      if (error) {
-        // Inform the customer that there was an error.
-        const cardErrors = error.message;
-      } else {
-        // Send the token to your server.
-        this.loading = true;
-        const user = await this.auth.getUser();
-        console.log(source.id);
-        console.log(user.uid);
-        const fun = this.functions.httpsCallable('stripeCreateSubscription');
-        this.confirmation = await fun({ source: source.id, uid: user.uid, plan: this.planId }).toPromise();
-        const customerId = await this.customer().toPromise();
-        this.loading = false;
-      }
-    }
-    }
+  attachSourc;
+  subscriptions$;
 
 
-
-// readonly api = `${environment.functionsURL}/app`;
-
-// private stripe = Stripe(environment.stripePublishable);
-
-// constructor(private http: HttpClient) {
-//   this.elements = this.stripe.elements()
-// }
-///// RETRIEVE DATA ////
-
-// Get customer data
-// getCustomer(): Observable<Customer> {
-//   const url = `${this.api}/customer/`;
-
-//   return this.http.get<Customer>(url);
-// }
-
-// // Get a list of charges
-// getCharges(): Observable<Charge[]> {
-//   const url = `${this.api}/charges/`;
-
-//   return this.http.get<StripeObject>(url).map(res => res.data);
-// }
+  ///// PAYMENT ACTIONS ////
 
 
-// ///// PAYMENT ACTIONS ////
+  async createCharge(card: any, amount: number) {
 
 
-// createCharge(card: any, amount: number): Observable<Charge> {
-//   const url = `${this.api}/charges/`;
+  }
 
-//   return fromPromise<Source>( this.stripe.createSource(card) ).pipe(
-//     switchMap(data => {
-//       return this.http.post<Charge>(url, { amount, sourceId: data.source.id })
-//     })
-//   )
-// }
-
-// Saves a payment source to the user account that can be charged later
-// attachSource(card: any): Observable<Source> {
-//   const url = `${this.api}/sources/`;
-
-//   return from<Source>( this.stripe.createSource(card) ).pipe(
-//     switchMap(data => {
-//       return this.http.post<Source>(url, { sourceId: data.source.id })
-//     })
-//   )
-// }
+  // Saves a payment source to the user account that can be charged later
+  async attachSource() {
+    const funSource = this.functions.httpsCallable('stripeAttachSource');
+    this.attachSourc = await funSource(this.card)
+    return this.source;
+  }
 
 
-///// SUBSCRIPTION ACTIONS ////
+  ///// SUBSCRIPTION ACTIONS ////
 
-// // Attaches subscription to user (Stripe will charge the source)
-// attachSubscription(sourceId: string, planId: string): Observable<SubscriptionPlan> {
-//     const url = `${this.api}/subscriptions`;
+  // Attaches subscription to user (Stripe will charge the source)
+  async attachSubscription() {
+    const user = await this.auth.getUser();
+    const fun = this.functions.httpsCallable('stripeCreateSubscription');
+    this.confirmation = await fun({ source: this.source.id , uid: user.uid, plan: this.planId }).toPromise();
+  }
 
-//     return this.http.post<SubscriptionPlan>(url, { sourceId, planId });
-// }
+  // Cancels subscription
+  async cancelSubscription() {
+    const fun = this.functions.httpsCallable('stripeCreateSubscription');
+    await fun({ plan: this.planId }).toPromise();
+  }
 
-// // Cancels subscription
-// cancelSubscription(planId: string): Observable<SubscriptionPlan> {
-//   const url = `${this.api}/subscriptions/cancel`;
-
-//   return this.http.put<SubscriptionPlan>(url, { planId });
-// }
+  // Get Subscriptions
+  async getSubscriptions() {
+    const fun = this.functions.httpsCallable('stripeGetSubscriptions');
+    this.subscriptions$ = await fun({ uid: this.user.uid }).toPromise();
+  }
+}

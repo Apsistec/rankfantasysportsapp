@@ -12,12 +12,12 @@ import { SubscriptionPlan } from '../models';
 })
 export class UserSubscriptionsComponent implements OnInit {
 
-   subscriptions$: Observable<SubscriptionPlan>;
+   subscriptions$;
 
   constructor(public pmt: PaymentService, public auth: AuthService) { }
 
   ngOnInit() {
-    this.subscriptions$ = this.pmt.customer().map(user => user.subscriptions.data );
+    this.subscriptions$ = this.pmt.getSubscriptions();
   }
 
 }

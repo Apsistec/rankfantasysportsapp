@@ -1,8 +1,8 @@
 {
   "name": "ionic-rfs",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Doug White",
+  "homepage": "https://www.rankfantasysports.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,6 +13,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^7.2.15",
+    "@angular/cdk": "^7.2.2",
     "@angular/common": "^7.2.15",
     "@angular/core": "^7.2.15",
     "@angular/fire": "^5.2.1",
@@ -44,13 +46,14 @@
     "@angular-devkit/schematics": "~7.3.8",
     "@angular/cli": "~7.3.8",
     "@angular/compiler": "~7.2.2",
-    "@angular/compiler-cli": "~7.2.2",
+    "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "~7.2.2",
     "@ionic/angular-toolkit": "~1.5.1",
     "@ionic/lab": "2.0.1",
     "@types/node": "~12.0.0",
-    "@types/stripe-checkout": "^1.0.3",
     "@types/stripe-v3": "^3.1.1",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -61,13 +64,17 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "ts-node": "~8.1.0",
-    "tslint": "~5.17.0",
-    "typescript": "~3.2.2"
+    "typescript": "^3.2.4"
   },
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
       "cordova-plugin-advanced-http": {}
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && eslint --fix src/"
     }
   }
 }

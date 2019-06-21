@@ -18,8 +18,8 @@ export class InnerGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.authService.isLoggedIn) {
-      window.alert('You are not allowed to access this URL!');
-      this.router.navigate(['launch-page'])
+      window.alert('You are already logged-in!');
+      this.router.navigate(['/list'])
     }
     return true;
   }

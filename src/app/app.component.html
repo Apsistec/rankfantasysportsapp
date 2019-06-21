@@ -18,27 +18,36 @@
             <ion-item-group>
 
             <ion-item  href="home">
-              <ion-icon color="warning" slot="start" name="home"></ion-icon>
+              <ion-icon color="primary" icon-only slot="start" name="home"></ion-icon>
               <ion-label color="dark">Home</ion-label>
             </ion-item>
+            
+            <ion-item href="sign-in">
+              <ion-icon color="secondary" icon-only slot="start" name="log-in"></ion-icon>
+              <ion-label color="dark">Sign-In</ion-label>
+               </ion-item>
 
             <ion-item  href="launch-page">
-              <ion-icon color="danger" slot="start" name="contact"></ion-icon>
-              <ion-label color="dark">Sign-Up/Login</ion-label>
+              <ion-icon color="primary" slot="start" name="person-add"></ion-icon>
+              <ion-label color="dark">Sign-Up</ion-label>
+            </ion-item>
+            <ion-item  href="launch-page">
+              <ion-icon color="success" slot="start" name="logo-usd"></ion-icon>
+              <ion-label color="dark">Pricing</ion-label>
+            </ion-item>
+            <ion-item  href="faq">
+              <ion-icon color="warning" icon-only slot="start" name="help"></ion-icon>
+              <ion-label color="dark">Questions</ion-label>
             </ion-item>
 
 
-          <!-- <ion-item href="sign-in">
-            <ion-icon color="secondary" slot="start" name="rocket"></ion-icon>
-            <ion-label color="dark">Sign In</ion-label>
-             </ion-item> -->
 
           <ion-list-header color="primary">
             <ion-label >DFS Toolbox</ion-label>
           </ion-list-header>
 
           <ion-item  href="list">
-            <ion-icon color="success" slot="start" name="stats"></ion-icon>
+            <ion-icon color="tertiary" slot="start" name="stats"></ion-icon>
             <ion-label color="dark">Data-tables</ion-label>
           </ion-item>
 
@@ -79,14 +88,17 @@
 
 
 <ion-footer translucent="true">
+  <ion-button fill="clear" size="small" href="https://privacy-policy.rankfantasysports.com" color="primary">
+    Privacy Policy</ion-button>
+  <ion-button fill="clear" size="small" href="https://terms.rankfantasysports.com" color="primary">
+    Terms & Conditions</ion-button>
   <ion-menu-toggle>
 
     <ion-toolbar color="medium" >
-        <ion-text color="danger" >
+        <ion-text color="primary" >
           <sub>
-            Made with 🚀 by <strong>RF$</strong> ©2019
-          </sub>
-
+            Made with</sub>&nbsp;<ion-icon color="dark" name="logo-nodejs"></ion-icon>&nbsp;<sub>and 🚀 by</sub>
+          </ion-text><ion-text color="tertiary"><sub><strong>&nbsp;RF$&nbsp;</strong>©2019</sub>
         </ion-text>
     </ion-toolbar>
     </ion-menu-toggle>

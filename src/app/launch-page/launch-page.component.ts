@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { AngularFireFunctions, AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctions} from '@angular/fire/functions';
 // import { User } from '../core/user';
 import { PaymentService } from '../core/payment.service';
 @Component ({

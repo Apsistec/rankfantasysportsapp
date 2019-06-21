@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-// import { ElementsComponent } from './elements/elements.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -35,14 +35,9 @@ import { SubscriptionPageComponent } from './subscription-page/subscription-page
 import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { UserSubscriptionsComponent } from './user-subscriptions/user-subscriptions.component';
-import { AuthService } from './core/auth.service';
-import { PaymentService } from './core/payment.service';
 import { TestimonialsPageModule } from './testimonials/testimonials.module';
-// import { ListPageModule } from './list/list.module';
-// import { HomePageModule } from './home/home.module';
-// import { TweetsPageModule } from './home/tweets/tweets.module';
-// import { AuthService } from './core/auth.service';
-// import { SignUpPageModule } from './sign-up/sign-up.module';
+import { UserChargesComponent } from './user-charges/user-charges.component';
+import { UserSourcesComponent } from './user-sources/user-sources.component';
 
 @NgModule({
   declarations: [
@@ -61,15 +56,17 @@ import { TestimonialsPageModule } from './testimonials/testimonials.module';
     Table9Component,
     AppComponent,
     LaunchPageComponent,
-    // ElementsComponent,
     ForgotPasswordComponent,
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
+    UserChargesComponent,
+    UserSourcesComponent
   ],
   entryComponents: [],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     IonicStorageModule.forRoot(),
@@ -82,17 +79,11 @@ import { TestimonialsPageModule } from './testimonials/testimonials.module';
     AppRoutingModule,
     TestimonialsPageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-    // SignUpPageModule,
-    // HomePageModule,
-    // TweetsPageModule,
-    // ListPageModule,
-    ],
+  ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AuthService,
-    PaymentService
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   exports: [ NgxTwitterTimelineModule, SignInComponent, SignUpComponent ],
   bootstrap: [AppComponent]

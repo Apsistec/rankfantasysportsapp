@@ -44,102 +44,109 @@
 
 
 
-        <ion-card  color="dark">
+        <ion-card padding class="utuub" color="dark">
+          <!-- <ion-card-content> -->
+          
+            <ion-card-title>
+            <ion-text color="warning">
+              {{ video.title }}
+            </ion-text>
+           </ion-card-title>
+           <!-- </ion-card-content> -->
           <iframe
           width="100%"
-          height="350px"
+          height="280"
           
           [src]="trustedVideoUrl"
           frameborder="0"
           allowfullscreen></iframe>
-          <ion-card-content>
-          
-            <ion-card-title>
-            <ion-text color="tertiary">
-              {{ video.title }}
-            </ion-text>
-           </ion-card-title>
-           </ion-card-content>
         </ion-card>
-          </ion-col>
-          <ion-col size-md="4">
         <ion-card class="cta" color="warning">
+          <ion-card-content>
+          <ion-button size="medium" href="launch-page" color="secondary">
+            <ion-ripple-effect>
+            </ion-ripple-effect>
+            <ion-label color="danger"> 
+                <strong>
+                  Subscribe
+                </strong>
+              </ion-label>
+            </ion-button>
           <ion-card-header>
-        <ion-card-title>
+            <ion-card-title>
 
-          <ion-text color="warning" >
+              <ion-text color="warning" >
           Insights for Building Winning Daily Fantasy Sports Lineups
-
-          </ion-text>
+          
+        </ion-text>
         </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-              
-        <h1>
-            🎾  🏌🏼‍ ⛳ ⚾ 🏈 ⚽ 🏀
-          <hr>
+      </ion-card-header>
         
+        <h1>
+          🎾  🏌🏼‍ ⛳ ⚾ 🏈 ⚽ 🏀
+          <hr>
+          
           🏆 💵 📈
         </h1>
         <br>
-        <ion-button size="large" href="launch-page" color="secondary">
-          <ion-ripple-effect>
-          </ion-ripple-effect>
-            <ion-label color="tertiary"> 
-              <strong>
-                Subscribe
-              </strong>
-            </ion-label>
-          </ion-button>
         </ion-card-content>
       </ion-card>
+      
+    </ion-col>
+    <ion-col size-md="4">
+   
+      <ion-card padding class="testi" color="dark">
+        <ion-card-content>
 
-      <ion-card  color="dark">
-    <ion-card-header>
-      <ion-card-title>
-        <ion-label color="warning">
-          <strong>
-            Success
-            </strong>
-          </ion-label> 
-        </ion-card-title>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-label color="warning">
+                <strong>
+                Successes
+              </strong>
+            </ion-label> 
+          </ion-card-title>
         <ion-card-subtitle>
-          Here are some of the recent testimonials!
+          Some of our recent testimonials!
         </ion-card-subtitle>
       </ion-card-header>
-        <ion-img src="../../assets/images/win1.jpg"></ion-img>
-        
-        <ion-button color="warning" fill="solid" size="large" href="testimonials">
-          <ion-ripple-effect>
-          </ion-ripple-effect> 
-          100+ More</ion-button>
-    </ion-card>
+      <ion-img src="../../assets/images/win1.jpg"></ion-img>
+      
+      <ion-button color="warning" fill="solid" size="large" href="testimonials">
+        <ion-ripple-effect>
+        </ion-ripple-effect> 
+        100+ More</ion-button>
+      </ion-card-content>
+      </ion-card>
 
                 
 
       </ion-col>
       <ion-col size-md="4">
 
-        <ion-card color="dark">
+        <ion-card padding class="twit" color="dark">
+          <ion-card-content>
+
             <ion-card-header>
-                <ion-card-title>
-                  <ion-label color="tertiary">
-                    <strong>
-                      Recent Tweets
-                      </strong>
-                    </ion-label> 
-                  </ion-card-title>
-                </ion-card-header>
-          <div class="twitter-container">
-            <ngx-twitter-timeline
-            [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-            [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '3', borderColor: '#02ed25'}">
+              <ion-card-title>
+                <ion-label color="warning">
+                  <strong>
+                    Recent Tweets
+                  </strong>
+                </ion-label> 
+              </ion-card-title>
+            </ion-card-header>
+            <div class="twitter-container">
+              <ngx-twitter-timeline
+              [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+              [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '3', borderColor: '#02ed25'}">
             </ngx-twitter-timeline>
           </div>
           <br>
           <ion-button color="warning" href="tweets" size="large"><ion-ripple-effect></ion-ripple-effect> More RF$ Tweets</ion-button>
+        </ion-card-content>
         </ion-card>
-
+        
       </ion-col>
     </ion-row>
   </ion-grid>
