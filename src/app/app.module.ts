@@ -36,9 +36,6 @@ import { SubscriptionPageComponent } from './subscription-page/subscription-page
 // import { PaymentFormComponent } from './payment-form/payment-form.component';
 // import { UserSubscriptionsComponent } from './user-subscriptions/user-subscriptions.component';
 import { TestimonialsPageModule } from './testimonials/testimonials.module';
-import { GoldComponent } from './subscription-page/gold/gold.component';
-import { SilverComponent } from './subscription-page/silver/silver.component';
-import { BronzeComponent } from './subscription-page/bronze/bronze.component';
 // import { UserChargesComponent } from './user-charges/user-charges.component';
 // import { UserSourcesComponent } from './user-sources/user-sources.component';
 
@@ -49,9 +46,6 @@ import { BronzeComponent } from './subscription-page/bronze/bronze.component';
     // PaymentFormComponent,
     // UserChargesComponent,
     // UserSourcesComponent
-    GoldComponent,
-    SilverComponent,
-    BronzeComponent,
     SubscriptionPageComponent,
     Table1Component,
     Table2Component,
