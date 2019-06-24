@@ -2,18 +2,33 @@
     <ion-card color="primary">
     <h4>
       <ion-text color="warning">Step 2:</ion-text>&nbsp;Add A Payment Source</h4>
+  <ng-form (submit)="handleForm($event)">
+    <div class="form-row">
   
   
-          <payment-form (stripeResult)="setSource($event)"></payment-form>
+  <ion-card color="light">
+<br>
+    <div id="card-element" #cardElement>
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+    <br>
+  </ion-card>
+    
   
+      <!-- Used to display Element errors. -->
+      <p class="has-text-danger">{{ cardErrors }}</p>
+    </div>
+  
+    
+  
+    
+  </ng-form>
+  
+         
    
 
       
-    <h6><ion-text color="light">
-      Or choose an existing payment source
-    </ion-text>
-  </h6>
-    <user-sources [canSelect]="true" (selectedSource)="setSource($event)"></user-sources>
+    
 </ion-card>
 </ion-card>
 
@@ -21,16 +36,8 @@
   <ion-card color="primary">
     <h4>
       <ion-text color="warning">Step 3:</ion-text>&nbsp;Activate a Package
-  
     </h4>
-    
-    <div class="notification">
-     <h6><ion-text color="light">
-       Selected Payment Source:<br>
-       <ion-text color="dark">{{ sourceId || 'none' }}</ion-text>
-      </ion-text>
-    </h6>
-  </div>
+
 <ion-card color="light">
   <ion-card  color="tertiary">
       <ion-card-header>
@@ -43,118 +50,20 @@
   </ion-card>
   <ion-grid>
   <ion-row align-items-stretch>
-    
-    <ion-col>
-      <ion-card>
-     
-          <ion-list>
-          <ion-list-header color="tertiary">
-            <ion-title>
-              <ion-text color="warning">Gold</ion-text>&nbsp;Package
-            </ion-title>
-            <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>
-          </ion-list-header>
-          <ion-item>
-              <ion-label text-wrap color="dark">Includes everything in Bronze Package</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label text-wrap color="dark">One (1) Year Subscription</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label text-wrap color="dark">$90.00 Billed Annually</ion-label>
-            </ion-item>
-            <ion-item color="medium" lines="none">
-                <ion-label text-wrap color="secondary">$30 Savings</ion-label>
-            </ion-item>
-            <subscription-plan [planId]="'plan_FEieRbYUInS7co'" [sourceId]="sourceId"></subscription-plan>
-            <ion-button></ion-button>
-          </ion-list>
-        </ion-card>
+    <ion-radio-group>
+
+      <ion-col>
+        <app-gold></app-gold>
       </ion-col>
       
       <ion-col>
-        <ion-card>
-          
-          <ion-list>
-            <ion-list-header color="tertiary">
-              <ion-title>
-                <ion-text color="light">Silver</ion-text>&nbsp;Package
-              </ion-title>
-              <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>
-            </ion-list-header>
-            <ion-item>
-                <ion-label text-wrap color="dark">Includes everything in Bronze Package</ion-label>
-              </ion-item>
-              <ion-item> 
-                <ion-label text-wrap color="dark">Six (6) Month Subscription</ion-label>
-              </ion-item>
-            <ion-item>
-              <ion-label text-wrap color="dark">$50.00 Billed Bi-annually</ion-label>
-            </ion-item>
-            <ion-item color="medium" lines="none">
-              <ion-label text-wrap color="secondary">$10 Savings</ion-label>
-            </ion-item>
-          </ion-list>
-          <subscription-plan [planId]="'plan_FCqY9lBJ46mNp2'" [sourceId]="sourceId"></subscription-plan>
-       
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-card>
-       
-          <ion-list>
-            <ion-list-header color="tertiary">
-              <ion-title><ion-text color="danger">Bronze</ion-text>&nbsp;Package
-              </ion-title>
-              <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>
-            </ion-list-header>
-            <ion-item>
-                <ion-label text-wrap color="dark">
-                  Access to all DFS data-tables 
-                  </ion-label>  
-                </ion-item>
-                <ion-item>
-                  <ion-label text-wrap color="dark">
-                    Videos providing DFS stats analysis
-                    <br>
-                    <sub>Catagorized by topic</sub>
-                  </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label text-wrap color="dark">
-                   Access to All Past and Upcoming Livestream events
-                   <br>
-                   <sub>Receive notification of upcoming events</sub>
-                  </ion-label>
-                </ion-item>
-                <ion-item>
-                <ion-label text-wrap color="dark">
-                  Exclusive DFS chat room access 
-                  <br> 
-                 <sub>
-                   Get the info you need, when you need it.
-                  </sub>
-                </ion-label>
+        <app-silver></app-silver>
+      </ion-col>
   
-              </ion-item>
-                <ion-item>
-                  <ion-label text-wrap color="dark">
-                    <sub>... many other upcoming tools and resources</sub> 
-                  </ion-label>
-                </ion-item>
-      
-            <ion-item>
-              <ion-label text-wrap color="dark">Month -to- Month Subscription</ion-label>
-            </ion-item>
-            <ion-item color="medium" lines="none">
-                <ion-label text-wrap color="secondary">$10.00 Billed Monthly</ion-label>
-            </ion-item>
-          </ion-list>
-          <subscription-plan [planId]="'plan_FCqXwICAOJTNVw'" [sourceId]="sourceId"></subscription-plan>
-      </ion-card>
-    </ion-col>
+      <ion-col>
+        <app-bronze></app-bronze>
+      </ion-col>
+    </ion-radio-group>
   </ion-row>
   <ion-row>
     <ion-col>

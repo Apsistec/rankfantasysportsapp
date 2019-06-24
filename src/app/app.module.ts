@@ -32,18 +32,26 @@ import { Table7Component } from './table7/table7.component';
 import { Table8Component } from './table8/table8.component';
 import { Table9Component } from './table9/table9.component';
 import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
-import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
-import { PaymentFormComponent } from './payment-form/payment-form.component';
-import { UserSubscriptionsComponent } from './user-subscriptions/user-subscriptions.component';
+// import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
+// import { PaymentFormComponent } from './payment-form/payment-form.component';
+// import { UserSubscriptionsComponent } from './user-subscriptions/user-subscriptions.component';
 import { TestimonialsPageModule } from './testimonials/testimonials.module';
-import { UserChargesComponent } from './user-charges/user-charges.component';
-import { UserSourcesComponent } from './user-sources/user-sources.component';
+import { GoldComponent } from './subscription-page/gold/gold.component';
+import { SilverComponent } from './subscription-page/silver/silver.component';
+import { BronzeComponent } from './subscription-page/bronze/bronze.component';
+// import { UserChargesComponent } from './user-charges/user-charges.component';
+// import { UserSourcesComponent } from './user-sources/user-sources.component';
 
 @NgModule({
   declarations: [
-    SubscriptionPlanComponent,
-    UserSubscriptionsComponent,
-    PaymentFormComponent,
+    // SubscriptionPlanComponent,
+    // UserSubscriptionsComponent,
+    // PaymentFormComponent,
+    // UserChargesComponent,
+    // UserSourcesComponent
+    GoldComponent,
+    SilverComponent,
+    BronzeComponent,
     SubscriptionPageComponent,
     Table1Component,
     Table2Component,
@@ -60,8 +68,6 @@ import { UserSourcesComponent } from './user-sources/user-sources.component';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    UserChargesComponent,
-    UserSourcesComponent
   ],
   entryComponents: [],
   imports: [
@@ -85,7 +91,7 @@ import { UserSourcesComponent } from './user-sources/user-sources.component';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  exports: [ NgxTwitterTimelineModule, SignInComponent, SignUpComponent ],
+  exports: [ NgxTwitterTimelineModule, SignInComponent, SignUpComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

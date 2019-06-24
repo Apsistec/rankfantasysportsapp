@@ -16,7 +16,6 @@ import { Table6Component } from './table6/table6.component';
 import { Table7Component } from './table7/table7.component';
 import { Table8Component } from './table8/table8.component';
 import { Table9Component } from './table9/table9.component';
-import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,7 +26,6 @@ const routes: Routes = [
   { path: 'tweets', loadChildren: './tweets/tweets.module#TweetsPageModule' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'subscription-plan', component: SubscriptionPlanComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [InnerGuard] },
   { path: 'table1', component: Table1Component, canActivate: [AuthGuard] },
@@ -38,7 +36,8 @@ const routes: Routes = [
   { path: 'table6', component: Table6Component, canActivate: [AuthGuard] },
   { path: 'table7', component: Table7Component, canActivate: [AuthGuard] },
   { path: 'table8', component: Table8Component, canActivate: [AuthGuard] },
-  { path: 'table9', component: Table9Component, canActivate: [AuthGuard] },  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' }
+  { path: 'table9', component: Table9Component, canActivate: [AuthGuard] },
+  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' }
 
 ];
 

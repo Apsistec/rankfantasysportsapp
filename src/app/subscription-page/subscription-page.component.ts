@@ -1,67 +1,72 @@
-import { PaymentService } from '../core/payment.service';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { NgForm } from '@angular/forms';
-import {  Source,  SubscriptionPlan,  } from '../models';
-import { Component, ChangeDetectorRef, ElementRef, ViewChild, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
+declare var Stripe: stripe.StripeStatic;
 
-
-const options = {
-  // Custom styling can be passed to options when creating an Element.
-  style: {
-    base: {
-      // Add your base input styles here. For example:
-      fontSize: '16px',
-      color: '#9d33f4',
-      padding: '18px 20px',
-    },
-  }
-}
 @Component({
   selector: 'subscription-page',
   templateUrl: './subscription-page.component.html',
   styleUrls: ['./subscription-page.component.scss']
 })
 export class SubscriptionPageComponent implements OnInit {
-  planId: string;
-  sourceId: string;
-  userSubscriptions;
-  cancelSubs;
-  stripe: stripe.Stripe;
-  loading = false;
-  
-  cardErrors;
-  // Emit result of operation to other components
-  // @Output() stripeResult = new EventEmitter<Source>();
-  // subscriptions$: Observable<any>;
 
-  // Result used locacally to display status.
-  source: Source;
-  // The Stripe Elements Card
+
+  constructor(private auth: AuthService, private functions: AngularFireFunctions) { }
+  @Input() plan: string;
+ 
   @ViewChild('cardElement') cardElement: ElementRef;
-  formError: string;
-  formComplete = false
-  confirmation;
-  error;
-  status;
+
+  stripe: stripe.Stripe;
   card;
-  constructor(
-    public pmt: PaymentService,
-    private cd: ChangeDetectorRef,
-    public auth: AuthService,
-    public functions: AngularFireFunctions
-    ) { }
+  cardErrors;
 
-    ngOnInit() {
- 
-  }
- 
-  setSource(e) {
-    this.sourceId = e.id;
+  loading = false;
+  confirmation;
+
+
+  ngOnInit() {
+    this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
+    const elements = this.stripe.elements();
+
+    this.card = elements.create('card', {
+      'style': {
+        'base': {
+          'fontFamily': 'Arial, sans-serif',
+          'fontSize': '18px',
+          'color': '#0f0f0f',
+        },
+        'invalid': {
+          'color': 'red',
+        },
+      }
+    });
+    this.card.mount(this.cardElement.nativeElement);
+
+    this.card.addEventListener('change', ({ error }) => {
+      this.cardErrors = error && error.message;
+    });
   }
 
- 
- 
+  async handleForm(e) {
+    e.preventDefault();
+
+    const { source, error } = await this.stripe.createSource(this.card);
+
+    if (error) {
+      // Inform the customer that there was an error.
+      const cardErrors = error.message;
+    } else {
+      // Send the token to your server.
+      this.loading = true;
+      const user = await this.auth.getUser();
+      const fun = this.functions.httpsCallable('stripeCreateSubscription');
+      this.confirmation = await fun({ source: source.id, uid: user.uid, plan: this.plan }).toPromise();
+      this.loading = false;
+
+    }
+  }
+
+
 
 }
