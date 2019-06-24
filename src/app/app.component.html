@@ -1,10 +1,10 @@
-
-  <ion-menu  type="overlay">
+  <ion-split-pane>
+  <ion-menu  type="reveal">
     <ion-header>
-      <ion-menu-toggle>
+      <ion-menu-toggle auto-hide="false">
           
           <ion-toolbar color="primary">
-            <img src="../assets/img/the-drop-logo-optimum.svg" height="50rem" slot="start" >
+            <img src="../assets/logo-md.svg" height="50rem" slot="start" >
             
         </ion-toolbar>
         
@@ -13,7 +13,7 @@
       
       
       <ion-content >
-        <ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
           <ion-list>
             <ion-item-group>
 
@@ -92,7 +92,7 @@
     Privacy Policy</ion-button>
   <ion-button fill="clear" size="small" href="https://terms.rankfantasysports.com" color="primary">
     Terms & Conditions</ion-button>
-  <ion-menu-toggle>
+  <ion-menu-toggle auto-hide="false">
 
     <ion-toolbar color="medium" >
         <ion-text color="primary" >
@@ -106,5 +106,4 @@
 
 </ion-menu>
 <ion-router-outlet main></ion-router-outlet>
-
-
+</ion-split-pane>
