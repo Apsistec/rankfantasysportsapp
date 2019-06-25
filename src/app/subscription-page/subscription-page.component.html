@@ -1,43 +1,8 @@
-  <ion-card  color="success">
-    <ion-card color="primary">
-    <h4>
-      <ion-text color="warning">Step 2:</ion-text>&nbsp;Add A Payment Source</h4>
-  <ng-form (submit)="handleForm($event)">
-    <div class="form-row">
   
-  
-  <ion-card color="light">
-<br>
-    <div id="card-element" #cardElement>
-      <!-- A Stripe Element will be inserted here. -->
-    </div>
-    <br>
-  </ion-card>
-    
-  
-      <!-- Used to display Element errors. -->
-      <p class="has-text-danger">{{ cardErrors }}</p>
-    </div>
-  
-    
-  
-    
-  </ng-form>
-  
-         
-   
-
-      
-    
-</ion-card>
-</ion-card>
-
-
   <ion-card color="primary">
     <h4>
-      <ion-text color="warning">Step 3:</ion-text>&nbsp;Activate a Package
+      <ion-text color="warning">Step 2:</ion-text>&nbsp;Activate a Package
     </h4>
-
 <ion-card color="light">
   <ion-card  color="tertiary">
       <ion-card-header>
@@ -52,13 +17,11 @@
   <ion-row class="ion-align-items-stretch">
     
     <ion-col size-md="6">
-      <!-- <ion-radio-group> -->
       <ion-card>
-      
         <ion-list>
           <ion-list-header color="tertiary">
             <ion-title>
-              <ion-text color="warning">Gold</ion-text>&nbsp;Package
+              <ion-label text-wrap> <ion-text color="warning">Gold</ion-text>&nbsp;Package</ion-label>
             </ion-title>
             <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>
           </ion-list-header>
@@ -74,10 +37,12 @@
           <ion-item color="medium" lines="none">
             <ion-label text-wrap color="secondary">$30 Savings</ion-label>
           </ion-item>
-          <!-- <ion-item>
+          <ion-item>
+            <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedGold()">
+              <ion-icon name="medal" color="warning"></ion-icon>
             <ion-label>Gold Package</ion-label>
-            <ion-radio slot="start" color="warning" value="plan_FEieRbYUInS7co" class="submit is-success"></ion-radio>
-          </ion-item> -->
+            </ion-button>
+          </ion-item>
       
         </ion-list>
       </ion-card>
@@ -89,7 +54,9 @@
           <ion-list>
             <ion-list-header color="tertiary">
               <ion-title>
+              <ion-label text-wrap>
                 <ion-text color="light">Silver</ion-text>&nbsp;Package
+              </ion-label>
               </ion-title>
               <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>
             </ion-list-header>
@@ -105,10 +72,12 @@
             <ion-item color="medium" lines="none">
               <ion-label text-wrap color="secondary">$10 Savings</ion-label>
             </ion-item>
-            <!-- <ion-item>
+          <ion-item>
+            <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedSilver()">
+              <ion-icon name="medal" color="light"></ion-icon>
               <ion-label>Silver Package</ion-label>
-              <ion-radio slot="start" color="warning" value="plan_FCqY9lBJ46mNp2" class="submit is-success"></ion-radio>
-            </ion-item> -->
+            </ion-button>
+          </ion-item>
           </ion-list>
         
         
@@ -121,8 +90,11 @@
         <ion-list>
           <ion-list-header color="tertiary">
             <ion-title>
-              <ion-text color="danger">Bronze</ion-text>&nbsp;Package
+              <ion-label text-wrap>
+                <ion-text color="danger">Bronze</ion-text>&nbsp;Package
+              </ion-label>
             </ion-title>
+
             <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>
           </ion-list-header>
           <ion-item>
@@ -166,44 +138,86 @@
           <ion-item color="medium" lines="none">
             <ion-label text-wrap color="secondary">$10.00 Billed Monthly</ion-label>
           </ion-item>
-          <!-- <ion-item>
-            <ion-label>Bronze Package</ion-label>
-            <ion-radio slot="start" color="warning" value="plan_FCqXwICAOJTNVw" class="submit is-success"></ion-radio>
-          </ion-item> -->
+          <ion-item>
+            <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedBronze()">
+              <ion-icon name="medal" color="danger"></ion-icon>
+              <ion-label>Bronze Package</ion-label>
+            </ion-button>
+          </ion-item>
         </ion-list>
       </ion-card>
-      <!-- </ion-radio-group> -->
       </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col>
-              <ion-card>
-              <ion-list>
-                  <ion-item color="medium">
-                      <ion-label text-wrap color="dark">
-                        <strong>One (1) user per account.</strong>
-                        Subscriptions are associated with the email address you used at the time of purchase. To ensure access to your account, sign in with the same email address. 
-                      </ion-label>
-                      </ion-item>
-                    <ion-item color="medium">
-                      <ion-label text-wrap color="dark">
-                      All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>. Our site and apps are served using Secure Socket Layer (SSL) encryption, and we submit secure tokenized versions of your payment information, so no card details are viewable or kept on our servers.
-                      </ion-label>
-                      </ion-item>
-                      <ion-item color="medium">
-                        <ion-label text-wrap color="dark">
-                        All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at any time. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our&nbsp;
-                        <a href="https://terms.rankfantasysports.com">terms & conditions</a>.
-                        </ion-label>
-                        </ion-item>
-                    <ion-item color="medium">
-                      <ion-label text-wrap color="dark">
-                      The security of your infomation is our priority. Please read our&nbsp;<a href="https://privacy-policy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
-                      </ion-label>
-                      </ion-item>
-                    </ion-list>
-                  </ion-card>
+      
+</ion-grid>
 
-    </ion-col>
-  </ion-row>
-  </ion-grid>
+
+      
+      
+
+      
+
+      <ion-card color="success">
+  <ion-card color="primary">
+    <h4>
+      <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
+    </h4>
+    <hr>
+    <ion-text text-wrap>Subscription You are purchasing:</ion-text>
+    <br>
+    <ion-button *ngIf="this.planId" color="medium"> {{ planId }}&nbsp;{{ price }}</ion-button>
+    <hr>
+    <hr>
+    <form (submit)="handleForm($event)">
+      <div class="form-row">
+
+        <ion-card color="light">
+          <br>
+          <div id="card-element" #cardElement>
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+          <br>
+        </ion-card>
+      </div>
+      <ion-button type="submit" color="success" size="large" shape="round" expand="block" strong="true">
+        <ion-label color="warning">
+          Start Subscription
+        </ion-label>
+      </ion-button>
+    </form>
+    <hr>
+    <ion-card color="primary" style="min-height: 200px;">
+        <pre *ngIf="confirmation" style="max-width: 400px;">
+            {{ confirmation | json }}
+    </pre>
+    </ion-card>
+    <hr>
+  </ion-card>
+</ion-card>
+
+    <ion-card>
+    <ion-list>
+        <ion-item color="medium">
+            <ion-label text-wrap color="dark">
+              <strong>One (1) user per account.</strong>
+              Subscriptions are associated with the email address you used at the time of purchase. To ensure access to your account, sign in with the same email address. 
+            </ion-label>
+            </ion-item>
+          <ion-item color="medium">
+            <ion-label text-wrap color="dark">
+            All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>. Our site and apps are served using Secure Socket Layer (SSL) encryption, and we submit secure tokenized versions of your payment information, so no card details are viewable or kept on our servers.
+            </ion-label>
+            </ion-item>
+            <ion-item color="medium">
+              <ion-label text-wrap color="dark">
+              All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at any time. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our&nbsp;
+              <a href="https://terms.rankfantasysports.com">terms & conditions</a>.
+              </ion-label>
+              </ion-item>
+          <ion-item color="medium">
+            <ion-label text-wrap color="dark">
+            The security of your infomation is our priority. Please read our&nbsp;<a href="https://privacy-policy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
+            </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
