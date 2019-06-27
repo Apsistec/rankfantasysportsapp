@@ -12,9 +12,9 @@ export class AppComponent {
 
 constructor(
   public auth: AuthService,
-  private platform: Platform,
-  private splashScreen: SplashScreen,
-  private statusBar: StatusBar
+  public platform: Platform,
+  public splashScreen: SplashScreen,
+  public statusBar: StatusBar
   ) {
     this.initializeApp();
   }

@@ -167,6 +167,7 @@
     <br>
     <ion-button *ngIf="this.planId" color="medium"> {{ planId }}&nbsp;{{ price }}</ion-button>
     <hr>
+    <ion-spinner *ngIf="loading" color="secondary" name="circles"></ion-spinner>
     <hr>
     <form (submit)="handleForm($event)">
       <div class="form-row">
@@ -185,14 +186,8 @@
         </ion-label>
       </ion-button>
     </form>
-    <hr>
-    <ion-card color="primary" style="min-height: 200px;">
-        <pre *ngIf="confirmation" style="max-width: 400px;">
-            {{ confirmation | json }}
-    </pre>
-    </ion-card>
-    <hr>
-  </ion-card>
+  
+    
 </ion-card>
 
     <ion-card>

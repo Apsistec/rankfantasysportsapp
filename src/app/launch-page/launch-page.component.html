@@ -24,7 +24,7 @@
                   <p>Welcome: {{ user.displayName }}</p>
                   <p>Email:{{ user.email }}</p>
                   <p>Firebase UID: {{ user.uid }}</p>
-                  <p>Stripe ID: {{ user?.stripeCustomerId || 'provisioning' }}</p>
+                  <p>Stripe ID: {{ user?.stripeCustomerId }} || 'provisioning'</p>
                </ion-label>
               </ion-item>
               <ion-button color="danger" expand="block"  (click)="auth.SignOut()">
@@ -35,12 +35,13 @@
             </ion-card-content>
           </ion-card>
           <ion-card color="primary">
-            <pre *ngIf="subscription">
-              <p>
-                {{ subscription | json }}
-              </p>
-              <ion-button color="danger" href="subscription-plan">Cancel Subscription</ion-button>
-            </pre>
+          <!-- <div *ngIf="getSubscriptions() | async as subscriptions"></div>
+          
+            <div *ngIf="subscriptionssubscriptions[planId]"></div>
+              <div *ngSwitchCase="'active'">
+                <p>You are subscribed to this plan</p>
+                <ion-button [class.is-loading]="loading" class="button is-danger" (click)="cancelSubscription()">Cancel Plan?</ion-button>
+              </div> -->
           </ion-card>
         </ion-col>
     

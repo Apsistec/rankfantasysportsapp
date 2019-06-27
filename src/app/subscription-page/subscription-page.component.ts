@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -12,7 +14,11 @@ declare var Stripe: stripe.StripeStatic;
 export class SubscriptionPageComponent implements OnInit {
 
 
-  constructor(private auth: AuthService, private functions: AngularFireFunctions) { }
+  constructor(
+    private auth: AuthService,
+    private functions: AngularFireFunctions,
+    private router: Router
+  ) { }
   
   
   @ViewChild('cardElement') cardElement: ElementRef;
@@ -27,7 +33,7 @@ export class SubscriptionPageComponent implements OnInit {
 
 
   ngOnInit() {
-    this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
+    this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
     const elements = this.stripe.elements();
 
     this.card = elements.create('card', {
@@ -65,25 +71,26 @@ export class SubscriptionPageComponent implements OnInit {
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({ source: source.id, uid: user.uid, plan: this.planId }).toPromise();
       this.loading = false;
-
+      window.alert('Thank You and Welcome to Rank Fantasy Sports! You are Subscribed!');
+      this.router.navigate(['list']);
     }
     
 
   }
 
   clickedGold() {
-    this.planId = 'Gold';
+    this.planId = 'Gold-Plan';
     this.price = '$90.00 per year';
   }
   
   clickedSilver() {
-    this.planId = 'Silver';
+    this.planId = 'Silver-Plan';
     this.price = '$50.00 per 6 months';
     
   }
   
   clickedBronze() {
-    this.planId = 'Bronze';
+    this.planId = 'Bronze-Plan';
     this.price = '$10.00 per month';
   }
 }
