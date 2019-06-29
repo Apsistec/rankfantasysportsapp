@@ -17,11 +17,11 @@
           <ion-card color="primary" style="max-width:500px;" >
               <img src="../../assets/logo-md.svg">
       <ion-card-header>
-        <ion-card-title><ion-text color="warning">Step 1:</ion-text>&nbsp;Register -or- Sign In</ion-card-title>
+        <ion-card-title><ion-text color="warning">Step 1:</ion-text>&nbsp;Login To Your Account</ion-card-title>
         <ion-card-title>
           <ion-text color="secondary">
             <strong>
-              Account Sign In
+              Account Login
             </strong>
           </ion-text>  
         </ion-card-title>
@@ -39,20 +39,20 @@
           </ion-item>
         <hr>
         <ion-button expand="block" color="tertiary" (click)="authService.SignIn(userName.value, userPassword.value)">
-          <ion-ripple-effect></ion-ripple-effect><ion-label color="light">
-          Sign In</ion-label></ion-button>
+          <ion-ripple-effect></ion-ripple-effect><ion-label color="warning">
+          Login</ion-label></ion-button>
           
           <ion-button expand="block" color="danger"  (click)="authService.GoogleAuth()">
             <ion-ripple-effect></ion-ripple-effect>
             <ion-icon icon-only name="logo-google"></ion-icon>
             <ion-label>
-              &nbsp;Sign In
+              &nbsp;Login
             </ion-label>
           </ion-button>
           <ion-button color="secondary" expand="block" fill="clear" routerLink="/forgot-password"><ion-ripple-effect></ion-ripple-effect>
             I Forgot My Password</ion-button>
-            <ion-button color="secondary" expand="block" fill="clear" routerLink="/launch-page">
-            <ion-ripple-effect></ion-ripple-effect>I need to Sign Up</ion-button>
+            <ion-button color="secondary" expand="block" fill="clear" routerLink="/sign-up">
+            <ion-ripple-effect></ion-ripple-effect>Register An Account</ion-button>
           </ion-card-content>
         </ion-card>
         

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-
+import { AuthService } from '../core/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
     constructor(
       public loadingController: LoadingController,
       private domSanitizer: DomSanitizer,
+      public auth: AuthService
     ) {}
 
     ngOnInit() {

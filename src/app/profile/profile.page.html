@@ -1,12 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary">
-
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home" color="warning">
-      </ion-back-button>
+      <ion-menu-button color="warning">
+      </ion-menu-button>
       <ion-button fill="outline" shape="round" size="small" color="light"
-        href="https://inspiration.rankfantasysports.com/">
-        Today's Inspiration</ion-button>
+        href="https://inspiration.rankfantasysports.com/">Today's Inspiration</ion-button>
     </ion-buttons>
     <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user">
       <ion-avatar>
@@ -15,31 +13,41 @@
       &nbsp;
       <ion-icon color="danger" name="log-out" icon-only></ion-icon>
     </ion-item>
-
   </ion-toolbar>
-
 </ion-header>
-<ion-toolbar>
-  <ion-title>FAQs</ion-title>
-  Check here first for answers to your questions!
-</ion-toolbar>
 
-<ion-content color="success">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card color="primary">
-          This is a card
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card color="primary">
-          This another card!
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+<ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else login">
+  <ion-img src="../../assets/logo-md.svg"></ion-img>
+  <ion-card-header>
+    <ion-card-title>Welcome&nbsp;{{ user.displayName }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item color="medium">
+      <ion-thumbnail slot="start">
+        <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+      </ion-thumbnail>
+      <ion-label>
+        <p>{{ user.displayName }}<p>
+            <p>Email:{{ user.email }}</p>
+            <p>Firebase UID: {{ user.uid }}</p>
+            <p>Stripe ID: {{ user?.stripeCustomerId || 'provisioning' }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-button color="danger" expand="block" (click)="auth.SignOut()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label color="dark">Logout</ion-label>
+      <ion-icon slot="icon-only" name="exit"></ion-icon>
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+<ion-card color="primary">
+  <pre *ngIf="subscription">
+              <p>
+                {{ subscription | json }}
+              </p>
+              <ion-button color="danger" routerLink="subscription-plan">Cancel Subscription</ion-button>
+            </pre>
+</ion-card>
 <ion-footer translucent="true">
   <ion-fab vertical="bottom" horizontal="end" slot="float">
     <ion-fab-button color="secondary">

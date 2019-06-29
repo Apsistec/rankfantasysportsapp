@@ -35,17 +35,19 @@ import { SubscriptionPageComponent } from './subscription-page/subscription-page
 // import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
 // import { PaymentFormComponent } from './payment-form/payment-form.component';
 // import { UserSubscriptionsComponent } from './user-subscriptions/user-subscriptions.component';
-import { TestimonialsPageModule } from './testimonials/testimonials.module';
+// import { TestimonialsPageModule } from './testimonials/testimonials.module';
 // import { UserChargesComponent } from './user-charges/user-charges.component';
 // import { UserSourcesComponent } from './user-sources/user-sources.component';
-
+import { ImageModalComponent } from './image-modal/image-modal.component';
+import { NotificationComponent } from './notification/notification.component';
 @NgModule({
   declarations: [
     // SubscriptionPlanComponent,
     // UserSubscriptionsComponent,
     // PaymentFormComponent,
     // UserChargesComponent,
-    // UserSourcesComponent
+    // UserSourcesComponent,
+    NotificationComponent,
     SubscriptionPageComponent,
     Table1Component,
     Table2Component,
@@ -62,9 +64,11 @@ import { TestimonialsPageModule } from './testimonials/testimonials.module';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
+    ImageModalComponent
   ],
   entryComponents: [],
   imports: [
+    // PopoverPageModule,
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -77,7 +81,7 @@ import { TestimonialsPageModule } from './testimonials/testimonials.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    TestimonialsPageModule,
+    // TestimonialsPageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

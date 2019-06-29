@@ -1,176 +1,188 @@
   
-  <ion-card color="primary">
-    <h4>
-      <ion-text color="warning">Step 2:</ion-text>&nbsp;Activate a Package
-    </h4>
-<ion-card color="light">
-  <ion-card  color="tertiary">
-      <ion-card-header>
-        <ion-card-title>
-          <ion-label text-wrap color="secondary">
-        <ion-text color="light">RF$™</ion-text>&nbsp;Pro Subscriptions</ion-label>
-        </ion-card-title>  
-      </ion-card-header>
-    </ion-card>
-  </ion-card>
-  <ion-grid>
-  <ion-row class="ion-align-items-stretch">
-    
-    <ion-col size-md="6">
-      <ion-card>
-        <ion-list>
+
+
+  
+    <ion-row class="ion-align-items-stretch">
+        <ion-col size-md="12">
+
+          <ion-card color="primary">
+            <h4>
+              <ion-text color="warning">Step 2:</ion-text>&nbsp;Activate a Membership
+          </h4>
+          <ion-grid>
+            <ion-row>
+
+              
+              <ion-col size-md="4">
+                <ion-card color="primary">
+              <ion-list>
           <ion-list-header color="tertiary">
             <ion-title>
-              <ion-label text-wrap> <ion-text color="warning">Gold</ion-text>&nbsp;Package</ion-label>
+              <ion-label text-wrap> <ion-text color="warning">Gold</ion-text>&nbsp;Membership</ion-label>
             </ion-title>
             <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>
           </ion-list-header>
           <ion-item>
-            <ion-label text-wrap color="dark">Includes everything in Bronze Package</ion-label>
+            <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>
           </ion-item>
           <ion-item>
-            <ion-label text-wrap color="dark">One (1) Year Subscription</ion-label>
+            <ion-label text-wrap>One (1) Year Subscription</ion-label>
           </ion-item>
           <ion-item>
-            <ion-label text-wrap color="dark">$90.00 Billed Annually</ion-label>
-          </ion-item>
+            <ion-label text-wrap>$90.00 Billed Annually
+              <br>
+              <sub>$7.50 per Month</sub></ion-label>
+
+            </ion-item>
           <ion-item color="medium" lines="none">
-            <ion-label text-wrap color="secondary">$30 Savings</ion-label>
+            <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>
           </ion-item>
           <ion-item>
             <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedGold()">
               <ion-icon name="medal" color="warning"></ion-icon>
-            <ion-label>Gold Package</ion-label>
-            </ion-button>
+            <ion-label>Gold Membership</ion-label>
+          </ion-button>
           </ion-item>
-      
+          
         </ion-list>
       </ion-card>
       </ion-col>
-      
-      <ion-col size-md="6">
+ 
+      <ion-col size-md="4">
         <ion-card>
         
           <ion-list>
             <ion-list-header color="tertiary">
               <ion-title>
-              <ion-label text-wrap>
-                <ion-text color="light">Silver</ion-text>&nbsp;Package
+                <ion-label text-wrap>
+                <ion-text color="light">Silver</ion-text>&nbsp;Membership
               </ion-label>
-              </ion-title>
+            </ion-title>
               <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>
             </ion-list-header>
             <ion-item>
-              <ion-label text-wrap color="dark">Includes everything in Bronze Package</ion-label>
+              <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>
             </ion-item>
             <ion-item>
-              <ion-label text-wrap color="dark">Six (6) Month Subscription</ion-label>
+              <ion-label text-wrap>Six (6) Month Subscription</ion-label>
             </ion-item>
             <ion-item>
-              <ion-label text-wrap color="dark">$50.00 Billed Bi-annually</ion-label>
+              <ion-label text-wrap>$50.00 Billed Bi-annually
+                <br>
+                <sub>$8.33 per Month</sub></ion-label>
+
+              </ion-item>
+              <ion-item color="medium" lines="none">
+              <ion-label text-wrap color="primary"><strong>$10 Savings</strong></ion-label>
             </ion-item>
-            <ion-item color="medium" lines="none">
-              <ion-label text-wrap color="secondary">$10 Savings</ion-label>
-            </ion-item>
-          <ion-item>
+            <ion-item>
             <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedSilver()">
               <ion-icon name="medal" color="light"></ion-icon>
-              <ion-label>Silver Package</ion-label>
+              <ion-label text-wrap>Silver Membership</ion-label>
             </ion-button>
           </ion-item>
-          </ion-list>
+        </ion-list>
         
         
         </ion-card>
       </ion-col>
-  
-      <ion-col size-md="12">
-      <ion-card>
+      
+      <ion-col size-md="4">
+        <ion-card>
       
         <ion-list>
           <ion-list-header color="tertiary">
             <ion-title>
               <ion-label text-wrap>
-                <ion-text color="danger">Bronze</ion-text>&nbsp;Package
+                <ion-text color="danger">Bronze</ion-text>&nbsp;Membership
               </ion-label>
             </ion-title>
 
             <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>
           </ion-list-header>
           <ion-item>
-            <ion-label text-wrap color="dark">
+            <ion-label text-wrap>
               Access to all DFS data-tables
             </ion-label>
           </ion-item>
           <ion-item>
-            <ion-label text-wrap color="dark">
+            <ion-label text-wrap>
               Videos providing DFS stats analysis
               <br>
               <sub>Catagorized by topic</sub>
             </ion-label>
           </ion-item>
           <ion-item>
-            <ion-label text-wrap color="dark">
+            <ion-label text-wrap>
               Access to All Past and Upcoming Livestream events
               <br>
               <sub>Receive notification of upcoming events</sub>
             </ion-label>
           </ion-item>
           <ion-item>
-            <ion-label text-wrap color="dark">
+            <ion-label text-wrap>
               Exclusive DFS chat room access
               <br>
               <sub>
                 Get the info you need, when you need it.
               </sub>
             </ion-label>
-      
+            
           </ion-item>
           <ion-item>
-            <ion-label text-wrap color="dark">
+            <ion-label text-wrap>
               <sub>... many other upcoming tools and resources</sub>
             </ion-label>
           </ion-item>
-      
+          
           <ion-item>
-            <ion-label text-wrap color="dark">Month -to- Month Subscription</ion-label>
+            <ion-label text-wrap>Month -to- Month Subscription</ion-label>
           </ion-item>
           <ion-item color="medium" lines="none">
-            <ion-label text-wrap color="secondary">$10.00 Billed Monthly</ion-label>
+            <ion-label text-wrap color="primary"><strong>$9.99 Billed Monthly</strong></ion-label>
           </ion-item>
           <ion-item>
-            <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedBronze()">
+            <ion-button shape="round" strong="true" color="success" (click)="clickedBronze()">
               <ion-icon name="medal" color="danger"></ion-icon>
-              <ion-label>Bronze Package</ion-label>
+              <ion-label>Bronze Membership</ion-label>
             </ion-button>
           </ion-item>
         </ion-list>
       </ion-card>
-      </ion-col>
+    </ion-col>
   </ion-row>
-      
 </ion-grid>
 
+</ion-card>
+</ion-col>
+</ion-row>
 
-      
-      
+<ion-row>
+  <ion-col size-md="6" offset-md="3">
 
-      
-
-      <ion-card color="success">
-  <ion-card color="primary">
-    <h4>
+    
+    <ion-card color="success">
+      <ion-card color="primary">
+      <h4>
       <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
     </h4>
     <hr>
-    <ion-text text-wrap>Subscription You are purchasing:</ion-text>
+    <ion-text text-wrap>You are purchasing:</ion-text>
     <br>
-    <ion-button *ngIf="this.planId" color="medium"> {{ planId }}&nbsp;{{ price }}</ion-button>
+    <ion-button shape="round" size="large" fill="outline" *ngIf="this.planId" color="success">
+      <ion-label color="warning">
+        {{ planId }}&nbsp;Membership 
+        <br>
+      
+        {{ price }}
+      </ion-label> 
+    </ion-button>
+    
     <hr>
     <hr>
     <form (submit)="handleForm($event)">
       <div class="form-row">
-
+        
         <ion-card color="light">
           <br>
           <div id="card-element" #cardElement>
@@ -179,45 +191,53 @@
           <br>
         </ion-card>
       </div>
-      <ion-button type="submit" color="success" size="large" shape="round" expand="block" strong="true">
-        <ion-label color="warning">
+      <ion-spinner *ngIf="loading" color="light"></ion-spinner>
+      <ion-button type="submit" color="tertiary" size="large" shape="round" strong="true">
+        <ion-label color="warning"><ion-icon color="dark" icon-only name="jet"></ion-icon>
           Start Subscription
         </ion-label>
       </ion-button>
     </form>
     <hr>
-    <ion-card color="primary" style="min-height: 200px;">
+    <ion-card color="primary">
         <pre *ngIf="confirmation" style="max-width: 400px;">
             {{ confirmation | json }}
-    </pre>
+          </pre>
+        </ion-card>
+        <hr>
+      </ion-card>
     </ion-card>
-    <hr>
-  </ion-card>
-</ion-card>
+  </ion-col>
+  </ion-row>
+  <ion-row>
 
-    <ion-card>
-    <ion-list>
+    <ion-col size-md="12">
+
+      <ion-card color="primary">
+        <ion-list>
+          <ion-item color="medium">
+          <ion-label text-wrap>
+            <strong>One (1) user per account.</strong>
+            Subscriptions are associated with the email address you used at the time of purchase. To ensure access to your account, sign in with the same email address. 
+          </ion-label>
+        </ion-item>
         <ion-item color="medium">
-            <ion-label text-wrap color="dark">
-              <strong>One (1) user per account.</strong>
-              Subscriptions are associated with the email address you used at the time of purchase. To ensure access to your account, sign in with the same email address. 
-            </ion-label>
-            </ion-item>
-          <ion-item color="medium">
-            <ion-label text-wrap color="dark">
+          <ion-label text-wrap>
             All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>. Our site and apps are served using Secure Socket Layer (SSL) encryption, and we submit secure tokenized versions of your payment information, so no card details are viewable or kept on our servers.
-            </ion-label>
-            </ion-item>
+          </ion-label>
+        </ion-item>
             <ion-item color="medium">
-              <ion-label text-wrap color="dark">
-              All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at any time. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our&nbsp;
+              <ion-label text-wrap>
+                All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at any time. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our&nbsp;
               <a href="https://terms.rankfantasysports.com">terms & conditions</a>.
-              </ion-label>
-              </ion-item>
-          <ion-item color="medium">
-            <ion-label text-wrap color="dark">
-            The security of your infomation is our priority. Please read our&nbsp;<a href="https://privacy-policy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
             </ion-label>
+              </ion-item>
+              <ion-item color="medium">
+            <ion-label text-wrap>
+            The security of your infomation is our priority. Please read our&nbsp;<a href="https://privacy-policy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
+          </ion-label>
             </ion-item>
           </ion-list>
         </ion-card>
+      </ion-col>
+      </ion-row>

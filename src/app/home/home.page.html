@@ -1,13 +1,20 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button color="warning">
       </ion-menu-button>
+      <ion-button fill="outline" shape="round" size="small" color="light"
+        href="https://inspiration.rankfantasysports.com/">Today's Inspiration</ion-button>
     </ion-buttons>
-    
-    </ion-toolbar>
+    <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user">
+      <ion-avatar>
+        <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+      </ion-avatar>&nbsp;
+      &nbsp;
+      <ion-icon color="danger" name="log-out" icon-only></ion-icon>
+    </ion-item>
+  </ion-toolbar>
 </ion-header>
-
 
 <ion-content fullscreen>
   <ion-grid>
@@ -16,110 +23,105 @@
 
 
 
-      <ion-card  color="primary">
-        
-        <img src="../../assets/logo-md.svg" slot="start">
-        
-        <ion-card-content>
-        <ion-card-title>
-          <h2>
-            <ion-text color="light" >
-              RankFantasySports™
-            </ion-text>
-          </h2>
-        </ion-card-title>
-        <ion-card-subtitle>
-          
-          
-          We Make It Easy!
-          
-          
-        </ion-card-subtitle>
+        <ion-card color="primary">
 
-        </ion-card-content>
-       
+          <img src="../../assets/logo-md.svg" slot="start">
 
-     
+          <ion-card-content>
+            <ion-card-title>
+              <h2>
+                <ion-text color="light">
+                  RankFantasySports™
+                </ion-text>
+              </h2>
+            </ion-card-title>
+            <ion-card-subtitle>
+
+
+              We Make It Easy!
+
+
+            </ion-card-subtitle>
+
+          </ion-card-content>
+
+
+
         </ion-card>
 
 
 
         <ion-card padding class="utuub" color="dark">
           <!-- <ion-card-content> -->
-          
-            <ion-card-title>
+
+          <ion-card-title>
             <ion-text color="warning">
               {{ video.title }}
             </ion-text>
-           </ion-card-title>
-           <!-- </ion-card-content> -->
-          <iframe
-          width="100%"
-          height="280"
-          
-          [src]="trustedVideoUrl"
-          frameborder="0"
-          allowfullscreen></iframe>
+          </ion-card-title>
+          <!-- </ion-card-content> -->
+          <iframe width="100%" height="280" [src]="trustedVideoUrl" frameborder="0" allowfullscreen></iframe>
         </ion-card>
         <ion-card class="cta" color="warning">
           <ion-card-content>
-          <ion-button size="medium" href="launch-page" color="secondary">
-            <ion-ripple-effect>
-            </ion-ripple-effect>
-            <ion-label color="danger"> 
+            <ion-button size="medium" routerLink="launch-page" color="secondary">
+              <ion-ripple-effect>
+              </ion-ripple-effect>
+              <ion-label color="danger">
                 <strong>
-                  Subscribe
+                  Become a Member
                 </strong>
               </ion-label>
             </ion-button>
-          <ion-card-header>
-            <ion-card-title>
+            <ion-card-header>
+              <ion-card-title>
 
-              <ion-text color="warning" >
-          Insights for Building Winning Daily Fantasy Sports Lineups
-          
-        </ion-text>
-        </ion-card-title>
-      </ion-card-header>
-        
-        <h1>
-          🎾  🏌🏼‍ ⛳ ⚾ 🏈 ⚽ 🏀
-          <hr>
-          
-          🏆 💵 📈
-        </h1>
-        <br>
-        </ion-card-content>
-      </ion-card>
-      
-    </ion-col>
-    <ion-col size-md="4">
-   
-      <ion-card padding class="testi" color="dark">
-        <ion-card-content>
+                <ion-text color="secondary">
+                  Insights for Building Winning Daily Fantasy Sports Lineups
 
-          <ion-card-header>
-            <ion-card-title>
-              <ion-label color="warning">
-                <strong>
-                Successes
-              </strong>
-            </ion-label> 
-          </ion-card-title>
-        <ion-card-subtitle>
-          Some of our recent testimonials!
-        </ion-card-subtitle>
-      </ion-card-header>
-      <ion-img src="../../assets/images/win1.jpg"></ion-img>
-      
-      <ion-button color="warning" fill="solid" size="large" href="testimonials">
-        <ion-ripple-effect>
-        </ion-ripple-effect> 
-        100+ More</ion-button>
-      </ion-card-content>
-      </ion-card>
+                </ion-text>
+              </ion-card-title>
+            </ion-card-header>
 
-                
+            <h1>
+              🎾 🏌🏼‍ ⛳ 🏈 🏀
+              <hr>
+
+              🏆 💵 📈
+            </h1>
+            <br>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+      <ion-col size-md="4">
+
+        <ion-card padding class="testi" color="dark">
+          <ion-card-content>
+
+            <ion-card-header>
+              <ion-card-title>
+                <ion-label color="warning">
+                  <strong>
+                    Successes
+                  </strong>
+                </ion-label>
+              </ion-card-title>
+              <ion-card-subtitle>
+                Some of our recent testimonials!
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-img src="../../assets/images/8000.jpg"></ion-img>
+
+            <ion-button color="warning" shape="round" fill="solid" size="large" href="testimonials">
+              <ion-ripple-effect>
+              </ion-ripple-effect>
+              100+ More
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+
+
 
       </ion-col>
       <ion-col size-md="4">
@@ -133,20 +135,21 @@
                   <strong>
                     Recent Tweets
                   </strong>
-                </ion-label> 
+                </ion-label>
               </ion-card-title>
             </ion-card-header>
             <div class="twitter-container">
-              <ngx-twitter-timeline
-              [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-              [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '3', borderColor: '#02ed25'}">
-            </ngx-twitter-timeline>
-          </div>
-          <br>
-          <ion-button color="warning" href="tweets" size="large"><ion-ripple-effect></ion-ripple-effect> More RF$ Tweets</ion-button>
-        </ion-card-content>
+              <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+                [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '3', borderColor: '#02ed25'}">
+              </ngx-twitter-timeline>
+            </div>
+            <br>
+            <ion-button color="warning" routerLink="tweets" shape="round" size="large">
+              <ion-ripple-effect></ion-ripple-effect> More RF$ Tweets
+            </ion-button>
+          </ion-card-content>
         </ion-card>
-        
+
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -156,24 +159,30 @@
 
 </ion-content>
 <ion-footer translucent="true">
-    <ion-fab vertical="bottom" horizontal="end" slot="float">
-        <ion-fab-button color="secondary">
-          <ion-icon name="rocket"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-list side="top" >
-                <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-                <ion-fab-button color="medium" href="https://twitter.com/rankfsports"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-                <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
-              </ion-fab-list>
-          </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="float">
+    <ion-fab-button color="secondary">
+      <ion-icon name="rocket"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
-            <ion-toolbar color="medium">
-              <ion-buttons>
-                <ion-button color="success"  href="mailto://support@rankfantasysports.com>">
-                  <ion-ripple-effect></ion-ripple-effect>
-                    Support Request
-                </ion-button>
-              </ion-buttons>
-            </ion-toolbar>
+  <ion-toolbar color="medium">
+    <ion-buttons>
+      <ion-button color="success" href="mailto://support@rankfantasysports.com>">
+        <ion-ripple-effect></ion-ripple-effect>
+        Support Request
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 
-          </ion-footer>
+</ion-footer>

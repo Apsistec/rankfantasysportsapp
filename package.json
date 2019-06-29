@@ -35,8 +35,10 @@
     "cordova-plugin-advanced-http": "2.0.9",
     "core-js": "^2.5.4",
     "fantasydata-node-client": "^1.2.1",
+    "ngx-swiper-wrapper": "^8.0.0",
     "ngx-twitter-timeline": "^0.1.5",
     "rxjs": "^6.5.2",
+    "swiper": "^4.5.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"
   },
