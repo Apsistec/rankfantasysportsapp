@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, AfterContentChecked  , ViewChild, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -19,6 +18,7 @@ export class SubscriptionPageComponent implements OnInit {
     private functions: AngularFireFunctions,
     private router: Router
   ) { }
+
   
   
   @ViewChild('cardElement') cardElement: ElementRef;
@@ -30,11 +30,17 @@ export class SubscriptionPageComponent implements OnInit {
 
   loading = false;
   confirmation;
-
-
+  isClickedSilver;
+  isClickedGold;
+  isClickedBronze;
+  
   ngOnInit() {
     this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
     const elements = this.stripe.elements();
+
+    this.isClickedGold = false;
+    this.isClickedSilver = false;
+    this.isClickedBronze = false;
 
     this.card = elements.create('card', {
       'style': {
@@ -79,18 +85,28 @@ export class SubscriptionPageComponent implements OnInit {
   }
 
   clickedGold() {
-    this.planId = 'Gold-Plan';
+    this.isClickedSilver = false;
+    this.isClickedBronze = false;
+    this.isClickedGold = true;
+    this.planId = 'Gold';
     this.price = '$90.00 per year';
   }
   
   clickedSilver() {
-    this.planId = 'Silver-Plan';
+    this.isClickedBronze = false;
+    this.isClickedGold = false;
+    this.isClickedSilver = true;
+    this.planId = 'Silver';
     this.price = '$50.00 per 6 months';
+    
     
   }
   
   clickedBronze() {
-    this.planId = 'Bronze-Plan';
+    this.isClickedSilver = false;
+    this.isClickedGold = false;
+    this.isClickedBronze= true;
+    this.planId = 'Bronze';
     this.price = '$10.00 per month';
   }
 }

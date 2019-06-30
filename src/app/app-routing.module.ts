@@ -37,13 +37,16 @@ const routes: Routes = [
   { path: 'table7', component: Table7Component, canActivate: [AuthGuard] },
   { path: 'table8', component: Table8Component, canActivate: [AuthGuard] },
   { path: 'table9', component: Table9Component, canActivate: [AuthGuard] },
-  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' }
+  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+
+
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { enableTracing: true, preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })

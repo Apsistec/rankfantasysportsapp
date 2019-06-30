@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning">
+      </ion-menu-button>
+     
+    </ion-buttons>
+        <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+    <ion-avatar>
+      <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+    </ion-avatar>&nbsp;
+    &nbsp;
+    <ion-icon color="danger" name="log-out" icon-only></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else login">
+        <ion-img src="../../assets/logo-md.svg"></ion-img>
+        <ion-list>
+
+          <ion-list-header>
+            <ion-card-title>Welcome&nbsp;{{ user.displayName }}</ion-card-title>
+  </ion-list-header>
+  <ion-item color="medium">
+    <ion-avatar slot="start">
+      <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+    </ion-avatar>
+    <ion-label>Email:{{ user.email }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label> Firebase UID: 
+      <br>
+      {{ user.uid }}
+    </ion-label>
+  </ion-item>
+  </ion-list>
+</ion-card>
+</ion-col>
+
+<ng-template #login>
+  <ion-card color="primary" padding>
+    <ion-button color="success" expand="block" size="large" href="/sign-in">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label color="warning">Goto Login&nbsp;</ion-label>
+      <ion-icon slot="end" name="log-in"></ion-icon>
+    </ion-button>
+  </ion-card>
+   </ng-template>
+   
+   
+   
+   <ion-col size-md="6">
+     <ion-card *ngIf="getSubscription() | async as subscription" color="primary padding">
+       <ion-list>
+         <ion-list-header>
+           <ion-title>
+              <ion-label>
+                Account Information
+              </ion-label>
+            </ion-title>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>
+              Stripe ID:
+              <br>
+              {{ user?.stripeCustomerId || 'provisioning' }}
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <pre *ngIf="getSubscription() | async as subscription">
+             <ion-label> {{ subscription | json }}</ion-label>
+            </pre>
+          </ion-item>
+          <ion-button color="danger" expand="block" size="small" (click)="auth.cancelSubscription()">
+            <ion-label color="warning" >
+              Cancel Subscription
+            </ion-label>
+          </ion-button>
+        </ion-list>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+
+<ng-template #purchase>
+  <ion-card color="primary" padding>
+    <ion-button color="success" expand="block" size="large" href="/launch-page">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-label color="warning">Goto Pricing and Purchasing Page&nbsp;</ion-label>
+      <ion-icon slot="end" color="dark" name="rocket"></ion-icon>
+    </ion-button>
+  </ion-card>
+   </ng-template>
+
+
+<ion-footer translucent="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="float">
+    <ion-fab-button color="secondary">
+    </ion-fab-button>
+    <ion-icon name="rocket"></ion-icon>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-toolbar color="medium">
+    <ion-buttons>
+      <ion-button color="success" href="mailto://support@rankfantasysports.com>">
+        <ion-ripple-effect></ion-ripple-effect>
+        Support Request
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-footer>

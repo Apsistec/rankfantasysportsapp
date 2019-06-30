@@ -4,16 +4,24 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home" color="warning">
       </ion-back-button>
+     
     </ion-buttons>
+    <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+      <ion-avatar>
+        <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+      </ion-avatar>&nbsp;
+      &nbsp;
+      <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
+    </ion-item>
 
   </ion-toolbar>
 
 </ion-header>
-  <ion-toolbar>
-    <ion-title>FAQs</ion-title>
-        Check here first for answers to your questions!
-  </ion-toolbar>
- 
+<ion-toolbar>
+  <ion-title>FAQs</ion-title>
+  Check here first for answers to your questions!
+</ion-toolbar>
+
 <ion-content color="success">
   <ion-grid>
     <ion-row>
@@ -30,3 +38,31 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-footer translucent="true">
+  <ion-fab vertical="bottom" horizontal="end" slot="float">
+    <ion-fab-button color="secondary">
+      <ion-icon name="rocket"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-toolbar color="medium">
+    <ion-buttons>
+      <ion-button color="success" href="mailto://support@rankfantasysports.com>">
+        <ion-ripple-effect></ion-ripple-effect>
+        Support Request
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-footer>
