@@ -32,22 +32,11 @@ import { Table7Component } from './table7/table7.component';
 import { Table8Component } from './table8/table8.component';
 import { Table9Component } from './table9/table9.component';
 import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
-// import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
-// import { PaymentFormComponent } from './payment-form/payment-form.component';
-// import { UserSubscriptionsComponent } from './user-subscriptions/user-subscriptions.component';
-// import { TestimonialsPageModule } from './testimonials/testimonials.module';
-// import { UserChargesComponent } from './user-charges/user-charges.component';
-// import { UserSourcesComponent } from './user-sources/user-sources.component';
-import { ImageModalComponent } from './image-modal/image-modal.component';
-import { NotificationComponent } from './notification/notification.component';
+
+
+
 @NgModule({
   declarations: [
-    // SubscriptionPlanComponent,
-    // UserSubscriptionsComponent,
-    // PaymentFormComponent,
-    // UserChargesComponent,
-    // UserSourcesComponent,
-    NotificationComponent,
     SubscriptionPageComponent,
     Table1Component,
     Table2Component,
@@ -64,11 +53,9 @@ import { NotificationComponent } from './notification/notification.component';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    ImageModalComponent
   ],
   entryComponents: [],
   imports: [
-    // PopoverPageModule,
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -81,13 +68,13 @@ import { NotificationComponent } from './notification/notification.component';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    // TestimonialsPageModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+
   ],
   exports: [ NgxTwitterTimelineModule, SignInComponent, SignUpComponent],
   bootstrap: [AppComponent]

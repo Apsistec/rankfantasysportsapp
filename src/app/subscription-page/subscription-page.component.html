@@ -18,7 +18,7 @@
               <ion-list>
           <ion-list-header color="tertiary">
             <ion-title>
-              <ion-label text-wrap> <ion-text color="warning">Gold</ion-text>&nbsp;Membership</ion-label>
+             <ion-text color="warning"><h2><strong>Gold</strong></h2></ion-text>
             </ion-title>
             <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>
           </ion-list-header>
@@ -37,13 +37,17 @@
           <ion-item color="medium" lines="none">
             <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>
           </ion-item>
-          <ion-item>
-            <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedGold()">
-              <ion-icon name="medal" color="warning"></ion-icon>
+            <ion-button *ngIf="!isClickedGold; else gold" shape="round" strong="true" expand="block" color="success" (click)="clickedGold()">
+              <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;
             <ion-label>Gold Membership</ion-label>
           </ion-button>
-          </ion-item>
-          
+        
+          <ng-template #gold>
+              <ion-button shape="round" strong="true" expand="block" color="warning">
+                <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;
+                <ion-label>Gold Membership</ion-label>
+                </ion-button>
+          </ng-template>
         </ion-list>
       </ion-card>
       </ion-col>
@@ -54,9 +58,10 @@
           <ion-list>
             <ion-list-header color="tertiary">
               <ion-title>
-                <ion-label text-wrap>
-                <ion-text color="light">Silver</ion-text>&nbsp;Membership
-              </ion-label>
+                          <ion-text color="light">
+                            <h2><strong>Silver</strong></h2>
+                          </ion-text>
+
             </ion-title>
               <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>
             </ion-list-header>
@@ -75,12 +80,10 @@
               <ion-item color="medium" lines="none">
               <ion-label text-wrap color="primary"><strong>$10 Savings</strong></ion-label>
             </ion-item>
-            <ion-item>
             <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedSilver()">
-              <ion-icon name="medal" color="light"></ion-icon>
+              <ion-icon name="medal" color="light"></ion-icon>&nbsp;&nbsp;
               <ion-label text-wrap>Silver Membership</ion-label>
             </ion-button>
-          </ion-item>
         </ion-list>
         
         
@@ -93,9 +96,10 @@
         <ion-list>
           <ion-list-header color="tertiary">
             <ion-title>
-              <ion-label text-wrap>
-                <ion-text color="danger">Bronze</ion-text>&nbsp;Membership
-              </ion-label>
+                      <ion-text color="danger">
+                        <h2><strong>Bronze</strong></h2>
+                      </ion-text>
+
             </ion-title>
 
             <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>
@@ -141,12 +145,10 @@
           <ion-item color="medium" lines="none">
             <ion-label text-wrap color="primary"><strong>$9.99 Billed Monthly</strong></ion-label>
           </ion-item>
-          <ion-item>
-            <ion-button shape="round" strong="true" color="success" (click)="clickedBronze()">
-              <ion-icon name="medal" color="danger"></ion-icon>
+            <ion-button shape="round" strong="true" expand="block" color="success" (click)="clickedBronze()">
+              <ion-icon name="medal" color="danger"></ion-icon>&nbsp;&nbsp;
               <ion-label>Bronze Membership</ion-label>
             </ion-button>
-          </ion-item>
         </ion-list>
       </ion-card>
     </ion-col>
@@ -183,6 +185,7 @@
     <form (submit)="handleForm($event)">
       <div class="form-row">
         
+        <ion-spinner *ngIf="loading" color="light" name="circles"></ion-spinner>
         <ion-card color="light">
           <br>
           <div id="card-element" #cardElement>
@@ -191,18 +194,17 @@
           <br>
         </ion-card>
       </div>
-      <ion-spinner *ngIf="loading" color="light"></ion-spinner>
-      <ion-button type="submit" color="tertiary" size="large" shape="round" strong="true">
-        <ion-label color="warning"><ion-icon color="dark" icon-only name="jet"></ion-icon>
-          Start Subscription
+      <ion-button type="submit" color="tertiary" shape="round" strong="true">
+        <ion-label color="warning">Start Subscription&nbsp;&nbsp;<ion-icon slot="end" color="dark" name="jet"></ion-icon>
+         
         </ion-label>
       </ion-button>
     </form>
     <hr>
     <ion-card color="primary">
-        <pre *ngIf="confirmation" style="max-width: 400px;">
+        <!-- <pre *ngIf="confirmation" style="max-width: 400px;">
             {{ confirmation | json }}
-          </pre>
+          </pre> -->
         </ion-card>
         <hr>
       </ion-card>
