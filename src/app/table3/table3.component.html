@@ -1,17 +1,24 @@
-<ion-header  >
+<ion-header>
     <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-          <ion-menu-button color="warning">
-          </ion-menu-button>
+        <ion-buttons slot="start">
+            <ion-menu-button color="warning">
+            </ion-menu-button>
+           
         </ion-buttons>
-     </ion-toolbar>
+        <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+            <ion-avatar>
+                <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+            </ion-avatar>
+        </ion-item>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding scroll-x="true">
 
 
-    <iframe  width="900" height="800" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E6DAB4F84D6D7119%21735&authkey=%21AE_lMHi_K3FdXSc&em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
-<!--
+    <iframe width="900" height="800" frameborder="0" scrolling="no"
+        src="https://onedrive.live.com/embed?resid=E6DAB4F84D6D7119%21735&authkey=%21AE_lMHi_K3FdXSc&em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+    <!--
     <div id="myExcelDiv" style="width: 402px; height: 346px"></div>
     <script type="text/javascript" src="https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1"></script>
     <script type="text/javascript">
@@ -88,25 +95,31 @@
 
 <ion-footer translucent="true">
     <ion-fab vertical="bottom" horizontal="end" slot="float">
-    <ion-fab-button color="secondary">
-    <ion-icon name="rocket"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top" >
-            <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-            <ion-fab-button color="medium" href="https://twitter.com/rankfsports"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-            <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
-            </ion-fab-list>
+        <ion-fab-button color="secondary">
+            <ion-icon name="rocket"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="medium" href="https://twitter.com/rankfsports">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
     </ion-fab>
 
     <ion-toolbar color="medium">
-            <ion-buttons>
+        <ion-buttons>
 
-            <ion-button color="success"  href="mailto://support@rankfantasysports.com>">
+            <ion-button color="success" href="mailto://support@rankfantasysports.com>">
                 <ion-ripple-effect></ion-ripple-effect>
-            Support Request
-       
+                Support Request
+
             </ion-button>
-            </ion-buttons>
+        </ion-buttons>
     </ion-toolbar>
 
 </ion-footer>

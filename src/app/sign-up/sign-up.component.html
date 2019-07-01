@@ -1,50 +1,94 @@
-          <ion-card color="primary" style="max-width:500px;">
-              <img src="../../assets/logo-md.svg">
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning">
+      </ion-menu-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="4" offset-md='4'>
+  <ion-card color="primary" style="max-width:500px;">
+      <img src="../../assets/logo-md.svg">
               <ion-card-header>
-                <ion-card-title><ion-text color="warning">Step 1:</ion-text>&nbsp;Register -or- Sign In</ion-card-title>
-                  <ion-card-title>
+                <ion-card-title><ion-text color="warning">Step 1:</ion-text>&nbsp;Register Your Account</ion-card-title>
+                <ion-card-title>
                     <ion-text color="secondary">
                       <strong>
-                     Account Sign Up
+                     Account Registration
                     </strong>
-                    </ion-text>  
+                  </ion-text>  
                   </ion-card-title>
                 </ion-card-header>
-                  <ion-card-content>
+                <ion-card-content>
                 <ion-item color="light">
                   <ion-label color="tertiary" position="floating">Full Name</ion-label>
-                    <ion-input id="displayName" autocapitalize="on" autofocus="true" color="dark" autocomplete="on" required type="text" minlength="3" maxlength="30" inputmode="latin-name" >
+                  <ion-input id="displayName" autocapitalize="on" autofocus="true" color="dark" autocomplete="on" required type="text" minlength="3" maxlength="30" inputmode="latin-name" >
                       </ion-input>
                 </ion-item>
-              <br>
+                <br>
                 <ion-item color="light">
                   <ion-label color="tertiary" position="floating">Email</ion-label>
-                    <ion-input  #userEmail required type="email" autocomplete="on" color="dark" inputmode="email" >
+                  <ion-input  #userEmail required type="email" autocomplete="on" color="dark" inputmode="email" >
                       </ion-input>
                 </ion-item>
               <br>
-                <ion-item color="light">
+              <ion-item color="light">
                   <ion-label color="tertiary" position="floating">Password</ion-label>
                     <ion-input #userPwd  type="password" inputmode="verbatim" minlength="7" color="dark" maxlength="20" required>
                       </ion-input>
-                </ion-item>
+                    </ion-item>
                 <hr>
                 <ion-button expand="block" color="success" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-                  <ion-ripple-effect></ion-ripple-effect><ion-label color="light">
-                     Sign Up</ion-label></ion-button>
+                  <ion-ripple-effect></ion-ripple-effect><ion-label color="warning">
+                    Sign Up</ion-label></ion-button>
                 <ion-button expand="block" color="danger"  (click)="authService.GoogleAuth()">
                   <ion-ripple-effect></ion-ripple-effect>
-                    <ion-icon name="logo-google"></ion-icon>
+                  <ion-icon name="logo-google"></ion-icon>
                     <ion-label>
                       &nbsp; Sign Up
                     </ion-label>
-                </ion-button>
+                  </ion-button>
              
-                <ion-button color="secondary" expand="block" fill="clear" href="sign-in">
+                <ion-button color="secondary" expand="block" fill="clear" routerLink="/sign-in">
                   <ion-ripple-effect></ion-ripple-effect>
                   I have an account</ion-button>
                 </ion-card-content>
               </ion-card>
-              
-        
+              </ion-col>
+              </ion-row>
+              </ion-grid>
 
+                </ion-content>
+              <ion-footer translucent="true">
+                <ion-fab vertical="bottom" horizontal="end" slot="float">
+                  <ion-fab-button color="secondary">
+                    <ion-icon name="rocket"></ion-icon>
+                  </ion-fab-button>
+                  <ion-fab-list side="top">
+                    <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-button color="medium" href="https://twitter.com/rankfsports">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+                      <ion-icon name="logo-youtube"></ion-icon>
+                    </ion-fab-button>
+                  </ion-fab-list>
+                </ion-fab>
+              
+                <ion-toolbar color="medium">
+                  <ion-buttons>
+                    <ion-button color="success" href="mailto://support@rankfantasysports.com>">
+                      <ion-ripple-effect></ion-ripple-effect>
+                      Support Request
+                    </ion-button>
+                  </ion-buttons>
+                </ion-toolbar>
+              
+              </ion-footer>

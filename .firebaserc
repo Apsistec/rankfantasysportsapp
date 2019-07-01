@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "browser-landing",
-    "final": "browser-landing"
+    "final": "browser-landing",
+    "testing": "gallery-test-12ca9"
   }
 }

@@ -1,827 +1,148 @@
-<ion-header >
-    <ion-toolbar color="primary">
+<ion-header>
+  <ion-toolbar color="primary">
 
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="home" color="warning">
-          </ion-back-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" color="warning">
+      </ion-back-button>
+    
+    </ion-buttons>
+    <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+      <ion-avatar>
+        <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
+      </ion-avatar>&nbsp;
+      &nbsp;
+      <ion-icon color="danger" name="log-out" icon-only></ion-icon>
+    </ion-item>
 
-      </ion-toolbar>
+  </ion-toolbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
 
-  <ion-grid >
-    <ion-row >
 
-        <ion-col size="4">
-          <ion-card>
-              <div>
-                <ion-img src="../../assets/images/winning.jpg"></ion-img>
-              </div>
-          </ion-card>
-        
-          <ion-card>
-            <div>
-              <ion-img src="../../assets/images/win5.jpg"></ion-img>
+
+
+  <!-- 
+<div class="box-container" fxLayout="column"> -->
+  <!-- <div class="app-title">Simple example app for the ngx-swiper-wrapper</div>
+
+  <div class="info-container">
+    You can change the basic settings of the Swiper area by clicking the buttons on the controls pane.
+  </div>
+
+  <div class="horizontal-container" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="stretch" fxFlex="auto">
+    <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="50%">
+      <div class="box-title">Controls</div>
+
+      <div class="action-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleType()'>
+          {{(type == "component") ? "Switch to directive" : "Switch to component"}}</div>
+
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleDirection()'>
+          {{(config.direction == "horizontal") ? "Change to vertical" : "Change to horizontal"}}</div>
+
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto"
+          (click)='toggleSlidesPerView()'>Toggle slides per view</div>
+
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto"
+          (click)='toggleOverlayControls()'>Toggle overlay controls</div>
+
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto"
+          (click)='toggleKeyboardControl()'>{{config.keyboard ? "Disable arrow keys" : "Enable arrow keys"}}</div>
+
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto"
+          (click)='toggleMouseWheelControl()'>{{config.mousewheel ? "Disable mouse wheel" : "Enable mouse wheel"}}</div>
+      </div>
+    </div> -->
+
+  <!-- <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="50%">
+      <div class="box-title">Swiper</div>
+
+      <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
+        <swiper *ngIf="type == 'component' && show" class="swiper-container" fxFlex="auto" [config]="config"
+          [disabled]="disabled" (indexChange)="onIndexChange($event)"
+          (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+          (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+          <div *ngFor="let slide of slides" class="swiper-slide">
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+              {{slide}}
             </div>
-          </ion-card>
-          <ion-card>
-            <div>
-              <ion-img src="../../assets/images/win4.jpg"></ion-img>
-            </div>
-          </ion-card>
-          
-          <ion-card>
-            <div>
-              <ion-img src="../../assets/images/win2.jpg"></ion-img>
-            </div>
-          </ion-card>
-          <ion-card>
-            <div>
-              <ion-img src="../../assets/images/win3.jpg"></ion-img>
-            </div>
-          </ion-card>
-          <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0714.PNG"></ion-img>
           </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0707.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0673.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0672.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0671.PNG"></ion-img>
-          </div>
-        </ion-card>
-           
-          <!-- <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-              </div>
-            </ion-card> -->
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1260.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1258.PNG"></ion-img>
-              </div>
-        </ion-card>
-        <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1253.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <!-- <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1252.jpg"></ion-img>
-          </div>
-        </ion-card> -->
-        <!-- <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1251.jpg"></ion-img>
-          </div>
-        </ion-card> -->
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1250.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1247.jpg"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1238.jpg"></ion-img>
-          </div>
-        </ion-card>
-        <!-- <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1215.jpg"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1214.jpg"></ion-img>
-          </div>
-        </ion-card> -->
-        <!-- <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1213.jpg"></ion-img>
-          </div>
-        </ion-card> -->
-        <!-- <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1211-1.jpg"></ion-img>
-          </div>
-        </ion-card> -->
-            <!-- <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1211.jpg"></ion-img>
-              </div>
-            </ion-card> -->
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1210.PNG"></ion-img>
-              </div>
-            </ion-card>
-            <ion-card>
-              <div>
-                <ion-img src="../../assets/images/IMG_1209.PNG"></ion-img>
-              </div>
-        </ion-card>
-    
-        <!-- <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1208.jpg"></ion-img>
-          </div>
-        </ion-card> -->
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1176.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1177.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1174.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1137.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1086.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1030.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1007.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1006.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1005.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1004.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1003.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1002.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_1001.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0994.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0937.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0921.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0910.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0909.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0811.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0810.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0809.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0797.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0789.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-          <div>
-            <ion-img src="../../assets/images/IMG_0787.PNG"></ion-img>
-          </div>
-        </ion-card>
-        <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0645.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0527.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0501.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0500.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0499.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0432.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0430.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0298.jpg"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0166.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0159.PNG"></ion-img>
-        </div>
-      </ion-card>
-   
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0158.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0155.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0154.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0151.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0138.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0134.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0133.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0129.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0127.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0091.PNG"></ion-img>
-        </div>
-      </ion-card>
-          <ion-card>
-            <div>
-          <ion-img src="../../assets/images/IMG_0090.PNG"></ion-img>
-        </div>
-      </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0779.PNG"></ion-img>
-          </div>
-        </ion-card>
-            <ion-card>
-              <div>
-            <ion-img src="../../assets/images/IMG_0747.PNG"></ion-img>
-          </div>
-        </ion-card>
- 
-      </ion-col>
+        </swiper> -->
 
-    </ion-row>
-  </ion-grid>
+  <!-- <div *ngIf="type == 'directive' && show" class="swiper-container" [disabled]="disabled" [swiper]="config"
+          (indexChange)="onIndexChange($event)" (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+          (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+          <div class="swiper-wrapper">
+            <div *ngFor="let slide of slides" class="swiper-slide">
+              <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                {{slide}}
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-scrollbar" [hidden]="config.scrollbar === false"></div>
+          <div class="swiper-pagination" [hidden]="config.pagination === false"></div>
+
+          <div class="swiper-button-prev" [hidden]="config.navigation === false"></div>
+          <div class="swiper-button-next" [hidden]="config.navigation === false"></div>
+        </div> -->
+  <!-- </div>
+    </div> -->
+  <!-- </div>
+</div> -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ion-slides [options]="config" pager="true">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-img style="height:500px;" src="assets/images/{{ slide }}"></ion-img>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
 
 
 <ion-footer translucent="true">
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button color="secondary">
-          <ion-icon name="rocket"></ion-icon>
-        </ion-fab-button>
-            <ion-fab-list side="top" >
-                <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-                <ion-fab-button color="medium" href="https://twitter.com/rankfsports"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-                <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
-            </ion-fab-list>
-    </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary">
+      <ion-icon name="rocket"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="success" href="https://fb.me/ranktowinfantasysports">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
-            <ion-toolbar color="medium">
-              <ion-buttons>
+  <ion-toolbar color="medium">
+    <ion-buttons>
 
-                <ion-button color="success"  href="mailto://support@rankfantasysports.com>">
-                  <ion-ripple-effect></ion-ripple-effect>
-                    Support Request
-                </ion-button>
-              </ion-buttons>
-            </ion-toolbar>
+      <ion-button color="success" href="mailto://support@rankfantasysports.com>">
+        <ion-ripple-effect></ion-ripple-effect>
+        Support Request
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 
-          </ion-footer>
+</ion-footer>

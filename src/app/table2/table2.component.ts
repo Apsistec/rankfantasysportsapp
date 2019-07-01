@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../core/auth.service';
 @Component({
   selector: 'app-table2',
   templateUrl: './table2.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Table2Component implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {}
 
