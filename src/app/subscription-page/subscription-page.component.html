@@ -181,6 +181,7 @@
     </ion-button>
     
     <hr>
+    <ion-spinner *ngIf="loading" color="secondary" name="circles"></ion-spinner>
     <hr>
     <form (submit)="handleForm($event)">
       <div class="form-row">
@@ -200,6 +201,7 @@
         </ion-label>
       </ion-button>
     </form>
+
     <hr>
     <ion-card color="primary">
         <!-- <pre *ngIf="confirmation" style="max-width: 400px;">
@@ -212,6 +214,7 @@
   </ion-col>
   </ion-row>
   <ion-row>
+
 
     <ion-col size-md="12">
 

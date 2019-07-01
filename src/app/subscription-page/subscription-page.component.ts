@@ -3,6 +3,7 @@ import { AuthService } from '../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -14,6 +15,7 @@ export class SubscriptionPageComponent implements OnInit {
 
 
   constructor(private auth: AuthService, private functions: AngularFireFunctions, private router: Router) { }
+
   
   
   @ViewChild('cardElement') cardElement: ElementRef;
@@ -30,7 +32,7 @@ export class SubscriptionPageComponent implements OnInit {
   isClickedBronze;
   
   ngOnInit() {
-    this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
+    this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
     const elements = this.stripe.elements();
 
     this.isClickedGold = false;
@@ -80,6 +82,7 @@ export class SubscriptionPageComponent implements OnInit {
   }
 
   clickedGold() {
+
     this.isClickedSilver = false;
     this.isClickedBronze = false;
     this.isClickedGold = true;
@@ -88,6 +91,7 @@ export class SubscriptionPageComponent implements OnInit {
   }
   
   clickedSilver() {
+
     this.isClickedBronze = false;
     this.isClickedGold = false;
     this.isClickedSilver = true;
@@ -98,6 +102,7 @@ export class SubscriptionPageComponent implements OnInit {
   }
   
   clickedBronze() {
+
     this.isClickedSilver = false;
     this.isClickedGold = false;
     this.isClickedBronze= true;
