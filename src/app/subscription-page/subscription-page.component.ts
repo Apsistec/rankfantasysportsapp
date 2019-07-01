@@ -107,6 +107,6 @@ export class SubscriptionPageComponent implements OnInit {
     this.isClickedGold = false;
     this.isClickedBronze= true;
     this.planId = 'Bronze';
-    this.price = '$10.00 per month';
+    this.price = '$9.99 per month';
   }
 }

@@ -2,6 +2,7 @@
   "projects": {
     "default": "browser-landing",
     "final": "browser-landing",
-    "testing": "gallery-test-12ca9"
+    "testing": "gallery-test-12ca9",
+    "finishing": "browser-landing"
   }
 }

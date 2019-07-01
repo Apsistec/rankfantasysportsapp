@@ -48,7 +48,7 @@ export class TestimonialsPage {
 public config = {
     //  a11y: true,
     direction: 'horizontal',
-    slidesPerView: 1,
+    slidesPerView: 1.50,
     keyboard: true,
     mousewheel: true,
     scrollbar: false,
