@@ -18,9 +18,9 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isLoggedIn !== true) {
-      alert('You must sign-in first')
-      this.router.navigate(['/sign-in']);
+    if (this.authService.userData.stripeCustomerId === null) {
+      alert('You must purchase a membership to view tables')
+      this.router.navigate(['/launch-page']);
     }
     return true;
   }
