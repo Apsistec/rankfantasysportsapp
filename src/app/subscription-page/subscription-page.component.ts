@@ -4,6 +4,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 declare var Stripe: stripe.StripeStatic;
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'subscription-page',
@@ -29,9 +30,10 @@ export class SubscriptionPageComponent implements OnInit {
   isClickedSilver;
   isClickedGold;
   isClickedBronze;
+  stripePubKey = environment.stripePublishable;
   
   ngOnInit() {
-    this.stripe = Stripe("pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook");
+    this.stripe = Stripe(this.stripePubKey);
     const elements = this.stripe.elements();
 
     this.isClickedGold = false;
