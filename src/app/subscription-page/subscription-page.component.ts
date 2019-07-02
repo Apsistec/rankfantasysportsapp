@@ -13,11 +13,7 @@ declare var Stripe: stripe.StripeStatic;
 export class SubscriptionPageComponent implements OnInit {
 
 
-  constructor(
-    private auth: AuthService,
-    private functions: AngularFireFunctions,
-    private router: Router
-  ) { }
+  constructor(private auth: AuthService, private functions: AngularFireFunctions, private router: Router) { }
 
   
   
