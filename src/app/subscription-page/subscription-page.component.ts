@@ -31,7 +31,7 @@ export class SubscriptionPageComponent implements OnInit {
   isClickedBronze;
   
   ngOnInit() {
-    this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
+    this.stripe = Stripe("pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook");
     const elements = this.stripe.elements();
 
     this.isClickedGold = false;

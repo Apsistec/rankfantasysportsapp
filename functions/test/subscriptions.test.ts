@@ -13,7 +13,7 @@ beforeAll( async () => {
 });
 
 test('createSubscription creates a Subscription', async () => {
-  const plan = 'plan_FCqXwICAOJTNVw';
+  const plan = 'Gold';
 
   const mockSource = await getMockSource();
   const sub = await createSubscription(user.uid, mockSource.id, plan);

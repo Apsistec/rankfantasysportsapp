@@ -12,5 +12,7 @@
   "compileOnSave": true,
   "include": [
     "src",
+    "stripe",
+    "jest"
   ]
 }

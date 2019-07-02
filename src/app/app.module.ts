@@ -32,6 +32,7 @@ import { Table7Component } from './table7/table7.component';
 import { Table8Component } from './table8/table8.component';
 import { Table9Component } from './table9/table9.component';
 import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
+import { HttpClientModule } from "@angular/common/http";
 
 
 
@@ -56,6 +57,7 @@ import { SubscriptionPageComponent } from './subscription-page/subscription-page
   ],
   entryComponents: [],
   imports: [
+    HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
