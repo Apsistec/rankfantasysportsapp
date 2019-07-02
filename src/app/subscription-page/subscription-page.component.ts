@@ -85,7 +85,7 @@ export class SubscriptionPageComponent implements OnInit {
     this.isClickedBronze = false;
     this.isClickedGold = true;
     this.planId = 'Gold';
-    this.price = '$90.00 per year';
+    this.price = '$90.00 for 12 Months';
   }
   
   clickedSilver() {
@@ -93,7 +93,7 @@ export class SubscriptionPageComponent implements OnInit {
     this.isClickedGold = false;
     this.isClickedSilver = true;
     this.planId = 'Silver';
-    this.price = '$50.00 per 6 months';
+    this.price = '$50.00 for 6 Months';
     
     
   }
@@ -103,6 +103,6 @@ export class SubscriptionPageComponent implements OnInit {
     this.isClickedGold = false;
     this.isClickedBronze= true;
     this.planId = 'Bronze';
-    this.price = '$9.99 per month';
+    this.price = '$9.99 per Month';
   }
 }

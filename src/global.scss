@@ -20,12 +20,22 @@
 //     justify-content: center;
 //     text-align: center;
 // }
-  *::-webkit-scrollbar {
-    display: none;
-  }
+ion-card{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    text-align: center;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 p{
   text-align: left;
  }
+ 
 sub{
   text-align: left;
  }

@@ -10,5 +10,8 @@ export const environment = {
     appId: "1:868417954379:web:c9c189ff555ec34b"
   },
   apiKey: "AIzaSyCefTvtXQDO25RK9D6NLbx6DgG-AIVEj9Q",
-  stripePublishable: 'pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt'
+  stripePublishable: "pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt",
+  dialogflow: {
+    $portsBot: "8b3d99f449ca45cf91fa0a9f88da30bc"
+  }
 };

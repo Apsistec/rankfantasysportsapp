@@ -15,48 +15,39 @@ import { CommonModule } from '@angular/common';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireFunctionsModule  } from '@angular/fire/functions';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireMessagingModule } from "@angular/fire/messaging";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicStorageModule } from '@ionic/storage';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { Table1Component } from './table1/table1.component';
-import { Table2Component } from './table2/table2.component';
-import { Table3Component } from './table3/table3.component';
-import { Table4Component } from './table4/table4.component';
-import { Table5Component } from './table5/table5.component';
-import { Table6Component } from './table6/table6.component';
-import { Table7Component } from './table7/table7.component';
-import { Table8Component } from './table8/table8.component';
-import { Table9Component } from './table9/table9.component';
 import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
 import { HttpClientModule } from "@angular/common/http";
+import { ListPageModule } from "./list/list.module";
+// import { ChatModule } from './chat/chat.module';
+import { AuthService } from './core/auth.service';
+import { AuthGuard } from './core/guard/auth.guard';
+import { InnerGuard } from './core/guard/inner.guard';
+import { SigninGuard } from './core/guard/signin.guard';
 
 
 
 @NgModule({
   declarations: [
     SubscriptionPageComponent,
-    Table1Component,
-    Table2Component,
-    Table3Component,
-    Table4Component,
-    Table5Component,
-    Table6Component,
-    Table7Component,
-    Table8Component,
-    Table9Component,
     AppComponent,
     LaunchPageComponent,
     ForgotPasswordComponent,
     SignInComponent,
     SignUpComponent,
-    VerifyEmailComponent,
+    VerifyEmailComponent
   ],
   entryComponents: [],
   imports: [
+    // ChatModule,
+    ListPageModule,
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
@@ -64,6 +55,7 @@ import { HttpClientModule } from "@angular/common/http";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     IonicStorageModule.forRoot(),
     AngularFirestoreModule,
+    AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     NgxTwitterTimelineModule,
@@ -73,6 +65,10 @@ import { HttpClientModule } from "@angular/common/http";
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
+    AuthService,
+    AuthGuard,
+    InnerGuard,
+    SigninGuard,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
