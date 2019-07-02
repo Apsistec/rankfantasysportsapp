@@ -12,7 +12,7 @@ export const environment = {
   messagingSenderId: '436994807324',
   appId: '1:436994807324:web:3688c0cd49139837'
   },
-  stripePublishable: 'pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt'
+  // stripePublishable: 'pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt'
 };
 
 /*
