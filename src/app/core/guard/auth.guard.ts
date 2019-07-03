@@ -18,11 +18,12 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.userData.stripeCustomerId === null) {
-      alert('You must purchase a membership to view tables')
-      this.router.navigate(['/launch-page']);
+    if (this.authService.userData.stripeCustomerId !== null) { return true }
+      else
+        {
+          alert('You must purchase a membership to view tables')
+          this.router.navigate(['/launch-page']);
+        }
     }
-    return true;
-  }
 
 }

@@ -4,6 +4,7 @@
     "final": "browser-landing",
     "testing": "gallery-test-12ca9",
     "finishing": "browser-landing",
-    "setup": "rfs-chat-bot"
+    "setup": "rfs-chat-bot",
+    "prepping": "browser-landing"
   }
 }

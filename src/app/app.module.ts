@@ -23,19 +23,25 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
+import { SubscriptionPageComponent } from './signup/subscription-page/subscription-page.component';
 import { HttpClientModule } from "@angular/common/http";
-import { ListPageModule } from "./list/list.module";
-// import { ChatModule } from './chat/chat.module';
+import { ListPageModule } from "./tables/list/list.module";
 import { AuthService } from './core/auth.service';
 import { AuthGuard } from './core/guard/auth.guard';
 import { InnerGuard } from './core/guard/inner.guard';
 import { SigninGuard } from './core/guard/signin.guard';
+import { MembershipsComponent } from './memberships/memberships.component';
+import { SharedModule } from './shared/shared.module';
+import { SigninFramePageModule } from './signup/signin-frame/signin-frame.module';
+// import { ChatModule } from './chat/chat.module';
+
 
 
 
 @NgModule({
   declarations: [
+    SupportModa
+    MembershipsComponent,
     SubscriptionPageComponent,
     AppComponent,
     LaunchPageComponent,
@@ -47,6 +53,8 @@ import { SigninGuard } from './core/guard/signin.guard';
   entryComponents: [],
   imports: [
     // ChatModule,
+    SigninFramePageModule,
+    SharedModule,
     ListPageModule,
     HttpClientModule,
     CommonModule,
@@ -74,7 +82,12 @@ import { SigninGuard } from './core/guard/signin.guard';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 
   ],
-  exports: [ NgxTwitterTimelineModule, SignInComponent, SignUpComponent],
+  exports: [
+    NgxTwitterTimelineModule,
+    SignInComponent,
+    SignUpComponent,
+    MembershipsComponent,
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
