@@ -14,6 +14,6 @@ export const environment = {
     publicKey: "pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt",
   },
   dialogflow: {
-    $portsBot: "8b3d99f449ca45cf91fa0a9f88da30bc"
+    sportsBot: "8b3d99f449ca45cf91fa0a9f88da30bc"
   }
 };
