@@ -31,7 +31,7 @@
   <ion-card color="primary" padding>
     <ion-button color="success" expand="block" size="large" href="/sign-in">
       <ion-ripple-effect></ion-ripple-effect>
-      <ion-label color="warning">Goto Login&nbsp;</ion-label>
+      <ion-label color="warning">Login or Create an Account&nbsp;</ion-label>
       <ion-icon slot="end" name="log-in"></ion-icon>
     </ion-button>
   </ion-card>
@@ -40,7 +40,7 @@
    
    
    <ion-col size-md="6">
-     <ion-card *ngIf="getSubscription() | async as subscription; else purchase" color="primary padding">
+     <ion-card *ngIf="getSubscription() | async as user; else purchase" color="primary padding">
        <ion-list>
          <ion-list-header>
            <ion-title>
@@ -57,11 +57,11 @@
             </ion-label>
           </ion-item>
           <ion-item>
-            <pre *ngIf="getSubscription() | async as subscription">
+            <pre *ngIf="getSubscription() | async as user">
              <ion-label> {{ subscription | json }}</ion-label>
             </pre>
           </ion-item>
-          <ion-button color="danger" expand="block" size="small" (click)="auth.cancelSubscription()">
+          <ion-button color="danger" expand="block" size="small" (click)="cancelSubscription()">
             <ion-label color="warning" >
               Cancel Subscription
             </ion-label>
@@ -77,15 +77,20 @@
   <ion-card color="primary" padding>
     <ion-button color="success" expand="block" size="large" href="/launch-page">
       <ion-ripple-effect></ion-ripple-effect>
-      <ion-label color="warning">Goto Pricing and Purchasing Page&nbsp;</ion-label>
+      <ion-label color="warning">View Pricing&nbsp;</ion-label>
       <ion-icon slot="end" color="dark" name="rocket"></ion-icon>
     </ion-button>
   </ion-card>
    </ng-template>
 
 <ion-card color="primary" padding>
+  <ion-card-header>
+    <ion-card-title>
+      Custome UI Theming
+    </ion-card-title>
+  </ion-card-header>
 
-  <p>This is the theme swapping area, adding logos and team colors to your profile in one click.
+  <p>Show your team spirit and use the theme options below to change the entire site to match your favorite team colors & also add the team logo. All in one click.
   </p>
 
   <ion-button expand="block" color="medium" (click)="changeTheme('autumn')">Autumn</ion-button>
@@ -111,11 +116,16 @@
   <ion-checkbox color="secondary"></ion-checkbox>
   <ion-checkbox color="danger" checked></ion-checkbox>
   <ion-checkbox color="dark" checked></ion-checkbox>
+</ion-card>
+
+
   <hr>
   
+  <ion-card color="primary">
+    <ion-card-title>Site Animations</ion-card-title>
+  <ion-card color="medium">
   <ion-button color="success" (click)="changeSpeed(2000)">Slow</ion-button>
   <ion-button color="danger" (click)="changeSpeed(500)">Fast</ion-button>
-  <ion-card>
     <svg class="spin" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
       style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -187,5 +197,3 @@
     
   </ion-card>
 </ion-card>
-
-

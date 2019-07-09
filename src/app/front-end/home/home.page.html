@@ -62,7 +62,7 @@
       </ion-col>
 
       <ion-col size-md="4">
-        <ion-card padding class="testi" color="dark">
+        <ion-card padding class="testi" color="dark" routerLink="/testimonials">
           <ion-card-content>
             <ion-card-header>
               <ion-card-title>
@@ -75,7 +75,7 @@
               </ion-card-subtitle>
             </ion-card-header>
             <ion-img src="../../assets/images/8000.jpg"></ion-img>
-            <ion-button expand="block" color="warning" shape="round" fill="solid"  href="testimonials">
+            <ion-button expand="block" color="warning" shape="round" fill="solid"  routerLink="/home/testimonials">
               <ion-ripple-effect>
               </ion-ripple-effect>
               <ion-label>
@@ -110,7 +110,7 @@
       </ion-card>
 
 
-        <ion-card padding class="twit" color="dark">
+        <ion-card padding class="twit" color="dark" >
           <ion-card-content>
             <ion-card-header>
               <ion-card-title>
@@ -124,7 +124,7 @@
                 [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '3', borderColor: '#02ed25'}">
               </ngx-twitter-timeline>
             </div>
-            <ion-button expand="block" color="warning" routerLink="/tweets" shape="round" >
+            <ion-button expand="block" color="warning" shape="round"  routerLink="/home/tweets">
               <ion-ripple-effect></ion-ripple-effect>
               <strong>
                 More RF$ Tweets

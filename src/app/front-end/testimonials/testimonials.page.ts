@@ -1,29 +1,20 @@
-// import { ModalController } from '@ionic/angular';
-// import { ImageModalComponent } from '../image-modal/image-modal.component';
+import { Component } from '@angular/core';
+import { AuthService } from '../../core/auth.service';
 
-import { Component, ViewChild } from '@angular/core';
-import { AuthService } from '../core/auth.service';
-// import {
-//   SwiperComponent,
-//   SwiperDirective,
-//   SwiperConfigInterface,
-//   SwiperScrollbarInterface,
-//   SwiperPaginationInterface
-// } from 'ngx-swiper-wrapper';
 
 
 
 @Component({
   selector: 'app-testimonials',
-  moduleId: 'src/app/testimonials.page',
-  templateUrl: 'testimonials.page.html',
+  // moduleId: 'src/app/testimonials.page',
+  templateUrl: './testimonials.page.html',
   styleUrls: ['testimonials.page.scss'],
 })
 
 export class TestimonialsPage {
 
 
-  public show: boolean = true;
+  // public show: boolean = true;
 
   public slides = [
       '8000.jpg',
@@ -41,35 +32,16 @@ export class TestimonialsPage {
       '51.jpg'
       ];
 
-  // public type: string = 'component';
 
-  // public disabled: boolean = false;
+// public config = {
+//     direction: 'horizontal',
+//     slidesPerView: 3,
+//     keyboard: true,
+//     mousewheel: true,
+//     scrollbar: true,
 
-public config = {
-    //  a11y: true,
-    direction: 'horizontal',
-    slidesPerView: 1.50,
-    keyboard: true,
-    mousewheel: true,
-    scrollbar: false,
-//     navigation: true,
-//     pagination: true
-  };
-
-//   private scrollbar: SwiperScrollbarInterface = {
-//     el: '.swiper-scrollbar',
-//     hide: true,
-//     draggable: true
 //   };
 
-//   private pagination: SwiperPaginationInterface = {
-//     el: '.swiper-pagination',
-//     clickable: true,
-//     hideOnClick: false
-//   };
-
-//   @ViewChild(SwiperComponent) componentRef?: SwiperComponent;
-//   @ViewChild(SwiperDirective) directiveRef?: SwiperDirective;
 
   constructor(public auth: AuthService) { }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { User } from '../core/user';
+import { User } from '../../core/user';
 
 
 @Component ({
@@ -12,7 +12,7 @@ import { User } from '../core/user';
 
 export class LaunchPageComponent {
   
-
+  user: User;
   subscriptions;
   loading = false;
 

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
-import { ThemeService } from '../core/theme.service';
+import { ThemeService } from '../../core/theme.service';
 import { ModalController } from "@ionic/angular";
-import { SupportModalComponent } from "../support-modal/support-modal.component";
+import { SupportModalComponent } from "../../shared/support-modal/support-modal.component";
+import { User } from "../../core/user";
+import { NavParams } from '@ionic/angular';
 
 const themes = {
   autumn: {
@@ -42,13 +44,23 @@ export class ProfilePage implements OnInit {
   loading = false;
   confirmation;
   subscription;
+  backdropDismiss = false;
+  showBackdrop = false;
+  shouldPropagate = false;
+  user: User;
+  issue: string;
+  description: string;
+  
   constructor(
+    public navParams: NavParams,
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private router: Router,
     private theme: ThemeService,
     public modalController: ModalController
-  ) {}
+  ) {
+    // this.navParams.get({ 'this.issue', 'this.description', 'user.email', 'user.displayName'}).
+  }
 
   ngOnInit() {}
 
@@ -79,15 +91,15 @@ export class ProfilePage implements OnInit {
   }
 
   async presentModal() {
-    const modal = await this.modalController.create({
-      component: SupportModalComponent,
+    const modal = await this.modalController
+      .create({ component: SupportModalComponent,
       componentProps: {
-        firstName: "Douglas",
-        lastName: "Adams",
-        middleInitial: "N"
-      }
-    });
-    //or use navparams
-    return await modal.present();
+        displayName: this.user.displayName,
+        email: this.user.email,
+        issue: this.issue,
+        description: this.description
+      }, 
+    })
+      return await modal.present();
   }
 }

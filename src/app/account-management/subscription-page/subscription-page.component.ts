@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-// import { NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 declare var Stripe: stripe.StripeStatic;
 
@@ -15,8 +16,9 @@ export class SubscriptionPageComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private functions: AngularFireFunctions,
-    private router: Router
-  ) {}
+    private router: Router,
+    private loadingCtrl: LoadingController
+  ) { }
 
   @Input() planId: string;
   @Input() price: string;
@@ -33,9 +35,9 @@ export class SubscriptionPageComponent implements OnInit {
   stripe: stripe.Stripe;
   card;
   cardErrors;
-  loading = false;
+  // loading = false;
   confirmation;
-
+  // spinMsg: string;
   ngOnInit() {
     this.stripe = Stripe("pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt");
     const elements = this.stripe.elements();
@@ -61,6 +63,14 @@ export class SubscriptionPageComponent implements OnInit {
     });
   }
 
+  // ionViewDidLoad() {
+  //   let loader = this.loadingCtrl.create({
+  //     // Send the token to your server.
+  //     message: 'Getting latest entries...',
+  //   });
+  // }
+  
+
   async handleForm(e) {
     e.preventDefault();
     const { source, error } = await this.stripe.createSource(this.card);
@@ -69,20 +79,21 @@ export class SubscriptionPageComponent implements OnInit {
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
-      // Send the token to your server.
-      this.loading = true;
+      const loader = await this.loadingCtrl.create({ message: 'Your Payment is being processed', translucent: true, spinner: 'bubbles' });
       const user = await this.auth.getUser();
       const fun = this.functions.httpsCallable("stripeCreateSubscription");
+      loader.present();
       this.confirmation = await fun({
         source: source.id,
         uid: user.uid,
         plan: this.planId
-      }).toPromise();
-      this.loading = false;
-      window.alert(
-        "Thank You and Welcome to Rank Fantasy Sports! You are Subscribed!"
-      );
-      this.router.navigate(["list"]);
+      }).toPromise().then(() => {
+        loader.dismiss();
+        window.alert(
+          "Thank You and Welcome to Rank Fantasy Sports! You are Subscribed!"
+        );
+        this.router.navigateByUrl('/list');
+      });
     }
   }
 }

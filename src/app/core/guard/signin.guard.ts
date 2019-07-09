@@ -21,7 +21,7 @@ export class SigninGuard implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (this.authService.isLoggedIn !== true) {
       alert("You must login to view");
-      this.router.navigate(["/sign-up"]);
+      this.router.navigate(["sign-up"]);
     }
     return true;
   }

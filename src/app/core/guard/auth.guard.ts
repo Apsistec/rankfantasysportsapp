@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
       else
         {
           alert('You must purchase a membership to view tables')
-          this.router.navigate(['/launch-page']);
+          this.router.navigate(['launch-page']);
         }
     }
 

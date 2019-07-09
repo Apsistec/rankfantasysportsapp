@@ -4,7 +4,7 @@
       <ion-menu-button color="warning">
       </ion-menu-button>
     </ion-buttons>
-    <ion-item slot="end" color="primary" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+    <ion-item slot="end" color="primary" *ngIf="auth.getUser() | async as user" (click)="auth.SignOut()">
       <ion-avatar>
         <img [src]="user.photoURL || '/assets/img/dummy-user.png'">
       </ion-avatar>&nbsp;

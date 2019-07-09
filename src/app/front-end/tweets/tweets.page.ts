@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../core/auth.service';
-
+import { AuthService } from '../../core/auth.service';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.page.html',
@@ -12,5 +11,7 @@ export class TweetsPage implements OnInit {
 
   ngOnInit() {
   }
+
+
 
 }
