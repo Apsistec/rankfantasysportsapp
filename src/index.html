@@ -10,29 +10,36 @@
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="format-detection" content="telephone=no"/>
   <meta name="msapplication-tap-highlight" content="no"/>
-
-
+  
   <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico"/>
 
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-  
-  <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
-
+<!-- PWA required -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4a525e">
 
 
+<!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<!-- Stripe v3 -->
+  <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 
-  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/dist/css/swiper.min.css" /> -->
+  
 
+<!-- Google Charts -->
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+  </script> -->
   
 </head>
 
 <body>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
+
+<!-- Visa Pay Button -->
   <!-- <script type="text/javascript"
     src="https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js"></script> -->
 

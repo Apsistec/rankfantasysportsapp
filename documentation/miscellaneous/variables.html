@@ -1,0 +1,531 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rfsports documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rfsports documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#defaults" title="src/app/core/theme.service.ts"><b>defaults</b>&nbsp;&nbsp;&nbsp;(src/.../theme.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#images" title="src/app/front-end/testimonials/images.ts"><b>images</b>&nbsp;&nbsp;&nbsp;(src/.../images.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Stripe" title="src/app/account-management/subscription-page/subscription-page.component.ts"><b>Stripe</b>&nbsp;&nbsp;&nbsp;(src/.../subscription-page.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#themes" title="src/app/account-management/profile/profile.page.ts"><b>themes</b>&nbsp;&nbsp;&nbsp;(src/.../profile.page.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/core/theme.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaults"></a>
+                        <span class="name">
+                            <b>
+                            defaults</b>
+                            <a href="#defaults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  primary: &#x27;#4a525e&#x27;,
+  secondary: &#x27;#50f21a&#x27;,
+  tertiary: &#x27;#702aac&#x27;,
+  success: &#x27;#16797e&#x27;,
+  warning: &#x27;#ffff22&#x27;,
+  danger: &#x27;#f0460d&#x27;,
+  dark: &#x27;#222428&#x27;,
+  medium: &#x27;#989aa2&#x27;,
+  light: &#x27;#b5b6cc&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: false,
+  firebaseConfig: {
+    apiKey: &quot;AIzaSyB-WA8n-dFs6GANhNJYIZZ05m_RgWkm_GQ&quot;,
+    authDomain: &quot;browser-landing.firebaseapp.com&quot;,
+    databaseURL: &quot;https://browser-landing.firebaseio.com&quot;,
+    projectId: &quot;browser-landing&quot;,
+    storageBucket: &quot;browser-landing.appspot.com&quot;,
+    messagingSenderId: &quot;436994807324&quot;,
+    appId: &quot;1:436994807324:web:3688c0cd49139837&quot;
+  },
+  apiKey: &quot;AIzaSyCefTvtXQDO25RK9D6NLbx6DgG-AIVEj9Q&quot;,
+  stripe: {
+    publicKey:
+      &quot;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&quot;
+  },
+  dialogflow: {
+    sportsBot: &quot;8b3d99f449ca45cf91fa0a9f88da30bc&quot;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment</b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  production: true,
+  firebaseConfig: {
+    apiKey: &quot;AIzaSyB-WA8n-dFs6GANhNJYIZZ05m_RgWkm_GQ&quot;,
+    authDomain: &quot;browser-landing.firebaseapp.com&quot;,
+    databaseURL: &quot;https://browser-landing.firebaseio.com&quot;,
+    projectId: &quot;browser-landing&quot;,
+    storageBucket: &quot;browser-landing.appspot.com&quot;,
+    messagingSenderId: &quot;436994807324&quot;,
+    appId: &quot;1:436994807324:web:3688c0cd49139837&quot;
+  },
+  apiKey: &quot;AIzaSyCefTvtXQDO25RK9D6NLbx6DgG-AIVEj9Q&quot;,
+  stripe: {
+    publicKey: &quot;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&quot;,
+  },
+  dialogflow: {
+    sportsBot: &quot;8b3d99f449ca45cf91fa0a9f88da30bc&quot;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/front-end/testimonials/images.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="images"></a>
+                        <span class="name">
+                            <b>
+                            images</b>
+                            <a href="#images"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    &#x27;8000.jpg&#x27;,
+    &#x27;1.jpg&#x27;,
+    &#x27;2.jpg&#x27;,
+    &#x27;3.jpg&#x27;,
+    &#x27;4.jpg&#x27;,
+    &#x27;5.jpg&#x27;,
+    &#x27;6.jpg&#x27;,
+    &#x27;7.jpg&#x27;,
+    &#x27;8.jpg&#x27;,
+    &#x27;9.jpg&#x27;,
+    &#x27;10.jpg&#x27;,
+    &#x27;11.jpg&#x27;,
+    &#x27;12.jpg&#x27;,
+    &#x27;13.jpg&#x27;,
+    &#x27;14.jpg&#x27;,
+    &#x27;15.jpg&#x27;,
+    &#x27;16.jpg&#x27;,
+    &#x27;17.jpg&#x27;,
+    &#x27;18.jpg&#x27;,
+    &#x27;19.jpg&#x27;,
+    &#x27;20.jpg&#x27;,
+    &#x27;21.jpg&#x27;,
+    &#x27;22.jpg&#x27;,
+    &#x27;23.jpg&#x27;,
+    &#x27;24.jpg&#x27;,
+    &#x27;25.jpg&#x27;,
+    &#x27;26.jpg&#x27;,
+    &#x27;27.jpg&#x27;,
+    &#x27;28.jpg&#x27;,
+    &#x27;29.jpg&#x27;,
+    &#x27;30.jpg&#x27;,
+    &#x27;31.jpg&#x27;,
+    &#x27;32.jpg&#x27;,
+    &#x27;33.jpg&#x27;,
+    &#x27;34.jpg&#x27;,
+    &#x27;35.jpg&#x27;,
+    &#x27;36.jpg&#x27;,
+    &#x27;37.jpg&#x27;,
+    &#x27;38.jpg&#x27;,
+    &#x27;39.jpg&#x27;,
+    &#x27;40.jpg&#x27;,
+    &#x27;41.jpg&#x27;,
+    &#x27;42.jpg&#x27;,
+    &#x27;43.jpg&#x27;,
+    &#x27;44.jpg&#x27;,
+    &#x27;45.jpg&#x27;,
+    &#x27;46.jpg&#x27;,
+    &#x27;47.jpg&#x27;,
+    &#x27;48.jpg&#x27;,
+    &#x27;49.jpg&#x27;,
+    &#x27;50.jpg&#x27;,
+    &#x27;51.jpg&#x27;,
+    &#x27;1.png&#x27;,
+    &#x27;2.png&#x27;,
+    &#x27;3.png&#x27;,
+    &#x27;4.png&#x27;,
+    &#x27;5.png&#x27;,
+    &#x27;6.png&#x27;,
+    &#x27;7.png&#x27;,
+    &#x27;8.png&#x27;,
+    &#x27;9.png&#x27;,
+    &#x27;10.png&#x27;,
+    &#x27;11.png&#x27;,
+    &#x27;12.png&#x27;,
+    &#x27;13.png&#x27;,
+    &#x27;14.png&#x27;,
+    &#x27;15.png&#x27;,
+    &#x27;16.png&#x27;,
+    &#x27;17.png&#x27;,
+    &#x27;18.png&#x27;,
+    &#x27;19.png&#x27;,
+    &#x27;20.png&#x27;,
+    &#x27;21.png&#x27;,
+    &#x27;22.png&#x27;,
+    &#x27;23.png&#x27;,
+    &#x27;24.png&#x27;,
+    &#x27;25.png&#x27;,
+    &#x27;26.png&#x27;,
+    &#x27;27.png&#x27;,
+    &#x27;28.png&#x27;,
+    &#x27;29.png&#x27;,
+    &#x27;30.png&#x27;,
+    &#x27;31.png&#x27;,
+    &#x27;32.png&#x27;,
+    &#x27;33.png&#x27;,
+    &#x27;34.png&#x27;,
+    &#x27;35.png&#x27;,
+    &#x27;36.png&#x27;,
+    &#x27;37.png&#x27;,
+    &#x27;38.png&#x27;,
+    &#x27;39.png&#x27;,
+    &#x27;40.png&#x27;,
+    &#x27;41.png&#x27;,
+    &#x27;42.png&#x27;,
+    &#x27;43.png&#x27;,
+    &#x27;44.png&#x27;,
+    &#x27;45.png&#x27;,
+    &#x27;46.png&#x27;,
+    &#x27;47.png&#x27;,
+    &#x27;48.png&#x27;,
+    &#x27;49.png&#x27;,
+    &#x27;50.png&#x27;,
+    &#x27;51.png&#x27;,
+    &#x27;52.png&#x27;,
+    &#x27;53.png&#x27;,
+    &#x27;54.png&#x27;,
+    &#x27;55.png&#x27;,
+    &#x27;56.png&#x27;,
+    &#x27;57.png&#x27;,
+    &#x27;58.png&#x27;,
+    &#x27;59.png&#x27;,
+    &#x27;60.png&#x27;,
+    &#x27;61.png&#x27;,
+    &#x27;62.png&#x27;,
+    &#x27;63.png&#x27;,
+    &#x27;64.png&#x27;,
+    &#x27;65.png&#x27;,
+    &#x27;66.png&#x27;,
+    &#x27;67.png&#x27;,
+    &#x27;68.png&#x27;,
+    &#x27;69.png&#x27;,
+    &#x27;70.png&#x27;,
+    &#x27;71.png&#x27;,
+    &#x27;72.png&#x27;,
+    &#x27;73.png&#x27;,
+    &#x27;74.png&#x27;,
+    &#x27;75.png&#x27;,
+    &#x27;76.png&#x27;,
+    &#x27;77.png&#x27;,
+    &#x27;78.png&#x27;,
+    &#x27;79.png&#x27;,
+    &#x27;80.png&#x27;,
+    &#x27;81.png&#x27;,
+    &#x27;82.png&#x27;,
+    &#x27;83.png&#x27;,
+    &#x27;84.png&#x27;,
+    &#x27;85.png&#x27;,
+    &#x27;86.png&#x27;,
+    &#x27;87.png&#x27;,
+    &#x27;88.png&#x27;,
+    &#x27;89.png&#x27;,
+    &#x27;90.png&#x27;,
+    &#x27;91.png&#x27;,
+    &#x27;92.png&#x27;,
+    &#x27;93.png&#x27;,
+    &#x27;94.png&#x27;
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/account-management/subscription-page/subscription-page.component.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Stripe"></a>
+                        <span class="name">
+                            <b>
+                            Stripe</b>
+                            <a href="#Stripe"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/variables.html#Stripe" target="_self" >stripe.StripeStatic</a></code>
+
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/account-management/profile/profile.page.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="themes"></a>
+                        <span class="name">
+                            <b>
+                            themes</b>
+                            <a href="#themes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  autumn: {
+    primary: &#x27;#F78154&#x27;,
+    secondary: &#x27;#4D9078&#x27;,
+    tertiary: &#x27;#B4436C&#x27;,
+    light: &#x27;#FDE8DF&#x27;,
+    medium: &#x27;#FCD0A2&#x27;,
+    dark: &#x27;#B89876&#x27;
+  },
+  night: {
+    primary: &#x27;#8CBA80&#x27;,
+    secondary: &#x27;#FCFF6C&#x27;,
+    tertiary: &#x27;#FE5F55&#x27;,
+    medium: &#x27;#BCC2C7&#x27;,
+    dark: &#x27;#F7F7FF&#x27;,
+    light: &#x27;#495867&#x27;
+  },
+  neon: {
+    primary: &#x27;#39BFBD&#x27;,
+    secondary: &#x27;#4CE0B3&#x27;,
+    tertiary: &#x27;#FF5E79&#x27;,
+    light: &#x27;#F4EDF2&#x27;,
+    medium: &#x27;#B682A5&#x27;,
+    dark: &#x27;#34162A&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,7 +1,7 @@
 {
-  "name": "ionic-rfs",
+  "name": "rfsports",
   "integrations": {
-    "cordova": {}
+    "capacitor": {}
   },
   "type": "angular"
 }

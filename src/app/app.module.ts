@@ -1,5 +1,5 @@
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-import { LaunchPageComponent } from './account-management/launch-page/launch-page.component';
+import { LaunchPageComponent } from './components/launch-page/launch-page.component';
 import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,68 +16,71 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
-import { AngularFireMessagingModule } from "@angular/fire/messaging";
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicStorageModule } from '@ionic/storage';
-import { ForgotPasswordComponent } from './entrance/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './entrance/verify-email/verify-email.component';
-import { SubscriptionPageComponent } from './account-management/subscription-page/subscription-page.component';
-import { HttpClientModule } from "@angular/common/http";
-import { ListPageModule } from "./products/tables/list/list.module";
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { SubscriptionPageComponent } from './components/subscription-page/subscription-page.component';
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-// import { SignInComponent } from './entrance/sign-in/sign-in.component';
-import { FaqPageModule } from './account-management/faq/faq.module';
-import { ProfilePageModule } from './account-management/profile/profile.module';
-import { HomePageModule } from './front-end/home/home.module';
-// import { ChatModule } from './chat/chat.module';
-
-
-
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { MembershipsComponent } from './components/memberships/memberships.component';
+import { SupportModalComponent } from './components/support-modal/support-modal.component';
+import { AuthGuard } from './core/guard/auth.guard';
+import { AuthService } from './core/auth.service';
+import { CheckForUpdateService } from './core/check-for-update.service';
+import { InnerGuard } from './core/guard/inner.guard';
+import { SigninGuard } from './core/guard/signin.guard';
 
 @NgModule({
   declarations: [
-    // SignInComponent,
     SubscriptionPageComponent,
     AppComponent,
     LaunchPageComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    SignInComponent,
+    MembershipsComponent,
+    SupportModalComponent,
+    MembershipsComponent
   ],
-  entryComponents: [],
+  entryComponents: [SupportModalComponent],
   imports: [
-    // ChatModule,
-    FormsModule,
-    SharedModule,
-    HomePageModule,
-    FaqPageModule,
-    ProfilePageModule,
-    ListPageModule,
-    HttpClientModule,
-    CommonModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     IonicStorageModule.forRoot(),
+    AppRoutingModule,
+    CommonModule,
+    BrowserModule,
+    FormsModule,
+    SharedModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
     AngularFirestoreModule,
     AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     NgxTwitterTimelineModule,
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    ServiceWorkerModule.register("ngsw-worker.js", {
+    ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
   ],
   providers: [
+    AuthGuard,
+    AuthService,
+    CheckForUpdateService,
+    InnerGuard,
+    SigninGuard,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   exports: [
     NgxTwitterTimelineModule,
-    SharedModule
+    SharedModule,
+    // SubscriptionPageComponent
   ],
   bootstrap: [AppComponent]
 })

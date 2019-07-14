@@ -1,0 +1,15 @@
+
+<app-header></app-header>
+<ion-content color="success" fullscreen >
+
+  <ion-slides [options]="slidesOpts" pager="true">
+    <ion-slide  *ngFor="let slide of slides">
+      <ion-card padding color="primary">
+        <ion-img src="assets/images/{{ slide }}"></ion-img>
+      </ion-card>
+      </ion-slide>
+  </ion-slides>
+
+</ion-content>
+
+<app-footer></app-footer>

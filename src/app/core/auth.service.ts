@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AlertController } from "@ionic/angular";
+import { AlertController } from '@ionic/angular';
 
 
 @Injectable({
@@ -17,19 +17,20 @@ export class AuthService {
   user;
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public af: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     public alertController: AlertController
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe(user => {
+    this.af.authState.subscribe(user => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
       } else {
+        // tslint:disable-next-line: no-null-keyword
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
@@ -37,12 +38,12 @@ export class AuthService {
   }
 
   async getUser() {
-    return this.afAuth.authState.pipe(first()).toPromise();
+    return this.af.authState.pipe(first()).toPromise();
   }
 
   // Sign in with email/password
   SignIn(email, password) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.af.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['launch-page']);
@@ -55,7 +56,7 @@ export class AuthService {
 
   // Sign up with email/password
   SignUp(email, password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    return this.af.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
@@ -69,7 +70,7 @@ export class AuthService {
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
-    return this.afAuth.auth.currentUser.sendEmailVerification()
+    return this.af.auth.currentUser.sendEmailVerification()
     .then(() => {
       this.router.navigate(['verify-email-address']);
     });
@@ -77,7 +78,7 @@ export class AuthService {
 
   // Reset Forgot password
   ForgotPassword(passwordResetEmail) {
-    return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+    return this.af.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
       window.alert('Password reset email sent, check your inbox.');
     }).catch((error) => {
@@ -91,17 +92,23 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  // Sign in with Google
   GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+    return this.AuthLogin(new this.af.auth.GoogleAuthProvider());
   }
+  FacebookAuth() {
+    return this.AuthLogin(new auth.FacebookAuthProvider());
+  }
+  TwitterAuth() {
+    return this.AuthLogin(new auth.TwitterAuthProvider());
+  }
+  
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
+    return this.af.auth.signInWithPopup(provider)
     .then((result) => {
       this.ngZone.run(() => {
-          this.router.navigate(['launch-page']);
+          this.router.navigate(['profile']);
         });
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -128,7 +135,7 @@ export class AuthService {
 
   // Sign out
   SignOut() {
-    return this.afAuth.auth.signOut().then(() => {
+    return this.af.auth.signOut().then(() => {
       localStorage.removeItem('user');
       window.alert('You are logged out!');
       this.router.navigate(['home']);

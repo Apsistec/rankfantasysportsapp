@@ -1,0 +1,849 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rfsports documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rfsports documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>MembershipsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/account-management/memberships/memberships.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-memberships</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./memberships.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./memberships.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isClickedBronze">isClickedBronze</a>
+                            </li>
+                            <li>
+                                <a href="#isClickedGold">isClickedGold</a>
+                            </li>
+                            <li>
+                                <a href="#isClickedSilver">isClickedSilver</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clickedBronze">clickedBronze</a>
+                            </li>
+                            <li>
+                                <a href="#clickedGold">clickedGold</a>
+                            </li>
+                            <li>
+                                <a href="#clickedSilver">clickedSilver</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#planChosen">planChosen</a>
+                            </li>
+                            <li>
+                                <a href="#planId">planId</a>
+                            </li>
+                            <li>
+                                <a href="#price">price</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:8</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="planChosen"></a>
+                        <b>planChosen</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="planId"></a>
+                        <b>planId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:12</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="price"></a>
+                        <b>price</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clickedBronze"></a>
+                    <span class="name">
+                        <b>
+                            clickedBronze
+                        </b>
+                        <a href="#clickedBronze"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clickedBronze()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clickedGold"></a>
+                    <span class="name">
+                        <b>
+                            clickedGold
+                        </b>
+                        <a href="#clickedGold"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clickedGold()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clickedSilver"></a>
+                    <span class="name">
+                        <b>
+                            clickedSilver
+                        </b>
+                        <a href="#clickedSilver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clickedSilver()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isClickedBronze"></a>
+                        <span class="name">
+                            <b>
+                            isClickedBronze</b>
+                            <a href="#isClickedBronze"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isClickedGold"></a>
+                        <span class="name">
+                            <b>
+                            isClickedGold</b>
+                            <a href="#isClickedGold"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isClickedSilver"></a>
+                        <span class="name">
+                            <b>
+                            isClickedSilver</b>
+                            <a href="#isClickedSilver"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/account-management/memberships/memberships.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-memberships&#x27;,
+  templateUrl: &#x27;./memberships.component.html&#x27;,
+  styleUrls: [&#x27;./memberships.component.scss&#x27;]
+})
+export class MembershipsComponent implements OnInit {
+  constructor() {}
+
+
+  @Input() planId: string;
+  @Input() price: string;
+  @Input() planChosen;
+  isClickedSilver;
+  isClickedGold;
+  isClickedBronze;
+
+  ngOnInit() {
+    this.planChosen &#x3D; false;
+    this.isClickedGold &#x3D; false;
+    this.isClickedSilver &#x3D; false;
+    this.isClickedBronze &#x3D; false;
+  }
+
+  clickedGold() {
+    this.isClickedSilver &#x3D; false;
+    this.isClickedBronze &#x3D; false;
+    this.isClickedGold &#x3D; true;
+    this.planChosen &#x3D; true;
+    this.planId &#x3D; &#x27;Gold&#x27;;
+    this.price &#x3D; &#x27;$90.00 for 12 Months&#x27;;
+  }
+
+  clickedSilver() {
+    this.isClickedBronze &#x3D; false;
+    this.isClickedGold &#x3D; false;
+    this.isClickedSilver &#x3D; true;
+    this.planChosen &#x3D; true;
+    this.planId &#x3D; &#x27;Silver&#x27;;
+    this.price &#x3D; &#x27;$50.00 for 6 Months&#x27;;
+  }
+
+  clickedBronze() {
+    this.isClickedSilver &#x3D; false;
+    this.isClickedGold &#x3D; false;
+    this.isClickedBronze &#x3D; true;
+    this.planChosen &#x3D; true;
+    this.planId &#x3D; &#x27;Bronze&#x27;;
+    this.price &#x3D; &#x27;$9.99 per Month&#x27;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-row class&#x3D;&quot;ion-align-items-stretch&quot;&gt;
+  &lt;ion-col size-md&#x3D;&quot;12&quot;&gt;
+    &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
+      &lt;h4&gt;
+        &lt;ion-text color&#x3D;&quot;warning&quot;&gt;Step 2:&lt;/ion-text&gt;&amp;nbsp;Choose a Membership
+      &lt;/h4&gt;
+      &lt;ion-grid&gt;
+        &lt;ion-row&gt;
+
+&lt;!-- Gold Plan --&gt;
+          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
+            &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
+              &lt;ion-list&gt;
+                &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
+                  &lt;ion-title&gt;
+                    &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
+                      &lt;h2&gt;&lt;strong&gt;Gold&lt;/strong&gt;&lt;/h2&gt;
+                    &lt;/ion-text&gt;
+                  &lt;/ion-title&gt;
+                  &lt;ion-img src&#x3D;&quot;../../assets/img/gold.svg&quot; style&#x3D;&quot;width: 55px;&quot;&gt;&lt;/ion-img&gt;
+                &lt;/ion-list-header&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;Includes everything in Bronze Membership&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;One (1) Year Subscription&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;$90.00 Billed Annually
+                    &lt;br&gt;
+                    &lt;sub&gt;$7.50 per Month&lt;/sub&gt;&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
+                  &lt;ion-label text-wrap color&#x3D;&quot;primary&quot;&gt;&lt;strong&gt;$30 Savings&lt;/strong&gt;&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-button [disabled]&#x3D;&quot;loading&quot; *ngIf&#x3D;&quot;!isClickedGold; else gold&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot;
+                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clickedGold()&quot;&gt;
+                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;warning&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+                  &lt;ion-label&gt;Gold Membership&lt;/ion-label&gt;
+                &lt;/ion-button&gt;
+
+&lt;ng-template #gold&gt;
+  &lt;ion-button [disabled]&#x3D;&quot;loading&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
+    &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+    &lt;ion-label&gt;Gold Membership&lt;/ion-label&gt;
+  &lt;/ion-button&gt;
+&lt;/ng-template&gt;
+
+              &lt;/ion-list&gt;
+            &lt;/ion-card&gt;
+          &lt;/ion-col&gt;
+          
+&lt;!-- Silver Plan --&gt;
+          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
+            &lt;ion-card&gt;
+              &lt;ion-list&gt;
+                &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
+                  &lt;ion-title&gt;
+                    &lt;ion-text color&#x3D;&quot;light&quot;&gt;
+                      &lt;h2&gt;&lt;strong&gt;Silver&lt;/strong&gt;&lt;/h2&gt;
+                    &lt;/ion-text&gt;
+                  &lt;/ion-title&gt;
+                  &lt;ion-img src&#x3D;&quot;../../assets/img/silver.svg&quot; style&#x3D;&quot;width: 55px;&quot;&gt;&lt;/ion-img&gt;
+                &lt;/ion-list-header&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;Includes everything in Bronze Membership&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;Six (6) Month Subscription&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;$50.00 Billed Bi-annually
+                    &lt;br&gt;
+                    &lt;sub&gt;$8.33 per Month&lt;/sub&gt;&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
+                  &lt;ion-label text-wrap color&#x3D;&quot;primary&quot;&gt;&lt;strong&gt;$10 Savings&lt;/strong&gt;&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-button [disabled]&#x3D;&quot;loading&quot; *ngIf&#x3D;&quot;!isClickedSilver; else silver&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot;
+                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clickedSilver()&quot;&gt;
+                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;light&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+                  &lt;ion-label text-wrap&gt;Silver Membership&lt;/ion-label&gt;
+                &lt;/ion-button&gt;
+              &lt;/ion-list&gt;
+
+&lt;ng-template #silver&gt;
+  &lt;ion-button [disabled]&#x3D;&quot;loading&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
+    &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+    &lt;ion-label&gt;Silver Membership&lt;/ion-label&gt;
+  &lt;/ion-button&gt;
+&lt;/ng-template&gt;
+
+            &lt;/ion-card&gt;
+          &lt;/ion-col&gt;
+
+&lt;!-- Bronze Plan --&gt;
+          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
+            &lt;ion-card&gt;
+              &lt;ion-list&gt;
+                &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
+                  &lt;ion-title&gt;
+                    &lt;ion-text color&#x3D;&quot;danger&quot;&gt;
+                      &lt;h2&gt;&lt;strong&gt;Bronze&lt;/strong&gt;&lt;/h2&gt;
+                    &lt;/ion-text&gt;
+                  &lt;/ion-title&gt;
+                  &lt;ion-img src&#x3D;&quot;../../assets/img/bronze.svg&quot; style&#x3D;&quot;width: 55px;&quot;&gt;&lt;/ion-img&gt;
+                &lt;/ion-list-header&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;
+                    Access to all DFS data-tables
+                  &lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;
+                    Videos providing DFS stats analysis
+                    &lt;br&gt;
+                    &lt;sub&gt;Catagorized by topic&lt;/sub&gt;
+                  &lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;
+                    Access to All Past and Upcoming Livestream events
+                    &lt;br&gt;
+                    &lt;sub&gt;Receive notification of upcoming events&lt;/sub&gt;
+                  &lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;
+                    Exclusive DFS chat room access
+                    &lt;br&gt;
+                    &lt;sub&gt;
+                      Get the info you need, when you need it.
+                    &lt;/sub&gt;
+                  &lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;
+                    Many other tools and resources
+                    &lt;br&gt;
+                    &lt;sub&gt;Soon to be released&lt;/sub&gt;
+                  &lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label text-wrap&gt;One (1) Month Subscription
+                    &lt;br&gt;
+                    &lt;sub&gt;Month -to- Month&lt;/sub&gt;
+                  &lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
+                  &lt;ion-label text-wrap color&#x3D;&quot;primary&quot;&gt;&lt;strong&gt;$9.99 Billed Monthly&lt;/strong&gt;&lt;/ion-label&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-button [disabled]&#x3D;&quot;loading&quot; *ngIf&#x3D;&quot;!isClickedBronze; else bronze&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot;
+                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clickedBronze()&quot;&gt;
+                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;danger&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+                  &lt;ion-label&gt;Bronze Membership&lt;/ion-label&gt;
+                &lt;/ion-button&gt;
+
+&lt;ng-template #bronze&gt;
+  &lt;ion-button [disabled]&#x3D;&quot;loading&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
+    &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+    &lt;ion-label&gt;Bronze Membership&lt;/ion-label&gt;
+  &lt;/ion-button&gt;
+&lt;/ng-template&gt;
+
+              &lt;/ion-list&gt;
+            &lt;/ion-card&gt;
+          &lt;/ion-col&gt;
+        &lt;/ion-row&gt;
+      &lt;/ion-grid&gt;
+
+    &lt;/ion-card&gt;
+  &lt;/ion-col&gt;
+&lt;/ion-row&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./memberships.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-row class="ion-align-items-stretch">  <ion-col size-md="12">    <ion-card padding color="primary">      <h4>        <ion-text color="warning">Step 2:</ion-text>&nbsp;Choose a Membership      </h4>      <ion-grid>        <ion-row><!-- Gold Plan -->          <ion-col size-md="4">            <ion-card color="primary">              <ion-list>                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="warning">                      <h2><strong>Gold</strong></h2>                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>One (1) Year Subscription</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>$90.00 Billed Annually                    <br>                    <sub>$7.50 per Month</sub></ion-label>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>                </ion-item>                <ion-button [disabled]="loading" *ngIf="!isClickedGold; else gold" shape="round" strong="true"                  expand="block" color="success" (click)="clickedGold()">                  <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;                  <ion-label>Gold Membership</ion-label>                </ion-button><ng-template #gold>  <ion-button [disabled]="loading" shape="round" strong="true" expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-label>Gold Membership</ion-label>  </ion-button></ng-template>              </ion-list>            </ion-card>          </ion-col>          <!-- Silver Plan -->          <ion-col size-md="4">            <ion-card>              <ion-list>                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="light">                      <h2><strong>Silver</strong></h2>                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>Six (6) Month Subscription</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>$50.00 Billed Bi-annually                    <br>                    <sub>$8.33 per Month</sub></ion-label>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-label text-wrap color="primary"><strong>$10 Savings</strong></ion-label>                </ion-item>                <ion-button [disabled]="loading" *ngIf="!isClickedSilver; else silver" shape="round" strong="true"                  expand="block" color="success" (click)="clickedSilver()">                  <ion-icon name="medal" color="light"></ion-icon>&nbsp;&nbsp;                  <ion-label text-wrap>Silver Membership</ion-label>                </ion-button>              </ion-list><ng-template #silver>  <ion-button [disabled]="loading" shape="round" strong="true" expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-label>Silver Membership</ion-label>  </ion-button></ng-template>            </ion-card>          </ion-col><!-- Bronze Plan -->          <ion-col size-md="4">            <ion-card>              <ion-list>                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="danger">                      <h2><strong>Bronze</strong></h2>                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-label text-wrap>                    Access to all DFS data-tables                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Videos providing DFS stats analysis                    <br>                    <sub>Catagorized by topic</sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Access to All Past and Upcoming Livestream events                    <br>                    <sub>Receive notification of upcoming events</sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Exclusive DFS chat room access                    <br>                    <sub>                      Get the info you need, when you need it.                    </sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Many other tools and resources                    <br>                    <sub>Soon to be released</sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>One (1) Month Subscription                    <br>                    <sub>Month -to- Month</sub>                  </ion-label>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-label text-wrap color="primary"><strong>$9.99 Billed Monthly</strong></ion-label>                </ion-item>                <ion-button [disabled]="loading" *ngIf="!isClickedBronze; else bronze" shape="round" strong="true"                  expand="block" color="success" (click)="clickedBronze()">                  <ion-icon name="medal" color="danger"></ion-icon>&nbsp;&nbsp;                  <ion-label>Bronze Membership</ion-label>                </ion-button><ng-template #bronze>  <ion-button [disabled]="loading" shape="round" strong="true" expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-label>Bronze Membership</ion-label>  </ion-button></ng-template>              </ion-list>            </ion-card>          </ion-col>        </ion-row>      </ion-grid>    </ion-card>  </ion-col></ion-row></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MembershipsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MembershipsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

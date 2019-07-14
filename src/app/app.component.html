@@ -1,6 +1,6 @@
 <!-- <ion-split-pane> -->
-  <ion-menu type="reveal">
-  <ion-header>
+<ion-menu type="reveal">
+  <ion-header tranlucent>
     <ion-menu-toggle auto-hide="false">
       <ion-toolbar color="primary">
         <img src="../assets/logo-md.svg" height="50rem" slot="start" />
@@ -8,7 +8,7 @@
     </ion-menu-toggle>
   </ion-header>
 
-  <ion-content fullscreen >
+  <ion-content fullscreen>
     <ion-menu-toggle auto-hide="false">
       <ion-list>
         <ion-item-group>
@@ -16,67 +16,69 @@
             <ion-icon color="primary" slot="start" name="home"></ion-icon>
             <ion-label color="dark">Home</ion-label>
           </ion-item>
-          
+
           <ion-item
             (click)="auth.SignOut()"
             *ngIf="auth.afAuth.user | async as user; else login">
             <ion-icon color="danger" slot="start" name="log-out"></ion-icon>
             <ion-label color="dark">Logout</ion-label>
           </ion-item>
-          
-  <ng-template #login>
-    <ion-item routerLink="/sign-in">
-      <ion-icon color="success" slot="start" name="log-in"></ion-icon>
-      <ion-label color="dark">Login</ion-label>
-    </ion-item>
-  </ng-template>
+
+          <ng-template #login>
+            <ion-item routerLink="/sign-in">
+              <ion-icon color="success" slot="start" name="log-in"></ion-icon>
+              <ion-label color="dark">Login</ion-label>
+            </ion-item>
+          </ng-template>
           <ion-item routerLink="/launch-page">
             <ion-icon color="primary" slot="start" name="logo-usd"></ion-icon>
             <ion-label color="dark">Pricing</ion-label>
           </ion-item>
           <ion-item
-          routerLink="/profile"
-          *ngIf="auth.afAuth.user | async as user"
-          >
-          <ion-icon color="tertiary" slot="start" name="contact"></ion-icon>
-          <ion-label color="dark">Profile</ion-label>
-        </ion-item>
-        <ion-item routerLink="/faq">
-          <ion-icon color="warning" slot="start" name="help"></ion-icon>
-          <ion-label color="dark">Questions</ion-label>
-        </ion-item>
+            routerLink="/profile"
+            *ngIf="auth.afAuth.user | async as user">
+            <ion-icon color="tertiary" slot="start" name="contact"></ion-icon>
+            <ion-label color="dark">Profile</ion-label>
+          </ion-item>
+          <ion-item routerLink="/tweeter">
+            <ion-icon color="tertiary" slot="start" name="contact"></ion-icon>
+            <ion-label color="dark">Tweets</ion-label>
+          </ion-item>
+          <ion-item routerLink="/faq">
+            <ion-icon color="warning" slot="start" name="help"></ion-icon>
+            <ion-label color="dark">Questions</ion-label>
+          </ion-item>
         </ion-item-group>
         <ion-item-group>
-
           <ion-list-header color="primary">
             <ion-label>DFS Toolbox</ion-label>
           </ion-list-header>
-          
+
           <ion-item routerLink="/list">
             <ion-icon color="tertiary" slot="start" name="stats"></ion-icon>
             <ion-label color="dark">Data-tables</ion-label>
           </ion-item>
-          
+
           <ion-item disabled>
             <ion-icon slot="start" name="trending-up"></ion-icon>
             <ion-label color="dark">Line-up Optimizers</ion-label>
           </ion-item>
-          
+
           <ion-item disabled>
             <ion-icon slot="start" name="chatboxes"></ion-icon>
             <ion-label color="dark">Chat</ion-label>
           </ion-item>
         </ion-item-group>
-        <ion-item-group>         
+        <ion-item-group>
           <ion-list-header color="primary">
             <ion-label>RF💲 University </ion-label>
           </ion-list-header>
-          
+
           <ion-item disabled>
             <ion-icon slot="start" name="book"></ion-icon>
             <ion-label color="dark">Courseware</ion-label>
           </ion-item>
-          
+
           <!-- <ion-item *ngIf="auth.user | async as user" (click)="auth.SignOut()">
             <ion-ripple-effect></ion-ripple-effect>
             <ion-label color="dark">Sign Out</ion-label>
@@ -87,33 +89,33 @@
       <ion-note><sup>*</sup>Greyed menu items are coming soon!</ion-note>
     </ion-menu-toggle>
   </ion-content>
-  
-  <ion-footer translucent="true">
+
+  <ion-footer translucent>
     <ion-button
-    fill="clear"
-    size="small"
-    href="https://privacy-policy.rankfantasysports.com"
-    color="primary"
+      fill="clear"
+      size="small"
+      href="https://privacy-policy.rankfantasysports.com"
+      color="primary"
     >
-    Privacy Policy</ion-button
+      Privacy Policy</ion-button
     >
     <ion-button
-    fill="clear"
-    size="small"
-    href="https://terms.rankfantasysports.com"
-    color="primary"
+      fill="clear"
+      size="small"
+      href="https://terms.rankfantasysports.com"
+      color="primary"
     >
-    Terms & Conditions</ion-button
+      Terms & Conditions</ion-button
     >
     <ion-menu-toggle auto-hide="false">
       <ion-toolbar class="menuToolbar">
         <ion-text color="primary">
           <sub> Made with</sub>&nbsp;<ion-icon
-          color="dark"
-          name="logo-nodejs"
+            color="dark"
+            name="logo-nodejs"
           ></ion-icon
-          >&nbsp;<sub>and 🚀 by</sub> 
-        </ion-text> 
+          >&nbsp;<sub>and 🚀 by</sub>
+        </ion-text>
         <ion-text color="tertiary"
           ><sub><strong>&nbsp;RF$&nbsp;</strong>©2019</sub>
         </ion-text>
