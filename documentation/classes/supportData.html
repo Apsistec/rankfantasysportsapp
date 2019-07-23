@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/shared/support-modal/support-modal.component.ts</code>
+            <code>src/app/components/support-modal/support-modal.component.ts</code>
         </p>
 
 
@@ -131,7 +131,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/support-modal/support-modal.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/support-modal/support-modal.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -158,7 +158,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/support-modal/support-modal.component.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/components/support-modal/support-modal.component.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -185,7 +185,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/shared/support-modal/support-modal.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/support-modal/support-modal.component.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -212,7 +212,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/support-modal/support-modal.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/components/support-modal/support-modal.component.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -235,7 +235,7 @@
 import { NavParams, ModalController } from &#x27;@ionic/angular&#x27;;
 import { AuthService } from &#x27;src/app/core/auth.service&#x27;;
 import { Request } from &#x27;../../core/request.model&#x27;;
-// import { ngForm } from &quot;@angular/forms&quot;;
+import { User } from &#x27;../../core/user&#x27;;
 
 export class SupportData {
   displayName: string;
@@ -255,7 +255,7 @@ export class SupportModalComponent implements OnInit {
   @Input() description: string;
   modal;
   dismissed &#x3D; false;
-
+  user: User;
   constructor(
     public navParams: NavParams,
     public auth: AuthService,
@@ -270,9 +270,11 @@ export class SupportModalComponent implements OnInit {
    await this.auth.getUser();
   }
 
+  async onSubmit(ngForm) {
 
+  }
 
-  async dismiss() {
+  async cancelModal() {
     await this.modalCtrl.dismiss({
       dismissed: true
     });

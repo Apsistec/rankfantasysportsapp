@@ -1,22 +1,42 @@
-<app-header></app-header>
-<ion-toolbar>
-  <ion-title>FAQs</ion-title>
-  Check here first for answers to your questions!
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Back" type="button" color="warning" slot="start"
+        icon="arrow-round-back">
+      </ion-back-button>
+    </ion-buttons>
+      <ion-text color="light" text-wrap>
+        Check here first for answers to your questions!
+      </ion-text>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content fullscreen >
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card color="primary">
-          This is a card
+       
+        <ion-card padding color="primary">
+          <ion-list>
+            <ion-list-header text-center>
+              <ion-title>
+                <ion-label>
+                  About RF$
+                </ion-label>
+              </ion-title>
+            </ion-list-header>
+            <ion-item-group>
+              <ion-item *ngFor="let faq of faqs">
+                <ion-icon name="arrow-dropright"></ion-icon>
+                <p>
+                  {{ faq.info }}
+                </p>  
+                </ion-item>
+              </ion-item-group>
+            </ion-list>
         </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card color="primary">
-          This another card!
-        </ion-card>
-      </ion-col>
+   
+       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

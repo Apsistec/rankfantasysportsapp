@@ -1,4 +1,3 @@
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { LaunchPageComponent } from './components/launch-page/launch-page.component';
 import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
@@ -32,6 +31,8 @@ import { AuthService } from './core/auth.service';
 import { CheckForUpdateService } from './core/check-for-update.service';
 import { InnerGuard } from './core/guard/inner.guard';
 import { SigninGuard } from './core/guard/signin.guard';
+import { ImageModalPageModule } from './pages/image-modal/image-modal.module';
+// import { TestimonialsPageModule } from './pages/testimonials/testimonials.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SigninGuard } from './core/guard/signin.guard';
   ],
   entryComponents: [SupportModalComponent],
   imports: [
+    // TestimonialsPageModule,
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     IonicStorageModule.forRoot(),
@@ -55,6 +57,7 @@ import { SigninGuard } from './core/guard/signin.guard';
     BrowserModule,
     FormsModule,
     SharedModule,
+    ImageModalPageModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -62,7 +65,6 @@ import { SigninGuard } from './core/guard/signin.guard';
     AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
-    NgxTwitterTimelineModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
@@ -78,9 +80,7 @@ import { SigninGuard } from './core/guard/signin.guard';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   exports: [
-    NgxTwitterTimelineModule,
     SharedModule,
-    // SubscriptionPageComponent
   ],
   bootstrap: [AppComponent]
 })

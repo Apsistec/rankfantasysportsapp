@@ -30,4 +30,5 @@ export class HomePage implements OnInit {
   showVid() {
     (this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url));
   }
+
 }

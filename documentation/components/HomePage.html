@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/front-end/home/home.page.ts</code>
+    <code>src/app/pages/home/home.page.ts</code>
 </p>
 
 
@@ -132,9 +132,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#auth">auth</a>
+                                <a href="#domSanitizer">domSanitizer</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#trustedVideoUrl">trustedVideoUrl</a>
                             </li>
                             <li>
@@ -176,12 +177,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(domSanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>, auth: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+<code>constructor(domSanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/front-end/home/home.page.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/home/home.page.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -203,18 +204,6 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>auth</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -262,8 +251,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/front-end/home/home.page.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:26</a></div>
                 </td>
             </tr>
 
@@ -301,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/front-end/home/home.page.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:30</a></div>
                 </td>
             </tr>
 
@@ -328,24 +317,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="auth"></a>
+                        <a name="domSanitizer"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            auth</b>
-                            <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                            domSanitizer</b>
+                            <a href="#domSanitizer"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                            <i>Type : </i>        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/front-end/home/home.page.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -359,6 +348,7 @@
                         <a name="trustedVideoUrl"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                             trustedVideoUrl</b>
                             <a href="#trustedVideoUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -372,7 +362,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/front-end/home/home.page.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/home/home.page.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -407,7 +397,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/front-end/home/home.page.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/home/home.page.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -422,36 +412,28 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { SafeResourceUrl, DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
-import { AuthService } from &#x27;../../core/auth.service&#x27;;
-// import { HttpClient } from &#x27;@angular/common/http&#x27;;
-// import { Router } from &#x27;@angular/router&#x27;;
-
 
 @Component({
   selector: &#x27;app-home&#x27;,
   templateUrl: &#x27;./home.page.html&#x27;,
   styleUrls: [&#x27;./home.page.scss&#x27;]
 })
+
 export class HomePage implements OnInit {
 
   video: any &#x3D; {
     url: &#x27;https://www.youtube.com/embed/IlU_RBT2zE0&#x27;,
     title: &#x27;Welcome to RF$&#x27;
   };
-  trustedVideoUrl: SafeResourceUrl;
 
-  // baseURL: string &#x3D; &quot;https://www.googleapis.com/blogger/v3/blogs/&quot;;
-  // blogId: string &#x3D; &quot;2477360286461239505&quot;;
-  // postId: string &#x3D; &quot;9206195856900662027&quot;;
-  // inspirationPost;
-
+  public trustedVideoUrl: SafeResourceUrl;
+  // baseURL &#x3D; &#x27;https://www.googleapis.com/blogger/v3/blogs/&#x27;;
+  // blogId &#x3D; &#x27;2477360286461239505&#x27;;
+  // postId &#x3D; &#x27;9206195856900662027&#x27;;
 
   constructor(
-    private domSanitizer: DomSanitizer,
-    public auth: AuthService,
-    // private httpClient: HttpClient,
-    // private router: Router
-  ) { }
+    public domSanitizer: DomSanitizer,
+    ) { }
 
   ngOnInit() {
     this.showVid();
@@ -497,7 +479,7 @@ export class HomePage implements OnInit {
               {{ video.title }}
             &lt;/ion-text&gt;
           &lt;/ion-card-title&gt;
-          &lt;!-- &lt;iframe width&#x3D;&quot;100%&quot; height&#x3D;&quot;280&quot; [src]&#x3D;&quot;trustedVideoUrl&quot; frameborder&#x3D;&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+          &lt;iframe width&#x3D;&quot;100%&quot; height&#x3D;&quot;280&quot; [src]&#x3D;&quot;this.trustedVideoUrl&quot; frameborder&#x3D;&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
         &lt;/ion-card&gt;
         
         
@@ -529,7 +511,7 @@ export class HomePage implements OnInit {
       &lt;/ion-col&gt;
 
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
-        &lt;ion-card padding class&#x3D;&quot;testi&quot; color&#x3D;&quot;dark&quot;&gt;
+        &lt;ion-card padding class&#x3D;&quot;testi&quot; color&#x3D;&quot;dark&quot; href&#x3D;&quot;/testimonials&quot;&gt;
           &lt;ion-card-content&gt;
             &lt;ion-card-header&gt;
               &lt;ion-card-title&gt;
@@ -542,7 +524,7 @@ export class HomePage implements OnInit {
               &lt;/ion-card-subtitle&gt;
             &lt;/ion-card-header&gt;
             &lt;ion-img src&#x3D;&quot;../../assets/images/8000.jpg&quot;&gt;&lt;/ion-img&gt;
-            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; fill&#x3D;&quot;solid&quot;  routerLink&#x3D;&quot;/testimonials&quot;&gt;
+            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; fill&#x3D;&quot;solid&quot;&gt;
               &lt;ion-ripple-effect&gt;
               &lt;/ion-ripple-effect&gt;
               &lt;ion-label&gt;
@@ -568,7 +550,7 @@ export class HomePage implements OnInit {
           &lt;ion-card-subtitle&gt;
             We can all use more inspiration!
           &lt;/ion-card-subtitle&gt;
-          &lt;!-- &lt;p&gt; {{ content }}&lt;/p&gt; --&gt;
+       
           
           &lt;ion-button fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;light&quot; href&#x3D;&quot;https://inspiration.rankfantasysports.com&quot;&gt;
             &lt;ion-label &gt;More...&lt;/ion-label&gt;
@@ -577,7 +559,7 @@ export class HomePage implements OnInit {
       &lt;/ion-card&gt;
 
 
-        &lt;ion-card padding class&#x3D;&quot;twit&quot; color&#x3D;&quot;dark&quot; &gt;
+        &lt;ion-card padding class&#x3D;&quot;twit&quot; color&#x3D;&quot;dark&quot;&gt;
           &lt;ion-card-content&gt;
             &lt;ion-card-header&gt;
               &lt;ion-card-title&gt;
@@ -591,7 +573,7 @@ export class HomePage implements OnInit {
                 [opts]&#x3D;&quot;{chrome: [&#x27;nofooter&#x27;, &#x27;noheader&#x27;, &#x27;noscrollbar&#x27;], theme: &#x27;dark&#x27;, tweetLimit: &#x27;3&#x27;, borderColor: &#x27;#02ed25&#x27;}&quot;&gt;
               &lt;/ngx-twitter-timeline&gt;
             &lt;/div&gt;
-            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; routerLink&#x3D;&quot;/tweets&quot;&gt;
+            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; routerLink&#x3D;&quot;/tweeter&quot;&gt;
               &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
               &lt;strong&gt;
                 More RF$ Tweets
@@ -662,7 +644,7 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen >  <ion-grid>    <ion-row>      <ion-col size-md="4"><!-- Column 1 -->        <ion-card color="primary">          <img src="../../assets/logo-md.svg" slot="start">          <ion-card-content>            <ion-card-title>              <h2>                <ion-text color="light">                  RankFantasySports™                </ion-text>              </h2>            </ion-card-title>            <ion-card-subtitle>              Our business is helping you win            </ion-card-subtitle>          </ion-card-content>        </ion-card>        <ion-card padding  class="utuub" color="dark">            <ion-card-title  class="ion-text-center">            <ion-text color="warning">              {{ video.title }}            </ion-text>          </ion-card-title>          <!-- <iframe width="100%" height="280" [src]="trustedVideoUrl" frameborder="0" allowfullscreen></iframe> -->        </ion-card>                          <ion-card padding class="cta" color="warning">          <ion-button shape="round" size="large" routerLink="/launch-page" color="secondary">            <ion-ripple-effect>            </ion-ripple-effect>            <ion-label color="danger">              <strong>                Become a Member              </strong>            </ion-label>          </ion-button>            <ion-card-header>              <ion-card-title><!-- Column 2 -->                <ion-text color="warning">                  Insights for Building Winning Daily Fantasy Sports Lineups                </ion-text>              </ion-card-title>            </ion-card-header>            <h1>              🎾 🏌🏼‍ ⛳ 🏈 🏀              <hr>              🏆 💵 📈            </h1>            <br>        </ion-card>      </ion-col>      <ion-col size-md="4">        <ion-card padding class="testi" color="dark">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    RF$ Success                </ion-label>              </ion-card-title>              <ion-card-subtitle>                Previous Winnings!              </ion-card-subtitle>            </ion-card-header>            <ion-img src="../../assets/images/8000.jpg"></ion-img>            <ion-button expand="block" color="warning" shape="round" fill="solid"  routerLink="/testimonials">              <ion-ripple-effect>              </ion-ripple-effect>              <ion-label>                <strong>                  100+ More                </strong>              </ion-label>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>      <ion-col size-md="4"><!-- Column 3 -->      <ion-card color="tertiary" padding>        <ion-card color="primary" padding>          <ion-card-title>            <ion-label color="warning">              Today\'s Inspirational Message            </ion-label>          </ion-card-title>          <ion-card-subtitle>            We can all use more inspiration!          </ion-card-subtitle>          <!-- <p> {{ content }}</p> -->                    <ion-button fill="outline" shape="round" color="light" href="https://inspiration.rankfantasysports.com">            <ion-label >More...</ion-label>          </ion-button>        </ion-card>      </ion-card>        <ion-card padding class="twit" color="dark" >          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    Recent RF$ Tweets                </ion-label>              </ion-card-title>            </ion-card-header>            <div class="twitter-container">              <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"                [opts]="{chrome: [\'nofooter\', \'noheader\', \'noscrollbar\'], theme: \'dark\', tweetLimit: \'3\', borderColor: \'#02ed25\'}">              </ngx-twitter-timeline>            </div>            <ion-button expand="block" color="warning" shape="round" routerLink="/tweets">              <ion-ripple-effect></ion-ripple-effect>              <strong>                More RF$ Tweets              </strong>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>  </ion-grid></ion-content><app-footer></app-footer></div>'
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen >  <ion-grid>    <ion-row>      <ion-col size-md="4"><!-- Column 1 -->        <ion-card color="primary">          <img src="../../assets/logo-md.svg" slot="start">          <ion-card-content>            <ion-card-title>              <h2>                <ion-text color="light">                  RankFantasySports™                </ion-text>              </h2>            </ion-card-title>            <ion-card-subtitle>              Our business is helping you win            </ion-card-subtitle>          </ion-card-content>        </ion-card>        <ion-card padding  class="utuub" color="dark">            <ion-card-title  class="ion-text-center">            <ion-text color="warning">              {{ video.title }}            </ion-text>          </ion-card-title>          <iframe width="100%" height="280" [src]="this.trustedVideoUrl" frameborder="0" allowfullscreen></iframe>        </ion-card>                          <ion-card padding class="cta" color="warning">          <ion-button shape="round" size="large" routerLink="/launch-page" color="secondary">            <ion-ripple-effect>            </ion-ripple-effect>            <ion-label color="danger">              <strong>                Become a Member              </strong>            </ion-label>          </ion-button>            <ion-card-header>              <ion-card-title><!-- Column 2 -->                <ion-text color="warning">                  Insights for Building Winning Daily Fantasy Sports Lineups                </ion-text>              </ion-card-title>            </ion-card-header>            <h1>              🎾 🏌🏼‍ ⛳ 🏈 🏀              <hr>              🏆 💵 📈            </h1>            <br>        </ion-card>      </ion-col>      <ion-col size-md="4">        <ion-card padding class="testi" color="dark" href="/testimonials">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    RF$ Success                </ion-label>              </ion-card-title>              <ion-card-subtitle>                Previous Winnings!              </ion-card-subtitle>            </ion-card-header>            <ion-img src="../../assets/images/8000.jpg"></ion-img>            <ion-button expand="block" color="warning" shape="round" fill="solid">              <ion-ripple-effect>              </ion-ripple-effect>              <ion-label>                <strong>                  100+ More                </strong>              </ion-label>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>      <ion-col size-md="4"><!-- Column 3 -->      <ion-card color="tertiary" padding>        <ion-card color="primary" padding>          <ion-card-title>            <ion-label color="warning">              Today\'s Inspirational Message            </ion-label>          </ion-card-title>          <ion-card-subtitle>            We can all use more inspiration!          </ion-card-subtitle>                           <ion-button fill="outline" shape="round" color="light" href="https://inspiration.rankfantasysports.com">            <ion-label >More...</ion-label>          </ion-button>        </ion-card>      </ion-card>        <ion-card padding class="twit" color="dark">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    Recent RF$ Tweets                </ion-label>              </ion-card-title>            </ion-card-header>            <div class="twitter-container">              <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"                [opts]="{chrome: [\'nofooter\', \'noheader\', \'noscrollbar\'], theme: \'dark\', tweetLimit: \'3\', borderColor: \'#02ed25\'}">              </ngx-twitter-timeline>            </div>            <ion-button expand="block" color="warning" shape="round" routerLink="/tweeter">              <ion-ripple-effect></ion-ripple-effect>              <strong>                More RF$ Tweets              </strong>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>  </ion-grid></ion-content><app-footer></app-footer></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};

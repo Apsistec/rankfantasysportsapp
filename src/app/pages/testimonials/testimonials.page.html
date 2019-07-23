@@ -1,15 +1,28 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >
+       
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ imgTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<app-header></app-header>
-<ion-content color="success" fullscreen >
-
-  <ion-slides [options]="slidesOpts" pager="true">
-    <ion-slide  *ngFor="let slide of slides">
-      <ion-card padding color="primary">
-        <ion-img src="assets/images/{{ slide }}"></ion-img>
+<ion-content color="dark" fullscreen>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-card>
+        <div class="swiper-zoom-container"><img src="{{ slide.img }}"></div>
       </ion-card>
-      </ion-slide>
+    </ion-slide>
   </ion-slides>
+  
+  <!-- <div class="swiper-zoom-container"><ion-img src="{{ slide.img }}" height="100vh"></ion-img></div> -->
+  </ion-content>
 
-</ion-content>
-
-<app-footer></app-footer>
+<ion-footer *ngIf="imgDescription.length">
+  <ion-toolbar color="dark" text-center>
+    <ion-text color="tertiary">{{ imgDescription }}</ion-text>
+  </ion-toolbar>
+</ion-footer>

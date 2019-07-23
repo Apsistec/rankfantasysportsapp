@@ -10,27 +10,38 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+.g-btn{
+    --background: rgba(169,3,41,1);
+    --background: -moz-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+    --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgba(109,0,25,1)));
+    --background: -webkit-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+    --background: -o-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+    --background: -ms-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+    --background: linear-gradient(to right, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+    --color:#4a7b81;
 }
-
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+.t-btn{
+    --background: rgba(29, 161, 242,1);
+    --background: -moz-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
+    --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(29, 161, 242,1)), color-stop(44%, rgba(85, 172, 238,1)), color-stop(100%, rgba(102, 117, 127,1)));
+    --background: -webkit-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
+    --background: -o-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
+    --background: -ms-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
+    --background: linear-gradient(to right, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+    --color:rgb(255, 225, 255);
 }
-
-body {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-    text-align: center;
-}
-ion-card{
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
-    text-align: center;
+.f-btn{
+    --background: rgba(66, 103, 179,1);
+    --background: -moz-linear-gradient(left, rgba(66, 103, 179,1) 3%, rgb(57, 102, 199,1) 74%, rgba(97, 103, 113,1) 100%);
+    --background: -webkit-gradient(left top, right top, color-stop(3%, rgba(66, 103, 179,1)), color-stop(74%, rgba(57, 102, 199,1)), color-stop(100%, rgba(97, 103, 113,1)));
+    --background: -webkit-linear-gradient(left, rgba(66, 103, 179,1) 3%, rgba(57, 102, 199,1) 74%, rgba(97, 103, 113,1) 100%);
+    --background: -o-linear-gradient(left, rgba(66, 103, 179,1) 3%, rgba(57, 102, 199,1) 74%, rgba(97, 103, 113,1) 100%);
+    --background: -ms-linear-gradient(left, rgba(66, 103, 179,1) 3%, rgba(57, 102, 199,1) 74%, rgba(97, 103, 113,1) 100%);
+    --background: linear-gradient(to right, rgba(66, 103, 179,1) 3%, rgba(57, 102, 199,1) 74%, rgba(97, 103, 113,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+    --color:#ccd6dd;
 }
 
 *::-webkit-scrollbar {
@@ -41,10 +52,42 @@ p{
   text-align: left;
  }
  
-sub{
-  text-align: left;
- }
-
 pre {
   text-align: left;
 }
+
+.iconify{
+  --color: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgba(109,0,25,1)));
+}
+
+// @mixin fluster-linear-gradient($direction, $color-left, $color-right) {
+//     background: $color-right;
+//     background: -webkit-linear-gradient($direction, $color-left, $color-right);
+//     background: -moz-linear-gradient($direction, $color-left, $color-right);
+//     background: -o-linear-gradient($direction, $color-left, $color-right);
+//     background: linear-gradient($direction, $color-left, $color-right);
+// }
+
+// @mixin fluster-linear-gradient-variable($direction, $color-left, $color-right) {
+//     --background: #{$color-right};
+//     --background: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+// }
+
+// @mixin fluster-linear-gradient-variable-activated($direction, $color-left, $color-right) {
+//     --background-activated: #{$color-right};
+//     --background-activated: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background-activated: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background-activated: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background-activated: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+// }
+
+// @mixin fluster-linear-gradient-variable-checked($direction, $color-left, $color-right) {
+//     --background-checked: #{$color-right};
+//     --background-checked: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background-checked: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background-checked: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+//     --background-checked: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
+// }

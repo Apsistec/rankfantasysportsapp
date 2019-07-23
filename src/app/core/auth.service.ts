@@ -1,11 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from './user';
-import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AlertController } from '@ionic/angular';
+import * as firebase from 'firebase';
 
 
 @Injectable({
@@ -19,8 +18,7 @@ export class AuthService {
     public afs: AngularFirestore,   // Inject Firestore service
     public af: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone, // NgZone service to remove outside scope warning
-    public alertController: AlertController
+    public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
@@ -50,7 +48,7 @@ export class AuthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message);
+        alert(error.message);
       });
   }
 
@@ -66,7 +64,6 @@ export class AuthService {
         window.alert(error.message);
       });
   }
-
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
@@ -92,29 +89,43 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  GoogleAuth() {
-    return this.AuthLogin(new this.af.auth.GoogleAuthProvider());
+  googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider);
   }
-  FacebookAuth() {
-    return this.AuthLogin(new auth.FacebookAuthProvider());
+  twitterLogin() {
+    const provider = new firebase.auth.TwitterAuthProvider();
+    return this.oAuthLogin(provider);
   }
-  TwitterAuth() {
-    return this.AuthLogin(new auth.TwitterAuthProvider());
+  facebookLogin() {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    return this.oAuthLogin(provider);
   }
-  
+
+  private oAuthLogin(provider) {
+    return this.af.auth.signInWithPopup(provider)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['launch-page']);
+        });
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error);
+      });
+  }
 
   // Auth logic to run auth providers
-  AuthLogin(provider) {
-    return this.af.auth.signInWithPopup(provider)
-    .then((result) => {
-      this.ngZone.run(() => {
-          this.router.navigate(['profile']);
-        });
-      this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error);
-    });
-  }
+  // AuthLogin(provider) {
+  //   return this.af.auth.signInWithPopup(provider)
+  //   .then((result) => {
+  //     this.ngZone.run(() => {
+  //         this.router.navigate(['profile']);
+  //       });
+  //     this.SetUserData(result.user);
+  //   }).catch((error) => {
+  //     window.alert(error);
+  //   });
+  // }
 
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
@@ -133,7 +144,6 @@ export class AuthService {
     });
   }
 
-  // Sign out
   SignOut() {
     return this.af.auth.signOut().then(() => {
       localStorage.removeItem('user');
@@ -141,5 +151,4 @@ export class AuthService {
       this.router.navigate(['home']);
     });
   }
-
 }

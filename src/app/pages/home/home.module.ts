@@ -27,6 +27,7 @@ const homeRoutes: Routes = [
     RouterModule.forChild(homeRoutes),
     SharedModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  exports: [NgxTwitterTimelineModule]
 })
 export class HomePageModule {}

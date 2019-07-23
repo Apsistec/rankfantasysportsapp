@@ -8,7 +8,7 @@ import { InnerGuard } from './core/guard/inner.guard';
 import { SigninGuard } from './core/guard/signin.guard';
 
 const appRoutes: Routes = [
-{ path: '', redirectTo: 'home', pathMatch: 'full' },
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
 { path: 'testimonials', loadChildren: './pages/testimonials/testimonials.module#TestimonialsPageModule' },
 { path: 'tweeter', loadChildren: './pages/tweeter/tweeter.module#TweeterPageModule' },
@@ -19,6 +19,8 @@ const appRoutes: Routes = [
 { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
 { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule', canActivate: [SigninGuard] },
 { path: 'list', loadChildren: './pages/list/list.module#ListPageModule' }, // canActivate: [SigninGuard]},
+  {
+    path: 'imagest', loadChildren: './pages/images/images.module#ImagesPageModule' }
 ];
 
 @NgModule({

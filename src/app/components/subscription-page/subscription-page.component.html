@@ -24,7 +24,7 @@
             </h4>
     <!-- <ion-spinner *ngIf="this.loading === true" color="secondary" name="circles"></ion-spinner> -->
     <hr>
-    <form (submit)="handleForm($event)">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <!-- <div class="form-row"> -->
         
         <ion-card color="success">

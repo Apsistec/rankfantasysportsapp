@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../../core/auth.service';
@@ -56,8 +57,46 @@ export class SubscriptionPageComponent implements OnInit {
     });
   }
 
-  async handleForm(e) {
-    e.preventDefault();
+  // async handleForm(e) {
+  //   e.preventDefault();
+  //   this.load = true;
+  //   const { source, error } = await this.stripe.createSource(this.card);
+  //   if (error) {
+  //     // Inform the customer that there was an error.
+  //     const cardErrors = error.message;
+  //     window.alert(cardErrors);
+  //   } else {
+  //     this.user = await this.auth.getUser();
+  //     const fun = this.functions.httpsCallable('stripeCreateSubscription');
+  //     this.confirmation = await fun({
+  //       source: source.id,
+  //       uid: this.user.uid,
+  //       plan: this.planId
+  //     }).toPromise().then(() => {
+  //       void this.onDismissLoader();
+  //       window.alert(
+  //         'Thank You and Welcome to Rank Fantasy Sports! You are Subscribed!'
+  //       );
+  //       return this.router.navigateByUrl('/list');
+  //     });
+  //   }
+  // }
+
+  async presentLoading() {
+      const loadingElement = await this.loadingCtrl.create({
+        message: 'Please wait...',
+        spinner: 'crescent',
+        duration: 2000
+      });
+      return loadingElement.present();
+    }
+
+  async onDismissLoader() {
+    await this.loadingCtrl.dismiss();
+    return this.load = false;
+  }
+
+  async onSubmit(f: NgForm) {
     this.load = true;
     const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
@@ -80,19 +119,4 @@ export class SubscriptionPageComponent implements OnInit {
       });
     }
   }
-
-  async presentLoading() {
-      const loadingElement = await this.loadingCtrl.create({
-        message: 'Please wait...',
-        spinner: 'crescent',
-        duration: 2000
-      });
-      return loadingElement.present();
-    }
-
-  async onDismissLoader() {
-    await this.loadingCtrl.dismiss();
-    return this.load = false;
-  }
-
 }

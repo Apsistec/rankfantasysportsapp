@@ -4,7 +4,10 @@
 // styles are for the entire app and not just one component. Additionally, this 
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
-
-.menuToolbar{
-    --background: #7d7e82;
-}
+ion-content{
+     --background: none;
+     background-position: center top; 
+     background-image: linear-gradient(rgba(49, 83, 70, 0.25), rgba(16, 1, 22, 0.75)), url('../assets/img/pattern.png');
+    //  background-repeat: no-repeat;
+    //  background-size: cover;
+   }

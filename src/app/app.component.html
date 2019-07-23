@@ -8,45 +8,45 @@
     </ion-menu-toggle>
   </ion-header>
 
-  <ion-content fullscreen>
+  <ion-content class="bg-img" fullscreen>
     <ion-menu-toggle auto-hide="false">
       <ion-list>
         <ion-item-group>
           <ion-item routerLink="/home">
-            <ion-icon color="primary" slot="start" name="home"></ion-icon>
-            <ion-label color="dark">Home</ion-label>
+            <ion-icon class="iconify" slot="start" name="home"></ion-icon>
+            <ion-label color="dark">Home</ion-label><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
 
           <ion-item
             (click)="auth.SignOut()"
-            *ngIf="auth.afAuth.user | async as user; else login">
-            <ion-icon color="danger" slot="start" name="log-out"></ion-icon>
-            <ion-label color="dark">Logout</ion-label>
+            *ngIf="auth.af.user | async as user; else login">
+            <ion-icon class="iconify" slot="start" name="log-out"></ion-icon>
+            <ion-label color="dark">Logout</ion-label><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
-
-          <ng-template #login>
+          <ng-template #login> 
             <ion-item routerLink="/sign-in">
-              <ion-icon color="success" slot="start" name="log-in"></ion-icon>
-              <ion-label color="dark">Login</ion-label>
+              <ion-icon class="iconify" slot="start" name="log-in"></ion-icon>
+              <ion-label color="dark">Sign In/ Sign Up</ion-label><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
           </ng-template>
+          
           <ion-item routerLink="/launch-page">
-            <ion-icon color="primary" slot="start" name="logo-usd"></ion-icon>
-            <ion-label color="dark">Pricing</ion-label>
+            <ion-icon class="iconify" slot="start" name="logo-usd"></ion-icon>
+            <ion-label color="dark">Pricing</ion-label><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
           <ion-item
             routerLink="/profile"
-            *ngIf="auth.afAuth.user | async as user">
-            <ion-icon color="tertiary" slot="start" name="contact"></ion-icon>
-            <ion-label color="dark">Profile</ion-label>
+            *ngIf="auth.af.user | async as user">
+            <ion-icon class="iconify" slot="start" name="contact"></ion-icon>
+            <ion-label color="dark">Profile</ion-label><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
           <ion-item routerLink="/tweeter">
-            <ion-icon color="tertiary" slot="start" name="contact"></ion-icon>
-            <ion-label color="dark">Tweets</ion-label>
+            <ion-icon class="iconify" slot="start" name="logo-twitter"></ion-icon>
+            <ion-label color="dark">Tweets</ion-label><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
           <ion-item routerLink="/faq">
-            <ion-icon color="warning" slot="start" name="help"></ion-icon>
-            <ion-label color="dark">Questions</ion-label>
+            <ion-icon class="iconify" slot="start" name="help"></ion-icon>
+            <ion-label color="dark">Questions</ion-label><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
         </ion-item-group>
         <ion-item-group>
@@ -55,7 +55,7 @@
           </ion-list-header>
 
           <ion-item routerLink="/list">
-            <ion-icon color="tertiary" slot="start" name="stats"></ion-icon>
+            <ion-icon class="iconify" slot="start" name="stats"></ion-icon>
             <ion-label color="dark">Data-tables</ion-label>
           </ion-item>
 

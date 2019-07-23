@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Faqs } from './faqs';
 
 @Component({
   selector: 'app-faq',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faq.page.scss'],
 })
 export class FaqPage implements OnInit {
+  faqs = Faqs;
+  info: string;
 
   constructor() { }
 

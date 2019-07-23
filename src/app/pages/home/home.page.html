@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content fullscreen >
+<ion-content fullscreen>
   <ion-grid>
     <ion-row>
       <ion-col size-md="4">
@@ -62,20 +62,18 @@
       </ion-col>
 
       <ion-col size-md="4">
-        <ion-card padding class="testi" color="dark">
+        <ion-card padding class="testi" color="dark" href="/testimonials">
           <ion-card-content>
-            <ion-card-header>
               <ion-card-title>
                 <ion-label color="warning">
                     RF$ Success
                 </ion-label>
               </ion-card-title>
-              <ion-card-subtitle>
-                Previous Winnings!
-              </ion-card-subtitle>
-            </ion-card-header>
-            <ion-img src="../../assets/images/8000.jpg"></ion-img>
-            <ion-button expand="block" color="warning" shape="round" fill="solid"  routerLink="/testimonials">
+              <ion-card padding color="medium">
+                <p>Using our in-house data models and time-based player scoring algorithyms, our sports data analysts are turning <ion-text color="secondary"> $10 </ion-text> lineups into game changing wins totalling over<ion-text color="secondary"> $8000</ion-text>.  Become a member today and start learning about our proprietary techniques and trademark data models.</p>
+              </ion-card>
+            <ion-img src="../../assets/images/16.JPG"></ion-img>
+            <ion-button expand="block" color="warning" shape="round" fill="solid">
               <ion-ripple-effect>
               </ion-ripple-effect>
               <ion-label>
@@ -90,9 +88,9 @@
       <ion-col size-md="4">
 <!-- Column 3 -->
 
-      <ion-card color="tertiary" padding>
+      <ion-card color="tertiary">
 
-        <ion-card color="primary" padding>
+        <ion-card color="primary" class="pattrn" padding>
           <ion-card-title>
             <ion-label color="warning">
               Today's Inspirational Message
@@ -101,16 +99,14 @@
           <ion-card-subtitle>
             We can all use more inspiration!
           </ion-card-subtitle>
-       
-          
-          <ion-button fill="outline" shape="round" color="light" href="https://inspiration.rankfantasysports.com">
-            <ion-label >More...</ion-label>
-          </ion-button>
+            <ion-button class="inspireButton" fill="outline" size="small" shape="round" color="light" href="https://inspiration.rankfantasysports.com">
+              <ion-label >More...</ion-label>
+            </ion-button>
         </ion-card>
       </ion-card>
 
 
-        <ion-card padding class="twit" color="dark" >
+        <ion-card padding class="twit" color="dark">
           <ion-card-content>
             <ion-card-header>
               <ion-card-title>
@@ -119,16 +115,20 @@
                 </ion-label>
               </ion-card-title>
             </ion-card-header>
-            <div class="twitter-container">
-              <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-                [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '3', borderColor: '#02ed25'}">
-              </ngx-twitter-timeline>
-            </div>
+                <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+                  [opts]="{
+                    chrome: ['transparent', 'nofooter', 'noscrollbar'], 
+                    theme: 'dark', 
+                    tweetLimit: '5', 
+                    borderColor: '#02ed25', 
+                    ariaPolite: 'assertive'
+                  }">
+                </ngx-twitter-timeline>
             <ion-button expand="block" color="warning" shape="round" routerLink="/tweeter">
               <ion-ripple-effect></ion-ripple-effect>
-              <strong>
-                More RF$ Tweets
-              </strong>
+                <strong>
+                  More RF$ Tweets
+                </strong>
             </ion-button>
           </ion-card-content>
         </ion-card>

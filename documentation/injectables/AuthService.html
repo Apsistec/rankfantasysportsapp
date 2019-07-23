@@ -77,7 +77,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#afAuth">afAuth</a>
+                                <a href="#af">af</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -117,6 +117,9 @@
                                 <a href="#AuthLogin">AuthLogin</a>
                             </li>
                             <li>
+                                <a href="#facebookLogin">facebookLogin</a>
+                            </li>
+                            <li>
                                 <a href="#ForgotPassword">ForgotPassword</a>
                             </li>
                             <li>
@@ -124,7 +127,11 @@
                                 <a href="#getUser">getUser</a>
                             </li>
                             <li>
-                                <a href="#GoogleAuth">GoogleAuth</a>
+                                <a href="#googleLogin">googleLogin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#oAuthLogin">oAuthLogin</a>
                             </li>
                             <li>
                                 <a href="#SendVerificationMail">SendVerificationMail</a>
@@ -140,6 +147,9 @@
                             </li>
                             <li>
                                 <a href="#SignUp">SignUp</a>
+                            </li>
+                            <li>
+                                <a href="#twitterLogin">twitterLogin</a>
                             </li>
                         </ul>
                     </td>
@@ -173,12 +183,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(afs: AngularFirestore, afAuth: AngularFireAuth, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>, alertController: AlertController)</code>
+<code>constructor(afs: AngularFirestore, af: AngularFireAuth, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>, alertController: AlertController)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/auth.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/auth.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -208,7 +218,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>afAuth</td>
+                                                        <td>af</td>
                                                   
                                                         <td>
                                                                     <code>AngularFireAuth</code>
@@ -291,8 +301,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">src/app/core/auth.service.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/core/auth.service.ts:119</a></div>
                 </td>
             </tr>
 
@@ -339,6 +349,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="facebookLogin"></a>
+                    <span class="name">
+                        <b>
+                            facebookLogin
+                        </b>
+                        <a href="#facebookLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>facebookLogin()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">src/app/core/auth.service.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ForgotPassword"></a>
                     <span class="name">
                         <b>
@@ -357,8 +406,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/core/auth.service.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/core/auth.service.ts:81</a></div>
                 </td>
             </tr>
 
@@ -425,8 +474,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/core/auth.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/core/auth.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -446,26 +495,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="GoogleAuth"></a>
+                    <a name="googleLogin"></a>
                     <span class="name">
                         <b>
-                            GoogleAuth
+                            googleLogin
                         </b>
-                        <a href="#GoogleAuth"><span class="icon ion-ios-link"></span></a>
+                        <a href="#googleLogin"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>GoogleAuth()</code>
+<code>googleLogin()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">src/app/core/auth.service.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/core/auth.service.ts:97</a></div>
                 </td>
             </tr>
 
@@ -476,6 +525,74 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="oAuthLogin"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            oAuthLogin
+                        </b>
+                        <a href="#oAuthLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>oAuthLogin(provider)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/core/auth.service.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>provider</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -503,8 +620,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/core/auth.service.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/core/auth.service.ts:73</a></div>
                 </td>
             </tr>
 
@@ -542,8 +659,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">src/app/core/auth.service.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/core/auth.service.ts:134</a></div>
                 </td>
             </tr>
 
@@ -608,8 +725,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/core/auth.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/core/auth.service.ts:46</a></div>
                 </td>
             </tr>
 
@@ -683,8 +800,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="131"
-                            class="link-to-prism">src/app/core/auth.service.ts:131</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">src/app/core/auth.service.ts:149</a></div>
                 </td>
             </tr>
 
@@ -722,8 +839,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/core/auth.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/core/auth.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -775,6 +892,45 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="twitterLogin"></a>
+                    <span class="name">
+                        <b>
+                            twitterLogin
+                        </b>
+                        <a href="#twitterLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>twitterLogin()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/core/auth.service.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
@@ -785,12 +941,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="afAuth"></a>
+                        <a name="af"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            afAuth</b>
-                            <a href="#afAuth"><span class="icon ion-ios-link"></span></a>
+                            af</b>
+                            <a href="#af"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -802,7 +958,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/core/auth.service.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/core/auth.service.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -830,7 +986,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/core/auth.service.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/core/auth.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -858,7 +1014,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/auth.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/core/auth.service.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -886,7 +1042,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/auth.service.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/auth.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -914,7 +1070,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/core/auth.service.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/auth.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -935,7 +1091,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/auth.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/auth.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -962,7 +1118,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/core/auth.service.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/auth.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -991,7 +1147,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/core/auth.service.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/core/auth.service.ts:91</a></div>
                                 </td>
                             </tr>
 
@@ -1010,6 +1166,7 @@ import { AngularFirestore, AngularFirestoreDocument } from &#x27;@angular/fire/f
 import { Router } from &#x27;@angular/router&#x27;;
 import { first } from &#x27;rxjs/operators&#x27;;
 import { AlertController } from &#x27;@ionic/angular&#x27;;
+import * as firebase from &#x27;firebase&#x27;;
 
 
 @Injectable({
@@ -1021,14 +1178,14 @@ export class AuthService {
   user;
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public af: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     public alertController: AlertController
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe(user &#x3D;&gt; {
+    this.af.authState.subscribe(user &#x3D;&gt; {
       if (user) {
         this.userData &#x3D; user;
         localStorage.setItem(&#x27;user&#x27;, JSON.stringify(this.userData));
@@ -1042,12 +1199,12 @@ export class AuthService {
   }
 
   async getUser() {
-    return this.afAuth.authState.pipe(first()).toPromise();
+    return this.af.authState.pipe(first()).toPromise();
   }
 
   // Sign in with email/password
   SignIn(email, password) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.af.auth.signInWithEmailAndPassword(email, password)
       .then((result) &#x3D;&gt; {
         this.ngZone.run(() &#x3D;&gt; {
           this.router.navigate([&#x27;launch-page&#x27;]);
@@ -1060,7 +1217,7 @@ export class AuthService {
 
   // Sign up with email/password
   SignUp(email, password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    return this.af.auth.createUserWithEmailAndPassword(email, password)
       .then((result) &#x3D;&gt; {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
@@ -1074,7 +1231,7 @@ export class AuthService {
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
-    return this.afAuth.auth.currentUser.sendEmailVerification()
+    return this.af.auth.currentUser.sendEmailVerification()
     .then(() &#x3D;&gt; {
       this.router.navigate([&#x27;verify-email-address&#x27;]);
     });
@@ -1082,7 +1239,7 @@ export class AuthService {
 
   // Reset Forgot password
   ForgotPassword(passwordResetEmail) {
-    return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+    return this.af.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() &#x3D;&gt; {
       window.alert(&#x27;Password reset email sent, check your inbox.&#x27;);
     }).catch((error) &#x3D;&gt; {
@@ -1096,17 +1253,34 @@ export class AuthService {
     return (user !&#x3D;&#x3D; null &amp;&amp; user.emailVerified !&#x3D;&#x3D; false) ? true : false;
   }
 
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+
+  googleLogin() {
+    const provider &#x3D; new firebase.auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider);
   }
+  twitterLogin() {
+    const provider &#x3D; new firebase.auth.TwitterAuthProvider();
+    return this.oAuthLogin(provider);
+  }
+  facebookLogin() {
+    const provider &#x3D; new firebase.auth.FacebookAuthProvider();
+    return this.oAuthLogin(provider);
+  }
+
+  private oAuthLogin(provider) {
+    return this.af.auth.signInWithPopup(provider)
+      .then(credential &#x3D;&gt; {
+        this.af.auth.updateCurrentUser(credential.user);
+      });
+  }
+
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
+    return this.af.auth.signInWithPopup(provider)
     .then((result) &#x3D;&gt; {
       this.ngZone.run(() &#x3D;&gt; {
-          this.router.navigate([&#x27;launch-page&#x27;]);
+          this.router.navigate([&#x27;profile&#x27;]);
         });
       this.SetUserData(result.user);
     }).catch((error) &#x3D;&gt; {
@@ -1133,7 +1307,7 @@ export class AuthService {
 
   // Sign out
   SignOut() {
-    return this.afAuth.auth.signOut().then(() &#x3D;&gt; {
+    return this.af.auth.signOut().then(() &#x3D;&gt; {
       localStorage.removeItem(&#x27;user&#x27;);
       window.alert(&#x27;You are logged out!&#x27;);
       this.router.navigate([&#x27;home&#x27;]);
