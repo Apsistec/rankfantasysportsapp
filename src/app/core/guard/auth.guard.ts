@@ -11,17 +11,19 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
 
   constructor(
-    public authService: AuthService,
+    public auth: AuthService,
     public router: Router
   ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.userData.stripeCustomerId !== null) { return true; } else {
-      alert('You must purchase a membership to view tables');
-      this.router.navigate(['launch-page']);
-        }
+    if (this.auth.isLoggedIn !== false) {
+      return true;
+      // this.router.navigate(['list']);
+    } else {
+      window.alert('You must purchase a membership to view tables');
+      return this.router.navigate(['launch-page']);
     }
-
+  }
 }

@@ -442,13 +442,14 @@ export class HomePage implements OnInit {
   showVid() {
     (this.trustedVideoUrl &#x3D; this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url));
   }
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
-&lt;ion-content fullscreen &gt;
+&lt;ion-content fullscreen&gt;
   &lt;ion-grid&gt;
     &lt;ion-row&gt;
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
@@ -513,17 +514,15 @@ export class HomePage implements OnInit {
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
         &lt;ion-card padding class&#x3D;&quot;testi&quot; color&#x3D;&quot;dark&quot; href&#x3D;&quot;/testimonials&quot;&gt;
           &lt;ion-card-content&gt;
-            &lt;ion-card-header&gt;
               &lt;ion-card-title&gt;
                 &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
                     RF$ Success
                 &lt;/ion-label&gt;
               &lt;/ion-card-title&gt;
-              &lt;ion-card-subtitle&gt;
-                Previous Winnings!
-              &lt;/ion-card-subtitle&gt;
-            &lt;/ion-card-header&gt;
-            &lt;ion-img src&#x3D;&quot;../../assets/images/8000.jpg&quot;&gt;&lt;/ion-img&gt;
+              &lt;ion-card padding color&#x3D;&quot;medium&quot;&gt;
+                &lt;p&gt;Using our in-house data models and time-based player scoring algorithyms, our sports data analysts are turning &lt;ion-text color&#x3D;&quot;secondary&quot;&gt; $10 &lt;/ion-text&gt; lineups into game changing wins totalling over&lt;ion-text color&#x3D;&quot;secondary&quot;&gt; $8000&lt;/ion-text&gt;.  Become a member today and start learning about our proprietary techniques and trademark data models.&lt;/p&gt;
+              &lt;/ion-card&gt;
+            &lt;ion-img src&#x3D;&quot;../../assets/images/16.JPG&quot;&gt;&lt;/ion-img&gt;
             &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; fill&#x3D;&quot;solid&quot;&gt;
               &lt;ion-ripple-effect&gt;
               &lt;/ion-ripple-effect&gt;
@@ -539,9 +538,9 @@ export class HomePage implements OnInit {
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
 &lt;!-- Column 3 --&gt;
 
-      &lt;ion-card color&#x3D;&quot;tertiary&quot; padding&gt;
+      &lt;ion-card color&#x3D;&quot;tertiary&quot;&gt;
 
-        &lt;ion-card color&#x3D;&quot;primary&quot; padding&gt;
+        &lt;ion-card color&#x3D;&quot;primary&quot; class&#x3D;&quot;pattrn&quot; padding&gt;
           &lt;ion-card-title&gt;
             &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
               Today&#x27;s Inspirational Message
@@ -550,11 +549,9 @@ export class HomePage implements OnInit {
           &lt;ion-card-subtitle&gt;
             We can all use more inspiration!
           &lt;/ion-card-subtitle&gt;
-       
-          
-          &lt;ion-button fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;light&quot; href&#x3D;&quot;https://inspiration.rankfantasysports.com&quot;&gt;
-            &lt;ion-label &gt;More...&lt;/ion-label&gt;
-          &lt;/ion-button&gt;
+            &lt;ion-button class&#x3D;&quot;inspireButton&quot; fill&#x3D;&quot;outline&quot; size&#x3D;&quot;small&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;light&quot; href&#x3D;&quot;https://inspiration.rankfantasysports.com&quot;&gt;
+              &lt;ion-label &gt;More...&lt;/ion-label&gt;
+            &lt;/ion-button&gt;
         &lt;/ion-card&gt;
       &lt;/ion-card&gt;
 
@@ -568,16 +565,20 @@ export class HomePage implements OnInit {
                 &lt;/ion-label&gt;
               &lt;/ion-card-title&gt;
             &lt;/ion-card-header&gt;
-            &lt;div class&#x3D;&quot;twitter-container&quot;&gt;
-              &lt;ngx-twitter-timeline [data]&#x3D;&quot;{sourceType: &#x27;url&#x27;, url: &#x27;https://twitter.com/rankfsports&#x27;}&quot;
-                [opts]&#x3D;&quot;{chrome: [&#x27;nofooter&#x27;, &#x27;noheader&#x27;, &#x27;noscrollbar&#x27;], theme: &#x27;dark&#x27;, tweetLimit: &#x27;3&#x27;, borderColor: &#x27;#02ed25&#x27;}&quot;&gt;
-              &lt;/ngx-twitter-timeline&gt;
-            &lt;/div&gt;
+                &lt;ngx-twitter-timeline [data]&#x3D;&quot;{sourceType: &#x27;url&#x27;, url: &#x27;https://twitter.com/rankfsports&#x27;}&quot;
+                  [opts]&#x3D;&quot;{
+                    chrome: [&#x27;transparent&#x27;, &#x27;nofooter&#x27;, &#x27;noscrollbar&#x27;], 
+                    theme: &#x27;dark&#x27;, 
+                    tweetLimit: &#x27;5&#x27;, 
+                    borderColor: &#x27;#02ed25&#x27;, 
+                    ariaPolite: &#x27;assertive&#x27;
+                  }&quot;&gt;
+                &lt;/ngx-twitter-timeline&gt;
             &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; routerLink&#x3D;&quot;/tweeter&quot;&gt;
               &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
-              &lt;strong&gt;
-                More RF$ Tweets
-              &lt;/strong&gt;
+                &lt;strong&gt;
+                  More RF$ Tweets
+                &lt;/strong&gt;
             &lt;/ion-button&gt;
           &lt;/ion-card-content&gt;
         &lt;/ion-card&gt;
@@ -607,14 +608,22 @@ export class HomePage implements OnInit {
         background-size: cover;
    }
     .twit{
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(&#x27;../../../assets/img/tennis-court.jpg&#x27;);
+        background: linear-gradient(rgba(53, 20, 66, 0.815), rgba(14, 68, 70, 0.801)), url(&#x27;../../../assets/img/field-diagram.png&#x27;);
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+   }
+    .utuub{
+        background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url(&#x27;../../../assets/img/ball-court2.jpg&#x27;);
         background-repeat: no-repeat;
         background-size: cover;
    }
-    .utuub{
-        background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url(&#x27;../../../assets/img/golf-gimmie.jpg&#x27;);
-        background-repeat: no-repeat;
-        background-size: cover;
+
+   .pattrn{
+     background-image: url(&#x27;../../../assets/img/brown_cross.svg&#x27;);
+     background-repeat: no-repeat;
+     background-size: 25%;
+     background-position: right 5px top 5px; 
    }
 </code></pre>
     </div>
@@ -644,8 +653,8 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen >  <ion-grid>    <ion-row>      <ion-col size-md="4"><!-- Column 1 -->        <ion-card color="primary">          <img src="../../assets/logo-md.svg" slot="start">          <ion-card-content>            <ion-card-title>              <h2>                <ion-text color="light">                  RankFantasySports™                </ion-text>              </h2>            </ion-card-title>            <ion-card-subtitle>              Our business is helping you win            </ion-card-subtitle>          </ion-card-content>        </ion-card>        <ion-card padding  class="utuub" color="dark">            <ion-card-title  class="ion-text-center">            <ion-text color="warning">              {{ video.title }}            </ion-text>          </ion-card-title>          <iframe width="100%" height="280" [src]="this.trustedVideoUrl" frameborder="0" allowfullscreen></iframe>        </ion-card>                          <ion-card padding class="cta" color="warning">          <ion-button shape="round" size="large" routerLink="/launch-page" color="secondary">            <ion-ripple-effect>            </ion-ripple-effect>            <ion-label color="danger">              <strong>                Become a Member              </strong>            </ion-label>          </ion-button>            <ion-card-header>              <ion-card-title><!-- Column 2 -->                <ion-text color="warning">                  Insights for Building Winning Daily Fantasy Sports Lineups                </ion-text>              </ion-card-title>            </ion-card-header>            <h1>              🎾 🏌🏼‍ ⛳ 🏈 🏀              <hr>              🏆 💵 📈            </h1>            <br>        </ion-card>      </ion-col>      <ion-col size-md="4">        <ion-card padding class="testi" color="dark" href="/testimonials">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    RF$ Success                </ion-label>              </ion-card-title>              <ion-card-subtitle>                Previous Winnings!              </ion-card-subtitle>            </ion-card-header>            <ion-img src="../../assets/images/8000.jpg"></ion-img>            <ion-button expand="block" color="warning" shape="round" fill="solid">              <ion-ripple-effect>              </ion-ripple-effect>              <ion-label>                <strong>                  100+ More                </strong>              </ion-label>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>      <ion-col size-md="4"><!-- Column 3 -->      <ion-card color="tertiary" padding>        <ion-card color="primary" padding>          <ion-card-title>            <ion-label color="warning">              Today\'s Inspirational Message            </ion-label>          </ion-card-title>          <ion-card-subtitle>            We can all use more inspiration!          </ion-card-subtitle>                           <ion-button fill="outline" shape="round" color="light" href="https://inspiration.rankfantasysports.com">            <ion-label >More...</ion-label>          </ion-button>        </ion-card>      </ion-card>        <ion-card padding class="twit" color="dark">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    Recent RF$ Tweets                </ion-label>              </ion-card-title>            </ion-card-header>            <div class="twitter-container">              <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"                [opts]="{chrome: [\'nofooter\', \'noheader\', \'noscrollbar\'], theme: \'dark\', tweetLimit: \'3\', borderColor: \'#02ed25\'}">              </ngx-twitter-timeline>            </div>            <ion-button expand="block" color="warning" shape="round" routerLink="/tweeter">              <ion-ripple-effect></ion-ripple-effect>              <strong>                More RF$ Tweets              </strong>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>  </ion-grid></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen>  <ion-grid>    <ion-row>      <ion-col size-md="4"><!-- Column 1 -->        <ion-card color="primary">          <img src="../../assets/logo-md.svg" slot="start">          <ion-card-content>            <ion-card-title>              <h2>                <ion-text color="light">                  RankFantasySports™                </ion-text>              </h2>            </ion-card-title>            <ion-card-subtitle>              Our business is helping you win            </ion-card-subtitle>          </ion-card-content>        </ion-card>        <ion-card padding  class="utuub" color="dark">            <ion-card-title  class="ion-text-center">            <ion-text color="warning">              {{ video.title }}            </ion-text>          </ion-card-title>          <iframe width="100%" height="280" [src]="this.trustedVideoUrl" frameborder="0" allowfullscreen></iframe>        </ion-card>                          <ion-card padding class="cta" color="warning">          <ion-button shape="round" size="large" routerLink="/launch-page" color="secondary">            <ion-ripple-effect>            </ion-ripple-effect>            <ion-label color="danger">              <strong>                Become a Member              </strong>            </ion-label>          </ion-button>            <ion-card-header>              <ion-card-title><!-- Column 2 -->                <ion-text color="warning">                  Insights for Building Winning Daily Fantasy Sports Lineups                </ion-text>              </ion-card-title>            </ion-card-header>            <h1>              🎾 🏌🏼‍ ⛳ 🏈 🏀              <hr>              🏆 💵 📈            </h1>            <br>        </ion-card>      </ion-col>      <ion-col size-md="4">        <ion-card padding class="testi" color="dark" href="/testimonials">          <ion-card-content>              <ion-card-title>                <ion-label color="warning">                    RF$ Success                </ion-label>              </ion-card-title>              <ion-card padding color="medium">                <p>Using our in-house data models and time-based player scoring algorithyms, our sports data analysts are turning <ion-text color="secondary"> $10 </ion-text> lineups into game changing wins totalling over<ion-text color="secondary"> $8000</ion-text>.  Become a member today and start learning about our proprietary techniques and trademark data models.</p>              </ion-card>            <ion-img src="../../assets/images/16.JPG"></ion-img>            <ion-button expand="block" color="warning" shape="round" fill="solid">              <ion-ripple-effect>              </ion-ripple-effect>              <ion-label>                <strong>                  100+ More                </strong>              </ion-label>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>      <ion-col size-md="4"><!-- Column 3 -->      <ion-card color="tertiary">        <ion-card color="primary" class="pattrn" padding>          <ion-card-title>            <ion-label color="warning">              Today\'s Inspirational Message            </ion-label>          </ion-card-title>          <ion-card-subtitle>            We can all use more inspiration!          </ion-card-subtitle>            <ion-button class="inspireButton" fill="outline" size="small" shape="round" color="light" href="https://inspiration.rankfantasysports.com">              <ion-label >More...</ion-label>            </ion-button>        </ion-card>      </ion-card>        <ion-card padding class="twit" color="dark">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    Recent RF$ Tweets                </ion-label>              </ion-card-title>            </ion-card-header>                <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"                  [opts]="{                    chrome: [\'transparent\', \'nofooter\', \'noscrollbar\'],                     theme: \'dark\',                     tweetLimit: \'5\',                     borderColor: \'#02ed25\',                     ariaPolite: \'assertive\'                  }">                </ngx-twitter-timeline>            <ion-button expand="block" color="warning" shape="round" routerLink="/tweeter">              <ion-ripple-effect></ion-ripple-effect>                <strong>                  More RF$ Tweets                </strong>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>  </ion-grid></ion-content><app-footer></app-footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'ImagesPage', 'selector': 'app-images'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>

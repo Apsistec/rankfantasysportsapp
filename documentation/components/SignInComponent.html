@@ -125,20 +125,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#auth">auth</a>
-                            </li>
-                            <li>
-                                <a href="#form">form</a>
+                                <a href="#error">error</a>
                             </li>
                             <li>
                                 <a href="#isLoading">isLoading</a>
                             </li>
                             <li>
-                                <a href="#isLogin">isLogin</a>
-                            </li>
-                            <li>
-                                <a href="#user">user</a>
+                                <a href="#isLoginMode">isLoginMode</a>
                             </li>
                         </ul>
                     </td>
@@ -153,16 +146,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onSignIn">onSignIn</a>
-                            </li>
-                            <li>
-                                <a href="#onSignUp">onSignUp</a>
-                            </li>
-                            <li>
                                 <a href="#onSubmit">onSubmit</a>
                             </li>
                             <li>
-                                <a href="#onSwitchAuthMode">onSwitchAuthMode</a>
+                                <a href="#onSwitchMode">onSwitchMode</a>
                             </li>
                         </ul>
                     </td>
@@ -182,12 +169,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, loadingCtrl: LoadingController)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -205,34 +192,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>auth</td>
+                                                        <td>authService</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>loadingCtrl</td>
-                                                  
-                                                        <td>
-                                                                    <code>LoadingController</code>
                                                         </td>
                                                   
                                                     <td>
@@ -262,156 +225,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onSignIn"></a>
-                    <span class="name">
-                        <b>
-                            onSignIn
-                        </b>
-                        <a href="#onSignIn"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>onSignIn(email, password)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:27</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>email</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>password</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="onSignUp"></a>
-                    <span class="name">
-                        <b>
-                            onSignUp
-                        </b>
-                        <a href="#onSignUp"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>onSignUp(email, password)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:42</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>email</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>password</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="onSubmit"></a>
                     <span class="name">
                         <b>
@@ -430,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:22</a></div>
                 </td>
             </tr>
 
@@ -482,26 +295,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onSwitchAuthMode"></a>
+                    <a name="onSwitchMode"></a>
                     <span class="name">
                         <b>
-                            onSwitchAuthMode
+                            onSwitchMode
                         </b>
-                        <a href="#onSwitchAuthMode"><span class="icon ion-ios-link"></span></a>
+                        <a href="#onSwitchMode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onSwitchAuthMode()</code>
+<code>onSwitchMode()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:18</a></div>
                 </td>
             </tr>
 
@@ -527,60 +340,28 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="auth"></a>
+                        <a name="error"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Public</span>
-                            auth</b>
-                            <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                            error</b>
+                            <a href="#error"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:22</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="form"></a>
-                        <span class="name">
-                            <b>
-                            form</b>
-                            <a href="#form"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ViewChild(&#x27;f&#x27;)<br />
-                            </code>
+                            <i>Default value : </i><code>null</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -606,7 +387,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -617,11 +398,11 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="isLogin"></a>
+                        <a name="isLoginMode"></a>
                         <span class="name">
                             <b>
-                            isLogin</b>
-                            <a href="#isLogin"><span class="icon ion-ios-link"></span></a>
+                            isLoginMode</b>
+                            <a href="#isLoginMode"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -632,34 +413,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:16</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="user"></a>
-                        <span class="name">
-                            <b>
-                            user</b>
-                            <a href="#user"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/sign-in/sign-in.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -672,65 +426,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { NgForm } from &#x27;@angular/forms&#x27;;
-import { LoadingController } from &#x27;@ionic/angular&#x27;;
-import { AuthService } from &#x27;../../core/auth.service&#x27;;
-import { User } from &#x27;../../core/user&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { AuthService, AuthResponseData } from &#x27;../../core/auth.service&#x27;;
 
-  @Component({
-    selector: &#x27;app-sign-in&#x27;,
-    templateUrl: &#x27;./sign-in.component.html&#x27;,
-    styleUrls: [&#x27;./sign-in.component.scss&#x27;]
-  })
-
+@Component({
+  selector: &#x27;app-sign-in&#x27;,
+  templateUrl: &#x27;./sign-in.component.html&#x27;,
+  styleUrls: [&#x27;./sign-in.component.scss&#x27;]
+})
 export class SignInComponent {
+  isLoginMode &#x3D; true;
   isLoading &#x3D; false;
-  isLogin &#x3D; true;
-  user: User;
+  error: string &#x3D; null;
 
-  @ViewChild(&#x27;f&#x27;) form: any;
+  constructor(private authService: AuthService) { }
 
-  constructor(
-    public auth: AuthService,
-    private router: Router,
-    private loadingCtrl: LoadingController
-  ) { }
-
-  onSignIn(email, password) {
-    this.isLoading &#x3D; true;
-    this.auth.SignIn(email, password);
-    this.loadingCtrl
-      .create({ keyboardClose: true, message: &#x27;Signing In...&#x27; })
-      .then(loadingEl &#x3D;&gt; {
-        loadingEl.present();
-        setTimeout(() &#x3D;&gt; {
-          this.isLoading &#x3D; false;
-          loadingEl.dismiss();
-          this.router.navigateByUrl(&#x27;/profile&#x27;);
-        }, 1500);
-      });
-  }
-
-  onSignUp(email, password) {
-    this.isLoading &#x3D; true;
-    this.auth.SignUp(email, password);
-    this.auth.SetUserData(this.user.displayName);
-    this.loadingCtrl
-      .create({ keyboardClose: true, message: &#x27;Signing Up...&#x27; })
-      .then(loadingEl &#x3D;&gt; {
-        loadingEl.present();
-        setTimeout(() &#x3D;&gt; {
-          this.isLoading &#x3D; false;
-          loadingEl.dismiss();
-          this.router.navigateByUrl(&#x27;/profile&#x27;);
-        }, 1500);
-      });
-  }
-
-  onSwitchAuthMode() {
-    this.isLogin &#x3D; !this.isLogin;
+  onSwitchMode() {
+    this.isLoginMode &#x3D; !this.isLoginMode;
   }
 
   onSubmit(form: NgForm) {
@@ -739,111 +453,110 @@ export class SignInComponent {
     }
     const email &#x3D; form.value.email;
     const password &#x3D; form.value.password;
-    const displayName &#x3D; form.value.firstname;
-    if (this.isLogin) {
-      this.onSignIn(email, password);
+
+    let authObs: Observable&lt;AuthResponseData&gt;;
+
+    this.isLoading &#x3D; true;
+
+    if (this.isLoginMode) {
+      authObs &#x3D; this.authService.login(email, password);
     } else {
-      this.onSignUp(email, password);
+      authObs &#x3D; this.authService.signup(email, password);
     }
+
+    authObs.subscribe(
+      resData &#x3D;&gt; {
+        console.log(resData);
+        this.isLoading &#x3D; false;
+      },
+      errorMessage &#x3D;&gt; {
+        console.log(errorMessage);
+        this.error &#x3D; errorMessage;
+        this.isLoading &#x3D; false;
+      }
+    );
+
     form.reset();
   }
 }
+
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
-&lt;ion-content padding&gt;
-  &lt;form #f&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;onSubmit(f)&quot;&gt;
-    &lt;ion-grid&gt;
-      &lt;ion-row&gt;
-        &lt;ion-col size-sm&#x3D;&quot;6&quot; offset-sm&#x3D;&quot;3&quot;&gt;
-          &lt;ion-card color&#x3D;&quot;primary&quot; padding&gt;
-            &lt;ion-card-title&gt;
-              {{ isLogin ? &#x27;Sign Up&#x27; : &#x27;Sign In&#x27; }}
+&lt;ion-content class&#x3D;&quot;bg-img&quot; padding&gt;
+  &lt;ion-grid&gt;
+    &lt;ion-row &gt;
+      &lt;ion-col size-sm&#x3D;&quot;8&quot; offset-sm&#x3D;&quot;2&quot; size-md&#x3D;&quot;6&quot; offset-md&#x3D;&quot;3&quot; size-lg&#x3D;&quot;4&quot; offset-lg&#x3D;&quot;4&quot; size-xl&#x3D;&quot;4&quot; offset-xl&#x3D;&quot;4&quot;&gt;
+        &lt;form #authenticate&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;onSubmit(authenticate)&quot;&gt;
+          &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
+            &lt;ion-img src&#x3D;&quot;../../../assets/logo-md.svg&quot;&gt;&lt;/ion-img&gt;
+            
+            &lt;ion-card-title  text-center&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot;&gt;{{ this.isLoginMode ? &#x27;Sign In&#x27; : &#x27;Sign Up&#x27; }}&lt;/ion-text&gt;
             &lt;/ion-card-title&gt;
-            &lt;ion-list&gt;
-              &lt;ion-item *ngIf&#x3D;&quot;!isLogin; else login&quot;&gt;
-                &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Full Name&lt;/ion-label&gt;
-              &lt;ion-input type&#x3D;&quot;text&quot;  [(ngModel)]&#x3D;&quot;user.displayName&quot; name&#x3D;&quot;displayName&quot; inputmode&#x3D;&quot;latin-name&quot; minlength&#x3D;&quot;6&quot; required autocapitalize autocomplete autofocus #displayName&#x3D;&quot;ngModel&quot;&gt;&lt;/ion-input&gt;
-            &lt;/ion-item&gt;
-            &lt;ion-item *ngIf&#x3D;&quot;!displayName.valid &amp;&amp; displayName.touched&quot; lines&#x3D;&quot;none&quot;&gt;
-              &lt;ion-label&gt;
-                Enter Your First &amp; Last Name
-              &lt;/ion-label&gt;
-            &lt;/ion-item&gt;
-            &lt;ion-item&gt;
-              &lt;ion-label position&#x3D;&quot;floating&quot;&gt;E-Mail&lt;/ion-label&gt;
-              &lt;ion-input type&#x3D;&quot;email&quot; ngModel name&#x3D;&quot;email&quot; required email #emailCtrl&#x3D;&quot;ngModel&quot;&gt;&lt;/ion-input&gt;
-            &lt;/ion-item&gt;
-            &lt;ion-item *ngIf&#x3D;&quot;!emailCtrl.valid &amp;&amp; emailCtrl.touched&quot; lines&#x3D;&quot;none&quot;&gt;
-              &lt;ion-label&gt;
-                Should be a valid email address.
-              &lt;/ion-label&gt;
-            &lt;/ion-item&gt;
-            &lt;ion-item&gt;
-              &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Password&lt;/ion-label&gt;
-              &lt;ion-input type&#x3D;&quot;password&quot; ngModel name&#x3D;&quot;password&quot; required minlength&#x3D;&quot;6&quot; #passwordCtrl&#x3D;&quot;ngModel&quot;&gt;
-              &lt;/ion-input&gt;
-            &lt;/ion-item&gt;
-            &lt;ion-item *ngIf&#x3D;&quot;!passwordCtrl.valid &amp;&amp; passwordCtrl.touched&quot; lines&#x3D;&quot;none&quot;&gt;
-              &lt;ion-label&gt;
-                Should at least be 6 characters long.
-              &lt;/ion-label&gt;
-            &lt;/ion-item&gt;
-            
-            &lt;ng-template #login&gt;
-              &lt;ion-item&gt;
-                &lt;ion-label position&#x3D;&quot;floating&quot;&gt;E-Mail&lt;/ion-label&gt;
-                &lt;ion-input type&#x3D;&quot;email&quot; ngModel name&#x3D;&quot;email&quot; required email #emailCtrl&#x3D;&quot;ngModel&quot;&gt;&lt;/ion-input&gt;
-              &lt;/ion-item&gt;
-              &lt;ion-item *ngIf&#x3D;&quot;!emailCtrl.valid &amp;&amp; emailCtrl.touched&quot; lines&#x3D;&quot;none&quot;&gt;
-                &lt;ion-label&gt;
-                  Should be a valid email address.
-                &lt;/ion-label&gt;
-              &lt;/ion-item&gt;
-              &lt;ion-item&gt;
-                &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Password&lt;/ion-label&gt;
-                &lt;ion-input type&#x3D;&quot;password&quot; ngModel name&#x3D;&quot;password&quot; required minlength&#x3D;&quot;6&quot; #passwordCtrl&#x3D;&quot;ngModel&quot;&gt;
-                &lt;/ion-input&gt;
-              &lt;/ion-item&gt;
-              &lt;ion-item *ngIf&#x3D;&quot;!passwordCtrl.valid &amp;&amp; passwordCtrl.touched&quot; lines&#x3D;&quot;none&quot;&gt;
-                &lt;ion-label&gt;
-                  Should at least be 6 characters long.
-                &lt;/ion-label&gt;
-              &lt;/ion-item&gt;
-            &lt;/ng-template&gt;
-            
-          &lt;/ion-list&gt;
-        &lt;/ion-card&gt;
-        &lt;/ion-col&gt;
-      &lt;/ion-row&gt;
-      &lt;ion-row&gt;
-        &lt;ion-col size-sm&#x3D;&quot;6&quot; offset-sm&#x3D;&quot;3&quot;&gt;
-          &lt;ion-button type&#x3D;&quot;button&quot; color&#x3D;&quot;primary&quot; fill&#x3D;&quot;clear&quot; expand&#x3D;&quot;block&quot; (click)&#x3D;&quot;onSwitchAuthMode()&quot;&gt;
-            Switch to {{ isLogin ? &#x27;Sign Up&#x27; : &#x27;Sign In&#x27; }}
-          &lt;/ion-button&gt;
-          &lt;ion-button *ngIf&#x3D;&quot;isLogin&quot; type&#x3D;&quot;submit&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;onSignIn()&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;!f.valid&quot;&gt;
-            Sign In
-          &lt;/ion-button&gt;
-          &lt;ion-button *ngIf&#x3D;&quot;!isLogin&quot; type&#x3D;&quot;submit&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;onSignUp()&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;f.invalid&quot;&gt;
-            Sign Up
-          &lt;/ion-button&gt;
-        &lt;/ion-col&gt;
-      &lt;/ion-row&gt;
-      &lt;ion-row&gt;
-        &lt;ion-col&gt;
-          &lt;ion-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;auth.googleLogin()&quot; expand&#x3D;&quot;block&quot;&gt;
-
-          &lt;/ion-button&gt;
-        &lt;/ion-col&gt;
-      &lt;/ion-row&gt;
-    &lt;/ion-grid&gt;
-  &lt;/form&gt;
-
-  &lt;!-- &lt;div text-center&gt;
-    &lt;ion-spinner color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;isLoading&quot;&gt;&lt;/ion-spinner&gt;
-  &lt;/div&gt; --&gt;
+              &lt;ion-card *ngIf&#x3D;&quot;!isLogin&quot;&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label color&#x3D;&quot;light&quot; position&#x3D;&quot;floating&quot;&gt;Full Name&lt;/ion-label&gt;
+                  &lt;ion-input pattern&#x3D;&quot;[A-Z][a-z]*.[a-z]*\s[A-Z][a-z]*.[a-z]*&quot; clear-input ngModel minlength&#x3D;&quot;6&quot; type&#x3D;&quot;text&quot; required name&#x3D;&quot;fullname&quot; #nameCtrl&#x3D;&quot;ngModel&quot;&gt;&lt;/ion-input&gt;
+                &lt;/ion-item&gt;
+              &lt;/ion-card&gt;
+                &lt;!-- &lt;ion-label [hidden]&#x3D;&quot;isLogin&quot;  *ngIf&#x3D;&quot;nameCtrl.invalid &amp;&amp; nameCtrl.touched&quot; lines&#x3D;&quot;none&quot;&gt; 
+                  &lt;sub&gt;Enter Your First &amp; Last Name&lt;/sub&gt;
+                        &lt;/ion-label&gt; --&gt;
+              &lt;ion-card&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label color&#x3D;&quot;light&quot; position&#x3D;&quot;floating&quot;&gt;Email&lt;/ion-label&gt;
+                  &lt;ion-input [autofocus]&#x3D;&quot;isLogin&quot; type&#x3D;&quot;email&quot; ngModel clear-input email name&#x3D;&quot;emailt&quot; required #emailCtrl&#x3D;&quot;ngModel&quot;&gt;&lt;/ion-input&gt;
+                &lt;/ion-item&gt;
+              &lt;/ion-card&gt;
+                        &lt;!-- &lt;ion-label *ngIf&#x3D;&quot;emailCtrl.invalid &amp;&amp; emailCtrl.touched&quot; lines&#x3D;&quot;none&quot; text-wrap &gt;
+                          &lt;sub&gt;Enter a valid email address&lt;/sub&gt;
+                        &lt;/ion-label&gt; --&gt;
+              &lt;ion-card&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-label color&#x3D;&quot;light&quot; position&#x3D;&quot;floating&quot;&gt;Password&lt;/ion-label&gt;
+                  &lt;ion-input type&#x3D;&quot;password&quot;  name&#x3D;&quot;password&quot; required minlength&#x3D;&quot;6&quot; ngModel type&#x3D;&quot;password&quot; password #passwordCtrl&#x3D;&quot;ngModel&quot;&gt;
+                  &lt;/ion-input&gt;
+                &lt;/ion-item&gt;
+              &lt;/ion-card&gt;
+                        &lt;!-- &lt;ion-label *ngIf&#x3D;&quot;passwordCtrl.invalid &amp;&amp; passwordCtrl.touched&quot; lines&#x3D;&quot;none&quot; text-wrap&gt;
+                          &lt;sub&gt;Not secure, use 6 or more characters&lt;/sub&gt;
+                        &lt;/ion-label&gt; --&gt;
+              &lt;ion-button type&#x3D;&quot;button&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;warning&quot; fill&#x3D;&quot;clear&quot; expand&#x3D;&quot;block&quot; (click)&#x3D;&quot;onSwitchAuthMode()&quot;&gt;
+                &lt;ion-label strong color&#x3D;&quot;warning&quot;&gt; Switch to {{ this.isLogin ? &#x27;Sign Up&#x27; : &#x27;Sign In&#x27; }} &lt;/ion-label&gt;
+                &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+            &lt;ion-card-content&gt;
+              &lt;ion-button 
+                *ngIf&#x3D;&quot;this.isLogin&quot; 
+                type&#x3D;&quot;submit&quot; 
+                color&#x3D;&quot;secondary&quot; 
+                expand&#x3D;&quot;block&quot; 
+                [disabled]&#x3D;&quot;emailCtrl.invalid|| passwordCtrl.invalid&quot;&gt;
+                &lt;ion-label strong color&#x3D;&quot;primary&quot;&gt;Sign In&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+              &lt;ion-button *ngIf&#x3D;&quot;!this.isLogin&quot; type&#x3D;&quot;submit&quot; color&#x3D;&quot;secondary&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;authenticate.form.invalid&quot;&gt;
+                &lt;ion-label strong color&#x3D;&quot;primary&quot;&gt;Sign Up&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+              &lt;hr&gt;                  
+              &lt;ion-button class&#x3D;&quot;g-btn&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;auth.googleLogin()&quot; expand&#x3D;&quot;block&quot;&gt; &lt;ion-icon name&#x3D;&quot;logo-google&quot;&gt;Login&lt;/ion-icon&gt;
+                &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+              &lt;ion-button class&#x3D;&quot;t-btn&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;auth.twitterLogin()&quot; expand&#x3D;&quot;block&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-twitter&quot;&gt;Login&lt;/ion-icon&gt;
+                &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+              &lt;ion-button class&#x3D;&quot;f-btn&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;auth.facebookLogin()&quot; expand&#x3D;&quot;block&quot;&gt;&lt;ion-icon name&#x3D;&quot;logo-facebook&quot;&gt;Login&lt;/ion-icon&gt;
+                &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+                      
+            &lt;/ion-card-content&gt;
+          &lt;/ion-card&gt;
+        &lt;/form&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+&lt;/ion-grid&gt;
 &lt;/ion-content&gt;
 &lt;app-footer&gt;&lt;/app-footer&gt;
 </code></pre>
@@ -853,135 +566,138 @@ export class SignInComponent {
                 <p class="comment">
                     <code>./sign-in.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">@import url(&#x27;https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css&#x27;);
-@import url(https://fonts.googleapis.com/css?family&#x3D;Lato:400,300,700);
+                <pre class="line-numbers"><code class="language-scss">// @import url(&#x27;https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css&#x27;);
+// @import url(https://fonts.googleapis.com/css?family&#x3D;Lato:400,300,700);
 
-html {
-   height: 100%;
-}
+// html {
+//    height: 100%;
+// }
 
-body {
-/* Remember to use the other versions for IE 10 and older browsers! */
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100%;
-font-family: &#x27;lato&#x27;, sans-serif;
-color: #fff;
-background: #222222;
-background: rgb(31, 22, 42); /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, rgb(30, 22, 42) , rgb(85, 58, 115)); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, rgb(29, 22, 42) , rgb(78, 58, 115)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+// body {
+// /* Remember to use the other versions for IE 10 and older browsers! */
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// min-height: 100%;
+// font-family: &#x27;lato&#x27;, sans-serif;
+// color: #fff;
+// background: #222222;
+// background: rgb(31, 22, 42); /* fallback for old browsers */
+// background: -webkit-linear-gradient(to top, rgb(30, 22, 42) , rgb(85, 58, 115)); /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to top, rgb(29, 22, 42) , rgb(78, 58, 115)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// }
 
-.container {
-	background:rgba(64, 58, 68, 0.5);
-  border-radius: 5px;
-  box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
-  width:450px;
-  display: flex;  
-  flex-direction: column;
-}
+// .container {
+// 	background:rgba(64, 58, 68, 0.5);
+//   border-radius: 5px;
+//   box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
+//   width:450px;
+//   display: flex;  
+//   flex-direction: column;
+// }
 
-.logo{
-  font-family: &quot;museo-slab&quot;;  
-  font-size:20px;
-  text-align: center;
-  padding: 20px 20px 0;
-  margin:0;
-}
+// .logo{
+//   font-family: &quot;museo-slab&quot;;  
+//   font-size:20px;
+//   text-align: center;
+//   padding: 20px 20px 0;
+//   margin:0;
+// }
 
-.login-item {
-	color: #ffff;
-	padding:25px 25px 0;
-	margin: 20px 20px 0;	
-	border-radius: 3px;
-}
+// .login-item {
+// 	color: #ffff;
+// 	padding:25px 25px 0;
+// 	margin: 20px 20px 0;	
+// 	border-radius: 3px;
+// }
 
-input {
-  border: 0;
-  color: inherit;
-  font: inherit;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
-}
+// input {
+//   border: 0;
+//   color: inherit;
+//   font: inherit;
+//   margin: 0;
+//   outline: 0;
+//   padding: 0;
+//   -webkit-transition: background-color .3s;
+//   transition: background-color .3s;
+// }
 
-.user:before {
-  content: &#x27;\f007&#x27;;
-  font: 14px fontawesome;
-	color: #5b5b5b;
-}
+// .user:before {
+//   content: &#x27;\f007&#x27;;
+//   font: 14px fontawesome;
+// 	color: #5b5b5b;
+// }
 
-.lock:before {
-  content: &#x27;\f023&#x27;;
-  font: 14px fontawesome;
-	color: #5b5b5b;
-}
-
-.form input[type&#x3D;&quot;password&quot;], .form input[type&#x3D;&quot;text&quot;], .form input[type&#x3D;&quot;submit&quot;] {
-  width: 100%;
-}
-
-.form-login label,
-.form-login input[type&#x3D;&quot;text&quot;],
-.form-login input[type&#x3D;&quot;password&quot;],
-.form-login input[type&#x3D;&quot;submit&quot;] {
-  border-radius: 0.25rem;
-  padding: 1rem;
-  color: rgb(65, 58, 68);  
-}
-
-.form-login label {
-  background-color: #222222;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-.form-login input[type&#x3D;&quot;text&quot;], .form-login input[type&#x3D;&quot;password&quot;] {
-  background-color: #ffffff;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-}
-.form-login input[type&#x3D;&quot;text&quot;]:focus, .form-login input[type&#x3D;&quot;text&quot;]:hover, .form-login input[type&#x3D;&quot;password&quot;]:focus, .form-login input[type&#x3D;&quot;password&quot;]:hover {
-  background-color: #eeeeee;
-}
-.form-login input[type&#x3D;&quot;submit&quot;] {
-  background-color: rgb(103, 0, 188);
-  color: #eee;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.form-login input[type&#x3D;&quot;submit&quot;]:focus, .form-login input[type&#x3D;&quot;submit&quot;]:hover {
-  background-color: #491971;
-}
-.form-field {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 2rem;
-}
+// .lock:before {
+//   content: &#x27;\f023&#x27;;
+//   font: 14px fontawesome;
+// 	color: #5b5b5b;
+// }
 
 
-.hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
 
-.text--center {
-  text-align: center;
-}
+// .form-login label,
+// .form-login input[type&#x3D;&quot;text&quot;],
+// .form-login input[type&#x3D;&quot;password&quot;],
+// .form-login input[type&#x3D;&quot;submit&quot;] {
+//   border-radius: 0.25rem;
+//   padding: 1rem;
+//   color: rgb(65, 58, 68);  
+// }
+
+// .form-login label {
+//   background-color: #222222;
+//   border-bottom-right-radius: 0;
+//   border-top-right-radius: 0;
+//   padding-left: 1.25rem;
+//   padding-right: 1.25rem;
+// }
+
+// .form-login input[type&#x3D;&quot;text&quot;], .form-login input[type&#x3D;&quot;password&quot;] {
+//   background-color: #ffffff;
+//   border-bottom-left-radius: 0;
+//   border-top-left-radius: 0;
+// }
+// .form-login input[type&#x3D;&quot;text&quot;]:focus, .form-login input[type&#x3D;&quot;text&quot;]:hover, .form-login input[type&#x3D;&quot;password&quot;]:focus, .form-login input[type&#x3D;&quot;password&quot;]:hover {
+//   background-color: #eeeeee;
+// }
+// .form-login input[type&#x3D;&quot;submit&quot;] {
+//   background-color: rgb(103, 0, 188);
+//   color: #eee;
+//   font-weight: bold;
+//   text-transform: uppercase;
+// }
+// .form-login input[type&#x3D;&quot;submit&quot;]:focus, .form-login input[type&#x3D;&quot;submit&quot;]:hover {
+//   background-color: #491971;
+// }
+// .form-field {
+//   display: -webkit-box;
+//   display: -webkit-flex;
+//   display: -ms-flexbox;
+//   display: flex;
+//   margin-bottom: 2rem;
+// }
+
+
+// .hidden {
+//   border: 0;
+//   clip: rect(0 0 0 0);
+//   height: 1px;
+//   margin: -1px;
+//   overflow: hidden;
+//   padding: 0;
+//   position: absolute;
+//   width: 1px;
+// }
+
+// .ng-valid[required], .ng-valid.required  {
+//   border-left: 5px solid #42A948; /* green */
+// }
+
+// .ng-invalid:not(form)  {
+//   border-left: 5px solid #a94442; /* red */
+// }
+
 </code></pre>
     </div>
 
@@ -1010,8 +726,8 @@ input {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content padding>  <form #f="ngForm" (ngSubmit)="onSubmit(f)">    <ion-grid>      <ion-row>        <ion-col size-sm="6" offset-sm="3">          <ion-card color="primary" padding>            <ion-card-title>              {{ isLogin ? \'Sign Up\' : \'Sign In\' }}            </ion-card-title>            <ion-list>              <ion-item *ngIf="!isLogin; else login">                <ion-label position="floating">Full Name</ion-label>              <ion-input type="text"  [(ngModel)]="user.displayName" name="displayName" inputmode="latin-name" minlength="6" required autocapitalize autocomplete autofocus #displayName="ngModel"></ion-input>            </ion-item>            <ion-item *ngIf="!displayName.valid && displayName.touched" lines="none">              <ion-label>                Enter Your First & Last Name              </ion-label>            </ion-item>            <ion-item>              <ion-label position="floating">E-Mail</ion-label>              <ion-input type="email" ngModel name="email" required email #emailCtrl="ngModel"></ion-input>            </ion-item>            <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">              <ion-label>                Should be a valid email address.              </ion-label>            </ion-item>            <ion-item>              <ion-label position="floating">Password</ion-label>              <ion-input type="password" ngModel name="password" required minlength="6" #passwordCtrl="ngModel">              </ion-input>            </ion-item>            <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">              <ion-label>                Should at least be 6 characters long.              </ion-label>            </ion-item>                        <ng-template #login>              <ion-item>                <ion-label position="floating">E-Mail</ion-label>                <ion-input type="email" ngModel name="email" required email #emailCtrl="ngModel"></ion-input>              </ion-item>              <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">                <ion-label>                  Should be a valid email address.                </ion-label>              </ion-item>              <ion-item>                <ion-label position="floating">Password</ion-label>                <ion-input type="password" ngModel name="password" required minlength="6" #passwordCtrl="ngModel">                </ion-input>              </ion-item>              <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">                <ion-label>                  Should at least be 6 characters long.                </ion-label>              </ion-item>            </ng-template>                      </ion-list>        </ion-card>        </ion-col>      </ion-row>      <ion-row>        <ion-col size-sm="6" offset-sm="3">          <ion-button type="button" color="primary" fill="clear" expand="block" (click)="onSwitchAuthMode()">            Switch to {{ isLogin ? \'Sign Up\' : \'Sign In\' }}          </ion-button>          <ion-button *ngIf="isLogin" type="submit" color="primary" (click)="onSignIn()" expand="block" [disabled]="!f.valid">            Sign In          </ion-button>          <ion-button *ngIf="!isLogin" type="submit" color="primary" (click)="onSignUp()" expand="block" [disabled]="f.invalid">            Sign Up          </ion-button>        </ion-col>      </ion-row>      <ion-row>        <ion-col>          <ion-button color="primary" (click)="auth.googleLogin()" expand="block">          </ion-button>        </ion-col>      </ion-row>    </ion-grid>  </form>  <!-- <div text-center>    <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>  </div> --></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content class="bg-img" padding>  <ion-grid>    <ion-row >      <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">        <form #authenticate="ngForm" (ngSubmit)="onSubmit(authenticate)">          <ion-card color="primary">            <ion-img src="../../../assets/logo-md.svg"></ion-img>                        <ion-card-title  text-center>              <ion-text color="warning">{{ this.isLoginMode ? \'Sign In\' : \'Sign Up\' }}</ion-text>            </ion-card-title>              <ion-card *ngIf="!isLogin">                <ion-item>                  <ion-label color="light" position="floating">Full Name</ion-label>                  <ion-input pattern="[A-Z][a-z]*.[a-z]*\s[A-Z][a-z]*.[a-z]*" clear-input ngModel minlength="6" type="text" required name="fullname" #nameCtrl="ngModel"></ion-input>                </ion-item>              </ion-card>                <!-- <ion-label [hidden]="isLogin"  *ngIf="nameCtrl.invalid && nameCtrl.touched" lines="none">                   <sub>Enter Your First & Last Name</sub>                        </ion-label> -->              <ion-card>                <ion-item>                  <ion-label color="light" position="floating">Email</ion-label>                  <ion-input [autofocus]="isLogin" type="email" ngModel clear-input email name="emailt" required #emailCtrl="ngModel"></ion-input>                </ion-item>              </ion-card>                        <!-- <ion-label *ngIf="emailCtrl.invalid && emailCtrl.touched" lines="none" text-wrap >                          <sub>Enter a valid email address</sub>                        </ion-label> -->              <ion-card>                <ion-item>                  <ion-label color="light" position="floating">Password</ion-label>                  <ion-input type="password"  name="password" required minlength="6" ngModel type="password" password #passwordCtrl="ngModel">                  </ion-input>                </ion-item>              </ion-card>                        <!-- <ion-label *ngIf="passwordCtrl.invalid && passwordCtrl.touched" lines="none" text-wrap>                          <sub>Not secure, use 6 or more characters</sub>                        </ion-label> -->              <ion-button type="button" size="small" color="warning" fill="clear" expand="block" (click)="onSwitchAuthMode()">                <ion-label strong color="warning"> Switch to {{ this.isLogin ? \'Sign Up\' : \'Sign In\' }} </ion-label>                <ion-ripple-effect></ion-ripple-effect>              </ion-button>            <ion-card-content>              <ion-button                 *ngIf="this.isLogin"                 type="submit"                 color="secondary"                 expand="block"                 [disabled]="emailCtrl.invalid|| passwordCtrl.invalid">                <ion-label strong color="primary">Sign In</ion-label><ion-ripple-effect></ion-ripple-effect>              </ion-button>              <ion-button *ngIf="!this.isLogin" type="submit" color="secondary" expand="block" [disabled]="authenticate.form.invalid">                <ion-label strong color="primary">Sign Up</ion-label><ion-ripple-effect></ion-ripple-effect>              </ion-button>              <hr>                                <ion-button class="g-btn" type="button" (click)="auth.googleLogin()" expand="block"> <ion-icon name="logo-google">Login</ion-icon>                <ion-ripple-effect></ion-ripple-effect>              </ion-button>              <ion-button class="t-btn" type="button" (click)="auth.twitterLogin()" expand="block"><ion-icon name="logo-twitter">Login</ion-icon>                <ion-ripple-effect></ion-ripple-effect>              </ion-button>              <ion-button class="f-btn" type="button" (click)="auth.facebookLogin()" expand="block"><ion-icon name="logo-facebook">Login</ion-icon>                <ion-ripple-effect></ion-ripple-effect>              </ion-button>                                  </ion-card-content>          </ion-card>        </form>      </ion-col>    </ion-row></ion-grid></ion-content><app-footer></app-footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'ImagesPage', 'selector': 'app-images'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignInComponent'};
 </script>

@@ -197,7 +197,8 @@ const homeRoutes: Routes &#x3D; [
     RouterModule.forChild(homeRoutes),
     SharedModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  exports: [NgxTwitterTimelineModule]
 })
 export class HomePageModule {}
 </code></pre>

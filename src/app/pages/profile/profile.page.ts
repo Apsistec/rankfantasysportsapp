@@ -61,7 +61,7 @@ export class ProfilePage implements OnInit {
     // this.navParams.get({ 'this.issue', 'this.description', 'user.email', 'user.displayName'}).
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
@@ -83,7 +83,6 @@ export class ProfilePage implements OnInit {
         }
       })
       .then(modalEl => {
-        // tslint:disable-next-line: no-floating-promises
         modalEl.present();
         return modalEl.onDidDismiss();
       })
@@ -93,37 +92,37 @@ export class ProfilePage implements OnInit {
           console.log('BOOKED!');
         }
       })
-     .catch (err => alert(err))
-     .then(() => console.log('this will succeed'));
+      .catch(err => window.alert(err))
+      .then(() => console.log('this will succeed'));
   }
   async onCancel() {
     await this.modalCtrl.dismiss('', 'cancel')
-      .catch(err => alert(err))
+      .catch(err => window.alert(err))
       .then(() => console.log('this will succeed'));
   }
   async onSubmitRequest() {
     await this.modalCtrl.dismiss({ message: 'Request Submitted' }, 'confirm')
-      .catch(err => alert(err))
+      .catch(err => window.alert(err))
       .then(() => console.log('this will succeed'));
   }
 
-  async cancelSubscription() {
-    this.load = true;
-    await this.auth.getUser();
-    const fun = this.functions.httpsCallable('stripeCancelSubscription');
-    this.confirmation = fun({ uid: this.user.uid }).toPromise();
-    this.load = false;
-    window.alert('You have been unsubscribed. We are sorry to see you go.');
-    return this.router.navigate(['/home']);
-  }
+  // async cancelSubscription() {
+  //   this.load = true;
+  //   await this.auth.getUser();
+  //   const fun = this.functions.httpsCallable('stripeCancelSubscription');
+  //   this.confirmation = fun({ uid: this.user.uid }).toPromise();
+  //   this.load = false;
+  //   window.alert('You have been unsubscribed. We are sorry to see you go.');
+  //   return this.router.navigate(['/home']);
+  // }
 
-  async getSubscriptions() {
-    this.load = true;
-    const user = await this.auth.getUser();
-    const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.confirmation = await fun({ uid: user.uid }).toPromise();
-    this.load = false;
-  }
+  // async getSubscriptions() {
+  //   this.load = true;
+  //   const user = await this.auth.getUser();
+  //   const fun = this.functions.httpsCallable('stripeGetSubscriptions');
+  //   this.confirmation = await fun({ uid: user.uid }).toPromise();
+  //   this.load = false;
+  // }
 
   // async presentModal() {
   //   const modalEl = await this.modalController

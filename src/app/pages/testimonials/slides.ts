@@ -3,6 +3,7 @@ import { Slide } from './slide.model';
 
 
 export const Slides: Slide[] = [
+    { img: 'assets/images/16.JPG' },
     { img: 'assets/images/01.JPG' },
     { img: 'assets/images/1.jpg' },
     { img: 'assets/images/2.jpg' },
@@ -22,7 +23,6 @@ export const Slides: Slide[] = [
     { img: 'assets/images/13.JPG' },
     { img: 'assets/images/14.JPG' },
     { img: 'assets/images/15.JPG' },
-    { img: 'assets/images/16.JPG' },
     { img: 'assets/images/17.JPG' },
     { img: 'assets/images/18.JPG' },
     { img: 'assets/images/19.JPG' },

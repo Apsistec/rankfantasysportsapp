@@ -5,7 +5,7 @@
        
       </ion-back-button>
     </ion-buttons>
-    <ion-title>{{ imgTitle }}</ion-title>
+    <ion-title text-center>{{ imgTitle }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,11 +18,28 @@
     </ion-slide>
   </ion-slides>
   
-  <!-- <div class="swiper-zoom-container"><ion-img src="{{ slide.img }}" height="100vh"></ion-img></div> -->
   </ion-content>
 
-<ion-footer *ngIf="imgDescription.length">
+<ion-footer translucent *ngIf="imgDescription.length">
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary">
+      <ion-icon name="rocket"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button class="f-btn" href="https://fb.me/ranktowinfantasysports">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button class="t-btn" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button class="g-btn" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
   <ion-toolbar color="dark" text-center>
-    <ion-text color="tertiary">{{ imgDescription }}</ion-text>
-  </ion-toolbar>
+      <ion-text color="success">{{ imgDescription }}</ion-text>
+</ion-toolbar>
 </ion-footer>
+  

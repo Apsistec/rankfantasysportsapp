@@ -20,11 +20,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicStorageModule } from '@ionic/storage';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { SubscriptionPageComponent } from './components/subscription-page/subscription-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { MembershipsComponent } from './components/memberships/memberships.component';
 import { SupportModalComponent } from './components/support-modal/support-modal.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { AuthService } from './core/auth.service';
@@ -32,19 +29,24 @@ import { CheckForUpdateService } from './core/check-for-update.service';
 import { InnerGuard } from './core/guard/inner.guard';
 import { SigninGuard } from './core/guard/signin.guard';
 import { ImageModalPageModule } from './pages/image-modal/image-modal.module';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { RowDetailComponent } from './components/row-detail/row-detail.component';
+
 // import { TestimonialsPageModule } from './pages/testimonials/testimonials.module';
 
 @NgModule({
   declarations: [
-    SubscriptionPageComponent,
+    RowDetailComponent,
     AppComponent,
     LaunchPageComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    SignInComponent,
-    MembershipsComponent,
+    LoadingSpinnerComponent,
     SupportModalComponent,
-    MembershipsComponent
+    SignInComponent,
+    SignUpComponent
   ],
   entryComponents: [SupportModalComponent],
   imports: [

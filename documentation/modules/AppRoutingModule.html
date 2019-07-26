@@ -81,7 +81,7 @@ import { InnerGuard } from &#x27;./core/guard/inner.guard&#x27;;
 import { SigninGuard } from &#x27;./core/guard/signin.guard&#x27;;
 
 const appRoutes: Routes &#x3D; [
-{ path: &#x27;&#x27;, redirectTo: &#x27;home&#x27;, pathMatch: &#x27;full&#x27; },
+{ path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
 { path: &#x27;home&#x27;, loadChildren: &#x27;./pages/home/home.module#HomePageModule&#x27; },
 { path: &#x27;testimonials&#x27;, loadChildren: &#x27;./pages/testimonials/testimonials.module#TestimonialsPageModule&#x27; },
 { path: &#x27;tweeter&#x27;, loadChildren: &#x27;./pages/tweeter/tweeter.module#TweeterPageModule&#x27; },
@@ -92,6 +92,8 @@ const appRoutes: Routes &#x3D; [
 { path: &#x27;forgot-password&#x27;, component: ForgotPasswordComponent, canActivate: [InnerGuard] },
 { path: &#x27;profile&#x27;, loadChildren: &#x27;./pages/profile/profile.module#ProfilePageModule&#x27;, canActivate: [SigninGuard] },
 { path: &#x27;list&#x27;, loadChildren: &#x27;./pages/list/list.module#ListPageModule&#x27; }, // canActivate: [SigninGuard]},
+  {
+    path: &#x27;imagest&#x27;, loadChildren: &#x27;./pages/images/images.module#ImagesPageModule&#x27; }
 ];
 
 @NgModule({

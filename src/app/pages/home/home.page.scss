@@ -1,5 +1,5 @@
     .cta{
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)), url('../../../assets/img/field20.jpg');
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../../../assets/img/field20.jpg');
         background-repeat: no-repeat;
         background-size: cover;
        
@@ -11,7 +11,7 @@
         background-size: cover;
    }
     .twit{
-        background: linear-gradient(rgba(53, 20, 66, 0.815), rgba(14, 68, 70, 0.801)), url('../../../assets/img/field-diagram.png');
+        background: linear-gradient(to bottom, rgba(53, 20, 66, 0.815) 0%, rgba(14, 68, 70, 0.801) 25%), url('../../../assets/img/field-diagram.png');
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;

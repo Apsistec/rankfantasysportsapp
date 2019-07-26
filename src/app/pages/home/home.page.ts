@@ -11,7 +11,6 @@ export class HomePage implements OnInit {
 
   video: any = {
     url: 'https://www.youtube.com/embed/IlU_RBT2zE0',
-    title: 'Welcome to RF$'
   };
 
   public trustedVideoUrl: SafeResourceUrl;
@@ -21,7 +20,7 @@ export class HomePage implements OnInit {
 
   constructor(
     public domSanitizer: DomSanitizer,
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.showVid();

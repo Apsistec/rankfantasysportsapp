@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/core/auth.service';
 import { Request } from '../../core/request.model';
 import { User } from '../../core/user';
+import { NgForm } from '@angular/forms';
 
 export class SupportData {
   displayName: string;
@@ -17,12 +18,12 @@ export class SupportData {
   styleUrls: ['./support-modal.component.scss']
 })
 export class SupportModalComponent implements OnInit {
-  // Data passed in by componentProps
-  @Input() issue: string;
-  @Input() description: string;
+
   modal;
   dismissed = false;
   user: User;
+  @Output() issue: string;
+  @Output() description: string;
   constructor(
     public navParams: NavParams,
     public auth: AuthService,
@@ -37,8 +38,10 @@ export class SupportModalComponent implements OnInit {
    await this.auth.getUser();
   }
 
-  async onSubmit(ngForm) {
-
+  async onSubmit(form: NgForm) {
+    const issue = form.value.issue;
+    const description = form.value.description;
+    
   }
 
   async cancelModal() {

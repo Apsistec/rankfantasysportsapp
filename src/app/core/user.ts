@@ -1,8 +1,8 @@
-export interface User {
+export class User {
     uid: string;
     email: string;
-    photoURL?: string;
+    emailVerified: string;
     displayName?: string;
-    emailVerified: boolean;
+    photoURL?: string;
     stripeCustomerId?: string;
-   }
+}
