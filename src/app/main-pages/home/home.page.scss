@@ -1,0 +1,33 @@
+    .cta{
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../../../assets/img/field20.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+        text-align: center;
+   }
+    .testi{
+        background:url('../../../assets/img/bball-drive.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+    .twit{
+        background: linear-gradient(to bottom, rgba(53, 20, 66, 0.815) 0%, rgba(14, 68, 70, 0.801) 25%), url('../../../assets/img/field-diagram.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+   }
+    .utuub{
+        background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url('../../../assets/img/ball-court2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+
+   .pattrn{
+     background-image: url('../../../assets/img/brown_cross.svg');
+     background-repeat: no-repeat;
+     background-size: 25%;
+     background-position: right 5px top 5px; 
+   }
+  .scrollToTop{
+    display: hidden;
+ }

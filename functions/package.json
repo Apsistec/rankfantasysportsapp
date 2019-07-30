@@ -21,7 +21,7 @@
     "firebase-admin": "^8.0.0",
     "firebase-functions": "^2.3.1",
     "firebase-functions-test": "^0.1.6",
-    "firebase-tools": "^6.11.0",
+    "firebase-tools": "^6.12.0",
     "stripe": "^6.36.0"
   },
   "devDependencies": {
@@ -29,8 +29,8 @@
     "@types/stripe": "^6.26.6",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.12.0",
-    "typescript": "^3.5.1"
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
   },
   "private": true
 }

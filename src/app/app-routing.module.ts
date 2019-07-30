@@ -1,28 +1,48 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LaunchPageComponent } from './components/launch-page/launch-page.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { InnerGuard } from './core/guard/inner.guard';
+import { LaunchPageComponent } from './main-pages/launch-page/launch-page.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { MsalGuard } from './core/guard/msal.guard';
+import { MsGraphComponent } from './ms-graph/ms-graph.component';
 import { SigninGuard } from './core/guard/signin.guard';
 
 const appRoutes: Routes = [
-{ path: '', redirectTo: '/home', pathMatch: 'full' },
-{ path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
-{ path: 'testimonials', loadChildren: './pages/testimonials/testimonials.module#TestimonialsPageModule' },
-{ path: 'tweeter', loadChildren: './pages/tweeter/tweeter.module#TweeterPageModule' },
-{ path: 'launch-page', component: LaunchPageComponent },
-{ path: 'faq', loadChildren: './pages/faq/faq.module#FaqPageModule' },
-{ path: 'sign-in', component: SignInComponent, canActivate: [InnerGuard] },
-{ path: 'sign-up', component: SignUpComponent, canActivate: [InnerGuard] },
-{ path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [InnerGuard] },
-{ path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
-{ path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule', canActivate: [SigninGuard] },
-{ path: 'list', loadChildren: './pages/list/list.module#ListPageModule' }, // canActivate: [SigninGuard]},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', loadChildren: './main-pages/home/home.module#HomePageModule' },
+  { path: 'testimonials', loadChildren: './main-pages/testimonials/testimonials.module#TestimonialsPageModule' },
+  { path: 'tweets', loadChildren: './main-pages/tweets/tweets.module#TweetsPageModule' },
+  { path: 'launch-page', component: LaunchPageComponent },
+  { path: 'faq', loadChildren: './main-pages/faq/faq.module#FaqPageModule' },
+  { path: 'profile', loadChildren: './main-pages/profile/profile.module#ProfilePageModule', canActivate: [SigninGuard] },
+  { path: 'list', loadChildren: './main-pages/list/list.module#ListPageModule' }, // canActivate: [SigninGuard]},
   {
-    path: 'images', loadChildren: './pages/images/images.module#ImagesPageModule' }
+    path: 'product', component: ProductComponent, canActivate: [MsalGuard],
+    children: [
+      { path: 'detail/:id', component: ProductDetailComponent }
+    ]
+  },
+  { path: 'myProfile', component: MsGraphComponent, canActivate: [MsalGuard] },
+  {
+    path: 'settings',
+    loadChildren: './settings/settings.module#SettingsModule'
+  },
+  {
+    path: 'profile',
+    loadChildren: './profile/profile.module#ProfileModule'
+  },
+  {
+    path: 'editor',
+    loadChildren: './editor/editor.module#EditorModule'
+  },
+  {
+    path: 'article',
+    loadChildren: './article/article.module#ArticleModule'
+  },
+  {
+    path: 'forum',
+    loadChildren: './forum-home/forum-home.module#ForumHomeModule'
+  }
 ];
 
 @NgModule({

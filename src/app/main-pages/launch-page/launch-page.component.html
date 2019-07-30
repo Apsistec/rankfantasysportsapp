@@ -1,0 +1,307 @@
+<app-header></app-header>
+
+<ion-content text-center fullscreen >
+  <ion-grid>
+<!-- First Row Login -->
+    <ion-row>
+       <ion-col size-md="6" offset-md="3">
+        <ion-card color="primary">
+          <img src="../../assets/logo-md.svg">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-label text-wrap color="secondary">
+                <ion-text color="light">RF<ion-text color="secondary">$</ion-text>™</ion-text>&nbsp;Pro Subscriptions
+              </ion-label>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-card color="primary">
+          <ion-card-title>
+            <h4>
+              <ion-text color="warning">
+                Step 1:</ion-text>&nbsp;Register Your Account
+            </h4>
+          </ion-card-title>
+        <ion-card-content>
+            <ion-button color="warning" fill="outline" shape="round" expand="block"
+              *ngIf="auth.afAuth.user | async as user; else login">{{ user.displayName }} You are logged in</ion-button>
+
+<ng-template #login>
+  <ion-button color="success" routerLink="/sign-up">
+    <ion-label color="warning">
+      Register or Login
+    </ion-label>
+  </ion-button>
+</ng-template>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>s
+    </ion-row>
+
+<!-- Second Row Memberships -->
+    <!-- <app-memberships></app-memberships> -->
+<ion-row class="ion-align-items-stretch">
+  <ion-col size-md="12">
+    <ion-card padding color="primary">
+      <h4>
+        <ion-text color="warning">Step 2:</ion-text>&nbsp;Choose a Membership
+      </h4>
+      <ion-grid>
+        <ion-row>
+
+<!-- Gold Plan -->
+          <ion-col size-md="4">
+            <ion-card color="primary">
+              <ion-list>
+                <ion-list-header color="tertiary">
+                  <ion-title>
+                    <ion-text color="warning">
+                      <h2><strong>Gold</strong></h2>
+                    </ion-text>
+                  </ion-title>
+                  <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>One (1) Year Subscription</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>$90.00 Billed Annually
+                    <br>
+                    <sub>$7.50 per Month</sub></ion-label>
+                </ion-item>
+                <ion-item color="medium" lines="none">
+                  <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>
+                </ion-item>
+                <ion-button *ngIf="!isClickedGold; else gold" shape="round" strong="true"
+                  expand="block" color="success" (click)="clickedGold()">
+                  <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;
+                  <ion-label>Gold Membership</ion-label>
+                </ion-button>
+
+<ng-template #gold>
+  <ion-button shape="round" strong="true" expand="block" color="warning">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-label>Gold Membership</ion-label>
+  </ion-button>
+</ng-template>
+
+              </ion-list>
+            </ion-card>
+          </ion-col>
+          
+<!-- Silver Plan -->
+          <ion-col size-md="4">
+            <ion-card>
+              <ion-list>
+                <ion-list-header color="tertiary">
+                  <ion-title>
+                    <ion-text color="light">
+                      <h2><strong>Silver</strong></h2>
+                    </ion-text>
+                  </ion-title>
+                  <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>Six (6) Month Subscription</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>$50.00 Billed Bi-annually
+                    <br>
+                    <sub>$8.33 per Month</sub></ion-label>
+                </ion-item>
+                <ion-item color="medium" lines="none">
+                  <ion-label text-wrap color="primary"><strong>$10 Savings</strong></ion-label>
+                </ion-item>
+                <ion-button *ngIf="!isClickedSilver; else silver" shape="round" strong="true"
+                  expand="block" color="success" (click)="clickedSilver()">
+                  <ion-icon name="medal" color="light"></ion-icon>&nbsp;&nbsp;
+                  <ion-label text-wrap>Silver Membership</ion-label>
+                </ion-button>
+              </ion-list>
+
+<ng-template #silver>
+  <ion-button shape="round" strong="true" expand="block" color="warning">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-label>Silver Membership</ion-label>
+  </ion-button>
+</ng-template>
+
+            </ion-card>
+          </ion-col>
+
+<!-- Bronze Plan -->
+          <ion-col size-md="4">
+            <ion-card>
+              <ion-list>
+                <ion-list-header color="tertiary">
+                  <ion-title>
+                    <ion-text color="danger">
+                      <h2><strong>Bronze</strong></h2>
+                    </ion-text>
+                  </ion-title>
+                  <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label text-wrap>
+                    Access to all DFS data-tables
+                  </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>
+                    Videos providing DFS stats analysis
+                    <br>
+                    <sub>Catagorized by topic</sub>
+                  </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>
+                    Access to All Past and Upcoming Livestream events
+                    <br>
+                    <sub>Receive notification of upcoming events</sub>
+                  </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>
+                    Exclusive DFS chat room access
+                    <br>
+                    <sub>
+                      Get the info you need, when you need it.
+                    </sub>
+                  </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>
+                    Many other tools and resources
+                    <br>
+                    <sub>Soon to be released</sub>
+                  </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label text-wrap>One (1) Month Subscription
+                    <br>
+                    <sub>Month -to- Month</sub>
+                  </ion-label>
+                </ion-item>
+                <ion-item color="medium" lines="none">
+                  <ion-label text-wrap color="primary"><strong>$9.99 Billed Monthly</strong></ion-label>
+                </ion-item>
+                <ion-button  *ngIf="!isClickedBronze; else bronze" shape="round" strong="true"
+                  expand="block" color="success" (click)="clickedBronze()">
+                  <ion-icon name="medal" color="danger"></ion-icon>&nbsp;&nbsp;
+                  <ion-label>Bronze Membership</ion-label>
+                </ion-button>
+
+<ng-template #bronze>
+  <ion-button  shape="round" strong="true" expand="block" color="warning">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-label>Bronze Membership</ion-label>
+  </ion-button>
+</ng-template>
+
+              </ion-list>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+<!-- Third Row Payment -->
+    <!-- <subscription-page></subscription-page> -->
+<!-- Third Row Payments -->
+<ion-row>
+  <ion-col size-md="6" offset-md="3">
+    <ion-card class="payCard" color="success" *ngIf="planChosen !== false">
+      <ion-card padding color="primary">
+        <ion-card *ngIf="planId">
+          <ion-card-title>
+            
+            <ion-text text-wrap>You are purchasing:</ion-text>
+          </ion-card-title>
+          <br>
+          <ion-button shape="round" size="large" expand="block" fill="outline" color="success">
+            <ion-label color="warning">
+              {{ planId }}&nbsp;Membership 
+              <br>
+              {{ price }}
+            </ion-label> 
+          </ion-button>
+          
+          <hr>
+        </ion-card>
+              <h4>
+              <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
+            </h4>
+    <!-- <ion-spinner *ngIf="load !== false" color="secondary" name="circles"></ion-spinner> -->
+    <hr>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+       <ion-card color="success" >
+      <div #cardElement></div>
+
+         <ion-button [disabled]="loading !== false" type="submit" color="tertiary" shape="round" strong="true">
+           <ion-label color="warning">Start Subscription&nbsp;&nbsp;
+             <ion-icon slot="end" color="dark" name="jet"></ion-icon>
+            </ion-label>
+          </ion-button>
+        </ion-card>
+    </form>
+    <hr>
+    <ion-card color="primary">
+        <pre *ngIf="confirmation" style="max-width: 400px;">
+            {{ confirmation | json }}
+          </pre>
+        </ion-card>
+        <hr>
+      </ion-card>
+    </ion-card>
+  </ion-col>
+  </ion-row>
+
+
+
+<!-- Fourth Row Disclaimers -->
+      <ion-row>
+        <ion-col size-md="12">
+          <ion-card color="primary">
+            <ion-list>
+              <ion-item color="light">
+                <ion-label text-wrap>
+                  <strong>One (1) user per account.</strong>
+                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to our account, sign in with the same email address.
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label text-wrap>
+                  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  Our site and apps are served using Secure Socket Layer (SSL) encryption, and we submit secure tokenized versions of your payment information, so card numbers and other card details are never visible to Rank Fantasy Sports nor are they ever on our servers.
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label text-wrap>
+                  All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our&nbsp;
+                  <a href="https://terms.rankfantasysports.com">terms & conditions</a>.
+                </ion-label>
+              </ion-item>
+              <ion-item color="light">
+                <ion-label text-wrap>
+                  The security of your information is our priority. Please read our&nbsp;<a
+                    href="https://privacy-policy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-footer></app-footer>

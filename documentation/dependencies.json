@@ -1,0 +1,3073 @@
+[
+  {
+    "name": "AppRoutingModule",
+    "file": "src/app/app-routing.module.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forRoot(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 1793,
+        "end": 1929,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 1793,
+          "end": 1803,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 1804,
+          "end": 1929,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 1806,
+              "end": 1925,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 1806,
+                "end": 1831,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 1806,
+                  "end": 1823,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 1824,
+                  "end": 1831,
+                  "flags": 0,
+                  "escapedText": "forRoot"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 1832,
+                  "end": 1841,
+                  "flags": 0,
+                  "escapedText": "appRoutes"
+                },
+                {
+                  "pos": 1842,
+                  "end": 1924,
+                  "flags": 0,
+                  "kind": 183,
+                  "multiLine": true,
+                  "properties": [
+                    {
+                      "pos": 1844,
+                      "end": 1918,
+                      "flags": 0,
+                      "kind": 269,
+                      "name": {
+                        "pos": 1844,
+                        "end": 1899,
+                        "flags": 0,
+                        "escapedText": "preloadingStrategy"
+                      },
+                      "initializer": {
+                        "pos": 1900,
+                        "end": 1918,
+                        "flags": 0,
+                        "escapedText": "PreloadAllModules"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1930,
+        "end": 1956,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 1930,
+          "end": 1940,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 1941,
+          "end": 1956,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 1943,
+              "end": 1955,
+              "flags": 0,
+              "escapedText": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "AppModule",
+    "file": "src/app/app.module.ts",
+    "providers": [
+      {
+        "name": "AuthGuard"
+      },
+      {
+        "name": "AuthService"
+      },
+      {
+        "name": "CheckForUpdateService"
+      },
+      {
+        "name": "InnerGuard"
+      },
+      {
+        "name": "SigninGuard"
+      },
+      {
+        "name": "StatusBar"
+      },
+      {
+        "name": "SplashScreen"
+      },
+      {
+        "name": "{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "RowDetailComponent"
+      },
+      {
+        "name": "AppComponent",
+        "file": "src/app/app.component.ts",
+        "selector": "app-root",
+        "providers": [],
+        "templateUrl": [
+          "app.component.html"
+        ],
+        "styleUrls": [],
+        "__raw": [
+          {
+            "pos": 272,
+            "end": 295,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 272,
+              "end": 283,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 284,
+              "end": 295,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-root"
+            }
+          },
+          {
+            "pos": 296,
+            "end": 332,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 296,
+              "end": 310,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 311,
+              "end": 332,
+              "flags": 0,
+              "kind": 9,
+              "text": "app.component.html"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LaunchPageComponent"
+      },
+      {
+        "name": "ForgotPasswordComponent"
+      },
+      {
+        "name": "VerifyEmailComponent"
+      },
+      {
+        "name": "LoadingSpinnerComponent"
+      },
+      {
+        "name": "SupportModalComponent"
+      },
+      {
+        "name": "SignInComponent"
+      },
+      {
+        "name": "SignUpComponent"
+      }
+    ],
+    "imports": [
+      {
+        "ns": "IonicModule",
+        "name": "IonicModule.forRoot()"
+      },
+      {
+        "ns": "AngularFireModule",
+        "name": "AngularFireModule.initializeApp(args)"
+      },
+      {
+        "ns": "IonicStorageModule",
+        "name": "IonicStorageModule.forRoot()"
+      },
+      {
+        "name": "AppRoutingModule"
+      },
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "BrowserModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "SharedModule"
+      },
+      {
+        "name": "ImageModalPageModule"
+      },
+      {
+        "name": "HttpClientModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "BrowserAnimationsModule"
+      },
+      {
+        "name": "AngularFirestoreModule"
+      },
+      {
+        "name": "AngularFireMessagingModule"
+      },
+      {
+        "name": "AngularFireAuthModule"
+      },
+      {
+        "name": "AngularFireFunctionsModule"
+      },
+      {
+        "ns": "ServiceWorkerModule",
+        "name": "ServiceWorkerModule.register(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "bootstrap": [
+      {
+        "name": "AppComponent"
+      }
+    ],
+    "__raw": [
+      {
+        "pos": 2387,
+        "end": 2628,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2387,
+          "end": 2402,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 2403,
+          "end": 2628,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 2405,
+              "end": 2428,
+              "flags": 0,
+              "escapedText": "RowDetailComponent"
+            },
+            {
+              "pos": 2429,
+              "end": 2446,
+              "flags": 0,
+              "escapedText": "AppComponent"
+            },
+            {
+              "pos": 2447,
+              "end": 2471,
+              "flags": 0,
+              "escapedText": "LaunchPageComponent"
+            },
+            {
+              "pos": 2472,
+              "end": 2500,
+              "flags": 0,
+              "escapedText": "ForgotPasswordComponent"
+            },
+            {
+              "pos": 2501,
+              "end": 2526,
+              "flags": 0,
+              "escapedText": "VerifyEmailComponent"
+            },
+            {
+              "pos": 2527,
+              "end": 2555,
+              "flags": 0,
+              "escapedText": "LoadingSpinnerComponent"
+            },
+            {
+              "pos": 2556,
+              "end": 2582,
+              "flags": 0,
+              "escapedText": "SupportModalComponent"
+            },
+            {
+              "pos": 2583,
+              "end": 2603,
+              "flags": 0,
+              "escapedText": "SignInComponent"
+            },
+            {
+              "pos": 2604,
+              "end": 2624,
+              "flags": 0,
+              "escapedText": "SignUpComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 2629,
+        "end": 2672,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2629,
+          "end": 2647,
+          "flags": 0,
+          "escapedText": "entryComponents"
+        },
+        "initializer": {
+          "pos": 2648,
+          "end": 2672,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 2650,
+              "end": 2671,
+              "flags": 0,
+              "escapedText": "SupportModalComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 2673,
+        "end": 3252,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2673,
+          "end": 2683,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 2684,
+          "end": 3252,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 2686,
+              "end": 2743,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 2686,
+                "end": 2741,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 2686,
+                  "end": 2733,
+                  "flags": 0,
+                  "escapedText": "IonicModule"
+                },
+                "name": {
+                  "pos": 2734,
+                  "end": 2741,
+                  "flags": 0,
+                  "escapedText": "forRoot"
+                }
+              },
+              "arguments": []
+            },
+            {
+              "pos": 2744,
+              "end": 2808,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 2744,
+                "end": 2780,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 2744,
+                  "end": 2766,
+                  "flags": 0,
+                  "escapedText": "AngularFireModule"
+                },
+                "name": {
+                  "pos": 2767,
+                  "end": 2780,
+                  "flags": 0,
+                  "escapedText": "initializeApp"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 2781,
+                  "end": 2807,
+                  "flags": 0,
+                  "kind": 184,
+                  "expression": {
+                    "pos": 2781,
+                    "end": 2792,
+                    "flags": 0,
+                    "escapedText": "environment"
+                  },
+                  "name": {
+                    "pos": 2793,
+                    "end": 2807,
+                    "flags": 0,
+                    "escapedText": "firebaseConfig"
+                  }
+                }
+              ]
+            },
+            {
+              "pos": 2809,
+              "end": 2842,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 2809,
+                "end": 2840,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 2809,
+                  "end": 2832,
+                  "flags": 0,
+                  "escapedText": "IonicStorageModule"
+                },
+                "name": {
+                  "pos": 2833,
+                  "end": 2840,
+                  "flags": 0,
+                  "escapedText": "forRoot"
+                }
+              },
+              "arguments": []
+            },
+            {
+              "pos": 2843,
+              "end": 2864,
+              "flags": 0,
+              "escapedText": "AppRoutingModule"
+            },
+            {
+              "pos": 2865,
+              "end": 2882,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 2883,
+              "end": 2901,
+              "flags": 0,
+              "escapedText": "BrowserModule"
+            },
+            {
+              "pos": 2902,
+              "end": 2918,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 2919,
+              "end": 2936,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            },
+            {
+              "pos": 2937,
+              "end": 2962,
+              "flags": 0,
+              "escapedText": "ImageModalPageModule"
+            },
+            {
+              "pos": 2963,
+              "end": 2984,
+              "flags": 0,
+              "escapedText": "HttpClientModule"
+            },
+            {
+              "pos": 2985,
+              "end": 3001,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 3002,
+              "end": 3030,
+              "flags": 0,
+              "escapedText": "BrowserAnimationsModule"
+            },
+            {
+              "pos": 3031,
+              "end": 3058,
+              "flags": 0,
+              "escapedText": "AngularFirestoreModule"
+            },
+            {
+              "pos": 3059,
+              "end": 3090,
+              "flags": 0,
+              "escapedText": "AngularFireMessagingModule"
+            },
+            {
+              "pos": 3091,
+              "end": 3117,
+              "flags": 0,
+              "escapedText": "AngularFireAuthModule"
+            },
+            {
+              "pos": 3118,
+              "end": 3149,
+              "flags": 0,
+              "escapedText": "AngularFireFunctionsModule"
+            },
+            {
+              "pos": 3150,
+              "end": 3248,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 3150,
+                "end": 3183,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 3150,
+                  "end": 3174,
+                  "flags": 0,
+                  "escapedText": "ServiceWorkerModule"
+                },
+                "name": {
+                  "pos": 3175,
+                  "end": 3183,
+                  "flags": 0,
+                  "escapedText": "register"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 3184,
+                  "end": 3200,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "ngsw-worker.js"
+                },
+                {
+                  "pos": 3201,
+                  "end": 3247,
+                  "flags": 0,
+                  "kind": 183,
+                  "multiLine": true,
+                  "properties": [
+                    {
+                      "pos": 3203,
+                      "end": 3241,
+                      "flags": 0,
+                      "kind": 269,
+                      "name": {
+                        "pos": 3203,
+                        "end": 3217,
+                        "flags": 0,
+                        "escapedText": "enabled"
+                      },
+                      "initializer": {
+                        "pos": 3218,
+                        "end": 3241,
+                        "flags": 0,
+                        "kind": 184,
+                        "expression": {
+                          "pos": 3218,
+                          "end": 3230,
+                          "flags": 0,
+                          "escapedText": "environment"
+                        },
+                        "name": {
+                          "pos": 3231,
+                          "end": 3241,
+                          "flags": 0,
+                          "escapedText": "production"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 3253,
+        "end": 3463,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 3253,
+          "end": 3265,
+          "flags": 0,
+          "escapedText": "providers"
+        },
+        "initializer": {
+          "pos": 3266,
+          "end": 3463,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 3268,
+              "end": 3282,
+              "flags": 0,
+              "escapedText": "AuthGuard"
+            },
+            {
+              "pos": 3283,
+              "end": 3299,
+              "flags": 0,
+              "escapedText": "AuthService"
+            },
+            {
+              "pos": 3300,
+              "end": 3326,
+              "flags": 0,
+              "escapedText": "CheckForUpdateService"
+            },
+            {
+              "pos": 3327,
+              "end": 3342,
+              "flags": 0,
+              "escapedText": "InnerGuard"
+            },
+            {
+              "pos": 3343,
+              "end": 3359,
+              "flags": 0,
+              "escapedText": "SigninGuard"
+            },
+            {
+              "pos": 3360,
+              "end": 3374,
+              "flags": 0,
+              "escapedText": "StatusBar"
+            },
+            {
+              "pos": 3375,
+              "end": 3392,
+              "flags": 0,
+              "escapedText": "SplashScreen"
+            },
+            {
+              "pos": 3393,
+              "end": 3459,
+              "flags": 0,
+              "kind": 183,
+              "properties": [
+                {
+                  "pos": 3399,
+                  "end": 3427,
+                  "flags": 0,
+                  "kind": 269,
+                  "name": {
+                    "pos": 3399,
+                    "end": 3407,
+                    "flags": 0,
+                    "escapedText": "provide"
+                  },
+                  "initializer": {
+                    "pos": 3408,
+                    "end": 3427,
+                    "flags": 0,
+                    "escapedText": "RouteReuseStrategy"
+                  }
+                },
+                {
+                  "pos": 3428,
+                  "end": 3457,
+                  "flags": 0,
+                  "kind": 269,
+                  "name": {
+                    "pos": 3428,
+                    "end": 3437,
+                    "flags": 0,
+                    "escapedText": "useClass"
+                  },
+                  "initializer": {
+                    "pos": 3438,
+                    "end": 3457,
+                    "flags": 0,
+                    "escapedText": "IonicRouteStrategy"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 3464,
+        "end": 3499,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 3464,
+          "end": 3474,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 3475,
+          "end": 3499,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 3477,
+              "end": 3494,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 3500,
+        "end": 3528,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 3500,
+          "end": 3512,
+          "flags": 0,
+          "escapedText": "bootstrap"
+        },
+        "initializer": {
+          "pos": 3513,
+          "end": 3528,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 3515,
+              "end": 3527,
+              "flags": 0,
+              "escapedText": "AppComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "FaqPageModule",
+    "file": "pages/faq/faq.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "FaqPage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "SharedModule"
+      },
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 423,
+        "end": 544,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 423,
+          "end": 433,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 434,
+          "end": 544,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 436,
+              "end": 453,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            },
+            {
+              "pos": 454,
+              "end": 471,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 472,
+              "end": 488,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 489,
+              "end": 505,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 506,
+              "end": 540,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 506,
+                "end": 532,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 506,
+                  "end": 523,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 524,
+                  "end": 532,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 533,
+                  "end": 539,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 545,
+        "end": 571,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 545,
+          "end": 560,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 561,
+          "end": 571,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 563,
+              "end": 570,
+              "flags": 0,
+              "escapedText": "FaqPage"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "HomePageModule",
+    "file": "pages/home/home.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "HomePage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "NgxTwitterTimelineModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      },
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "NgxTwitterTimelineModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 656,
+        "end": 867,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 656,
+          "end": 666,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 667,
+          "end": 867,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 669,
+              "end": 742,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 743,
+              "end": 759,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 760,
+              "end": 789,
+              "flags": 0,
+              "escapedText": "NgxTwitterTimelineModule"
+            },
+            {
+              "pos": 790,
+              "end": 806,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 807,
+              "end": 845,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 807,
+                "end": 833,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 807,
+                  "end": 824,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 825,
+                  "end": 833,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 834,
+                  "end": 844,
+                  "flags": 0,
+                  "escapedText": "homeRoutes"
+                }
+              ]
+            },
+            {
+              "pos": 846,
+              "end": 863,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 868,
+        "end": 895,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 868,
+          "end": 883,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 884,
+          "end": 895,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 886,
+              "end": 894,
+              "flags": 0,
+              "escapedText": "HomePage"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 896,
+        "end": 934,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 896,
+          "end": 906,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 907,
+          "end": 934,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 909,
+              "end": 933,
+              "flags": 0,
+              "escapedText": "NgxTwitterTimelineModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ImageModalPageModule",
+    "file": "pages/image-modal/image-modal.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "ImageModalPage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 386,
+        "end": 489,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 386,
+          "end": 396,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 397,
+          "end": 489,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 399,
+              "end": 416,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 417,
+              "end": 433,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 434,
+              "end": 450,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 451,
+              "end": 485,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 451,
+                "end": 477,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 451,
+                  "end": 468,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 469,
+                  "end": 477,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 478,
+                  "end": 484,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 490,
+        "end": 523,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 490,
+          "end": 505,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 506,
+          "end": 523,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 508,
+              "end": 522,
+              "flags": 0,
+              "escapedText": "ImageModalPage"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ImagesPageModule",
+    "file": "pages/images/images.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "ImagesPage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 373,
+        "end": 476,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 373,
+          "end": 383,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 384,
+          "end": 476,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 386,
+              "end": 403,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 404,
+              "end": 420,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 421,
+              "end": 437,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 438,
+              "end": 472,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 438,
+                "end": 464,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 438,
+                  "end": 455,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 456,
+                  "end": 464,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 465,
+                  "end": 471,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 477,
+        "end": 506,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 477,
+          "end": 492,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 493,
+          "end": 506,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 495,
+              "end": 505,
+              "flags": 0,
+              "escapedText": "ImagesPage"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ListPageModule",
+    "file": "pages/list/list.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "ListPage"
+      },
+      {
+        "name": "Table1Component",
+        "file": "tables/table1/table1.component.ts",
+        "selector": "app-table1",
+        "providers": [],
+        "templateUrl": [
+          "table1.component.html"
+        ],
+        "styleUrls": [
+          "table1.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 88,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 63,
+              "end": 74,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 75,
+              "end": 88,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table1"
+            }
+          },
+          {
+            "pos": 89,
+            "end": 130,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 89,
+              "end": 103,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 104,
+              "end": 130,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table1.component.html"
+            }
+          },
+          {
+            "pos": 131,
+            "end": 172,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 131,
+              "end": 143,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 144,
+              "end": 172,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 146,
+                  "end": 171,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table1.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table2Component",
+        "file": "tables/table2/table2.component.ts",
+        "selector": "app-table2",
+        "providers": [],
+        "templateUrl": [
+          "table2.component.html"
+        ],
+        "styleUrls": [
+          "table2.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 63,
+            "end": 88,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 63,
+              "end": 74,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 75,
+              "end": 88,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table2"
+            }
+          },
+          {
+            "pos": 89,
+            "end": 130,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 89,
+              "end": 103,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 104,
+              "end": 130,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table2.component.html"
+            }
+          },
+          {
+            "pos": 131,
+            "end": 172,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 131,
+              "end": 143,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 144,
+              "end": 172,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 146,
+                  "end": 171,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table2.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table3Component",
+        "file": "tables/table3/table3.component.ts",
+        "selector": "app-table3",
+        "providers": [],
+        "templateUrl": [
+          "table3.component.html"
+        ],
+        "styleUrls": [
+          "table3.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table3"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table3.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table3.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table4Component",
+        "file": "tables/table4/table4.component.ts",
+        "selector": "app-table4",
+        "providers": [],
+        "templateUrl": [
+          "table4.component.html"
+        ],
+        "styleUrls": [
+          "table4.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table4"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table4.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table4.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table5Component",
+        "file": "tables/table5/table5.component.ts",
+        "selector": "app-table5",
+        "providers": [],
+        "templateUrl": [
+          "table5.component.html"
+        ],
+        "styleUrls": [
+          "table5.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table5"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table5.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table5.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table6Component",
+        "file": "tables/table6/table6.component.ts",
+        "selector": "app-table6",
+        "providers": [],
+        "templateUrl": [
+          "table6.component.html"
+        ],
+        "styleUrls": [
+          "table6.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table6"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table6.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table6.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table7Component",
+        "file": "tables/table7/table7.component.ts",
+        "selector": "app-table7",
+        "providers": [],
+        "templateUrl": [
+          "table7.component.html"
+        ],
+        "styleUrls": [
+          "table7.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table7"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table7.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table7.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table8Component",
+        "file": "tables/table8/table8.component.ts",
+        "selector": "app-table8",
+        "providers": [],
+        "templateUrl": [
+          "table8.component.html"
+        ],
+        "styleUrls": [
+          "table8.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table8"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table8.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table8.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Table9Component",
+        "file": "tables/table9/table9.component.ts",
+        "selector": "app-table9",
+        "providers": [],
+        "templateUrl": [
+          "table9.component.html"
+        ],
+        "styleUrls": [
+          "table9.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-table9"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./table9.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./table9.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      },
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 2003,
+        "end": 2124,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2003,
+          "end": 2013,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 2014,
+          "end": 2124,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 2016,
+              "end": 2033,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 2034,
+              "end": 2050,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 2051,
+              "end": 2067,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 2068,
+              "end": 2102,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 2068,
+                "end": 2094,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 2068,
+                  "end": 2085,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 2086,
+                  "end": 2094,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 2095,
+                  "end": 2101,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            },
+            {
+              "pos": 2103,
+              "end": 2120,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 2125,
+        "end": 2350,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2125,
+          "end": 2140,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 2141,
+          "end": 2350,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 2143,
+              "end": 2156,
+              "flags": 0,
+              "escapedText": "ListPage"
+            },
+            {
+              "pos": 2157,
+              "end": 2177,
+              "flags": 0,
+              "escapedText": "Table1Component"
+            },
+            {
+              "pos": 2178,
+              "end": 2198,
+              "flags": 0,
+              "escapedText": "Table2Component"
+            },
+            {
+              "pos": 2199,
+              "end": 2219,
+              "flags": 0,
+              "escapedText": "Table3Component"
+            },
+            {
+              "pos": 2220,
+              "end": 2240,
+              "flags": 0,
+              "escapedText": "Table4Component"
+            },
+            {
+              "pos": 2241,
+              "end": 2261,
+              "flags": 0,
+              "escapedText": "Table5Component"
+            },
+            {
+              "pos": 2262,
+              "end": 2282,
+              "flags": 0,
+              "escapedText": "Table6Component"
+            },
+            {
+              "pos": 2283,
+              "end": 2303,
+              "flags": 0,
+              "escapedText": "Table7Component"
+            },
+            {
+              "pos": 2304,
+              "end": 2324,
+              "flags": 0,
+              "escapedText": "Table8Component"
+            },
+            {
+              "pos": 2325,
+              "end": 2345,
+              "flags": 0,
+              "escapedText": "Table9Component"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 2351,
+        "end": 2367,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2351,
+          "end": 2363,
+          "flags": 0,
+          "escapedText": "providers"
+        },
+        "initializer": {
+          "pos": 2364,
+          "end": 2367,
+          "flags": 0,
+          "kind": 182,
+          "elements": []
+        }
+      },
+      {
+        "pos": 2368,
+        "end": 2617,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 2368,
+          "end": 2378,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 2379,
+          "end": 2617,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": []
+        }
+      }
+    ]
+  },
+  {
+    "name": "ProfilePageModule",
+    "file": "pages/profile/profile.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "ProfilePage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "SharedModule"
+      },
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 450,
+        "end": 578,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 450,
+          "end": 461,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 462,
+          "end": 578,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 464,
+              "end": 482,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            },
+            {
+              "pos": 483,
+              "end": 501,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 502,
+              "end": 519,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 520,
+              "end": 537,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 538,
+              "end": 573,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 538,
+                "end": 565,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 538,
+                  "end": 556,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 557,
+                  "end": 565,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 566,
+                  "end": 572,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 579,
+        "end": 610,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 579,
+          "end": 595,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 596,
+          "end": 610,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 598,
+              "end": 609,
+              "flags": 0,
+              "escapedText": "ProfilePage"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "TestimonialsPageModule",
+    "file": "pages/testimonials/testimonials.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "TestimonialsPage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      },
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 455,
+        "end": 581,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 455,
+          "end": 465,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 466,
+          "end": 581,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 468,
+              "end": 485,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 486,
+              "end": 502,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 503,
+              "end": 519,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 520,
+              "end": 559,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 520,
+                "end": 546,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 520,
+                  "end": 537,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 538,
+                  "end": 546,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 547,
+                  "end": 558,
+                  "flags": 0,
+                  "escapedText": "testiRoutes"
+                }
+              ]
+            },
+            {
+              "pos": 560,
+              "end": 577,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 582,
+        "end": 617,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 582,
+          "end": 597,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 598,
+          "end": 617,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 600,
+              "end": 616,
+              "flags": 0,
+              "escapedText": "TestimonialsPage"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 618,
+        "end": 640,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 618,
+          "end": 636,
+          "flags": 0,
+          "escapedText": "entryComponents"
+        },
+        "initializer": {
+          "pos": 637,
+          "end": 640,
+          "flags": 0,
+          "kind": 182,
+          "elements": []
+        }
+      }
+    ]
+  },
+  {
+    "name": "TweeterPageModule",
+    "file": "pages/tweeter/tweeter.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "TweeterPage"
+      }
+    ],
+    "imports": [
+      {
+        "name": "NgxTwitterTimelineModule"
+      },
+      {
+        "name": "SharedModule"
+      },
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forChild(args)"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 516,
+        "end": 675,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 516,
+          "end": 527,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 528,
+          "end": 675,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 530,
+              "end": 560,
+              "flags": 0,
+              "escapedText": "NgxTwitterTimelineModule"
+            },
+            {
+              "pos": 561,
+              "end": 579,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            },
+            {
+              "pos": 580,
+              "end": 598,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 599,
+              "end": 616,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 617,
+              "end": 634,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 635,
+              "end": 670,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 635,
+                "end": 662,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 635,
+                  "end": 653,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 654,
+                  "end": 662,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 663,
+                  "end": 669,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 676,
+        "end": 707,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 676,
+          "end": 692,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 693,
+          "end": 707,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 695,
+              "end": 706,
+              "flags": 0,
+              "escapedText": "TweeterPage"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "SharedModule",
+    "file": "app/shared/shared.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "HeaderComponent",
+        "file": "shared/header/header.component.ts",
+        "selector": "app-header",
+        "providers": [],
+        "templateUrl": [
+          "header.component.html"
+        ],
+        "styleUrls": [
+          "header.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 159,
+            "end": 184,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 159,
+              "end": 170,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 171,
+              "end": 184,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-header"
+            }
+          },
+          {
+            "pos": 185,
+            "end": 226,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 185,
+              "end": 199,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 200,
+              "end": 226,
+              "flags": 0,
+              "kind": 9,
+              "text": "./header.component.html"
+            }
+          },
+          {
+            "pos": 227,
+            "end": 268,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 227,
+              "end": 239,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 240,
+              "end": 268,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 242,
+                  "end": 267,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./header.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FooterComponent",
+        "file": "shared/footer/footer.component.ts",
+        "selector": "app-footer",
+        "providers": [],
+        "templateUrl": [
+          "footer.component.html"
+        ],
+        "styleUrls": [
+          "footer.component.scss"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 89,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 89,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-footer"
+            }
+          },
+          {
+            "pos": 90,
+            "end": 131,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 90,
+              "end": 104,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 105,
+              "end": 131,
+              "flags": 0,
+              "kind": 9,
+              "text": "./footer.component.html"
+            }
+          },
+          {
+            "pos": 132,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 132,
+              "end": 144,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 145,
+              "end": 173,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 147,
+                  "end": 172,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./footer.component.scss"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "IonicModule"
+      },
+      {
+        "name": "FormsModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "HeaderComponent"
+      },
+      {
+        "name": "FooterComponent"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 472,
+        "end": 583,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 472,
+          "end": 487,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 488,
+          "end": 583,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 490,
+              "end": 510,
+              "flags": 0,
+              "escapedText": "HeaderComponent"
+            },
+            {
+              "pos": 511,
+              "end": 531,
+              "flags": 0,
+              "escapedText": "FooterComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 584,
+        "end": 606,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 584,
+          "end": 602,
+          "flags": 0,
+          "escapedText": "entryComponents"
+        },
+        "initializer": {
+          "pos": 603,
+          "end": 606,
+          "flags": 0,
+          "kind": 182,
+          "elements": []
+        }
+      },
+      {
+        "pos": 607,
+        "end": 659,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 607,
+          "end": 617,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 618,
+          "end": 659,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 620,
+              "end": 632,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 633,
+              "end": 645,
+              "flags": 0,
+              "escapedText": "IonicModule"
+            },
+            {
+              "pos": 646,
+              "end": 658,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 660,
+        "end": 718,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 660,
+          "end": 670,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 671,
+          "end": 718,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 673,
+              "end": 693,
+              "flags": 0,
+              "escapedText": "HeaderComponent"
+            },
+            {
+              "pos": 694,
+              "end": 714,
+              "flags": 0,
+              "escapedText": "FooterComponent"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

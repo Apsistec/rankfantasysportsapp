@@ -71,41 +71,6 @@ pre {
   text-align: left;
 }
 
-.iconify{
-  --color: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgba(109,0,25,1)));
-}
-
 a:hover {
  cursor:pointer;
 }
-// @mixin fluster-linear-gradient($direction, $color-left, $color-right) {
-//     background: $color-right;
-//     background: -webkit-linear-gradient($direction, $color-left, $color-right);
-//     background: -moz-linear-gradient($direction, $color-left, $color-right);
-//     background: -o-linear-gradient($direction, $color-left, $color-right);
-//     background: linear-gradient($direction, $color-left, $color-right);
-// }
-
-// @mixin fluster-linear-gradient-variable($direction, $color-left, $color-right) {
-//     --background: #{$color-right};
-//     --background: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-// }
-
-// @mixin fluster-linear-gradient-variable-activated($direction, $color-left, $color-right) {
-//     --background-activated: #{$color-right};
-//     --background-activated: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background-activated: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background-activated: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background-activated: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-// }
-
-// @mixin fluster-linear-gradient-variable-checked($direction, $color-left, $color-right) {
-//     --background-checked: #{$color-right};
-//     --background-checked: -webkit-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background-checked: -moz-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background-checked: -o-linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-//     --background-checked: linear-gradient(#{$direction}, #{$color-left}, #{$color-right});
-// }

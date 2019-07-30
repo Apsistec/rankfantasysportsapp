@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Back" type="button" color="warning" slot="start"
+        icon="arrow-round-back">
+      </ion-back-button>
+    </ion-buttons>
+      <ion-text color="light" text-wrap>
+Recent RF<ion-text color="secondary">$</ion-text> tweets</ion-text>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  [scrollEvents]="true"
+  fullscreen
+>
+  <ion-card padding color="primary">
+    <div class="twitter-container">
+      <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+        [opts]="{chrome: ['nofooter', 'noheader', 'noscrollbar'], theme: 'dark', tweetLimit: '20', borderColor: '#02ed25', ariaPolite: 'assertive'}">
+      </ngx-twitter-timeline>
+    </div>
+  </ion-card>
+    <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+      <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>
+<app-footer></app-footer>
