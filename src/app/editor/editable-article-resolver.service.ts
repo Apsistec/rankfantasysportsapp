@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from '../core/models/user';
 import { Article, ArticlesService } from '../core';
 import { AuthService } from '../core/services/auth.service';
-import { catchError ,  map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class EditableArticleResolver implements Resolve<Article> {
@@ -12,7 +12,7 @@ export class EditableArticleResolver implements Resolve<Article> {
   constructor(
     private articlesService: ArticlesService,
     private router: Router,
-    private authService: AuthService
+    public authService: AuthService
   ) { }
 
   resolve(

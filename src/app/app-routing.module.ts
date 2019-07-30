@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'tweets', loadChildren: './main-pages/tweets/tweets.module#TweetsPageModule' },
   { path: 'launch-page', component: LaunchPageComponent },
   { path: 'faq', loadChildren: './main-pages/faq/faq.module#FaqPageModule' },
-  { path: 'profile', loadChildren: './main-pages/profile/profile.module#ProfilePageModule', canActivate: [SigninGuard] },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },  //  canActivate: [SigninGuard]
   { path: 'list', loadChildren: './main-pages/list/list.module#ListPageModule' }, // canActivate: [SigninGuard]},
   {
     path: 'product', component: ProductComponent, canActivate: [MsalGuard],

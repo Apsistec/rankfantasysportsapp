@@ -16,7 +16,7 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private fb: FormBuilder
   ) {
     // create form group using the form builder
@@ -50,13 +50,13 @@ export class SettingsComponent implements OnInit {
     this.updateUser(this.settingsForm.value);
 
     this.authService.afAuth.user
-    .subscribe(
-      updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.displayName),
-      err => {
-        this.errors = err;
-        this.isSubmitting = false;
-      }
-    );
+      .subscribe(
+        updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.displayName),
+        err => {
+          this.errors = err;
+          this.isSubmitting = false;
+        }
+      );
   }
 
   updateUser(values: Object) {

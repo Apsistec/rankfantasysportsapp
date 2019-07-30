@@ -11,8 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class ArticleCommentComponent implements OnInit, OnDestroy {
   constructor(
-    private authService: AuthService
-  ) {}
+    public authService: AuthService
+  ) { }
 
   private subscription: Subscription;
 

@@ -9,15 +9,15 @@
 // export class ForumHomeAuthResolver implements Resolve<boolean> {
 //   constructor(
 //     private router: Router,
-//     private authService: AuthService
+//     public authService: AuthService
 //   ) {}
 
 //   resolve(
 //     route: ActivatedRouteSnapshot,
 //     state: RouterStateSnapshot
-//   ): boolean {
+//   ): Observable <boolean> {
 
-//     this.authService.isLoggedIn();
+//     this.authService.afAuth.user;
 
 //   }
 // }

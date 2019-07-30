@@ -8,7 +8,7 @@ import { ForumUser } from '../../core/models/forum-user.model';
 })
 export class ForumHeaderComponent implements OnInit {
   constructor(
-    private authService: AuthService
+    public authService: AuthService
   ) {}
 
   currentUser: ForumUser;

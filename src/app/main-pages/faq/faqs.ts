@@ -28,7 +28,7 @@ export const Faqs: FAQ[] = [
     { info: 'For one, their reports provide concise, easily usable time saving information.' },
     { info: 'Also, RF$ delivers their data services to subscribers using the latest cutting edge software' },
     { info: 'I’m sure you agree, Daily Fantasy Sports (DFS) enhances the enjoyment of watching and keeping track of the games in each sport all season long' },
-    { info: 'At RF<ion-text color="secondary">$</ion-text>, we win when you win, and we make winning easy by providing you with time saving analysis tools for choosing your lineups.' },
+    { info: 'At RF$, we win when you win, and we make winning easy by providing you with time saving analysis tools for choosing your lineups.' },
     // tslint:disable-next-line: max-line-length
     { info: 'The Tennis, Golf & Football reports provided by the data analysts at  Rank Fantasy $ports (RF$) are rapidly becoming some of the most sought after Daily Fantasy Sports (DFS) supplemental resources to hit the market. Why is that?' },
     { info: 'For one, their reports provide concise, easily usable time saving information.' },

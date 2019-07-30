@@ -22,6 +22,9 @@ import { MsGraphComponent } from './ms-graph/ms-graph.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { LaunchPageComponent } from './main-pages/launch-page/launch-page.component';
+import { ArticleResolver } from './article/article-resolver.service';
+import { EditableArticleResolver } from './editor/editable-article-resolver.service';
+import { ProfileResolver } from './profile/profile-resolver.service';
 
 export function loggerCallback(logLevel, message, piiEnabled) {
   console.log('client logging' + message);
@@ -61,7 +64,10 @@ export const protectedResourceMap: [string, string[]][] = [
     AuthModule,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ArticleResolver,
+    EditableArticleResolver,
+    ProfileResolver
   ],
   exports: [
     SharedModule,
