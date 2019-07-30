@@ -4,8 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { NoAuthGuard } from './no-auth-guard.service';
 import { SharedModule } from '../shared';
 import { AuthRoutingModule } from './auth-routing.module';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './login/login.component';
+import { SignUpComponent } from './register/register.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
@@ -25,4 +25,4 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     NoAuthGuard
   ]
 })
-export class AuthModule {}
+export class AuthModule { }

@@ -29,7 +29,7 @@ export class FollowButtonComponent {
       (authenticated) => {
         // Not authenticated? Push to login screen
         if (!authenticated) {
-          this.router.navigateByUrl('/signin');
+          this.router.navigateByUrl('/login');
           return of(null);
         }
 

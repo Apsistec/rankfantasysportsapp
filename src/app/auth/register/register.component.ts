@@ -5,12 +5,12 @@ import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
 
-export class SignUpComponent {
+export class RegisterComponent {
 
   isLoading = false;
   isLogin = true;
@@ -23,15 +23,15 @@ export class SignUpComponent {
   ) { }
 
   async onSubmit(form: NgForm) {
-    const loadingEl = await this.loadingCtrl.create({ keyboardClose: true, message: 'Signing Up...' });
+    const loadingEl = await this.loadingCtrl.create({ keyboardClose: true, message: 'Registering...' });
     const email = form.value.email;
     const password = form.value.password;
     loadingEl.present();
-    await this.auth.SignUp(email, password);
+    await this.auth.Register(email, password);
     loadingEl.dismiss()
       .catch((error) => {
-        const signupErrors = this.error.message;
-        return window.alert(signupErrors);
+        const registerErrors = this.error.message;
+        return window.alert(registerErrors);
       });
     return form.reset();
   }

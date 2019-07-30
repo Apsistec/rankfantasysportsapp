@@ -3,19 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { NoAuthGuard } from './no-auth-guard.service';
 import { InnerGuard } from '../core/guard/inner.guard';
 
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: SignInComponent,
+    component: LoginComponent,
     canActivate: [NoAuthGuard]
   },
   {
     path: 'register',
-    component: SignUpComponent,
+    component: RegisterComponent,
     canActivate: [NoAuthGuard]
   },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [InnerGuard] },
@@ -26,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule {}
+export class AuthRoutingModule { }

@@ -28,7 +28,7 @@
               *ngIf="auth.afAuth.user | async as user; else login">{{ user.displayName }} You are logged in</ion-button>
 
 <ng-template #login>
-  <ion-button color="success" routerLink="/sign-up">
+  <ion-button color="success" routerLink="/register">
     <ion-label color="warning">
       Register or Login
     </ion-label>

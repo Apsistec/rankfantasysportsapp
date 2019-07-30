@@ -41,7 +41,7 @@ export class ForumHomeComponent implements OnInit {
   setListTo(type: string = '', filters: Object = {}) {
     // If feed is requested but user is not authenticated, redirect to login
     if (type === 'feed' && !this.isAuthenticated) {
-      this.router.navigateByUrl('/signin');
+      this.router.navigateByUrl('/login');
       return;
     }
 

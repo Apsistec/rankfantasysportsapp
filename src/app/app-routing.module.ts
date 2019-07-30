@@ -5,7 +5,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { MsalGuard } from './core/guard/msal.guard';
 import { MsGraphComponent } from './ms-graph/ms-graph.component';
-import { SigninGuard } from './core/guard/signin.guard';
+import { SigninGuard } from './core/guard/login.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

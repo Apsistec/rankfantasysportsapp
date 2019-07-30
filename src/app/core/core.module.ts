@@ -4,7 +4,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
 import { InnerGuard, } from './guard/inner.guard';
 import { MsalGuard } from './guard/msal.guard';
-import { SigninGuard } from './guard/signin.guard';
+import { SigninGuard } from './guard/login.guard';
 import { AuthGuard } from './guard/auth.guard';
 import {
   ApiService,

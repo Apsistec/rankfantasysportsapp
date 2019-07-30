@@ -4,22 +4,14 @@
     <ion-row >
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <ion-card color="primary">
-          <ion-img src="../../../assets/logo-md.svg"></ion-img> 
-          <ion-card-content>
+          <ion-img src="../../../assets/logo-md.svg"></ion-img>
           
+          <ion-card-content>
           <ion-card-title  text-center>
-            <ion-text color="warning">Sign Up</ion-text>
+            <ion-text color="warning">Sign In</ion-text>
           </ion-card-title>
-          <form #signup="ngForm" (ngSubmit)="onSubmit(signup)">
-          <ion-card>
-            <ion-item color="medium">
-              <ion-label  position="floating">Full Name</ion-label>
-              <ion-input color="dark" pattern="[A-Z][a-z]*.[a-z]*\s[A-Z][a-z]*.[a-z]*" clearInput fullname autocapitalize="on" fullname ngModel minlength="6" type="text" required name="fullname"></ion-input>
-                </ion-item>
-              </ion-card>
-              <!-- <ion-label [hidden]="isLogin"  *ngIf="nameCtrl.invalid && nameCtrl.touched" lines="none"> 
-                <sub>Enter Your First & Last Name</sub>
-                      </ion-label> -->
+                  <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+            
                       <ion-card>
                         <ion-item color="medium">
                           <ion-label  position="floating">Email</ion-label>
@@ -31,22 +23,28 @@
                       </ion-label> -->
                       <ion-card>
                         <ion-item color="medium">
-                          <ion-label position="floating">Password</ion-label>
-                          <ion-input color="dark" type="password"  name="password" required minlength="6" ngModel type="password" password >
+                          <ion-label  position="floating">Password</ion-label>
+                          <ion-input color="dark" type="password"  name="password" required minlength="6" ngModel type="password" password>
                           </ion-input>
                         </ion-item>
                       </ion-card>
                       <!-- <ion-label *ngIf="passwordCtrl.invalid && passwordCtrl.touched" lines="none" text-wrap>
                         <sub>Not secure, use 6 or more characters</sub>
                       </ion-label> -->
-                      <ion-button size="small" routerLink="/sign-in" color="warning" fill="clear" expand="block" >
-                        <ion-label  color="warning"> Switch to Sign In</ion-label>
+                      <ion-button routerLink="/register" size="small" color="warning" fill="clear" expand="block" >
+                        <ion-label  color="warning"> Switch to Sign Up</ion-label>
                         <ion-ripple-effect></ion-ripple-effect>
                       </ion-button>
-                            <ion-button type="submit" class="sign-btn" expand="block" [disabled]="signup.invalid">
-                              <ion-label>Sign Up</ion-label><ion-ripple-effect></ion-ripple-effect>
-                            </ion-button>
-                          </form>
+                        <ion-button 
+                        type="submit" 
+                        class="sign-btn" 
+                        expand="block" 
+                        [disabled]="login.invalid"><ion-ripple-effect></ion-ripple-effect>
+                        <ion-label>Sign In</ion-label>
+                      </ion-button>
+                    </form>
+
+                  
                     <hr>                  
                     <ion-button class="g-btn" type="button" (click)="auth.GoogleAuth()" expand="block"> <ion-icon name="logo-google"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
@@ -59,7 +57,7 @@
                     </ion-button>
                     
                   </ion-card-content>
-                  </ion-card>
+                </ion-card>
               </ion-col>
     </ion-row>
   </ion-grid>

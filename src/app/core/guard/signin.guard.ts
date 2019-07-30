@@ -23,9 +23,9 @@ export class SigninGuard implements CanActivate {
       .pipe(
         take(1),
         map(authState => !!authState),
-        tap(auth => !auth ? this.router.navigate(['sign-in']) && this.UnSignToast() : this.router.navigate(['profile']))
+        tap(auth => !auth ? this.router.navigate(['login']) && this.UnSignToast() : this.router.navigate(['profile']))
       );
-    }
+  }
   async UnSignToast() {
     const toast = await this.toastController.create({
       header: 'Authentication Message',

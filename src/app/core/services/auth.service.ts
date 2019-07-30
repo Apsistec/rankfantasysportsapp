@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   // Sign in with email/password
-  SignIn(email, password) {
+  Login(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
@@ -52,7 +52,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email, password) {
+  Register(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
@@ -75,11 +75,11 @@ export class AuthService {
   // Reset Forgot password
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
-    .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
-    }).catch((error) => {
-      window.alert(error);
-    });
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+      }).catch((error) => {
+        window.alert(error);
+      });
   }
 
   // Returns true when user is looged in and email is verified
@@ -147,14 +147,14 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['login']);
     });
   }
 
   async signToast() {
     const toast = await this.toastController.create({
       header: 'Authentication Message',
-      cssClass: 'signin',
+      cssClass: 'login',
       message: 'You have successfully signed in',
       position: 'top',
       showCloseButton: true,
