@@ -7,7 +7,8 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { SupportModalComponent } from '../../main-pages/support-modal/support-modal.component';
 import { User } from '../../core/models/user';
 import { Request } from '../../core/models/request.model';
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import { first } from 'rxjs/operators';
 const themes = {
   autumn: {
     primary: '#F78154',
@@ -47,76 +48,72 @@ export class ProfilePage implements OnInit {
   backdropDismiss = false;
   showBackdrop = false;
   shouldPropagate = false;
-  user: User;
+  // user: User;
   request: Request;
-
+  userData: any;
+  user: User;
   constructor(
     // public navParams: NavParams,
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private router: Router,
     private theme: ThemeService,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private afAuth: AngularFireAuth
   ) {
     // this.navParams.get({ 'this.issue', 'this.description', 'user.email', 'user.displayName'}).
   }
 
   ngOnInit() {
-    this.loading = false;
+    // this.loading = false;
+  }
+  async getUser() {
+    await this.afAuth.authState.pipe(first()).toPromise();
+    return this.userData;
   }
 
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
 
-  changeSpeed(val) {
-    this.theme.setVariable('--speed', `${val}ms`);
-  }
+  // changeSpeed(val) {
+  //   this.theme.setVariable('--speed', `${val}ms`);
+  // }
 
-  async openSupportModal() {
-    await this.modalCtrl
-      .create({
-        component: SupportModalComponent,
-        componentProps: {
-          displayName: this.user.displayName,
-          email: this.user.email,
-          // issue: this.request.issue,
-          // description: this.request.description
-        }
-      })
-      .then(modalEl => {
-        modalEl.present();
-        return modalEl.onDidDismiss();
-      })
-      .then(resultData => {
-        console.log(resultData.data, resultData.role);
-        if (resultData.role === 'Submit') {
-          console.log('BOOKED!');
-        }
-      })
-      .catch(err => window.alert(err))
-      .then(() => console.log('this will succeed'));
-  }
-  async onCancelModal() {
-    await this.modalCtrl.dismiss('', 'cancel')
-      .catch(err => window.alert(err))
-      .then(() => console.log('this will succeed'));
-  }
-  async onSubmitRequest() {
-    await this.modalCtrl.dismiss({ message: 'Request Submitted' }, 'confirm')
-      .catch(err => window.alert(err))
-      .then(() => console.log('this will succeed'));
-  }
+  // async openSupportModal() {
+  //   const modalEl = await this.modalCtrl
+  //     .create({
+  //       component: SupportModalComponent,
+  //       componentProps: {
+  //         displayName: this.user.displayName,
+  //         email: this.user.email
+  //       }
+  //     });
+  //   await modalEl.present()
+  //     .catch(err => window.alert(err));
+  // }
+
+  // async onCancelModal() {
+  //   await this.modalCtrl.dismiss('', 'cancel')
+  //   .catch(err => window.alert(err))
+  //   .then(() => console.log('this will succeed'));
+  // }
+
+  // async onSubmitRequest() {
+  //   await this.modalCtrl.dismiss({ message: 'Request Submitted' }, 'confirm')
+  //   .catch(err => window.alert(err))
+  //   .then(() => console.log('this will succeed'));
+  // }
 
   async getSubscriptions() {
     this.loading = true;
     const user = await this.auth.getUser();
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    await fun({ uid: user.uid }).toPromise;
+    this.subscription = await fun({ uid: user.uid }).toPromise;
     this.loading = false;
   }
 
-  async cancelSubscriptions() {
+  async cancelSubscription() {
     this.loading = true;
     const user = await this.auth.getUser();
     const fun = this.functions.httpsCallable('stripeCancelSubscription');

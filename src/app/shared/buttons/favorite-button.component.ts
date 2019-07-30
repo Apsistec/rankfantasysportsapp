@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Article, ArticlesService, UserService } from '../../core';
+import { Article, ArticlesService } from '../../core';
+import { AuthService } from '../../core/services/auth.service';
 import { of } from 'rxjs';
 import { concatMap ,  tap } from 'rxjs/operators';
 
@@ -13,7 +14,7 @@ export class FavoriteButtonComponent {
   constructor(
     private articlesService: ArticlesService,
     private router: Router,
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   @Input() article: Article;
@@ -23,7 +24,7 @@ export class FavoriteButtonComponent {
   toggleFavorite() {
     this.isSubmitting = true;
 
-    this.userService.isAuthenticated.pipe(concatMap(
+    this.authService.afAuth.user.pipe(concatMap(
       (authenticated) => {
         // Not authenticated? Push to login screen
         if (!authenticated) {

@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { SettingsComponent } from './settings.component';
-import { AuthGuard } from '../core';
+import { AuthGuard } from '../core/guard/auth.guard';
 import { SharedModule } from '../shared';
 import { SettingsRoutingModule } from './settings-routing.module';
 

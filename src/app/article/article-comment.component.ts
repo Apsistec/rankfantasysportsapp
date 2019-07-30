@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core';
 
-import { Comment, User, UserService } from '../core';
+import { Comment } from '../core';
+import { User } from '../core/models/user';
+import { AuthService } from '../core/services/auth.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class ArticleCommentComponent implements OnInit, OnDestroy {
   constructor(
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   private subscription: Subscription;
@@ -21,9 +23,9 @@ export class ArticleCommentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Load the current user's data
-    this.subscription = this.userService.currentUser.subscribe(
-      (userData: User) => {
-        this.canModify = (userData.username === this.comment.author.username);
+    this.subscription = this.authService.afAuth.user.subscribe(
+      (userData: any) => {
+        this.canModify = (userData.displayName === this.comment.author.displayName);
       }
     );
   }

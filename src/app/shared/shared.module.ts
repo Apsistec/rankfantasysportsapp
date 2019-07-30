@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ArticleListComponent, ArticleMetaComponent, ArticlePreviewComponent } from './article-helpers';
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
+import { ForumHeaderComponent } from './forum-header';
 // import { ShowAuthedDirective } from './show-authed.directive';
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ListErrorsComponent } from './list-errors.component';
     FavoriteButtonComponent,
     FollowButtonComponent,
     ListErrorsComponent,
-    // ShowAuthedDirective
+    ForumHeaderComponent
   ],
   entryComponents: [],
   imports: [
@@ -46,7 +47,6 @@ import { ListErrorsComponent } from './list-errors.component';
     HttpClientModule,
     ListErrorsComponent,
     RouterModule,
-    // ShowAuthedDirective
   ],
 })
 export class SharedModule {}

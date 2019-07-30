@@ -4,21 +4,12 @@
 <ion-grid>
   <ion-row>
     <ion-col size-md="6" offset-md="3">
-      <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else login">
-        <ng-template #login>
-          <ion-card color="primary" padding>
-            <ion-button color="success" expand="block" size="large" routerLink="/sign-in">
-              <ion-ripple-effect></ion-ripple-effect>
-              <ion-label color="warning">Login or Create an Account&nbsp;</ion-label>
-              <ion-icon slot="end" name="log-in"></ion-icon>
-            </ion-button>
-          </ion-card>
-        </ng-template>
+      <ion-card color="primary">
+ 
         <ion-img src="../../assets/logo-md.svg"></ion-img>
         <ion-list>
-
           <ion-list-header>
-            <ion-card-title>Welcome&nbsp;{{ user.displayName }}</ion-card-title>
+            <!-- <ion-card-title>Welcome&nbsp;{{ user.displayName }}</ion-card-title> -->
   </ion-list-header>
   <ion-item color="medium">
     <ion-avatar slot="start">
@@ -29,18 +20,18 @@
   <ion-item>
     <ion-label> Firebase UID: 
       <br>
-      {{ user.uid }}
+     
     </ion-label>
   </ion-item>
   <ion-item>
     <ion-label>
       Open a support ticket or make a feature request
     </ion-label>
-    <ion-button (click)="openSupportModal()">
+    <!-- <ion-button (click)="openSupportModal()">
       <ion-label>
         Open A Support Ticket
       </ion-label>
-    </ion-button>
+    </ion-button> -->
   </ion-item>
   </ion-list>
 </ion-card>
@@ -51,7 +42,7 @@
 
 
 <ion-col size-md="6">
-  <ion-card *ngIf="getSubscriptions | async as user; else purchase" color="primary padding">
+  <ion-card color="primary"> 
     <ng-template #purchase>
         <ion-button color="success" expand="block" size="large" routerLink="/launch-page">
           <ion-ripple-effect></ion-ripple-effect>
@@ -71,61 +62,60 @@
             <ion-label>
               Stripe ID:
               <br>
-              {{ user?.stripeCustomerId || 'provisioning' }}
+              {{ user.stripeCustomerId || 'provisioning' }}
             </ion-label>
           </ion-item>
           <ion-item>
-            <pre *ngIf="getSubscriptions | async as user">
+            <!-- <pre *ngIf="getSubscriptions | async as user"> -->
              <ion-label> {{ subscription | json }}</ion-label>
-            </pre>
+            <!-- </pre> -->
           </ion-item>
-          <ion-button color="danger" expand="block" size="small" (click)="this.cancelSubscription()">
+          <ion-button color="danger" expand="block" size="small" (click)="cancelSubscription()">
             <ion-label color="warning" >
               Cancel Subscription
             </ion-label>
           </ion-button>
         </ion-list>
       </ion-card>
+
+      <ion-card color="primary" padding>
+        <ion-card-header>
+          <ion-card-title>
+            Customer UI Theming
+          </ion-card-title>
+        </ion-card-header>
+      
+        <p>Show your team spirit and use the theme options below to change the entire site to match your favorite team colors & also add the team logo. All in one click.
+        </p>
+      
+        <ion-button expand="block" color="medium" (click)="changeTheme('autumn')">Autumn</ion-button>
+        <ion-button expand="block" color="medium" (click)="changeTheme('night')">Dark</ion-button>
+        <ion-button expand="block" color="medium" (click)="changeTheme('neon')">Neon</ion-button>
+        <ion-button expand="block" color="medium" (click)="changeTheme('')">Default</ion-button>
+        <hr>
+        
+        <ion-button color="primary">Primary</ion-button>
+        <ion-button color="secondary">Secondary</ion-button>
+        <ion-button color="tertiary">Tertiary</ion-button>
+        <ion-button color="medium">Medium</ion-button>
+        <ion-button color="dark">Dark</ion-button>
+        
+        <ion-button color="primary" class="foo">Foo</ion-button>
+        
+        <hr>
+        <ion-checkbox color="primary" checked></ion-checkbox>
+        <ion-checkbox color="secondary"></ion-checkbox>
+        <ion-checkbox color="danger" checked></ion-checkbox>
+        <ion-checkbox color="dark" checked></ion-checkbox>
+      </ion-card>
     </ion-col>
   </ion-row>
 </ion-grid>
 
 
-<ion-card color="primary" padding>
-  <ion-card-header>
-    <ion-card-title>
-      Customer UI Theming
-    </ion-card-title>
-  </ion-card-header>
 
-  <p>Show your team spirit and use the theme options below to change the entire site to match your favorite team colors & also add the team logo. All in one click.
-  </p>
-
-  <ion-button expand="block" color="medium" (click)="changeTheme('autumn')">Autumn</ion-button>
-  <ion-button expand="block" color="medium" (click)="changeTheme('night')">Dark</ion-button>
-  <ion-button expand="block" color="medium" (click)="changeTheme('neon')">Neon</ion-button>
-  <ion-button expand="block" color="medium" (click)="changeTheme('')">Default</ion-button>
-  <hr>
   
-  <ion-button color="primary">Primary</ion-button>
-  <ion-button color="secondary">Secondary</ion-button>
-  <ion-button color="tertiary">Tertiary</ion-button>
-  <ion-button color="medium">Medium</ion-button>
-  <ion-button color="dark">Dark</ion-button>
-  
-  <ion-button color="primary" class="foo">Foo</ion-button>
-  
-  <hr>
-  <ion-checkbox color="primary" checked></ion-checkbox>
-  <ion-checkbox color="secondary"></ion-checkbox>
-  <ion-checkbox color="danger" checked></ion-checkbox>
-  <ion-checkbox color="dark" checked></ion-checkbox>
-</ion-card>
-
-
-<hr>
-  
-  <ion-card color="primary">
+  <!-- <ion-card color="primary">
     <ion-card-title>Site Animations</ion-card-title>
   <ion-card color="medium">
   <ion-button color="success" (click)="changeSpeed(2000)">Slow</ion-button>
@@ -200,6 +190,6 @@
     </svg>
     
   </ion-card>
-</ion-card>
+</ion-card> -->
 
 </ion-content>

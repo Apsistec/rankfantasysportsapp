@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { User, UserService } from '../core';
+import { AuthService } from '../core/services/auth.service';
+import { User } from '../core/models/user';
 
 @Component({
   selector: 'app-settings-page',
@@ -16,7 +16,7 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService,
+    private authService: AuthService,
     private fb: FormBuilder
   ) {
     // create form group using the form builder
@@ -33,13 +33,13 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     // Make a fresh copy of the current user's object to place in editable form fields
-    Object.assign(this.user, this.userService.getCurrentUser());
+    Object.assign(this.user, this.authService.getUser());
     // Fill the form
     this.settingsForm.patchValue(this.user);
   }
 
   logout() {
-    this.userService.purgeAuth();
+    this.authService.SignOut();
     this.router.navigateByUrl('/');
   }
 
@@ -49,10 +49,9 @@ export class SettingsComponent implements OnInit {
     // update the model
     this.updateUser(this.settingsForm.value);
 
-    this.userService
-    .update(this.user)
+    this.authService.afAuth.user
     .subscribe(
-      updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.username),
+      updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.displayName),
       err => {
         this.errors = err;
         this.isSubmitting = false;

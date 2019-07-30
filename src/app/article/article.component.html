@@ -90,7 +90,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-8 offset-md-2">
 
-        <div *ngIf="authService.isLoggedIn">
+        <div *ngIf="authService.afAuth.user">
           <app-list-errors [errors]="commentFormErrors"></app-list-errors>
           <form class="card comment-form" (ngSubmit)="addComment()">
             <fieldset [disabled]="isSubmitting">
@@ -102,7 +102,7 @@
                 ></textarea>
               </div>
               <div class="card-footer">
-                <img [src]="currentUser.image" class="comment-author-img" />
+                <img [src]="currentUser.photoURL" class="comment-author-img" />
                 <button class="btn btn-sm btn-primary" type="submit">
                  Post Comment
                 </button>
@@ -111,7 +111,7 @@
           </form>
         </div>
 
-        <div *appShowAuthed="false">
+        <div *ngIf="!authService.afAuth.user">
           <a [routerLink]="['/login']">Sign in</a> or <a [routerLink]="['/register']">sign up</a> to add comments on this article.
         </div>
 

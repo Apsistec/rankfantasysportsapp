@@ -1,7 +1,7 @@
 import { AuthService } from '../../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { User } from '../../core/models/user';
-import { Component, OnInit, ElementRef,  ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef,  ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
@@ -15,24 +15,25 @@ declare var Stripe: stripe.StripeStatic;
 })
 
 export class LaunchPageComponent implements OnInit, AfterViewInit {
-  // @Input() planId: string;
-  // @Input() price: string;
-  // @Input() planChosen;
+  @Input() planId: string;
+  @Input() price: string;
+  @Input() planChosen;
   @ViewChild('cardElement') cardElement: ElementRef;
 
 
   isClickedSilver = false;
   isClickedGold = false;
   isClickedBronze = false;
-  planChosen = false;
+  // planChosen = false;
   loading = false;
 
   user: User;
   stripe: stripe.Stripe;
   card;
   cardErrors;
-  planId;
-  price;
+  // cardElement;
+  // planId;
+  // price;
   confirmation;
 
   constructor(
@@ -43,6 +44,9 @@ export class LaunchPageComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
+  }
+  
+  ngAfterViewInit() {
     this.planChosen = false;
     this.isClickedGold = false;
     this.isClickedSilver = false;
@@ -70,8 +74,6 @@ export class LaunchPageComponent implements OnInit, AfterViewInit {
       this.cardErrors = error && error.message;
     });
   }
-
-  ngAfterViewInit() { }
 
   async presentLoading() {
     const loadingElement = await this.loadingCtrl.create({

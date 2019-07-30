@@ -13,7 +13,7 @@ import { concatMap ,  tap } from 'rxjs/operators';
 export class ProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private authService: AuthService
+    public authService: AuthService
   ) { }
 
   profile: Profile;

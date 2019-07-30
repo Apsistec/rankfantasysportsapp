@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-
-import { Article, ArticlesService, UserService } from '../core';
+import { User } from '../core/models/user';
+import { Article, ArticlesService } from '../core';
+import { AuthService } from '../core/services/auth.service';
 import { catchError ,  map } from 'rxjs/operators';
 
 @Injectable()
 export class EditableArticleResolver implements Resolve<Article> {
+  user: User;
   constructor(
     private articlesService: ArticlesService,
     private router: Router,
-    private userService: UserService
+    private authService: AuthService
   ) { }
 
   resolve(
@@ -22,7 +24,7 @@ export class EditableArticleResolver implements Resolve<Article> {
       .pipe(
         map(
           article => {
-            if (this.userService.getCurrentUser().username === article.author.username) {
+            if (this.user.displayName === article.author.displayName) {
               return article;
             } else {
               this.router.navigateByUrl('/');

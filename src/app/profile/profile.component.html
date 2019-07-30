@@ -5,8 +5,8 @@
       <div class="row">
 
         <div class="col-xs-12 col-md-10 offset-md-1">
-          <img [src]="profile.image" class="user-img" />
-          <h4>{{ profile.username }}</h4>
+          <img [src]="profile.photoURL" class="user-img" />
+          <h4>{{ profile.displayName }}</h4>
           <p>{{ profile.bio }}</p>
           <app-follow-button
             [hidden]="isUser"
@@ -34,7 +34,7 @@
               <a class="nav-link"
                  routerLinkActive="active"
                  [routerLinkActiveOptions]="{ exact: true }"
-                 [routerLink]="['/profile', profile.username]">
+                 [routerLink]="['/profile', profile.displayName]">
                  My Posts
               </a>
             </li>
@@ -42,7 +42,7 @@
               <a class="nav-link"
                  routerLinkActive="active"
                  [routerLinkActiveOptions]="{ exact: true }"
-                 [routerLink]="['/profile', profile.username, 'favorites']">
+                 [routerLink]="['/profile', profile.displayName, 'favorites']">
                  Favorited Posts
               </a>
             </li>

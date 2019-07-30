@@ -1,11 +1,12 @@
     .cta{
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../../../assets/img/field20.jpg');
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('../../../assets/img/field20.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-       
+        min-height: 300px;
         text-align: center;
    }
     .testi{
+        text-align: center;
         background:url('../../../assets/img/bball-drive.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -23,10 +24,10 @@
    }
 
    .pattrn{
-     background-image: url('../../../assets/img/brown_cross.svg');
-     background-repeat: no-repeat;
-     background-size: 25%;
-     background-position: right 5px top 5px; 
+    //  background-image: url('../../../assets/img/brown_cross.svg');
+    //  background-repeat: no-repeat;
+    //  background-size: 25%;
+    //  background-position: right 5px top 5px; 
    }
   .scrollToTop{
     display: hidden;

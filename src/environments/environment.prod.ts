@@ -9,6 +9,7 @@ export const environment = {
     messagingSenderId: '436994807324',
     appId: '1:436994807324:web:3688c0cd49139837'
   },
+  api_url: 'https://conduit.productionready.io/api',
   apiKey: 'AIzaSyCefTvtXQDO25RK9D6NLbx6DgG-AIVEj9Q',
   stripe: {
     publicKey: 'pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt',

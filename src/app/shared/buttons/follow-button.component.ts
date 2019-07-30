@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Profile, ProfilesService, UserService } from '../../core';
+import { Profile, ProfilesService } from '../../core';
+import { AuthService } from '../../core/services/auth.service';
 import { concatMap ,  tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -13,7 +14,7 @@ export class FollowButtonComponent {
   constructor(
     private profilesService: ProfilesService,
     private router: Router,
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   @Input() profile: Profile;
@@ -24,7 +25,7 @@ export class FollowButtonComponent {
     this.isSubmitting = true;
     // TODO: remove nested subscribes, use mergeMap
 
-    this.userService.isAuthenticated.pipe(concatMap(
+    this.authService.afAuth.user.pipe(concatMap(
       (authenticated) => {
         // Not authenticated? Push to login screen
         if (!authenticated) {
@@ -34,7 +35,7 @@ export class FollowButtonComponent {
 
         // Follow this profile if we aren't already
         if (!this.profile.following) {
-          return this.profilesService.follow(this.profile.username)
+          return this.profilesService.follow(this.profile.displayName)
           .pipe(tap(
             data => {
               this.isSubmitting = false;
@@ -45,7 +46,7 @@ export class FollowButtonComponent {
 
         // Otherwise, unfollow this profile
         } else {
-          return this.profilesService.unfollow(this.profile.username)
+          return this.profilesService.unfollow(this.profile.displayName)
           .pipe(tap(
             data => {
               this.isSubmitting = false;

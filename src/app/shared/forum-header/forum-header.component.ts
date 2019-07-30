@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UserService } from '../../core/services/user.service';
+import { AuthService } from '../../core/services/auth.service';
 import { ForumUser } from '../../core/models/forum-user.model';
 
 @Component({
@@ -9,13 +8,13 @@ import { ForumUser } from '../../core/models/forum-user.model';
 })
 export class ForumHeaderComponent implements OnInit {
   constructor(
-    private userService: UserService
+    private authService: AuthService
   ) {}
 
   currentUser: ForumUser;
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(
+    this.authService.afAuth.user.subscribe(
       (userData) => {
         this.currentUser = userData;
       }

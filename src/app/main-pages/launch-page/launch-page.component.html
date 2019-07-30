@@ -242,19 +242,18 @@
               <h4>
               <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
             </h4>
-    <!-- <ion-spinner *ngIf="load !== false" color="secondary" name="circles"></ion-spinner> -->
     <hr>
+    <ion-card color="success" >
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-       <ion-card color="success" >
       <div #cardElement></div>
 
-         <ion-button [disabled]="loading !== false" type="submit" color="tertiary" shape="round" strong="true">
+         <ion-button [disabled]="loading" type="submit" color="tertiary" shape="round" strong="true">
            <ion-label color="warning">Start Subscription&nbsp;&nbsp;
              <ion-icon slot="end" color="dark" name="jet"></ion-icon>
             </ion-label>
           </ion-button>
-        </ion-card>
-    </form>
+        </form>
+      </ion-card>
     <hr>
     <ion-card color="primary">
         <pre *ngIf="confirmation" style="max-width: 400px;">
@@ -294,7 +293,7 @@
               <ion-item color="light">
                 <ion-label text-wrap>
                   The security of your information is our priority. Please read our&nbsp;<a
-                    href="https://privacy-policy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
+                    href="https://privacy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.
                 </ion-label>
               </ion-item>
             </ion-list>

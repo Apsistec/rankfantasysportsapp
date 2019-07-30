@@ -1,23 +1,23 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+// import { Injectable } from '@angular/core';
+// import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
+// import { Observable } from 'rxjs';
 
-import { UserService } from '../core';
-import { take } from 'rxjs/operators';
+// import { AuthService } from '../core';
+// import { take } from 'rxjs/operators';
 
-@Injectable()
-export class ForumHomeAuthResolver implements Resolve<boolean> {
-  constructor(
-    private router: Router,
-    private userService: UserService
-  ) {}
+// @Injectable()
+// export class ForumHomeAuthResolver implements Resolve<boolean> {
+//   constructor(
+//     private router: Router,
+//     private authService: AuthService
+//   ) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+//   resolve(
+//     route: ActivatedRouteSnapshot,
+//     state: RouterStateSnapshot
+//   ): boolean {
 
-    return this.userService.isAuthenticated.pipe(take(1));
+//     this.authService.isLoggedIn();
 
-  }
-}
+//   }
+// }

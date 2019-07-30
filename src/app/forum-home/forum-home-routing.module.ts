@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ForumHomeComponent } from './forum-home.component';
-import { ForumHomeAuthResolver } from './forum-home-auth-resolver.service';
+import { AuthService } from '../core/services/auth.service';
 
 const routes: Routes = [
   {
     path: '',
     component: ForumHomeComponent,
     resolve: {
-      isAuthenticated: ForumHomeAuthResolver
+      isAuthenticated: AuthService
     }
   }
 ];

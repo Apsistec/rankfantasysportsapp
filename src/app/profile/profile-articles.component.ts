@@ -27,7 +27,7 @@ export class ProfileArticlesComponent implements OnInit {
           type: 'all',
           filters: {}
         }; // Only method I found to refresh article load on swap
-        this.articlesConfig.filters.author = this.profile.username;
+        this.articlesConfig.filters.author = this.profile.displayName;
       }
     );
   }

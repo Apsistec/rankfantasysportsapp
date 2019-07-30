@@ -29,7 +29,7 @@ export class ArticleComponent implements OnInit {
     private articlesService: ArticlesService,
     private commentsService: CommentsService,
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

@@ -5,7 +5,7 @@ export * from './comments.service';
 export * from './jwt.service';
 export * from './profiles.service';
 export * from './tags.service';
-export * from './user.service';
+export * from './auth.service';
 export * from './check-for-update.service';
 export * from './theme.service';
 export * from './http.service';

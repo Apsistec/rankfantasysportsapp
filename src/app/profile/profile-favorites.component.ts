@@ -23,7 +23,7 @@ export class ProfileFavoritesComponent implements OnInit {
     this.route.parent.data.subscribe(
       (data: {profile: Profile}) => {
         this.profile = data.profile;
-        this.favoritesConfig.filters.favorited = this.profile.username;
+        this.favoritesConfig.filters.favorited = this.profile.displayName;
       }
     );
   }

@@ -17,7 +17,8 @@ import {
   ProfilesService,
   TagsService,
   ThemeService,
-  } from './services';
+} from './services';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   imports: [
@@ -40,6 +41,6 @@ import {
     HttpService,
     ThemeService,
   ],
-  declarations: []
+  declarations: [ErrorComponent]
 })
 export class CoreModule { }

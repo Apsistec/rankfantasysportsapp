@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ArticleListConfig, TagsService, UserService } from '../core';
+import { ArticleListConfig, TagsService, AuthService } from '../core';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +12,7 @@ export class ForumHomeComponent implements OnInit {
   constructor(
     private router: Router,
     private tagsService: TagsService,
-    private userService: UserService
+    public authService: AuthService
   ) {}
 
   isAuthenticated: boolean;
@@ -24,18 +24,12 @@ export class ForumHomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
-    this.userService.isAuthenticated.subscribe(
-      (authenticated) => {
-        this.isAuthenticated = authenticated;
-
-        // set the article list accordingly
-        if (authenticated) {
-          this.setListTo('feed');
-        } else {
-          this.setListTo('all');
-        }
-      }
-    );
+      // set the article list accordingly
+    if (this.authService.afAuth.user) {
+      this.setListTo('feed');
+    } else {
+      this.setListTo('all');
+    }
 
     this.tagsService.getAll()
     .subscribe(tags => {

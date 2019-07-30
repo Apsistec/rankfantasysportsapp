@@ -18,7 +18,10 @@ import { SharedModule } from './shared/shared.module';
 import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
 import { LogLevel } from 'msal';
 import { AuthModule } from './auth/auth.module';
-
+import { MsGraphComponent } from './ms-graph/ms-graph.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { LaunchPageComponent } from './main-pages/launch-page/launch-page.component';
 
 export function loggerCallback(logLevel, message, piiEnabled) {
   console.log('client logging' + message);
@@ -30,6 +33,10 @@ export const protectedResourceMap: [string, string[]][] = [
 @NgModule({
   declarations: [
     AppComponent,
+    MsGraphComponent,
+    ProductComponent,
+    ProductDetailComponent,
+    LaunchPageComponent
   ],
   entryComponents: [],
   imports: [
