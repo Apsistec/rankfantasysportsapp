@@ -199,23 +199,33 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { HeaderComponent } from &#x27;./header/header.component&#x27;;
 import { FooterComponent } from &#x27;./footer/footer.component&#x27;;
+import { RouterModule } from &#x27;@angular/router&#x27;;
+import { NgxTwitterTimelineModule } from &#x27;ngx-twitter-timeline&#x27;;
 
+
+// import { ShowAuthedDirective } from &#x27;./show-authed.directive&#x27;;
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   entryComponents: [],
-  imports: [CommonModule, IonicModule, FormsModule],
+  imports: [
+    IonicModule,
+    CommonModule,
+    RouterModule,
+    NgxTwitterTimelineModule
+  ],
   exports: [
+    NgxTwitterTimelineModule,
     HeaderComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+    RouterModule,
+  ],
 })
 export class SharedModule {}
 </code></pre>

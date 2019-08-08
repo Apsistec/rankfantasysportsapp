@@ -1,0 +1,138 @@
+   
+  <form novalidate #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <ion-card color="primary">
+               <ion-card-header>
+                <ion-card-title>{{ user?.displayName }} 
+                </ion-card-title>
+                <ion-card-subtitle>
+                  {{ user?.email }}
+                </ion-card-subtitle>
+               </ion-card-header>
+
+        <select [ngModel]="active?.type"
+                name="type"
+                required
+                class="form-control">
+          <option value="null">Type of Request</option>
+          <option value="support">Support Request</option>
+          <option value="feature">Feature Request</option>
+          <option value="other">Something Else</option>
+        </select>
+
+        <select [ngModel]="active?.os"
+                name="os"
+                required
+                class="form-control">
+          <option value="null">Select OS</option>
+          <option value="ios">ios</option>
+          <option value="android">android</option>
+          <option value="browser">Browser: PC or Other</option>
+        </select>
+          
+        <ion-item>
+          <input type="model"
+            [ngModel]="active?.model"
+               name="model"
+               class="form-control"
+               placeholder="HTC VC-23 ">
+              </ion-item>
+               
+              <ion-item>
+                <ion-input name="issue" type="text" placeholder="Button not working'" ngModel required></ion-input>
+                <ion-label>
+                  Topic
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                  <ion-input name="details" type="text" ></ion-input>
+                  <ion-label>Description</ion-label>
+                  <ion-textarea></ion-textarea>
+                </ion-item>
+               
+            <ion-button type="submit" [disabled]="form.invalid" expand="block">Submit</ion-button>
+            <ion-button (click)="this.cancelModal()"  type="submit" expand="block">Cancel</ion-button>
+          </ion-card>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+
+
+  
+        <!-- <span class="m-1">Rate:</span>
+        <div class="btn-group m-1" data-toggle="buttons">
+          <label class="btn btn-secondary"
+                 *ngFor="let val of [1,2,3,4,5]"
+                 [ngClass]="{'btn-warning': active?.rate === val}">
+            <input type="radio"
+                   required
+                   name="rate"
+                   checked [value]="val"
+                   [(ngModel)]="active.rate"> {{val}}
+          </label>
+        </div>
+  
+  
+        <textarea
+            [ngModel]="active?.desc"
+            name="desc"
+            class="form-control bg-dark text-white m-1"
+            placeholder="description (not required)"></textarea> -->
+  
+        <!-- <div class="btn-group btn-group-sm m-1">
+          <button class="btn btn-warning"
+                  type="submit"
+                  [disabled]="f.invalid">
+            {{active?.id ? 'SAVE' : 'ADD'}}
+          </button>
+  
+          <button
+              class="btn btn-light"
+              type="button"
+              *ngIf="active?.id"
+              (click)="reset()">
+            ADD NEW
+          </button>
+        </div> -->
+ 
+      
+    <!-- Devices List
+    <div *ngFor="let d of devices"
+      class="list-group-item list-group-item-action"
+      [ngClass]="{'bg-warning text-dark': d.id === active?.id}"
+      (click)="setActiveHandler(d)">
+  
+      os icon
+       <i class="fa"
+        [ngClass]="{
+            'fa-android': d.type === 'android', 
+            'fa-apple'  : d.type === 'ios',
+            'fa-tablet'  : d.type === 'others'
+        }"
+      ></i>
+  
+      label
+      <i class="fa fa-in"></i>
+      <span>{{d?.label}}</span>
+  
+      rate
+      missing
+      
+      <div class="pull-right">
+        price
+        <strong *ngIf="d.price"
+                [style.color]="d.price > 500 ? 'red' : null">
+          € {{d.price | number: '1.2-2'}}
+        </strong>
+  
+        trash icon
+        <i class="fa fa-trash icon"
+           (click)="delete(d)"></i>
+      </div>
+    </div> -->

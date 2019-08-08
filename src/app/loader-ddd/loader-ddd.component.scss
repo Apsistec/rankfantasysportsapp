@@ -1,0 +1,507 @@
+#cssload-contain {
+	width: 300px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	opacity: 0;
+	animation: fadeIn 0.95s 1;
+		-o-animation: fadeIn 0.95s 1;
+		-ms-animation: fadeIn 0.95s 1;
+		-webkit-animation: fadeIn 0.95s 1;
+		-moz-animation: fadeIn 0.95s 1;
+	animation-fill-mode: forwards;
+		-o-animation-fill-mode: forwards;
+		-ms-animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+		-moz-animation-fill-mode: forwards;
+}
+
+.cssload-wrap {
+	animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-o-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-ms-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-webkit-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-moz-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+	position: absolute;
+}
+
+.cssload-ball {
+	width: 100px;
+	height: 100px;
+	box-shadow: 0 -12.25px 0 rgba(93,52,107,0.41) inset;
+	background-color: rgba(0,255,51,0.67);
+	border-radius: 50%;
+	animation: scale 950ms infinite ease-in-out alternate;
+		-o-animation: scale 950ms infinite ease-in-out alternate;
+		-ms-animation: scale 950ms infinite ease-in-out alternate;
+		-webkit-animation: scale 950ms infinite ease-in-out alternate;
+		-moz-animation: scale 950ms infinite ease-in-out alternate;
+	animation-delay: -475ms;
+		-o-animation-delay: -475ms;
+		-ms-animation-delay: -475ms;
+		-webkit-animation-delay: -475ms;
+		-moz-animation-delay: -475ms;
+	transform: scale(0.5);
+		-o-transform: scale(0.5);
+		-ms-transform: scale(0.5);
+		-webkit-transform: scale(0.5);
+		-moz-transform: scale(0.5);
+	border: 4px solid black;
+}
+
+.cssload-ball:after {
+	content: "";
+	width: 100px;
+	height: 26px;
+	background: rgba(41,79,82,0.4);
+	position: absolute;
+	top: 140px;
+	border-radius: 50%;
+}
+
+#cssload-wrap2 {
+	animation-delay: -950ms;
+		-o-animation-delay: -950ms;
+		-ms-animation-delay: -950ms;
+		-webkit-animation-delay: -950ms;
+		-moz-animation-delay: -950ms;
+}
+
+#cssload-ball2 {
+	background-color: rgba(0,138,138,0.7);
+	animation-delay: -1425ms;
+		-o-animation-delay: -1425ms;
+		-ms-animation-delay: -1425ms;
+		-webkit-animation-delay: -1425ms;
+		-moz-animation-delay: -1425ms;
+}
+
+#cssload-wrap3 {
+	animation-delay: -1425ms;
+		-o-animation-delay: -1425ms;
+		-ms-animation-delay: -1425ms;
+		-webkit-animation-delay: -1425ms;
+		-moz-animation-delay: -1425ms;
+}
+
+#cssload-ball3 {
+	background-color: rgba(255,255,5,0.68);
+	animation-delay: -1900ms;
+}
+
+#cssload-wrap4 {
+	animation-delay: -2375ms;
+		-o-animation-delay: -2375ms;
+		-ms-animation-delay: -2375ms;
+		-webkit-animation-delay: -2375ms;
+		-moz-animation-delay: -2375ms;
+}
+
+#cssload-ball4 {
+	background-color: rgba(144,89,181,0.62);
+	animation-delay: -2850ms;
+		-o-animation-delay: -2850ms;
+		-ms-animation-delay: -2850ms;
+		-webkit-animation-delay: -2850ms;
+		-moz-animation-delay: -2850ms;
+}
+
+
+
+
+
+
+@keyframes translate {
+	100% {
+		transform: translateX(200px);
+	}
+}
+
+@-o-keyframes translate {
+	100% {
+		-o-transform: translateX(200px);
+	}
+}
+
+@-ms-keyframes translate {
+	100% {
+		-ms-transform: translateX(200px);
+	}
+}
+
+@-webkit-keyframes translate {
+	100% {
+		-webkit-transform: translateX(200px);
+	}
+}
+
+@-moz-keyframes translate {
+	100% {
+		-moz-transform: translateX(200px);
+	}
+}
+
+@keyframes scale {
+	100% {
+		transform: scale(1);
+	}
+}
+
+@-o-keyframes scale {
+	100% {
+		-o-transform: scale(1);
+	}
+}
+
+@-ms-keyframes scale {
+	100% {
+		-ms-transform: scale(1);
+	}
+}
+
+@-webkit-keyframes scale {
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+@-moz-keyframes scale {
+	100% {
+		-moz-transform: scale(1);
+	}
+}
+
+@keyframes zindex {
+	25% {
+		z-index: 1;
+	}
+	75% {
+		z-index: -1;
+	}
+}
+
+@-o-keyframes zindex {
+	25% {
+		z-index: 1;
+	}
+	75% {
+		z-index: -1;
+	}
+}
+
+@-ms-keyframes zindex {
+	25% {
+		z-index: 1;
+	}
+	75% {
+		z-index: -1;
+	}
+}
+
+@-webkit-keyframes zindex {
+	25% {
+		z-index: 1;
+	}
+	75% {
+		z-index: -1;
+	}
+}
+
+@-moz-keyframes zindex {
+	25% {
+		z-index: 1;
+	}
+	75% {
+		z-index: -1;
+	}
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+
+
+#cssload-contain {
+	width: 881px;
+	height: 294px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	opacity: 0;
+	animation: fadeIn 0.95s 1;
+		-o-animation: fadeIn 0.95s 1;
+		-ms-animation: fadeIn 0.95s 1;
+		-webkit-animation: fadeIn 0.95s 1;
+		-moz-animation: fadeIn 0.95s 1;
+	animation-fill-mode: forwards;
+		-o-animation-fill-mode: forwards;
+		-ms-animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+		-moz-animation-fill-mode: forwards;
+}
+
+.cssload-wrap {
+	animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-o-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-ms-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-webkit-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+		-moz-animation: translate 950ms infinite ease-in-out alternate, zindex 1900ms infinite ease-in-out;
+	position: absolute;
+}
+
+.cssload-ball {
+	width: 294px;
+	height: 294px;
+	box-shadow: 0 -36.25px 0 rgba(93,52,107,0.41) inset;
+	background-color: rgba(0,255,51,0.67);
+	border-radius: 50%;
+	animation: scale 950ms infinite ease-in-out alternate;
+		-o-animation: scale 950ms infinite ease-in-out alternate;
+		-ms-animation: scale 950ms infinite ease-in-out alternate;
+		-webkit-animation: scale 950ms infinite ease-in-out alternate;
+		-moz-animation: scale 950ms infinite ease-in-out alternate;
+	animation-delay: -475ms;
+		-o-animation-delay: -475ms;
+		-ms-animation-delay: -475ms;
+		-webkit-animation-delay: -475ms;
+		-moz-animation-delay: -475ms;
+	transform: scale(0.5);
+		-o-transform: scale(0.5);
+		-ms-transform: scale(0.5);
+		-webkit-transform: scale(0.5);
+		-moz-transform: scale(0.5);
+	border: 12px solid black;
+}
+
+.cssload-ball:after {
+	content: "";
+	width: 294px;
+	height: 76px;
+	background: rgba(41,79,82,0.4);
+	position: absolute;
+	top: 411px;
+	border-radius: 50%;
+}
+
+#cssload-wrap2 {
+	animation-delay: -950ms;
+		-o-animation-delay: -950ms;
+		-ms-animation-delay: -950ms;
+		-webkit-animation-delay: -950ms;
+		-moz-animation-delay: -950ms;
+}
+
+#cssload-ball2 {
+	background-color: rgba(0,138,138,0.7);
+	animation-delay: -1425ms;
+		-o-animation-delay: -1425ms;
+		-ms-animation-delay: -1425ms;
+		-webkit-animation-delay: -1425ms;
+		-moz-animation-delay: -1425ms;
+}
+
+#cssload-wrap3 {
+	animation-delay: -1425ms;
+		-o-animation-delay: -1425ms;
+		-ms-animation-delay: -1425ms;
+		-webkit-animation-delay: -1425ms;
+		-moz-animation-delay: -1425ms;
+}
+
+#cssload-ball3 {
+	background-color: rgba(255,255,5,0.68);
+	animation-delay: -1900ms;
+}
+
+#cssload-wrap4 {
+	animation-delay: -2375ms;
+		-o-animation-delay: -2375ms;
+		-ms-animation-delay: -2375ms;
+		-webkit-animation-delay: -2375ms;
+		-moz-animation-delay: -2375ms;
+}
+
+#cssload-ball4 {
+	background-color: rgba(144,89,181,0.62);
+	animation-delay: -2850ms;
+		-o-animation-delay: -2850ms;
+		-ms-animation-delay: -2850ms;
+		-webkit-animation-delay: -2850ms;
+		-moz-animation-delay: -2850ms;
+}
+
+
+
+// https://icons8.com/cssload/en/3d-loaders/2
+
+
+// @keyframes translate {
+// 	100% {
+// 		transform: translateX(588px);
+// 	}
+// }
+
+// @-o-keyframes translate {
+// 	100% {
+// 		-o-transform: translateX(588px);
+// 	}
+// }
+
+// @-ms-keyframes translate {
+// 	100% {
+// 		-ms-transform: translateX(588px);
+// 	}
+// }
+
+// @-webkit-keyframes translate {
+// 	100% {
+// 		-webkit-transform: translateX(588px);
+// 	}
+// }
+
+// @-moz-keyframes translate {
+// 	100% {
+// 		-moz-transform: translateX(588px);
+// 	}
+// }
+
+// @keyframes scale {
+// 	100% {
+// 		transform: scale(1);
+// 	}
+// }
+
+// @-o-keyframes scale {
+// 	100% {
+// 		-o-transform: scale(1);
+// 	}
+// }
+
+// @-ms-keyframes scale {
+// 	100% {
+// 		-ms-transform: scale(1);
+// 	}
+// }
+
+// @-webkit-keyframes scale {
+// 	100% {
+// 		-webkit-transform: scale(1);
+// 	}
+// }
+
+// @-moz-keyframes scale {
+// 	100% {
+// 		-moz-transform: scale(1);
+// 	}
+// }
+
+// @keyframes zindex {
+// 	25% {
+// 		z-index: 1;
+// 	}
+// 	75% {
+// 		z-index: -1;
+// 	}
+// }
+
+// @-o-keyframes zindex {
+// 	25% {
+// 		z-index: 1;
+// 	}
+// 	75% {
+// 		z-index: -1;
+// 	}
+// }
+
+// @-ms-keyframes zindex {
+// 	25% {
+// 		z-index: 1;
+// 	}
+// 	75% {
+// 		z-index: -1;
+// 	}
+// }
+
+// @-webkit-keyframes zindex {
+// 	25% {
+// 		z-index: 1;
+// 	}
+// 	75% {
+// 		z-index: -1;
+// 	}
+// }
+
+// @-moz-keyframes zindex {
+// 	25% {
+// 		z-index: 1;
+// 	}
+// 	75% {
+// 		z-index: -1;
+// 	}
+// }
+
+// @keyframes fadeIn {
+// 	100% {
+// 		opacity: 1;
+// 	}
+// }
+
+// @-o-keyframes fadeIn {
+// 	100% {
+// 		opacity: 1;
+// 	}
+// }
+
+// @-ms-keyframes fadeIn {
+// 	100% {
+// 		opacity: 1;
+// 	}
+// }
+
+// @-webkit-keyframes fadeIn {
+// 	100% {
+// 		opacity: 1;
+// 	}
+// }
+
+// @-moz-keyframes fadeIn {
+// 	100% {
+// 		opacity: 1;
+// 	}
+// }

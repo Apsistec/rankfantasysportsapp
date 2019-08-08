@@ -31,8 +31,12 @@
                       <!-- <ion-label *ngIf="passwordCtrl.invalid && passwordCtrl.touched" lines="none" text-wrap>
                         <sub>Not secure, use 6 or more characters</sub>
                       </ion-label> -->
-                      <ion-button routerLink="/register" size="small" color="warning" fill="clear" expand="block" >
+                      <ion-button routerLink="register" size="small" color="warning" fill="clear" expand="block" >
                         <ion-label  color="warning"> Switch to Sign Up</ion-label>
+                        <ion-ripple-effect></ion-ripple-effect>
+                      </ion-button>
+                      <ion-button routerLink="forgot-password" size="small" color="danger" fill="clear" expand="block" >
+                        <ion-label  color="warning">Forgot Password</ion-label>
                         <ion-ripple-effect></ion-ripple-effect>
                       </ion-button>
                         <ion-button 

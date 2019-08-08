@@ -1,28 +1,30 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { NoAuthGuard } from './no-auth-guard.service';
-import { SharedModule } from '../shared';
-import { AuthRoutingModule } from './auth-routing.module';
-import { SignInComponent } from './login/login.component';
-import { SignUpComponent } from './register/register.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AuthPage } from './auth.page';
+import { ProfileOptionsComponent } from '../profile-options/profile-options.component';
+import { ProfilePageModule } from '../profile/profile.module';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: AuthPage
+  }
+];
 
 @NgModule({
   imports: [
-    SharedModule,
-    AuthRoutingModule,
-    IonicModule
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    ProfilePageModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [
-    SignInComponent,
-    SignUpComponent,
-    VerifyEmailComponent,
-    ForgotPasswordComponent
-  ],
-  providers: [
-    NoAuthGuard
+    AuthPage,
+    ProfileOptionsComponent
   ]
 })
-export class AuthModule { }
+export class AuthPageModule {}

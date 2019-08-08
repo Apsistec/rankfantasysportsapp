@@ -12,8 +12,9 @@
 
 .sign-btn{
     // --background: rgb(67, 197, 74);
-    --background: linear-gradient(to right, rgb(0, 255, 136) 0%, rgb(3, 169, 72) 44%, rgb(0, 255, 136) 100%);
-    // --color:#777777;
+    --background: linear-gradient(to right, rgba(216, 219, 47, 0.918) 0%, rgba(252, 238, 42, 0.945) 24%, rgb(201, 199, 74) 44%,rgb(212, 203, 71) 74%,rgba(255, 217, 0, 0.986)100%);
+    --color:#8507b8;
+    text-shadow: 1.5px 1.5px #8f8894;
 }
 .g-btn{
     // --background: rgba(169,3,41,1);
@@ -25,6 +26,8 @@
     --background: linear-gradient(to right, rgb(240, 0, 40)  0%, rgba(169,3,41,1) 44%, rgb(240, 0, 60) 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
     // --color:#4a7b81;
+        text-shadow: 1.5px 1.5px #8f8894;
+
 }
 .t-btn{
     --background: rgba(29, 161, 242,1);
@@ -36,6 +39,8 @@
     --background: linear-gradient(to right, rgb(96, 217, 247) 0%, rgba(29, 161, 242, 1) 44%, rgb(85, 229, 248) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
     // --color:rgb(255, 225, 255);
+        text-shadow: 1.5px 1.5px #8f8894;
+
 }
 .f-btn{
     --background: rgba(66, 103, 179,1);
@@ -47,16 +52,22 @@
     --background: linear-gradient(to right, rgb(45, 131, 252) 0%, rgba(66, 103, 179, 1) 24%, rgb(52, 133, 255) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
     // --color:#ccd6dd;
+        text-shadow: 1.5px 1.5px #8f8894;
+
 }
 
 .login{
   --background: linear-gradient(to right, rgb(4, 194, 30) 0%, rgb(3, 169, 72) 44%, rgb(19, 211, 67) 100%);
   --border-color: rgb(0, 255, 191);
   --max-width: 350px;
+      text-shadow: 1.5px 1.5px #8f8894;
+
 }
 .unsign{
   --background: linear-gradient(to right, rgb(240, 0, 40)  0%, rgba(169,3,41,1) 44%, rgb(240, 0, 60) 100%);
   --border-color: rgb(255, 0, 85);
+      text-shadow: 1.5px 1.5px #8f8894;
+
 }
 
 *::-webkit-scrollbar {

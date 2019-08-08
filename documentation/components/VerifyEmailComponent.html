@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/verify-email/verify-email.component.ts</code>
+    <code>src/app/auth/verify-email/verify-email.component.ts</code>
 </p>
 
 
@@ -172,7 +172,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/verify-email/verify-email.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -242,7 +242,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/components/verify-email/verify-email.component.ts:15</a></div>
+                            class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:15</a></div>
                 </td>
             </tr>
 
@@ -285,7 +285,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/verify-email/verify-email.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -299,7 +299,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { AuthService } from &#x27;../../core/auth.service&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
 
 @Component({
   selector: &#x27;app-verify-email&#x27;,
@@ -321,7 +321,7 @@ export class VerifyEmailComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">
-&lt;ion-content class&#x3D;&quot;bg-img&quot; fullscreen &gt;
+&lt;ion-content fullscreen &gt;
     &lt;ion-grid&gt;
         &lt;ion-row&gt;
           &lt;ion-col&gt;
@@ -329,7 +329,7 @@ export class VerifyEmailComponent implements OnInit {
           &lt;/ion-col&gt;
       
           &lt;ion-col&gt;
-    &lt;ion-card color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;auth.userData as user&quot;&gt;
+    &lt;ion-card color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;auth.afAuth.user as user&quot;&gt;
         &lt;img src&#x3D;&quot;../../assets/logo-md.svg&quot;&gt;
         &lt;ion-card-content&gt;
           &lt;hr&gt;
@@ -355,7 +355,7 @@ export class VerifyEmailComponent implements OnInit {
    
   &lt;/ion-card-content&gt;
 &lt;/ion-card&gt;
-&lt;ion-button color&#x3D;&quot;success&quot; routerLink&#x3D;&quot;/sign-in&quot;&gt;
+&lt;ion-button color&#x3D;&quot;success&quot; routerLink&#x3D;&quot;/login&quot;&gt;
   &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;Back to Sign In &lt;/ion-button&gt;
 &lt;/ion-col&gt;
 &lt;ion-col&gt;
@@ -400,8 +400,8 @@ export class VerifyEmailComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content class="bg-img" fullscreen >    <ion-grid>        <ion-row>          <ion-col>                </ion-col>                <ion-col>    <ion-card color="primary" *ngIf="auth.userData as user">        <img src="../../assets/logo-md.svg">        <ion-card-content>          <hr>      <ion-text color="light" >          <h2>Thank You for Registering</h2>          <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>          <p>Please check your email and click on the link to verfiy your email address.</p>      </ion-text>                    <!-- <ion-card> -->                <!-- Calling ForgotPassword from AuthService Api -->        <!-- <ion-item> -->          <!-- <ion-label position="floating">Email</ion-label> -->          <!-- <ion-input #passwordResetEmail inputmode="email" > -->          <!-- </ion-input> -->        <!-- </ion-item> -->      <!-- </ion-card> -->   <ion-button color="warning" (click)="auth.SendVerificationMail()">Resend</ion-button>     </ion-card-content></ion-card><ion-button color="success" routerLink="/sign-in">  <ion-ripple-effect></ion-ripple-effect>Back to Sign In </ion-button></ion-col><ion-col>  </ion-col>  </ion-row>  </ion-grid></ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'ImagesPage', 'selector': 'app-images'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><ion-content fullscreen >    <ion-grid>        <ion-row>          <ion-col>                </ion-col>                <ion-col>    <ion-card color="primary" *ngIf="auth.afAuth.user as user">        <img src="../../assets/logo-md.svg">        <ion-card-content>          <hr>      <ion-text color="light" >          <h2>Thank You for Registering</h2>          <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>          <p>Please check your email and click on the link to verfiy your email address.</p>      </ion-text>                    <!-- <ion-card> -->                <!-- Calling ForgotPassword from AuthService Api -->        <!-- <ion-item> -->          <!-- <ion-label position="floating">Email</ion-label> -->          <!-- <ion-input #passwordResetEmail inputmode="email" > -->          <!-- </ion-input> -->        <!-- </ion-item> -->      <!-- </ion-card> -->   <ion-button color="warning" (click)="auth.SendVerificationMail()">Resend</ion-button>     </ion-card-content></ion-card><ion-button color="success" routerLink="/login">  <ion-ripple-effect></ion-ripple-effect>Back to Sign In </ion-button></ion-col><ion-col>  </ion-col>  </ion-row>  </ion-grid></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'VerifyEmailComponent'};
 </script>

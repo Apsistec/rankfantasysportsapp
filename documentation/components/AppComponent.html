@@ -146,6 +146,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#getAnimationData">getAnimationData</a>
+                            </li>
+                            <li>
                                 <a href="#initializeApp">initializeApp</a>
                             </li>
                         </ul>
@@ -171,7 +174,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -258,6 +261,76 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getAnimationData"></a>
+                    <span class="name">
+                        <b>
+                            getAnimationData
+                        </b>
+                        <a href="#getAnimationData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAnimationData(outlet: <a href="https://angular.io/api/router/RouterOutlet" target="_blank">RouterOutlet</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/app.component.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>outlet</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/RouterOutlet" target="_blank" >RouterOutlet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="initializeApp"></a>
                     <span class="name">
                         <b>
@@ -276,8 +349,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/app.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/app.component.ts:28</a></div>
                 </td>
             </tr>
 
@@ -320,7 +393,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/app.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -348,7 +421,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/app.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/app.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -376,7 +449,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/app.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/app.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -404,7 +477,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/app.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -418,16 +491,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { AuthService } from &#x27;./core/auth.service&#x27;;
+import { AuthService } from &#x27;./core/services/auth.service&#x27;;
 import { Platform } from &#x27;@ionic/angular&#x27;;
 import { SplashScreen } from &#x27;@ionic-native/splash-screen/ngx&#x27;;
 import { StatusBar } from &#x27;@ionic-native/status-bar/ngx&#x27;;
+import { RouterOutlet } from &#x27;@angular/router&#x27;;
+import { slideInAnimation } from &#x27;./animations&#x27;;
 
 @Component({
   selector: &#x27;app-root&#x27;,
-  templateUrl: &#x27;app.component.html&#x27;
+  templateUrl: &#x27;app.component.html&#x27;,
+  animations: [slideInAnimation]
 })
 export class AppComponent {
+  getAnimationData(outlet: RouterOutlet) {
+    return outlet &amp;&amp; outlet.activatedRouteData &amp;&amp; outlet.activatedRouteData[&#x27;animation&#x27;];
+  }
 
   constructor(
     public auth: AuthService,
@@ -457,44 +536,44 @@ export class AppComponent {
     &lt;/ion-menu-toggle&gt;
   &lt;/ion-header&gt;
 
-  &lt;ion-content class&#x3D;&quot;bg-img&quot; fullscreen&gt;
+  &lt;ion-content fullscreen&gt;
     &lt;ion-menu-toggle auto-hide&#x3D;&quot;false&quot;&gt;
       &lt;ion-list&gt;
         &lt;ion-item-group&gt;
           &lt;ion-item routerLink&#x3D;&quot;/home&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;home&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;home&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Home&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
           &lt;/ion-item&gt;
 
           &lt;ion-item
-            (click)&#x3D;&quot;auth.SignOut()&quot;
-            *ngIf&#x3D;&quot;auth.af.user | async as user; else login&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;log-out&quot;&gt;&lt;/ion-icon&gt;
+            (click)&#x3D;&quot;this.auth.SignOut()&quot;
+            *ngIf&#x3D;&quot;auth.afAuth.user | async as user; else login&quot;&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;log-out&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Logout&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
           &lt;/ion-item&gt;
           &lt;ng-template #login&gt; 
-            &lt;ion-item routerLink&#x3D;&quot;/sign-in&quot;&gt;
-              &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;log-in&quot;&gt;&lt;/ion-icon&gt;
-              &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Sign In/ Sign Up&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+            &lt;ion-item routerLink&#x3D;&quot;/login&quot;&gt;
+              &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;log-in&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Login/Register&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
             &lt;/ion-item&gt;
           &lt;/ng-template&gt;
+            &lt;ion-item
+              routerLink&#x3D;&quot;/profile&quot;
+              *ngIf&#x3D;&quot;auth.afAuth.user | async as user&quot;&gt;
+              &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;contact&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Profile&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+            &lt;/ion-item&gt;
           
           &lt;ion-item routerLink&#x3D;&quot;/launch-page&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;logo-usd&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;logo-usd&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Pricing&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
           &lt;/ion-item&gt;
-          &lt;ion-item
-            routerLink&#x3D;&quot;/profile&quot;
-            *ngIf&#x3D;&quot;auth.af.user | async as user&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;contact&quot;&gt;&lt;/ion-icon&gt;
-            &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Profile&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
-          &lt;/ion-item&gt;
-          &lt;ion-item routerLink&#x3D;&quot;/tweeter&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;logo-twitter&quot;&gt;&lt;/ion-icon&gt;
+          &lt;ion-item routerLink&#x3D;&quot;/tweets&quot;&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;logo-twitter&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Tweets&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
           &lt;/ion-item&gt;
           &lt;ion-item routerLink&#x3D;&quot;/faq&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;help&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;help&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Questions&lt;/ion-label&gt;&lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
           &lt;/ion-item&gt;
         &lt;/ion-item-group&gt;
@@ -503,20 +582,29 @@ export class AppComponent {
             &lt;ion-label&gt;DFS Toolbox&lt;/ion-label&gt;
           &lt;/ion-list-header&gt;
 
+          &lt;ion-item routerLink&#x3D;&quot;/stats&quot;&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;stats&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Stats, Standings, Scores, Schedules +&lt;/ion-label&gt;
+          &lt;/ion-item&gt;
+          &lt;ion-item routerLink&#x3D;&quot;/xstats&quot;&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;stats&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-label color&#x3D;&quot;dark&quot;&gt;XStats&lt;/ion-label&gt;
+          &lt;/ion-item&gt;
           &lt;ion-item routerLink&#x3D;&quot;/list&quot;&gt;
-            &lt;ion-icon class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;stats&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;class&#x3D;&quot;iconify&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;stats&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Data-tables&lt;/ion-label&gt;
           &lt;/ion-item&gt;
-
+          
+          &lt;ion-item routerLink&#x3D;&#x27;/forum&#x27;&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;slot&#x3D;&quot;start&quot; name&#x3D;&quot;chatboxes&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-label color&#x3D;&quot;dark&quot;&gt;DFS Player Forum&lt;/ion-label&gt;
+          &lt;/ion-item&gt;
+          
           &lt;ion-item disabled&gt;
-            &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;trending-up&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;slot&#x3D;&quot;start&quot; name&#x3D;&quot;trending-up&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Line-up Optimizers&lt;/ion-label&gt;
           &lt;/ion-item&gt;
 
-          &lt;ion-item disabled&gt;
-            &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;chatboxes&quot;&gt;&lt;/ion-icon&gt;
-            &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Chat&lt;/ion-label&gt;
-          &lt;/ion-item&gt;
         &lt;/ion-item-group&gt;
         &lt;ion-item-group&gt;
           &lt;ion-list-header color&#x3D;&quot;primary&quot;&gt;
@@ -524,16 +612,11 @@ export class AppComponent {
           &lt;/ion-list-header&gt;
 
           &lt;ion-item disabled&gt;
-            &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;book&quot;&gt;&lt;/ion-icon&gt;
+            &lt;ion-icon color&#x3D;&quot;secondary&quot;slot&#x3D;&quot;start&quot; name&#x3D;&quot;book&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Courseware&lt;/ion-label&gt;
           &lt;/ion-item&gt;
 
-          &lt;!-- &lt;ion-item *ngIf&#x3D;&quot;auth.user | async as user&quot; (click)&#x3D;&quot;auth.SignOut()&quot;&gt;
-            &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
-            &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Sign Out&lt;/ion-label&gt;
-            &lt;ion-icon color&#x3D;&quot;warning&quot; slot&#x3D;&quot;start&quot; name&#x3D;&quot;exit&quot;&gt;&lt;/ion-icon&gt;
-          &lt;/ion-item&gt; --&gt;
-        &lt;/ion-item-group&gt;
+       &lt;/ion-item-group&gt;
       &lt;/ion-list&gt;
       &lt;ion-note&gt;&lt;sup&gt;*&lt;/sup&gt;Greyed menu items are coming soon!&lt;/ion-note&gt;
     &lt;/ion-menu-toggle&gt;
@@ -543,7 +626,7 @@ export class AppComponent {
     &lt;ion-button
       fill&#x3D;&quot;clear&quot;
       size&#x3D;&quot;small&quot;
-      href&#x3D;&quot;https://privacy-policy.rankfantasysports.com&quot;
+      href&#x3D;&quot;https://privacy.rankfantasysports.com&quot;
       color&#x3D;&quot;primary&quot;
     &gt;
       Privacy Policy&lt;/ion-button
@@ -560,19 +643,25 @@ export class AppComponent {
       &lt;ion-toolbar class&#x3D;&quot;menuToolbar&quot;&gt;
         &lt;ion-text color&#x3D;&quot;primary&quot;&gt;
           &lt;sub&gt; Made with&lt;/sub&gt;&amp;nbsp;&lt;ion-icon
-            color&#x3D;&quot;dark&quot;
+            color&#x3D;&quot;tertiary&quot;
             name&#x3D;&quot;logo-nodejs&quot;
           &gt;&lt;/ion-icon
           &gt;&amp;nbsp;&lt;sub&gt;and 🚀 by&lt;/sub&gt;
         &lt;/ion-text&gt;
         &lt;ion-text color&#x3D;&quot;tertiary&quot;
-          &gt;&lt;sub&gt;&lt;strong&gt;&amp;nbsp;RF$&amp;nbsp;&lt;/strong&gt;©2019&lt;/sub&gt;
+          &gt;&lt;sub&gt;&lt;strong&gt;&amp;nbsp;RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;nbsp;&lt;/strong&gt;©2019&lt;/sub&gt;
         &lt;/ion-text&gt;
       &lt;/ion-toolbar&gt;
     &lt;/ion-menu-toggle&gt;
   &lt;/ion-footer&gt;
 &lt;/ion-menu&gt;
-&lt;ion-router-outlet main&gt;&lt;/ion-router-outlet&gt;
+
+&lt;div [@routeAnimation]&#x3D;&quot;getAnimationData(routerOutlet)&quot;&gt;
+  &lt;ion-router-outlet  #routerOutlet&#x3D;&quot;outlet&quot; main&gt;&lt;/ion-router-outlet&gt;
+&lt;/div&gt;
+&lt;router-outlet name&#x3D;&quot;popup&quot;&gt;&lt;/router-outlet&gt;
+
+&lt;!-- &lt;router-outlet #routerOutlet&#x3D;&quot;outlet&quot;&gt;&lt;/router-outlet&gt; --&gt;
 &lt;!-- &lt;/ion-split-pane&gt; --&gt;
 </code></pre>
     </div>
@@ -603,8 +692,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <ion-split-pane> --><ion-menu type="reveal">  <ion-header tranlucent>    <ion-menu-toggle auto-hide="false">      <ion-toolbar color="primary">        <img src="../assets/logo-md.svg" height="50rem" slot="start" />      </ion-toolbar>    </ion-menu-toggle>  </ion-header>  <ion-content class="bg-img" fullscreen>    <ion-menu-toggle auto-hide="false">      <ion-list>        <ion-item-group>          <ion-item routerLink="/home">            <ion-icon class="iconify" slot="start" name="home"></ion-icon>            <ion-label color="dark">Home</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item            (click)="auth.SignOut()"            *ngIf="auth.af.user | async as user; else login">            <ion-icon class="iconify" slot="start" name="log-out"></ion-icon>            <ion-label color="dark">Logout</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ng-template #login>             <ion-item routerLink="/sign-in">              <ion-icon class="iconify" slot="start" name="log-in"></ion-icon>              <ion-label color="dark">Sign In/ Sign Up</ion-label><ion-ripple-effect></ion-ripple-effect>            </ion-item>          </ng-template>                    <ion-item routerLink="/launch-page">            <ion-icon class="iconify" slot="start" name="logo-usd"></ion-icon>            <ion-label color="dark">Pricing</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item            routerLink="/profile"            *ngIf="auth.af.user | async as user">            <ion-icon class="iconify" slot="start" name="contact"></ion-icon>            <ion-label color="dark">Profile</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item routerLink="/tweeter">            <ion-icon class="iconify" slot="start" name="logo-twitter"></ion-icon>            <ion-label color="dark">Tweets</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item routerLink="/faq">            <ion-icon class="iconify" slot="start" name="help"></ion-icon>            <ion-label color="dark">Questions</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>        </ion-item-group>        <ion-item-group>          <ion-list-header color="primary">            <ion-label>DFS Toolbox</ion-label>          </ion-list-header>          <ion-item routerLink="/list">            <ion-icon class="iconify" slot="start" name="stats"></ion-icon>            <ion-label color="dark">Data-tables</ion-label>          </ion-item>          <ion-item disabled>            <ion-icon slot="start" name="trending-up"></ion-icon>            <ion-label color="dark">Line-up Optimizers</ion-label>          </ion-item>          <ion-item disabled>            <ion-icon slot="start" name="chatboxes"></ion-icon>            <ion-label color="dark">Chat</ion-label>          </ion-item>        </ion-item-group>        <ion-item-group>          <ion-list-header color="primary">            <ion-label>RF💲 University </ion-label>          </ion-list-header>          <ion-item disabled>            <ion-icon slot="start" name="book"></ion-icon>            <ion-label color="dark">Courseware</ion-label>          </ion-item>          <!-- <ion-item *ngIf="auth.user | async as user" (click)="auth.SignOut()">            <ion-ripple-effect></ion-ripple-effect>            <ion-label color="dark">Sign Out</ion-label>            <ion-icon color="warning" slot="start" name="exit"></ion-icon>          </ion-item> -->        </ion-item-group>      </ion-list>      <ion-note><sup>*</sup>Greyed menu items are coming soon!</ion-note>    </ion-menu-toggle>  </ion-content>  <ion-footer translucent>    <ion-button      fill="clear"      size="small"      href="https://privacy-policy.rankfantasysports.com"      color="primary"    >      Privacy Policy</ion-button    >    <ion-button      fill="clear"      size="small"      href="https://terms.rankfantasysports.com"      color="primary"    >      Terms & Conditions</ion-button    >    <ion-menu-toggle auto-hide="false">      <ion-toolbar class="menuToolbar">        <ion-text color="primary">          <sub> Made with</sub>&nbsp;<ion-icon            color="dark"            name="logo-nodejs"          ></ion-icon          >&nbsp;<sub>and 🚀 by</sub>        </ion-text>        <ion-text color="tertiary"          ><sub><strong>&nbsp;RF$&nbsp;</strong>©2019</sub>        </ion-text>      </ion-toolbar>    </ion-menu-toggle>  </ion-footer></ion-menu><ion-router-outlet main></ion-router-outlet><!-- </ion-split-pane> --></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'ImagesPage', 'selector': 'app-images'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><!-- <ion-split-pane> --><ion-menu type="reveal">  <ion-header tranlucent>    <ion-menu-toggle auto-hide="false">      <ion-toolbar color="primary">        <img src="../assets/logo-md.svg" height="50rem" slot="start" />      </ion-toolbar>    </ion-menu-toggle>  </ion-header>  <ion-content fullscreen>    <ion-menu-toggle auto-hide="false">      <ion-list>        <ion-item-group>          <ion-item routerLink="/home">            <ion-icon color="secondary"class="iconify" slot="start" name="home"></ion-icon>            <ion-label color="dark">Home</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item            (click)="this.auth.SignOut()"            *ngIf="auth.afAuth.user | async as user; else login">            <ion-icon color="secondary"class="iconify" slot="start" name="log-out"></ion-icon>            <ion-label color="dark">Logout</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ng-template #login>             <ion-item routerLink="/login">              <ion-icon color="secondary"class="iconify" slot="start" name="log-in"></ion-icon>              <ion-label color="dark">Login/Register</ion-label><ion-ripple-effect></ion-ripple-effect>            </ion-item>          </ng-template>            <ion-item              routerLink="/profile"              *ngIf="auth.afAuth.user | async as user">              <ion-icon color="secondary"class="iconify" slot="start" name="contact"></ion-icon>              <ion-label color="dark">Profile</ion-label><ion-ripple-effect></ion-ripple-effect>            </ion-item>                    <ion-item routerLink="/launch-page">            <ion-icon color="secondary"class="iconify" slot="start" name="logo-usd"></ion-icon>            <ion-label color="dark">Pricing</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item routerLink="/tweets">            <ion-icon color="secondary"class="iconify" slot="start" name="logo-twitter"></ion-icon>            <ion-label color="dark">Tweets</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>          <ion-item routerLink="/faq">            <ion-icon color="secondary"class="iconify" slot="start" name="help"></ion-icon>            <ion-label color="dark">Questions</ion-label><ion-ripple-effect></ion-ripple-effect>          </ion-item>        </ion-item-group>        <ion-item-group>          <ion-list-header color="primary">            <ion-label>DFS Toolbox</ion-label>          </ion-list-header>          <ion-item routerLink="/stats">            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>            <ion-label color="dark">Stats, Standings, Scores, Schedules +</ion-label>          </ion-item>          <ion-item routerLink="/xstats">            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>            <ion-label color="dark">XStats</ion-label>          </ion-item>          <ion-item routerLink="/list">            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>            <ion-label color="dark">Data-tables</ion-label>          </ion-item>                    <ion-item routerLink=\'/forum\'>            <ion-icon color="secondary"slot="start" name="chatboxes"></ion-icon>            <ion-label color="dark">DFS Player Forum</ion-label>          </ion-item>                    <ion-item disabled>            <ion-icon color="secondary"slot="start" name="trending-up"></ion-icon>            <ion-label color="dark">Line-up Optimizers</ion-label>          </ion-item>        </ion-item-group>        <ion-item-group>          <ion-list-header color="primary">            <ion-label>RF💲 University </ion-label>          </ion-list-header>          <ion-item disabled>            <ion-icon color="secondary"slot="start" name="book"></ion-icon>            <ion-label color="dark">Courseware</ion-label>          </ion-item>       </ion-item-group>      </ion-list>      <ion-note><sup>*</sup>Greyed menu items are coming soon!</ion-note>    </ion-menu-toggle>  </ion-content>  <ion-footer translucent>    <ion-button      fill="clear"      size="small"      href="https://privacy.rankfantasysports.com"      color="primary"    >      Privacy Policy</ion-button    >    <ion-button      fill="clear"      size="small"      href="https://terms.rankfantasysports.com"      color="primary"    >      Terms & Conditions</ion-button    >    <ion-menu-toggle auto-hide="false">      <ion-toolbar class="menuToolbar">        <ion-text color="primary">          <sub> Made with</sub>&nbsp;<ion-icon            color="tertiary"            name="logo-nodejs"          ></ion-icon          >&nbsp;<sub>and 🚀 by</sub>        </ion-text>        <ion-text color="tertiary"          ><sub><strong>&nbsp;RF<ion-text color="secondary">$</ion-text>&nbsp;</strong>©2019</sub>        </ion-text>      </ion-toolbar>    </ion-menu-toggle>  </ion-footer></ion-menu><div [@routeAnimation]="getAnimationData(routerOutlet)">  <ion-router-outlet  #routerOutlet="outlet" main></ion-router-outlet></div><router-outlet name="popup"></router-outlet><!-- <router-outlet #routerOutlet="outlet"></router-outlet> --><!-- </ion-split-pane> --></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

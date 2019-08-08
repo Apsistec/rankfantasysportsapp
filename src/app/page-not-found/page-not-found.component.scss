@@ -1,0 +1,13 @@
+// ion-content{
+//   background: linear-gradient(rgb(37, 13, 143), rgba(0, 0, 0, 0.75), rgb(22, 209, 53));
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   text-align: center;
+// }
+ion-content{
+  background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url('../../assets/img/fumble.jpg');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}

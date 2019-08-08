@@ -134,7 +134,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/front-end/tweets/tweets.module.ts</code>
+            <code>src/app/tweets/tweets.module.ts</code>
         </p>
 
 
@@ -175,11 +175,10 @@ import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { NgxTwitterTimelineModule } from &#x27;ngx-twitter-timeline&#x27;;
 
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
-
+import { SharedModule } from &#x27;../shared/shared.module&#x27;;
 import { TweetsPage } from &#x27;./tweets.page&#x27;;
-import { SharedModule } from &#x27;src/app/shared/shared.module&#x27;;
 
-const tweetRoutes: Routes &#x3D; [
+const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
     component: TweetsPage
@@ -188,16 +187,16 @@ const tweetRoutes: Routes &#x3D; [
 
 @NgModule({
   imports: [
-    CommonModule,
     NgxTwitterTimelineModule,
+    SharedModule,
+    CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(tweetRoutes),
-    SharedModule
+    RouterModule.forChild(routes)
   ],
   declarations: [TweetsPage]
 })
-export class TweetsPageModule {}
+export class TweetsPageModule { }
 </code></pre>
     </div>
 </div>

@@ -135,6 +135,9 @@
                                 <a href="#auth">auth</a>
                             </li>
                             <li>
+                                <a href="#button">button</a>
+                            </li>
+                            <li>
                                 <a href="#user">user</a>
                             </li>
                         </ul>
@@ -175,7 +178,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/header/header.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/header/header.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -244,8 +247,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/shared/header/header.component.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/shared/header/header.component.ts:19</a></div>
                 </td>
             </tr>
 
@@ -288,7 +291,33 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/header/header.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/header/header.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="button"></a>
+                        <span class="name">
+                            <b>
+                            button</b>
+                            <a href="#button"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>document.querySelector(&#x27;ion-button&#x27;)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/header/header.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -309,7 +338,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                            <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User</a></code>
 
                         </td>
                     </tr>
@@ -329,8 +358,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { AuthService } from &#x27;../../core/auth.service&#x27;;
-import { User } from &#x27;../../core/user&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import { User } from &#x27;../../core/models/user&#x27;;
 
 @Component({
   selector: &#x27;app-header&#x27;,
@@ -340,11 +369,14 @@ import { User } from &#x27;../../core/user&#x27;;
 export class HeaderComponent implements OnInit {
 
   user: User;
+  button &#x3D; document.querySelector(&#x27;ion-button&#x27;);
 
-  constructor(public auth: AuthService) { }
+  constructor(
+    public auth: AuthService
+    ) { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+  }
 }
 </code></pre>
     </div>
@@ -356,8 +388,7 @@ export class HeaderComponent implements OnInit {
       &lt;ion-menu-button color&#x3D;&quot;warning&quot;&gt; 
       &lt;/ion-menu-button&gt;
     &lt;/ion-buttons&gt;
-    &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
-      &lt;ion-item color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;user&quot; (click)&#x3D;&quot;auth.SignOut()&quot;&gt;
+      &lt;ion-item color&#x3D;&quot;primary&quot; slot&#x3D;&quot;end&quot; *ngIf&#x3D;&quot;auth.afAuth.user | async as user&quot; (click)&#x3D;&quot;this.auth.SignOut()&quot;&gt;
         &lt;ion-avatar&gt;
           &lt;img [src]&#x3D;&quot;user.photoURL || &#x27;../../../assets/img/dummy-user.png&#x27;&quot;/&gt; 
         &lt;/ion-avatar&gt;
@@ -366,7 +397,6 @@ export class HeaderComponent implements OnInit {
         &lt;ion-icon color&#x3D;&quot;danger&quot; name&#x3D;&quot;log-out&quot; icon-only&gt;
         &lt;/ion-icon&gt;
       &lt;/ion-item&gt;
-    &lt;/ion-buttons&gt;
   &lt;/ion-toolbar&gt;
 &lt;/ion-header&gt;
 </code></pre>
@@ -376,10 +406,10 @@ export class HeaderComponent implements OnInit {
                 <p class="comment">
                     <code>./header.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">ion-header{
-  --background: rgb(93,106,91);
-  --background: linear-gradient(22deg, rgba(93,106,91,0.9920343137254902) 8%, rgba(84,76,87,1) 59%, rgba(77,54,84,0.9136029411764706) 100%);
-}
+                <pre class="line-numbers"><code class="language-scss">// ion-header{
+//   // --background: rgb(93,106,91);
+//   --background-color: linear-gradient(22deg, rgba(93,106,91,0.9920343137254902) 8%, rgba(84,76,87,1) 59%, rgba(77,54,84,0.9136029411764706) 100%);
+// }
 </code></pre>
     </div>
 
@@ -408,8 +438,8 @@ export class HeaderComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header tranlucent>  <ion-toolbar color="primary">    <ion-buttons slot="start">      <ion-menu-button color="warning">       </ion-menu-button>    </ion-buttons>    <ion-buttons slot="end">      <ion-item color="primary" *ngIf="user" (click)="auth.SignOut()">        <ion-avatar>          <img [src]="user.photoURL || \'../../../assets/img/dummy-user.png\'"/>         </ion-avatar>          &nbsp;           &nbsp;        <ion-icon color="danger" name="log-out" icon-only>        </ion-icon>      </ion-item>    </ion-buttons>  </ion-toolbar></ion-header></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'ImagesPage', 'selector': 'app-images'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'MembershipsComponent', 'selector': 'app-memberships'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'RowDetailComponent', 'selector': 'app-row-detail'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SubscriptionPageComponent', 'selector': 'subscription-page'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweeterPage', 'selector': 'app-tweeter'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header tranlucent>  <ion-toolbar color="primary">    <ion-buttons slot="start">      <ion-menu-button color="warning">       </ion-menu-button>    </ion-buttons>      <ion-item color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="this.auth.SignOut()">        <ion-avatar>          <img [src]="user.photoURL || \'../../../assets/img/dummy-user.png\'"/>         </ion-avatar>          &nbsp;           &nbsp;        <ion-icon color="danger" name="log-out" icon-only>        </ion-icon>      </ion-item>  </ion-toolbar></ion-header></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>

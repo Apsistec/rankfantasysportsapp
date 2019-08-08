@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Back" type="button" color="warning" slot="start"
+        icon="arrow-round-back">
+      </ion-back-button>
+    </ion-buttons>
+      <ion-text color="light" text-wrap>
+        Check here first for answers to your questions!
+      </ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen >
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+       
+        <ion-card padding color="primary">
+          <ion-list>
+            <ion-list-header text-center>
+              <ion-title>
+                <ion-label>
+                  About RF<ion-text color="secondary">$</ion-text>&trade;
+                </ion-label>
+              </ion-title>
+            </ion-list-header>
+            <ion-item-group>
+              <ion-item *ngFor="let faq of faqs">
+                <ion-icon name="arrow-dropright"></ion-icon>
+                <p>
+                  {{ faq.info }}
+                </p>  
+                </ion-item>
+              </ion-item-group>
+            </ion-list>
+        </ion-card>
+   
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-footer></app-footer>

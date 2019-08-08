@@ -1,25 +1,26 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfilePage } from './profile.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-import { ProfileArticlesComponent } from './profile-articles.component';
-import { ProfileComponent } from './profile.component';
-import { ProfileFavoritesComponent } from './profile-favorites.component';
-import { ProfileResolver } from './profile-resolver.service';
-import { SharedModule } from '../shared';
-import { ProfileRoutingModule } from './profile-routing.module';
+const routes: Routes = [
+  {
+    path: '',
+    component: ProfilePage
+  }
+];
 
 @NgModule({
   imports: [
     SharedModule,
-    ProfileRoutingModule
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [
-    ProfileArticlesComponent,
-    ProfileComponent,
-    ProfileFavoritesComponent
-  ],
-  providers: [
-    ProfileResolver
-  ]
+  declarations: [ProfilePage]
 })
-export class ProfileModule {}
+export class ProfilePageModule {}

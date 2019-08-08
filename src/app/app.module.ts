@@ -15,42 +15,41 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicStorageModule } from '@ionic/storage';
 import { SharedModule } from './shared/shared.module';
-import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
-import { LogLevel } from 'msal';
-import { AuthModule } from './auth/auth.module';
-import { MsGraphComponent } from './ms-graph/ms-graph.component';
-import { ProductComponent } from './product/product.component';
-import { ProductDetailComponent } from './product/product-detail/product-detail.component';
-import { LaunchPageComponent } from './main-pages/launch-page/launch-page.component';
-import { ArticleResolver } from './article/article-resolver.service';
-import { EditableArticleResolver } from './editor/editable-article-resolver.service';
-import { ProfileResolver } from './profile/profile-resolver.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeModule } from './home/home.module';
+import { Router } from '@angular/router';
 
-export function loggerCallback(logLevel, message, piiEnabled) {
-  console.log('client logging' + message);
-}
-export const protectedResourceMap: [string, string[]][] = [
-  ['https://graph.microsoft.com/v1.0/me', ['user.read']],
-  // ... other scopes
-];
+// import { enableDebugTools } from '@angular/platform-browser';
+// import { ApplicationRef } from '@angular/core';
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+
+// export function loggerCallback(logLevel, message, piiEnabled) {
+//   console.log('client logging' + message);
+// }
+// export const protectedResourceMap: [string, string[]][] = [
+//   ['https://graph.microsoft.com/v1.0/me', ['user.read']],
+//   // ... other scopes
+// ];
 @NgModule({
   declarations: [
     AppComponent,
-    MsGraphComponent,
-    ProductComponent,
-    ProductDetailComponent,
-    LaunchPageComponent
+    PageNotFoundComponent,
   ],
-  entryComponents: [],
+  entryComponents: [
+  ],
   imports: [
+    HomeModule,
+    CommonModule,
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     IonicStorageModule.forRoot(),
-    AppRoutingModule,
-    MsalModule.forRoot({
-      clientID: '356141ef-6b53-40e6-9ea4-fd5224e977f5'
-    }),
     SharedModule,
+    FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AngularFirestoreModule,
     AngularFireMessagingModule,
@@ -58,20 +57,30 @@ export const protectedResourceMap: [string, string[]][] = [
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
-    })
+    }),
+    AppRoutingModule,
   ],
   providers: [
-    AuthModule,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ArticleResolver,
-    EditableArticleResolver,
-    ProfileResolver
   ],
-  exports: [
-    SharedModule,
-  ],
+  exports: [ ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    // Use a custom replacer to display function names in the route configs
+    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+  }
+}
+
+// platformBrowserDynamic().bootstrapModule(AppModule)
+//   .then(moduleRef => {
+//     const applicationRef = moduleRef.injector.get(ApplicationRef);
+//     const appComponent = applicationRef.components[0];
+//     enableDebugTools(appComponent);
+//   })

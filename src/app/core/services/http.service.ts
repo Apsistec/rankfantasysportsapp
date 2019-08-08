@@ -1,3 +1,6 @@
+import { HttpClientModule } from '@angular/http/client';
+
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +8,5 @@ import { Injectable } from '@angular/core';
 })
 export class HttpService {
 
-  constructor() { }
+  constructor(public http: HttpClientModule) { }
 }

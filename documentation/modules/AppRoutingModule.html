@@ -73,33 +73,21 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { LaunchPageComponent } from &#x27;./components/launch-page/launch-page.component&#x27;;
-import { SignInComponent } from &#x27;./components/sign-in/sign-in.component&#x27;;
-import { ForgotPasswordComponent } from &#x27;./components/forgot-password/forgot-password.component&#x27;;
-import { VerifyEmailComponent } from &#x27;./components/verify-email/verify-email.component&#x27;;
-import { InnerGuard } from &#x27;./core/guard/inner.guard&#x27;;
-import { SigninGuard } from &#x27;./core/guard/signin.guard&#x27;;
+
+import { PageNotFoundComponent } from &#x27;./page-not-found/page-not-found.component&#x27;;
 
 const appRoutes: Routes &#x3D; [
-{ path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
-{ path: &#x27;home&#x27;, loadChildren: &#x27;./pages/home/home.module#HomePageModule&#x27; },
-{ path: &#x27;testimonials&#x27;, loadChildren: &#x27;./pages/testimonials/testimonials.module#TestimonialsPageModule&#x27; },
-{ path: &#x27;tweeter&#x27;, loadChildren: &#x27;./pages/tweeter/tweeter.module#TweeterPageModule&#x27; },
-{ path: &#x27;launch-page&#x27;, component: LaunchPageComponent },
-{ path: &#x27;faq&#x27;, loadChildren: &#x27;./pages/faq/faq.module#FaqPageModule&#x27; },
-{ path: &#x27;sign-in&#x27;, component: SignInComponent },
-{ path: &#x27;verify-email-address&#x27;, component: VerifyEmailComponent, canActivate: [InnerGuard] },
-{ path: &#x27;forgot-password&#x27;, component: ForgotPasswordComponent, canActivate: [InnerGuard] },
-{ path: &#x27;profile&#x27;, loadChildren: &#x27;./pages/profile/profile.module#ProfilePageModule&#x27;, canActivate: [SigninGuard] },
-{ path: &#x27;list&#x27;, loadChildren: &#x27;./pages/list/list.module#ListPageModule&#x27; }, // canActivate: [SigninGuard]},
-  {
-    path: &#x27;imagest&#x27;, loadChildren: &#x27;./pages/images/images.module#ImagesPageModule&#x27; }
+
+  { path: &#x27;home&#x27;, loadChildren: &#x27;./main-pages/home/home.module#HomeModule&#x27; },
+ 
+  { path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;**&#x27;, component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      // enableTracing: true,
+      enableTracing: true,
       preloadingStrategy: PreloadAllModules
     })
   ],

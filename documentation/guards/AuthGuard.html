@@ -80,7 +80,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#authService">authService</a>
+                                <a href="#auth">auth</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -119,7 +119,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -142,7 +142,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>authService</td>
+                                                        <td>auth</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
@@ -268,7 +268,7 @@
         <div class="tab-pane fade  tab-source-code" id="c-source">
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from &#x27;@angular/router&#x27;;
-import { AuthService } from &#x27;../auth.service&#x27;;
+import { AuthService } from &#x27;../services/auth.service&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 // import { tap, map, take } from &#x27;rxjs/operators&#x27;;
 
@@ -278,19 +278,21 @@ import { Observable } from &#x27;rxjs&#x27;;
 export class AuthGuard implements CanActivate {
 
   constructor(
-    public authService: AuthService,
+    public auth: AuthService,
     public router: Router
   ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
-    if (this.authService.userData.stripeCustomerId !&#x3D;&#x3D; null) { return true; } else {
-      alert(&#x27;You must purchase a membership to view tables&#x27;);
-      this.router.navigate([&#x27;launch-page&#x27;]);
-        }
+    if (this.auth.isLoggedIn !&#x3D;&#x3D; false) {
+      return true;
+      // this.router.navigate([&#x27;list&#x27;]);
+    } else {
+      window.alert(&#x27;You must purchase a membership to view tables&#x27;);
+      return this.router.navigate([&#x27;launch-page&#x27;]);
     }
-
+  }
 }
 </code></pre>
         </div>
