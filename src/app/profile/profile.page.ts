@@ -51,9 +51,9 @@ export class ProfilePage implements OnInit {
   user: User;
   // request: Request;
   userData: any;
-
+  results;
   constructor(
-    public navParams: NavParams,
+    // public navParams: NavParams,
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private router: Router,
@@ -61,8 +61,10 @@ export class ProfilePage implements OnInit {
     public modalCtrl: ModalController,
     private afAuth: AngularFireAuth
   ) {
-    // this.navParams.get({ 'this.issue', 'this.description', 'user.email', 'user.displayName'}).
   }
+  //  get submittedForm() { 
+  //     this.results = this.navParams.get({ issue: 'this.issue', description: 'this.description', email: 'user.email', displayName: 'user.displayName'}).
+  //   }
 
   ngOnInit() {
     this.loading = false;

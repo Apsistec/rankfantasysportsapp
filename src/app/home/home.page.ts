@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
+import { AuthService } from '../msauth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,23 +12,31 @@ import { IonContent } from '@ionic/angular';
 export class HomePage implements OnInit {
 
   @ViewChild(IonContent) ionContent: IonContent;
+  scrolledDown = false;
 
   public trustedVideoUrl: SafeResourceUrl;
-
   video: any = {
     url: 'https://www.youtube.com/embed/IlU_RBT2zE0',
   };
 
   constructor(
     public domSanitizer: DomSanitizer,
-    ) { }
+    public zone: NgZone,
+    private authService: AuthService
+  ) {  }
+
+  onScroll(event) {
+    if (event.detail.scrollTop > 200) {
+      this.scrolledDown = true;
+    } else {
+      this.scrolledDown = false;
+    }
+  }
 
   ngOnInit() {
-    // if (document.body.scrollTop < 50) {
-    //   document.getElementById('scrollToTop').style.display = 'none';
-    // }
     this.showVid();
   }
+
 
   showVid() {
     (this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url));
@@ -36,5 +45,14 @@ export class HomePage implements OnInit {
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
+
+  async signIn(): Promise<void> {
+    await this.authService.signIn();
+  }
+
+  signOut(): void {
+    this.authService.signOut();
+  }
+
 
 }

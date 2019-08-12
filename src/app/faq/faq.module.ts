@@ -4,12 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FaqPage } from './faq.page';
-import { SharedModule } from 'src/app/shared/shared.module';
-
+import { SupportModalComponent } from '../support-modal/support-modal.component';
+import { SharedModule } from '../shared/shared.module';
+import { AuthGuard } from '../core/guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    component: FaqPage
+    component: FaqPage,
+    canActivate: [AuthGuard]
+
   }
 ];
 
@@ -21,6 +24,10 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FaqPage]
+  declarations: [
+    FaqPage,
+    SupportModalComponent,
+  ],
+  entryComponents: [SupportModalComponent]
 })
 export class FaqPageModule {}

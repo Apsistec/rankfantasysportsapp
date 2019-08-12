@@ -7,7 +7,11 @@ import { IonContent } from '@ionic/angular';
   styleUrls: ['./tweets.page.scss'],
 })
 export class TweetsPage implements OnInit {
+
   @ViewChild(IonContent) ionContent: IonContent;
+
+  scrolledDown = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -16,5 +20,11 @@ export class TweetsPage implements OnInit {
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
-
+  onScroll(event) {
+    if (event.detail.scrollTop > 200) {
+      this.scrolledDown = true;
+    } else {
+      this.scrolledDown = false;
+    }
+  }
 }

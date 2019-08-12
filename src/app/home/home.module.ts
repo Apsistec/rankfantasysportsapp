@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import { SharedModule } from '../shared/shared.module';
-import { LaunchPageComponent } from '../launch-page/launch-page.component';
-import { PaypalComponent } from '../paypal/paypal.component';
-// import { StatsPageModule } from '../stats/stats.module';
-// import { XstatsPageModule } from '../xstats/xstats.module';
-import { HomeRoutingModule } from './home-routing.module';
-import { PostsComponent } from '../posts/posts.component';
-import { MessagesComponent } from '../messages/messages.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomePage
+  }
+];
 
 @NgModule({
   imports: [
@@ -18,17 +20,11 @@ import { MessagesComponent } from '../messages/messages.component';
     FormsModule,
     IonicModule,
     SharedModule,
-    // StatsPageModule,
-    // XstatsPageModule,
-    HomeRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [
-    PostsComponent,
     HomePage,
-    PaypalComponent,
-    LaunchPageComponent,
-    MessagesComponent
   ],
   exports: []
 })
-export class HomeModule { }
+export class HomePageModule { }

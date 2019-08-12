@@ -4,15 +4,15 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+
 import { first } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
-// import { sign } from 'crypto';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
+  user: User;
   userData: any; // Save logged in user data
 
   constructor(
@@ -147,16 +147,31 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.signOutToast();
+      this.router.navigate(['/']);
     });
   }
 
   async signToast() {
     const toast = await this.toastController.create({
-      header: 'Authentication Message',
+      header: 'Authentication Message:',
       cssClass: 'login',
-      message: 'You have successfully signed in',
-      position: 'top',
+      message: 'You have successfully logged in',
+      position: 'middle',
+      duration: 4000,
+      showCloseButton: true,
+      translucent: true,
+    });
+    toast.present();
+  }
+
+  async signOutToast() {
+    const toast = await this.toastController.create({
+      header: 'Authentication Message:',
+      cssClass: 'logout',
+      message: 'You have successfully logged out',
+      position: 'middle',
+      duration: 4000,
       showCloseButton: true,
       translucent: true,
     });

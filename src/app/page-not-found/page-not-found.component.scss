@@ -1,13 +1,16 @@
-// ion-content{
-//   background: linear-gradient(rgb(37, 13, 143), rgba(0, 0, 0, 0.75), rgb(22, 209, 53));
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   text-align: center;
-// }
-ion-content{
-  background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url('../../assets/img/fumble.jpg');
+ion-card{
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.973), rgba(0, 0, 0, 0.027)), url('../../assets/img/fumble.jpg');
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
+  min-height: 600px;
+  text-align: center;
+  text-shadow: 3px 3px rgb(236, 1, 1);
+  background-position: center;
 }
+.awesome{
+  background: linear-gradient(219deg, rgba(22,3,33,1) 0%, rgba(22,3,33,1) 0%, rgba(22,3,33,1) 0%, rgba(22,3,33,1) 0%, rgba(22,3,33,1) 0%, rgba(22,3,33,1) 19%, rgba(74,74,74,1) 55%, rgba(49,67,69,1) 65%, rgba(48,48,48,1) 74%); /* w3c */
+}
+
+

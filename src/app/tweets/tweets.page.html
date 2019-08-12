@@ -10,6 +10,7 @@ Recent RF<ion-text color="secondary">$</ion-text>&trade; tweets</ion-text>
   </ion-toolbar>
 </ion-header>
 <ion-content
+  (ionScroll)="onScroll($event)"
   [scrollEvents]="true"
   fullscreen
 >
@@ -20,7 +21,7 @@ Recent RF<ion-text color="secondary">$</ion-text>&trade; tweets</ion-text>
         
         <div class="twitter-container">
           <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-          [opts]="{chrome: ['nofooter',  'noscrollbar'], theme: 'dark', tweetLimit: '20', borderColor: '#02ed25', ariaPolite: 'assertive'}">
+          [opts]="{chrome: ['transparent', 'nofooter', 'noscrollbar'], theme: 'dark', tweetLimit: '20', borderColor: '#02ed25', ariaPolite: 'assertive'}">
       </ngx-twitter-timeline>
     </div>
     <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
