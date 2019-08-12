@@ -50,20 +50,43 @@
           </ion-item>
         </ion-item-group>
         <ion-item-group>
+          <ion-list-header color="primary" routerLink="/list">
+            <ion-label>RF$ Data Tables </ion-label>
+          </ion-list-header>
+          
+          <ion-item disabled routerLink="/soccer">
+            <ion-icon color="secondary"slot="start" name="football"></ion-icon>
+            <ion-label color="dark">FIFA</ion-label>
+          </ion-item>
+          <ion-item routerLink="/tennis">
+            <ion-icon color="secondary"class="iconify" slot="start" name="tennisball"></ion-icon>
+            <ion-label color="dark">Tennis</ion-label>
+          </ion-item>
+          <ion-item routerLink="/football">
+            <ion-icon color="secondary"class="iconify" slot="start" name="american-football"></ion-icon>
+            <ion-label color="dark">NFL</ion-label>
+          </ion-item>
+          <ion-item routerLink="/golf">
+            <ion-icon color="secondary"class="iconify" slot="start" name="golfball"></ion-icon>
+            <ion-label color="dark">PGA</ion-label>
+          </ion-item>
+          <ion-item disabled routerLink="/baseball">
+            <ion-icon color="secondary"class="iconify" slot="start" name="baseball"></ion-icon>
+            <ion-label color="dark">MLB</ion-label>
+          </ion-item>
+          <ion-item disabled routerLink="/basketball">
+            <ion-icon color="secondary"class="iconify" slot="start" name="basketball"></ion-icon>
+            <ion-label color="dark">NBA</ion-label>
+          </ion-item>
+          
+        </ion-item-group>
+        <ion-item-group>
           <ion-list-header color="primary">
             <ion-label>DFS Toolbox</ion-label>
           </ion-list-header>
           
-          <!-- <ion-item routerLink="/stats">
-            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
-            <ion-label color="dark">Stats, Standings, Scores, Schedules +</ion-label>
-          </ion-item> -->
-          <ion-item routerLink="/list">
-            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
-            <ion-label color="dark">Data-tables</ion-label>
-          </ion-item>
           
-          <ion-item routerLink='/forum'>
+          <ion-item disabled routerLink='/forum'>
             <ion-icon color="secondary"slot="start" name="chatboxes"></ion-icon>
             <ion-label color="dark">DFS Player Forum</ion-label>
           </ion-item>
@@ -73,10 +96,14 @@
             <ion-label color="dark">Line-up Optimizers</ion-label>
           </ion-item>
           
-          <ion-item routerLink="/xstats">
+          <ion-item disabled routerLink="/xstats">
             <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
             <ion-label color="dark">XStats</ion-label>
           </ion-item>
+          <!-- <ion-item routerLink="/stats">
+            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
+            <ion-label color="dark">Stats, Standings, Scores, Schedules +</ion-label>
+          </ion-item> -->
         </ion-item-group>
         <ion-item-group>
           <ion-list-header color="primary">

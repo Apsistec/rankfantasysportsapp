@@ -44,6 +44,24 @@ import { Table6Component } from './tables/table6/table6.component';
 import { Table7Component } from './tables/table7/table7.component';
 import { Table8Component } from './tables/table8/table8.component';
 import { Table9Component } from './tables/table9/table9.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import {
+//   faBaseballBall,
+//   faFootballHelmet,
+//   faTableTennis,
+//   faGolfBall,
+//   faBasketballBall,
+//   faAddressCard,
+//   faCreditCard,
+//   faPhone,
+//   faFootballBall,
+//   faDollarSign,
+//   faMoneyBill,
+//   faMoneyBillAlt,
+//   faMoneyBillWave,
+//   faMoneyBillWaveAlt,
+// } from '@fortawesome/free-solid-svg-icons';
 // import { ListPageModule } from './list/list.module';
 
 
@@ -92,6 +110,7 @@ import { Table9Component } from './tables/table9/table9.component';
   imports: [
     // DataTablesModule,
     AgGridModule.withComponents([]),
+    FontAwesomeModule,
     HomePageModule,
     CommonModule,
     IonicModule.forRoot(),
@@ -135,4 +154,23 @@ export class AppModule {
   //     const appComponent = applicationRef.components[0];
   //     enableDebugTools(appComponent);
   //   })
+  // constructor(library: FaIconLibrary) {
+  //   // Add an icon to the library for convenient access in other components
+  //   library.addIcons(
+      // faBaseballBall,
+      // faFootballHelmet,
+      // faTableTennis,
+      // faGolfBall,
+      // faBasketballBall,
+      // faAddressCard,
+      // faCreditCard,
+      // faPhone,
+      // faFootballBall,
+      // faDollarSign,
+      // faMoneyBill,
+      // faMoneyBillAlt,
+      // faMoneyBillWave,
+      // faMoneyBillWaveAlt,
+    // );
+  // }
 }
