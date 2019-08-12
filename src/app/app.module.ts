@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { File } from '@ionic-native/file/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,24 +24,31 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { TermsComponent } from './terms/terms.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
-import { FaqPageModule } from './faq/faq.module';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
-// import { ProfilePageModule } from './profile/profile.module';
 import { RegisterComponent } from './register/register.component';
 import { LaunchpageComponent } from './launchpage/launchpage.component';
+import { AgGridModule } from 'ag-grid-angular';
 import { PaypalComponent } from './paypal/paypal.component';
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/services/interceptor.service';
-// import { RfsocialModule } from './rfsocial/rfsocial.module';
+import { FirstTableComponent } from './tables/first-table/first-table.component';
+import { TestableComponent } from './testable/testable.component';
+import { Table1Component } from './tables/table1/table1.component';
+import { Table2Component } from './tables/table2/table2.component';
+import { Table3Component } from './tables/table3/table3.component';
+import { Table4Component } from './tables/table4/table4.component';
+import { Table5Component } from './tables/table5/table5.component';
+import { Table6Component } from './tables/table6/table6.component';
+import { Table7Component } from './tables/table7/table7.component';
+import { Table8Component } from './tables/table8/table8.component';
+import { Table9Component } from './tables/table9/table9.component';
+// import { ListPageModule } from './list/list.module';
 
 
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 // import { Router } from '@angular/router';
-
-
 // import { enableDebugTools } from '@angular/platform-browser';
 // import { ApplicationRef } from '@angular/core';
 
@@ -64,6 +72,17 @@ import { InterceptorService } from './core/services/interceptor.service';
     ForgotPasswordComponent,
     LoginComponent,
     LaunchpageComponent,
+    TestableComponent,
+    FirstTableComponent,
+    Table1Component,
+    Table2Component,
+    Table3Component,
+    Table4Component,
+    Table5Component,
+    Table6Component,
+    Table7Component,
+    Table8Component,
+    Table9Component,
     PaypalComponent,
   ],
   entryComponents: [
@@ -71,8 +90,8 @@ import { InterceptorService } from './core/services/interceptor.service';
     TermsDialogComponent
   ],
   imports: [
-    // ProfilePageModule,
-    // FaqPageModule,
+    // DataTablesModule,
+    AgGridModule.withComponents([]),
     HomePageModule,
     CommonModule,
     IonicModule.forRoot(),
@@ -80,6 +99,7 @@ import { InterceptorService } from './core/services/interceptor.service';
     IonicStorageModule.forRoot(),
     SharedModule,
     FormsModule,
+    // ListPageModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -91,6 +111,7 @@ import { InterceptorService } from './core/services/interceptor.service';
     AppRoutingModule,
   ],
   providers: [
+    File,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

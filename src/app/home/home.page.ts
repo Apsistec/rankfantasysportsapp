@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
   constructor(
     public domSanitizer: DomSanitizer,
     public zone: NgZone,
-    private auth: AuthService
+    public auth: AuthService
   ) {  }
 
   onScroll(event) {
@@ -45,14 +45,6 @@ export class HomePage implements OnInit {
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
-
-  // async signIn(): Promise<void> {
-  //   await this.authService.Login();
-  // }
-
-  // signOut(): void {
-  //   this.authService.SignOut();
-  // }
 
 
 }

@@ -1,0 +1,15 @@
+<app-header></app-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let row of data">
+      <ion-col *ngFor="let val of row">
+        {{val}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <input type="file" (change)="onFileChange($event)" multiple="false" />
+  <button ion-button color="secondary" (click)="import()">Import Data</button>
+  <button ion-button color="secondary" (click)="export()">Export Data</button>
+</ion-footer>
