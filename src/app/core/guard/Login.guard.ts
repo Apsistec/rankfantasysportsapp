@@ -23,7 +23,7 @@ export class LoginGuard implements CanActivate {
       .pipe(
         take(1),
         map(authState => !!authState),
-        tap(auth => !auth ? this.router.navigate(['login']) && this.UnSignToast() : this.router.navigate(['profile']))
+        tap(auth => !auth ? this.router.navigate(['login']) && this.UnSignToast() : this.router.navigate(['list']))
       );
   }
   async UnSignToast() {

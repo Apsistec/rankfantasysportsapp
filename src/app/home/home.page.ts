@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
-import { AuthService } from '../msauth.service';
+import { AuthService } from '../core/services/auth.service'; 
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
   constructor(
     public domSanitizer: DomSanitizer,
     public zone: NgZone,
-    private authService: AuthService
+    private auth: AuthService
   ) {  }
 
   onScroll(event) {
@@ -46,13 +46,13 @@ export class HomePage implements OnInit {
     this.ionContent.scrollToTop(1500);
   }
 
-  async signIn(): Promise<void> {
-    await this.authService.signIn();
-  }
+  // async signIn(): Promise<void> {
+  //   await this.authService.Login();
+  // }
 
-  signOut(): void {
-    this.authService.signOut();
-  }
+  // signOut(): void {
+  //   this.authService.SignOut();
+  // }
 
 
 }

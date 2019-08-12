@@ -4,7 +4,6 @@ import { LaunchpageComponent } from './launchpage/launchpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { LoginGuard } from './core/guard/login.guard';
-// import { MsalGuard } from './core/guard/msal.guard';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -23,7 +22,7 @@ const appRoutes: Routes = [
   { path: 'testimonials', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
   { path: 'tweets', loadChildren: './tweets/tweets.module#TweetsPageModule' },
   { path: 'list', loadChildren: './list-tables/list.module#ListPageModule' },
-  // { path: ' stats', loadChildren: './stats/stats.module#StatsPageModule' },
+  // { path: 'social', loadChildren: './rfsocial/rfsocial.module#RfsocialPageModule' },
   { path: 'xstats', loadChildren: './xstats/xstats.module#XstatsPageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
 ];

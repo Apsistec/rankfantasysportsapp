@@ -19,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageModule } from './home/home.module';
-  import { PrivacyComponent } from './privacy/privacy.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { TermsComponent } from './terms/terms.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
@@ -27,17 +27,14 @@ import { FaqPageModule } from './faq/faq.module';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
-import { ProfileOptionsComponent } from './profile-options/profile-options.component';
-import { ProfilePageModule } from './profile/profile.module';
+// import { ProfilePageModule } from './profile/profile.module';
 import { RegisterComponent } from './register/register.component';
 import { LaunchpageComponent } from './launchpage/launchpage.component';
 import { PaypalComponent } from './paypal/paypal.component';
-import { PostsComponent } from './posts/posts.component';
-import { OAuthSettings } from '../oath';
 
-import { MsalModule } from '@azure/msal-angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/services/interceptor.service';
+// import { RfsocialModule } from './rfsocial/rfsocial.module';
 
 
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -66,20 +63,16 @@ import { InterceptorService } from './core/services/interceptor.service';
     VerifyEmailComponent,
     ForgotPasswordComponent,
     LoginComponent,
-    ProfileOptionsComponent,
     LaunchpageComponent,
     PaypalComponent,
-    PostsComponent
-
-
   ],
   entryComponents: [
     PrivacyDialogComponent,
     TermsDialogComponent
   ],
   imports: [
-    ProfilePageModule,
-    FaqPageModule,
+    // ProfilePageModule,
+    // FaqPageModule,
     HomePageModule,
     CommonModule,
     IonicModule.forRoot(),
@@ -89,9 +82,6 @@ import { InterceptorService } from './core/services/interceptor.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MsalModule.forRoot({
-      clientID: OAuthSettings.appId
-    }),
     BrowserAnimationsModule,
     AngularFirestoreModule,
     AngularFireMessagingModule,
@@ -103,11 +93,8 @@ import { InterceptorService } from './core/services/interceptor.service';
   providers: [
     StatusBar,
     SplashScreen,
-    InAppBrowser,
-
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
-    // HttpService,
   ],
   exports: [],
   bootstrap: [AppComponent]
