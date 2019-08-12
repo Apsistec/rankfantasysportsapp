@@ -1,6 +1,10 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+*.d.ts
+.firebase
+.yml
+.firebaserc
 *~
 *.sw[mnpcod]
 *.log
@@ -33,3 +37,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 environments/
+functions/test/
+documentation/
+resources/
+

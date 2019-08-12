@@ -6,9 +6,10 @@ branches:
     - master
 before_script:
   - npm install -g @angular/cli
+  - npm install -g ionic
 script:
   - npm install
-  - npm run build
+  - npm run build --prod
 deploy:
   skip_cleanup: true
   provider: firebase
