@@ -5,15 +5,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
-import { first } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { first, switchMap } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: User;
-  userData: any; // Save logged in user data
+  user$: Observable<any>;
+  // userData: any; // Save logged in user data
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -25,16 +26,29 @@ export class AuthService {
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    });
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(this.user$));
+          JSON.parse(localStorage.getItem('user'));
+          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+        } else {
+          localStorage.setItem('user', null);
+          JSON.parse(localStorage.getItem('user'));
+        }
+      })
+    );
+
+    // this.afAuth.authState.subscribe(user => {
+    //   if (user) {
+    //     this.userData = user;
+    //     localStorage.setItem('user', JSON.stringify(this.userData));
+    //     JSON.parse(localStorage.getItem('user'));
+    //   } else {
+    //     localStorage.setItem('user', null);
+    //     JSON.parse(localStorage.getItem('user'));
+    //   }
+    // });
   }
 
   // Sign in with email/password
@@ -88,9 +102,13 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  async getUser() {
-    await this.afAuth.authState.pipe(first()).toPromise();
-    return this.userData;
+  // async getUser() {
+  //   await this.afAuth.authState.pipe(first()).toPromise();
+  //   return this.userData;
+  // }
+
+  getUser() {
+    return this.user$.pipe(first()).toPromise();
   }
 
   // Sign in with Google

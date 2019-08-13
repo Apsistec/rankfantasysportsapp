@@ -18,6 +18,9 @@
 //@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 //@import "~@angular/material/prebuilt-themes/purple-green.css";
 
+input{
+  --highlight-height: 3px;
+}
 .card-metal{
   // background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
   // background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
@@ -79,7 +82,7 @@
     --background: -moz-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
     --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(29, 161, 242,1)), color-stop(44%, rgba(85, 172, 238,1)), color-stop(100%, rgba(102, 117, 127,1)));
     --background: -webkit-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
-    --background: -o-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
+    --background: -o-linear-gradient(left, rgba(29, 161, 242,1) 0%, #55acee 44%, rgba(102, 117, 127,1) 100%);
     --background: -ms-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
     --background: linear-gradient(to right, rgb(96, 217, 247) 0%, rgba(29, 161, 242, 1) 44%, rgb(85, 229, 248) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
@@ -129,6 +132,18 @@
 }
 .half{
   --background: linear-gradient(45deg, rgba(18,255,156,1) 0%, rgb(161, 48, 227) 100%); /* w3c */
+}
+
+.whit{
+  color: white;
+}
+
+.t-blue{
+  color: #55acee;
+}
+
+.fball-brown{
+  color: rgb(99, 62, 14);
 }
 
 .flex{

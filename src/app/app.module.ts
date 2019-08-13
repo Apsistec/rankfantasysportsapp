@@ -45,12 +45,16 @@ import { Table7Component } from './tables/table7/table7.component';
 import { Table8Component } from './tables/table8/table8.component';
 import { Table9Component } from './tables/table9/table9.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { ChatComponent } from './chat/chat.component';
+// import { ChatService} from './core/services/chat.service';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import {
 //   faBaseballBall,
-//   faFootballHelmet,
-//   faTableTennis,
+//   faAward,
 //   faGolfBall,
+//   faMagic,
 //   faBasketballBall,
 //   faAddressCard,
 //   faCreditCard,
@@ -62,7 +66,34 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //   faMoneyBillWave,
 //   faMoneyBillWaveAlt,
 // } from '@fortawesome/free-solid-svg-icons';
-// import { ListPageModule } from './list/list.module';
+// import {
+//   faGoogle,
+//   faGoogleWallet,
+//   faStripe,
+//   faApplePay,
+//   faApple,
+//   faMicrosoft,
+//   faFirefox,
+//   faChrome,
+//   faCcAmex,
+//   faCcAmazonPay,
+//   faBlogger,
+//   faFacebook,
+//   faCcApplePay,
+//   faCcMastercard,
+//   faCcPaypal,
+//   faCcStripe,
+//   faCcVisa,
+//   faFacebookF,
+//   faSafari,
+//   faOpera,
+//   faYoutube,
+//   faWindows,
+//   faAndroid,
+//   faAmazonPay,
+//   faPaypal
+// } from '@fortawesome/free-brands-svg-icons';
+
 
 
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -75,10 +106,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // }
 // export const protectedResourceMap: [string, string[]][] = [
 //   ['https://graph.microsoft.com/v1.0/me', ['user.read']],
-//   // ... other scopes
+//   ... other scopes
 // ];
 @NgModule({
   declarations: [
+    // ChatComponent,
     TermsComponent,
     TermsDialogComponent,
     PrivacyComponent,
@@ -108,9 +140,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TermsDialogComponent
   ],
   imports: [
+    // FontAwesomeModule,
     // DataTablesModule,
     AgGridModule.withComponents([]),
-    FontAwesomeModule,
     HomePageModule,
     CommonModule,
     IonicModule.forRoot(),
@@ -118,7 +150,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     IonicStorageModule.forRoot(),
     SharedModule,
     FormsModule,
-    // ListPageModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -133,6 +164,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     File,
     StatusBar,
     SplashScreen,
+    // ChatService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
@@ -154,23 +186,48 @@ export class AppModule {
   //     const appComponent = applicationRef.components[0];
   //     enableDebugTools(appComponent);
   //   })
-  // constructor(library: FaIconLibrary) {
+  // constructor() {
   //   // Add an icon to the library for convenient access in other components
-  //   library.addIcons(
-      // faBaseballBall,
-      // faFootballHelmet,
-      // faTableTennis,
-      // faGolfBall,
-      // faBasketballBall,
-      // faAddressCard,
-      // faCreditCard,
-      // faPhone,
-      // faFootballBall,
-      // faDollarSign,
-      // faMoneyBill,
-      // faMoneyBillAlt,
-      // faMoneyBillWave,
-      // faMoneyBillWaveAlt,
-    // );
+  //   library.add(
+  //     faBaseballBall,
+  //     faAward,
+  //     faGolfBall,
+  //     faBasketballBall,
+  //     faAddressCard,
+  //     faCreditCard,
+  //     faMagic,
+  //     faPhone,
+  //     faFootballBall,
+  //     faDollarSign,
+  //     faMoneyBill,
+  //     faMoneyBillAlt,
+  //     faMoneyBillWave,
+  //     faMoneyBillWaveAlt,
+  //     faGoogle,
+  //     faGoogleWallet,
+  //     faStripe,
+  //     faApplePay,
+  //     faApple,
+  //     faMicrosoft,
+  //     faFirefox,
+  //     faChrome,
+  //     faCcAmex,
+  //     faCcAmazonPay,
+  //     faBlogger,
+  //     faFacebook,
+  //     faCcApplePay,
+  //     faCcMastercard,
+  //     faCcPaypal,
+  //     faCcStripe,
+  //     faCcVisa,
+  //     faFacebookF,
+  //     faSafari,
+  //     faOpera,
+  //     faYoutube,
+  //     faWindows,
+  //     faAndroid,
+  //     faAmazonPay,
+  //     faPaypal
+  //   );
   // }
 }
