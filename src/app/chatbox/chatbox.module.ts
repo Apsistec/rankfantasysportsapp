@@ -21,6 +21,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers:[ChatService],
-  declarations: [ChatboxPage]
+  declarations: [ChatboxPage, ChatComponent]
 })
 export class ChatboxPageModule {}
