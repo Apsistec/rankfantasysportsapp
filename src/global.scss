@@ -101,7 +101,6 @@ input{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
     // --color:#ccd6dd;
         text-shadow: 1px 1px #8f8894;
-
 }
 
 .login{
@@ -109,15 +108,15 @@ input{
   --border-color: rgb(0, 255, 191);
   --max-width: 350px;
       text-shadow: 1.5px 1.5px #8f8894;
-
 }
+
 .logout{
   --background: linear-gradient(to right, rgb(230, 202, 44) 0%, rgb(133, 121, 13) 44%, rgb(230, 231, 27) 100%);
   --border-color: rgb(255, 115, 0);
   --max-width: 350px;
       text-shadow: 1.5px 1.5px #8f8894;
-
 }
+
 .unsign{
   --background: linear-gradient(to right, rgb(240, 0, 40)  0%, rgba(169,3,41,1) 44%, rgb(240, 0, 60) 100%);
   --border-color: rgb(255, 0, 85);
@@ -127,9 +126,11 @@ input{
 .bright{
   --background: linear-gradient(45deg, rgba(255,255,0,1) 0%, rgba(0,227,64,1) 100%); /* w3c */
 }
+
 .glow{
   --background: linear-gradient(45deg, rgba(214,255,233,1) 0%, rgba(172,141,227,1) 100%); /* w3c */
 }
+
 .half{
   --background: linear-gradient(45deg, rgba(18,255,156,1) 0%, rgb(161, 48, 227) 100%); /* w3c */
 }
@@ -150,15 +151,13 @@ input{
   flex-basis: 100%;
 }
 
-
-
-
 *::-webkit-scrollbar {
   display: none;
 }
 
 p{
   text-align: left;
+  text-indent: 10px;
  }
  
 pre {

@@ -6,12 +6,17 @@
     </ion-back-button>
   </ion-buttons>
   <ion-text color="light" text-wrap>
-RF$ &trade; Support & FAQ Page  
+RF$ &trade; Support &amp; FAQ Page  
 </ion-text>
 </ion-toolbar>
 </ion-header>
 
-<ion-content padding fullscreen >
+<ion-content 
+padding 
+fullscreen
+(ionScroll)="onScroll($event)"
+[scrollEvents]="true"
+ >
   
   
   
@@ -56,7 +61,11 @@ RF$ &trade; Support & FAQ Page
 
 
 
-
+<ion-fab vertical="bottom" horizontal="end" edge slot="fixed" >
+    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>
 

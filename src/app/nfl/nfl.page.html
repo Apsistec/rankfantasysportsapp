@@ -1,9 +1,26 @@
+<app-header></app-header>
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>nfl</ion-title>
+    <ion-title>NFL</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+       <ion-card>
+          <ion-card-header color="primary">
+            <ion-card-title>
+              NFL
+            </ion-card-title>
+          </ion-card-header>
+          <ion-item color="medium" routerLink="table8">
+            <ion-icon size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label text-wrap>Today's Value Rankings Embed Code</ion-label>
+          </ion-item>
+          <ion-item color="medium" routerLink="table9">
+            <ion-icon size="large" slot="start" class="fball-brown" name="american-football"></ion-icon>
+            <ion-label text-wrap>DK Accounting Embed Code</ion-label>
+          </ion-item>
+        </ion-card>
 </ion-content>
+<app-footer></app-footer>

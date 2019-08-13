@@ -13,5 +13,10 @@ export const archiveChat = functions.firestore
         if (charLen >= 10000 || msgLen >= maxLen) {
             const batch = db.batch();
             data.messages.splice(0, msgLen - maxLen);
+            const ref = db.collection('chats').doc(change.after.id);
+            batch.set(ref, data, { merge: true });
+            return batch.commit();
+        } else {
+            return null;
         }
     });

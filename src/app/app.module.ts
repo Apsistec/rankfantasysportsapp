@@ -44,8 +44,8 @@ import { Table6Component } from './tables/table6/table6.component';
 import { Table7Component } from './tables/table7/table7.component';
 import { Table8Component } from './tables/table8/table8.component';
 import { Table9Component } from './tables/table9/table9.component';
-import { BrowserModule } from '@angular/platform-browser';
-// import { ChatComponent } from './chat/chat.component';
+// import { ChatboxPageModule } from './chatbox/chatbox.module';
+import { ChatComponent } from './chat/chat.component';
 // import { ChatService} from './core/services/chat.service';
 // import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -110,7 +110,7 @@ import { BrowserModule } from '@angular/platform-browser';
 // ];
 @NgModule({
   declarations: [
-    // ChatComponent,
+    ChatComponent,
     TermsComponent,
     TermsDialogComponent,
     PrivacyComponent,
@@ -144,6 +144,7 @@ import { BrowserModule } from '@angular/platform-browser';
     // DataTablesModule,
     AgGridModule.withComponents([]),
     HomePageModule,
+    // ChatboxPageModule,
     CommonModule,
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -168,7 +169,7 @@ import { BrowserModule } from '@angular/platform-browser';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
-  exports: [],
+  exports: [ChatComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

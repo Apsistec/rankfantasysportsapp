@@ -36,6 +36,11 @@ const appRoutes: Routes = [
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'xstats', loadChildren: './xstats/xstats.module#XstatsPageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
+  { path: 'tennis', loadChildren: './tennis/tennis.module#TennisPageModule' },
+  { path: 'nfl', loadChildren: './nfl/nfl.module#NflPageModule' },
+  { path: 'fifa', loadChildren: './fifa/fifa.module#FifaPageModule' },
+  { path: 'nba', loadChildren: './nba/nba.module#NbaPageModule' },
+  { path: 'pga', loadChildren: './pga/pga.module#PgaPageModule' },
 
   {
     path: 'table1',

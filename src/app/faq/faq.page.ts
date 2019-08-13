@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Faqs } from './faqs';
 import { SupportModalComponent } from '../support-modal/support-modal.component';
 import { User } from '../core/models/user';
 import { ModalController, NavParams } from '@ionic/angular';
 import { first } from 'rxjs/operators';
 import { AuthService } from '../core/services/auth.service';
+import { IonContent } from '@ionic/angular';
+
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
@@ -17,6 +19,11 @@ export class FaqPage implements OnInit {
   info: string;
   panelOpenState;
   user: User;
+
+  @ViewChild(IonContent) ionContent: IonContent;
+  scrolledDown = false;
+
+
   constructor(
     public modalCtrl: ModalController,
     public auth: AuthService,
@@ -50,5 +57,17 @@ export class FaqPage implements OnInit {
   async getUser() {
     await this.afAuth.authState.pipe(first()).toPromise();
     return this.user;
+  }
+
+  onScroll(event) {
+    if (event.detail.scrollTop > 200) {
+      this.scrolledDown = true;
+    } else {
+      this.scrolledDown = false;
+    }
+  }
+
+  ScrollToTop() {
+    this.ionContent.scrollToTop(1500);
   }
 }

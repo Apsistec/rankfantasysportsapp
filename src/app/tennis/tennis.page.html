@@ -1,9 +1,34 @@
+<app-header></app-header>
 <ion-header>
   <ion-toolbar>
-    <ion-title>tennis</ion-title>
+    <ion-title>Tennis</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+   <ion-card>
+      <ion-card-header color="primary">
+        <ion-card-title>
+          Tennis
+        </ion-card-title>
+      </ion-card-header>
+      <ion-item color="medium" routerLink="/table1">
+        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
+        <ion-label text-wrap>Men's Tennis Ratings and DK Statistics Embed Code</ion-label>
+      </ion-item>
+      <ion-item color="medium" routerLink="/table2">
+        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
+        <ion-label text-wrap>Women's Tennis Ratings and DK Statistics Embed Code</ion-label>
+      </ion-item>
+      <ion-item color="medium" routerLink="/table3">
+        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
+        <ion-label text-wrap>Mens Tennis Tournament Stat Archives Embed Code</ion-label>
+      </ion-item>
+      <ion-item color="medium" routerLink="/table4">
+        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
+        <ion-label text-wrap>Women's Tennis Tournament Stat Archives Embed Code</ion-label>
+      </ion-item>
+    </ion-card>
 </ion-content>
+<app-footer></app-footer>
+

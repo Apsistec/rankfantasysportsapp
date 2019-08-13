@@ -26,6 +26,7 @@ import 'classlist.js';  // Run `npm install --save classlist.js`.
  * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
  */
 import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+import 'hammerjs';
 
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents
@@ -47,7 +48,7 @@ import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 (window as any).__Zone_disable_requestAnimationFrame = true;
 (window as any).__Zone_disable_on_property = true;
-(window as any).__zone_symbol__BLACK_LISTED_EVENTS =['scroll', 'mousemove'];
+(window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove'];
 
 
 /**
