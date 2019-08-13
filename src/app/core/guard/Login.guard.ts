@@ -26,6 +26,18 @@ export class LoginGuard implements CanActivate {
         tap(auth => !auth ? this.router.navigate(['login']) && this.UnSignToast() : this.router.navigate(['list']))
       );
   }
+
+  // this.user$ = this.afAuth.authState.pipe(
+  //   switchMap(user => {
+  //     if (user) {
+  //       localStorage.setItem('user', JSON.stringify(this.user$));
+  //       JSON.parse(localStorage.getItem('user'));
+  //       return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+  //     } else {
+  //       JSON.parse(localStorage.getItem('user'));
+  //       return localStorage.setItem('user', null);
+  //     }
+  
   async UnSignToast() {
     const toast = await this.toastController.create({
       header: 'Authentication Message',
