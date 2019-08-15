@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -6,10 +6,12 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './terms-dialog.component.html',
   styleUrls: ['./terms-dialog.component.scss'],
 })
-export class TermsDialogComponent implements OnInit {
+export class TermsDialogComponent  {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit() {}
 
+  closeDialog() {
+    this.dialog.closeAll();
+  }
 }

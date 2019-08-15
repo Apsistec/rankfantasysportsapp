@@ -3,12 +3,10 @@ import { AuthService } from '../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
 import { ThemeService } from '../core/services/theme.service';
-import { ModalController, NavParams } from '@ionic/angular';
-import { SupportModalComponent } from '../support-modal/support-modal.component';
 import { User } from '../core/models/user';
-import { Request } from '../core/models/request.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 const themes = {
   autumn: {
     primary: '#F78154',
@@ -43,86 +41,40 @@ const themes = {
 })
 export class ProfilePage implements OnInit {
   loading = false;
-  // confirmation;
-  // subscription;
-  // backdropDismiss = false;
-  // showBackdrop = false;
-  // shouldPropagate = false;
-  user: User;
-  // request: Request;
-  userData: any;
+  subscription;
+  user$: Observable<any>;
+  // userData: any;
   results;
   constructor(
-    // public navParams: NavParams,
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private router: Router,
     private theme: ThemeService,
-    public modalCtrl: ModalController,
     private afAuth: AngularFireAuth
   ) {
   }
-  //  get submittedForm() { 
-  //     this.results = this.navParams.get({ issue: 'this.issue', description: 'this.description', email: 'user.email', displayName: 'user.displayName'}).
-  //   }
+
 
   ngOnInit() {
     this.loading = false;
   }
-  async getUser() {
-    await this.afAuth.authState.pipe(first()).toPromise();
-    return this.user;
-  }
 
-  // changeTheme(name) {
-  //   this.theme.setTheme(themes[name]);
+  getUser() {
+    return this.user$.pipe(first()).toPromise();
+  }
+  // async getUser() {
+  //   await this.afAuth.authState.pipe(first()).toPromise();
+  //   return this.user;
   // }
+
+  changeTheme(name) {
+    this.theme.setTheme(themes[name]);
+  }
 
   // changeSpeed(val) {
   //   this.theme.setVariable('--speed', `${val}ms`);
   // }
 
-  // async openSupportModal() {
-  //   const modalEl = await this.modalCtrl
-  //     .create({
-  //       component: SupportModalComponent,
-  //       componentProps: {
-  //         displayName: this.user.displayName,
-  //         email: this.user.email
-  //       }
-  //     });
-  //   await modalEl.present()
-  //     .catch(err => window.alert(err));
-  // }
 
-  // async onCancelModal() {
-  //   await this.modalCtrl.dismiss('', 'cancel')
-  //   .catch(err => window.alert(err))
-  //   .then(() => console.log('this will succeed'));
-  // }
 
-  // async onSubmitRequest() {
-  //   await this.modalCtrl.dismiss({ message: 'Request Submitted' }, 'confirm')
-  //   .catch(err => window.alert(err))
-  //   .then(() => console.log('this will succeed'));
-  // }
-
-  // async getSubscriptions() {
-  //   this.loading = true;
-  //   const user = await this.auth.getUser();
-  //   const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-  //   this.subscription = await fun({ uid: user.uid }).toPromise;
-  //   this.loading = false;
-  // }
-
-  // async cancelSubscription() {
-  //   this.loading = true;
-  //   const user = await this.auth.getUser();
-  //   const fun = this.functions.httpsCallable('stripeCancelSubscription');
-  //   // tslint:disable-next-line: await-promise
-  //   await fun({ uid: user.uid }).toPromise;
-  //   this.loading = false;
-  //   window.alert('You have been unsubscribed. We are sorry to see you go.');
-  //   this.router.navigate(['/']);
-  // }
 }

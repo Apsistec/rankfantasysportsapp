@@ -18,7 +18,13 @@ import { Table6Component } from './tables/table6/table6.component';
 import { Table7Component } from './tables/table7/table7.component';
 import { Table8Component } from './tables/table8/table8.component';
 import { Table9Component } from './tables/table9/table9.component';
-
+import { PgaThisWeekComponent } from './pga/pga-this-week/pga-this-week.component';
+import { PgaStatsComponent } from './pga/pga-stats/pga-stats.component';
+import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
+import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
+import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -78,6 +84,32 @@ const appRoutes: Routes = [
     path: 'table9',
     component: Table9Component, canActivate: [AuthGuard]
   },
+  {
+    path: 'pga-this-week',
+    component: PgaThisWeekComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'pga-stats',
+    component: PgaStatsComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'nfl-pre',
+    component: NflPreComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'terms',
+    component: TermsComponent,
+    outlet: 'popup'
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent,
+    outlet: 'popup'
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
 
 

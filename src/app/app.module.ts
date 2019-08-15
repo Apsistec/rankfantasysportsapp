@@ -22,8 +22,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomePageModule } from './home/home.module';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { TermsComponent } from './terms/terms.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
+import { TermsComponent } from './terms/terms.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
@@ -33,8 +33,6 @@ import { AgGridModule } from 'ag-grid-angular';
 import { PaypalComponent } from './paypal/paypal.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/services/interceptor.service';
-import { FirstTableComponent } from './tables/first-table/first-table.component';
-import { TestableComponent } from './testable/testable.component';
 import { Table1Component } from './tables/table1/table1.component';
 import { Table2Component } from './tables/table2/table2.component';
 import { Table3Component } from './tables/table3/table3.component';
@@ -44,72 +42,16 @@ import { Table6Component } from './tables/table6/table6.component';
 import { Table7Component } from './tables/table7/table7.component';
 import { Table8Component } from './tables/table8/table8.component';
 import { Table9Component } from './tables/table9/table9.component';
-// import { ChatboxPageModule } from './chatbox/chatbox.module';
 import { ChatComponent } from './chat/chat.component';
-// import { ChatService} from './core/services/chat.service';
-// import { library } from '@fortawesome/fontawesome-svg-core';
+import { PgaThisWeekComponent } from './pga/pga-this-week/pga-this-week.component';
+import { PgaStatsComponent} from './pga/pga-stats/pga-stats.component';
+import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
 
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// import {
-//   faBaseballBall,
-//   faAward,
-//   faGolfBall,
-//   faMagic,
-//   faBasketballBall,
-//   faAddressCard,
-//   faCreditCard,
-//   faPhone,
-//   faFootballBall,
-//   faDollarSign,
-//   faMoneyBill,
-//   faMoneyBillAlt,
-//   faMoneyBillWave,
-//   faMoneyBillWaveAlt,
-// } from '@fortawesome/free-solid-svg-icons';
-// import {
-//   faGoogle,
-//   faGoogleWallet,
-//   faStripe,
-//   faApplePay,
-//   faApple,
-//   faMicrosoft,
-//   faFirefox,
-//   faChrome,
-//   faCcAmex,
-//   faCcAmazonPay,
-//   faBlogger,
-//   faFacebook,
-//   faCcApplePay,
-//   faCcMastercard,
-//   faCcPaypal,
-//   faCcStripe,
-//   faCcVisa,
-//   faFacebookF,
-//   faSafari,
-//   faOpera,
-//   faYoutube,
-//   faWindows,
-//   faAndroid,
-//   faAmazonPay,
-//   faPaypal
-// } from '@fortawesome/free-brands-svg-icons';
-
-
-
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-// import { Router } from '@angular/router';
-// import { enableDebugTools } from '@angular/platform-browser';
-// import { ApplicationRef } from '@angular/core';
-
-// export function loggerCallback(logLevel, message, piiEnabled) {
-//   console.log('client logging' + message);
-// }
-// export const protectedResourceMap: [string, string[]][] = [
-//   ['https://graph.microsoft.com/v1.0/me', ['user.read']],
-//   ... other scopes
-// ];
 @NgModule({
   declarations: [
+    PgaStatsComponent,
+    PgaThisWeekComponent,
+    NflPreComponent,
     ChatComponent,
     TermsComponent,
     TermsDialogComponent,
@@ -122,8 +64,6 @@ import { ChatComponent } from './chat/chat.component';
     ForgotPasswordComponent,
     LoginComponent,
     LaunchpageComponent,
-    TestableComponent,
-    FirstTableComponent,
     Table1Component,
     Table2Component,
     Table3Component,
@@ -140,11 +80,10 @@ import { ChatComponent } from './chat/chat.component';
     TermsDialogComponent
   ],
   imports: [
-    // FontAwesomeModule,
-    // DataTablesModule,
+
+    // ChatboxPageModule,
     AgGridModule.withComponents([]),
     HomePageModule,
-    // ChatboxPageModule,
     CommonModule,
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -162,73 +101,21 @@ import { ChatComponent } from './chat/chat.component';
     AppRoutingModule,
   ],
   providers: [
+    // ChatService,
     File,
     StatusBar,
     SplashScreen,
-    // ChatService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
-  exports: [ChatComponent],
+  exports: [
+    ChatComponent,
+    PrivacyDialogComponent,
+    PrivacyComponent,
+    TermsDialogComponent,
+    TermsComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  // Diagnostic only: inspect router configuration
-  // constructor(router: Router) {
-    // Use a custom replacer to display function names in the route configs
-  //   const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
-
-  //   console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
-  // }
-  // Other diagnostic
-  // platformBrowserDynamic().bootstrapModule(AppModule)
-  //   .then(moduleRef => {
-  //     const applicationRef = moduleRef.injector.get(ApplicationRef);
-  //     const appComponent = applicationRef.components[0];
-  //     enableDebugTools(appComponent);
-  //   })
-  // constructor() {
-  //   // Add an icon to the library for convenient access in other components
-  //   library.add(
-  //     faBaseballBall,
-  //     faAward,
-  //     faGolfBall,
-  //     faBasketballBall,
-  //     faAddressCard,
-  //     faCreditCard,
-  //     faMagic,
-  //     faPhone,
-  //     faFootballBall,
-  //     faDollarSign,
-  //     faMoneyBill,
-  //     faMoneyBillAlt,
-  //     faMoneyBillWave,
-  //     faMoneyBillWaveAlt,
-  //     faGoogle,
-  //     faGoogleWallet,
-  //     faStripe,
-  //     faApplePay,
-  //     faApple,
-  //     faMicrosoft,
-  //     faFirefox,
-  //     faChrome,
-  //     faCcAmex,
-  //     faCcAmazonPay,
-  //     faBlogger,
-  //     faFacebook,
-  //     faCcApplePay,
-  //     faCcMastercard,
-  //     faCcPaypal,
-  //     faCcStripe,
-  //     faCcVisa,
-  //     faFacebookF,
-  //     faSafari,
-  //     faOpera,
-  //     faYoutube,
-  //     faWindows,
-  //     faAndroid,
-  //     faAmazonPay,
-  //     faPaypal
-  //   );
-  // }
 }

@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
 import { AuthService } from '../core/services/auth.service'; 
+import { MatMenu } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,8 @@ export class HomePage implements OnInit {
       this.scrolledDown = false;
     }
   }
+
+
 
   ngOnInit() {
     this.showVid();

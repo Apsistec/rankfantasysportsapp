@@ -31,7 +31,3 @@ export {
 export { 
     stripeGetCoupon
 } from './coupons';
-
-export {
-    archiveChat
-} from './archive';

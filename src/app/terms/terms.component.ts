@@ -10,10 +10,8 @@ export class TermsComponent {
   constructor(public dialog: MatDialog) { }
 
   openDialog() {
-    const dialogRef = this.dialog.open(TermsDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(TermsDialogComponent);
   }
+
+
 }

@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestableComponent } from './testable.component';
+import { NflPreComponent } from './nfl-pre.component';
 
-describe('TestableComponent', () => {
-  let component: TestableComponent;
-  let fixture: ComponentFixture<TestableComponent>;
+describe('NflPreComponent', () => {
+  let component: NflPreComponent;
+  let fixture: ComponentFixture<NflPreComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestableComponent ],
+      declarations: [ NflPreComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestableComponent);
+    fixture = TestBed.createComponent(NflPreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

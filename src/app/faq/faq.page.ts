@@ -41,7 +41,7 @@ export class FaqPage implements OnInit {
         component: SupportModalComponent,
         componentProps: {
           // displayName: this.user.displayName | 'Your name here',
-          // email: this.user.email | 'YOur email here'
+          // email: this.user.email | 'Your email here'
         }
       });
     await modalEl.present()

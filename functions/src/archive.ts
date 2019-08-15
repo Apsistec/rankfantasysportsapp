@@ -20,3 +20,4 @@ export const archiveChat = functions.firestore
             return null;
         }
     });
+

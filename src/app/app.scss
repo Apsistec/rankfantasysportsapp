@@ -7,7 +7,25 @@
 ion-content{
      --background: none;
      background-position: center top; 
-     background-image: linear-gradient(rgba(49, 83, 70, 0.25), rgba(16, 1, 22, 0.75)), url('../assets/img/pattern.png');
+     background-image: linear-gradient(rgb(22, 37, 31), rgb(16, 1, 22));
     //  background-repeat: no-repeat;
     //  background-size: cover;
    }
+
+
+
+//    Possible Side Menu animation
+// .menu-open ion-side-menu .item.fade_effect{
+//   @for $i from 1 through 20{
+//     &:nth-of-type(#{$i}) i{
+//       animation: menu_fade .2s (0s + $i / 16) forwards !important;
+//     }
+//     &:nth-of-type(#{$i}) span{
+//       animation: menu_fade .2s (0s + $i / 16) forwards !important;
+//     }
+//   }
+// }
+// @keyframes menu_fade{
+//   from{opacity:0;}
+//   to{opacity:1;}
+// }

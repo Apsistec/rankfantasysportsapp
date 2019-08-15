@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrivacyDialogComponent } from './privacy-dialog.component';
+import { NowPage } from './now.page';
 
-describe('PrivacyDialogComponent', () => {
-  let component: PrivacyDialogComponent;
-  let fixture: ComponentFixture<PrivacyDialogComponent>;
+describe('NowPage', () => {
+  let component: NowPage;
+  let fixture: ComponentFixture<NowPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrivacyDialogComponent ],
+      declarations: [ NowPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrivacyDialogComponent);
+    fixture = TestBed.createComponent(NowPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

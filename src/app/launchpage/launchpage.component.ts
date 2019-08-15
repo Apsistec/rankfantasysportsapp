@@ -5,6 +5,7 @@ import { Component, OnInit, Input, ElementRef, ViewChild, AfterViewInit } from '
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { PrivacyDialogComponent } from '../privacy-dialog/privacy-dialog.component';
 
 declare var Stripe: stripe.StripeStatic;
 
