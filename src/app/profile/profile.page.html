@@ -7,39 +7,75 @@
   <ion-row>
     <ion-col size-md="6" >
       <ion-card text-center color="primary">
- 
-        <ion-img  style="object-position: center; height: 140px; margin: 30px" src="../../assets/icons/icon-192x192.png"></ion-img>
-        <ion-list>
-          <ion-list-header>
-            <ion-title>
-
+        <ion-card-header>
+          <ion-card-title>
+            <ion-text color="secondary">
               Rank Fantasy $ports Profile
-            </ion-title>
-            </ion-list-header>
-          <ion-item color="medium">
-            <ion-avatar slot="start">
-              <!-- <img [src]="user.photoURL || '/assets/img/dummy-user.png'"> -->
-            </ion-avatar>
-          </ion-item>
+            </ion-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-img  style="object-position: center; height: 140px; margin: 30px" src="../../assets/icons/icon-192x192.png"></ion-img>
+      </ion-card>
+      
+      <ion-card text-center color="primary" *ngIf="auth.afAuth.user | async as user; else loginbutton">
+        <ion-card-header>
+          <ion-avatar slot="start">
+            <ion-img [src]="user.photoURL || '/assets/img/dummy-user.png'"></ion-img>
+          </ion-avatar>
+          <ion-card-title>
+            <ion-text color="secondary">
+              Welcome&nbsp;{{ user.displayName }}
+            </ion-text>
+          </ion-card-title>
+        </ion-card-header>
           <ion-item>
             <ion-text>
-              <!-- Welcome &nbsp; {{ user.displayName }} -->
-           </ion-text>
+              Email:{{ user.email }}
+            </ion-text>
           </ion-item>
+
           <ion-item>
-            <!-- <ion-text>Email:{{ user.email }}</ion-text> -->
+            <ion-text>
+              StripeCustomerId:{{ user.stripeCustomerId }}
+            </ion-text>
+          </ion-item>
+
+          <ion-item *ngIf="user.Bronze === true"> 
+            <ion-text>
+              Pro Subscription: Bronze-Plan
+            </ion-text>
+          </ion-item>
+
+          <ion-item *ngIf="user.Silver === true">
+            <ion-text>
+              Pro Subscription: Silver-Plan
+            </ion-text>
+          </ion-item>
+
+        <ion-item *ngIf="user.Gold === true">
+            <ion-text>
+              Pro Subscription: Gold-Plan
+            </ion-text>
           </ion-item>
 
 
-  </ion-list>
-</ion-card>
-</ion-col>
+        </ion-card>
+    <ng-template #loginbutton> 
+      <ion-card padding text-center color="primary">
+        <ion-button class="bright">
+          <ion-text color="danger">
+            <strong>
+              Goto Login/Sign Up
+            </strong>
+          </ion-text>
+        </ion-button>
+      </ion-card>
+    </ng-template>
 
 
+      </ion-col>
 
-
-
-<ion-col>
+      <ion-col>
 
       <ion-card text-center  color="primary" padding>
         <ion-card-header>
@@ -57,7 +93,11 @@
           <hr>
           
           <ion-card-subtitle style="color: chartreuse;" >
-            Current Theme Colors 
+            <ion-text>
+              <h5>
+                Current Theme Colors 
+              </h5>
+            </ion-text>
           </ion-card-subtitle>
         </ion-card-header>
         <ion-button color="primary">Primary</ion-button>
@@ -72,6 +112,24 @@
         <ion-button color="warning">Warning</ion-button>
         <ion-button color="danger">Danger</ion-button>
     
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col text-center>
+      <ion-card padding color="primary">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-text color="secondary">
+              Account Management
+            </ion-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-button color="bright">View Invoices</ion-button>
+        <ion-button color="danger">Cancel Subscription</ion-button>
+        <ion-button color="danger">Logout</ion-button>
       </ion-card>
     </ion-col>
   </ion-row>

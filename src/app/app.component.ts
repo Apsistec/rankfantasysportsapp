@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Plugins } from '@capacitor/core';
 import { RouterOutlet } from '@angular/router';
 // import { slideInAnimation } from './animations';
+
+const { SplashScreen, StatusBar } = Plugins;
 
 @Component({
   selector: 'app-root',
@@ -19,14 +20,19 @@ export class AppComponent {
   constructor(
     public auth: AuthService,
     public platform: Platform,
-    public splashScreen: SplashScreen,
-    public statusBar: StatusBar
+    // public splashScreen: SplashScreen,
+    // public statusBar: StatusBar
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.statusBar.styleDefault();
-    this.splashScreen.show();
+   SplashScreen.hide().catch(error => {
+    console.error(error);
+    });
+  StatusBar.hide().catch(error => {
+    console.error(error);
+    });
   }
+
 }

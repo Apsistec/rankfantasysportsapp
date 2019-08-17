@@ -15,17 +15,16 @@
             </ion-card-title>
           </ion-card-header>
         </ion-card>
-
         <ion-card color="primary">
           <ion-card-title>
             <h4>
               <ion-text color="warning">
-                Step 1:</ion-text>&nbsp;Register Your Account
+                Step 1:</ion-text>&nbsp;Login or Register Your Account
             </h4>
           </ion-card-title>
         <ion-card-content>
             <ion-button color="warning" fill="outline" shape="round" expand="block"
-              *ngIf="auth.afAuth.user | async as user; else login">{{ user.displayName }} You are registered and logged in</ion-button>
+              *ngIf="auth.afAuth.user | async as user; else login">{{ user.displayName || 'Unknown User'}}&nbsp; you are logged in</ion-button>
 
 <ng-template #login>
   <ion-button color="success" routerLink="/register">
@@ -35,13 +34,13 @@
   </ion-button>
 </ng-template>
 
+
           </ion-card-content>
         </ion-card>
       </ion-col>s
     </ion-row>
 
 <!-- Second Row Memberships -->
-    <!-- <app-memberships></app-memberships> -->
 <ion-row class="ion-align-items-stretch">
   <ion-col size-md="12">
     <ion-card  color="primary">
@@ -50,45 +49,45 @@
       </h4>
       <ion-grid>
         <ion-row>
-<ion-grid>
-  <ion-row>
+          <ion-grid>
+            <ion-row>
 
     <!-- Gold Plan -->
-    <ion-col size-md="6">
-      <ion-card color="primary">
-              <ion-list>
-                <ion-list-header color="tertiary">
-                  <ion-title>
-                    <ion-text color="warning">
-                      <h2>Gold</h2>
-                    </ion-text>
-                  </ion-title>
+              <ion-col size-md="6">
+                <ion-card color="primary">
+                  <ion-list>
+                    <ion-list-header color="tertiary">
+                      <ion-title>
+                        <ion-text color="warning">
+                          <h2>Gold</h2>
+                        </ion-text>
+                      </ion-title>
                   
                     <img src="../../assets/img/gold.svg" style="width: 45px;">
                   
-                </ion-list-header>
-                <ion-item>
-                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label text-wrap>One (1) Year Subscription</ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label text-wrap>$90.00 Billed Annually
-                    <br>
-                    <sub>$7.50 per Month</sub></ion-label>
-                  </ion-item>
-                <ion-item color="medium" lines="none">
-                  <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>
-                </ion-item>
-              </ion-list>
-                <ion-button *ngIf="!isClickedGold; else gold" shape="round" strong="true"
+                    </ion-list-header>
+                    <ion-item>
+                      <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label text-wrap>One (1) Year Subscription</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label text-wrap>$90.00 Billed Annually
+                        <br>
+                        <sub>$7.50 per Month</sub></ion-label>
+                    </ion-item>
+                    <ion-item color="medium" lines="none">
+                      <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>
+                    </ion-item>
+                  </ion-list>
+            <ion-button *ngIf="!isClickedGold; else gold" shape="round" strong="true"
                 expand="block" color="success" (click)="clickedGold()">
-                  <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;
-                  <ion-label>Gold Membership</ion-label>
-                </ion-button>
+              <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;
+              <ion-label>Gold Membership</ion-label>
+              </ion-button>
 
-                <ng-template #gold>
+<ng-template #gold>
   <ion-button shape="round" strong="true" expand="block" color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
     <ion-label>Gold Membership</ion-label>
@@ -131,16 +130,14 @@
                   <ion-label text-wrap>Silver Membership</ion-label>
                 </ion-button>
               
-              <ng-template #silver>
-                <ion-button shape="round" strong="true" expand="block" color="warning">
-                  <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-                  <ion-label>Silver Membership</ion-label>
-                </ion-button>
-              </ng-template>
-              
-            </ion-card>
+<ng-template #silver>
+  <ion-button shape="round" strong="true" expand="block" color="warning">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-label>Silver Membership</ion-label>
+  </ion-button>
+</ng-template>
+          </ion-card>
           </ion-col>
-          
         </ion-row>
         <ion-row>
           <ion-col size-md="12">
@@ -156,7 +153,7 @@
                 <ion-card-subtitle>
                   <ion-text color="warning">
                  <h3>
-                   <sup>*</sup>Sign up on with any membership today and get 7 days to try it out.
+                   <sup>*</sup>Signup with any Pro membership today and get 7 days to try it out.
                  </h3>
                   </ion-text>
                 </ion-card-subtitle>
@@ -208,8 +205,8 @@
                 </ion-item>
                 <ion-item>
                   <ion-label text-wrap>
-                    Many other tools and resources
-                    <br>
+                     Many other tools and resources                   
+                     <br>
                     <sub>Soon to be released</sub>
                   </ion-label>
                 </ion-item>
@@ -236,64 +233,57 @@
   </ion-button>
 </ng-template>
 
+                          </ion-card>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+              <!-- Third Row Payment -->
+              <ion-row>
+                <ion-col size-md="6" offset-md="3">
+                  <ion-card  color="success">
+                    <ion-card padding color="primary">
+                      <ion-card *ngIf="planId">
+                        <ion-card-title>
+                          
+                          <ion-text text-wrap>You are purchasing:</ion-text>
+                        </ion-card-title>
+                        <br>
+                        <ion-button shape="round" size="large" expand="block" fill="outline" color="success">
+                          <ion-label color="warning">
+                            {{ planId }}&nbsp;Membership 
+                            <br>
+                            {{ price }}
+                          </ion-label> 
+                        </ion-button>
+                        <hr>
+                      </ion-card>
+                            <h4>
+                            <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
+                          </h4>
+                              <hr>
+                          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                          <div class="form-row">
+                        <div id="card-element" #cardElement>
+                          <!-- A Stripe Element will be inserted here. -->
+                        </div>
+    <!-- Used to display Element errors. -->
+                      <p class="has-text-danger">{{ cardErrors }}</p>
+                     </div>
+                     <hr>
+                    <ion-button [disabled]="!planChosen" type="submit" color="tertiary" shape="round">
+                  <ion-text color="warning">Start Subscription&nbsp;&nbsp;
+                    <ion-icon slot="end" color="dark" name="jet"></ion-icon>
+                  </ion-text>
+                    </ion-button>
+                  </form>
+              <div *ngIf="loading" >Loading....</div>
             </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-    </ion-card>
-  </ion-col>
-</ion-row>
-
-<!-- Third Row Payment -->
-    <!-- <subscription-page></subscription-page> -->
-<!-- Third Row Payments -->
-<ion-row>
-  <ion-col size-md="6" offset-md="3">
-    <ion-card class="payCard" color="success" *ngIf="planChosen !== false">
-      <ion-card padding color="primary">
-        <ion-card *ngIf="planId">
-          <ion-card-title>
-            
-            <ion-text text-wrap>You are purchasing:</ion-text>
-          </ion-card-title>
-          <br>
-          <ion-button shape="round" size="large" expand="block" fill="outline" color="success">
-            <ion-label color="warning">
-              {{ planId }}&nbsp;Membership 
-              <br>
-              {{ price }}
-            </ion-label> 
-          </ion-button>
-          
-          <hr>
-        </ion-card>
-              <h4>
-              <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
-            </h4>
-    <hr>
-    <ion-card color="success" >
-    <form #f="ngForm" (ngSubmit)="onSubmit()">
-      <div #cardElement></div>
-
-         <ion-button [disabled]="loading" type="submit" color="tertiary" shape="round">
-           <ion-text color="warning">Start Subscription&nbsp;&nbsp;
-             <ion-icon slot="end" color="dark" name="jet"></ion-icon>
-            </ion-text>
-          </ion-button>
-        </form>
-      </ion-card>
-    <hr>
-    <ion-card color="primary">
-        <pre *ngIf="confirmation" style="max-width: 400px;">
-            {{ confirmation | json }}
-          </pre>
-        </ion-card>
-        <hr>
-      </ion-card>
-    </ion-card>
-  </ion-col>
-  </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
 
 
@@ -304,33 +294,23 @@
             <ion-list>
               <ion-item color="light">
                 <p>
-                  <strong>One (1) user per account.</strong>
-                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to our account, sign in with the same email address.
-                </p>
+                  <strong>One (1) user per account.</strong>Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to our account, sign in with the same email address.</p>
               </ion-item>
               <ion-item color="light">
-                <p>
-                  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information. Your actual card numbers and other card details are never visible to us nor are they ever stored on our servers.
-                </p>
+                <p>All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information. Your actual card numbers and other card details are never visible to us nor are they ever stored on our servers.</p>
               </ion-item>
               <ion-item color="light">
-                <p>
-                  All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our
-                  <a [routerLink]="[{ outlets: { popup: ['terms'] } }]">terms</a>.
-                </p>
+                <p>All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our <app-terms></app-terms></p>
               </ion-item>
               <ion-item color="light">
-                <p>
-                  The security of your information is our priority. Please read our
-                    <a [routerLink]="[{ outlets: { popup: ['privacy'] } }]">privacy policy</a>&nbsp;for more details.
-                </p>
+                <p>The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.</p>
               </ion-item>
             </ion-list>
           </ion-card>
         </ion-col>
       </ion-row>
-  </ion-grid>
-  <ion-router-outlet name="popup"></ion-router-outlet>
-</ion-content>
+
+    </ion-grid>
+  </ion-content>
 
 <app-footer></app-footer>

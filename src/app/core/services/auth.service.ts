@@ -1,6 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../models/user';
+import * as firebase from 'firebase/app';
 import { auth } from 'firebase/app';
+
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -28,16 +30,17 @@ export class AuthService {
     logged in and setting up null when logged out */
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
-        if (user) {
-          localStorage.setItem('user', JSON.stringify(this.user$));
-          JSON.parse(localStorage.getItem('user'));
-          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
-        } else {
-          localStorage.setItem('user', null);
-          JSON.parse(localStorage.getItem('user'));
-        }
+          if (user) {
+            localStorage.setItem('user', JSON.stringify(this.user$));
+            JSON.parse(localStorage.getItem('user'));
+            return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+          } else {
+            localStorage.setItem('user', null);
+            JSON.parse(localStorage.getItem('user'));
+          }
       })
     );
+  }
 
     // this.afAuth.authState.subscribe(user => {
     //   if (user) {
@@ -49,14 +52,13 @@ export class AuthService {
     //     JSON.parse(localStorage.getItem('user'));
     //   }
     // });
-  }
 
   // Sign in with email/password
   Login(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['list']);
+          this.router.navigate(['/launchpage']);
         });
         this.signToast();
         this.SetUserData(result.user);
@@ -108,7 +110,7 @@ export class AuthService {
   // }
 
   getUser() {
-    return this.user$.pipe(first()).toPromise();
+    return this.afAuth.authState.pipe(first()).toPromise();
   }
 
   // Sign in with Google
@@ -136,7 +138,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['/list']);
+          this.router.navigate(['/launchpage']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -161,27 +163,30 @@ export class AuthService {
     });
   }
 
+  
   // Sign out
-  SignOut() {
-    return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.signOutToast();
-      this.router.navigate(['/home']);
-    });
-  }
+  SignOut(): Promise<void> {
+    return firebase.auth().signOut();
+    localStorage.removeItem('user');
+    this.signOutToast();
+    this.router.navigate(['/home']);
+    }
 
-  async signToast() {
-    const toast = await this.toastController.create({
-      header: 'Authentication Message:',
-      cssClass: 'login',
-      message: 'You have successfully logged in',
-      position: 'middle',
-      duration: 4000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    toast.present();
-  }
+ 
+    async signToast() {
+      const toast = await this.toastController.create({
+        header: 'Authentication Message:',
+        cssClass: 'login',
+        message: 'You have successfully logged in',
+        position: 'middle',
+        duration: 4000,
+        showCloseButton: true,
+        translucent: true,
+      });
+      toast.present();
+    }
+
+
 
   async signOutToast() {
     const toast = await this.toastController.create({

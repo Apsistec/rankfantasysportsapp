@@ -3,7 +3,8 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 import { tap, map, take } from 'rxjs/operators';
-import { User } from '../models/user';
+import { User  } from '../models/user';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,20 +14,14 @@ export class PaymentGuard implements CanActivate {
 
   constructor(
     public auth: AuthService,
-    public router: Router
+    public router: Router,
+    public toaster: ToastController
   ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    return this.auth.afAuth.user.pipe(map(user => {
-      if (user.metadatastripeCustomerId) {
-        this.router.navigate(['launchpage']);
-        // return false;
-      }
-      return true;
-    })
-    );
+    return true;
   }
 }

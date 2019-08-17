@@ -2,9 +2,7 @@ import { environment } from '../environments/environment';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { File } from '@ionic-native/file/ngx';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +16,6 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageModule } from './home/home.module';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
@@ -46,9 +43,15 @@ import { ChatComponent } from './chat/chat.component';
 import { PgaThisWeekComponent } from './pga/pga-this-week/pga-this-week.component';
 import { PgaStatsComponent} from './pga/pga-stats/pga-stats.component';
 import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
+// import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
+// import { SubscriptionComponent } from './subscription/subscription.component';
+// import { UserSourcesComponent } from './user-sources/user-sources.component';
 
 @NgModule({
   declarations: [
+    // UserSourcesComponent,
+    // SubscriptionPlanComponent,
+    // SubscriptionComponent,
     PgaStatsComponent,
     PgaThisWeekComponent,
     NflPreComponent,
@@ -58,7 +61,6 @@ import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
     PrivacyComponent,
     PrivacyDialogComponent,
     AppComponent,
-    PageNotFoundComponent,
     RegisterComponent,
     VerifyEmailComponent,
     ForgotPasswordComponent,
@@ -80,7 +82,6 @@ import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
     TermsDialogComponent
   ],
   imports: [
-
     // ChatboxPageModule,
     AgGridModule.withComponents([]),
     HomePageModule,
@@ -102,9 +103,6 @@ import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
   ],
   providers: [
     // ChatService,
-    File,
-    StatusBar,
-    SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],

@@ -7,6 +7,7 @@ import { User } from '../core/models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+
 const themes = {
   autumn: {
     primary: '#F78154',

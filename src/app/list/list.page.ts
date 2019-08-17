@@ -7,7 +7,7 @@ import { IonContent } from '@ionic/angular';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  
+
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;
 

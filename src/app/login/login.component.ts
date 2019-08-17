@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm, EmailValidator } from '@angular/forms';
+import { NgForm, FormsModule, Validators} from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../core/services/auth.service';
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
   ) { }
 
   async onSubmit(form: NgForm) {

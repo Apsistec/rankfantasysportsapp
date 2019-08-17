@@ -1,17 +1,28 @@
-<app-header></app-header>
+ <app-header></app-header>
 
-<ion-header>
   <ion-toolbar>
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>NBA</ion-title>
   </ion-toolbar>
-</ion-header>
 
 <ion-content>
-    <ion-card >
+    <ion-card>
       <ion-card-header color="primary">
-        <ion-card-title>
-          NBA
-        </ion-card-title>
+        <ion-card-title style="text-align: right;">
+            <ion-text color="warning">
+             <sub>
+               2019 Season Ended
+             </sub> 
+            </ion-text>
+          </ion-card-title>
+            <ion-text >
+              <h3>
+                NBA
+              </h3> 
+        </ion-text>
       </ion-card-header>
       <ion-item disabled color="medium" routerLink="/table5">
         <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>

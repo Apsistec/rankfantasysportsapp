@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LaunchpageComponent } from './launchpage/launchpage.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -21,10 +20,11 @@ import { Table9Component } from './tables/table9/table9.component';
 import { PgaThisWeekComponent } from './pga/pga-this-week/pga-this-week.component';
 import { PgaStatsComponent } from './pga/pga-stats/pga-stats.component';
 import { NflPreComponent } from './nfl/nfl-pre/nfl-pre.component';
-import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
-import { PrivacyComponent } from './privacy/privacy.component';
-import { TermsComponent } from './terms/terms.component';
+// import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
+// import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
+// import { PrivacyComponent } from './privacy/privacy.component';
+// import { TermsComponent } from './terms/terms.component';
+import { PaymentGuard } from './core/guard/payment.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,65 +47,57 @@ const appRoutes: Routes = [
   { path: 'fifa', loadChildren: './fifa/fifa.module#FifaPageModule' },
   { path: 'nba', loadChildren: './nba/nba.module#NbaPageModule' },
   { path: 'pga', loadChildren: './pga/pga.module#PgaPageModule' },
+  { path: 'now', loadChildren: './now/now.module#NowPageModule' },
 
   {
     path: 'table1',
-    component: Table1Component, canActivate: [AuthGuard]
+    component: Table1Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table2',
-    component: Table2Component, canActivate: [AuthGuard]
+    component: Table2Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table3',
-    component: Table3Component, canActivate: [AuthGuard]
+    component: Table3Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table4',
-    component: Table4Component, canActivate: [AuthGuard]
+    component: Table4Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table5',
-    component: Table5Component, canActivate: [AuthGuard]
+    component: Table5Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table6',
-    component: Table6Component, canActivate: [AuthGuard]
+    component: Table6Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table7',
-    component: Table7Component, canActivate: [AuthGuard]
+    component: Table7Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table8',
-    component: Table8Component, canActivate: [AuthGuard]
+    component: Table8Component, canActivate: [PaymentGuard]
   },
   {
     path: 'table9',
-    component: Table9Component, canActivate: [AuthGuard]
+    component: Table9Component, canActivate: [PaymentGuard]
   },
   {
     path: 'pga-this-week',
-    component: PgaThisWeekComponent, canActivate: [AuthGuard]
+    component: PgaThisWeekComponent, canActivate: [PaymentGuard]
   },
   {
     path: 'pga-stats',
-    component: PgaStatsComponent, canActivate: [AuthGuard]
+    component: PgaStatsComponent, canActivate: [PaymentGuard]
   },
   {
     path: 'nfl-pre',
-    component: NflPreComponent, canActivate: [AuthGuard]
+    component: NflPreComponent, canActivate: [PaymentGuard]
   },
-  {
-    path: 'terms',
-    component: TermsComponent,
-    outlet: 'popup'
-  },
-  {
-    path: 'privacy',
-    component: PrivacyComponent,
-    outlet: 'popup'
-  },
+
   {
     path: '**',
     redirectTo: 'home'

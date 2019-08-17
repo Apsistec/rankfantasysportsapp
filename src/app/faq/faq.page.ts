@@ -40,19 +40,20 @@ export class FaqPage implements OnInit {
       .create({
         component: SupportModalComponent,
         componentProps: {
-          // displayName: this.user.displayName | 'Your name here',
-          // email: this.user.email | 'Your email here'
+          Name: this.user.displayName || 'Your name here',
+          email: this.user.email || 'Your email here'
         }
       });
     await modalEl.present()
       .catch(err => window.alert(err));
   }
 
-  async onCancelModal() {
+  async onCloseModal() {
     await this.modalCtrl.dismiss('', 'cancel')
     .catch(err => window.alert(err))
     .then(() => console.log('this will succeed'));
   }
+
 
   async getUser() {
     await this.afAuth.authState.pipe(first()).toPromise();

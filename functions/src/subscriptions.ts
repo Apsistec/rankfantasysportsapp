@@ -36,7 +36,7 @@ export const createSubscription = async(uid: string, source: string, plan: strin
     const docData = {
         [plan]: true,
         [subscription.id]: 'active',
-    }
+    }   
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
 

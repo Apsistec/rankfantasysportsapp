@@ -8,18 +8,18 @@
           <ion-card-content>
           
           <ion-card-title  text-center>
-            <ion-text color="warning">Sign Up</ion-text>
+            <ion-text color="secondary">Become A Member</ion-text>
           </ion-card-title>
           <form #register="ngForm" (ngSubmit)="onSubmit(register)">
           <ion-card>
             <ion-item color="medium">
-              <ion-label  position="floating">Full Name</ion-label>
+              <ion-label  position="floating">Name</ion-label>
               <ion-input color="dark" pattern="[A-Z][a-z]*.[a-z]*\s[A-Z][a-z]*.[a-z]*" clearInput fullname autocapitalize="on" fullname ngModel minlength="6" type="text" required name="fullname"></ion-input>
                 </ion-item>
               </ion-card>
-              <!-- <ion-label [hidden]="isLogin"  *ngIf="nameCtrl.invalid && nameCtrl.touched" lines="none"> 
+              <ion-label [hidden]="isLogin"  *ngIf="register.invalid && register.touched" lines="none"> 
                 <sub>Enter Your First & Last Name</sub>
-                      </ion-label> -->
+                      </ion-label>
                       <ion-card>
                         <ion-item color="medium">
                           <ion-label  position="floating">Email</ion-label>
@@ -39,14 +39,20 @@
                       <!-- <ion-label *ngIf="passwordCtrl.invalid && passwordCtrl.touched" lines="none" text-wrap>
                         <sub>Not secure, use 6 or more characters</sub>
                       </ion-label> -->
-                      <ion-button size="small" routerLink="/login" color="warning" fill="clear" expand="block" >
-                        <ion-label  color="warning"> Switch to Sign In</ion-label>
-                        <ion-ripple-effect></ion-ripple-effect>
+                      <ion-card>
+                        <ion-item color="medium">
+                          <ion-label position="floating">Confirm Password</ion-label>
+                          <ion-input color="dark" type="password"  name="passwordtwo" required minlength="6" ngModel type="password" passwordtwo >
+                          </ion-input>
+                        </ion-item>
+                      </ion-card>
+                      <!-- <ion-label *ngIf="passwordCtrl.invalid && passwordCtrl.touched" lines="none" text-wrap>
+                        <sub>Not secure, use 6 or more characters</sub>
+                      </ion-label> -->
+                      <ion-button type="submit" class="bright" expand="block" [disabled]="register.invalid">
+                        <ion-text color="danger"><strong>Become A Member</strong></ion-text><ion-ripple-effect></ion-ripple-effect>
                       </ion-button>
-                            <ion-button type="submit" class="sign-btn" expand="block" [disabled]="register.invalid">
-                              <ion-label>Sign Up</ion-label><ion-ripple-effect></ion-ripple-effect>
-                            </ion-button>
-                          </form>
+                    </form>
                     <hr>                  
                     <ion-button class="g-btn" type="button" (click)="auth.GoogleAuth()" expand="block"> <ion-icon name="logo-google"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
@@ -58,9 +64,13 @@
                       <ion-ripple-effect></ion-ripple-effect>
                     </ion-button>
                     
-                  </ion-card-content>
-                  </ion-card>
-              </ion-col>
+                    <ion-button routerLink="/login" color="secondary" fill="clear" expand="block" >
+                      <ion-label  color="secondary"><strong>Login</strong></ion-label>
+                      <ion-ripple-effect></ion-ripple-effect>
+                    </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
