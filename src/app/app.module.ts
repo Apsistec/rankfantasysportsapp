@@ -25,7 +25,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LaunchpageComponent } from './launchpage/launchpage.component';
 import { PaypalComponent } from './paypal/paypal.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './core/services/interceptor.service';
+import { InterceptorService } from './core/helpers/interceptor.service';
 import { Table1Component } from './paid/tables/table1/table1.component';
 import { Table2Component } from './paid/tables/table2/table2.component';
 import { Table3Component } from './paid/tables/table3/table3.component';
@@ -83,9 +83,7 @@ import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
   providers: [
     Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
   exports: [
  ],

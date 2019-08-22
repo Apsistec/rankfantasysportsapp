@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../models/user';
-import { Roles } from '../models/user';
+import { Role } from '../models/user';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
   user: User;
-  roles: Roles;
+  roles: Role;
   constructor(private auth: AuthService) {}
 
   async canActivate(

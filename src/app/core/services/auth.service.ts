@@ -1,15 +1,64 @@
-import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/user';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { User } from '../_models';
+
+@Injectable({ providedIn: 'root' })
+export class AuthenticationService {
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  login(username: string, password: string) {
+    return this.http.post<any>(`/users/authenticate`, { username, password })
+      .pipe(map(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
+
+        return user;
+      }));
+  }
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+import {  NgZone } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { Observable, of } from 'rxjs';
+import {  of } from 'rxjs';
 import { first, switchMap } from 'rxjs/operators';
-// import { Storage } from '@ionic/storage';
-// import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -96,7 +145,7 @@ export class AuthService {
       emailVerified: user.emailVerified,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      roles: user.roles,
+      role: user.role,
     };
     return userRef.set(user, {
       merge: true
@@ -121,10 +170,10 @@ export class AuthService {
   }
 
   // determines if user has matching role
-  private checkAuthorization(user: User, allowedRoles: string[]): boolean {
+  private checkAuthorization(user: User, allowedRole: string[]): boolean {
     if (!user) { return false; }
-    for (const role of allowedRoles) {
-      if (user.roles[role]) {
+    for (const role of allowedRole) {
+      if (user.role[role]) {
         return true;
       }
     }

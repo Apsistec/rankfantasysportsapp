@@ -1,13 +1,10 @@
-export interface Roles {
-    visitor?: boolean;
-    subscriber?: boolean;
-    admin?: boolean;
-}
-
-export interface User {
+export class User {
     uid: string;
-    email: string;
-    roles: Roles;
+    password: string;
+    firstName: string;
+    lastName: string;
+    role: string;
+    token?: string;
     emailVerified: boolean;
     stripeCustomerId?: string;
     displayName?: string;

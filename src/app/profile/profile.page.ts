@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 import { ThemeService } from '../core/services/theme.service';
 import { User, Role } from '../core/models/user';
 import { first } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
 import { SubscriptionService } from '../core/services/subscription.service';
 import { LoadingController } from '@ionic/angular';
 import { ModalController, NavParams } from '@ionic/angular';
+// import { SupportModalComponent } from './support-modal/support-modal.component';
 
 const themes = {
   autumn: {
@@ -48,8 +48,7 @@ export class ProfilePage implements OnInit {
   loading = false;
   currentUser: User;
   subscriptionList;
-  user: Observable<User>;
-  // userData: any;
+
   results;
   constructor(
     public auth: AuthService,
@@ -59,30 +58,34 @@ export class ProfilePage implements OnInit {
     public subs: SubscriptionService,
     private loader: LoadingController,
     public modalCtrl: ModalController,
+    private userService: UserService,
+    private authenticationService: AuthenticationService
 
   ) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.currentUser = this.authenticationService.currentUserValue;
+    this.auth.afAuth.currentUser.subscribe(x => this.currentUser = x);
   }
+  currentUser: User;
+  userFromApi: User;
 
+  ngOnInit() {
+    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
+      this.userFromApi = user;
+    });
+  }
+}
 
   ngOnInit() {
     this.loading = false;
   }
-
-         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    }
   get isAdmin() {
-    return this.currentUser && this.currentUser.role === Role.Admin;
+    return this.currentUser && this.currentUser.role === Role.subscriber;
   }
 
   getUser() {
     return this.user.pipe(first()).toPromise();
   }
-  // async getUser() {
-  //   await this.afAuth.authState.pipe(first()).toPromise();
-  //   return this.user;
-  // }
+
 
   changeTheme(name) {
     this.theme.setTheme(themes[name]);

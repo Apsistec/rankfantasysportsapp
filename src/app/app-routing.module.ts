@@ -19,18 +19,10 @@ import { PgaStatsComponent } from './paid/pga/pga-stats/pga-stats.component';
 import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
 import { PaymentGuard } from './core/guard/payment.guard';
 import { AuthGuard } from './core/guard/auth.guard';
-import { Roles } from './core/models/user';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  {
-    path: 'championlist',
-    loadChildren: './list/list.module#ListPageModule',
-    canActivate: [AuthGuard],
-    data: {
-      roles: [Role.Subscriber]
-    },
-  },
   { path: 'register', component: RegisterComponent  },
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -39,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
   { path: 'testimonials', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
   { path: 'tweets', loadChildren: './tweets/tweets.module#TweetsPageModule' },
+  { path: 'list', loadChildren: './list/list.module#ListPageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule', canActivate: [AuthGuard] },
   { path: 'tennis', loadChildren: './paid/tennis/tennis.module#TennisPageModule' },
   { path: 'nfl', loadChildren: './paid/nfl/nfl.module#NflPageModule' },

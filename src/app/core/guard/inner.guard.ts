@@ -25,7 +25,6 @@ export class InnerGuard implements CanActivate {
     if (!loggedIn) {
       this.authService.isLoggedInToast();
       this.router.navigateByUrl('/home');
-    }
     return loggedIn;
   }
 

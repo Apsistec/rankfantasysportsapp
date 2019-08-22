@@ -15,7 +15,7 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
-
+paid/
 .idea/
 .ionic/
 .sourcemaps/

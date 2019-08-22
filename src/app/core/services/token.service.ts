@@ -21,10 +21,10 @@
 //         // Confirm the user as paid.
 //         if (!!idTokenResult.claims.visitor) {
 //           // Show paid UI.
-//           this.router.navigateByUrl('/list')
+//           this.router.navigateByUrl('/list'), { queryParams: { returnUrl: state.url }};
 //         } else {
 //           // Show regular user UI.
-//           this.router.navigateByUrl('/pricing');
+//           this.router.navigateByUrl('/pricing'), { queryParams: { returnUrl: state.url }};;
 //           this.authService.needPaymentToast();
 //         }
 //       })
