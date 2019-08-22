@@ -9,11 +9,7 @@ export const environment = {
     messagingSenderId: '436994807324',
     appId: '1:436994807324:web:3688c0cd49139837'
   },
-  stripe: {
-    publicKey: 'pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt',
-  },
-  dialogflow: {
-    sportsBot: '8b3d99f449ca45cf91fa0a9f88da30bc'
-  },
-  bloggerApiKey: 'AIzaSyCmqDAZJw5g_GqUhE-zBD6hvJQUnGw_EIg'
+  stripe: { stripePublishable: 'pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt' },
+
+  dialogflow: { sportsBot: '8b3d99f449ca45cf91fa0a9f88da30bc' },
 };

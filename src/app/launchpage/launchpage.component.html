@@ -5,12 +5,12 @@
 <!-- First Row Login -->
     <ion-row>
        <ion-col size-md="6" offset-md="3">
-        <ion-card color="primary">
+        <ion-card class="main-card" color="primary">
           <img src="../../assets/logo-md.svg">
           <ion-card-header>
             <ion-card-title>
               <ion-label text-wrap color="secondary">
-                <ion-text color="light">RF<ion-text color="secondary">$</ion-text>&trade;</ion-text>&nbsp;Pro Subscriptions
+                <ion-text color="secondary">RF<ion-text color="secondary">$</ion-text>&trade;</ion-text>&nbsp;Pro Subscriptions
               </ion-label>
             </ion-card-title>
           </ion-card-header>
@@ -24,7 +24,7 @@
           </ion-card-title>
         <ion-card-content>
             <ion-button color="warning" fill="outline" shape="round" expand="block"
-              *ngIf="auth.afAuth.user | async as user; else login">{{ user.displayName || 'Unknown User'}}&nbsp; you are logged in</ion-button>
+              *ngIf="auth.afAuth.user | async as user; else login">You are logged in</ion-button>
 
 <ng-template #login>
   <ion-button color="success" routerLink="/register">
@@ -37,7 +37,7 @@
 
           </ion-card-content>
         </ion-card>
-      </ion-col>s
+      </ion-col>
     </ion-row>
 
 <!-- Second Row Memberships -->
@@ -47,7 +47,7 @@
       <h4>
         <ion-text color="warning">Step 2:</ion-text>&nbsp;Choose a Membership
       </h4>
-      <ion-grid>
+      <ion-grid *ngIf="auth.afAuth.user | async as user">
         <ion-row>
           <ion-grid>
             <ion-row>
@@ -141,8 +141,8 @@
         </ion-row>
         <ion-row>
           <ion-col size-md="12">
-            <ion-card color="tertiary">
-              <ion-card padding color="success">
+            <ion-card color="secondary">
+              <ion-card padding color="tertiary">
                 <ion-card-title>
                   <ion-text color="secondary">
                     <h1>
@@ -279,12 +279,10 @@
                   </ion-text>
                     </ion-button>
                   </form>
-              <div *ngIf="loading" >Loading....</div>
             </ion-card>
           </ion-card>
         </ion-col>
       </ion-row>
-
 
 
 <!-- Fourth Row Disclaimers -->
@@ -294,16 +292,33 @@
             <ion-list>
               <ion-item color="light">
                 <p>
-                  <strong>One (1) user per account.</strong>Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to our account, sign in with the same email address.</p>
+                  <strong>
+                    One (1) user per account.
+                  </strong>
+                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.
+                  </p>
+              </ion-item>
+              <ion-item> 
+                <p>
+                  <strong>
+                    *For the Free Week (7 days) Discount, your card will not be charged until the 8th day after you join.
+                  </strong>
+                </p> 
               </ion-item>
               <ion-item color="light">
-                <p>All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information. Your actual card numbers and other card details are never visible to us nor are they ever stored on our servers.</p>
+                <p>
+                  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information. Your actual card numbers and other card details are never visible to us nor are they ever stored on our servers.
+                </p>
               </ion-item>
               <ion-item color="light">
-                <p>All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our <app-terms></app-terms></p>
+                <p>
+                  All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account's billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account's current billing cycle, and no further payments will be processed. For more details, please read our <app-terms></app-terms>.
+                </p>
               </ion-item>
               <ion-item color="light">
-                <p>The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.</p>
+                <p>
+                  The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.
+                </p>
               </ion-item>
             </ion-list>
           </ion-card>

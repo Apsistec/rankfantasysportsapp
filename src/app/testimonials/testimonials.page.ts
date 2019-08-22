@@ -23,19 +23,4 @@ export class TestimonialsPage {
 
   constructor(public modalController: ModalController) { }
 
-  // async viewImage(src: string, title: string = '', description: string = '') {
-  //   const modal = await this.modalController.create({
-  //     component: ImageModalPage,
-  //     componentProps: {
-  //       slides: src,
-  //       imgTitle: title,
-  //       imgDescription: description
-  //     },
-  //     cssClass: 'modal-fullscreen',
-  //     keyboardClose: true,
-  //     showBackdrop: true
-  //   });
-
-  //   return await modal.present();
-  // }
 }

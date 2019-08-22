@@ -1,6 +1,6 @@
 export interface Profile {
-  displayName: string;
+  displayName?: string;
   bio?: string;
-  photoURL: string;
-  following: boolean;
+  photoURL?: string;
+  following?: boolean;
 }

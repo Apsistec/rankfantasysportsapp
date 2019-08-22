@@ -3,6 +3,7 @@ import { assert, assertUID, catchErrors } from './helpers';
 import { stripe, db } from './config'; 
 import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
+import { addPaidSubscriberToken } from './tokens';
 
 
 /**
@@ -40,6 +41,8 @@ export const createSubscription = async(uid: string, source: string, plan: strin
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
 
+    await addPaidSubscriberToken(uid);
+
     return subscription;
 }
 
@@ -52,7 +55,7 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
 
     const docData = {
         [subscription.plan.id]: false,
-        [subscription.id]: 'canceled'
+        [subscription.id]: 'canceled',
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });

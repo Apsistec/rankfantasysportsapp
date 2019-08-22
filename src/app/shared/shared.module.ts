@@ -5,39 +5,49 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-import { MessagesComponent } from './messages/messages.component';
-import { ModalComponent } from '../modal/modal.component';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatInputModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material/dialog';
+
+import { PrivacyComponent } from './privacy/privacy.component';
+import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
+import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
+import { TermsComponent } from './terms/terms.component';
+import { DropdownDirective } from './directives/dropdown.directive';
+import { MatExpansionModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
-    ModalComponent,
     HeaderComponent,
     FooterComponent,
-    MessagesComponent
+    TermsComponent,
+    TermsDialogComponent,
+    PrivacyDialogComponent,
+    PrivacyComponent,
+    DropdownDirective,
   ],
-  entryComponents: [ ModalComponent ],
+  entryComponents: [
+    TermsDialogComponent,
+    PrivacyDialogComponent,
+  ],
   imports: [
-    MatDialogModule,
-    MatExpansionModule,
-    MatInputModule,
     NgxTwitterTimelineModule,
     IonicModule,
+    MatDialogModule,
     CommonModule,
+    MatExpansionModule,
     RouterModule,
   ],
   exports: [
-    MessagesComponent,
-    MatDialogModule,
-    MatExpansionModule,
-    MatInputModule,
     NgxTwitterTimelineModule,
     HeaderComponent,
+    DropdownDirective,
     FooterComponent,
-    ModalComponent,
-    RouterModule,
+    PrivacyDialogComponent,
+    PrivacyComponent,
+    TermsDialogComponent,
+    TermsComponent,
+    MatDialogModule,
+    MatExpansionModule
   ],
 })
 export class SharedModule {}

@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Faqs } from './faqs';
-import { SupportModalComponent } from '../support-modal/support-modal.component';
+import { SupportModalComponent } from './support-modal/support-modal.component';
 import { User } from '../core/models/user';
 import { ModalController, NavParams } from '@ionic/angular';
 import { first } from 'rxjs/operators';
@@ -15,10 +15,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./faq.page.scss'],
 })
 export class FaqPage implements OnInit {
+  @Input() user;
   faqs = Faqs;
+
   info: string;
   panelOpenState;
-  user: User;
 
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;
@@ -33,6 +34,9 @@ export class FaqPage implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.getUser(); {
+      return this.user;
+    }
   }
 
   async openSupportModal() {
@@ -40,8 +44,8 @@ export class FaqPage implements OnInit {
       .create({
         component: SupportModalComponent,
         componentProps: {
-          Name: this.user.displayName || 'Your name here',
-          email: this.user.email || 'Your email here'
+          Name: this.user.displayName ,
+          email: this.user.email
         }
       });
     await modalEl.present()
@@ -50,8 +54,7 @@ export class FaqPage implements OnInit {
 
   async onCloseModal() {
     await this.modalCtrl.dismiss('', 'cancel')
-    .catch(err => window.alert(err))
-    .then(() => console.log('this will succeed'));
+    .catch(err => window.alert(err));
   }
 
 

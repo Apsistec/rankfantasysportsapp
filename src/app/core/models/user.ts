@@ -1,12 +1,15 @@
+export interface Roles {
+    visitor?: boolean;
+    subscriber?: boolean;
+    admin?: boolean;
+}
+
 export interface User {
     uid: string;
     email: string;
-    photoURL?: string;
-    displayName?: string;
+    roles: Roles;
+    emailVerified: boolean;
     stripeCustomerId?: string;
-    subscriptions?: {
-        [key: string]: 'active' | 'pastDue' | 'cancelled';
-    },
-    emailVerified?: boolean;
-
+    displayName?: string;
+    photoURL?: string;
 }

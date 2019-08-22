@@ -33,9 +33,8 @@ export class InterceptorService implements HttpInterceptor {
    * @param {HttpHandler}   nextRequest   Transforms an HttpRequest object into a stream of HttpEvents
    * @returns {Observable<HttpEvent<any>>}
    */
-  intercept(httpRequest  : HttpRequest<any>,
-            nextRequest  : HttpHandler) : Observable<HttpEvent<any>>
-  {
+  intercept(httpRequest: HttpRequest<any>,
+            nextRequest: HttpHandler): Observable<HttpEvent<any>> {
       // Clones the outgoing HttpRequest object and injects the following
       // no-cache related headers:
       // 1. Cache-Control         For HTTP 1.1. servers

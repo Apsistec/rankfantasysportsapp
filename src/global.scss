@@ -18,6 +18,15 @@
 //@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 //@import "~@angular/material/prebuilt-themes/purple-green.css";
 
+
+ion-content{
+  --background: none;
+  background-position: center top; 
+  background-image: linear-gradient(rgb(29, 49, 41), rgb(34, 0, 46));
+  //  background-repeat: no-repeat;
+  //  background-size: cover;
+}
+
 input{
   --highlight-height: 3px;
 }
@@ -25,15 +34,15 @@ input{
   // background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
   // background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
   // background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* ie10+ */
-  background-image:radial-gradient(ellipse at center, rgba(35, 13, 53, 0.877) 0%, rgba(38, 60, 63, 0.568) 100%), url('src/assets/img/rfs-logo.svg'); /* w3c */
+  background-image:radial-gradient(ellipse at center, rgba(35, 13, 53, 0.877) 0%, rgba(38, 60, 63, 0.568) 100%), url('./assets/img/rfs-logo.svg'); /* w3c */
   // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=1 ); /* ie6-9 */
   color: white;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   text-indent: 15px;
-
 }
+
 .card-metal-two{
   // background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
   // background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
@@ -41,42 +50,59 @@ input{
   background-image:radial-gradient(ellipse at center, rgba(38, 60, 63, 0.815) 0%, rgba(35, 13, 53, 0.849) 100%); /* w3c */
   // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=1 ); /* ie6-9 */
   color: white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
   text-indent: 15px;
-
 }
 
 .sign-btn{
-    // --background: rgb(67, 197, 74);
-    --background: linear-gradient(to right, rgba(216, 219, 47, 0.918) 0%, rgba(252, 238, 42, 0.945) 24%, rgb(201, 199, 74) 44%,rgb(212, 203, 71) 74%,rgba(255, 217, 0, 0.986)100%);
-    --color:#8507b8;
-    text-shadow: 1.5px 1.5px #e9d3f8;
+  --background: rgb(201,199,74);
+  --background: linear-gradient(to right, rgba(216, 219, 47, 0.918) 0%, rgba(252, 238, 42, 0.945) 24%, rgb(201, 199, 74) 44%,rgb(212, 203, 71) 74%,rgba(255, 217, 0, 0.986)100%);
+  --color:#8507b8;
+  text-shadow: 1.5px 1.5px #e9d3f8;
 }
+
 .main-card{
-    // --background: rgba(169,3,41,1);
-    // --background: -moz-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(127, 102, 102) 100%);
-    // --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgb(122, 81, 81)));
-    // --background: -webkit-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%,rgb(97, 80, 80) 100%);
-    // --background: -o-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(92, 78, 78) 100%);
-    // --background: -ms-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(87, 71, 71) 100%);
-    --background: linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
-    // --color:#4a7b81;
-        text-shadow: 1px 1px #9500ff;
-
+  --background: rgba(69, 64, 73);
+  --background: -moz-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
+  --background: -webkit-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
+  --background: -o-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
+  --background: -ms-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
+  --background: linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+  --color:#4a7b81;
+  text-shadow: 1px 1px #9500ff;
 }
+
+.gold-card{
+  text-shadow: .5px .5px #e4c741;
+  color: #000000;
+}
+
+.bronze-card{
+  text-shadow: .5px .5px #a3845b;
+  color: #000000;
+}
+  
+.silver-card{
+  text-shadow: .5px .5px #d5dae0;
+  color: #000000;
+}
+  
+
 .g-btn{
-    // --background: rgba(169,3,41,1);
-    // --background: -moz-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(127, 102, 102) 100%);
-    // --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgb(122, 81, 81)));
-    // --background: -webkit-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%,rgb(97, 80, 80) 100%);
-    // --background: -o-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(92, 78, 78) 100%);
-    // --background: -ms-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(87, 71, 71) 100%);
+    --background: rgba(169,3,41,1);
+    --background: -moz-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(127, 102, 102) 100%);
+    --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgb(122, 81, 81)));
+    --background: -webkit-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%,rgb(97, 80, 80) 100%);
+    --background: -o-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(92, 78, 78) 100%);
+    --background: -ms-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgb(87, 71, 71) 100%);
     --background: linear-gradient(to right, rgb(240, 0, 40)  0%, rgba(169,3,41,1) 44%, rgb(240, 0, 60) 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
-    // --color:#4a7b81;
-        text-shadow: 1px 1px #8f8894;
-
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+    text-shadow: 1px 1px #8f8894;
 }
+
 .t-btn{
     --background: rgba(29, 161, 242,1);
     --background: -moz-linear-gradient(left, rgba(29, 161, 242,1) 0%, rgba(85, 172, 238,1) 44%, rgba(102, 117, 127,1) 100%);
@@ -87,9 +113,9 @@ input{
     --background: linear-gradient(to right, rgb(96, 217, 247) 0%, rgba(29, 161, 242, 1) 44%, rgb(85, 229, 248) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
     // --color:rgb(255, 225, 255);
-        text-shadow: 1px 1px #8f8894;
-
+    text-shadow: 1px 1px #8f8894;
 }
+
 .f-btn{
     --background: rgba(66, 103, 179,1);
     --background: -moz-linear-gradient(left, rgba(66, 103, 179,1) 0%, rgb(57, 102, 199,1) 44%, rgba(97, 103, 113,1) 100%);
@@ -100,27 +126,31 @@ input{
     --background: linear-gradient(to right, rgb(45, 131, 252) 0%, rgba(66, 103, 179, 1) 24%, rgb(52, 133, 255) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
     // --color:#ccd6dd;
-        text-shadow: 1px 1px #8f8894;
+    text-shadow: 1px 1px #8f8894;
 }
 
 .login{
   --background: linear-gradient(to right, rgb(4, 194, 30) 0%, rgb(28, 124, 68) 44%, rgb(19, 211, 67) 100%);
+  --background:  rgb(19, 211, 67);
   --border-color: rgb(0, 255, 191);
   --max-width: 350px;
-      text-shadow: 1.5px 1.5px #8f8894;
+  color: white;
+  text-shadow: 1.5px 1.5px #8f8894;
 }
 
 .logout{
   --background: linear-gradient(to right, rgb(230, 202, 44) 0%, rgb(133, 121, 13) 44%, rgb(230, 231, 27) 100%);
+  --background:  rgb(230, 231, 27);
   --border-color: rgb(255, 115, 0);
   --max-width: 350px;
-      text-shadow: 1.5px 1.5px #8f8894;
+  color: black;
+  text-shadow: 1.5px 1.5px #8f8894;
 }
 
 .unsign{
   --background: linear-gradient(to right, rgb(240, 0, 40)  0%, rgba(169,3,41,1) 44%, rgb(240, 0, 60) 100%);
-  --border-color: rgb(255, 0, 85);
-      text-shadow: 1.5px 1.5px #8f8894;
+  --border-color: rgb(254, 0, 85);
+  text-shadow: 1.5px 1.5px #8f8894;
 }
 
 .bright{
@@ -158,12 +188,15 @@ input{
 p{
   text-align: left;
   text-indent: 10px;
- }
+}
  
 pre {
-  text-align: left;
+text-align: left;
 }
 
 a:hover {
- cursor:pointer;
+  cursor:pointer;
 }
+  
+  // --background: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgb(122,81,81)));
+  

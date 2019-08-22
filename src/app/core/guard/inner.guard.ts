@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ToastController } from '@ionic/angular';
+import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
+
 @Injectable({
   providedIn: 'root'
 })
-
 export class InnerGuard implements CanActivate {
-
+  user$: Observable<any>;
   constructor(
-    public authService: AuthService,
-    public router: Router
+    private authService: AuthService,
+    private router: Router,
+    public toaster: ToastController
   ) { }
 
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isLoggedIn) {
-      window.alert('You are not allowed to access this URL!');
-      this.router.navigate(['/home']);
+    state: RouterStateSnapshot
+  ): Promise<boolean> {
+
+    const loggedIn = await this.authService.isLoggedIn;
+    if (!loggedIn) {
+      this.authService.isLoggedInToast();
+      this.router.navigateByUrl('/home');
     }
-    return true;
+    return loggedIn;
   }
+
 
 }

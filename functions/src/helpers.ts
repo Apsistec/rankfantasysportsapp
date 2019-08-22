@@ -22,6 +22,7 @@ export const assertUID = (context: any) => {
     }
 }
 
+
 /**
 Sends a descriptive error response when running a callable function
 */
