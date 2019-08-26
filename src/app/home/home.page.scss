@@ -19,6 +19,7 @@
 .testi{
     text-align: center;
     background:url('../../assets/img/bball-drive.jpg');
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -34,7 +35,7 @@
     background-size: cover;
 }
 .inspire{
-    background: linear-gradient(rgba(74, 5, 80, 0.589), rgba(134, 60, 184, 0.527)), url('../../assets/img/tribak.png');
+    background: linear-gradient(rgba(74, 5, 80, 0.589), rgba(134, 60, 184, 0.527), url('../../assets/img/tribak.png'));
     background-repeat: no-repeat;
     background-size: 100%;
 }

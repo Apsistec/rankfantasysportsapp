@@ -1,14 +1,16 @@
    
     <ion-card padding color="primary">
   <form #supportForm="ngForm" (ngSubmit)="onSubmit(supportForm)">
+              <ng-container *ngIf="auth.user$ | async as user">
 
-             <!-- <ion-item>
-               {{ user?.displayName }} 
-              </ion-item>
-              <ion-item>
-                {{ user?.email }}
-              </ion-item> -->
-             
+                <ion-item>
+                  Name :{{ user.displayName || 'Mysterious User' }} 
+                </ion-item>
+                <ion-item>
+                  Email: {{ user.email }}
+                </ion-item>
+              </ng-container>
+                
       
                <ion-item>
                  <select [ngModel]="active?.type" name="type" required class="form-control">

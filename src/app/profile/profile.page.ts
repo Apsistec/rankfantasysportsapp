@@ -3,12 +3,10 @@ import { AuthService } from '../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
 import { ThemeService } from '../core/services/theme.service';
-import { User, Role } from '../core/models/user';
+
 import { first } from 'rxjs/operators';
-import { SubscriptionService } from '../core/services/subscription.service';
 import { LoadingController } from '@ionic/angular';
 import { ModalController, NavParams } from '@ionic/angular';
-// import { SupportModalComponent } from './support-modal/support-modal.component';
 
 const themes = {
   autumn: {
@@ -43,49 +41,42 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
+
   @Input() user;
   canEdit;
   loading = false;
-  currentUser: User;
+  currentUser;
   subscriptionList;
+
 
   results;
   constructor(
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private router: Router,
-    private theme: ThemeService,
-    public subs: SubscriptionService,
-    private loader: LoadingController,
+    public theme: ThemeService,
+    public loader: LoadingController,
     public modalCtrl: ModalController,
-    private userService: UserService,
-    private authenticationService: AuthenticationService
-
+    // private userService: UserService,
   ) {
-    this.currentUser = this.authenticationService.currentUserValue;
-    this.auth.afAuth.currentUser.subscribe(x => this.currentUser = x);
+    this.currentUser = this.auth.afAuth.user;
+    this.auth.afAuth.user.subscribe(x => this.user = x);
   }
-  currentUser: User;
-  userFromApi: User;
 
   ngOnInit() {
-    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
-      this.userFromApi = user;
-    });
-  }
-}
 
-  ngOnInit() {
-    this.loading = false;
+  }
+
+  async getUser() {
+    await this.auth.afAuth.authState.pipe(first()).toPromise();
+    return this.user;
+  }
+  get isModerator() {
+    return this.currentUser && this.currentUser.roles === this.user.role.moderator;
   }
   get isAdmin() {
-    return this.currentUser && this.currentUser.role === Role.subscriber;
+    return this.currentUser && this.currentUser.roles === this.user.role.admin;
   }
-
-  getUser() {
-    return this.user.pipe(first()).toPromise();
-  }
-
 
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
@@ -108,46 +99,46 @@ export class ProfilePage implements OnInit {
   }
 
 
-  async showSubscriptions() {
-    const subscriptions = await this.subs.listSubscriptions();
-    this.presentLoader();
+    // async showSubscriptions() {
+    //   const subscriptions = await this.subs.listSubscriptions();
+    //   this.presentLoader();
+    // }
+
+    // async endSubscription() {
+    //   const cancelConfirmation = await this.subs.cancelSubscription();
+    //   this.presentLoader();
+    // }
+
+    // async openSubscriptionModal() {
+    //   const modalEl = await this.modalCtrl
+    //     .create({
+    //       component: SupportModalComponent,
+    //       componentProps: {
+    //         // Name: this.user.displayName ,
+    //         // email: this.user.email
+    //       }
+    //     });
+    //   await modalEl.present()
+    //     .catch(err => window.alert(err));
+    // }
+
+    // async onCloseModal() {
+    //   await this.modalCtrl.dismiss('', 'cancel')
+    //     .catch(err => window.alert(err));
+    // }
+    async listSubscriptions() {
+      await this.presentLoader();
+      // const user = await this.auth.getUser();
+      const fun = this.functions.httpsCallable('stripeGetSubscriptions');
+      this.subscriptionList = await fun({
+        uid: this.user.uid,
+      }).toPromise()
+        .then((result) => {
+          console.log(result);
+          this.onDismissLoader();
+        }).catch((subscriptionError) => {
+          window.alert(subscriptionError.message);
+        });
+    }
+
   }
-
-  async endSubscription() {
-    const cancelConfirmation = await this.subs.cancelSubscription();
-    this.presentLoader();
-  }
-
-  // async openSubscriptionModal() {
-  //   const modalEl = await this.modalCtrl
-  //     .create({
-  //       component: SupportModalComponent,
-  //       componentProps: {
-  //         // Name: this.user.displayName ,
-  //         // email: this.user.email
-  //       }
-  //     });
-  //   await modalEl.present()
-  //     .catch(err => window.alert(err));
-  // }
-
-  // async onCloseModal() {
-  //   await this.modalCtrl.dismiss('', 'cancel')
-  //     .catch(err => window.alert(err));
-  // }
-  async listSubscriptions() {
-    await this.presentLoader();
-    const user = await this.auth.getUser();
-    const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.subscriptionList = await fun({
-      uid: user.uid,
-    }).toPromise()
-      .then((result) => {
-        console.log(result);
-        this.onDismissLoader();
-      }).catch((subscriptionError) => {
-        window.alert(subscriptionError.message);
-      });
-  }
-
-}

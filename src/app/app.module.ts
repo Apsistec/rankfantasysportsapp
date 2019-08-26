@@ -39,6 +39,7 @@ import { PgaThisWeekComponent } from './paid/pga/pga-this-week/pga-this-week.com
 import { PgaStatsComponent } from './paid/pga/pga-stats/pga-stats.component';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
+import { AuthService } from './core/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
     AppRoutingModule,
   ],
   providers: [
+    AuthService,
     Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }

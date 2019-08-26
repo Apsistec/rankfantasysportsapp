@@ -1,7 +1,7 @@
 {
   "name": "rfsports",
-  "description": "An Ionic project",
-  "version": "0.1.1",
+  "description": "The Rank Fantasay Sports App for Daily Fantasy Sports Players",
+  "version": "0.3.542",
   "author": "Doug White",
   "homepage": "https://www.rankfantasysports.com/",
   "scripts": {

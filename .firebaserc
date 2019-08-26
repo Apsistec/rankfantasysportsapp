@@ -1,7 +1,6 @@
 {
   "projects": {
-    "default": "rankfantasysports-test",
-    "finalizing": "browser-landing",
-    "finalize": "browser-landing"
+    "finalize": "browser-landing",
+    "default": "browser-landing"
   }
 }

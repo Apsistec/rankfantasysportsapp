@@ -17,76 +17,78 @@ import { Table9Component } from './paid/tables/table9/table9.component';
 import { PgaThisWeekComponent } from './paid/pga/pga-this-week/pga-this-week.component';
 import { PgaStatsComponent } from './paid/pga/pga-stats/pga-stats.component';
 import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
-import { PaymentGuard } from './core/guard/payment.guard';
+import { PaidGuard } from './core/guard/paid.guard';
 import { AuthGuard } from './core/guard/auth.guard';
+import { InnerGuard } from './core/guard/inner.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'register', component: RegisterComponent  },
-  { path: 'verify-email', component: VerifyEmailComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent, canActivate: [InnerGuard]  },
+  { path: 'verify-email', component: VerifyEmailComponent, canActivate: [InnerGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [InnerGuard]  },
   { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
+  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule', canActivate: [AuthGuard] },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
   { path: 'testimonials', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
+  { path: 'pricing', loadChildren: './pricing/pricing.module#PricingPageModule' },
   { path: 'tweets', loadChildren: './tweets/tweets.module#TweetsPageModule' },
   { path: 'list', loadChildren: './list/list.module#ListPageModule' },
-  { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule', canActivate: [AuthGuard] },
   { path: 'tennis', loadChildren: './paid/tennis/tennis.module#TennisPageModule' },
   { path: 'nfl', loadChildren: './paid/nfl/nfl.module#NflPageModule' },
   { path: 'fifa', loadChildren: './paid/fifa/fifa.module#FifaPageModule' },
   { path: 'nba', loadChildren: './paid/nba/nba.module#NbaPageModule' },
   { path: 'pga', loadChildren: './paid/pga/pga.module#PgaPageModule' },
   { path: 'now', loadChildren: './paid/now/now.module#NowPageModule' },
-  { path: 'pricing', loadChildren: './pricing/pricing.module#PricingPageModule' },
+  // { path: 'user', loadChildren: './user-ticket/user-ticket.module#UserTicketPageModule'}, canActivate: [AuthGuard], data: { roles: ['paid']}
   {
     path: 'table1',
-    component: Table1Component, canActivate: [PaymentGuard]
+    component: Table1Component, canActivate: [PaidGuard]
   },
   {
     path: 'table2',
-    component: Table2Component, canActivate: [PaymentGuard]
+    component: Table2Component, canActivate: [PaidGuard]
   },
   {
     path: 'table3',
-    component: Table3Component, canActivate: [PaymentGuard]
+    component: Table3Component, canActivate: [PaidGuard]
   },
   {
     path: 'table4',
-    component: Table4Component, canActivate: [PaymentGuard]
+    component: Table4Component, canActivate: [PaidGuard]
   },
   {
     path: 'table5',
-    component: Table5Component, canActivate: [PaymentGuard]
+    component: Table5Component, canActivate: [PaidGuard]
   },
   {
     path: 'table6',
-    component: Table6Component, canActivate: [PaymentGuard]
+    component: Table6Component, canActivate: [PaidGuard]
   },
   {
     path: 'table7',
-    component: Table7Component, canActivate: [PaymentGuard]
+    component: Table7Component, canActivate: [PaidGuard]
   },
   {
     path: 'table8',
-    component: Table8Component, canActivate: [PaymentGuard]
+    component: Table8Component, canActivate: [PaidGuard]
   },
   {
     path: 'table9',
-    component: Table9Component, canActivate: [PaymentGuard]
+    component: Table9Component, canActivate: [PaidGuard]
   },
   {
     path: 'pga-this-week',
-    component: PgaThisWeekComponent, canActivate: [PaymentGuard]
+    component: PgaThisWeekComponent, canActivate: [PaidGuard]
   },
   {
     path: 'pga-stats',
-    component: PgaStatsComponent, canActivate: [PaymentGuard]
+    component: PgaStatsComponent, canActivate: [PaidGuard]
   },
   {
     path: 'nfl-pre',
-    component: NflPreComponent, canActivate: [PaymentGuard]
+    component: NflPreComponent, canActivate: [PaidGuard]
   },
   {
     path: '**',
@@ -97,7 +99,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      // enableTracing: true,
+      enableTracing: true,
       preloadingStrategy: PreloadAllModules
     })
   ],

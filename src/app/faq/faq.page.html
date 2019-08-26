@@ -43,8 +43,8 @@ fullscreen
             <mat-accordion >
               <mat-expansion-panel class="colo"  *ngFor="let faq of faqs">
                 <mat-expansion-panel-header >
-                  <mat-panel-description style="color:rgb(255, 72, 0);">
-                    About Us
+                  <mat-panel-description color="light">
+                    {{faq.title}}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 {{ faq.info }}  
@@ -52,7 +52,6 @@ fullscreen
               </mat-expansion-panel>
        
             </mat-accordion>
-        <!-- </ion-card> -->
    
        </ion-col>
     </ion-row>

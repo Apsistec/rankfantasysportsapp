@@ -140,11 +140,11 @@ export class LaunchpageComponent implements OnInit, AfterViewInit {
       await window.alert(cardErrors);
     } else {
       this.planChosen = false;
-      const user = await this.auth.getUser();
+      // this.user = await this.auth.getUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
-        uid: user.uid,
+        uid: this.user.uid,
         plan: this.planId
       }).toPromise()
         .then(() => {

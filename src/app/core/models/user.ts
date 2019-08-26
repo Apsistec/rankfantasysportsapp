@@ -1,12 +1,17 @@
-export class User {
+export interface Roles {
+    user?: string;
+    admin?: string;
+    moderator?: string;
+}
+export interface User {
     uid: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    role: string;
-    token?: string;
+    email: string;
+    bronze: boolean;
+    gold: boolean;
+    silver: boolean;
+    roles: Roles;
     emailVerified: boolean;
-    stripeCustomerId?: string;
     displayName?: string;
     photoURL?: string;
+    stripeCustomerId?: string;
 }

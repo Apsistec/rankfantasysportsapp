@@ -1,35 +1,103 @@
-
-<ion-content fullscreen >
+<app-header></app-header>
+<ion-content fullscreen text-center>
     <ion-grid>
         <ion-row>
-          <ion-col>
-      
-          </ion-col>
-      
-          <ion-col>
-    <ion-card text-center color="primary" *ngIf="auth.afAuth.user | async as user">
-        <img src="../../assets/logo-md.svg">
-        <ion-card-content>
-          <hr>
+          <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
+            <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else login">
+              <ion-img src="../../assets/logo.jpg"></ion-img>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-text color="secondary" text-center>
+                    <h2>Thank You For Registering!</h2>
+                  </ion-text>
+                </ion-card-title>
+                <ion-card-subtitle>
+                  <strong>
+                    Check Your Email for Instructions
+                  </strong>
+                </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-text color="warning">
+                  <p text-center>
+                 We sent a confirmation email to:</p>
+                </ion-text>
+                 <ion-text color="secondary">
+                   <h2>
+                    <strong>
+                      {{user.email}}
+                    </strong>
+                  </h2>
+                </ion-text>
+                    <ion-text color="warning">
+                  <p text-center>
+                  Check your email and click on the enclosed link to verfiy your email address.
+                </p>
+                </ion-text>
+                <ion-text text-center color="secondary">
+                  <ul style="list-style-type:none;">
+                    <li>
+                      Once you login, be sure to check out the RF$&trade; Pro Memberships available
+                    </li>
+                    <li>
+                      Get immediate access to the data when you buy
+                    </li>
+                    <li>
+                      <ion-text color="danger">
+                        <strong>
+                          Purchase any RF$&trade; Pro membership today and get 7 days to try it out for free
+                        </strong>
+                      </ion-text>
+                    </li>
+                  </ul>
+                </ion-text>
+                <ion-text color="light" text-center>
+                  <p text-center>We use email verification along with other security measures as part of our best-efforts to protect against fraudulent activity. We are sure you understand our reasoning, and we do appreciate your cooperation.</p>
+                </ion-text>
+              <hr>
+                <ion-text color="secondary">Did not receive the link?
+                </ion-text>
+                <ion-button strong color="warning" size="small" fill="outline" shape="round" (click)="auth.SendVerificationMail()">
+                  <ion-text color="warning">
+                    Resend Verification
+                  </ion-text>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
 
-      <ion-text color="light" >
 
-          <h2>Thank You for Registering</h2>
-          <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-          <p>Please check your email and click on the link to verfiy your email address.</p>
-      </ion-text>
-      
-      <ion-button color="warning" (click)="auth.SendVerificationMail()">Resend</ion-button>
-    </ion-card-content>
-  </ion-card>
-   
-<ion-button color="success" routerLink="/login" expand="block">
-  <ion-ripple-effect></ion-ripple-effect>Goto Login Page</ion-button>
-</ion-col>
-<ion-col>
+  <ng-template #login>
+    <ion-card color="primary" text-center>
+      <ion-img src="../../../assets/logo.jpg"></ion-img>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text color="secondary">
+            <h2>
+              Email Verification
+            </h2>
+          </ion-text>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text color="danger" >
+          <p text-center style="font-size: 1.5em">
+            <strong>Alert:</strong>
+            You need to log in first, then you can validate your email address.
+          </p>
+        </ion-text>
+      </ion-card-content>
+      <ion-footer>
+        <ion-button strong color="warning" shape="round" routerLink="/login" fill="outline">
+          <ion-ripple-effect></ion-ripple-effect>
+          Login
+        </ion-button>
+      </ion-footer>
+    </ion-card>
+  </ng-template>
 
-  </ion-col>
-  </ion-row>
+
+      </ion-col>
+    </ion-row>
   </ion-grid>
-
 </ion-content>
+<app-footer></app-footer>

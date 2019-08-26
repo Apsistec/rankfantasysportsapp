@@ -1,16 +1,14 @@
 <app-header></app-header>
 <ion-content
   (ionScroll)="onScroll($event)"
-  [scrollEvents]="true"
->
+  [scrollEvents]="true">
   <ion-grid>
     <ion-row>
       <ion-col size-md="4">
 
-
 <!-- Column 1 -->
         <ion-card class="main-card">
-          <img src="../../assets/logo-md.svg" slot="start">
+          <img src="../../assets/logo.jpg" slot="start">
           <ion-card-content>
             <ion-card-title>
            
@@ -29,8 +27,6 @@
             </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
-
-
 
         <ion-card padding text-center class="utuub" color="dark">
           <iframe  width="100%" height="350"  [src]="trustedVideoUrl"></iframe>
@@ -76,8 +72,7 @@
                 <ion-ripple-effect>
                 </ion-ripple-effect>
                 <ion-text  style="font-size: 2rem;" color="danger">
-              
-                    
+                                 
                     <strong>
                       Join Us
                     </strong>
@@ -101,12 +96,10 @@
         </ion-card>
             </ion-col>
       <ion-col size-md="4">
-        
- 
+         
         <!-- Column 3 -->
         
         <ion-card class="inspire">
-          
           <ion-card text-center class="card-metal" padding>
             <ion-card-title>
               <ion-text style="font-size: 2rem;" color="secondary">
@@ -129,7 +122,7 @@
 
             <ion-card-title>
               <ion-text style="font-size: 2rem;" color="light"><strong>
-                Insights for building Daily Fantasy Sports lineups that <ion-text color="secondary">WIN</ion-text>!
+                Insights for building Daily Fantasy Sports lineups that <ion-text color="warning">WIN</ion-text>!
               </strong>
             </ion-text>
           </ion-card-title>
@@ -159,43 +152,42 @@
         </ion-button>
        </ion-card>
   
-  <ion-card padding class="twit" color="dark">
-    <ion-card-content>
-      <ion-card-header>
-        <ion-card-title>
-          <ion-text style="font-size: 2rem; text-shadow: 2px 2px #a103d1;" color="warning">
-              Recent RF<ion-text color="secondary">$</ion-text>&trade; Tweets
-            </ion-text>
-          </ion-card-title>
-        </ion-card-header>
-        <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-        [opts]="{
-          chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'], 
-          theme: 'dark', 
-          tweetLimit: '1', 
-          borderColor: '#02ed25', 
-          ariaPolite: 'assertive'
-        }">
-      </ngx-twitter-timeline>
-      <ion-button expand="block" class="g-btn" shape="round" routerLink="/tweets">
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-text style="font-size: 1.25rem;">
-                     <strong>
-              More RF<ion-text color="secondary">$</ion-text>&trade; Tweets
-            </strong>
-             </ion-text>
-        </ion-button>
-    </ion-card-content>
-  </ion-card>
-</ion-col>
-</ion-row>
-</ion-grid>
-<ion-fab vertical="bottom" horizontal="end" edge slot="fixed" >
-    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
-      <ion-icon name="arrow-dropup"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+            <ion-card padding class="twit" color="dark">
+              <ion-card-content>
+                <ion-card-header>
+                  <ion-card-title>
+                    <ion-text style="font-size: 2rem; text-shadow: 2px 2px #a103d1;" color="warning">
+                        Recent RF<ion-text color="secondary">$</ion-text>&trade; Tweets
+                      </ion-text>
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+                  [opts]="{
+                    chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'], 
+                    theme: 'dark', 
+                    tweetLimit: '1', 
+                    borderColor: '#02ed25', 
+                    ariaPolite: 'assertive'
+                  }">
+                </ngx-twitter-timeline>
+                <ion-button expand="block" class="g-btn" shape="round" routerLink="/tweets">
+                  <ion-ripple-effect></ion-ripple-effect>
+                  <ion-text style="font-size: 1.25rem;">
+                          <strong>
+                  More RF<ion-text color="secondary">$</ion-text>&trade; Tweets
+                </strong>
+                  </ion-text>
+             </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+            <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" >
+              <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
+                  <ion-icon name="arrow-dropup"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
 
-
-</ion-content>
+  </ion-content>
 <app-footer></app-footer>

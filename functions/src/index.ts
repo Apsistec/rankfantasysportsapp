@@ -11,25 +11,6 @@ export const testFunction = functions.https.onCall( async (data, context) => {
     return `${uid} sent a message of ${message}`
 });
 
-// export const addPaidSubscriberRole = functions.https.onCall((data, context) => {
-//   // check request is made by an admin
-//   if ( context.auth.token.admin !== true ) {
-//     return { error: 'Only admins can change subscriber information' }
-//   }
-//   // get user and add admin custom claim
-//   return admin.auth().getUserByEmail(data.email).then(user => {
-//     return admin.auth().setCustomUserClaims(user.uid, {
-//       paidSubscriber: true
-//     })
-//   }).then(() => {
-//     return {
-//       message: `Success! ${data.email} is a paid Subscriber.`
-//     }
-//   }).catch(err => {
-//     return err;
-//   });
-// });
-
 export { 
     stripeAttachSource 
 } from './sources';

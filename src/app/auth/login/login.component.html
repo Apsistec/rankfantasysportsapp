@@ -4,68 +4,83 @@
     <ion-row >
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <ion-card text-center color="primary">
-          <ion-img src="../../../assets/logo-md.svg"></ion-img>
+          <ion-img src="../../../assets/logo.jpg"></ion-img>
+            <ion-card-header>
           
-          <ion-card-content>
-          <ion-card-title  text-center>
-            <ion-text color="secondary">Login to Your Account</ion-text>
-          </ion-card-title>
-                  <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+            <ion-card-title  text-center>
+              <ion-text color="secondary">Account Login</ion-text>
+            </ion-card-title>
+          </ion-card-header>
+                  <form #login="ngForm" (ngSubmit)="auth.Login(login)">
             
-                      <ion-card color="light">
-                        <ion-item color="medium">
-                          <ion-label  position="floating">Email</ion-label>
-                          <ion-input color="dark" type="email" ngModel clearInput email name="email" #emailLoginCtrl="ngModel" required>
+                        <ion-item >
+                          <ion-label color="warning"  position="floating">Email</ion-label>
+                          <ion-input autofocus autocomplete color="light" type="email" ngModel clearInput email name="email" #loginEmail="ngModel" required>
                           </ion-input>
                         </ion-item>
-                        <ion-note *ngIf="!emailLoginCtrl.valid && emailLoginCtrl.touched && emailLoginCtrl.touched" color="danger" text-wrap>
+                        <ion-note *ngIf="loginEmail.invalid && loginEmail.touched " color="danger" text-wrap>
                             Enter a valid email address
                           </ion-note>
-                        </ion-card>
-                        
-                        <ion-card color="light">
-                        <ion-item color="medium">
-                          <ion-label  position="floating">Password</ion-label>
-                          <ion-input color="dark" type="password"  name="password" required minlength="6" #passwordLoginCtrl="ngModel" ngModel password >
+                     
+                        <ion-item>
+                          <ion-label  color="warning" position="floating">Password</ion-label>
+                          <ion-input 
+                            color="light" 
+                            type="password"  
+                            name="password" 
+                            required 
+                            minlength="6" 
+                            #loginPass="ngModel" 
+                            ngModel 
+                            password 
+                            title="8 or more characters: a number, uppercase and lowercase characters required">
                           </ion-input>
                         </ion-item>
-                        <ion-note *ngIf="!passwordLoginCtrl.valid && passwordLoginCtrl.touched && passwordLoginCtrl.dirty" text-wrap color="danger">
-                          HINT: 6 or more characters
+                        <ion-note *ngIf="loginPass.invalid && loginPass.touched" text-wrap color="danger">
+                          HINT: 8 or more characters: a number, uppercase and lowercase characters required
                         </ion-note>
-                      </ion-card>
                       <ion-button 
                       type="submit" 
                       class="bright" 
-                      expand="block" 
-                      [disabled]="login.invalid"><ion-ripple-effect></ion-ripple-effect>
-                      <ion-text color="danger"> <strong>Login</strong></ion-text>
+                      expand="full" 
+                      [disabled]="!login.valid"><ion-ripple-effect></ion-ripple-effect>
+                      <ion-text class="shadow"> <strong>Login</strong></ion-text>
                     </ion-button>
                   </form>
-                  
-                  
-                  <hr>                  
-                  <ion-button class="g-btn" type="button" (click)="auth.GoogleAuth()" expand="block">Login with <ion-icon name="logo-google"></ion-icon>
+                          
+                  <ion-button class="g-btn" type="button" (click)="auth.GoogleAuth()" expand="full">Login with <ion-icon name="logo-google"></ion-icon>
                     <ion-ripple-effect></ion-ripple-effect>
                   </ion-button>
-                  <ion-button class="t-btn" type="button" (click)="auth.TwitterAuth()" expand="block">Login with <ion-icon name="logo-twitter"></ion-icon>
+                  <ion-button class="t-btn" type="button" (click)="auth.TwitterAuth()" expand="full">Login with <ion-icon name="logo-twitter"></ion-icon>
                     <ion-ripple-effect></ion-ripple-effect>
                   </ion-button>
-                  <ion-button class="f-btn" type="button" (click)="auth.FacebookAuth()" expand="block">Login with <ion-icon name="logo-facebook"></ion-icon>
+                  <ion-button class="f-btn" type="button" (click)="auth.FacebookAuth()" expand="full">Login with <ion-icon name="logo-facebook"></ion-icon>
                     <ion-ripple-effect></ion-ripple-effect>
                   </ion-button>
-                  <ion-button routerLink="/register" color="warning" fill="clear">
-                    <ion-label  color="secondary"><strong>Become a Member</strong></ion-label>
-                    <ion-ripple-effect></ion-ripple-effect>
-                  </ion-button>
-                  <ion-button routerLink="/forgot-password" color="danger" fill="clear">
-                    <ion-text  color="warning"><strong>Forgot Password</strong></ion-text>
-                    <ion-ripple-effect></ion-ripple-effect>
-                  </ion-button>
-                    
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
+             
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col size="6">
+                            
+                            <ion-button shape="round" routerLink="/forgot-password" color="warning" fill="clear">
+                              <ion-text  color="warning">Reset<br>Password</ion-text>
+                              <ion-ripple-effect></ion-ripple-effect>
+                            </ion-button>
+                          
+                        </ion-col>
+                        <ion-col size="6">
+
+                            <ion-button  shape="round" routerLink="/register" color="warning" fill="clear">
+                              <ion-text  color="warning">Create<br>Account</ion-text>
+                              <ion-ripple-effect></ion-ripple-effect>
+                            </ion-button>
+
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
   </ion-grid>
 </ion-content>
 <app-footer></app-footer>

@@ -1,27 +1,37 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { User } from '../models/user';
-import { Role } from '../models/user';
-
-@Injectable()
+import { tap, map, take } from 'rxjs/operators';
+@Injectable({
+  providedIn: 'root'
+})
 export class AdminGuard implements CanActivate {
-  user: User;
-  roles: Role;
-  constructor(private auth: AuthService) {}
 
-  async canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Promise<boolean> {
+  constructor(
+    private auth: AuthService,
+    private router: Router
+    ) { }
 
-    const user = await this.auth.getUser();
-    const loggedIn = !!user;
+  canActivate(
+    route: ActivatedRouteSnapshot): Observable<boolean> {
 
-    if (!loggedIn) {
-      // do something
-    }
-
-    return loggedIn;
+    return this.auth.user$.pipe(
+      take(1),
+      map(user => {
+        if (!user) {
+          this.router.navigateByUrl('/home');
+          return false;
+        } else {
+          const roles = user['roles'];
+          if (roles === 'paid') {
+            return true;
+          } else {
+            this.router.navigateByUrl('/login');
+            return false;
+          }
+        }
+      })
+    );
   }
 }
-

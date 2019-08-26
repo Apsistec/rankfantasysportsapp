@@ -12,45 +12,64 @@
 
 
 <ion-content fullscreen >
-<ion-grid>
-  <ion-row>
-    <ion-col size-md="6" >
-      <ion-card text-center color="primary">
+  
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" >
+
+
+       
+        
+        
+    <ng-container *ngIf="auth.user$ | async as user; else login">
+        <ion-card color="primary" padding>
+    <ion-card-header>
+      <ion-thumbnail>
+
+        <img [src]="user.photoURL || '../../assets/img/dummy-user.png'">
+      </ion-thumbnail>
+      <ion-card-title>{{ user.displayName || 'Mysterious User' }}</ion-card-title>
+      <ion-card-subtitle>Email: {{ user.email }}</ion-card-subtitle>
+    </ion-card-header>
     
-        <div *ngIf="auth.user$ | async as user">
-          <h3>Welcome, {{ user.displayName }}</h3>
-          <img  src="assets/avatar.svg" width="50px">
-          <p>UID: {{ user.uid }}</p>
-          <button (click)="auth.SignOut()" class="button">Logout</button>
-
-          <hr>
-
-          Subscriber: 
-          <span class="tag" [class.is-success]="user.roles?.visitor">
-            {{ user.roles?.visitor }}
+    <ion-card-content>
+            
+             UserID: {{ user.uid }}
+                                                                                                                                   <br>
+            
+            Subscription: <br>
+            Gold:
+            <span class="tag" [class.is-success]="user.gold">
+              {{ user.gold }}
+            </span><br>
+            
+          Silver: 
+          <span class="tag" [class.is-success]="user.silver">
+            {{ user.silver }}
           </span><br>
-
-          Editor: 
-          <span class="tag" [class.is-success]="user.roles?.subscriber">
-            {{ user.roles?.subscriber }}
+          
+          Bronze: 
+          <span class="tag" [class.is-success]="user.bronze">
+            {{ user.bronze }}
           </span><br>
-
-          Admin: 
-          <span class="tag" [class.is-success]="user.roles?.admin">
-            {{ user.roles?.admin }}
-          </span><br>
-          </div>
-
-        </ion-card>
- 
-      </ion-col>
-
+          
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+    
+    <ng-template #login>
+      <ion-button color="medium" routerLink="/login">
+      </ion-button>
+    </ng-template>
+    </ion-col>
+    
       <ion-col>
-
-      <ion-card text-center  color="primary" padding>
-        <ion-card-header>
+        
+        <ion-card text-center  color="primary" padding>
+          <ion-card-header>
           <ion-card-title style="color: chartreuse;" >
-          Website Theme
+              Website Theme
           </ion-card-title>
           
        
@@ -61,7 +80,7 @@
           <hr>
           
           <ion-card-subtitle style="color: chartreuse;" >
-            <ion-text>
+              <ion-text>
               <h5>
                 Current Theme Colors 
               </h5>
@@ -79,41 +98,68 @@
         <ion-button color="success">Success</ion-button>
         <ion-button color="warning">Warning</ion-button>
         <ion-button color="danger">Danger</ion-button>
-    
+        
       </ion-card>
     </ion-col>
   </ion-row>
-
-
+  
+  
   <ion-row>
     <ion-col text-center>
-      <ion-card padding color="primary">
-        <ion-card-header>
-          <ion-card-title>
-            <ion-text color="secondary">
-              Account Management
-            </ion-text>
-          </ion-card-title>
-        </ion-card-header>
-        <ion-button (click)="listSubscriptions()" color="bright">View Subscriptions</ion-button>
-        <ion-button (click)="showSubscriptions()" color="bright">View Subscriptions2</ion-button>
-        <br>
-        <ion-button (click)="endSubscription()" color="danger">Cancel Subscription</ion-button>
+      <ng-container *ngIf="auth.isBronze; else purchase">
+        
+        <ion-card style="min-height: 300px;" padding color="primary" >
+            <ion-card-header>
+              <ion-card-title>
+                <ion-text color="secondary">
+                  Account Management
+                </ion-text>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-button expand="block" (click)="listSubscriptions()" class="bright">
+              <ion-text color="dark">
+
+                View Subscriptions
+              </ion-text>
+            </ion-button>
+            <br>
+            <hr>
+            <br>
+            <ion-button expand="block" class="bright">
+              <ion-text color="dark">
+
+                View Invoices
+              </ion-text>
+            </ion-button>
+            <br>
+            <hr>
+            <br>
+            <ion-button expand="block" fill="outline" color="danger" (click)="auth.SignOut()" >Logout</ion-button>
+            <br>
+            <hr>
+            <br>
+        <ion-button  expand="block" fill="outline" color="danger">Cancel Subscription</ion-button>
         <br>
       </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card color="primary" padding>
-
-  
-</ion-card>
-<ion-card>
-  <pre>
-    {{ subscriptionList | json}}
-  </pre>
-</ion-card>
-    </ion-col>
-  </ion-row>
+    </ng-container>
+            <ng-template #purchase>
+              <ion-button class="bright" expand="block" routerLink="/pricing">
+                View Membership Options
+              </ion-button>
+            </ng-template>
+        </ion-col>
+        <ion-col>
+          <ion-card  color="primary" padding style="min-height: 300px;">
+      <ion-card-title>
+       More Information
+      </ion-card-title>
+      <pre>
+        {{ subscriptionList | json}}
+      </pre>
+    </ion-card>
+    
+  </ion-col>
+</ion-row>
 </ion-grid>
 
 
