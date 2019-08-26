@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
         buttons: ['OK']
       });
       await alert.present();
-      this.router.navigateByUrl('/pricing');
+      this.router.navigateByUrl('/register');
     }
     return isLoggedIn;
   }

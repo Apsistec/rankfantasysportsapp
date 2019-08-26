@@ -24,10 +24,10 @@ import { InnerGuard } from './core/guard/inner.guard';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'register', component: RegisterComponent, canActivate: [InnerGuard]  },
-  { path: 'verify-email', component: VerifyEmailComponent, canActivate: [InnerGuard] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [InnerGuard]  },
+  { path: 'login', component: LoginComponent  },
   { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule', canActivate: [AuthGuard] },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
