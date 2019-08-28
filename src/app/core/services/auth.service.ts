@@ -2,12 +2,12 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { switchMap, take, map, first } from 'rxjs/operators';
 import { DbService } from './db.service';
-import { User } from '../models/user';
-import { Platform } from '@ionic/angular';
+// import { User } from '../models/user';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -18,10 +18,10 @@ import { Storage } from '@ionic/storage';
 export class AuthService {
   user$: Observable<any>;
   constructor(
+    public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     private db: DbService,
     private router: Router,
-    private platform: Platform,
     private loadingCtrl: LoadingController,
     private storage: Storage,
     private toaster: ToastController,
@@ -31,6 +31,28 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
+
+    // this.afAuth.authState.subscribe(user => {
+    //   if (user) {
+    //     const userData = user;
+    //     localStorage.setItem('user', JSON.stringify(userData));
+    //     JSON.parse(localStorage.getItem('user'));
+    //   } else {
+    //     localStorage.setItem('user', null);
+    //     JSON.parse(localStorage.getItem('user'));
+    //   }
+    // });
+
+  }
+
+
+  uid() {
+    return this.user$
+      .pipe(
+        take(1),
+        map(u => u && u.uid)
+      )
+      .toPromise();
   }
 
   bronze() {
@@ -42,8 +64,27 @@ export class AuthService {
       .toPromise();
   }
 
+  silver() {
+    return this.user$
+      .pipe(
+        take(1),
+        map(user => user && user.silver)
+      )
+      .toPromise();
+  }
+
+  gold() {
+    return this.user$
+      .pipe(
+        take(1),
+        map(user => user && user.gold)
+      )
+      .toPromise();
+  }
+
   async getUser() {
-    return this.afAuth.authState.pipe(first()).toPromise();
+    const user = await this.afAuth.authState.pipe(first()).toPromise();
+      return user;
   }
 
   async isBronze() {
@@ -55,19 +96,58 @@ export class AuthService {
       return isPaid;
     }
   }
-
-  uid() {
-    return this.user$
-      .pipe(
-        take(1),
-        map(u => u && u.uid)
-      )
-      .toPromise();
+  async isGold() {
+    const gold = await this.gold();
+    const isPaid = !!gold;
+    if (!isPaid) {
+      return false;
+    } else {
+      return isPaid;
+    }
+  }
+  async isSilver() {
+    const silver = await this.silver();
+    const isPaid = !!silver;
+    if (!isPaid) {
+      return false;
+    } else {
+      return isPaid;
+    }
   }
 
 
+
   // Update UserData from all providers and login and register
-  private updateUserData({ uid, email, displayName, photoURL }) {
+  // private updateUserData({ uid, email, displayName, photoURL }) {
+
+  //   const path = `users/${uid}`;
+
+  //   const data = {
+  //     uid,
+  //     email,
+  //     displayName,
+  //     photoURL,
+  //   };
+
+  //   return this.db.updateAt(path, data);
+  // }
+
+
+
+  async presentLoading() {
+    const loadingElement = await this.loadingCtrl.create({
+      message: 'Please wait...',
+      spinner: 'crescent',
+      duration: 4000
+    });
+    loadingElement.present();
+  }
+  onDismissLoader() {
+    return this.loadingCtrl.dismiss();
+  }
+
+  private updateUserData({ uid, email, displayName, photoURL}) {
+    // Sets user data to firestore on login
 
     const path = `users/${uid}`;
 
@@ -75,94 +155,61 @@ export class AuthService {
       uid,
       email,
       displayName,
-      photoURL,
-    };
+      photoURL
+     };
 
     return this.db.updateAt(path, data);
   }
 
-  // Sign in with email/password
-    async loginLoader() {
-      const loadingEl = await this.loadingCtrl
-        .create({
-          keyboardClose: true,
-          message: 'Logging you in...'
-        });
-      loadingEl.present()
-        .catch((loginLoaderError) => {
-          window.alert(loginLoaderError.message);
-        });
-      loadingEl.dismiss();
-    }
-
   async Login(login: NgForm) {
-    this.loginLoader();
+    this.presentLoading();
     const email = login.value.email;
     const password = login.value.password;
-    const results = this.afAuth.auth.signInWithEmailAndPassword(email, password)
-       .then((result) => {
-         /* Call the SendVerificaitonMail() function when new user sign
-         up and returns promise */
-         return this.updateUserData(result.user);
-       })
-      .then(() => {
-        return this.SendVerificationMail();
-      })
-      .catch((loginError) => {
-        window.alert(loginError.message);
+    return await this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        /* Call the SendVerificaitonMail() function when new user sign
+        up and returns promise */
+        this.onDismissLoader();
+        this.updateUserData(result.user);
+        this.ngZone.run(() => {
+            this.router.navigate(['/profile']);
+          });
+      }).catch((error) => {
+        window.alert(error.message);
       });
-    await login.reset();
-    return this.router.navigate(['/profile']);
   }
 
-  // Sign up with email/password
-  async registerLoader() {
-    const loadingEl = await this.loadingCtrl
-      .create({
-        keyboardClose: true,
-        message: 'Registering your Account...'
-      });
-    await loadingEl.present()
-      .catch((loaderError) => {
-        window.alert(loaderError.message);
-      });
-    await loadingEl.dismiss();
-  }
- 
   async Register(register: NgForm) {
-    this.registerLoader();
+    this.presentLoading();
     const email = register.value.email;
     const password = register.value.password;
-    await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    return await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
       /* Call the SendVerificaitonMail() function when new user sign
       up and returns promise */
-      return this.updateUserData(result.user);
-    })
-    .then(() => {
-      return this.SendVerificationMail();
-    })
-    .catch((registerError) => {
-      window.alert(registerError.message);
-    });
-    await register.reset();
-    return this.router.navigate(['/verify-email']);
-  }
-
-
-    // Send email verfificaiton when new user sign up
-  async SendVerificationMail() {
-    const user = this.afAuth.auth.currentUser;
-    await user.sendEmailVerification()
-    .catch((verificationError) => {
-      // An error happened.
-      window.alert(verificationError.message);
+      register.reset();
+      this.onDismissLoader();
+      // this.SendVerificationMail();
+      this.updateUserData(result.user);
+    }).catch((error) => {
+      window.alert(error.message);
     });
   }
+
+  // Send email verfificaiton when new user sign up
+  // SendVerificationMail() {
+  //   return this.afAuth.auth.currentUser.sendEmailVerification()
+  //   .then(() => {
+  //     this.router.navigateByUrl('/verify-email');
+  //   }).catch((error) => {
+  //     // An error happened.
+  //     window.alert(error.message);
+  //   });
+  // }
 
   // Reset Forgot password
- async ForgotPassword(passwordResetEmail) {
-    return await this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+ async ForgotPassword(resetEmail) {
+    return await this.afAuth.auth.sendPasswordResetEmail(resetEmail)
     .catch((error) => {
       window.alert(error.message);
     });
@@ -205,7 +252,7 @@ export class AuthService {
         this.ngZone.run(() => {
           this.router.navigate(['/profile']);
         });
-        this.updateUserData(result.user);
+        return this.updateUserData(result.user);
       }).catch((error) => {
         window.alert(error.message);
       });
@@ -285,20 +332,19 @@ export class AuthService {
     });
     return toast.present();
   }
-  canRead(user: User): boolean {
-    const allowed = 'bronze';
+  canRead(user): boolean {
+    // const allowed = 'bronze' || 'silver' || 'gold';
     return this.checkAuthorization(user);
   }
 
   // determines if user has matching role
-  private checkAuthorization(user: User): boolean {
+  private checkAuthorization(user): boolean {
     if (!user) { return false; }
     {
-      if (user.bronze) {
+      if ( user.bronze || user.gold || user.silver ) {
         return true;
       }
     }
     return false;
   }
-
 }

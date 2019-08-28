@@ -20,9 +20,9 @@
      
                 <ion-item >
                   <ion-label  color="warning" position="floating">Email</ion-label>
-                  <ion-input autofocus autocomplete color="light" type="email" ngModel clearInput email #emailCtrl="ngModel" name="email" required></ion-input>
+                  <ion-input autofocus autocomplete color="light" type="email" ngModel clearInput email #emailCtrl="ngModel" name="email" required title="Enter a valid email address"></ion-input>
                 </ion-item>
-                <ion-note color="danger" *ngIf="emailCtrl.invalid && emailCtrl.touched" lines="none" text-wrap color="danger">
+                <ion-note color="danger" *ngIf="!emailCtrl.valid && emailCtrl.dirty" lines="none" text-wrap color="danger">
                   Enter a valid email address
                 </ion-note>
             
@@ -31,7 +31,7 @@
                   <ion-input 
                     color="light" 
                     type="password" 
-                    title="Use 8 or more characters: 1 uppercase, 1 lowercase, and 1 number required" 
+                    title="Use 8 or more characters: an uppercase, a lowercase, and a number are all required" 
                     pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"  
                     name="password" 
                     #regPass="ngModel" 
@@ -43,16 +43,16 @@
                     password >
                   </ion-input>
                 </ion-item>
-                <ion-note color="danger" *ngIf="regPass.invalid && regPass.touched" lines="none" text-wrap color="danger">
-               Use 8 or more characters: 1 uppercase, 1 lowercase, and 1 number required
+                <ion-note color="danger" *ngIf="!regPass.valid && regPass.dirty" lines="none" text-wrap color="danger" title="Use 8 or more characters: an uppercase, a lowercase, and a number are all required">
+               Use 8 or more characters: an uppercase, a lowercase, and a number are all required
                 </ion-note>
           
                 <ion-item >
                   <ion-label color="warning" position="floating">Confirm</ion-label>
-                  <ion-input color="light" type="password"  name="passwordtwo" required #regPass2="ngModel" minlength="6" ngModel type="password" passwordtwo >
+                  <ion-input color="light" type="password"  name="passwordtwo" required #regPass2="ngModel" minlength="8" ngModel type="password" passwordtwo title="Passwords do not match" >
                   </ion-input>
                 </ion-item>
-                <ion-note color="danger" *ngIf="regPass2.invalid && regPass2.touched" lines="none" text-wrap color="danger">
+                <ion-note color="danger" *ngIf="!regPass2.valid && regPass2.dirty" lines="none" text-wrap color="danger">
                   Passwords do not match
                 </ion-note>
               <ion-button strong type="submit" class="bright" expand="full" [disabled]="register.invalid">

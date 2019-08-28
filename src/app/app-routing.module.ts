@@ -5,15 +5,15 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
-import { Table1Component } from './paid/tables/table1/table1.component';
-import { Table2Component } from './paid/tables/table2/table2.component';
-import { Table3Component } from './paid/tables/table3/table3.component';
-import { Table4Component } from './paid/tables/table4/table4.component';
-import { Table5Component } from './paid/tables/table5/table5.component';
-import { Table6Component } from './paid/tables/table6/table6.component';
-import { Table7Component } from './paid/tables/table7/table7.component';
-import { Table8Component } from './paid/tables/table8/table8.component';
-import { Table9Component } from './paid/tables/table9/table9.component';
+import { Table1Component } from './paid/tennis/table1/table1.component';
+import { Table2Component } from './paid/tennis/table2/table2.component';
+import { Table3Component } from './paid/tennis/table3/table3.component';
+import { Table4Component } from './paid/tennis/table4/table4.component';
+import { Table5Component } from './paid/nba/table5/table5.component';
+import { Table6Component } from './paid/nba/table6/table6.component';
+import { Table7Component } from './paid/nba/table7/table7.component';
+import { Table8Component } from './paid/now/table8/table8.component';
+import { Table9Component } from './paid/now/table9/table9.component';
 import { PgaThisWeekComponent } from './paid/pga/pga-this-week/pga-this-week.component';
 import { PgaStatsComponent } from './paid/pga/pga-stats/pga-stats.component';
 import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
@@ -31,10 +31,10 @@ const appRoutes: Routes = [
   { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule', canActivate: [AuthGuard] },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
-  { path: 'testimonials', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
+  { path: 'incredibility', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
   { path: 'pricing', loadChildren: './pricing/pricing.module#PricingPageModule' },
   { path: 'tweets', loadChildren: './tweets/tweets.module#TweetsPageModule' },
-  { path: 'list', loadChildren: './list/list.module#ListPageModule' },
+  { path: 'list', loadChildren: './paid/list/list.module#ListPageModule' },
   { path: 'tennis', loadChildren: './paid/tennis/tennis.module#TennisPageModule' },
   { path: 'nfl', loadChildren: './paid/nfl/nfl.module#NflPageModule' },
   { path: 'fifa', loadChildren: './paid/fifa/fifa.module#FifaPageModule' },
@@ -99,7 +99,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      enableTracing: true,
+      // enableTracing: true,
       preloadingStrategy: PreloadAllModules
     })
   ],

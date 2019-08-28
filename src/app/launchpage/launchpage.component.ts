@@ -1,6 +1,5 @@
 import { AuthService } from '../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { User } from '../core/models/user';
 import { Component, OnInit, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,7 +15,6 @@ declare var Stripe: stripe.StripeStatic;
 })
 
 export class LaunchpageComponent implements OnInit, AfterViewInit {
-  @Input() user;
   @ViewChild('cardElement') cardElement: ElementRef;
   planId: string;
   price: string;
@@ -25,7 +23,6 @@ export class LaunchpageComponent implements OnInit, AfterViewInit {
   isClickedGold = false;
   isClickedBronze = false;
   planChosen = false;
-  loading = false;
 
   stripe: stripe.Stripe;
   card;
@@ -63,6 +60,8 @@ export class LaunchpageComponent implements OnInit, AfterViewInit {
     this.planId = 'bronze';
     this.price = '$9.99 per Month';
   }
+
+ 
 
   ngOnInit() {
     this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
@@ -139,34 +138,21 @@ export class LaunchpageComponent implements OnInit, AfterViewInit {
       const cardErrors = error.message;
       await window.alert(cardErrors);
     } else {
-      this.planChosen = false;
-      // this.user = await this.auth.getUser();
+      const user = await this.auth.getUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
-        uid: this.user.uid,
+        uid: user.uid,
         plan: this.planId
-      }).toPromise()
-        .then(() => {
-          this.onDismissLoader();
-          this.subscribedToast();
-          this.loading = false;
-          this.planChosen = false;
-          this.isClickedSilver = false;
-          this.isClickedBronze = false;
-          this.isClickedGold = false;
-          return this.router.navigate(['/list']);
-        })
-        .catch((subscriptionError) => {
-          window.alert(subscriptionError.message);
-          this.onDismissLoader();
-          this.loading = false;
-          this.planChosen = false;
-          this.isClickedSilver = false;
-          this.isClickedBronze = false;
-          this.isClickedGold = false;
-        });
-      return f.reset();
+      }).toPromise();
+      this.subscribedToast();
+      this.onDismissLoader();
+      this.planChosen = false;
+      this.isClickedSilver = false;
+      this.isClickedBronze = false;
+      this.isClickedGold = false;
+      f.reset();
+      return this.router.navigate(['/profile']);
     }
   }
 }

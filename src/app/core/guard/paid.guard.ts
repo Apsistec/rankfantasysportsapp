@@ -24,7 +24,10 @@ export class PaidGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Promise<boolean> {
     const bronze = await this.auth.bronze();
-    const isMember = !!bronze;
+    const silver = await this.auth.silver();
+    const gold = await this.auth.gold();
+  
+    const isMember = !!bronze || !!gold || !!silver;
 
     if (!isMember) {
       const alert = await this.alertController.create({

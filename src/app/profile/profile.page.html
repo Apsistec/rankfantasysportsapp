@@ -16,7 +16,7 @@
   
   <ion-grid>
     <ion-row>
-      <ion-col size-md="6" >
+      <ion-col size="auto" >
 
 
        
@@ -29,32 +29,65 @@
 
         <img [src]="user.photoURL || '../../assets/img/dummy-user.png'">
       </ion-thumbnail>
-      <ion-card-title>{{ user.displayName || 'Mysterious User' }}</ion-card-title>
-      <ion-card-subtitle>Email: {{ user.email }}</ion-card-subtitle>
+      <ion-card-title>
+        <ion-text color="secondary">
+          {{ user.displayName || 'Mysterious User' }}
+        </ion-text>
+      </ion-card-title>
     </ion-card-header>
-    
+      
     <ion-card-content>
+        
+      <ion-text color="secondary">Email:</ion-text>
+        <ion-chip>
+
+          <ion-text color="warning">{{ user.email }}</ion-text>
+        </ion-chip>
+    
+    
+      
+<hr>
+         <ion-text color="secondary">
+         Current Subscription:
+        </ion-text>
+        
+      <ion-text color="secondary">
+        
+        <ion-chip> 
+                <div *ngIf="user.gold">
+                  Gold Membership:
+                  <span class="tag" [class.is-success]="user.gold">
+                    {{ user.gold }}
+                  </span><br>
+                </div>   
+                
+                <div *ngIf="user.silver">
+                  Silver Membership: 
+                  <span class="tag" [class.is-success]="user.silver">
+                    {{ user.silver }}
+                  </span><br>
+                </div>  
+                
+                
+                <div *ngIf="user.bronze">
+               <ion-text color="warning">
+                  Bronze Membership: 
+                  <span class="tag" [class.is-success]="user.bronze">
+                    {{ user.bronze }}
+                  </span><br>
+                </ion-text>
+                </div>   
+          </ion-chip>
+              </ion-text>
+            <br>
             
-             UserID: {{ user.uid }}
-                                                                                                                                   <br>
-            
-            Subscription: <br>
-            Gold:
-            <span class="tag" [class.is-success]="user.gold">
-              {{ user.gold }}
-            </span><br>
-            
-          Silver: 
-          <span class="tag" [class.is-success]="user.silver">
-            {{ user.silver }}
-          </span><br>
-          
-          Bronze: 
-          <span class="tag" [class.is-success]="user.bronze">
-            {{ user.bronze }}
-          </span><br>
-          
-        </ion-card-content>
+            <ion-text color="secondary">
+                UserID: <ion-chip>
+
+                  <ion-text color="warning">{{ user.uid }}</ion-text>
+                </ion-chip>
+            </ion-text>
+          </ion-card-content>
       </ion-card>
     </ng-container>
     
@@ -62,50 +95,75 @@
       <ion-button color="medium" routerLink="/login">
       </ion-button>
     </ng-template>
-    </ion-col>
-    
-      <ion-col>
+
         
-        <ion-card text-center  color="primary" padding>
+        <ion-card text-center  color="primary" >
           <ion-card-header>
-          <ion-card-title style="color: chartreuse;" >
-              Website Theme
+          <ion-card-title color="secondary" >
+            <strong>
+              <ion-text color="secondary">
+                Theme Options
+              </ion-text>
+            </strong>
           </ion-card-title>
-          
-       
-          <ion-button expand="block" color="medium" (click)="changeTheme('autumn')">Autumn</ion-button>
-          <ion-button expand="block" color="medium" (click)="changeTheme('night')">Dark</ion-button>
-          <ion-button expand="block" color="medium" (click)="changeTheme('neon')">Neon</ion-button>
-          <ion-button expand="block" color="medium" (click)="changeTheme('')">Default</ion-button>
-          <hr>
-          
-          <ion-card-subtitle style="color: chartreuse;" >
-              <ion-text>
-              <h5>
-                Current Theme Colors 
-              </h5>
-            </ion-text>
-          </ion-card-subtitle>
         </ion-card-header>
-        <ion-button color="primary">Primary</ion-button>
-        <ion-button color="secondary">Secondary</ion-button>
-        <ion-button color="tertiary">Tertiary</ion-button>
-        <br>
-        <ion-button color="dark">Dark</ion-button>
-        <ion-button color="medium">Medium</ion-button>
-        <ion-button color="light">Light</ion-button>
-        <br>
-        <ion-button color="success">Success</ion-button>
-        <ion-button color="warning">Warning</ion-button>
-        <ion-button color="danger">Danger</ion-button>
+            <ion-card-subtitle  >
+              <ion-text color="warning">
+                <strong>
+                  
+                  Current Theme Colors 
+                </strong>
+                
+              </ion-text>
+            </ion-card-subtitle>
         
+        <ion-button expand="full" strong size="small" color="tertiary">Accent Color</ion-button>
+        <ion-button expand="full" strong size="small" color="primary">Card Background</ion-button>
+        <ion-button expand="full" strong size="small" color="secondary">Heading/Title</ion-button>
+        <ion-button expand="full" strong size="small" color="warning">Sub-title</ion-button>
+        
+        <hr>
+        <br>
+        <ion-card-subtitle>
+          
+          <ion-text color="warning">
+            <strong>
+              
+           Unique Themes
+            </strong>
+            
+          </ion-text>
+        </ion-card-subtitle>
+        <ion-card-content>
+
+          <ion-button color="success" (click)="changeTheme('autumn')">Option 1</ion-button>
+        <ion-button color="success" (click)="changeTheme('night')">Option 2</ion-button>
+        <ion-button color="success" (click)="changeTheme('neon')">Option 3</ion-button>
+        <ion-button color="success" (click)="changeTheme('')">Default</ion-button>
+      </ion-card-content>
+        <hr>
+        <ion-card-subtitle>
+          
+          <ion-text color="warning">
+            <strong>
+              
+           Pro Team Themes
+            </strong>
+            
+          </ion-text>
+        </ion-card-subtitle>
+        <ion-card-content>
+
+          <ion-button strong color="light">
+            <ion-text color="danger">
+
+              Coming Soon!
+            </ion-text>
+          </ion-button>
+          
+        </ion-card-content>
       </ion-card>
-    </ion-col>
-  </ion-row>
-  
-  
-  <ion-row>
-    <ion-col text-center>
+
       <ng-container *ngIf="auth.isBronze; else purchase">
         
         <ion-card style="min-height: 300px;" padding color="primary" >
@@ -138,26 +196,30 @@
             <br>
             <hr>
             <br>
-        <ion-button  expand="block" fill="outline" color="danger">Cancel Subscription</ion-button>
-        <br>
+            <ion-button  expand="block" fill="outline" color="danger">Cancel Subscription</ion-button>
+            <br>
+          </ion-card>
+        </ng-container>
+        <ng-template #purchase>
+          <ion-button class="bright" expand="block" routerLink="/pricing">
+            View Membership Options
+          </ion-button>
+        </ng-template>
+        <ion-card  color="primary" padding>
+          <ion-card-title>
+            More Information
+          </ion-card-title>
+          <pre>
+            {{ subscriptionList | json }}
+          </pre>
+    
       </ion-card>
-    </ng-container>
-            <ng-template #purchase>
-              <ion-button class="bright" expand="block" routerLink="/pricing">
-                View Membership Options
-              </ion-button>
-            </ng-template>
+        
         </ion-col>
         <ion-col>
-          <ion-card  color="primary" padding style="min-height: 300px;">
-      <ion-card-title>
-       More Information
-      </ion-card-title>
-      <pre>
-        {{ subscriptionList | json}}
-      </pre>
-    </ion-card>
-    
+          <ion-card  color="primary" padding >
+          <app-list-tables></app-list-tables>
+          </ion-card>
   </ion-col>
 </ion-row>
 </ion-grid>

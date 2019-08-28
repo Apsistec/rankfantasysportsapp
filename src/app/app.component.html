@@ -30,6 +30,12 @@
               <ion-text color="dark">Pricing</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
 
+            <ion-item routerLink="/incredibility">
+              <ion-icon color="light"class="iconify" slot="start" name="logo-usd"></ion-icon>
+              <ion-text color="dark">DK Credibility</ion-text><ion-ripple-effect></ion-ripple-effect>
+            </ion-item>
+
+
             <ion-item *ngIf="auth.afAuth.user | async as user" routerLink="/faq">
               <ion-icon color="light"class="iconify" slot="start" name="help"></ion-icon>
               <ion-text color="dark">Support & FAQs</ion-text><ion-ripple-effect></ion-ripple-effect>
@@ -86,7 +92,7 @@
           </ion-item>
 
           <ion-item routerLink="/nba">
-            <ion-icon color="danger"class="iconify" slot="start" name="basketball"></ion-icon>
+            <ion-icon style="color:darkorange;" class="iconify" slot="start" name="basketball"></ion-icon>
             <ion-text color="dark">NBA</ion-text>
           </ion-item>
 
@@ -159,7 +165,7 @@
             &nbsp;
           <sub>by</sub>
           </ion-text>
-          <ion-text color="tertiary">
+          <ion-text color="dark">
           <sub>
             <strong>
               &nbsp;

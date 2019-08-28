@@ -15,10 +15,10 @@
             
                         <ion-item >
                           <ion-label color="warning"  position="floating">Email</ion-label>
-                          <ion-input autofocus autocomplete color="light" type="email" ngModel clearInput email name="email" #loginEmail="ngModel" required>
+                          <ion-input autofocus autocomplete color="light" type="email" ngModel clearInput email name="email" #loginEmail="ngModel" required title="Enter a valid email address">
                           </ion-input>
                         </ion-item>
-                        <ion-note *ngIf="loginEmail.invalid && loginEmail.touched " color="danger" text-wrap>
+                        <ion-note *ngIf="!loginEmail.valid && loginEmail.dirty " color="danger" text-wrap>
                             Enter a valid email address
                           </ion-note>
                      
@@ -29,21 +29,21 @@
                             type="password"  
                             name="password" 
                             required 
-                            minlength="6" 
+                            minlength="8" 
                             #loginPass="ngModel" 
                             ngModel 
                             password 
-                            title="8 or more characters: a number, uppercase and lowercase characters required">
+                            title="Hint: 8 or more characters: a number, an uppercase and a lowercase character are all required">
                           </ion-input>
                         </ion-item>
-                        <ion-note *ngIf="loginPass.invalid && loginPass.touched" text-wrap color="danger">
-                          HINT: 8 or more characters: a number, uppercase and lowercase characters required
+                        <ion-note *ngIf="!loginPass.valid && loginPass.dirty" color="danger" text-wrap>
+                          Hint:8 or more characters: a number, an uppercase and a lowercase character are all required
                         </ion-note>
                       <ion-button 
                       type="submit" 
                       class="bright" 
                       expand="full" 
-                      [disabled]="!login.valid"><ion-ripple-effect></ion-ripple-effect>
+                      [disabled]="login.invalid"><ion-ripple-effect></ion-ripple-effect>
                       <ion-text class="shadow"> <strong>Login</strong></ion-text>
                     </ion-button>
                   </form>
