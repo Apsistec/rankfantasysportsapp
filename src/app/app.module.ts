@@ -40,10 +40,13 @@ import { PgaStatsComponent } from './paid/pga/pga-stats/pga-stats.component';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
 import { AuthService } from './core/services/auth.service';
-
+import { ScorePredictionsComponent } from './paid/cfb/score-predictions/score-predictions.component';
+import { PowerRankingsComponent } from './paid/cfb/power-rankings/power-rankings.component';
 @NgModule({
   declarations: [
     PgaStatsComponent,
+    PowerRankingsComponent,
+    ScorePredictionsComponent,
     PgaThisWeekComponent,
     NflPreComponent,
     AppComponent,

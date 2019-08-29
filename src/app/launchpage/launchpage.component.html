@@ -141,7 +141,7 @@
         </ion-row>
         <ion-row>
           <ion-col size-md="12">
-            <ion-card color="secondary">
+            <ion-card color="warning">
               <ion-card padding color="tertiary">
                 <ion-card-title>
                   <ion-text color="secondary">
@@ -260,10 +260,11 @@
                         </ion-button>
                         <hr>
                       </ion-card>
-                            <h4>
-                            <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
-                          </h4>
-                              <hr>
+                      <h4>
+                        <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source
+                      </h4>
+                      <ion-img src="../../assets/img/stripe.svg" style="height:30px;"></ion-img>
+                      <hr>
                           <form #f="ngForm" (ngSubmit)="onSubmit(f)">
                           <div class="form-row">
                         <div id="card-element" #cardElement>
@@ -279,6 +280,7 @@
                   </ion-text>
                     </ion-button>
                   </form>
+                  <hr>
             </ion-card>
           </ion-card>
         </ion-col>

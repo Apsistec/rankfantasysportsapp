@@ -20,6 +20,8 @@ import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
 import { PaidGuard } from './core/guard/paid.guard';
 import { AuthGuard } from './core/guard/auth.guard';
 import { InnerGuard } from './core/guard/inner.guard';
+import { ScorePredictionsComponent } from './paid/cfb/score-predictions/score-predictions.component';
+import { PowerRankingsComponent } from './paid/cfb/power-rankings/power-rankings.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,7 +43,7 @@ const appRoutes: Routes = [
   { path: 'nba', loadChildren: './paid/nba/nba.module#NbaPageModule' },
   { path: 'pga', loadChildren: './paid/pga/pga.module#PgaPageModule' },
   { path: 'now', loadChildren: './paid/now/now.module#NowPageModule' },
-  // { path: 'user', loadChildren: './user-ticket/user-ticket.module#UserTicketPageModule'}, canActivate: [AuthGuard], data: { roles: ['paid']}
+  { path: 'cfb', loadChildren: './paid/cfb/cfb.module#CfbPageModule'},
   {
     path: 'table1',
     component: Table1Component, canActivate: [PaidGuard]
@@ -91,15 +93,23 @@ const appRoutes: Routes = [
     component: NflPreComponent, canActivate: [PaidGuard]
   },
   {
+    path: 'power-rankings',
+    component: PowerRankingsComponent, canActivate: [PaidGuard]
+  },
+  {
+    path: 'score-predictions',
+    component: ScorePredictionsComponent, canActivate: [PaidGuard]
+  },
+  {
     path: '**',
     redirectTo: '/home'
-  }
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      // enableTracing: true,
+      enableTracing: true,
       preloadingStrategy: PreloadAllModules
     })
   ],

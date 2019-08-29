@@ -55,17 +55,21 @@
         
         <ion-chip> 
                 <div *ngIf="user.gold">
+                  <ion-text color="warning">
                   Gold Membership:
                   <span class="tag" [class.is-success]="user.gold">
                     {{ user.gold }}
                   </span><br>
+                </ion-text>
                 </div>   
                 
                 <div *ngIf="user.silver">
+                  <ion-text color="warning">
                   Silver Membership: 
                   <span class="tag" [class.is-success]="user.silver">
                     {{ user.silver }}
                   </span><br>
+                </ion-text>
                 </div>  
                 
                 
