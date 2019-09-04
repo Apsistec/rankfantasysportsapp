@@ -1,4 +1,3 @@
-    
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -26,20 +25,19 @@ export class PaidGuard implements CanActivate {
     const bronze = await this.auth.bronze();
     const silver = await this.auth.silver();
     const gold = await this.auth.gold();
-  
-    const isMember = !!bronze || !!gold || !!silver;
+    const isMember = (!!bronze || !!gold || !!silver);
 
     if (!isMember) {
       const alert = await this.alertController.create({
         header: 'Security Alert',
         subHeader: 'Pro Members only',
         message: 'Purchase one of the RF$ Pro Memberships for immediate access.',
-        buttons: ['OK']
+        buttons: ['OK'],
+        cssClass: 'alertCustomCss'
       });
-      await alert.present();
+      alert.present();
       this.router.navigateByUrl('/pricing');
     }
-
     return isMember;
   }
 }

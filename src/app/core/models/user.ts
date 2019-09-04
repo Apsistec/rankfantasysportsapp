@@ -6,11 +6,11 @@
 export interface User {
     uid: string;
     email: string;
-    bronze: boolean;
-    gold: boolean;
-    silver: boolean;
-    // roles: Roles;
+    bronze?: boolean;
     emailVerified: boolean;
+    gold?: boolean;
+    silver?: boolean;
+    // roles: Roles;
     displayName?: string;
     photoURL?: string;
     stripeCustomerId?: string;

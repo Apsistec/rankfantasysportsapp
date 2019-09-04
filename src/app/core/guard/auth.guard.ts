@@ -15,19 +15,22 @@ export class AuthGuard implements CanActivate {
   async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise <boolean> {
+
     const uid = await this.auth.uid();
     const isLoggedIn = !!uid;
 
-    if (!isLoggedIn) {
-      const alert = await this.alertController.create({
-        header: 'Security Alert',
-        subHeader: 'Authenticated Users Only',
-        message: 'You need to Login or Register an Account for access',
-        buttons: ['OK']
-      });
-      await alert.present();
-      this.router.navigateByUrl('/register');
-    }
-    return isLoggedIn;
+      if (!isLoggedIn) {
+        const loginAlert = await this.alertController.create({
+          header: 'Login First',
+          subHeader: 'Authenticated Users Only',
+          message: 'First, You need to Login or Register an Account in order to access this page',
+          buttons: ['OK'],
+          cssClass: 'loginAlertCss'
+        });
+        loginAlert.present();
+        return this.router.navigateByUrl('/auth/register');
+      } else {
+        return isLoggedIn;
+      }
   }
 }

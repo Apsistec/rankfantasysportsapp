@@ -17,6 +17,7 @@ import { Storage } from '@ionic/storage';
 })
 export class AuthService {
   user$: Observable<any>;
+  userData: any;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -28,13 +29,20 @@ export class AuthService {
     private ngZone: NgZone
 
   ) {
+
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
+    // this.user$ = this.afAuth.authState.pipe(
+    //   switchMap(user => (
+
+    //     user ? db.doc$(`this.userData = user; users/${user.uid}; localStorage.setItem('user', JSON.stringify(userData)); JSON.parse(localStorage.getItem('user'))`) : of(null)
+    //   ))
+    // );
 
     // this.afAuth.authState.subscribe(user => {
     //   if (user) {
-    //     const userData = user;
+    //     this.userData = user;
     //     localStorage.setItem('user', JSON.stringify(userData));
     //     JSON.parse(localStorage.getItem('user'));
     //   } else {
@@ -118,36 +126,7 @@ export class AuthService {
 
 
   // Update UserData from all providers and login and register
-  // private updateUserData({ uid, email, displayName, photoURL }) {
-
-  //   const path = `users/${uid}`;
-
-  //   const data = {
-  //     uid,
-  //     email,
-  //     displayName,
-  //     photoURL,
-  //   };
-
-  //   return this.db.updateAt(path, data);
-  // }
-
-
-
-  async presentLoading() {
-    const loadingElement = await this.loadingCtrl.create({
-      message: 'Please wait...',
-      spinner: 'crescent',
-      duration: 4000
-    });
-    loadingElement.present();
-  }
-  onDismissLoader() {
-    return this.loadingCtrl.dismiss();
-  }
-
-  private updateUserData({ uid, email, displayName, photoURL}) {
-    // Sets user data to firestore on login
+  private SetUserData({ uid, email, displayName, photoURL }) {
 
     const path = `users/${uid}`;
 
@@ -155,81 +134,203 @@ export class AuthService {
       uid,
       email,
       displayName,
-      photoURL
-     };
+      photoURL,
+    };
 
     return this.db.updateAt(path, data);
   }
 
-  async Login(login: NgForm) {
+
+
+  async presentLoading() {
+    const loadingElement = await this.loadingCtrl.create({
+      message: 'Please wait...',
+      spinner: 'crescent',
+      duration: 2000
+    });
+    loadingElement.present();
+  }
+  onDismissLoader() {
+    return this.loadingCtrl.dismiss();
+  }
+
+//   private updateUserData({ uid, email, displayName, photoURL}) {
+//     // Sets user data to firestore on login
+
+//     const path = `users/${uid}`;
+
+//     const data = {
+//       uid,
+//       email,
+//       displayName,
+//       photoURL
+//      };
+
+//     return this.db.updateAt(path, data);
+//   }
+
+//   async Login(login: NgForm) {
+//     this.presentLoading();
+//     const email = login.value.email;
+//     const password = login.value.password;
+//     return await this.afAuth.auth.signInWithEmailAndPassword(email, password)
+//       .then((result) => {
+//         /* Call the SendVerificaitonMail() function when new user sign
+//         up and returns promise */
+//         this.onDismissLoader();
+//         this.updateUserData(result.user);
+//         this.ngZone.run(() => {
+//             this.router.navigate(['/profile']);
+//           });
+//         }).catch((error) => {
+//           window.alert(error.message);
+//         });
+//       }
+
+//       async Register(register: NgForm) {
+//         this.presentLoading();
+//         return await this.afAuth.auth.createUserWithEmailAndPassword(register.value.email, register.value.password)
+//         .then((result) => {
+//         register.reset();
+//         this.ngZone.run(() => {
+//           this.router.navigate(['/profile']);
+//         });
+//         this.onDismissLoader();
+//         // this.SendVerificationMail();
+//         this.updateUserData(result.user);
+//       }).catch((error) => {
+//         window.alert(error.message);
+//     });
+//   }
+
+
+//   // Reset Forgot password
+//  async ForgotPassword(resetEmail) {
+//     return await this.afAuth.auth.sendPasswordResetEmail(resetEmail)
+//     .catch((error) => {
+//       window.alert(error.message);
+//     });
+//   }
+
+//     // Sign out
+//   async SignOut() {
+//     await this.afAuth.auth.signOut()
+//     .then(() => {
+//       localStorage.removeItem('user');
+//       this.signOutToast();
+//       return this.router.navigate(['/home']);
+//     });
+//   }
+
+//   // Returns true when user is looged in and email is verified
+//   get isLoggedIn(): boolean {
+//     const user = JSON.parse(localStorage.getItem('user'));
+//     return (user !== null && user.emailVerified !== false) ? true : false;
+//   }
+
+  SignIn(login: NgForm) {
     this.presentLoading();
-    const email = login.value.email;
-    const password = login.value.password;
-    return await this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.afAuth.auth.signInWithEmailAndPassword(login.value.email, login.value.password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign
-        up and returns promise */
-        this.onDismissLoader();
-        this.updateUserData(result.user);
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error.message);
+      });
+    }
+
+    // Sign up with email/password
+  SignUp(register: NgForm) {
+    this.presentLoading();
+    return this.afAuth.auth.createUserWithEmailAndPassword(register.value.email, register.value.password)
+      .then((result) => {
+        this.isLoggedInToast();
         this.ngZone.run(() => {
-            this.router.navigate(['/profile']);
-          });
+          this.router.navigate(['/auth/launchpage']);
+        });
+        this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message);
       });
   }
 
-  async Register(register: NgForm) {
+  FreeSignUp(register: NgForm) {
     this.presentLoading();
-    const email = register.value.email;
-    const password = register.value.password;
-    return await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    return this.afAuth.auth.createUserWithEmailAndPassword(register.value.email, register.value.password)
+      .then((result) => {
+        this.isLoggedInToast();
+        this.ngZone.run(() => {
+          this.router.navigate(['/auth/launchpage']);
+        });
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error.message);
+      });
+    }
+
+    // Send email verfificaiton when new user sign up
+    SendVerificationMail() {
+      return this.afAuth.auth.currentUser.sendEmailVerification()
+      .then(() => {
+        this.router.navigate(['/auth/verify-email']);
+      });
+    }
+
+    // Reset Forgot password
+    ForgotPassword(passwordResetEmail) {
+      return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        this.resetPasswordToast();
+      }).catch((error) => {
+        window.alert(error);
+      });
+    }
+
+    // Returns true when user is looged in and email is verified
+    get isLoggedIn(): boolean {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return (user !== null ) ? true : false;
+    }
+
+    // Auth logic to run auth providers
+  async AuthLogin(provider) {
+    await this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
-      /* Call the SendVerificaitonMail() function when new user sign
-      up and returns promise */
-      register.reset();
-      this.onDismissLoader();
-      // this.SendVerificationMail();
-      this.updateUserData(result.user);
-    }).catch((error) => {
-      window.alert(error.message);
-    });
+      this.SetUserData(result.user);
+      this.ngZone.run(() => {
+        this.router.navigate(['/auth/profile']);
+      });
+      return this.isLoggedInToast();
+      })
+      .catch((error) => {
+          window.alert(error.message);
+      });
   }
 
-  // Send email verfificaiton when new user sign up
-  // SendVerificationMail() {
-  //   return this.afAuth.auth.currentUser.sendEmailVerification()
-  //   .then(() => {
-  //     this.router.navigateByUrl('/verify-email');
-  //   }).catch((error) => {
-  //     // An error happened.
-  //     window.alert(error.message);
+  /* Setting up user data when sign in with username/password,
+  sign up with username/password and sign in with social auth
+  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+  // SetUserData(user) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+  //   const userData: User = {
+  //     uid: user.uid,
+  //     email: user.email,
+  //     displayName: user.displayName,
+  //     photoURL: user.photoURL,
+  //     emailVerified: user.emailVerified
+  //   };
+  //   return userRef.set(userData, {
+  //     merge: true
   //   });
   // }
 
-  // Reset Forgot password
- async ForgotPassword(resetEmail) {
-    return await this.afAuth.auth.sendPasswordResetEmail(resetEmail)
-    .catch((error) => {
-      window.alert(error.message);
-    });
-  }
-
-    // Sign out
-  async SignOut() {
-    await this.afAuth.auth.signOut()
-    .then(() => {
+  // Sign out
+  SignOut() {
+    return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.signOutToast();
-      return this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
     });
   }
 
-  // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
-  }
 
   // Sign in with Google
   GoogleAuth() {
@@ -243,19 +344,6 @@ export class AuthService {
   // Sign in with Facebook
   FacebookAuth() {
     return this.AuthLogin(new auth.FacebookAuthProvider());
-  }
-
- // Provider Auth
-  async AuthLogin(provider) {
-    return await this.afAuth.auth.signInWithPopup(provider)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['/profile']);
-        });
-        return this.updateUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message);
-      });
   }
 
   async needLoginToast() {
@@ -299,15 +387,16 @@ export class AuthService {
   async isLoggedInToast() {
     const toast = await this.toaster.create({
       header: 'Authentication Message:',
-      cssClass: 'login',
-      message: 'Great, You have successfully registered an account, now purchase a RF$ Pro Membership',
+      message: 'Account Sign In Successful',
       position: 'top',
-      duration: 6000,
+      duration: 4000,
       showCloseButton: true,
       translucent: true,
     });
     return toast.present();
   }
+
+
   async verifyEmailToast() {
     const toast = await this.toaster.create({
       header: 'Authentication Message:',

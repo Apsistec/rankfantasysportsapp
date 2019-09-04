@@ -5,7 +5,15 @@
        
       </ion-back-button>
     </ion-buttons>
-    <ion-title text-center>{{ imgTitle }}</ion-title>
+    <ion-title text-center><ion-text color="warning">Pinch</ion-text> to Zoom 
+      
+      <br>
+      <ion-icon color="warning" name="arrow-round-back" size="small"></ion-icon>
+      Swipe
+      <ion-icon color="warning" name="arrow-round-forward" size="small"></ion-icon>
+    
+    </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
@@ -22,8 +30,8 @@
 
 <ion-footer translucent *ngIf="imgDescription.length">
   
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary">
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="tertiary">
       <ion-icon name="rocket"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">

@@ -1,15 +1,4 @@
-<ion-header>
-  <ion-toolbar color="primary" text-center>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" text="Back" type="button" color="warning" slot="start"
-      icon="arrow-round-back">
-    </ion-back-button>
-  </ion-buttons>
-  <ion-text color="light" text-wrap>
-RF$ &trade; Support &amp; FAQ Page  
-</ion-text>
-</ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content 
 padding 
@@ -21,37 +10,27 @@ fullscreen
   
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <ion-card padding text-center color="primary">
-          <ion-card color="medium">
-      
+      <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
+        <ion-card text-center color="primary">
+          <ion-card-header>
             <ion-card-title>
-              Open a Support Ticket 
+              RF$&trade; Frequently Asked Questions
             </ion-card-title>
-            <ion-card-subtitle>
-              Not finding the answers you need? Open a support request, and we will get back to you ASAP!
-            </ion-card-subtitle>
-            <ion-card-content>
-              
-              <ion-button size="small" fill="outline" color="danger" (click)="openSupportModal()">
-                <ion-icon color="light" name="help-buoy"></ion-icon>Request Support 
-              </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-card>
-        
-            <mat-accordion >
-              <mat-expansion-panel class="colo"  *ngFor="let faq of faqs">
+          </ion-card-header>
+          
+          <mat-accordion >
+            <mat-expansion-panel class="colo" *ngFor="let faq of faqs">
                 <mat-expansion-panel-header >
-                  <mat-panel-description color="light">
-                    {{faq.title}}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                {{ faq.info }}  
-
-              </mat-expansion-panel>
-       
-            </mat-accordion>
+                  <mat-panel-title >
+                 <ion-text color="secondary"> <p text-start><strong>  {{faq.title}}</strong></p></ion-text>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <ion-text color="warning"> <p text-start>{{ faq.info }}  </p></ion-text>
+              
+            </mat-expansion-panel>
+            
+          </mat-accordion>
+        </ion-card>
    
        </ion-col>
     </ion-row>

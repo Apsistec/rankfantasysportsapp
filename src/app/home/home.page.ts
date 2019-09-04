@@ -2,7 +2,7 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
 import { AuthService } from '../core/services/auth.service';
-import { MatMenu } from '@angular/material';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,16 @@ import { MatMenu } from '@angular/material';
 })
 
 export class HomePage implements OnInit {
-
+  slide: any;
+  slideOpts = {
+    centeredSlides: true,
+    slidesPerView: 1,
+    
+    autoplay: {
+      delay: 4000,
+    },
+   
+  };
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;
 
@@ -23,7 +32,8 @@ export class HomePage implements OnInit {
   constructor(
     public domSanitizer: DomSanitizer,
     public zone: NgZone,
-    public auth: AuthService
+    public auth: AuthService,
+    public modalController: ModalController
   ) {  }
 
   onScroll(event) {

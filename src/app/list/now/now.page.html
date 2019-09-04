@@ -1,0 +1,25 @@
+  <ion-toolbar color="primary">
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list/categories" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Happening Now</ion-title>
+  </ion-toolbar>
+
+<ion-content>
+  <ion-card>
+      <ion-card-header color="primary">
+        <ion-card-title>
+          Happening Now
+        </ion-card-title>
+      </ion-card-header>
+      <ion-item color="medium" routerLink="/list/today-val">
+        <ion-icon size="large" slot="start" color="success" name="stats"></ion-icon>
+        <ion-label text-wrap>Today's Value Rankings</ion-label>
+      </ion-item>
+      <!-- <ion-item color="medium" routerLink="/dk-acct">
+        <ion-icon size="large" slot="start" color="success" name="stats"></ion-icon>
+        <ion-label text-wrap>Draft Kings Accounting</ion-label>
+      </ion-item> -->
+    </ion-card>
+</ion-content>

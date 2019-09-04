@@ -1,0 +1,222 @@
+<app-header></app-header>
+
+<ion-content text-center fullscreen >
+  <ion-grid>
+<!-- First Row Login -->
+    <ion-row>
+       <ion-col size-md="6" offset-md="3">
+        <ion-card class="main-card" color="primary">
+          <ion-img src="../../assets/logo.jpg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>
+                <ion-text color="secondary" style="font-size:1.2em;">
+                  RF<ion-text color="secondary">$</ion-text>&trade;
+                  Pro Subscriptions
+                </ion-text>
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-text color="warning">
+                The info you need, When you need it, That Simple!
+              </ion-text>
+            </ion-card-subtitle>
+          
+              <ion-chip color="secondary">
+                
+                <ion-text color="secondary">
+                  <strong>
+                    
+                    - 7 Day Free Trial -
+                  </strong>
+                </ion-text>
+              </ion-chip>
+          </ion-card-header>
+        </ion-card>
+ 
+      </ion-col>
+    </ion-row>
+
+<!-- Second Row Memberships -->
+<ion-row class="ion-align-items-stretch">
+  <ion-col size-md="12">
+    <!-- <ion-card  color="primary"> -->
+      <ion-grid >
+        <ion-row>
+          <ion-col>
+          <ion-grid>
+            <ion-row>
+              <ion-col size-md="3" offset-md="3">
+            <ion-card  text-center>
+              
+              <ion-list>
+                <ion-list-header color="tertiary">
+                  <ion-title>
+                    <ion-text color="secondary">
+                      Details
+                    </ion-text>
+                  </ion-title>
+                </ion-list-header>
+                <ion-item lines="none">
+                  <ion-text text-wrap style="color: snow;">
+                      Access to all DFS data-tables
+                      <br>
+                   <ion-text color="warning"> <sub>
+                   New Material released regularly</sub>
+                    </ion-text></ion-text>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-text text-wrap style="color: snow;">
+                    DFS actionable breakdown videos
+                    <br>
+                    <ion-text color="warning">  <sub>
+                   Growing list of topics</sub>
+                  </ion-text></ion-text>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-text text-wrap style="color: snow;">
+                    New & existing livestream events
+                    <br>
+                     <ion-text color="warning"> <sub>
+                    Receive notification of upcoming events</sub>
+                  </ion-text></ion-text>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-text text-wrap style="color: snow;">
+                    Exclusive DFS chat rooms
+                    <br>
+                    <ion-text color="warning"> 
+                    <sub>
+                     Coming Soon
+                    </sub>
+                    </ion-text>
+                  </ion-text>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-text text-wrap style="color:snow;">
+                     Ancillary stats, tools & other resources                   
+                     <br>
+                      <ion-text color="warning"> 
+                    <sub>
+                     One stop for everything you need to win
+                    </sub>
+                    </ion-text>
+                  </ion-text>
+                </ion-item>
+                <br>
+             
+              </ion-list>
+            </ion-card>
+          </ion-col>
+          <ion-col size-md="3">
+            <ion-card text-center >
+              <ion-list>
+                <ion-list-header color="tertiary">
+                  <ion-title>
+                    <ion-text color="secondary">
+                      
+                        Packages                      
+                      </ion-text>
+                    </ion-title>
+                  </ion-list-header>
+                  <ion-item lines="none">
+                    <ion-button style="color:gold;">
+                        <strong>  Gold Package </strong>
+                      </ion-button>&nbsp;
+                        <ion-text color="warning">
+                          <ion-chip color="dark">
+                            <ion-text color="warning">
+                                $90 Annually
+                          </ion-text>
+                        </ion-chip>
+                        </ion-text>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-button style="color:silver;">
+                   <strong> Silver Package</strong>
+                  </ion-button>&nbsp;
+                  <ion-text color="warning">
+                    <ion-chip color="dark">
+                      <ion-text color="warning">
+                        $50 Semi-Annually
+                     </ion-text>
+                   </ion-chip>
+                  </ion-text>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-button style="color:darkgoldenrod;">
+                  <strong>  Bronze Package</strong>
+                 </ion-button>&nbsp;
+                  <ion-text color="warning">
+                    <ion-chip color="dark">
+                    <ion-text color="warning">
+                        $9.99 Monthly
+                    </ion-text>
+                  </ion-chip>
+                  </ion-text>
+                </ion-item>
+              </ion-list>
+              <hr>
+                  <ng-container *ngIf="auth.afAuth.user | async as user; else goToRegister">
+                  <ion-button shape="round" strong="true"
+                  expand="block" color="secondary" routerLink="/auth/launchpage">
+                  <ion-icon name="rocket" color="danger"></ion-icon>&nbsp;&nbsp;
+                  <ion-text color="primary">
+                    <strong>
+                      Get Started
+                    </strong>
+                  </ion-text>
+                </ion-button>
+              </ng-container> 
+              
+              <ng-template #goToRegister>
+                <ion-button shape="round" strong="true"
+                expand="block" color="secondary" routerLink="/auth/register">
+                <ion-icon name="rocket" color="danger"></ion-icon>&nbsp;&nbsp;
+                <ion-text color="primary">
+                  <strong>
+                    Get Started
+                  </strong>
+                </ion-text>
+              </ion-button>
+              <ion-text color="warning">
+                    <p text-center>
+                    You will be taken to a registration page first, followed by the page where you can purchase a Package.
+                  </p>
+              </ion-text>
+                </ng-template>
+            </ion-card>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size-md="6" offset-md="3">
+              <ion-card color="success">
+                <ion-card padding color="primary">
+                  <ion-card-title>
+                    <ion-text color="secondary">
+                      <h1>
+                        Free trial for a week, with signup!
+                      </h1>
+                   </ion-text>
+                  </ion-card-title>
+                  <ion-card-subtitle>
+                    <ion-text color="warning">
+                   <h3>
+                     Signup with any Pro membership today and get 7 days to try it out.
+                   </h3>
+                    </ion-text>
+                  </ion-card-subtitle>
+                </ion-card>
+              </ion-card>
+           </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+        <!-- </ion-card> -->
+      </ion-col>
+    </ion-row>
+           
+    </ion-grid>
+  </ion-content>
+
+

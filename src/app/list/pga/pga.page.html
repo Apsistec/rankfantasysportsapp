@@ -1,0 +1,26 @@
+  <ion-toolbar color="primary">
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list/categories" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Golf</ion-title>
+  </ion-toolbar>
+
+<ion-content>
+  <ion-card>
+          <ion-card-header color="primary">
+            <ion-card-title>
+              PGA
+            </ion-card-title>
+          </ion-card-header>
+          <ion-item color="medium" routerLink="/list/pga-stats">
+            <ion-icon size="large" slot="start" style="color: white;" name="radio-button-off" name="radio-button-off"></ion-icon>
+            <ion-text text-wrap>Golf Stats and Rankings</ion-text>
+          </ion-item>
+          <ion-item color="medium" routerLink="/list/pga-this-week">
+            <ion-icon size="large" slot="start" style="color:white;" name="radio-button-off"></ion-icon>
+            <ion-text text-wrap>Golf This Week</ion-text>
+          </ion-item>
+        </ion-card>
+</ion-content>
+<app-footer></app-footer>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
 import { Platform } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
-import { RouterOutlet } from '@angular/router';
 // import { slideInAnimation } from './animations';
 
 const { SplashScreen, StatusBar } = Plugins;

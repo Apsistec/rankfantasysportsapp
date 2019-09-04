@@ -1,0 +1,41 @@
+
+  <ion-toolbar color="primary">
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list/categories" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>NBA</ion-title>
+  </ion-toolbar>
+
+<ion-content>
+ <ion-card >
+         <ion-card-header color="primary">
+        <ion-card-title style="text-align: right;">
+            <ion-text color="warning">
+             <sub>
+               2019 Season Ended
+             </sub> 
+            </ion-text>
+          </ion-card-title>
+            <ion-text >
+              <h3>
+                NBA
+              </h3> 
+        </ion-text>
+      </ion-card-header>
+      <ion-item disabled color="medium" routerLink="/list/nba-dk">
+        <ion-icon size="large" slot="start" style="color:darkorange;" name="basketball"></ion-icon>
+        <ion-label text-wrap>NBA Draft Kings</ion-label>
+      </ion-item>
+      <ion-item disabled color="medium" routerLink="/list/nba-power-rank">
+        <ion-icon size="large" slot="start" style="color:darkorange;" name="basketball"></ion-icon>
+        <ion-label text-wrap>NBA Playoff- Team Power Rankings</ion-label>
+      </ion-item>
+      <ion-item disabled color="medium" routerLink="/list/nba-power-pred">
+        <ion-icon size="large" slot="start" style="color:darkorange;" name="basketball"></ion-icon>
+        <ion-label text-wrap>NBA Playoff Game Predictions</ion-label>
+      </ion-item>
+    </ion-card>
+
+</ion-content>
+<app-footer></app-footer>

@@ -1,4 +1,6 @@
- <ion-list color="primary">
+<!-- <ion-content> -->
+  
+  <ion-list color="primary">
 
     <ion-card>
       <ion-card-header color="primary">
@@ -6,11 +8,11 @@
           Happening Now
         </ion-card-title>
       </ion-card-header>
-      <ion-item color="medium" routerLink="/table8">
+      <ion-item color="medium" routerLink="/list/today-val">
         <ion-icon size="large" slot="start" color="success" name="stats"></ion-icon>
         <ion-label text-wrap>Today's Value Rankings</ion-label>
       </ion-item>
-      <!-- <ion-item color="medium" routerLink="/table9">
+      <!-- <ion-item color="medium" routerLink="/dk-acct">
         <ion-icon size="large" slot="start" color="success" name="stats"></ion-icon>
         <ion-label text-wrap>Draft Kings Accounting</ion-label>
       </ion-item> -->
@@ -22,68 +24,93 @@
           Tennis
         </ion-card-title>
       </ion-card-header>
-      <ion-item color="medium" routerLink="/table1">
+      <ion-item color="medium" routerLink="/list/men-ten-rate">
         <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
         <ion-label text-wrap>Men's Tennis Ratings and DK Statistics</ion-label>
       </ion-item>
-      <ion-item color="medium" routerLink="/table2">
+      <ion-item color="medium" routerLink="/list/women-ten-rate">
         <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
         <ion-label text-wrap>Women's Tennis Ratings and DK Statistics</ion-label>
       </ion-item>
-      <ion-item color="medium" routerLink="/table3">
+      <ion-item color="medium" routerLink="/list/men-ten-tourny">
         <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
         <ion-label text-wrap>Mens Tennis Tournament Stat Archives</ion-label>
       </ion-item>
-      <ion-item color="medium" routerLink="/table4">
+      <ion-item color="medium" routerLink="/list/women-ten-tourny">
         <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>
         <ion-label text-wrap>Women's Tennis Tournament Stat Archives</ion-label>
       </ion-item>
     </ion-card>
     
   <ion-card>
-          <ion-card-header color="primary">
+    <ion-card-header color="primary">
             <ion-card-title>
               PGA
             </ion-card-title>
           </ion-card-header>
-          <ion-item color="medium" routerLink="/pga-stats">
+          <ion-item color="medium" routerLink="/list/pga-stats">
             <ion-icon size="large" slot="start" style="color:white;" name="radio-button-off"></ion-icon>
             <ion-label text-wrap>Golf Stats and Rankings</ion-label>
           </ion-item>
-          <ion-item color="medium" routerLink="/pga-this-week">
+          <ion-item color="medium" routerLink="/list/pga-this-week">
             <ion-icon size="large" slot="start" style="color:white;" name="radio-button-off"></ion-icon>
             <ion-label text-wrap>Golf This Week</ion-label>
           </ion-item>
         </ion-card>
-
+        
         <ion-card>
           <ion-card-header color="primary">
             <ion-card-title>
               NFL
             </ion-card-title>
           </ion-card-header>
-          <ion-item color="medium" routerLink="/nfl-pre">
+          <ion-item color="medium" routerLink="/list/nfl-pre">
             <ion-icon size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
             <ion-label text-wrap>NFL Preseason Project</ion-label>
           </ion-item>
 
         </ion-card>
+                <ion-card>
+          <ion-card-header color="primary">
+            <ion-card-title>
+              CFB
+            </ion-card-title>
+          </ion-card-header>
+          <ion-item color="medium" routerLink="/list/score-predictions">
+            <ion-icon size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label text-wrap>CFB Score Predictions</ion-label>
+          </ion-item>
+          <ion-item color="medium" routerLink="/list/power-rankings">
+            <ion-icon size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label text-wrap>CFB Power Rankings</ion-label>
+          </ion-item>
+
+        </ion-card>
     
     <ion-card >
-      <ion-card-header color="primary">
-        <ion-card-title>
-          NBA
-        </ion-card-title>
+         <ion-card-header color="primary">
+        <ion-card-title style="text-align: right;">
+            <ion-text color="warning">
+             <sub>
+               2019 Season Ended
+             </sub> 
+            </ion-text>
+          </ion-card-title>
+            <ion-text >
+              <h3>
+                NBA
+              </h3> 
+        </ion-text>
       </ion-card-header>
-      <ion-item disabled color="medium" routerLink="/table5">
+      <ion-item disabled color="medium" routerLink="/list/nba-dk">
         <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>
         <ion-label text-wrap>NBA Draft Kings</ion-label>
       </ion-item>
-      <ion-item disabled color="medium" routerLink="/table6">
+      <ion-item disabled color="medium" routerLink="/list/nba-power-rank">
         <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>
         <ion-label text-wrap>NBA Playoff- Team Power Rankings</ion-label>
       </ion-item>
-      <ion-item disabled color="medium" routerLink="/table7">
+      <ion-item disabled color="medium" routerLink="/list/nba-power-pred">
         <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>
         <ion-label text-wrap>NBA Playoff Game Predictions</ion-label>
       </ion-item>
@@ -124,3 +151,5 @@
       </ion-item>
     </ion-card>
   </ion-list>
+
+    <!-- </ion-content>  -->

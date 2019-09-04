@@ -27,7 +27,7 @@ export class AdminGuard implements CanActivate {
           if (roles === 'paid') {
             return true;
           } else {
-            this.router.navigateByUrl('/login');
+            this.router.navigateByUrl('auth');
             return false;
           }
         }

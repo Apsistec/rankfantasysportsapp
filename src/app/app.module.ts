@@ -18,59 +18,20 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { LaunchpageComponent } from './launchpage/launchpage.component';
-import { PaypalComponent } from './paypal/paypal.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/helpers/interceptor.service';
-import { Table1Component } from './paid/tennis/table1/table1.component';
-import { Table2Component } from './paid/tennis/table2/table2.component';
-import { Table3Component } from './paid/tennis/table3/table3.component';
-import { Table4Component } from './paid/tennis/table4/table4.component';
-import { Table5Component } from './paid/nba/table5/table5.component';
-import { Table6Component } from './paid/nba/table6/table6.component';
-import { Table7Component } from './paid/nba/table7/table7.component';
-import { Table8Component } from './paid/now/table8/table8.component';
-import { Table9Component } from './paid/now/table9/table9.component';
-import { PgaThisWeekComponent } from './paid/pga/pga-this-week/pga-this-week.component';
-import { PgaStatsComponent } from './paid/pga/pga-stats/pga-stats.component';
 import { Firebase } from '@ionic-native/firebase/ngx';
-import { NflPreComponent } from './paid/nfl/nfl-pre/nfl-pre.component';
-import { AuthService } from './core/services/auth.service';
-import { ScorePredictionsComponent } from './paid/cfb/score-predictions/score-predictions.component';
-import { PowerRankingsComponent } from './paid/cfb/power-rankings/power-rankings.component';
+
+// import { AuthRoutingModule } from './auth/auth-routing.module';
 @NgModule({
   declarations: [
-    PgaStatsComponent,
-    PowerRankingsComponent,
-    ScorePredictionsComponent,
-    PgaThisWeekComponent,
-    NflPreComponent,
     AppComponent,
-    RegisterComponent,
-    VerifyEmailComponent,
-    ForgotPasswordComponent,
-    LoginComponent,
-    LaunchpageComponent,
-    Table1Component,
-    Table2Component,
-    Table3Component,
-    Table4Component,
-    Table5Component,
-    Table6Component,
-    Table7Component,
-    Table8Component,
-    Table9Component,
-    PaypalComponent,
   ],
   entryComponents: [],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     CommonModule,
     IonicModule.forRoot(),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     IonicStorageModule.forRoot(),
     SharedModule,
     FormsModule,
@@ -85,7 +46,6 @@ import { PowerRankingsComponent } from './paid/cfb/power-rankings/power-rankings
     AppRoutingModule,
   ],
   providers: [
-    AuthService,
     Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }

@@ -3,7 +3,7 @@
 /** Ionic CSS Variables **/
 
 :root {
-  --ion-background-color: #787881;
+  // --ion-background-color: #787881;
   --ion-color-light-rgb: 181,182,204;
 
   --ion-color-primary: #4a525e;
@@ -68,8 +68,58 @@
   --ion-color-light-contrast-rgb: 0,0,0;
   --ion-color-light-shade: #9fa0b4;
   --ion-color-light-tint: #bcbdd1;
-}
 
+  --ion-color-gold: #ffd700;
+    --ion-color-gold-rgb: 255, 215, 0;
+    --ion-color-gold-contrast: #000000;
+    --ion-color-gold-contrast-rgb: 0, 0, 0;
+    --ion-color-gold-shade: #e0bd00;
+    --ion-color-gold-tint: #ffdb1a;
+
+
+     --ion-color-facebk: #0354da;
+  --ion-color-facebk-rgb: 3,84,218;
+  --ion-color-facebk-contrast: #ffffff;
+  --ion-color-facebk-contrast-rgb: 255,255,255;
+  --ion-color-facebk-shade: #034ac0;
+  --ion-color-facebk-tint: #1c65de;
+
+  --ion-color-twittr: #0cd1e8;
+  --ion-color-twittr-rgb: 12,209,232;
+  --ion-color-twittr-contrast: #ffffff;
+  --ion-color-twittr-contrast-rgb: 255,255,255;
+  --ion-color-twittr-shade: #0bb8cc;
+  --ion-color-twittr-tint: #24d6ea;
+
+  --ion-color-leather: #75503e;
+  --ion-color-leather-rgb: 117,80,62;
+  --ion-color-leather-contrast: #ffffff;
+  --ion-color-leather-contrast-rgb: 255,255,255;
+  --ion-color-leather-shade: #674637;
+  --ion-color-leather-tint: #836251;
+  }
+
+// .ion-color-gold {
+//     --ion-color-base: var(--ion-color-gold) !important;
+//     --ion-color-base-rgb: var(--ion-color-gold-rgb) !important;
+//     --ion-color-contrast: var(--ion-color-gold-contrast) !important;
+//     --ion-color-contrast-rgb: var(--ion-color-gold-contrast-rgb) !important;
+//     --ion-color-shade: var(--ion-color-gold-shade) !important;
+//     --ion-color-tint: var(--ion-color-gold-tint) !important;
+// }
+
+$customColors: ('facebk', 'twittr', 'leather', 'gold');
+@each $color in $customColors {
+  .ion-color-#{$color} {
+    --ion-color-base: var(--ion-color-#{$color}) !important;
+    --ion-color-base-rgb: var(--ion-color-#{$color}-rgb) !important;
+    --ion-color-contrast: var(--ion-color-#{$color}-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-#{$color}-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-#{$color}-shade) !important;
+    --ion-color-tint: var(--ion-color-#{$color}-tint) !important;
+  }
+}
+  
 // :root {
 //   --ion-background-color: #787881;
 //   --ion-color-light-rgb: 181,182,204;

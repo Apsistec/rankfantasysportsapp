@@ -1,0 +1,29 @@
+
+  <ion-toolbar text-center color="primary">
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list/categories" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>College Football</ion-title>
+  </ion-toolbar>
+
+<ion-content>
+
+        <ion-card>
+          <ion-card-header color="primary">
+            <ion-card-title>
+              CFB
+            </ion-card-title>
+          </ion-card-header>
+          <ion-item color="medium" routerLink="/list/score-predictions">
+            <ion-icon size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label text-wrap>CFB Score Predictions</ion-label>
+          </ion-item>
+          <ion-item color="medium" routerLink="/list/power-rankings">
+            <ion-icon size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label text-wrap>CFB Power Rankings</ion-label>
+          </ion-item>
+
+        </ion-card>
+</ion-content>
+<app-footer></app-footer>

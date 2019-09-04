@@ -9,8 +9,8 @@ import { Slides } from './slides';
 })
 export class TestimonialsPage {
   slides = Slides;
-  imgTitle = 'Click/Pinch to Zoom';
-  imgDescription = 'Submitted by RF$ subscribers';
+  
+  imgDescription = 'Submitted by RF$ Subscribers';
   slide: any;
   slideOpts = {
     centeredSlides: true,

@@ -22,7 +22,7 @@
                   <p text-center>
                  We sent a confirmation email to:</p>
                 </ion-text>
-                 <ion-text color="secondary">
+                 <ion-text color="light">
                    <h2>
                     <strong>
                       {{user.email}}
@@ -34,23 +34,7 @@
                   Check your email and click on the enclosed link to verfiy your email address.
                 </p>
                 </ion-text>
-                <ion-text text-center color="secondary">
-                  <ul style="list-style-type:none;">
-                    <li>
-                      Once you login, be sure to check out the RF$&trade; Pro Memberships available
-                    </li>
-                    <li>
-                      Get immediate access to the data when you buy
-                    </li>
-                    <li>
-                      <ion-text color="danger">
-                        <strong>
-                          Purchase any RF$&trade; Pro membership today and get 7 days to try it out for free
-                        </strong>
-                      </ion-text>
-                    </li>
-                  </ul>
-                </ion-text>
+               
                 <ion-text color="light" text-center>
                   <p text-center>We use email verification along with other security measures as part of our best-efforts to protect against fraudulent activity. We are sure you understand our reasoning, and we do appreciate your cooperation.</p>
                 </ion-text>
@@ -79,15 +63,18 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-text color="danger" >
-          <p text-center style="font-size: 1.5em">
-            <strong>Alert:</strong>
-            You need to log in first, then you can validate your email address.
+        <p text-center style="font-size: 1.5em">
+          <ion-text color="danger">
+            <strong>Alert:</strong></ion-text></p>
+            <p text-center style="font-size: 1.5em">
+            <ion-text color="warning">
+
+            Login first, then validate the account by email
+          </ion-text>
           </p>
-        </ion-text>
       </ion-card-content>
       <ion-footer>
-        <ion-button strong color="warning" shape="round" routerLink="/login" fill="outline">
+        <ion-button strong class="g-btn" shape="round" routerLink="/auth/login" expand="full">
           <ion-ripple-effect></ion-ripple-effect>
           Login
         </ion-button>
@@ -100,4 +87,4 @@
     </ion-row>
   </ion-grid>
 </ion-content>
-<app-footer></app-footer>
+
