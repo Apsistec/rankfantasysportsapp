@@ -22,11 +22,7 @@
       "sizes": "96x96",
       "type": "image/png"
     },
-    {
-      "src": "resources/android/splash/drawable-port-xxhdpi-screen.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
+
     {
       "src": "resources/android/splash/drawable-port-xxxhdpi-screen.png",
       "sizes": "152x152",
