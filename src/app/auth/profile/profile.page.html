@@ -18,7 +18,7 @@ fullscreen
     <ng-container *ngIf="auth.user$ | async as user; else login">
         <ion-card color="primary" padding>
     <ion-card-header>
-       <ion-card-title>
+       <ion-card-title text-center>
          Rank Fantasy $ports Profile
 </ion-card-title>
 </ion-card-header>
@@ -30,7 +30,10 @@ fullscreen
       </ion-thumbnail>
       <ion-title>
         <ion-text color="secondary">
-          {{ user.displayName || 'User' }}
+         
+         {{ user.displayName }}
+        
+
         </ion-text>
         </ion-title>
       </ion-item>
@@ -58,7 +61,7 @@ fullscreen
          <ion-text color="secondary">
          Current Subscription:
         </ion-text>
-        <ng-container *ngIf="user.gold || user.silver || user.bronze; else purchase">
+        <ng-container *ngIf="(user.gold || user.silver || user.bronze); else purchase">
 
           
           <ion-text color="secondary">
@@ -67,18 +70,18 @@ fullscreen
                 <div *ngIf="user.gold">
                   <ion-text color="warning">
                   Gold Membership:
-                  <span class="tag" [class.is-success]="user.gold">
+                  <!-- <span class="tag" [class.is-success]="user.gold">
                     {{ user.gold }}
-                  </span><br>
+                  </span><br> -->
                 </ion-text>
                 </div>   
                 
                 <div *ngIf="user.silver">
                   <ion-text color="warning">
                   Silver Membership: 
-                  <span class="tag" [class.is-success]="user.silver">
+                  <!-- <span class="tag" [class.is-success]="user.silver">
                     {{ user.silver }}
-                  </span><br>
+                  </span><br> -->
                 </ion-text>
                 </div>  
                 
@@ -86,9 +89,9 @@ fullscreen
                 <div *ngIf="user.bronze">
                <ion-text color="warning">
                   Bronze Membership: 
-                  <span class="tag" [class.is-success]="user.bronze">
+                  <!-- <span class="tag" [class.is-success]="user.bronze">
                     {{ user.bronze }}
-                  </span><br>
+                  </span><br> -->
                 </ion-text>
               </div>   
             </ion-chip>
@@ -158,7 +161,7 @@ fullscreen
         </ion-card-subtitle>
         <ion-card-content>
 
-          <ion-button color="success" (click)="changeTheme('autumn')">Option 1</ion-button>
+        <ion-button color="success" (click)="changeTheme('autumn')">Option 1</ion-button>
         <ion-button color="success" (click)="changeTheme('night')">Option 2</ion-button>
         <ion-button color="success" (click)="changeTheme('neon')">Option 3</ion-button>
         <ion-button color="success" (click)="changeTheme('')">Default</ion-button>
@@ -186,8 +189,7 @@ fullscreen
         </ion-card-content>
       </ion-card>
 
-      <ng-container *ngIf="(user.bronze || user.silver || user.gold) ; else purchase">
-        
+      <ng-container *ngIf="(user.gold || user.silver || user.bronze); else buy">        
         <ion-card text-center padding color="primary" >
             <ion-card-header>
               <ion-card-title>
@@ -222,7 +224,7 @@ fullscreen
             <br>
           </ion-card>
         </ng-container>
-        <ng-template #purchase>
+        <ng-template #buy>
           <ion-card text-center color="primary" padding>
             <ion-card-header>
               <ion-card-title>

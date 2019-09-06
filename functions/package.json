@@ -17,15 +17,15 @@
     "firebase-admin": "^8.0.0",
     "firebase-functions": "^3.1.0",
     "firebase-functions-test": "^0.1.6",
-    "firebase-tools": "^7.2.4",
+    "firebase-tools": "^7.3.1",
     "stripe": "^7.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
-    "@types/stripe": "^6.31.18",
+    "@types/stripe": "^6.31.24",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.12.0",
+    "tslint": "^5.19.0",
     "typescript": "~2.8.3"
   },
   "private": true

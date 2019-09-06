@@ -10,6 +10,7 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
 
+    implementation "com.facebook.android:facebook-android-sdk:5.2.0"
     implementation "com.google.android.gms:play-services-tagmanager:+"
     implementation "com.google.firebase:firebase-core:+"
     implementation "com.google.firebase:firebase-messaging:+"

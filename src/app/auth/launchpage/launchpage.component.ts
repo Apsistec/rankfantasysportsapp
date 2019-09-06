@@ -136,7 +136,7 @@ export class LaunchpageComponent implements OnInit, AfterViewInit {
     if (error) {
       // Inform the customer that there was an error.
       const cardErrors = error.message;
-      await window.alert(cardErrors);
+      window.alert(cardErrors);
     } else {
       this.presentLoading();
       const user = await this.auth.getUser();

@@ -17,6 +17,9 @@ import { PaidGuard } from '../core/guard/paid.guard';
 import { ScorePredictionsComponent } from '../list/cfb/score-predictions/score-predictions.component';
 import { PowerRankingsComponent } from '../list/cfb/power-rankings/power-rankings.component';
 import { ListPage } from './list.page';
+import { NflWeekComponent } from './nfl/nfl-week/nfl-week.component';
+import { NflScoreComponent } from './nfl/nfl-score/nfl-score.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -78,6 +81,14 @@ const routes: Routes = [
             {
                 path: 'nfl-pre',
                 component: NflPreComponent, canActivate: [PaidGuard]
+            },
+            {
+                path: 'nfl-week',
+                component: NflWeekComponent, canActivate: [PaidGuard]
+            },
+            {
+                path: 'nfl-score',
+                component: NflScoreComponent, canActivate: [PaidGuard]
             },
             {
                 path: 'power-rankings',

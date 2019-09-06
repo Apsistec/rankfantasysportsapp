@@ -1,7 +1,1 @@
-{
-  "appId": "com.rfsports.app",
-  "appName": "rfsports",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}
+{}

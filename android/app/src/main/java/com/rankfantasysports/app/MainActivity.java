@@ -1,4 +1,4 @@
-package com.rfsports.app;
+package com.rankfantasysports.app;
 
 import android.os.Bundle;
 

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">rfsports</string>
     <string name="title_activity_main">rfsports</string>
-    <string name="package_name">com.rfsports.app</string>
-    <string name="fileprovider_authority">com.rfsports.app.fileprovider</string>
-    <string name="custom_url_scheme">com.rfsports.app</string>
+    <string name="package_name">com.rankfantasysports.app</string>
+    <string name="fileprovider_authority">com.rankfantasysports.app.fileprovider</string>
+    <string name="custom_url_scheme">com.rankfantasysports.app</string>
 </resources>

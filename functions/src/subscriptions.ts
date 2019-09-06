@@ -13,10 +13,12 @@ export const getSubscriptions = async(uid: string) => {
     return stripe.subscriptions.list({ customer });
 }
 
+ 
+
 /**
 Creates and charges user for a new subscription
 */
-export const createSubscription = async(uid: string, source: string, plan: string, coupon?: string) => {
+export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string, trial_from_plan?: boolean) => {
  
     const customer = await getOrCreateCustomer(uid);
 
@@ -24,6 +26,7 @@ export const createSubscription = async(uid: string, source: string, plan: strin
 
     const subscription = await stripe.subscriptions.create({
         customer: customer.id,
+        trial_from_plan: true,
         coupon,
         items: [
             {
@@ -35,6 +38,7 @@ export const createSubscription = async(uid: string, source: string, plan: strin
     // Add the plan to existing subscriptions
     const docData = {
         [plan]: true,
+        trial_from_plan: true,
         [subscription.id]: 'active',
     }   
 

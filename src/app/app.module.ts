@@ -20,9 +20,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/helpers/interceptor.service';
+import { Capacitor } from '@capacitor/core';
 import { Firebase } from '@ionic-native/firebase/ngx';
 
-// import { AuthRoutingModule } from './auth/auth-routing.module';
+// export const firebaseConfig = environment.firebaseConfig;
 @NgModule({
   declarations: [
     AppComponent,

@@ -126,7 +126,7 @@ export class AuthService {
 
 
   // Update UserData from all providers and login and register
-  private SetUserData({ uid, email, displayName, photoURL }) {
+  SetUserData({ uid, email, displayName, photoURL }) {
 
     const path = `users/${uid}`;
 
@@ -135,12 +135,18 @@ export class AuthService {
       email,
       displayName,
       photoURL,
+
     };
 
     return this.db.updateAt(path, data);
   }
 
-
+  // Update the timestamp field with the value from the server
+  // private SetTime() {
+  //   this.afs.collection('users').doc('users/${uid}').update({
+  //     timestamp: this.afs.firestore.FieldValue.serverTimestamp()
+  //   });
+  // }
 
   async presentLoading() {
     const loadingElement = await this.loadingCtrl.create({
@@ -232,6 +238,9 @@ export class AuthService {
     this.presentLoading();
     return this.afAuth.auth.signInWithEmailAndPassword(login.value.email, login.value.password)
       .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/auth/profile']);
+        });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message);
@@ -293,13 +302,13 @@ export class AuthService {
 
     // Auth logic to run auth providers
   async AuthLogin(provider) {
-    await this.afAuth.auth.signInWithPopup(provider)
+    return await this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
-      this.SetUserData(result.user);
+      this.isLoggedInToast();
       this.ngZone.run(() => {
         this.router.navigate(['/auth/profile']);
       });
-      return this.isLoggedInToast();
+      return this.SetUserData(result.user);
       })
       .catch((error) => {
           window.alert(error.message);

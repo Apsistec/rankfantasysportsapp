@@ -7,11 +7,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { InnerGuard } from '../core/guard/inner.guard';
 import { SharedModule } from '../shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LaunchpageComponent } from './launchpage/launchpage.component';
 import { PaypalComponent } from './paypal/paypal.component';
+import { CameraComponent } from './profile/camera/camera.component';
 
 @NgModule({
   imports: [
@@ -23,6 +23,7 @@ import { PaypalComponent } from './paypal/paypal.component';
   ],
   declarations: [
     AuthPage,
+    CameraComponent,
     ForgotPasswordComponent,
     LoginComponent,
     RegisterComponent,

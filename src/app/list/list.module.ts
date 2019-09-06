@@ -20,7 +20,8 @@ import { PowerRankingsComponent } from '../list/cfb/power-rankings/power-ranking
 import { ListPage } from './list.page';
 import { SharedModule } from './../shared/shared.module';
 import { ListAppRoutingModule } from './list-app.routing.module';
-
+import { NflWeekComponent } from './nfl/nfl-week/nfl-week.component';
+import { NflScoreComponent } from './nfl/nfl-score/nfl-score.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -36,6 +37,8 @@ import { ListAppRoutingModule } from './list-app.routing.module';
     ScorePredictionsComponent,
     PgaThisWeekComponent,
     NflPreComponent,
+    NflWeekComponent,
+    NflScoreComponent,
     ListPage,
     Table1Component,
     Table2Component,

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.rankfantasysports.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>RFSports</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="doug@rankfantasysports.com" href="https://rankfantasysports.com/">Rank Fantasy Sports Team</author>
+    <name>rfsports</name>
+    <description>RFSports is an app for Daily Fantasy Sports players.</description>
+    <author email="doug@rankfantasysports.com" href="https://rankfantasysports.com/">Rank Fantasy Sports Engineering</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -43,6 +43,8 @@
         <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

@@ -4,11 +4,12 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
 import { ThemeService } from '../../core/services/theme.service';
 import { SupportModalComponent } from './support-modal/support-modal.component';
+import { CameraComponent } from './camera/camera.component';
 import { ModalController } from '@ionic/angular';
 import { first } from 'rxjs/operators';
 import { LoadingController } from '@ionic/angular';
 import { IonContent } from '@ionic/angular';
-
+import { Image } from './camera/camera.interface';
 
 const themes = {
   autumn: {
@@ -43,7 +44,7 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-
+  isplayName;
   @Input() user;
   canEdit;
   loading = false;
@@ -56,6 +57,9 @@ export class ProfilePage implements OnInit {
   err;
   panelOpenState;
   results;
+  isReadOnly = true;
+  photoURL: any;
+
   constructor(
     public auth: AuthService,
     public functions: AngularFireFunctions,
@@ -115,6 +119,22 @@ export class ProfilePage implements OnInit {
     return modalEl.present();
   }
 
+  async presentCameraModal() {
+    const modal = await this.modalCtrl.create({
+      component: CameraComponent,
+      componentProps: {
+     
+      }
+    });
+
+    // modal.onDidDismiss()
+    //   .then((data) => {
+    //     const photoURL = data['data']; // Here's your selected image!
+    //   });
+
+    return await modal.present();
+  }
+
   onScroll(event) {
     if (event.detail.scrollTop > 200) {
       this.scrolledDown = true;
@@ -127,33 +147,6 @@ export class ProfilePage implements OnInit {
     this.ionContent.scrollToTop(1500);
   }
 
-  // async showSubscriptions() {
-  //   const subscriptions = await this.subs.listSubscriptions();
-  //   this.presentLoader();
-  // }
-
-  // async endSubscription() {
-  //   const cancelConfirmation = await this.subs.cancelSubscription();
-  //   this.presentLoader();
-  
-
-  // async openSubscriptionModal() {
-  //   const modalEl = await this.modalCtrl
-  //     .create({
-  //       component: SupportModalComponent,
-  //       componentProps: {
-  //         // Name: this.user.displayName ,
-  //         // email: this.user.email
-  //       }
-  //     });
-  //   await modalEl.present()
-  //     .catch(err => window.alert(err));
-  // }
-
-  // async onCloseModal() {
-  //   await this.modalCtrl.dismiss('', 'cancel')
-  //     .catch(err => window.alert(err));
-  // }
   async listSubscriptions() {
     await this.presentLoader();
     const user = await this.auth.getUser();
@@ -165,4 +158,6 @@ export class ProfilePage implements OnInit {
     });
     this.onDismissLoader();
   }
+
+ 
 }

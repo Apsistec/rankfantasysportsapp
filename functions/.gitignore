@@ -6,7 +6,7 @@
 typings/
 
 node_modules/
-
+serviceAccountKey.json
 service-account.json
 jest*
 lib/
