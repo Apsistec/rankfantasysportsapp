@@ -1,4 +1,4 @@
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';

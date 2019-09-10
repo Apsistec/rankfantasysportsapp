@@ -1,7 +1,6 @@
 {
   "name": "rfsports",
   "integrations": {
-    "capacitor": {},
     "cordova": {}
   },
   "type": "angular"

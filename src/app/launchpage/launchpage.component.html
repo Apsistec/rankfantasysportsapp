@@ -87,15 +87,15 @@
                     </ion-item>
                   </ion-list>
             <ion-button *ngIf="!isClickedGold; else gold"  strong
-                expand="block" color="success" (click)="clickedGold()">
-              <ion-icon name="medal" style="color:gold;"></ion-icon>&nbsp;&nbsp;
-              <ion-text style="color: gold; text-shadow: 1px 1px black;">Select Gold</ion-text>
+                expand="block" color="secondary" (click)="clickedGold()">
+              <ion-icon name="medal" color="gold"></ion-icon>&nbsp;&nbsp;
+              <ion-text color="gold" style="text-shadow: 1px 1px black;">Select Gold</ion-text>
               </ion-button>
 
 <ng-template #gold>
-  <ion-button shape="round" strong="true" expand="block" color="warning">
+  <ion-button  strong expand="block" color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-    <ion-text style="text-shadow: 1px 1px black;">Gold Package</ion-text>
+    <ion-text style="text-shadow: 1px 1px black;">Gold Selected</ion-text>
   </ion-button>
 </ng-template>
 
@@ -126,19 +126,19 @@
                     <sub >$8.33 per Month</sub></ion-text>
                   </ion-item>
                   <ion-item color="medium" lines="none">
-                  <ion-text text-wrap color="primary" ><strong>$10 Savings</strong></ion-text>
+                  <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$10 Savings</strong></ion-text>
                 </ion-item>
               </ion-list>
                 <ion-button *ngIf="!isClickedSilver; else silver"  strong expand="block"
-                   color="success" (click)="clickedSilver()">
-                  <ion-icon name="medal" style="color:dimgrey;"></ion-icon>&nbsp;&nbsp;
-                  <ion-text text-wrap style="color:dimgrey; text-shadow: 1px 1px darkslategray;">Select Silver</ion-text>
+                   color="secondary" (click)="clickedSilver()">
+                  <ion-icon name="medal" color="silver"></ion-icon>&nbsp;&nbsp;
+                  <ion-text color="silver" text-wrap style="text-shadow: 1px 1px rgb(0, 2, 2);">Select Silver</ion-text>
                 </ion-button>
               
 <ng-template #silver>
-  <ion-button shape="round" strong="true" expand="block"  color="warning">
+  <ion-button strong expand="block"  color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-    <ion-text color="tertiary" style="text-shadow: 1px 1px black;">Silver Package</ion-text>
+    <ion-text color="tertiary" style="text-shadow: 1px 1px black;">Silver Selected</ion-text>
   </ion-button>
 </ng-template>
           </ion-card>
@@ -158,7 +158,7 @@
                 <ion-card-subtitle>
                   <ion-text color="warning" style="text-shadow: 1px 1px black;">
                  <h3>
-                   <sup>*</sup>Signup with any Pro membership today and get 7 days to try it out.
+                   <sup>*</sup>Signup with any PRO Package today and get 7 days to try it out.
                  </h3>
                   </ion-text>
                 </ion-card-subtitle>
@@ -174,7 +174,7 @@
               <ion-list lines="none">
                 <ion-list-header color="tertiary">
                   <ion-title>
-                    <ion-text  style="color:darkgoldenrod; text-shadow: 1px 1px black;">
+                    <ion-text  color="bronze" style="text-shadow: 1px 1px black;">
                       Bronze<br>Package
                     </ion-text>
                   </ion-title>
@@ -222,19 +222,19 @@
                   </ion-text>
                 </ion-item>
                 <ion-item color="medium" lines="none">
-                  <ion-text text-wrap color="primary" ><strong>$9.99 Billed Monthly</strong></ion-text>
+                  <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$9.99 Billed Monthly</strong></ion-text>
                 </ion-item>
               </ion-list>
                 <ion-button  *ngIf="!isClickedBronze; else bronze"  strong
-                  expand="block" color="success" (click)="clickedBronze()">
-                  <ion-icon name="medal" color="danger"></ion-icon>&nbsp;&nbsp;
-                  <ion-text style="color: darkgoldenrod; text-shadow: 1px 1px black;">Select Bronze</ion-text>
+                  expand="block" color="secondary" (click)="clickedBronze()">
+                  <ion-icon name="medal" color="bronze"></ion-icon>&nbsp;&nbsp;
+                  <ion-text style="text-shadow: 1px 1px black;" color="bronze">Select Bronze</ion-text>
                 </ion-button>
 
 <ng-template #bronze>
-  <ion-button  shape="round" strong="true" expand="block" color="warning">
+  <ion-button strong expand="block" color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-    <ion-text style="text-shadow: 1px 1px black;">Bronze Package</ion-text>
+    <ion-text style="text-shadow: 1px 1px black;">Bronze Selected</ion-text>
   </ion-button>
 </ng-template>
 
@@ -322,36 +322,26 @@
 <!-- Fourth Row Disclaimers -->
       <ion-row>
         <ion-col>
-          <ion-card>
-            <ion-list lines="none" >
-              <ion-item  color="light"> 
-                <p ><sub>
-
-                  * Credit or Debit card required for verification. During the One Week (7 day) trial period, card will not be charged. On eighth 8<sup>th</sup> day after subscription start date, card will be processed.
-                  <strong>Trial valid once per card holder/ member.</strong>
-                </sub>
-                </p> 
-              </ion-item>
-              <ion-item  color="light">
-                <p ><sub>
-
+          <ion-card color="medium" padding>
+              <ion-text>
+                <p>
+                  <sub>
+                    * Credit or Debit card required for verification. During the One Week (7 day) trial period, card will not be charged. On eighth 8<sup>th</sup> day after subscription start date, card will be processed.
+                      <strong>
+                        Trial valid once per card holder/ member.
+                      </strong>
+                  <hr>
                   <strong>
                     One (1) user per account.
                   </strong>
-                  Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <app-terms></app-terms>.  
-                </sub>
+                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com"><ion-text color="tertiary">Stripe</ion-text></a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <app-terms></app-terms>.
+                  <br>
+                    The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.
+                  </sub>
                 </p>
-              </ion-item>
-              <ion-item color="light">
-                <p>
-                  <sub>
-                  The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.
-                </sub>
-                </p>
-              </ion-item>
-            </ion-list>
-          </ion-card>
-        </ion-col>
+              </ion-text>
+            </ion-card>
+          </ion-col>
       </ion-row>
 
     </ion-grid>
@@ -360,4 +350,5 @@
     </ion-card>
   </ion-content>
 
-<!-- <app-footer></app-footer> -->
+
+

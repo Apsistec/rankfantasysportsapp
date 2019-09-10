@@ -15,11 +15,9 @@ export class HomePage implements OnInit {
   slideOpts = {
     centeredSlides: true,
     slidesPerView: 1,
-    
     autoplay: {
       delay: 4000,
     },
-   
   };
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;

@@ -9,7 +9,6 @@ import { RegisterComponent } from './register/register.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { SharedModule } from '../shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
-import { LaunchpageComponent } from './launchpage/launchpage.component';
 import { PaypalComponent } from './paypal/paypal.component';
 
 
@@ -29,8 +28,6 @@ import { PaypalComponent } from './paypal/paypal.component';
     RegisterComponent,
     VerifyEmailComponent,
     PaypalComponent,
-    LaunchpageComponent,
-
   ]
 })
 export class AuthPageModule {}

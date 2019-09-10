@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { InnerGuard } from '../core/guard/inner.guard';
-import { LaunchpageComponent } from './launchpage/launchpage.component';
 import { AuthGuard } from '../core/guard/auth.guard';
 
 const routes: Routes = [
@@ -19,7 +18,6 @@ const routes: Routes = [
         { path: 'register', component: RegisterComponent },
         { path: 'verify-email', component: VerifyEmailComponent },
         { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
-        { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
         { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
         { path: 'free-trial-login', loadChildren: './free-trial-login/free-trial-login.module#FreeTrialLoginPageModule' },
         { path: 'settings', loadChildren: './profile/settings/settings.module#SettingsPageModule' },

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastController, ModalController } from '@ionic/angular';
-import { CameraComponent } from './camera/camera.component';
+// import { CameraComponent } from './camera/camera.component';
 
 @Component({
   selector: 'app-settings',
@@ -39,17 +39,17 @@ export class SettingsPage implements OnInit {
     });
   }
 
-  async presentCameraModal() {
-    const modal = await this.modalCtrl.create({
-      component: CameraComponent,
-      componentProps: {
+  // async presentCameraModal() {
+  //   const modal = await this.modalCtrl.create({
+  //     component: CameraComponent,
+  //     componentProps: {
 
-      }
-    });
-    modal.onDidDismiss()
-      .then((data) => {
-        const photoURL = data['data']; // Here's your selected image!
-      });
-    return await modal.present();
-  }
+  //     }
+  //   });
+  //   modal.onDidDismiss()
+  //     .then((data) => {
+  //       const photoURL = data['data']; // Here's your selected image!
+  //     });
+  //   return await modal.present();
+  // }
 }

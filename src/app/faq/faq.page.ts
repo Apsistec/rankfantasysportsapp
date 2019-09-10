@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { Faqs } from './faqs';
 import { AuthService } from '../core/services/auth.service';
 import { IonContent } from '@ionic/angular';
-
+// import { Plugins } from '@capacitor/core';
+// const { Clipboard } = Plugins;
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.page.html',
@@ -31,4 +32,10 @@ export class FaqPage implements OnInit {
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
+
+  // async copy(name: string, text: string) {
+  //   Clipboard.write({
+  //     string: 'Q: ' + name + ' A: ' + text
+  //   });
+  // }
 }

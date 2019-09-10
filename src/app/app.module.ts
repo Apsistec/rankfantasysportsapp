@@ -20,13 +20,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/helpers/interceptor.service';
-import { Capacitor } from '@capacitor/core';
+import { LaunchpageComponent } from './launchpage/launchpage.component';
+
+// import { Capacitor } from '@capacitor/core';
 import { Firebase } from '@ionic-native/firebase/ngx';
 
 // export const firebaseConfig = environment.firebaseConfig;
 @NgModule({
   declarations: [
     AppComponent,
+    LaunchpageComponent
   ],
   entryComponents: [],
   imports: [

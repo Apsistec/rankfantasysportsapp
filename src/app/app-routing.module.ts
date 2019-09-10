@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LaunchpageComponent } from './launchpage/launchpage.component';
+import { AuthGuard } from './core/guard/auth.guard';
 
 
 const appRoutes: Routes = [
@@ -15,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
+  { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
 
   {
     path: '**',
