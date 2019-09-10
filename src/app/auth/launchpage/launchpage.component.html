@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<ion-content text-center  >
+<ion-content text-center fullscreen >
   <ion-grid>
 <!-- First Row Login -->
     <ion-row>
@@ -9,26 +9,30 @@
           <img src="../../assets/logo-md.svg">
           <ion-card-header>
             <ion-card-title>
-              <ion-text text-wrap color="secondary">
-                <ion-text color="secondary">RF<ion-text color="secondary">$</ion-text>&trade;</ion-text>&nbsp;Pro Subscriptions
+              <ion-text text-wrap color="secondary" style="text-shadow: 1px 1px black;">
+                <ion-text color="secondary">RF<ion-text color="secondary">$</ion-text>&trade;</ion-text>&nbsp;Pro Packages
               </ion-text>
             </ion-card-title>
           </ion-card-header>
         </ion-card>
         <ion-card color="primary">
           <ion-card-title>
-            <h4>
-              <ion-text color="warning">
+            <h4 style="text-shadow: 1px 1px black;">
+              <ion-text color="warning" style="text-shadow: 1px 1px black;"> 
                 Step 1:</ion-text>&nbsp;Login or Register Your Account
             </h4>
           </ion-card-title>
         <ion-card-content>
-            <ion-button color="warning" fill="outline" shape="round" expand="block"
-              *ngIf="auth.afAuth.user | async as user; else login">You are logged in</ion-button>
+            <ion-button strong color="success" fill="outline" shape="round" expand="block"
+              *ngIf="auth.afAuth.user | async as user; else login">
+              <ion-text color="secondary" style="text-shadow: 1px 1px black;">
+                You are logged in
+              </ion-text>
+            </ion-button>
 
 <ng-template #login>
-  <ion-button color="success" routerLink="/register">
-    <ion-text color="warning">
+  <ion-button strong color="success" routerLink="/register">
+    <ion-text color="warning" style="text-shadow: 1px 1px black;">
       Register or Login
     </ion-text>
   </ion-button>
@@ -44,9 +48,10 @@
 <ion-row class="ion-align-items-stretch">
   <ion-col size-md="12">
     <ion-card  color="primary">
-      <h4>
-        <ion-text color="warning">Step 2:</ion-text>&nbsp;Choose a Package
+      <h4 style="text-shadow: 1px 1px black;">
+        <ion-text color="warning" style="text-shadow: 1px 1px black;">Step 2:</ion-text>&nbsp;Choose a Pro Package
       </h4>
+    </ion-card>
       <ion-grid *ngIf="auth.afAuth.user | async as user">
         <ion-row>
           <ion-grid>
@@ -54,12 +59,12 @@
 
     <!-- Gold Plan -->
               <ion-col size-md="6">
-                <ion-card color="primary">
-                  <ion-list>
+                <ion-card color="light">
+                  <ion-list class="golden" lines="none">
                     <ion-list-header color="tertiary">
                       <ion-title>
-                        <ion-text color="warning">
-                          <h2>Gold</h2>
+                        <ion-text color="warning" style="text-shadow: 1px 1px black;">
+                          Gold<br>Package
                         </ion-text>
                       </ion-title>
                   
@@ -67,30 +72,30 @@
                   
                     </ion-list-header>
                     <ion-item>
-                      <ion-text text-wrap>Includes everything in Bronze Package</ion-text>
+                      <ion-text text-wrap >Includes everything in Bronze Package</ion-text>
                     </ion-item>
                     <ion-item>
-                      <ion-text text-wrap>One (1) Year Subscription</ion-text>
+                      <ion-text text-wrap >One (1) Year Subscription</ion-text>
                     </ion-item>
                     <ion-item>
-                      <ion-text text-wrap>$90.00 Billed Annually
+                      <ion-text text-wrap >$90.00 Billed Annually
                         <br>
-                        <sub>$7.50 per Month</sub></ion-text>
+                        <sub >$7.50 per Month</sub></ion-text>
                     </ion-item>
                     <ion-item color="medium" lines="none">
-                      <ion-text text-wrap color="primary"><strong>$30 Savings</strong></ion-text>
+                      <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$30 Savings</strong></ion-text>
                     </ion-item>
                   </ion-list>
-            <ion-button *ngIf="!isClickedGold; else gold" shape="round" strong="true"
+            <ion-button *ngIf="!isClickedGold; else gold"  strong
                 expand="block" color="success" (click)="clickedGold()">
-              <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;
-              <ion-text>Gold Package</ion-text>
+              <ion-icon name="medal" style="color:gold;"></ion-icon>&nbsp;&nbsp;
+              <ion-text style="color: gold; text-shadow: 1px 1px black;">Select Gold</ion-text>
               </ion-button>
 
 <ng-template #gold>
   <ion-button shape="round" strong="true" expand="block" color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-    <ion-text>Gold Package</ion-text>
+    <ion-text style="text-shadow: 1px 1px black;">Gold Package</ion-text>
   </ion-button>
 </ng-template>
 
@@ -99,12 +104,12 @@
           
 <!-- Silver Plan -->
           <ion-col size-md="6">
-            <ion-card>
-              <ion-list>
+            <ion-card color="light">
+              <ion-list lines="none">
                 <ion-list-header color="tertiary">
                   <ion-title>
-                    <ion-text color="light">
-                      <h2>Silver</h2>
+                    <ion-text color="light" style="text-shadow: 1px 1px black;">
+                      Silver<br>Package
                     </ion-text>
                   </ion-title>
                   <ion-img src="../../assets/img/silver.svg" style="width: 45px;"></ion-img>
@@ -113,27 +118,27 @@
                   <ion-text text-wrap>Includes everything in Bronze Package</ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-text text-wrap>Six (6) Month Subscription</ion-text>
+                  <ion-text text-wrap >Six (6) Month Subscription</ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-text text-wrap>$50.00 Billed Bi-annually
+                  <ion-text text-wrap >$50.00 Billed Bi-annually
                     <br>
-                    <sub>$8.33 per Month</sub></ion-text>
+                    <sub >$8.33 per Month</sub></ion-text>
                   </ion-item>
                   <ion-item color="medium" lines="none">
-                  <ion-text text-wrap color="primary"><strong>$10 Savings</strong></ion-text>
+                  <ion-text text-wrap color="primary" ><strong>$10 Savings</strong></ion-text>
                 </ion-item>
               </ion-list>
-                <ion-button *ngIf="!isClickedSilver; else silver" shape="round" strong="true"
-                  expand="block" color="success" (click)="clickedSilver()">
-                  <ion-icon name="medal" color="light"></ion-icon>&nbsp;&nbsp;
-                  <ion-text text-wrap>Silver Package</ion-text>
+                <ion-button *ngIf="!isClickedSilver; else silver"  strong expand="block"
+                   color="success" (click)="clickedSilver()">
+                  <ion-icon name="medal" style="color:dimgrey;"></ion-icon>&nbsp;&nbsp;
+                  <ion-text text-wrap style="color:dimgrey; text-shadow: 1px 1px darkslategray;">Select Silver</ion-text>
                 </ion-button>
               
 <ng-template #silver>
-  <ion-button shape="round" strong="true" expand="block" color="warning">
+  <ion-button shape="round" strong="true" expand="block"  color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-    <ion-text>Silver Package</ion-text>
+    <ion-text color="tertiary" style="text-shadow: 1px 1px black;">Silver Package</ion-text>
   </ion-button>
 </ng-template>
           </ion-card>
@@ -144,14 +149,14 @@
             <ion-card color="warning">
               <ion-card padding color="tertiary">
                 <ion-card-title>
-                  <ion-text color="secondary">
+                  <ion-text color="secondary" style="text-shadow: 1px 1px black;">
                     <h1>
                       Free for a week!
                     </h1>
                  </ion-text>
                 </ion-card-title>
                 <ion-card-subtitle>
-                  <ion-text color="warning">
+                  <ion-text color="warning" style="text-shadow: 1px 1px black;">
                  <h3>
                    <sup>*</sup>Signup with any Pro membership today and get 7 days to try it out.
                  </h3>
@@ -165,40 +170,40 @@
 
 <!-- Bronze Plan -->
           <ion-col size-md="4">
-            <ion-card>
-              <ion-list>
+            <ion-card color="light">
+              <ion-list lines="none">
                 <ion-list-header color="tertiary">
                   <ion-title>
-                    <ion-text color="danger">
-                      <h2>Bronze</h2>
+                    <ion-text  style="color:darkgoldenrod; text-shadow: 1px 1px black;">
+                      Bronze<br>Package
                     </ion-text>
                   </ion-title>
                   <img src="../../assets/img/bronze.svg" style="width: 45px;">
                 </ion-list-header>
                 <ion-item>
-                  <ion-text text-wrap>
+                  <ion-text text-wrap >
                     Access to all DFS data-tables
                   </ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-text text-wrap>
+                  <ion-text text-wrap >
                     Videos providing DFS stats analysis
                     <br>
-                    <sub>Catagorized by topic</sub>
+                    <sub >Catagorized by topic</sub>
                   </ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-text text-wrap>
+                  <ion-text text-wrap >
                     Access to All Past and Upcoming Livestream events
                     <br>
-                    <sub>Receive notification of upcoming events</sub>
+                    <sub >Receive notification of upcoming events</sub>
                   </ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-text text-wrap>
+                  <ion-text text-wrap >
                     Exclusive DFS chat room access
                     <br>
-                    <sub>
+                    <sub >
                       Get the info you need, when you need it.
                     </sub>
                   </ion-text>
@@ -207,29 +212,29 @@
                   <ion-text text-wrap>
                      Many other tools and resources                   
                      <br>
-                    <sub>Soon to be released</sub>
+                    <sub >Soon to be released</sub>
                   </ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-text text-wrap>One (1) Month Subscription
+                  <ion-text text-wrap >One (1) Month Subscription
                     <br>
-                    <sub>Month -to- Month</sub>
+                    <sub >Month -to- Month</sub>
                   </ion-text>
                 </ion-item>
                 <ion-item color="medium" lines="none">
-                  <ion-text text-wrap color="primary"><strong>$9.99 Billed Monthly</strong></ion-text>
+                  <ion-text text-wrap color="primary" ><strong>$9.99 Billed Monthly</strong></ion-text>
                 </ion-item>
               </ion-list>
-                <ion-button  *ngIf="!isClickedBronze; else bronze" shape="round" strong="true"
+                <ion-button  *ngIf="!isClickedBronze; else bronze"  strong
                   expand="block" color="success" (click)="clickedBronze()">
                   <ion-icon name="medal" color="danger"></ion-icon>&nbsp;&nbsp;
-                  <ion-text>Bronze Package</ion-text>
+                  <ion-text style="color: darkgoldenrod; text-shadow: 1px 1px black;">Select Bronze</ion-text>
                 </ion-button>
 
 <ng-template #bronze>
   <ion-button  shape="round" strong="true" expand="block" color="warning">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
-    <ion-text>Bronze Package</ion-text>
+    <ion-text style="text-shadow: 1px 1px black;">Bronze Package</ion-text>
   </ion-button>
 </ng-template>
 
@@ -237,7 +242,7 @@
                         </ion-col>
                       </ion-row>
                     </ion-grid>
-                  </ion-card>
+                  <!-- </ion-card> -->
                 </ion-col>
               </ion-row>
               <!-- Third Row Payment -->
@@ -248,11 +253,11 @@
                       <ion-card *ngIf="planId">
                         <ion-card-title>
                           
-                          <ion-text text-wrap>You are purchasing:</ion-text>
+                          <ion-text text-wrap style="text-shadow: 1px 1px black;">You are purchasing:</ion-text>
                         </ion-card-title>
                         <br>
                         <ion-button shape="round" size="large" expand="block" fill="outline" color="success">
-                          <ion-text color="warning">
+                          <ion-text color="warning" style="text-shadow: 1px 1px black;">
                             {{ planId }}&nbsp;Package 
                             <br>
                             {{ price }}
@@ -260,11 +265,11 @@
                         </ion-button>
                         <hr>
                       </ion-card>
-                      <h4>
-                        <ion-text color="warning">Step 3:</ion-text>&nbsp;Enter Your Card Details
+                      <h4 style="text-shadow: 1px 1px black;">
+                        <ion-text color="warning" style="text-shadow: 1px 1px black;">Step 3:</ion-text>&nbsp;Enter Your Card Details
                       </h4>
                       <hr>
-                      <ion-text color="warning">
+                      <ion-text color="warning" style="text-shadow: 1px 1px black;">
 
                         <h5>Credit & Debit Accepted</h5>
                       </ion-text>
@@ -300,8 +305,8 @@
                           <p class="has-text-danger">{{ cardErrors }}</p>
                         </div>
                         <hr>
-                        <ion-button [disabled]="!planChosen" type="submit" color="tertiary" shape="round">
-                          <ion-text color="warning">Start Subscription&nbsp;&nbsp;
+                        <ion-button [disabled]="!planChosen" type="submit" expand="block" color="tertiary">
+                          <ion-text color="warning" style="text-shadow: 1px 1px black;">Start Subscription&nbsp;&nbsp;
                             <ion-icon slot="end" color="dark" name="jet"></ion-icon>
                           </ion-text>
                         </ion-button>
@@ -317,41 +322,42 @@
 <!-- Fourth Row Disclaimers -->
       <ion-row>
         <ion-col>
-          <!-- <ion-card color="primary"> -->
-            <ion-list>
-              <ion-item> 
-                <p><sub>
+          <ion-card>
+            <ion-list lines="none" >
+              <ion-item  color="light"> 
+                <p ><sub>
 
-                  * Credit or Debit card required for verification. During the One Week (7 days) trial period, card will not be charged. On eighth 8<sup>th</sup> day after subscription start date, card will be processed.
-                  <strong>Trial valid one (1) time for each card holder/ member.</strong>
+                  * Credit or Debit card required for verification. During the One Week (7 day) trial period, card will not be charged. On eighth 8<sup>th</sup> day after subscription start date, card will be processed.
+                  <strong>Trial valid once per card holder/ member.</strong>
                 </sub>
                 </p> 
               </ion-item>
-              <ion-item color="light">
-                <p><sub>
+              <ion-item  color="light">
+                <p ><sub>
 
                   <strong>
                     One (1) user per account.
                   </strong>
-                  Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.
-               
-
-                  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information. Your actual card numbers and other card details are never visible to us nor are they ever stored on our servers.
-              
-
-                  All subscriptions are billed automatically, on the same date each billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed. For more details, please read our <app-terms></app-terms>.
-             
-
+                  Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <app-terms></app-terms>.  
+                </sub>
+                </p>
+              </ion-item>
+              <ion-item color="light">
+                <p>
+                  <sub>
                   The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.
                 </sub>
                 </p>
               </ion-item>
             </ion-list>
-          <!-- </ion-card> -->
+          </ion-card>
         </ion-col>
       </ion-row>
 
     </ion-grid>
+    <ion-card>
+
+    </ion-card>
   </ion-content>
 
 <!-- <app-footer></app-footer> -->

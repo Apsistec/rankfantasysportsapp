@@ -13,6 +13,7 @@ import { TermsComponent } from './terms/terms.component';
 import { DropdownDirective } from './directives/dropdown.directive';
 import { MatExpansionModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
+import { SubmitIfValidDirective } from '../shared/directives/submit-if-valid.directive';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatDialogModule } from '@angular/material';
     PrivacyDialogComponent,
     PrivacyComponent,
     DropdownDirective,
-    ListTablesComponent
+    ListTablesComponent,
+    SubmitIfValidDirective,
   ],
   entryComponents: [
     TermsDialogComponent,
@@ -49,7 +51,8 @@ import { MatDialogModule } from '@angular/material';
     TermsComponent,
     MatDialogModule,
     MatExpansionModule,
-    ListTablesComponent
+    ListTablesComponent,
+    SubmitIfValidDirective
   ],
 })
 export class SharedModule {}

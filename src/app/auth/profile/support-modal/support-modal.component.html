@@ -1,7 +1,7 @@
    
     <ion-card padding color="primary">
+      <ng-container *ngIf="auth.user | async as user">
   <form #supportForm="ngForm" (ngSubmit)="onSubmit(supportForm)">
-              <ng-container *ngIf="auth.user$ | async as user">
 
                 <ion-item>
                   Name :{{ user.displayName || 'Mysterious User' }} 
@@ -9,9 +9,8 @@
                 <ion-item>
                   Email: {{ user.email }}
                 </ion-item>
-              </ng-container>
                 
-      
+                
                <ion-item>
                  <select [ngModel]="active?.type" name="type" required class="form-control">
                  <option value="null">Type of Request</option>
@@ -21,15 +20,15 @@
                 </select>
               </ion-item>
                 <br>
-        
+                
         <ion-item>
-        <select [ngModel]="active?.os" name="os" required class="form-control">
+          <select [ngModel]="active?.os" name="os" required class="form-control">
         <option value="null">Select OS</option>
         <option value="ios">iOS</option>
         <option value="android">Android</option>
         <option value="browser">Browser: PC or Other</option>
       </select>
-
+      
       </ion-item>
       
       <br>
@@ -53,15 +52,16 @@
       
       <ion-item>
         <ion-label position="floating">Description</ion-label>
-          <ion-textarea required>
+        <ion-textarea required>
           <!-- <ion-input name="details" type="text" ></ion-input> -->
-          </ion-textarea>
+        </ion-textarea>
       </ion-item>
       <br>
       
-            <ion-button type="submit" [disabled]="supportForm.invalid" expand="block">Submit</ion-button>
-            <ion-button (click)="this.cancelModal()"  type="submit" expand="block">Cancel</ion-button>
-          </form>
-        </ion-card>
-          
-   
+      <ion-button type="submit" [disabled]="supportForm.invalid" expand="block">Submit</ion-button>
+      <ion-button (click)="this.cancelModal()"  type="submit" expand="block">Cancel</ion-button>
+    </form>
+  </ng-container>
+  </ion-card>
+  
+  

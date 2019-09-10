@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import { NgModule } from '@angular/core';
+import { SubmitIfValidDirective } from '../../shared/directives/submit-if-valid.directive';
 
 @Component({
   selector: 'app-free-trial-login',

@@ -7,7 +7,6 @@ import { NgForm } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { switchMap, take, map, first } from 'rxjs/operators';
 import { DbService } from './db.service';
-// import { User } from '../models/user';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -16,7 +15,7 @@ import { Storage } from '@ionic/storage';
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<any>;
+  user: Observable<any>;
   userData: any;
   constructor(
     public afs: AngularFirestore,
@@ -29,10 +28,11 @@ export class AuthService {
     private ngZone: NgZone
 
   ) {
-
-    this.user$ = this.afAuth.authState.pipe(
+    this.user = this.afAuth.authState.pipe(
       switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
+
+
     // this.user$ = this.afAuth.authState.pipe(
     //   switchMap(user => (
 
@@ -55,7 +55,7 @@ export class AuthService {
 
 
   uid() {
-    return this.user$
+    return this.user
       .pipe(
         take(1),
         map(u => u && u.uid)
@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   bronze() {
-    return this.user$
+    return this.user
       .pipe(
         take(1),
         map(user => user && user.bronze)
@@ -73,7 +73,7 @@ export class AuthService {
   }
 
   silver() {
-    return this.user$
+    return this.user
       .pipe(
         take(1),
         map(user => user && user.silver)
@@ -82,7 +82,7 @@ export class AuthService {
   }
 
   gold() {
-    return this.user$
+    return this.user
       .pipe(
         take(1),
         map(user => user && user.gold)
@@ -94,6 +94,20 @@ export class AuthService {
     const user = await this.afAuth.authState.pipe(first()).toPromise();
       return user;
   }
+
+  getUserInformation() {
+    return this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges();
+  }
+
+  updateUser (displayName) {
+    return this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
+      .update({displayName: displayName});
+    }
+
+  updateUserPhoto (photoURL) {
+    return this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
+      .update({photoURL: photoURL});
+    }
 
   async isBronze() {
     const bronze = await this.bronze();
@@ -122,7 +136,6 @@ export class AuthService {
       return isPaid;
     }
   }
-
 
 
   // Update UserData from all providers and login and register
@@ -175,58 +188,7 @@ export class AuthService {
 //     return this.db.updateAt(path, data);
 //   }
 
-//   async Login(login: NgForm) {
-//     this.presentLoading();
-//     const email = login.value.email;
-//     const password = login.value.password;
-//     return await this.afAuth.auth.signInWithEmailAndPassword(email, password)
-//       .then((result) => {
-//         /* Call the SendVerificaitonMail() function when new user sign
-//         up and returns promise */
-//         this.onDismissLoader();
-//         this.updateUserData(result.user);
-//         this.ngZone.run(() => {
-//             this.router.navigate(['/profile']);
-//           });
-//         }).catch((error) => {
-//           window.alert(error.message);
-//         });
-//       }
 
-//       async Register(register: NgForm) {
-//         this.presentLoading();
-//         return await this.afAuth.auth.createUserWithEmailAndPassword(register.value.email, register.value.password)
-//         .then((result) => {
-//         register.reset();
-//         this.ngZone.run(() => {
-//           this.router.navigate(['/profile']);
-//         });
-//         this.onDismissLoader();
-//         // this.SendVerificationMail();
-//         this.updateUserData(result.user);
-//       }).catch((error) => {
-//         window.alert(error.message);
-//     });
-//   }
-
-
-//   // Reset Forgot password
-//  async ForgotPassword(resetEmail) {
-//     return await this.afAuth.auth.sendPasswordResetEmail(resetEmail)
-//     .catch((error) => {
-//       window.alert(error.message);
-//     });
-//   }
-
-//     // Sign out
-//   async SignOut() {
-//     await this.afAuth.auth.signOut()
-//     .then(() => {
-//       localStorage.removeItem('user');
-//       this.signOutToast();
-//       return this.router.navigate(['/home']);
-//     });
-//   }
 
 //   // Returns true when user is looged in and email is verified
 //   get isLoggedIn(): boolean {
@@ -260,7 +222,7 @@ export class AuthService {
       }).catch((error) => {
         window.alert(error.message);
       });
-  }
+    }
 
   FreeSignUp(register: NgForm) {
     this.presentLoading();
@@ -277,30 +239,30 @@ export class AuthService {
     }
 
     // Send email verfificaiton when new user sign up
-    SendVerificationMail() {
-      return this.afAuth.auth.currentUser.sendEmailVerification()
-      .then(() => {
-        this.router.navigate(['/auth/verify-email']);
-      });
-    }
+  SendVerificationMail() {
+    return this.afAuth.auth.currentUser.sendEmailVerification()
+    .then(() => {
+      this.router.navigate(['/auth/verify-email']);
+    });
+  }
 
     // Reset Forgot password
-    ForgotPassword(passwordResetEmail) {
-      return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        this.resetPasswordToast();
-      }).catch((error) => {
-        window.alert(error);
-      });
-    }
+  ForgotPassword(passwordResetEmail) {
+    return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+    .then(() => {
+      this.resetPasswordToast();
+    }).catch((error) => {
+      window.alert(error);
+    });
+  }
 
     // Returns true when user is looged in and email is verified
-    get isLoggedIn(): boolean {
-      const user = JSON.parse(localStorage.getItem('user'));
-      return (user !== null ) ? true : false;
-    }
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null ) ? true : false;
+  }
 
-    // Auth logic to run auth providers
+  // Auth logic to run auth providers
   async AuthLogin(provider) {
     return await this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
@@ -309,37 +271,22 @@ export class AuthService {
         this.router.navigate(['/auth/profile']);
       });
       return this.SetUserData(result.user);
-      })
-      .catch((error) => {
-          window.alert(error.message);
-      });
-  }
-
-  /* Setting up user data when sign in with username/password,
-  sign up with username/password and sign in with social auth
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  // SetUserData(user) {
-  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-  //   const userData: User = {
-  //     uid: user.uid,
-  //     email: user.email,
-  //     displayName: user.displayName,
-  //     photoURL: user.photoURL,
-  //     emailVerified: user.emailVerified
-  //   };
-  //   return userRef.set(userData, {
-  //     merge: true
-  //   });
-  // }
-
-  // Sign out
-  SignOut() {
-    return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['/home']);
+    })
+    .catch((error) => {
+      window.alert(error.message);
     });
   }
 
+
+        // Sign out
+  async SignOut() {
+    return await this.afAuth.auth.signOut()
+    .then(() => {
+      this.signOutToast();
+      this.router.navigate(['/home']);
+      localStorage.removeItem('user');
+    });
+  }
 
   // Sign in with Google
   GoogleAuth() {
@@ -353,6 +300,21 @@ export class AuthService {
   // Sign in with Facebook
   FacebookAuth() {
     return this.AuthLogin(new auth.FacebookAuthProvider());
+  }
+
+  linkGoogle() {
+    const provider = new auth.GoogleAuthProvider();
+    auth().currentUser.linkWithPopup(provider);
+  }
+
+  linkFacebook() {
+    const provider = new auth.FacebookAuthProvider();
+    auth().currentUser.linkWithPopup(provider);
+  }
+
+  linkTwitter() {
+    const provider = new auth.TwitterAuthProvider();
+    auth().currentUser.linkWithPopup(provider);
   }
 
   async needLoginToast() {
@@ -380,6 +342,7 @@ export class AuthService {
     });
     return toast.present();
   }
+
   async resetPasswordToast() {
     const toast = await this.toaster.create({
       header: 'Authentication Message:',
@@ -430,6 +393,7 @@ export class AuthService {
     });
     return toast.present();
   }
+
   canRead(user): boolean {
     // const allowed = 'bronze' || 'silver' || 'gold';
     return this.checkAuthorization(user);

@@ -7,29 +7,27 @@
           <ion-img src="../../../assets/logo.jpg"></ion-img>
             <ion-card-header>
             <ion-card-title  text-center>
-              <ion-text color="secondary">
+              <ion-text color="secondary" style="text-shadow: 1px 1px #000000;">
                 <strong>
                   Account Login
                 </strong>
               </ion-text>
             </ion-card-title>
           </ion-card-header>
-                  <form #login="ngForm" (ngSubmit)="auth.SignIn(login)">
+                  <form #formRef="ngForm">
                         <ion-item color="medium">
                           <ion-label color="warning"  position="floating">Email</ion-label>
-                          <ion-input style="width: 91%;" autofocus clearInput autocomplete="username" color="dark" type="text" ngModel email name="email" #email="ngModel" required >
+                          <ion-input style="width: 95%;" autofocus clearInput autocomplete="username" color="dark" type="text" ngModel email name="email" #email="ngModel" required >
                           </ion-input>
-                         <!-- <ion-button type="button" clear item-end style="position: absolute; right: 0; bottom: 0; background: transparent;">
-                           <ion-icon name="person" size="large"></ion-icon>
-                          </ion-button>  -->
+                       
                         </ion-item>
-                        <ion-note class="shadow"  *ngIf="email.invalid && email.dirty " color="danger" text-wrap>
+                        <ion-note class="shadow" *ngIf="email.invalid && email.dirty" color="danger" text-wrap>
                             Enter a Valid Email Address
                           </ion-note>
                         <ion-item color="medium">
                           <ion-label color="warning" position="floating">Password</ion-label>
                           <ion-input 
-                            style="width: 91%;"
+                            style="width: 89%;"
                             autocomplete="current-password"
                             [type]="hide ? 'password' : 'text'" 
                             name="password" 
@@ -52,16 +50,16 @@
                       type="submit" 
                        color="success"
                       expand="full" 
-                      [disabled]="login.invalid"><ion-ripple-effect></ion-ripple-effect>
+                     (tsSubmitIfValid)="auth.SignIn(formRef)"><ion-ripple-effect></ion-ripple-effect>
                       <ion-text class="shadow"> <strong>Login</strong></ion-text>
                     </ion-button>
-                    <ion-button color="danger" type="button" (click)="auth.GoogleAuth()" expand="full">Login with <ion-icon name="logo-google"></ion-icon>
+                    <ion-button color="danger" type="button" (click)="auth.GoogleAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-google"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
                     </ion-button>
-                    <ion-button color="twittr" type="button" (click)="auth.TwitterAuth()" expand="full">Login with <ion-icon name="logo-twitter"></ion-icon>
+                    <ion-button color="twittr" type="button" (click)="auth.TwitterAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-twitter"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
                     </ion-button>
-                    <ion-button color="facebk"  type="button" (click)="auth.FacebookAuth()" expand="full">Login with <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-button color="facebk"  type="button" (click)="auth.FacebookAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-facebook"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
                     </ion-button>
                   </form>

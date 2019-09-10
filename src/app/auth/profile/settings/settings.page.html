@@ -1,0 +1,61 @@
+<app-header></app-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+              <ion-card color="primary">
+                <ion-card-header text-center>
+                  <ion-card-title>
+
+                   User Settings
+                  </ion-card-title>
+                  <ion-card-subtitle>
+                     <ion-text color="warning">Click on Display Name and type your full name to update</ion-text>
+                  </ion-card-subtitle>
+                </ion-card-header>
+                <ion-list lines="none" *ngIf="auth.user | async as user">
+                  <ion-item>
+             <ion-label position="floating">
+
+              <ion-text color="secondary">
+
+                Display Name
+              </ion-text> 
+              </ion-label>
+             <ion-input  color="warning" [(ngModel)]="user.displayName"></ion-input>
+           </ion-item>
+           <ion-item>
+                     <ion-button color="warning" shape="round" size="small" (click)= "presentCameraModal()">Take Photo</ion-button> Work In Progress
+
+           </ion-item>
+           <ion-item>
+             <ion-label position="floating">
+               <ion-text color="secondary">
+
+                 Email
+                </ion-text>
+              </ion-label>
+             <ion-input disabled color="warning" [(ngModel)]="user.email"></ion-input>
+           </ion-item>
+           <ion-item>
+          <ion-button color="danger" size="small" shape="round" (click)=auth.linkGoogle()> 
+          Link Your Google Account
+        </ion-button> Work In Progress
+      </ion-item>
+      <ion-item>
+        <ion-button color="twittr" size="small" shape="round" (click)=auth.linkTwitter()> 
+          Link Your Twitter Account
+        </ion-button>Work In Progress
+      </ion-item>
+      <ion-item>
+       <ion-button color="facebk" size="small" shape="round" (click)=auth.linkFacebook()> 
+        Link Your Facebook Account
+         </ion-button>Work In Progress
+           </ion-item>
+          </ion-list>
+         <ion-button expand="full" (click)="updateUser()"></ion-button>
+       </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

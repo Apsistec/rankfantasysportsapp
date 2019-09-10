@@ -1,16 +1,18 @@
 .cta{
-    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 37%, rgba(56,56,56,0.86) 78%, rgba(56,56,56,1) 100%), url('../../assets/img/field20.jpg'); /* ff3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0.25)), color-stop(37%, rgba(0,0,0,0.6)), color-stop(78%, rgba(56,56,56,0.86)), color-stop(100%, rgba(56,56,56,1))), url('../../assets/img/field20.jpg'); /* safari4+,chrome */
-    background:-webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 37%, rgba(56,56,56,0.86) 78%, rgba(56,56,56,1) 100%), url('../../assets/img/field20.jpg'); /* safari5.1+,chrome10+ */
-    background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 37%, rgba(56,56,56,0.86) 78%, rgba(56,56,56,1) 100%), url('../../assets/img/field20.jpg'); /* opera 11.10+ */
-    background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 37%, rgba(56,56,56,0.86) 78%, rgba(56,56,56,1) 100%), url('../../assets/img/field20.jpg'); /* ie10+ */
-    background:radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 37%, rgba(56,56,56,0.86) 78%, rgba(56,56,56,1) 100%), url('../../assets/img/field20.jpg'); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#383838',GradientType=1 ), url('../../assets/img/field20.jpg'); /* ie6-9 */
-    // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.699)0%, rgba(0, 0, 0, 0.75)100%), url('../../assets/img/field20.jpg');
+
+   
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url('../../assets/img/field20.jpg'); /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0)), color-stop(33%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1))), url('../../assets/img/field20.jpg'); /* safari4+,chrome */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url('../../assets/img/field20.jpg'); /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url('../../assets/img/field20.jpg'); /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url('../../assets/img/field20.jpg'); /* ie10+ */
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url('../../assets/img/field20.jpg'); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 ), url('../../assets/img/field20.jpg'); /* ie6-9 */ /* ie6-9 */
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 300px;
     text-align: center;
+    background-position: center center;
+
 }
 
 
@@ -35,14 +37,22 @@
     text-align: center;
 }
 .utuub{
-    background: linear-gradient(rgba(0, 0, 0, .33), rgba(0, 0, 0, 0.75)), url('../../assets/img/ball-court2.jpg');
+    background:  url('../../assets/img/ball-court2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .inspire{
-    background: linear-gradient(rgba(74, 5, 80, 0.589), rgba(134, 60, 184, 0.527), url('../../assets/img/tribak.png'));
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    background-position: center center;
+
+    background: -moz-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url('../../assets/img/tribak.png'); /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(106,0,255,1)), color-stop(100%, rgba(0,89,19,1))), url('../../assets/img/tribak.png'); /* safari4+,chrome */
+    background:  -webkit-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url('../../assets/img/tribak.png'); /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url('../../assets/img/tribak.png'); /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url('../../assets/img/tribak.png'); /* ie10+ */
+    background: radial-gradient(ellipse at center, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url('../../assets/img/tribak.png'); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6A00FF', endColorstr='#005913',GradientType=1 ), url('../../assets/img/tribak.png'); /* ie6-9 */
 }
 
 

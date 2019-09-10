@@ -13,7 +13,10 @@ const routes: Routes = [
   {
     path: '',
     component: ProfilePage,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule', canActivate: [AuthGuard] },
+    ]
   }
 ];
 
@@ -25,10 +28,12 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  entryComponents: [SupportModalComponent],
+  entryComponents: [
+    SupportModalComponent,
+  ],
   declarations: [
     ProfilePage,
-    SupportModalComponent
+    SupportModalComponent,
   ]
 })
 export class ProfilePageModule {}

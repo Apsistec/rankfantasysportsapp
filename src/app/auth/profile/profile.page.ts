@@ -1,15 +1,9 @@
 import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { Router } from '@angular/router';
 import { ThemeService } from '../../core/services/theme.service';
 import { SupportModalComponent } from './support-modal/support-modal.component';
-import { CameraComponent } from './camera/camera.component';
-import { ModalController } from '@ionic/angular';
-import { first } from 'rxjs/operators';
-import { LoadingController } from '@ionic/angular';
-import { IonContent } from '@ionic/angular';
-import { Image } from './camera/camera.interface';
+import { LoadingController, ModalController, IonContent } from '@ionic/angular';
 
 const themes = {
   autumn: {
@@ -44,11 +38,11 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-  isplayName;
-  @Input() user;
+
+  @Input()
+  user;
   canEdit;
   loading = false;
-  currentUser;
   subscriptionList;
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;
@@ -58,44 +52,27 @@ export class ProfilePage implements OnInit {
   panelOpenState;
   results;
   isReadOnly = true;
-  photoURL: any;
+  // photoURL: any;
 
   constructor(
-    public auth: AuthService,
     public functions: AngularFireFunctions,
-    private router: Router,
     public theme: ThemeService,
     public loader: LoadingController,
     public modalCtrl: ModalController,
-
-    // private userService: UserService,
+    public auth: AuthService,
   ) {
-    this.currentUser = this.auth.afAuth.user;
-    this.auth.afAuth.user.subscribe(x => this.user = x);
-  }
 
+    }
   ngOnInit() {
 
   }
 
-  async getUser() {
-    await this.auth.afAuth.authState.pipe(first()).toPromise();
-    return this.user;
-  }
-  // get isModerator() {
-  //   return this.currentUser && this.currentUser.roles === this.user.role.moderator;
-  // }
-  // get isAdmin() {
-  //   return this.currentUser && this.currentUser.roles === this.user.role.admin;
-  // }
 
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
 
-  // changeSpeed(val) {
-  //   this.theme.setVariable('--speed', `${val}ms`);
-  // }
+
 
   async presentLoader() {
     const loadElement = await this.loader.create({
@@ -105,9 +82,11 @@ export class ProfilePage implements OnInit {
     });
     loadElement.present();
   }
+
   onDismissLoader() {
     return this.loader.dismiss();
   }
+
   async openSupportModal() {
     const modalEl = await this.modalCtrl
       .create({
@@ -119,21 +98,7 @@ export class ProfilePage implements OnInit {
     return modalEl.present();
   }
 
-  async presentCameraModal() {
-    const modal = await this.modalCtrl.create({
-      component: CameraComponent,
-      componentProps: {
-     
-      }
-    });
 
-    // modal.onDidDismiss()
-    //   .then((data) => {
-    //     const photoURL = data['data']; // Here's your selected image!
-    //   });
-
-    return await modal.present();
-  }
 
   onScroll(event) {
     if (event.detail.scrollTop > 200) {
@@ -149,15 +114,14 @@ export class ProfilePage implements OnInit {
 
   async listSubscriptions() {
     await this.presentLoader();
-    const user = await this.auth.getUser();
+    // const user = await this.getUser();
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
     this.subscriptionList = await fun({
-      uid: user.uid,
+      uid: this.user.uid,
     }).toPromise().catch((error) => {
       window.alert(error.message);
     });
     this.onDismissLoader();
   }
 
- 
 }

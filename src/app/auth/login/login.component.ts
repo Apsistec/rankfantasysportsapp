@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { PopoverController } from '@ionic/angular';
-
 // import { PopoverComponent } from '../'
+import { SubmitIfValidDirective } from '../../shared/directives/submit-if-valid.directive';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

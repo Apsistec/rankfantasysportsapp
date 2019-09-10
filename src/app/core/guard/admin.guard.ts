@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -7,7 +7,7 @@ import { tap, map, take } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-
+  @Input() user;
   constructor(
     private auth: AuthService,
     private router: Router
@@ -16,7 +16,7 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot): Observable<boolean> {
 
-    return this.auth.user$.pipe(
+    return this.auth.user.pipe(
       take(1),
       map(user => {
         if (!user) {

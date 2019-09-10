@@ -1,3 +1,4 @@
+/// <reference types="stripe-v3" />
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
 import { stripe, db } from './config'; 
@@ -18,7 +19,7 @@ export const getSubscriptions = async(uid: string) => {
 /**
 Creates and charges user for a new subscription
 */
-export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string, trial_from_plan?: boolean) => {
+export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string) => {
  
     const customer = await getOrCreateCustomer(uid);
 
@@ -26,19 +27,19 @@ export const createSubscription = async (uid: string, source: string, plan: stri
 
     const subscription = await stripe.subscriptions.create({
         customer: customer.id,
-        trial_from_plan: true,
         coupon,
         items: [
             {
-              plan,
+            plan,
             },
         ],
+        trial_from_plan: true,
+        
     });
 
     // Add the plan to existing subscriptions
     const docData = {
         [plan]: true,
-        trial_from_plan: true,
         [subscription.id]: 'active',
     }   
 
@@ -69,7 +70,6 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
 
 export const stripeCreateSubscription = functions.https.onCall( async (data, context) => {
     const uid = assertUID(context);
-    console.log(1, data)
     const source = assert(data, 'source');
     const plan = assert(data, 'plan');
     return catchErrors( createSubscription(uid, source, plan, data.coupon) );

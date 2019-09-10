@@ -2,7 +2,6 @@ import { Component, OnInit, Output, Input } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { AuthService } from '../../../core/services/auth.service';
 import { NgForm } from '@angular/forms';
-import { first } from 'rxjs/operators';
 
 export class Active {
   type: string;
@@ -21,10 +20,12 @@ export class SupportModalComponent implements OnInit {
   dismissed = false;
   @Input() user;
 
-  @Output() type: string;
-  @Output() description: string;
+  // @Output() type: string;
+  // @Output() description: string;
+  // @Output() model: string;
+  @Output() active: Active;
 
-  active: Active;
+  
   constructor(
     public navParams: NavParams,
     public auth: AuthService,

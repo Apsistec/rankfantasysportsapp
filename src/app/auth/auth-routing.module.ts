@@ -21,9 +21,11 @@ const routes: Routes = [
         { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [InnerGuard] },
         { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
         { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
+        { path: 'free-trial-login', loadChildren: './free-trial-login/free-trial-login.module#FreeTrialLoginPageModule' },
+        { path: 'settings', loadChildren: './profile/settings/settings.module#SettingsPageModule' },
     ]
   },
-  { path: 'free-trial-login', loadChildren: './free-trial-login/free-trial-login.module#FreeTrialLoginPageModule' },
+
 
 ];
 
