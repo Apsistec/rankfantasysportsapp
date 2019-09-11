@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/support-modal/support-modal.component.ts</code>
+            <code>src/app/auth/profile/support-modal/support-modal.component.ts</code>
         </p>
 
 
@@ -134,7 +134,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/support-modal/support-modal.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/auth/profile/support-modal/support-modal.component.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -161,7 +161,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/support-modal/support-modal.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/auth/profile/support-modal/support-modal.component.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -188,7 +188,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/support-modal/support-modal.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/auth/profile/support-modal/support-modal.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -215,7 +215,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/support-modal/support-modal.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/auth/profile/support-modal/support-modal.component.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -242,7 +242,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/support-modal/support-modal.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/auth/profile/support-modal/support-modal.component.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -261,11 +261,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output, Input } from &#x27;@angular/core&#x27;;
 import { NavParams, ModalController } from &#x27;@ionic/angular&#x27;;
-import { AuthService } from &#x27;src/app/core/services/auth.service&#x27;;
-import { Request } from &#x27;../core/models/request.model&#x27;;
-import { User } from &#x27;../core/models/user&#x27;;
+import { AuthService } from &#x27;../../../core/services/auth.service&#x27;;
 import { NgForm } from &#x27;@angular/forms&#x27;;
 
 export class Active {
@@ -282,26 +280,23 @@ export class Active {
   styleUrls: [&#x27;./support-modal.component.scss&#x27;]
 })
 export class SupportModalComponent implements OnInit {
-
-  modal;
   dismissed &#x3D; false;
-  user: User;
-  @Output() type: string;
-  @Output() description: string;
+  @Input() user;
 
-  active: Active;
+  // @Output() type: string;
+  // @Output() description: string;
+  // @Output() model: string;
+  @Output() active: Active;
+
+  
   constructor(
     public navParams: NavParams,
     public auth: AuthService,
     public modalCtrl: ModalController
   ) { }
 
-
   ngOnInit() {
     this.dismissed &#x3D; false;
-  }
-  async getUser() {
-   await this.auth.getUser();
   }
 
   async onSubmit(active: NgForm) {
@@ -315,9 +310,8 @@ export class SupportModalComponent implements OnInit {
   async cancelModal() {
     await this.modalCtrl.dismiss({
       dismissed: true
-  });
+    });
   }
-
 }
 </code></pre>
     </div>

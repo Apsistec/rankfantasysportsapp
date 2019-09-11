@@ -9,7 +9,7 @@ import { ToastController, ModalController } from '@ionic/angular';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-  userData = null;
+  // userData = null;
   @Input()
   user;
   constructor(
@@ -20,7 +20,7 @@ export class SettingsPage implements OnInit {
 
   ngOnInit() {
     this.auth.getUserInformation().subscribe(res => {
-      this.userData = res;
+      this.user = res;
     });
   }
 
@@ -32,7 +32,9 @@ export class SettingsPage implements OnInit {
     this.auth.updateUser(this.user.displayName).then(() => {
       const toast = this.toastCtrl.create({
         message: 'Your name was updated.',
-        duration: 2000
+        duration: 2000,
+        position: 'top',
+        translucent: true
       });
       // tslint:disable-next-line: no-shadowed-variable
       toast.then(toast => toast.present());

@@ -36,7 +36,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>LaunchPageComponent</li>
+  <li>LaunchpageComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/launch-page/launch-page.component.ts</code>
+    <code>src/app/launchpage/launchpage.component.ts</code>
 </p>
 
 
@@ -93,19 +93,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-launch-page</code></td>
+                <td class="col-md-9"><code>app-launchpage</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./launch-page.component.scss</code></td>
+                <td class="col-md-9"><code>./launchpage.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./launch-page.component.html</code></td>
+                <td class="col-md-9"><code>./launchpage.component.html</code></td>
             </tr>
 
 
@@ -161,13 +161,20 @@
                                 <a href="#isClickedSilver">isClickedSilver</a>
                             </li>
                             <li>
-                                <a href="#loading">loading</a>
+                                <a href="#planChosen">planChosen</a>
+                            </li>
+                            <li>
+                                <a href="#planId">planId</a>
+                            </li>
+                            <li>
+                                <a href="#price">price</a>
                             </li>
                             <li>
                                 <a href="#stripe">stripe</a>
                             </li>
                             <li>
-                                <a href="#user">user</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#toaster">toaster</a>
                             </li>
                         </ul>
                     </td>
@@ -207,30 +214,14 @@
                                     <span class="modifier">Async</span>
                                 <a href="#presentLoading">presentLoading</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#subscribedToast">subscribedToast</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#planChosen">planChosen</a>
-                            </li>
-                            <li>
-                                <a href="#planId">planId</a>
-                            </li>
-                            <li>
-                                <a href="#price">price</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -245,12 +236,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, functions: AngularFireFunctions, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, loadingCtrl: LoadingController)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, functions: AngularFireFunctions, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, loadingCtrl: LoadingController, toaster: ToastController)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/launch-page/launch-page.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/launchpage/launchpage.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -315,6 +306,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>toaster</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -324,66 +327,7 @@
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="planChosen"></a>
-                        <b>planChosen</b>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/launch-page/launch-page.component.ts:20</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="planId"></a>
-                        <b>planId</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/launch-page/launch-page.component.ts:18</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="price"></a>
-                        <b>price</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/launch-page/launch-page.component.ts:19</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -414,8 +358,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -453,8 +397,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:39</a></div>
                 </td>
             </tr>
 
@@ -492,8 +436,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:47</a></div>
                 </td>
             </tr>
 
@@ -531,8 +475,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -570,8 +514,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:66</a></div>
                 </td>
             </tr>
 
@@ -609,8 +553,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:116</a></div>
                 </td>
             </tr>
 
@@ -619,7 +563,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -650,8 +594,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:134</a></div>
                 </td>
             </tr>
 
@@ -688,7 +632,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>{}</code>
 
                     </div>
                     <div class="io-description">
@@ -722,8 +666,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">src/app/launch-page/launch-page.component.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:108</a></div>
                 </td>
             </tr>
 
@@ -732,7 +676,48 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscribedToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            subscribedToast
+                        </b>
+                        <a href="#subscribedToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>subscribedToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/app/launchpage/launchpage.component.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -766,7 +751,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/launch-page/launch-page.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/launchpage/launchpage.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -787,7 +772,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/launch-page/launch-page.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/launchpage/launchpage.component.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -823,7 +808,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/launch-page/launch-page.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/launchpage/launchpage.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -844,7 +829,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/launch-page/launch-page.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/launchpage/launchpage.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -865,7 +850,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/launch-page/launch-page.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/launchpage/launchpage.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -893,7 +878,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/launch-page/launch-page.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/launchpage/launchpage.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -919,7 +904,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/launch-page/launch-page.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/launchpage/launchpage.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -945,7 +930,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/launch-page/launch-page.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/launchpage/launchpage.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -971,7 +956,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/launch-page/launch-page.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/launchpage/launchpage.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -982,11 +967,11 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="loading"></a>
+                        <a name="planChosen"></a>
                         <span class="name">
                             <b>
-                            loading</b>
-                            <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                            planChosen</b>
+                            <a href="#planChosen"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -997,7 +982,61 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/launch-page/launch-page.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/launchpage/launchpage.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="planId"></a>
+                        <span class="name">
+                            <b>
+                            planId</b>
+                            <a href="#planId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/launchpage/launchpage.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="price"></a>
+                        <span class="name">
+                            <b>
+                            price</b>
+                            <a href="#price"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/launchpage/launchpage.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -1024,7 +1063,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/launch-page/launch-page.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/launchpage/launchpage.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -1035,23 +1074,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="user"></a>
+                        <a name="toaster"></a>
                         <span class="name">
                             <b>
-                            user</b>
-                            <a href="#user"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Public</span>
+                            toaster</b>
+                            <a href="#toaster"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User</a></code>
+                            <i>Type : </i>    <code>ToastController</code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/launch-page/launch-page.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/launchpage/launchpage.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -1066,152 +1106,162 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;../core/services/auth.service&#x27;;
 import { AngularFireFunctions } from &#x27;@angular/fire/functions&#x27;;
-import { User } from &#x27;../core/models/user&#x27;;
-import { Component, OnInit, Input, ElementRef,  ViewChild, AfterViewInit } from &#x27;@angular/core&#x27;;
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from &#x27;@angular/core&#x27;;
 import { NgForm } from &#x27;@angular/forms&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { LoadingController } from &#x27;@ionic/angular&#x27;;
+import { ToastController } from &#x27;@ionic/angular&#x27;;
 
 declare var Stripe: stripe.StripeStatic;
 
-@Component ({
-  selector: &#x27;app-launch-page&#x27;,
-  templateUrl: &#x27;./launch-page.component.html&#x27;,
-  styleUrls: [&#x27;./launch-page.component.scss&#x27;]
+@Component({
+  selector: &#x27;app-launchpage&#x27;,
+  templateUrl: &#x27;./launchpage.component.html&#x27;,
+  styleUrls: [&#x27;./launchpage.component.scss&#x27;]
 })
 
-export class LaunchPageComponent implements OnInit, AfterViewInit {
-  @Input() planId: string;
-  @Input() price: string;
-  @Input() planChosen;
-  @ViewChild(&#x27;cardElement&#x27; ) cardElement: ElementRef;
-
+export class LaunchpageComponent implements OnInit, AfterViewInit {
+  @ViewChild(&#x27;cardElement&#x27;) cardElement: ElementRef;
+  planId: string;
+  price: string;
 
   isClickedSilver &#x3D; false;
   isClickedGold &#x3D; false;
   isClickedBronze &#x3D; false;
-  // planChosen &#x3D; false;
-  loading &#x3D; false;
+  planChosen &#x3D; false;
 
-  user: User;
   stripe: stripe.Stripe;
   card;
   cardErrors;
-  // cardElement;
-  // planId;
-  // price;
   confirmation;
 
   constructor(
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private router: Router,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    public toaster: ToastController
   ) { }
-
-  ngOnInit() {
-  }
-  
-  ngAfterViewInit() {
-    this.planChosen &#x3D; false;
-    this.isClickedGold &#x3D; false;
+  clickedGold() {
     this.isClickedSilver &#x3D; false;
     this.isClickedBronze &#x3D; false;
+    this.isClickedGold &#x3D; true;
+    this.planChosen &#x3D; true;
+    this.planId &#x3D; &#x27;gold&#x27;;
+    this.price &#x3D; &#x27;$90.00 for 12 Months&#x27;;
+  }
+  clickedSilver() {
+    this.isClickedBronze &#x3D; false;
+    this.isClickedGold &#x3D; false;
+    this.isClickedSilver &#x3D; true;
+    this.planChosen &#x3D; true;
+    this.planId &#x3D; &#x27;silver&#x27;;
+    this.price &#x3D; &#x27;$50.00 for 6 Months&#x27;;
+  }
+  clickedBronze() {
+    this.isClickedSilver &#x3D; false;
+    this.isClickedGold &#x3D; false;
+    this.isClickedBronze &#x3D; true;
+    this.planChosen &#x3D; true;
+    this.planId &#x3D; &#x27;bronze&#x27;;
+    this.price &#x3D; &#x27;$9.99 per Month&#x27;;
+  }
+
+ 
+
+  ngOnInit() {
     this.stripe &#x3D; Stripe(&#x27;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&#x27;);
+
     const elements &#x3D; this.stripe.elements();
-    this.card &#x3D; elements.create(&#x27;card&#x27;, {
-      style: {
-        base: {
-          color: &#x27;#32325d&#x27;,
-          fontFamily: &#x27;&quot;Helvetica Neue&quot;, Helvetica, sans-serif&#x27;,
-          fontSmoothing: &#x27;antialiased&#x27;,
-          fontSize: &#x27;18px&#x27;,
-          &#x27;::placeholder&#x27;: {
-            color: &#x27;#aab7c4&#x27;
-          }
-        },
-        invalid: {
-          color: &#x27;red&#x27;
+    const style &#x3D; {
+      base: {
+        color: &#x27;#32325d&#x27;,
+        fontFamily: &#x27;&quot;Helvetica Neue&quot;, Helvetica, sans-serif&#x27;,
+        fontSmoothing: &#x27;antialiased&#x27;,
+        fontSize: &#x27;16px&#x27;,
+        &#x27;::placeholder&#x27;: {
+          color: &#x27;#aab7c4&#x27;
         }
+      },
+      invalid: {
+        color: &#x27;#fa755a&#x27;,
+        iconColor: &#x27;#fa755a&#x27;
       }
-    });
+    };
+
+    // Create an instance of the card Element.
+    this.card &#x3D; elements.create(&#x27;card&#x27;, { style: style });
     this.card.mount(this.cardElement.nativeElement);
     this.card.addEventListener(&#x27;change&#x27;, ({ error }) &#x3D;&gt; {
       this.cardErrors &#x3D; error &amp;&amp; error.message;
     });
+    this.planChosen &#x3D; false;
+    this.isClickedSilver &#x3D; false;
+    this.isClickedBronze &#x3D; false;
+    this.isClickedGold &#x3D; false;
+  }
+
+  ngAfterViewInit() {
+    // this.stripe &#x3D; Stripe(&#x27;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&#x27;);
+    // const elements &#x3D; this.stripe.elements();
+    // this.card &#x3D; elements.create(&#x27;card&#x27;);
+    // this.card.mount(this.cardElement.nativeElement);
+    // this.card.addEventListener(&#x27;change&#x27;, ({ error }) &#x3D;&gt; {
+    //   this.cardErrors &#x3D; error &amp;&amp; error.message;
+    // });
   }
 
   async presentLoading() {
     const loadingElement &#x3D; await this.loadingCtrl.create({
       message: &#x27;Please wait...&#x27;,
       spinner: &#x27;crescent&#x27;,
-      duration: 2000
+      // duration: 2000
     });
-    return loadingElement.present();
+    loadingElement.present();
+  }
+  onDismissLoader() {
+    return this.loadingCtrl.dismiss();
   }
 
-  onDismissLoader() {
-    this.loadingCtrl.dismiss();
-    return this.loading &#x3D; false;
+  async subscribedToast() {
+    const toast &#x3D; await this.toaster.create({
+      header: &#x27;Authentication Message:&#x27;,
+      cssClass: &#x27;login&#x27;,
+      message: &#x27;Thank You for your payment. You are subscribed!&#x27;,
+      position: &#x27;bottom&#x27;,
+      duration: 5000,
+      showCloseButton: true,
+      translucent: true,
+    });
+    toast.present();
   }
+
 
   async onSubmit(f: NgForm) {
-    this.loading &#x3D; true;
-    this.presentLoading();
     const { source, error } &#x3D; await this.stripe.createSource(this.card);
     if (error) {
       // Inform the customer that there was an error.
       const cardErrors &#x3D; error.message;
-      await window.alert(cardErrors);
+      window.alert(cardErrors);
     } else {
+      this.presentLoading();
       const user &#x3D; await this.auth.getUser();
-      if (error) {
-        // Inform the customer that there was an error.
-        const userErrors &#x3D; error.message;
-        await window.alert(userErrors);
-      } else {
-        const fun &#x3D; this.functions.httpsCallable(&#x27;stripeCreateSubscription&#x27;);
-        this.confirmation &#x3D; await fun({
-          source: source.id,
-          uid: this.user.uid,
-          plan: this.planId
-        }).toPromise()
-          .then(() &#x3D;&gt; {
-            void this.onDismissLoader();
-            window.alert(
-              &#x27;Thank You and Welcome to Rank Fantasy Sports! You are Subscribed!&#x27;
-            );
-            return this.router.navigateByUrl(&#x27;/list&#x27;);
-          });
-      }
+      const fun &#x3D; this.functions.httpsCallable(&#x27;stripeCreateSubscription&#x27;);
+      this.confirmation &#x3D; await fun({
+        source: source.id,
+        uid: user.uid,
+        plan: this.planId
+      }).toPromise();
+      this.subscribedToast();
+      this.onDismissLoader();
+      this.planChosen &#x3D; false;
+      this.isClickedSilver &#x3D; false;
+      this.isClickedBronze &#x3D; false;
+      this.isClickedGold &#x3D; false;
+      f.reset();
+      return this.router.navigate([&#x27;/welcome&#x27;]);
     }
-  }
 
-  clickedGold() {
-    this.isClickedSilver &#x3D; false;
-    this.isClickedBronze &#x3D; false;
-    this.isClickedGold &#x3D; true;
-    this.planChosen &#x3D; true;
-    this.planId &#x3D; &#x27;Gold&#x27;;
-    this.price &#x3D; &#x27;$90.00 for 12 Months&#x27;;
-  }
-
-  clickedSilver() {
-    this.isClickedBronze &#x3D; false;
-    this.isClickedGold &#x3D; false;
-    this.isClickedSilver &#x3D; true;
-    this.planChosen &#x3D; true;
-    this.planId &#x3D; &#x27;Silver&#x27;;
-    this.price &#x3D; &#x27;$50.00 for 6 Months&#x27;;
-  }
-
-  clickedBronze() {
-    this.isClickedSilver &#x3D; false;
-    this.isClickedGold &#x3D; false;
-    this.isClickedBronze &#x3D; true;
-    this.planChosen &#x3D; true;
-    this.planId &#x3D; &#x27;Bronze&#x27;;
-    this.price &#x3D; &#x27;$9.99 per Month&#x27;;
   }
 }
 </code></pre>
@@ -1225,313 +1275,414 @@ export class LaunchPageComponent implements OnInit, AfterViewInit {
 &lt;!-- First Row Login --&gt;
     &lt;ion-row&gt;
        &lt;ion-col size-md&#x3D;&quot;6&quot; offset-md&#x3D;&quot;3&quot;&gt;
-        &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;main-card&quot; color&#x3D;&quot;primary&quot;&gt;
           &lt;img src&#x3D;&quot;../../assets/logo-md.svg&quot;&gt;
           &lt;ion-card-header&gt;
             &lt;ion-card-title&gt;
-              &lt;ion-label text-wrap color&#x3D;&quot;secondary&quot;&gt;
-                &lt;ion-text color&#x3D;&quot;light&quot;&gt;RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;™&lt;/ion-text&gt;&amp;nbsp;Pro Subscriptions
-              &lt;/ion-label&gt;
+              &lt;ion-text text-wrap color&#x3D;&quot;secondary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                &lt;ion-text color&#x3D;&quot;secondary&quot;&gt;RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade;&lt;/ion-text&gt;&amp;nbsp;Pro Packages
+              &lt;/ion-text&gt;
             &lt;/ion-card-title&gt;
           &lt;/ion-card-header&gt;
         &lt;/ion-card&gt;
-
         &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
           &lt;ion-card-title&gt;
-            &lt;h4&gt;
-              &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
-                Step 1:&lt;/ion-text&gt;&amp;nbsp;Register Your Account
+            &lt;h4 style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt; 
+                Step 1:&lt;/ion-text&gt;&amp;nbsp;Login or Register Your Account
             &lt;/h4&gt;
           &lt;/ion-card-title&gt;
         &lt;ion-card-content&gt;
-            &lt;ion-button color&#x3D;&quot;warning&quot; fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot;
-              *ngIf&#x3D;&quot;auth.afAuth.user | async as user; else login&quot;&gt;{{ user.displayName }} You are logged in&lt;/ion-button&gt;
+            &lt;ion-button strong color&#x3D;&quot;success&quot; fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot;
+              *ngIf&#x3D;&quot;auth.afAuth.user | async as user; else login&quot;&gt;
+              &lt;ion-text color&#x3D;&quot;secondary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                You are logged in
+              &lt;/ion-text&gt;
+            &lt;/ion-button&gt;
 
 &lt;ng-template #login&gt;
-  &lt;ion-button color&#x3D;&quot;success&quot; routerLink&#x3D;&quot;/register&quot;&gt;
-    &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
+  &lt;ion-button strong color&#x3D;&quot;success&quot; routerLink&#x3D;&quot;/register&quot;&gt;
+    &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
       Register or Login
-    &lt;/ion-label&gt;
+    &lt;/ion-text&gt;
   &lt;/ion-button&gt;
 &lt;/ng-template&gt;
+
 
           &lt;/ion-card-content&gt;
         &lt;/ion-card&gt;
-      &lt;/ion-col&gt;s
+      &lt;/ion-col&gt;
     &lt;/ion-row&gt;
 
 &lt;!-- Second Row Memberships --&gt;
-    &lt;!-- &lt;app-memberships&gt;&lt;/app-memberships&gt; --&gt;
 &lt;ion-row class&#x3D;&quot;ion-align-items-stretch&quot;&gt;
   &lt;ion-col size-md&#x3D;&quot;12&quot;&gt;
-    &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
-      &lt;h4&gt;
-        &lt;ion-text color&#x3D;&quot;warning&quot;&gt;Step 2:&lt;/ion-text&gt;&amp;nbsp;Choose a Membership
+    &lt;ion-card  color&#x3D;&quot;primary&quot;&gt;
+      &lt;h4 style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+        &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Step 2:&lt;/ion-text&gt;&amp;nbsp;Choose a Pro Package
       &lt;/h4&gt;
-      &lt;ion-grid&gt;
+    &lt;/ion-card&gt;
+      &lt;ion-grid *ngIf&#x3D;&quot;auth.afAuth.user | async as user&quot;&gt;
         &lt;ion-row&gt;
+          &lt;ion-grid&gt;
+            &lt;ion-row&gt;
 
-&lt;!-- Gold Plan --&gt;
-          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
-            &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
-              &lt;ion-list&gt;
-                &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
-                  &lt;ion-title&gt;
-                    &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
-                      &lt;h2&gt;&lt;strong&gt;Gold&lt;/strong&gt;&lt;/h2&gt;
-                    &lt;/ion-text&gt;
-                  &lt;/ion-title&gt;
-                  &lt;ion-img src&#x3D;&quot;../../assets/img/gold.svg&quot; style&#x3D;&quot;width: 55px;&quot;&gt;&lt;/ion-img&gt;
-                &lt;/ion-list-header&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;Includes everything in Bronze Membership&lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;One (1) Year Subscription&lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;$90.00 Billed Annually
-                    &lt;br&gt;
-                    &lt;sub&gt;$7.50 per Month&lt;/sub&gt;&lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
-                  &lt;ion-label text-wrap color&#x3D;&quot;primary&quot;&gt;&lt;strong&gt;$30 Savings&lt;/strong&gt;&lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-button *ngIf&#x3D;&quot;!isClickedGold; else gold&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot;
-                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clickedGold()&quot;&gt;
-                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;warning&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
-                  &lt;ion-label&gt;Gold Membership&lt;/ion-label&gt;
-                &lt;/ion-button&gt;
+    &lt;!-- Gold Plan --&gt;
+              &lt;ion-col size-md&#x3D;&quot;6&quot;&gt;
+                &lt;ion-card color&#x3D;&quot;light&quot;&gt;
+                  &lt;ion-list class&#x3D;&quot;golden&quot; lines&#x3D;&quot;none&quot;&gt;
+                    &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
+                      &lt;ion-title&gt;
+                        &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                          Gold&lt;br&gt;Package
+                        &lt;/ion-text&gt;
+                      &lt;/ion-title&gt;
+                  
+                    &lt;img src&#x3D;&quot;../../assets/img/gold.svg&quot; style&#x3D;&quot;width: 45px;&quot;&gt;
+                  
+                    &lt;/ion-list-header&gt;
+                    &lt;ion-item&gt;
+                      &lt;ion-text text-wrap &gt;Includes everything in Bronze Package&lt;/ion-text&gt;
+                    &lt;/ion-item&gt;
+                    &lt;ion-item&gt;
+                      &lt;ion-text text-wrap &gt;One (1) Year Subscription&lt;/ion-text&gt;
+                    &lt;/ion-item&gt;
+                    &lt;ion-item&gt;
+                      &lt;ion-text text-wrap &gt;$90.00 Billed Annually
+                        &lt;br&gt;
+                        &lt;sub &gt;$7.50 per Month&lt;/sub&gt;&lt;/ion-text&gt;
+                    &lt;/ion-item&gt;
+                    &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
+                      &lt;ion-text text-wrap color&#x3D;&quot;primary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;&lt;strong&gt;$30 Savings&lt;/strong&gt;&lt;/ion-text&gt;
+                    &lt;/ion-item&gt;
+                  &lt;/ion-list&gt;
+            &lt;ion-button *ngIf&#x3D;&quot;!isClickedGold; else gold&quot;  strong
+                expand&#x3D;&quot;block&quot; color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;clickedGold()&quot;&gt;
+              &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;gold&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+              &lt;ion-text color&#x3D;&quot;gold&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Select Gold&lt;/ion-text&gt;
+              &lt;/ion-button&gt;
 
 &lt;ng-template #gold&gt;
-  &lt;ion-button shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
+  &lt;ion-button  strong expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
     &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
-    &lt;ion-label&gt;Gold Membership&lt;/ion-label&gt;
+    &lt;ion-text style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Gold Selected&lt;/ion-text&gt;
   &lt;/ion-button&gt;
 &lt;/ng-template&gt;
 
-              &lt;/ion-list&gt;
             &lt;/ion-card&gt;
           &lt;/ion-col&gt;
           
 &lt;!-- Silver Plan --&gt;
-          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
-            &lt;ion-card&gt;
-              &lt;ion-list&gt;
+          &lt;ion-col size-md&#x3D;&quot;6&quot;&gt;
+            &lt;ion-card color&#x3D;&quot;light&quot;&gt;
+              &lt;ion-list lines&#x3D;&quot;none&quot;&gt;
                 &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
                   &lt;ion-title&gt;
-                    &lt;ion-text color&#x3D;&quot;light&quot;&gt;
-                      &lt;h2&gt;&lt;strong&gt;Silver&lt;/strong&gt;&lt;/h2&gt;
+                    &lt;ion-text color&#x3D;&quot;light&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                      Silver&lt;br&gt;Package
                     &lt;/ion-text&gt;
                   &lt;/ion-title&gt;
-                  &lt;ion-img src&#x3D;&quot;../../assets/img/silver.svg&quot; style&#x3D;&quot;width: 55px;&quot;&gt;&lt;/ion-img&gt;
+                  &lt;ion-img src&#x3D;&quot;../../assets/img/silver.svg&quot; style&#x3D;&quot;width: 45px;&quot;&gt;&lt;/ion-img&gt;
                 &lt;/ion-list-header&gt;
                 &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;Includes everything in Bronze Membership&lt;/ion-label&gt;
+                  &lt;ion-text text-wrap&gt;Includes everything in Bronze Package&lt;/ion-text&gt;
                 &lt;/ion-item&gt;
                 &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;Six (6) Month Subscription&lt;/ion-label&gt;
+                  &lt;ion-text text-wrap &gt;Six (6) Month Subscription&lt;/ion-text&gt;
                 &lt;/ion-item&gt;
                 &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;$50.00 Billed Bi-annually
+                  &lt;ion-text text-wrap &gt;$50.00 Billed Bi-annually
                     &lt;br&gt;
-                    &lt;sub&gt;$8.33 per Month&lt;/sub&gt;&lt;/ion-label&gt;
+                    &lt;sub &gt;$8.33 per Month&lt;/sub&gt;&lt;/ion-text&gt;
+                  &lt;/ion-item&gt;
+                  &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
+                  &lt;ion-text text-wrap color&#x3D;&quot;primary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;&lt;strong&gt;$10 Savings&lt;/strong&gt;&lt;/ion-text&gt;
                 &lt;/ion-item&gt;
-                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
-                  &lt;ion-label text-wrap color&#x3D;&quot;primary&quot;&gt;&lt;strong&gt;$10 Savings&lt;/strong&gt;&lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-button *ngIf&#x3D;&quot;!isClickedSilver; else silver&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot;
-                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clickedSilver()&quot;&gt;
-                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;light&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
-                  &lt;ion-label text-wrap&gt;Silver Membership&lt;/ion-label&gt;
-                &lt;/ion-button&gt;
               &lt;/ion-list&gt;
-
+                &lt;ion-button *ngIf&#x3D;&quot;!isClickedSilver; else silver&quot;  strong expand&#x3D;&quot;block&quot;
+                   color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;clickedSilver()&quot;&gt;
+                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;silver&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+                  &lt;ion-text color&#x3D;&quot;silver&quot; text-wrap style&#x3D;&quot;text-shadow: 1px 1px rgb(0, 2, 2);&quot;&gt;Select Silver&lt;/ion-text&gt;
+                &lt;/ion-button&gt;
+              
 &lt;ng-template #silver&gt;
-  &lt;ion-button shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
+  &lt;ion-button strong expand&#x3D;&quot;block&quot;  color&#x3D;&quot;warning&quot;&gt;
     &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
-    &lt;ion-label&gt;Silver Membership&lt;/ion-label&gt;
+    &lt;ion-text color&#x3D;&quot;tertiary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Silver Selected&lt;/ion-text&gt;
   &lt;/ion-button&gt;
 &lt;/ng-template&gt;
-
-            &lt;/ion-card&gt;
+          &lt;/ion-card&gt;
           &lt;/ion-col&gt;
-
-&lt;!-- Bronze Plan --&gt;
-          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
-            &lt;ion-card&gt;
-              &lt;ion-list&gt;
-                &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
-                  &lt;ion-title&gt;
-                    &lt;ion-text color&#x3D;&quot;danger&quot;&gt;
-                      &lt;h2&gt;&lt;strong&gt;Bronze&lt;/strong&gt;&lt;/h2&gt;
-                    &lt;/ion-text&gt;
-                  &lt;/ion-title&gt;
-                  &lt;ion-img src&#x3D;&quot;../../assets/img/bronze.svg&quot; style&#x3D;&quot;width: 55px;&quot;&gt;&lt;/ion-img&gt;
-                &lt;/ion-list-header&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;
-                    Access to all DFS data-tables
-                  &lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;
-                    Videos providing DFS stats analysis
-                    &lt;br&gt;
-                    &lt;sub&gt;Catagorized by topic&lt;/sub&gt;
-                  &lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;
-                    Access to All Past and Upcoming Livestream events
-                    &lt;br&gt;
-                    &lt;sub&gt;Receive notification of upcoming events&lt;/sub&gt;
-                  &lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;
-                    Exclusive DFS chat room access
-                    &lt;br&gt;
-                    &lt;sub&gt;
-                      Get the info you need, when you need it.
-                    &lt;/sub&gt;
-                  &lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;
-                    Many other tools and resources
-                    &lt;br&gt;
-                    &lt;sub&gt;Soon to be released&lt;/sub&gt;
-                  &lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item&gt;
-                  &lt;ion-label text-wrap&gt;One (1) Month Subscription
-                    &lt;br&gt;
-                    &lt;sub&gt;Month -to- Month&lt;/sub&gt;
-                  &lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
-                  &lt;ion-label text-wrap color&#x3D;&quot;primary&quot;&gt;&lt;strong&gt;$9.99 Billed Monthly&lt;/strong&gt;&lt;/ion-label&gt;
-                &lt;/ion-item&gt;
-                &lt;ion-button  *ngIf&#x3D;&quot;!isClickedBronze; else bronze&quot; shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot;
-                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;clickedBronze()&quot;&gt;
-                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;danger&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
-                  &lt;ion-label&gt;Bronze Membership&lt;/ion-label&gt;
-                &lt;/ion-button&gt;
-
-&lt;ng-template #bronze&gt;
-  &lt;ion-button  shape&#x3D;&quot;round&quot; strong&#x3D;&quot;true&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
-    &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
-    &lt;ion-label&gt;Bronze Membership&lt;/ion-label&gt;
-  &lt;/ion-button&gt;
-&lt;/ng-template&gt;
-
-              &lt;/ion-list&gt;
+        &lt;/ion-row&gt;
+        &lt;ion-row&gt;
+          &lt;ion-col size-md&#x3D;&quot;12&quot;&gt;
+            &lt;ion-card color&#x3D;&quot;warning&quot;&gt;
+              &lt;ion-card padding color&#x3D;&quot;tertiary&quot;&gt;
+                &lt;ion-card-title&gt;
+                  &lt;ion-text color&#x3D;&quot;secondary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                    &lt;h1&gt;
+                      Free for a week!
+                    &lt;/h1&gt;
+                 &lt;/ion-text&gt;
+                &lt;/ion-card-title&gt;
+                &lt;ion-card-subtitle&gt;
+                  &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                 &lt;h3&gt;
+                   &lt;sup&gt;*&lt;/sup&gt;Signup with any PRO Package today and get 7 days to try it out.
+                 &lt;/h3&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-card-subtitle&gt;
+              &lt;/ion-card&gt;
             &lt;/ion-card&gt;
           &lt;/ion-col&gt;
         &lt;/ion-row&gt;
-      &lt;/ion-grid&gt;
+        &lt;/ion-grid&gt;
 
-    &lt;/ion-card&gt;
-  &lt;/ion-col&gt;
-&lt;/ion-row&gt;
+&lt;!-- Bronze Plan --&gt;
+          &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
+            &lt;ion-card color&#x3D;&quot;light&quot;&gt;
+              &lt;ion-list lines&#x3D;&quot;none&quot;&gt;
+                &lt;ion-list-header color&#x3D;&quot;tertiary&quot;&gt;
+                  &lt;ion-title&gt;
+                    &lt;ion-text  color&#x3D;&quot;bronze&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                      Bronze&lt;br&gt;Package
+                    &lt;/ion-text&gt;
+                  &lt;/ion-title&gt;
+                  &lt;img src&#x3D;&quot;../../assets/img/bronze.svg&quot; style&#x3D;&quot;width: 45px;&quot;&gt;
+                &lt;/ion-list-header&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-text text-wrap &gt;
+                    Access to all DFS data-tables
+                  &lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-text text-wrap &gt;
+                    Videos providing DFS stats analysis
+                    &lt;br&gt;
+                    &lt;sub &gt;Catagorized by topic&lt;/sub&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-text text-wrap &gt;
+                    Access to All Past and Upcoming Livestream events
+                    &lt;br&gt;
+                    &lt;sub &gt;Receive notification of upcoming events&lt;/sub&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-text text-wrap &gt;
+                    Exclusive DFS chat room access
+                    &lt;br&gt;
+                    &lt;sub &gt;
+                      Get the info you need, when you need it.
+                    &lt;/sub&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-text text-wrap&gt;
+                     Many other tools and resources                   
+                     &lt;br&gt;
+                    &lt;sub &gt;Soon to be released&lt;/sub&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item&gt;
+                  &lt;ion-text text-wrap &gt;One (1) Month Subscription
+                    &lt;br&gt;
+                    &lt;sub &gt;Month -to- Month&lt;/sub&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+                &lt;ion-item color&#x3D;&quot;medium&quot; lines&#x3D;&quot;none&quot;&gt;
+                  &lt;ion-text text-wrap color&#x3D;&quot;primary&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;&lt;strong&gt;$9.99 Billed Monthly&lt;/strong&gt;&lt;/ion-text&gt;
+                &lt;/ion-item&gt;
+              &lt;/ion-list&gt;
+                &lt;ion-button  *ngIf&#x3D;&quot;!isClickedBronze; else bronze&quot;  strong
+                  expand&#x3D;&quot;block&quot; color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;clickedBronze()&quot;&gt;
+                  &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;bronze&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+                  &lt;ion-text style&#x3D;&quot;text-shadow: 1px 1px black;&quot; color&#x3D;&quot;bronze&quot;&gt;Select Bronze&lt;/ion-text&gt;
+                &lt;/ion-button&gt;
 
-&lt;!-- Third Row Payment --&gt;
-    &lt;!-- &lt;subscription-page&gt;&lt;/subscription-page&gt; --&gt;
-&lt;!-- Third Row Payments --&gt;
-&lt;ion-row&gt;
-  &lt;ion-col size-md&#x3D;&quot;6&quot; offset-md&#x3D;&quot;3&quot;&gt;
-    &lt;ion-card class&#x3D;&quot;payCard&quot; color&#x3D;&quot;success&quot; *ngIf&#x3D;&quot;planChosen !&#x3D;&#x3D; false&quot;&gt;
-      &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
-        &lt;ion-card *ngIf&#x3D;&quot;planId&quot;&gt;
-          &lt;ion-card-title&gt;
-            
-            &lt;ion-text text-wrap&gt;You are purchasing:&lt;/ion-text&gt;
-          &lt;/ion-card-title&gt;
-          &lt;br&gt;
-          &lt;ion-button shape&#x3D;&quot;round&quot; size&#x3D;&quot;large&quot; expand&#x3D;&quot;block&quot; fill&#x3D;&quot;outline&quot; color&#x3D;&quot;success&quot;&gt;
-            &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
-              {{ planId }}&amp;nbsp;Membership 
-              &lt;br&gt;
-              {{ price }}
-            &lt;/ion-label&gt; 
-          &lt;/ion-button&gt;
-          
-          &lt;hr&gt;
-        &lt;/ion-card&gt;
-              &lt;h4&gt;
-              &lt;ion-text color&#x3D;&quot;warning&quot;&gt;Step 3:&lt;/ion-text&gt;&amp;nbsp;Add A Payment Source
-            &lt;/h4&gt;
-    &lt;hr&gt;
-    &lt;ion-card color&#x3D;&quot;success&quot; &gt;
-    &lt;form #f&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
-      &lt;div #cardElement&gt;&lt;/div&gt;
+&lt;ng-template #bronze&gt;
+  &lt;ion-button strong expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot;&gt;
+    &lt;ion-icon name&#x3D;&quot;medal&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;&amp;nbsp;&amp;nbsp;
+    &lt;ion-text style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Bronze Selected&lt;/ion-text&gt;
+  &lt;/ion-button&gt;
+&lt;/ng-template&gt;
 
-         &lt;ion-button [disabled]&#x3D;&quot;loading&quot; type&#x3D;&quot;submit&quot; color&#x3D;&quot;tertiary&quot; shape&#x3D;&quot;round&quot;&gt;
-           &lt;ion-text color&#x3D;&quot;warning&quot;&gt;Start Subscription&amp;nbsp;&amp;nbsp;
-             &lt;ion-icon slot&#x3D;&quot;end&quot; color&#x3D;&quot;dark&quot; name&#x3D;&quot;jet&quot;&gt;&lt;/ion-icon&gt;
-            &lt;/ion-text&gt;
-          &lt;/ion-button&gt;
-        &lt;/form&gt;
-      &lt;/ion-card&gt;
-    &lt;hr&gt;
-    &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
-        &lt;pre *ngIf&#x3D;&quot;confirmation&quot; style&#x3D;&quot;max-width: 400px;&quot;&gt;
-            {{ confirmation | json }}
-          &lt;/pre&gt;
-        &lt;/ion-card&gt;
-        &lt;hr&gt;
-      &lt;/ion-card&gt;
-    &lt;/ion-card&gt;
-  &lt;/ion-col&gt;
-  &lt;/ion-row&gt;
+                          &lt;/ion-card&gt;
+                        &lt;/ion-col&gt;
+                      &lt;/ion-row&gt;
+                    &lt;/ion-grid&gt;
+                  &lt;!-- &lt;/ion-card&gt; --&gt;
+                &lt;/ion-col&gt;
+              &lt;/ion-row&gt;
+              &lt;!-- Third Row Payment --&gt;
+              &lt;ion-row&gt;
+                &lt;ion-col size-md&#x3D;&quot;6&quot; offset-md&#x3D;&quot;3&quot;&gt;
+                  &lt;ion-card  color&#x3D;&quot;success&quot;&gt;
+                    &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
+                      &lt;ion-card *ngIf&#x3D;&quot;planId&quot;&gt;
+                        &lt;ion-card-title&gt;
+                          
+                          &lt;ion-text text-wrap style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;You are purchasing:&lt;/ion-text&gt;
+                        &lt;/ion-card-title&gt;
+                        &lt;br&gt;
+                        &lt;ion-button shape&#x3D;&quot;round&quot; size&#x3D;&quot;large&quot; expand&#x3D;&quot;block&quot; fill&#x3D;&quot;outline&quot; color&#x3D;&quot;success&quot;&gt;
+                          &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                            {{ planId }}&amp;nbsp;Package 
+                            &lt;br&gt;
+                            {{ price }}
+                          &lt;/ion-text&gt; 
+                        &lt;/ion-button&gt;
+                        &lt;hr&gt;
+                      &lt;/ion-card&gt;
+                      &lt;h4 style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
+                        &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Step 3:&lt;/ion-text&gt;&amp;nbsp;Enter Your Card Details
+                      &lt;/h4&gt;
+                      &lt;hr&gt;
+                      &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;
 
+                        &lt;h5&gt;Credit &amp; Debit Accepted&lt;/h5&gt;
+                      &lt;/ion-text&gt;
+                        &lt;ion-grid&gt;
+                          &lt;ion-row&gt;
+                            &lt;ion-col&gt;
+
+                              &lt;img src&#x3D;&quot;../../../assets/img/visa.svg&quot;  style&#x3D;&quot;height:40px; float:right;&quot;&gt;
+                            &lt;/ion-col&gt;
+                            &lt;ion-col&gt;
+
+                              &lt;img src&#x3D;&quot;../../../assets/img/discover.svg&quot;  style&#x3D;&quot;height:40px;&quot; &gt;
+                            &lt;/ion-col&gt;
+                            &lt;ion-col&gt;
+                              &lt;img src&#x3D;&quot;../../../assets/img/amex.svg&quot;  style&#x3D;&quot;height:40px;&quot; t&gt;
+
+                            &lt;/ion-col&gt;
+                            &lt;ion-col&gt;
+
+                              &lt;img src&#x3D;&quot;../../../assets/img/mastercard.svg&quot;  style&#x3D;&quot;height:47px;&quot; &gt;
+                            &lt;/ion-col&gt;
+
+                          &lt;/ion-row&gt;
+                        &lt;/ion-grid&gt;
+
+                        
+                      &lt;form #f&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;onSubmit(f)&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                          &lt;div id&#x3D;&quot;card-element&quot; #cardElement&gt;
+                            &lt;!-- A Stripe Element will be inserted here. --&gt;
+                          &lt;/div&gt;
+                          &lt;!-- Used to display Element errors. --&gt;
+                          &lt;p class&#x3D;&quot;has-text-danger&quot;&gt;{{ cardErrors }}&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;hr&gt;
+                        &lt;ion-button [disabled]&#x3D;&quot;!planChosen&quot; type&#x3D;&quot;submit&quot; expand&#x3D;&quot;block&quot; color&#x3D;&quot;tertiary&quot;&gt;
+                          &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px black;&quot;&gt;Start Subscription&amp;nbsp;&amp;nbsp;
+                            &lt;ion-icon slot&#x3D;&quot;end&quot; color&#x3D;&quot;dark&quot; name&#x3D;&quot;jet&quot;&gt;&lt;/ion-icon&gt;
+                          &lt;/ion-text&gt;
+                        &lt;/ion-button&gt;
+                      &lt;/form&gt;
+                      &lt;hr&gt;
+                      &lt;ion-img src&#x3D;&quot;../../assets/img/stripe.svg&quot; style&#x3D;&quot;height:30px;&quot; &gt;&lt;/ion-img&gt;
+            &lt;/ion-card&gt;
+          &lt;/ion-card&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
 
 
 &lt;!-- Fourth Row Disclaimers --&gt;
       &lt;ion-row&gt;
-        &lt;ion-col size-md&#x3D;&quot;12&quot;&gt;
-          &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
-            &lt;ion-list&gt;
-              &lt;ion-item color&#x3D;&quot;light&quot;&gt;
-                &lt;ion-label text-wrap&gt;
-                  &lt;strong&gt;One (1) user per account.&lt;/strong&gt;
-                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to our account, sign in with the same email address.
-                &lt;/ion-label&gt;
-              &lt;/ion-item&gt;
-              &lt;ion-item color&#x3D;&quot;light&quot;&gt;
-                &lt;ion-label text-wrap&gt;
-                  All payments are handled by&amp;nbsp;&lt;a href&#x3D;&quot;https://www.stripe.com&quot;&gt;Stripe&lt;/a&gt;.  Our site and apps are served using Secure Socket Layer (SSL) encryption, and we submit secure tokenized versions of your payment information, so card numbers and other card details are never visible to Rank Fantasy Sports nor are they ever on our servers.
-                &lt;/ion-label&gt;
-              &lt;/ion-item&gt;
-              &lt;ion-item color&#x3D;&quot;light&quot;&gt;
-                &lt;ion-label text-wrap&gt;
-                  All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account&#x27;s billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account&#x27;s current billing cycle, and no further payments will be processed. For more details, please read our&amp;nbsp;
-                  &lt;a href&#x3D;&quot;https://terms.rankfantasysports.com&quot;&gt;terms &amp; conditions&lt;/a&gt;.
-                &lt;/ion-label&gt;
-              &lt;/ion-item&gt;
-              &lt;ion-item color&#x3D;&quot;light&quot;&gt;
-                &lt;ion-label text-wrap&gt;
-                  The security of your information is our priority. Please read our&amp;nbsp;&lt;a
-                    href&#x3D;&quot;https://privacy.rankfantasysports.com&quot;&gt;privacy policy&lt;/a&gt;&amp;nbsp;for more details.
-                &lt;/ion-label&gt;
-              &lt;/ion-item&gt;
-            &lt;/ion-list&gt;
-          &lt;/ion-card&gt;
-        &lt;/ion-col&gt;
+        &lt;ion-col&gt;
+          &lt;ion-card color&#x3D;&quot;medium&quot; padding&gt;
+              &lt;ion-text&gt;
+                &lt;p&gt;
+                  &lt;sub&gt;
+                    * Credit or Debit card required for verification. During the One Week (7 day) trial period, card will not be charged. On eighth 8&lt;sup&gt;th&lt;/sup&gt; day after subscription start date, card will be processed.
+                      &lt;strong&gt;
+                        Trial valid once per card holder/ member.
+                      &lt;/strong&gt;
+                  &lt;hr&gt;
+                  &lt;strong&gt;
+                    One (1) user per account.
+                  &lt;/strong&gt;
+                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&amp;nbsp;&lt;a href&#x3D;&quot;https://www.stripe.com&quot;&gt;&lt;ion-text color&#x3D;&quot;tertiary&quot;&gt;Stripe&lt;/ion-text&gt;&lt;/a&gt;.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our &lt;a [routerLink]&#x3D;&quot;[ {outlets: { modal: &#x27;terms&#x27; } } ]&quot;&gt;Terms&lt;/a&gt;.
+                  &lt;br&gt;
+                    The security of your information is our priority. Please read our &lt;app-privacy&gt;&lt;/app-privacy&gt; for more details.
+                  &lt;/sub&gt;
+                &lt;/p&gt;
+              &lt;/ion-text&gt;
+            &lt;/ion-card&gt;
+          &lt;/ion-col&gt;
       &lt;/ion-row&gt;
-  &lt;/ion-grid&gt;
-&lt;/ion-content&gt;
 
-&lt;app-footer&gt;&lt;/app-footer&gt;
+    &lt;/ion-grid&gt;
+    &lt;ion-card&gt;
+
+    &lt;/ion-card&gt;
+  &lt;/ion-content&gt;
+&lt;router-outlet name&#x3D;&quot;terms&quot;&gt;&lt;/router-outlet&gt;
+
+
+
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./launch-page.component.scss</code>
+                    <code>./launchpage.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">
+body
+
+form.checkout {
+  max-width: 330px;
+  margin: 2rem auto;
+  text-align: center;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  background: white;
+
+  font-family: monospace;
+  color: #525252;
+  font-size: 1.1rem;
+}
+
+form.checkout button {
+  padding: 0.5rem 1rem;
+  color: white;
+  background: coral;
+  border: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+form.checkout button:active {
+  background: rgb(165, 76, 43);
+}
+.StripeElement {
+  margin: 1rem 0 1rem;
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -1559,10 +1710,10 @@ export class LaunchPageComponent implements OnInit, AfterViewInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content text-center fullscreen >  <ion-grid><!-- First Row Login -->    <ion-row>       <ion-col size-md="6" offset-md="3">        <ion-card color="primary">          <img src="../../assets/logo-md.svg">          <ion-card-header>            <ion-card-title>              <ion-label text-wrap color="secondary">                <ion-text color="light">RF<ion-text color="secondary">$</ion-text>™</ion-text>&nbsp;Pro Subscriptions              </ion-label>            </ion-card-title>          </ion-card-header>        </ion-card>        <ion-card color="primary">          <ion-card-title>            <h4>              <ion-text color="warning">                Step 1:</ion-text>&nbsp;Register Your Account            </h4>          </ion-card-title>        <ion-card-content>            <ion-button color="warning" fill="outline" shape="round" expand="block"              *ngIf="auth.afAuth.user | async as user; else login">{{ user.displayName }} You are logged in</ion-button><ng-template #login>  <ion-button color="success" routerLink="/register">    <ion-label color="warning">      Register or Login    </ion-label>  </ion-button></ng-template>          </ion-card-content>        </ion-card>      </ion-col>s    </ion-row><!-- Second Row Memberships -->    <!-- <app-memberships></app-memberships> --><ion-row class="ion-align-items-stretch">  <ion-col size-md="12">    <ion-card padding color="primary">      <h4>        <ion-text color="warning">Step 2:</ion-text>&nbsp;Choose a Membership      </h4>      <ion-grid>        <ion-row><!-- Gold Plan -->          <ion-col size-md="4">            <ion-card color="primary">              <ion-list>                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="warning">                      <h2><strong>Gold</strong></h2>                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/gold.svg" style="width: 55px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>One (1) Year Subscription</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>$90.00 Billed Annually                    <br>                    <sub>$7.50 per Month</sub></ion-label>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-label text-wrap color="primary"><strong>$30 Savings</strong></ion-label>                </ion-item>                <ion-button *ngIf="!isClickedGold; else gold" shape="round" strong="true"                  expand="block" color="success" (click)="clickedGold()">                  <ion-icon name="medal" color="warning"></ion-icon>&nbsp;&nbsp;                  <ion-label>Gold Membership</ion-label>                </ion-button><ng-template #gold>  <ion-button shape="round" strong="true" expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-label>Gold Membership</ion-label>  </ion-button></ng-template>              </ion-list>            </ion-card>          </ion-col>          <!-- Silver Plan -->          <ion-col size-md="4">            <ion-card>              <ion-list>                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="light">                      <h2><strong>Silver</strong></h2>                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/silver.svg" style="width: 55px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-label text-wrap>Includes everything in Bronze Membership</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>Six (6) Month Subscription</ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>$50.00 Billed Bi-annually                    <br>                    <sub>$8.33 per Month</sub></ion-label>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-label text-wrap color="primary"><strong>$10 Savings</strong></ion-label>                </ion-item>                <ion-button *ngIf="!isClickedSilver; else silver" shape="round" strong="true"                  expand="block" color="success" (click)="clickedSilver()">                  <ion-icon name="medal" color="light"></ion-icon>&nbsp;&nbsp;                  <ion-label text-wrap>Silver Membership</ion-label>                </ion-button>              </ion-list><ng-template #silver>  <ion-button shape="round" strong="true" expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-label>Silver Membership</ion-label>  </ion-button></ng-template>            </ion-card>          </ion-col><!-- Bronze Plan -->          <ion-col size-md="4">            <ion-card>              <ion-list>                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="danger">                      <h2><strong>Bronze</strong></h2>                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/bronze.svg" style="width: 55px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-label text-wrap>                    Access to all DFS data-tables                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Videos providing DFS stats analysis                    <br>                    <sub>Catagorized by topic</sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Access to All Past and Upcoming Livestream events                    <br>                    <sub>Receive notification of upcoming events</sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Exclusive DFS chat room access                    <br>                    <sub>                      Get the info you need, when you need it.                    </sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>                    Many other tools and resources                    <br>                    <sub>Soon to be released</sub>                  </ion-label>                </ion-item>                <ion-item>                  <ion-label text-wrap>One (1) Month Subscription                    <br>                    <sub>Month -to- Month</sub>                  </ion-label>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-label text-wrap color="primary"><strong>$9.99 Billed Monthly</strong></ion-label>                </ion-item>                <ion-button  *ngIf="!isClickedBronze; else bronze" shape="round" strong="true"                  expand="block" color="success" (click)="clickedBronze()">                  <ion-icon name="medal" color="danger"></ion-icon>&nbsp;&nbsp;                  <ion-label>Bronze Membership</ion-label>                </ion-button><ng-template #bronze>  <ion-button  shape="round" strong="true" expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-label>Bronze Membership</ion-label>  </ion-button></ng-template>              </ion-list>            </ion-card>          </ion-col>        </ion-row>      </ion-grid>    </ion-card>  </ion-col></ion-row><!-- Third Row Payment -->    <!-- <subscription-page></subscription-page> --><!-- Third Row Payments --><ion-row>  <ion-col size-md="6" offset-md="3">    <ion-card class="payCard" color="success" *ngIf="planChosen !== false">      <ion-card padding color="primary">        <ion-card *ngIf="planId">          <ion-card-title>                        <ion-text text-wrap>You are purchasing:</ion-text>          </ion-card-title>          <br>          <ion-button shape="round" size="large" expand="block" fill="outline" color="success">            <ion-label color="warning">              {{ planId }}&nbsp;Membership               <br>              {{ price }}            </ion-label>           </ion-button>                    <hr>        </ion-card>              <h4>              <ion-text color="warning">Step 3:</ion-text>&nbsp;Add A Payment Source            </h4>    <hr>    <ion-card color="success" >    <form #f="ngForm" (ngSubmit)="onSubmit()">      <div #cardElement></div>         <ion-button [disabled]="loading" type="submit" color="tertiary" shape="round">           <ion-text color="warning">Start Subscription&nbsp;&nbsp;             <ion-icon slot="end" color="dark" name="jet"></ion-icon>            </ion-text>          </ion-button>        </form>      </ion-card>    <hr>    <ion-card color="primary">        <pre *ngIf="confirmation" style="max-width: 400px;">            {{ confirmation | json }}          </pre>        </ion-card>        <hr>      </ion-card>    </ion-card>  </ion-col>  </ion-row><!-- Fourth Row Disclaimers -->      <ion-row>        <ion-col size-md="12">          <ion-card color="primary">            <ion-list>              <ion-item color="light">                <ion-label text-wrap>                  <strong>One (1) user per account.</strong>                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to our account, sign in with the same email address.                </ion-label>              </ion-item>              <ion-item color="light">                <ion-label text-wrap>                  All payments are handled by&nbsp;<a href="https://www.stripe.com">Stripe</a>.  Our site and apps are served using Secure Socket Layer (SSL) encryption, and we submit secure tokenized versions of your payment information, so card numbers and other card details are never visible to Rank Fantasy Sports nor are they ever on our servers.                </ion-label>              </ion-item>              <ion-item color="light">                <ion-label text-wrap>                  All subscriptions are billed automatically, on the same date each billing cycle. You will be notified by email one (1) week prior to the end of your account\'s billing cycle. You may cancel your subscription at anytime. Once a cancellation request has been submitted, your account will be terminated at the end of the account\'s current billing cycle, and no further payments will be processed. For more details, please read our&nbsp;                  <a href="https://terms.rankfantasysports.com">terms & conditions</a>.                </ion-label>              </ion-item>              <ion-item color="light">                <ion-label text-wrap>                  The security of your information is our priority. Please read our&nbsp;<a                    href="https://privacy.rankfantasysports.com">privacy policy</a>&nbsp;for more details.                </ion-label>              </ion-item>            </ion-list>          </ion-card>        </ion-col>      </ion-row>  </ion-grid></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'LaunchPageComponent'};
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content text-center fullscreen >  <ion-grid><!-- First Row Login -->    <ion-row>       <ion-col size-md="6" offset-md="3">        <ion-card class="main-card" color="primary">          <img src="../../assets/logo-md.svg">          <ion-card-header>            <ion-card-title>              <ion-text text-wrap color="secondary" style="text-shadow: 1px 1px black;">                <ion-text color="secondary">RF<ion-text color="secondary">$</ion-text>&trade;</ion-text>&nbsp;Pro Packages              </ion-text>            </ion-card-title>          </ion-card-header>        </ion-card>        <ion-card color="primary">          <ion-card-title>            <h4 style="text-shadow: 1px 1px black;">              <ion-text color="warning" style="text-shadow: 1px 1px black;">                 Step 1:</ion-text>&nbsp;Login or Register Your Account            </h4>          </ion-card-title>        <ion-card-content>            <ion-button strong color="success" fill="outline" shape="round" expand="block"              *ngIf="auth.afAuth.user | async as user; else login">              <ion-text color="secondary" style="text-shadow: 1px 1px black;">                You are logged in              </ion-text>            </ion-button><ng-template #login>  <ion-button strong color="success" routerLink="/register">    <ion-text color="warning" style="text-shadow: 1px 1px black;">      Register or Login    </ion-text>  </ion-button></ng-template>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row><!-- Second Row Memberships --><ion-row class="ion-align-items-stretch">  <ion-col size-md="12">    <ion-card  color="primary">      <h4 style="text-shadow: 1px 1px black;">        <ion-text color="warning" style="text-shadow: 1px 1px black;">Step 2:</ion-text>&nbsp;Choose a Pro Package      </h4>    </ion-card>      <ion-grid *ngIf="auth.afAuth.user | async as user">        <ion-row>          <ion-grid>            <ion-row>    <!-- Gold Plan -->              <ion-col size-md="6">                <ion-card color="light">                  <ion-list class="golden" lines="none">                    <ion-list-header color="tertiary">                      <ion-title>                        <ion-text color="warning" style="text-shadow: 1px 1px black;">                          Gold<br>Package                        </ion-text>                      </ion-title>                                      <img src="../../assets/img/gold.svg" style="width: 45px;">                                      </ion-list-header>                    <ion-item>                      <ion-text text-wrap >Includes everything in Bronze Package</ion-text>                    </ion-item>                    <ion-item>                      <ion-text text-wrap >One (1) Year Subscription</ion-text>                    </ion-item>                    <ion-item>                      <ion-text text-wrap >$90.00 Billed Annually                        <br>                        <sub >$7.50 per Month</sub></ion-text>                    </ion-item>                    <ion-item color="medium" lines="none">                      <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$30 Savings</strong></ion-text>                    </ion-item>                  </ion-list>            <ion-button *ngIf="!isClickedGold; else gold"  strong                expand="block" color="secondary" (click)="clickedGold()">              <ion-icon name="medal" color="gold"></ion-icon>&nbsp;&nbsp;              <ion-text color="gold" style="text-shadow: 1px 1px black;">Select Gold</ion-text>              </ion-button><ng-template #gold>  <ion-button  strong expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-text style="text-shadow: 1px 1px black;">Gold Selected</ion-text>  </ion-button></ng-template>            </ion-card>          </ion-col>          <!-- Silver Plan -->          <ion-col size-md="6">            <ion-card color="light">              <ion-list lines="none">                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text color="light" style="text-shadow: 1px 1px black;">                      Silver<br>Package                    </ion-text>                  </ion-title>                  <ion-img src="../../assets/img/silver.svg" style="width: 45px;"></ion-img>                </ion-list-header>                <ion-item>                  <ion-text text-wrap>Includes everything in Bronze Package</ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap >Six (6) Month Subscription</ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap >$50.00 Billed Bi-annually                    <br>                    <sub >$8.33 per Month</sub></ion-text>                  </ion-item>                  <ion-item color="medium" lines="none">                  <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$10 Savings</strong></ion-text>                </ion-item>              </ion-list>                <ion-button *ngIf="!isClickedSilver; else silver"  strong expand="block"                   color="secondary" (click)="clickedSilver()">                  <ion-icon name="medal" color="silver"></ion-icon>&nbsp;&nbsp;                  <ion-text color="silver" text-wrap style="text-shadow: 1px 1px rgb(0, 2, 2);">Select Silver</ion-text>                </ion-button>              <ng-template #silver>  <ion-button strong expand="block"  color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-text color="tertiary" style="text-shadow: 1px 1px black;">Silver Selected</ion-text>  </ion-button></ng-template>          </ion-card>          </ion-col>        </ion-row>        <ion-row>          <ion-col size-md="12">            <ion-card color="warning">              <ion-card padding color="tertiary">                <ion-card-title>                  <ion-text color="secondary" style="text-shadow: 1px 1px black;">                    <h1>                      Free for a week!                    </h1>                 </ion-text>                </ion-card-title>                <ion-card-subtitle>                  <ion-text color="warning" style="text-shadow: 1px 1px black;">                 <h3>                   <sup>*</sup>Signup with any PRO Package today and get 7 days to try it out.                 </h3>                  </ion-text>                </ion-card-subtitle>              </ion-card>            </ion-card>          </ion-col>        </ion-row>        </ion-grid><!-- Bronze Plan -->          <ion-col size-md="4">            <ion-card color="light">              <ion-list lines="none">                <ion-list-header color="tertiary">                  <ion-title>                    <ion-text  color="bronze" style="text-shadow: 1px 1px black;">                      Bronze<br>Package                    </ion-text>                  </ion-title>                  <img src="../../assets/img/bronze.svg" style="width: 45px;">                </ion-list-header>                <ion-item>                  <ion-text text-wrap >                    Access to all DFS data-tables                  </ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap >                    Videos providing DFS stats analysis                    <br>                    <sub >Catagorized by topic</sub>                  </ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap >                    Access to All Past and Upcoming Livestream events                    <br>                    <sub >Receive notification of upcoming events</sub>                  </ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap >                    Exclusive DFS chat room access                    <br>                    <sub >                      Get the info you need, when you need it.                    </sub>                  </ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap>                     Many other tools and resources                                        <br>                    <sub >Soon to be released</sub>                  </ion-text>                </ion-item>                <ion-item>                  <ion-text text-wrap >One (1) Month Subscription                    <br>                    <sub >Month -to- Month</sub>                  </ion-text>                </ion-item>                <ion-item color="medium" lines="none">                  <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$9.99 Billed Monthly</strong></ion-text>                </ion-item>              </ion-list>                <ion-button  *ngIf="!isClickedBronze; else bronze"  strong                  expand="block" color="secondary" (click)="clickedBronze()">                  <ion-icon name="medal" color="bronze"></ion-icon>&nbsp;&nbsp;                  <ion-text style="text-shadow: 1px 1px black;" color="bronze">Select Bronze</ion-text>                </ion-button><ng-template #bronze>  <ion-button strong expand="block" color="warning">    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;    <ion-text style="text-shadow: 1px 1px black;">Bronze Selected</ion-text>  </ion-button></ng-template>                          </ion-card>                        </ion-col>                      </ion-row>                    </ion-grid>                  <!-- </ion-card> -->                </ion-col>              </ion-row>              <!-- Third Row Payment -->              <ion-row>                <ion-col size-md="6" offset-md="3">                  <ion-card  color="success">                    <ion-card padding color="primary">                      <ion-card *ngIf="planId">                        <ion-card-title>                                                    <ion-text text-wrap style="text-shadow: 1px 1px black;">You are purchasing:</ion-text>                        </ion-card-title>                        <br>                        <ion-button shape="round" size="large" expand="block" fill="outline" color="success">                          <ion-text color="warning" style="text-shadow: 1px 1px black;">                            {{ planId }}&nbsp;Package                             <br>                            {{ price }}                          </ion-text>                         </ion-button>                        <hr>                      </ion-card>                      <h4 style="text-shadow: 1px 1px black;">                        <ion-text color="warning" style="text-shadow: 1px 1px black;">Step 3:</ion-text>&nbsp;Enter Your Card Details                      </h4>                      <hr>                      <ion-text color="warning" style="text-shadow: 1px 1px black;">                        <h5>Credit & Debit Accepted</h5>                      </ion-text>                        <ion-grid>                          <ion-row>                            <ion-col>                              <img src="../../../assets/img/visa.svg"  style="height:40px; float:right;">                            </ion-col>                            <ion-col>                              <img src="../../../assets/img/discover.svg"  style="height:40px;" >                            </ion-col>                            <ion-col>                              <img src="../../../assets/img/amex.svg"  style="height:40px;" t>                            </ion-col>                            <ion-col>                              <img src="../../../assets/img/mastercard.svg"  style="height:47px;" >                            </ion-col>                          </ion-row>                        </ion-grid>                                              <form #f="ngForm" (ngSubmit)="onSubmit(f)">                        <div class="form-row">                          <div id="card-element" #cardElement>                            <!-- A Stripe Element will be inserted here. -->                          </div>                          <!-- Used to display Element errors. -->                          <p class="has-text-danger">{{ cardErrors }}</p>                        </div>                        <hr>                        <ion-button [disabled]="!planChosen" type="submit" expand="block" color="tertiary">                          <ion-text color="warning" style="text-shadow: 1px 1px black;">Start Subscription&nbsp;&nbsp;                            <ion-icon slot="end" color="dark" name="jet"></ion-icon>                          </ion-text>                        </ion-button>                      </form>                      <hr>                      <ion-img src="../../assets/img/stripe.svg" style="height:30px;" ></ion-img>            </ion-card>          </ion-card>        </ion-col>      </ion-row><!-- Fourth Row Disclaimers -->      <ion-row>        <ion-col>          <ion-card color="medium" padding>              <ion-text>                <p>                  <sub>                    * Credit or Debit card required for verification. During the One Week (7 day) trial period, card will not be charged. On eighth 8<sup>th</sup> day after subscription start date, card will be processed.                      <strong>                        Trial valid once per card holder/ member.                      </strong>                  <hr>                  <strong>                    One (1) user per account.                  </strong>                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com"><ion-text color="tertiary">Stripe</ion-text></a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <a [routerLink]="[ {outlets: { modal: \'terms\' } } ]">Terms</a>.                  <br>                    The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.                  </sub>                </p>              </ion-text>            </ion-card>          </ion-col>      </ion-row>    </ion-grid>    <ion-card>    </ion-card>  </ion-content><router-outlet name="terms"></router-outlet></div>'
+    var COMPONENTS = [{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'CfbPage', 'selector': 'app-cfb'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FifaPage', 'selector': 'app-fifa'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FreeTrialLoginPage', 'selector': 'app-free-trial-login'},{'name': 'FreeTrialPage', 'selector': 'app-free-trial'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HowToPage', 'selector': 'app-how-to'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchpageComponent', 'selector': 'app-launchpage'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'ListTablesComponent', 'selector': 'app-list-tables'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MlbPage', 'selector': 'app-mlb'},{'name': 'NbaPage', 'selector': 'app-nba'},{'name': 'NflPage', 'selector': 'app-nfl'},{'name': 'NflPreComponent', 'selector': 'app-nfl-pre'},{'name': 'NflScoreComponent', 'selector': 'app-nfl-score'},{'name': 'NflWeekComponent', 'selector': 'app-nfl-week'},{'name': 'NowPage', 'selector': 'app-now'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'PgaPage', 'selector': 'app-pga'},{'name': 'PgaStatsComponent', 'selector': 'app-pga-stats'},{'name': 'PgaThisWeekComponent', 'selector': 'app-pga-this-week'},{'name': 'PowerRankingsComponent', 'selector': 'app-power-rankings'},{'name': 'PricingPage', 'selector': 'app-pricing'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'PrivacyDialogComponent', 'selector': 'privacy-dialog'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScorePredictionsComponent', 'selector': 'app-score-predictions'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SportsCategoriesPage', 'selector': 'app-sports-categories'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisPage', 'selector': 'app-tennis'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TermsDialogComponent', 'selector': 'app-terms-dialog'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'UserTicketPage', 'selector': 'app-user-ticket'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'},{'name': 'SubmitIfValidDirective', 'selector': '[tsSubmitIfValid]'}];
+    var ACTUAL_COMPONENT = {'name': 'LaunchpageComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -1597,7 +1748,7 @@ export class LaunchPageComponent implements OnInit, AfterViewInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'LaunchPageComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LaunchpageComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

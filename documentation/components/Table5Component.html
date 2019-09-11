@@ -62,7 +62,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/tables/table5/table5.component.ts</code>
+    <code>src/app/list/nba/table5/table5.component.ts</code>
 </p>
 
 
@@ -157,7 +157,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/tables/table5/table5.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/list/nba/table5/table5.component.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -197,7 +197,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/tables/table5/table5.component.ts:12</a></div>
+                            class="link-to-prism">src/app/list/nba/table5/table5.component.ts:12</a></div>
                 </td>
             </tr>
 
@@ -237,87 +237,24 @@ export class Table5Component implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
+        <pre class="line-numbers"><code class="language-html">  &lt;ion-toolbar color&#x3D;&quot;primary&quot;&gt;
+     &lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
+      &lt;ion-back-button defaultHref&#x3D;&quot;/home&quot; text&#x3D;&quot;Back&quot; type&#x3D;&quot;button&quot; color&#x3D;&quot;warning&quot; slot&#x3D;&quot;start&quot; icon&#x3D;&quot;arrow-round-back&quot; &gt;
+      &lt;/ion-back-button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;ion-title&gt;NBA Draft Kings&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;ion-content fullscreen   &gt;
+      &lt;ion-card class&#x3D;&quot;resp-container&quot;&gt;
 
-&lt;ion-content fullscreen  padding &gt;
-  &lt;iframe
-    width&#x3D;&quot;100%&quot;
-    height&#x3D;&quot;100%&quot;
-    frameborder&#x3D;&quot;0&quot;
+          &lt;iframe
+          class&#x3D;&quot;resp-iframe&quot;
+        frameborder&#x3D;&quot;3&quot;
     scrolling&#x3D;&quot;no&quot;
-    src&#x3D;&quot;https://onedrive.live.com/embed?resid&#x3D;E6DAB4F84D6D7119%21746&amp;authkey&#x3D;%21AJMhnG8quMCJG5o&amp;em&#x3D;2&amp;AllowTyping&#x3D;True&amp;wdInConfigurator&#x3D;True&quot;
-  &gt;&lt;/iframe&gt;
-  &lt;!--
-    &lt;div id&#x3D;&quot;myExcelDiv&quot; style&#x3D;&quot;width: 402px; height: 346px&quot;&gt;&lt;/div&gt;
-    &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://r.office.microsoft.com/r/rlidExcelWLJS?v&#x3D;1&amp;kip&#x3D;1&quot;&gt;&lt;/script&gt;
-    &lt;script type&#x3D;&quot;text/javascript&quot;&gt;
-        /*
-        * This code uses the Microsoft Office Excel JavaScript object model to programmatically insert the
-        * Excel Web App into a div with id&#x3D;myExcelDiv. The full API is documented at
-        * https://msdn.microsoft.com/en-us/library/hh315812.aspx. There you can find out how to programmatically get
-        * values from your Excel file and how to use the rest of the object model.
-        */
-
-        // Use this file token to reference Book1.xlsx in the Excel APIs
-        var fileToken &#x3D; &quot;e6dab4f84d6d7119&quot;;
-        var ewa &#x3D; null;
-
-        // Run the Excel load handler on page load.
-        if (window.attachEvent)
-        {
-            window.attachEvent(&quot;onload&quot;, loadEwaOnPageLoad);
-        } else
-        {
-            window.addEventListener(&quot;DOMContentLoaded&quot;, loadEwaOnPageLoad, true);
-        }
-
-        function loadEwaOnPageLoad()
-        {
-            var props &#x3D; {
-                uiOptions: {
-                    showGridlines: true,
-                    showRowColumnHeaders: false,
-                    showParametersTaskPane: true
-                },
-                interactivityOptions: {
-                    allowTypingAndFormulaEntry: false,
-                    allowParameterModification: false,
-                    allowSorting: true,
-                    allowFiltering: true,
-                    allowPivotTableInteractivity: false
-                }
-            };
-            // Embed workbook using loadEwaAsync
-            Ewa.EwaControl.loadEwaAsync(fileToken, &quot;myExcelDiv&quot;, props, onEwaLoaded);
-        }
-
-        function onEwaLoaded(asyncResult)
-        {
-            if (asyncResult.getSucceeded())
-            {
-                // Use the AsyncResult.getEwaControl() method to get a reference to the EwaControl object
-                ewa &#x3D; asyncResult.getEwaControl();
-                ewa.add_activeCellChanged(cellChanged);
-            }
-            else
-            {
-               window.alert(&quot;Async operation failed!&quot;);
-            }
-            // ...
-        }
-
-        // Handle the active cell changed event.
-        function cellChanged(rangeArgs)
-        {
-            // Use the RangeEventArgs object to get information about the range.
-            var sheetName &#x3D; rangeArgs.getRange().getSheet().getName();
-            var col &#x3D; rangeArgs.getRange().getColumn();
-            var row &#x3D; rangeArgs.getRange().getRow();
-            var value &#x3D; rangeArgs.getFormattedValues();
-           window.alert(&quot;The active cell is located at row &quot; + (row + 1) + &quot; and column &quot; + (col + 1) + &quot; with value &#x27;&quot; + value + &quot;&#x27;.&quot;);
-            // ...
-        }
-    &lt;/script&gt; --&gt;
+    src&#x3D;&quot;https://onedrive.live.com/embed?resid&#x3D;E6DAB4F84D6D7119%21746&amp;authkey&#x3D;%21AJMhnG8quMCJG5o&amp;em&#x3D;2&amp;wdAllowInteractivity&#x3D;True&amp;wdInConfigurator&#x3D;True&quot;
+    &gt;&lt;/iframe&gt;
+    
+&lt;/ion-card&gt;
 &lt;/ion-content&gt;
 
 &lt;app-footer&gt;&lt;/app-footer&gt;
@@ -328,7 +265,24 @@ export class Table5Component implements OnInit {
                 <p class="comment">
                     <code>./table5.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.resp-container {
+    position: relative;
+    overflow: hidden;
+    height: 103%;
+    width: 107%;
+    left: -17px;
+    top: -7px
+}
+
+.resp-iframe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -356,9 +310,9 @@ export class Table5Component implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen  padding >  <iframe    width="100%"    height="100%"    frameborder="0"    scrolling="no"    src="https://onedrive.live.com/embed?resid=E6DAB4F84D6D7119%21746&authkey=%21AJMhnG8quMCJG5o&em=2&AllowTyping=True&wdInConfigurator=True"  ></iframe>  <!--    <div id="myExcelDiv" style="width: 402px; height: 346px"></div>    <script type="text/javascript" src="https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1"></script>    <script type="text/javascript">        /*        * This code uses the Microsoft Office Excel JavaScript object model to programmatically insert the        * Excel Web App into a div with id=myExcelDiv. The full API is documented at        * https://msdn.microsoft.com/en-us/library/hh315812.aspx. There you can find out how to programmatically get        * values from your Excel file and how to use the rest of the object model.        */        // Use this file token to reference Book1.xlsx in the Excel APIs        var fileToken = "e6dab4f84d6d7119";        var ewa = null;        // Run the Excel load handler on page load.        if (window.attachEvent)        {            window.attachEvent("onload", loadEwaOnPageLoad);        } else        {            window.addEventListener("DOMContentLoaded", loadEwaOnPageLoad, true);        }        function loadEwaOnPageLoad()        {            var props = {                uiOptions: {                    showGridlines: true,                    showRowColumnHeaders: false,                    showParametersTaskPane: true                },                interactivityOptions: {                    allowTypingAndFormulaEntry: false,                    allowParameterModification: false,                    allowSorting: true,                    allowFiltering: true,                    allowPivotTableInteractivity: false                }            };            // Embed workbook using loadEwaAsync            Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);        }        function onEwaLoaded(asyncResult)        {            if (asyncResult.getSucceeded())            {                // Use the AsyncResult.getEwaControl() method to get a reference to the EwaControl object                ewa = asyncResult.getEwaControl();                ewa.add_activeCellChanged(cellChanged);            }            else            {               window.alert("Async operation failed!");            }            // ...        }        // Handle the active cell changed event.        function cellChanged(rangeArgs)        {            // Use the RangeEventArgs object to get information about the range.            var sheetName = rangeArgs.getRange().getSheet().getName();            var col = rangeArgs.getRange().getColumn();            var row = rangeArgs.getRange().getRow();            var value = rangeArgs.getFormattedValues();           window.alert("The active cell is located at row " + (row + 1) + " and column " + (col + 1) + " with value \'" + value + "\'.");            // ...        }    </script> --></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div>  <ion-toolbar color="primary">     <ion-buttons slot="start">      <ion-back-button defaultHref="/home" text="Back" type="button" color="warning" slot="start" icon="arrow-round-back" >      </ion-back-button>    </ion-buttons>    <ion-title>NBA Draft Kings</ion-title>  </ion-toolbar><ion-content fullscreen   >      <ion-card class="resp-container">          <iframe          class="resp-iframe"        frameborder="3"    scrolling="no"    src="https://onedrive.live.com/embed?resid=E6DAB4F84D6D7119%21746&authkey=%21AJMhnG8quMCJG5o&em=2&wdAllowInteractivity=True&wdInConfigurator=True"    ></iframe>    </ion-card></ion-content><app-footer></app-footer></div>'
+    var COMPONENTS = [{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'CfbPage', 'selector': 'app-cfb'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FifaPage', 'selector': 'app-fifa'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FreeTrialLoginPage', 'selector': 'app-free-trial-login'},{'name': 'FreeTrialPage', 'selector': 'app-free-trial'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HowToPage', 'selector': 'app-how-to'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchpageComponent', 'selector': 'app-launchpage'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'ListTablesComponent', 'selector': 'app-list-tables'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MlbPage', 'selector': 'app-mlb'},{'name': 'NbaPage', 'selector': 'app-nba'},{'name': 'NflPage', 'selector': 'app-nfl'},{'name': 'NflPreComponent', 'selector': 'app-nfl-pre'},{'name': 'NflScoreComponent', 'selector': 'app-nfl-score'},{'name': 'NflWeekComponent', 'selector': 'app-nfl-week'},{'name': 'NowPage', 'selector': 'app-now'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'PgaPage', 'selector': 'app-pga'},{'name': 'PgaStatsComponent', 'selector': 'app-pga-stats'},{'name': 'PgaThisWeekComponent', 'selector': 'app-pga-this-week'},{'name': 'PowerRankingsComponent', 'selector': 'app-power-rankings'},{'name': 'PricingPage', 'selector': 'app-pricing'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'PrivacyDialogComponent', 'selector': 'privacy-dialog'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScorePredictionsComponent', 'selector': 'app-score-predictions'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SportsCategoriesPage', 'selector': 'app-sports-categories'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisPage', 'selector': 'app-tennis'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TermsDialogComponent', 'selector': 'app-terms-dialog'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'UserTicketPage', 'selector': 'app-user-ticket'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'},{'name': 'SubmitIfValidDirective', 'selector': '[tsSubmitIfValid]'}];
     var ACTUAL_COMPONENT = {'name': 'Table5Component'};
 </script>
 <script src="../js/tree.js"></script>

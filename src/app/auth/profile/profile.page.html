@@ -1,10 +1,6 @@
 <app-header></app-header>
 
-<ion-content 
-padding 
-fullscreen
-(ionScroll)="onScroll($event)"
-[scrollEvents]="true">
+<ion-content>
   
   
   <ion-grid>
@@ -18,78 +14,97 @@ fullscreen
        <ion-card-title text-center>
          <ion-text color="secondary" style="text-shadow: 1px 1px black;">
           <h2>
-
-            Rank Fantasy $ports Profile
+            <strong>
+              Rank Fantasy $ports Profile
+            </strong>
           </h2>
-          </ion-text>
-</ion-card-title>
-</ion-card-header>
-    <ion-item lines="none" color="primary">
-
-      <ion-thumbnail>
-        
-        <img [src]="user.photoURL || '../../assets/img/dummy-user.png'">
-      </ion-thumbnail>
-      <ion-title>
-        <ion-text color="secondary">
-         
-         {{ user.displayName || 'User' }}
-        
-
         </ion-text>
-        </ion-title>
+          </ion-card-title>
+    </ion-card-header>
+      <img style="width:200px; height:200px;" [src]="user.photoURL || '../../assets/img/dummy-user.png'">
+      <ion-card-content>
+          <ion-item lines="none" color="primary">
+            
+            <ion-text color="secondary">
+              Name:
+            </ion-text>
+            <ion-chip color="dark">
+            <ion-text color="warning" style="font-size:1.5em"><strong>
+
+              {{ user.displayName || 'User' }}
+            </strong>
+              </ion-text>
+            </ion-chip>
       </ion-item>
-      
-    <ion-card-content>
-        
-      <ion-text color="secondary">Email:</ion-text>
-        <ion-chip color="dark">
+      <ion-item lines="none" color="primary">
 
-          <ion-text color="warning">{{ user.email }}</ion-text>
+        <ion-text color="secondary">Email:</ion-text>
+        <ion-chip color="dark"><strong>
+
+          <ion-text color="warning" style="font-size:1.5em">{{ user.email }}</ion-text>
+        </strong>
         </ion-chip>
-        <br>
-        
-        <hr>
-  
-         <ion-text color="secondary">
-         RF$&trade; Subscription:
-        </ion-text>
-        
-          
+      </ion-item>
+       
+        <ion-item lines="none" color="primary">
+
           <ion-text color="secondary">
-        
-        <ion-chip color="dark"> 
+          Current Subscription:
+          </ion-text>
+          
+          <div *ngIf="(user.gold|| user.silver || user.bronze); else purchase">
+            
+            <ion-text color="secondary">
+              
+              <ion-chip color="dark"> 
                 <div [hidden]="!user.gold">
-                  <ion-text color="gold">
-                  Gold Package
-                </ion-text>
+                  <ion-text color="gold" style="font-size:1.5em"><strong>
+
+                    Gold Package
+                  </strong>
+                  </ion-text>
                 </div>   
                 
                 <div [hidden]="!user.silver">
-                  <ion-text color="silver">
-                  Silver Package
-                </ion-text>
+                  <ion-text color="silver" style="font-size:1.5em"><strong>
+
+                    Silver Package
+                  </strong>
+                  </ion-text>
                 </div>  
                 
                 <div [hidden]="!user.bronze">
-               <ion-text color="bronze">
-                  Bronze Package 
-                </ion-text>
-              </div>   
-            </ion-chip>
-          </ion-text>
+                  <ion-text color="bronze" style="font-size:1.5em"><strong>
 
-          <ng-template #purchase>
-          <ion-button color="danger" shape="round" strong routerLink="/pricing">
-            <ion-text >
-              View Pricing
+                    Bronze Package 
+                  </strong>
+                  </ion-text>
+                </div>   
+              </ion-chip>
             </ion-text>
-          </ion-button>
-        </ng-template>
+          </div>
+          
+          <ng-template #purchase>
+            &nbsp;
+            <ion-button color="danger" size="large" shape="round" strong routerLink="/launchpage">
+              <ion-text >
+                View PRO Packages
+              </ion-text>
+            </ion-button>
+          </ng-template>
+        </ion-item>
           <br>
-          <ion-button size="small" shape="round" color="success" routerLink="/auth/settings">
-            Update Name, Email, &amp; Photo
-          </ion-button>
+          <hr>
+          <ion-grid>
+            <ion-row>
+              <ion-col offset="4">
+                <ion-button strong size="small" shape="round" color="warning" routerLink="/auth/settings">
+                  Edit Name, Email &amp; Photo
+                </ion-button>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-card-content>
       </ion-card>
     </ng-container>
@@ -119,6 +134,7 @@ fullscreen
                 
               </ion-text>
             </ion-card-subtitle>
+            <hr>
             
         <ion-button expand="full" strong size="small" color="tertiary">Accent One Color</ion-button>
         <ion-button expand="full" strong size="small" color="light">Accent Two Color</ion-button>
@@ -220,8 +236,8 @@ fullscreen
             </ion-card-title>
           </ion-card-header>
           
-          <ion-button color="secondary" expand="block" routerLink="/pricing">
-            View Memberships Options
+          <ion-button color="danger" shape="round" strong size="large" routerLink="/launchpage">
+            View PRO Packages
           </ion-button>
         </ion-card>
       </ng-template>
@@ -247,10 +263,11 @@ fullscreen
   
                 Not finding the answers you need? Open a support request, and we will get back to you ASAP!
               </p>
-                
-                <ion-button shape="round" color="danger" (click)="openSupportModal()">
-                  <ion-icon color="light" name="help-buoy"></ion-icon>
-                  <ion-text color="light">
+                <hr>
+                <ion-button shape="round" color="warning" (click)="openSupportModal()">
+                  <ion-icon color="tertiary" name="help-buoy"></ion-icon>
+                  &nbsp;
+                  <ion-text color="success">
                     Request Support 
                   </ion-text>
                 </ion-button>

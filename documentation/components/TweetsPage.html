@@ -133,6 +133,9 @@
                             <li>
                                 <a href="#ionContent">ionContent</a>
                             </li>
+                            <li>
+                                <a href="#scrolledDown">scrolledDown</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -147,6 +150,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onScroll">onScroll</a>
                             </li>
                             <li>
                                 <a href="#ScrollToTop">ScrollToTop</a>
@@ -174,7 +180,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/tweets/tweets.page.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/tweets/tweets.page.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -213,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/tweets/tweets.page.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">src/app/tweets/tweets.page.ts:17</a></div>
                 </td>
             </tr>
 
@@ -225,6 +231,72 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onScroll"></a>
+                    <span class="name">
+                        <b>
+                            onScroll
+                        </b>
+                        <a href="#onScroll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onScroll(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/tweets/tweets.page.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -252,8 +324,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/tweets/tweets.page.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/tweets/tweets.page.ts:20</a></div>
                 </td>
             </tr>
 
@@ -304,7 +376,33 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/tweets/tweets.page.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/tweets/tweets.page.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scrolledDown"></a>
+                        <span class="name">
+                            <b>
+                            scrolledDown</b>
+                            <a href="#scrolledDown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/tweets/tweets.page.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -326,7 +424,11 @@ import { IonContent } from &#x27;@ionic/angular&#x27;;
   styleUrls: [&#x27;./tweets.page.scss&#x27;],
 })
 export class TweetsPage implements OnInit {
+
   @ViewChild(IonContent) ionContent: IonContent;
+
+  scrolledDown &#x3D; false;
+
   constructor() { }
 
   ngOnInit() {
@@ -335,7 +437,13 @@ export class TweetsPage implements OnInit {
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
-
+  onScroll(event) {
+    if (event.detail.scrollTop &gt; 200) {
+      this.scrolledDown &#x3D; true;
+    } else {
+      this.scrolledDown &#x3D; false;
+    }
+  }
 }
 </code></pre>
     </div>
@@ -344,30 +452,37 @@ export class TweetsPage implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
   &lt;ion-toolbar color&#x3D;&quot;primary&quot; text-center&gt;
     &lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
-      &lt;ion-back-button defaultHref&#x3D;&quot;/&quot; text&#x3D;&quot;Back&quot; type&#x3D;&quot;button&quot; color&#x3D;&quot;warning&quot; slot&#x3D;&quot;start&quot;
+      &lt;ion-back-button defaultHref&#x3D;&quot;/home&quot; text&#x3D;&quot;Back&quot; type&#x3D;&quot;button&quot; color&#x3D;&quot;warning&quot; slot&#x3D;&quot;start&quot;
         icon&#x3D;&quot;arrow-round-back&quot;&gt;
       &lt;/ion-back-button&gt;
     &lt;/ion-buttons&gt;
       &lt;ion-text color&#x3D;&quot;light&quot; text-wrap&gt;
-Recent RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; tweets&lt;/ion-text&gt;
+Recent RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; Tweets&lt;/ion-text&gt;
   &lt;/ion-toolbar&gt;
 &lt;/ion-header&gt;
 &lt;ion-content
+  (ionScroll)&#x3D;&quot;onScroll($event)&quot;
   [scrollEvents]&#x3D;&quot;true&quot;
   fullscreen
 &gt;
-  &lt;ion-card  color&#x3D;&quot;primary&quot;&gt;
-    &lt;div class&#x3D;&quot;twitter-container&quot;&gt;
-      &lt;ngx-twitter-timeline [data]&#x3D;&quot;{sourceType: &#x27;url&#x27;, url: &#x27;https://twitter.com/rankfsports&#x27;}&quot;
-        [opts]&#x3D;&quot;{chrome: [&#x27;nofooter&#x27;,  &#x27;noscrollbar&#x27;], theme: &#x27;dark&#x27;, tweetLimit: &#x27;20&#x27;, borderColor: &#x27;#02ed25&#x27;, ariaPolite: &#x27;assertive&#x27;}&quot;&gt;
+  &lt;ion-grid&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col offset-lg&#x3D;&quot;3&quot;&gt;
+
+        
+        &lt;div class&#x3D;&quot;twitter-container&quot;&gt;
+          &lt;ngx-twitter-timeline [data]&#x3D;&quot;{sourceType: &#x27;url&#x27;, url: &#x27;https://twitter.com/rankfsports&#x27;}&quot;
+          [opts]&#x3D;&quot;{chrome: [&#x27;transparent&#x27;, &#x27;nofooter&#x27;, &#x27;noscrollbar&#x27;], theme: &#x27;dark&#x27;, tweetLimit: &#x27;20&#x27;, borderColor: &#x27;#02ed25&#x27;, ariaPolite: &#x27;assertive&#x27;}&quot;&gt;
       &lt;/ngx-twitter-timeline&gt;
     &lt;/div&gt;
-  &lt;/ion-card&gt;
     &lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;end&quot; edge slot&#x3D;&quot;fixed&quot;&gt;
       &lt;ion-fab-button id&#x3D;&quot;scrollToTop&quot; color&#x3D;&quot;warning&quot; size&#x3D;&quot;small&quot; (click)&#x3D;&quot;ScrollToTop()&quot;&gt;
         &lt;ion-icon name&#x3D;&quot;arrow-dropup&quot;&gt;&lt;/ion-icon&gt;
       &lt;/ion-fab-button&gt;
     &lt;/ion-fab&gt;
+  &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
 &lt;/ion-content&gt;
 &lt;app-footer&gt;&lt;/app-footer&gt;
 </code></pre>
@@ -379,7 +494,7 @@ Recent RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; twe
                 </p>
                 <pre class="line-numbers"><code class="language-scss">.twitter-container{
     max-width: 650px;
-        background: linear-gradient(to bottom, rgba(53, 20, 66, 0.815) 0%, rgba(14, 68, 70, 0.801) 25%);
+        background: linear-gradient(to bottom, rgba(53, 20, 66, 0.432) 0%, rgba(14, 68, 70, 0.315) 25%), url(&#x27;../../assets/img/ball-court2.jpg&#x27;);
         text-align: center;
 }
 </code></pre>
@@ -410,9 +525,9 @@ Recent RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; twe
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary" text-center>    <ion-buttons slot="start">      <ion-back-button defaultHref="/" text="Back" type="button" color="warning" slot="start"        icon="arrow-round-back">      </ion-back-button>    </ion-buttons>      <ion-text color="light" text-wrap>Recent RF<ion-text color="secondary">$</ion-text> tweets</ion-text>  </ion-toolbar></ion-header><ion-content  [scrollEvents]="true"  fullscreen>  <ion-card  color="primary">    <div class="twitter-container">      <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"        [opts]="{chrome: [\'nofooter\',  \'noscrollbar\'], theme: \'dark\', tweetLimit: \'20\', borderColor: \'#02ed25\', ariaPolite: \'assertive\'}">      </ngx-twitter-timeline>    </div>  </ion-card>    <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">      <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">        <ion-icon name="arrow-dropup"></ion-icon>      </ion-fab-button>    </ion-fab></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary" text-center>    <ion-buttons slot="start">      <ion-back-button defaultHref="/home" text="Back" type="button" color="warning" slot="start"        icon="arrow-round-back">      </ion-back-button>    </ion-buttons>      <ion-text color="light" text-wrap>Recent RF<ion-text color="secondary">$</ion-text>&trade; Tweets</ion-text>  </ion-toolbar></ion-header><ion-content  (ionScroll)="onScroll($event)"  [scrollEvents]="true"  fullscreen>  <ion-grid>    <ion-row>      <ion-col offset-lg="3">                <div class="twitter-container">          <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"          [opts]="{chrome: [\'transparent\', \'nofooter\', \'noscrollbar\'], theme: \'dark\', tweetLimit: \'20\', borderColor: \'#02ed25\', ariaPolite: \'assertive\'}">      </ngx-twitter-timeline>    </div>    <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">      <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">        <ion-icon name="arrow-dropup"></ion-icon>      </ion-fab-button>    </ion-fab>  </ion-col>  </ion-row>  </ion-grid></ion-content><app-footer></app-footer></div>'
+    var COMPONENTS = [{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'CfbPage', 'selector': 'app-cfb'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FifaPage', 'selector': 'app-fifa'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FreeTrialLoginPage', 'selector': 'app-free-trial-login'},{'name': 'FreeTrialPage', 'selector': 'app-free-trial'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HowToPage', 'selector': 'app-how-to'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchpageComponent', 'selector': 'app-launchpage'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'ListTablesComponent', 'selector': 'app-list-tables'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MlbPage', 'selector': 'app-mlb'},{'name': 'NbaPage', 'selector': 'app-nba'},{'name': 'NflPage', 'selector': 'app-nfl'},{'name': 'NflPreComponent', 'selector': 'app-nfl-pre'},{'name': 'NflScoreComponent', 'selector': 'app-nfl-score'},{'name': 'NflWeekComponent', 'selector': 'app-nfl-week'},{'name': 'NowPage', 'selector': 'app-now'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'PgaPage', 'selector': 'app-pga'},{'name': 'PgaStatsComponent', 'selector': 'app-pga-stats'},{'name': 'PgaThisWeekComponent', 'selector': 'app-pga-this-week'},{'name': 'PowerRankingsComponent', 'selector': 'app-power-rankings'},{'name': 'PricingPage', 'selector': 'app-pricing'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'PrivacyDialogComponent', 'selector': 'privacy-dialog'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScorePredictionsComponent', 'selector': 'app-score-predictions'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SportsCategoriesPage', 'selector': 'app-sports-categories'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisPage', 'selector': 'app-tennis'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TermsDialogComponent', 'selector': 'app-terms-dialog'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'UserTicketPage', 'selector': 'app-user-ticket'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'},{'name': 'SubmitIfValidDirective', 'selector': '[tsSubmitIfValid]'}];
     var ACTUAL_COMPONENT = {'name': 'TweetsPage'};
 </script>
 <script src="../js/tree.js"></script>

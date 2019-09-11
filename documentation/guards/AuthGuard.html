@@ -70,25 +70,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#auth">auth</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#router">router</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -99,6 +80,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#canActivate">canActivate</a>
                             </li>
                         </ul>
@@ -119,12 +101,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, alertController: AlertController)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/guard/auth.guard.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/guard/auth.guard.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -165,6 +147,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>alertController</td>
+                                                  
+                                                        <td>
+                                                                    <code>AlertController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -186,6 +180,7 @@
                     <a name="canActivate"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Async</span>
                             canActivate
                         </b>
                         <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
@@ -194,15 +189,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/core/guard/auth.guard.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/core/guard/auth.guard.ts:15</a></div>
                 </td>
             </tr>
 
@@ -251,7 +247,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable | Promise | boolean</code>
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -268,30 +264,38 @@
         <div class="tab-pane fade  tab-source-code" id="c-source">
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from &#x27;@angular/router&#x27;;
-import { AuthService } from &#x27;../services/auth.service&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-// import { tap, map, take } from &#x27;rxjs/operators&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import { AlertController } from &#x27;@ionic/angular&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class AuthGuard implements CanActivate {
-
   constructor(
-    public auth: AuthService,
-    public router: Router
+    private auth: AuthService,
+    private router: Router,
+    private alertController: AlertController,
   ) { }
-
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
-    if (this.auth.isLoggedIn !&#x3D;&#x3D; false) {
-      return true;
-      // this.router.navigate([&#x27;list&#x27;]);
-    } else {
-      window.alert(&#x27;You must purchase a membership to view tables&#x27;);
-      return this.router.navigate([&#x27;launch-page&#x27;]);
-    }
+    state: RouterStateSnapshot): Promise &lt;boolean&gt; {
+
+    const uid &#x3D; await this.auth.uid();
+    const isLoggedIn &#x3D; !!uid;
+
+      if (!isLoggedIn) {
+        const loginAlert &#x3D; await this.alertController.create({
+          header: &#x27;Login First&#x27;,
+          subHeader: &#x27;Authenticated Users Only&#x27;,
+          message: &#x27;First, You need to Login or Register an Account in order to access this page&#x27;,
+          buttons: [&#x27;OK&#x27;],
+          cssClass: &#x27;loginAlertCss&#x27;
+        });
+        loginAlert.present();
+        return this.router.navigateByUrl(&#x27;/auth/register&#x27;);
+      } else {
+        return isLoggedIn;
+      }
   }
 }
 </code></pre>

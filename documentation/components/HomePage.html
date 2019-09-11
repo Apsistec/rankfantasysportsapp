@@ -132,6 +132,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#auth">auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#domSanitizer">domSanitizer</a>
                             </li>
                             <li>
@@ -139,10 +143,27 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#modalController">modalController</a>
+                            </li>
+                            <li>
+                                <a href="#scrolledDown">scrolledDown</a>
+                            </li>
+                            <li>
+                                <a href="#slide">slide</a>
+                            </li>
+                            <li>
+                                <a href="#slideOpts">slideOpts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#trustedVideoUrl">trustedVideoUrl</a>
                             </li>
                             <li>
                                 <a href="#video">video</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#zone">zone</a>
                             </li>
                         </ul>
                     </td>
@@ -158,6 +179,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onScroll">onScroll</a>
                             </li>
                             <li>
                                 <a href="#ScrollToTop">ScrollToTop</a>
@@ -183,12 +207,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(domSanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
+<code>constructor(domSanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>, zone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>, auth: <a href="../injectables/AuthService.html">AuthService</a>, modalController: ModalController)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/home/home.page.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/home/home.page.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -210,6 +234,42 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>zone</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
                                                         </td>
                                                   
                                                     <td>
@@ -257,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/home/home.page.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/home/home.page.ts:47</a></div>
                 </td>
             </tr>
 
@@ -269,6 +329,72 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onScroll"></a>
+                    <span class="name">
+                        <b>
+                            onScroll
+                        </b>
+                        <a href="#onScroll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onScroll(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/home/home.page.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -296,8 +422,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/home/home.page.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/home/home.page.ts:56</a></div>
                 </td>
             </tr>
 
@@ -335,8 +461,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/home/home.page.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/home/home.page.ts:52</a></div>
                 </td>
             </tr>
 
@@ -362,6 +488,34 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="auth"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            auth</b>
+                            <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/home/home.page.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="domSanitizer"></a>
                         <span class="name">
                             <b>
@@ -379,7 +533,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/home/home.page.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/home/home.page.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -415,7 +569,126 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/home/home.page.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/home/home.page.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalController"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            modalController</b>
+                            <a href="#modalController"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ModalController</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/home/home.page.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scrolledDown"></a>
+                        <span class="name">
+                            <b>
+                            scrolledDown</b>
+                            <a href="#scrolledDown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/home/home.page.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slide"></a>
+                        <span class="name">
+                            <b>
+                            slide</b>
+                            <a href="#slide"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/home.page.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slideOpts"></a>
+                        <span class="name">
+                            <b>
+                            slideOpts</b>
+                            <a href="#slideOpts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    centeredSlides: true,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 4000,
+    },
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/home/home.page.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -443,7 +716,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/home/home.page.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/home/home.page.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -477,7 +750,35 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/home/home.page.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/home/home.page.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="zone"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            zone</b>
+                            <a href="#zone"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/home/home.page.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -490,9 +791,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, NgZone, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { SafeResourceUrl, DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
 import { IonContent } from &#x27;@ionic/angular&#x27;;
+import { AuthService } from &#x27;../core/services/auth.service&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+
 @Component({
   selector: &#x27;app-home&#x27;,
   templateUrl: &#x27;./home.page.html&#x27;,
@@ -500,25 +804,40 @@ import { IonContent } from &#x27;@ionic/angular&#x27;;
 })
 
 export class HomePage implements OnInit {
+  slide: any;
+  slideOpts &#x3D; {
+    centeredSlides: true,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 4000,
+    },
+  };
   @ViewChild(IonContent) ionContent: IonContent;
+  scrolledDown &#x3D; false;
 
+  public trustedVideoUrl: SafeResourceUrl;
   video: any &#x3D; {
     url: &#x27;https://www.youtube.com/embed/IlU_RBT2zE0&#x27;,
   };
 
-  public trustedVideoUrl: SafeResourceUrl;
-  // baseURL &#x3D; &#x27;https://www.googleapis.com/blogger/v3/blogs/&#x27;;
-  // blogId &#x3D; &#x27;2477360286461239505&#x27;;
-  // postId &#x3D; &#x27;9206195856900662027&#x27;;
-
   constructor(
     public domSanitizer: DomSanitizer,
-  ) { }
+    public zone: NgZone,
+    public auth: AuthService,
+    public modalController: ModalController
+  ) {  }
+
+  onScroll(event) {
+    if (event.detail.scrollTop &gt; 200) {
+      this.scrolledDown &#x3D; true;
+    } else {
+      this.scrolledDown &#x3D; false;
+    }
+  }
+
+
 
   ngOnInit() {
-    // if (document.body.scrollTop &lt; 50) {
-    //   document.getElementById(&#x27;scrollToTop&#x27;).style.display &#x3D; &#x27;none&#x27;;
-    // }
     this.showVid();
   }
 
@@ -531,6 +850,7 @@ export class HomePage implements OnInit {
     this.ionContent.scrollToTop(1500);
   }
 
+
 }
 </code></pre>
     </div>
@@ -538,186 +858,232 @@ export class HomePage implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
 &lt;ion-content
-  [scrollEvents]&#x3D;&quot;true&quot;
-&gt;
+  (ionScroll)&#x3D;&quot;onScroll($event)&quot;
+  [scrollEvents]&#x3D;&quot;true&quot;&gt;
   &lt;ion-grid&gt;
     &lt;ion-row&gt;
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
 
-
 &lt;!-- Column 1 --&gt;
-        &lt;ion-card color&#x3D;&quot;primary&quot;&gt;
-          &lt;img src&#x3D;&quot;../../assets/logo-md.svg&quot; slot&#x3D;&quot;start&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;main-card&quot;&gt;
+          &lt;img src&#x3D;&quot;../../assets/logo.jpg&quot; slot&#x3D;&quot;start&quot;&gt;
           &lt;ion-card-content&gt;
             &lt;ion-card-title&gt;
-              &lt;h2&gt;
-                &lt;ion-text color&#x3D;&quot;light&quot;&gt;
-                  RankFantasySportsâ„¢
+           
+                &lt;ion-text style&#x3D;&quot;font:bolder; font-size: 2rem; font-weight: 900; text-shadow: 1px 1px rgb(0, 0, 0);&quot; color&#x3D;&quot;secondary&quot;&gt;
+                  &lt;strong&gt;
+                    Rank Fantasy Sports
+
+                  &lt;/strong&gt;
                 &lt;/ion-text&gt;
-              &lt;/h2&gt;
+           
             &lt;/ion-card-title&gt;
             &lt;ion-card-subtitle&gt;
-              Our business is helping you win
+              &lt;ion-text color&#x3D;&quot;light&quot; style&#x3D;&quot;text-shadow: .5px .5px rgb(2, 0, 3); &quot;&gt;
+                &lt;strong&gt;
+
+                  Our business is helping you win
+                &lt;/strong&gt;
+              &lt;/ion-text&gt;
             &lt;/ion-card-subtitle&gt;
           &lt;/ion-card-content&gt;
         &lt;/ion-card&gt;
-
-
-
-        &lt;ion-card padding  class&#x3D;&quot;utuub&quot; color&#x3D;&quot;dark&quot;&gt;
-            &lt;ion-card-title  class&#x3D;&quot;ion-text-center&quot;&gt;
-            &lt;ion-text color&#x3D;&quot;warning&quot;&gt;Welcome to RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;
-            &lt;/ion-text&gt;
-          &lt;/ion-card-title&gt;
-          &lt;iframe [src]&#x3D;&quot;trustedVideoUrl&quot;&gt;&lt;/iframe&gt;
+         
+        &lt;ion-card padding text-center class&#x3D;&quot;utuub&quot; color&#x3D;&quot;dark&quot;&gt;
+          &lt;iframe  width&#x3D;&quot;100%&quot; height&#x3D;&quot;350&quot;  [src]&#x3D;&quot;trustedVideoUrl&quot;&gt;&lt;/iframe&gt;
+          &lt;ion-card-title  class&#x3D;&quot;ion-text-center&quot;&gt;
+          &lt;ion-text style&#x3D;&quot;text-shadow: 1px 1px #000000;&quot; color&#x3D;&quot;secondary&quot;&gt;&lt;strong&gt;Welcome to RF&lt;/strong&gt;&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade;
+          &lt;/ion-text&gt;
+        &lt;/ion-card-title&gt;
         &lt;/ion-card&gt;
         
-         &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
-                &lt;p&gt;At RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;, when you win, we win! Helping you win is our business!&lt;/p&gt;  
-                &lt;p&gt;We make winning easy by providing you with time saving analysis tools for choosing your lineups. &lt;/p&gt;  
-                &lt;p&gt;The team at RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; has many ties to professional sports, and we have developed a true passion for the sports and the players that we follow. &lt;/p&gt;  
-                &lt;p&gt;When you are picking your next set of DFS lineups, have RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; in your corner. &lt;/p&gt; 
+         &lt;ion-card padding class&#x3D;&quot;card-metal&quot;&gt;
+               &lt;ion-text style&#x3D;&quot;color:whitesmoke;&quot;&gt;
+
+                &lt;p&gt;When you win, we win! Helping you win is our business!&lt;/p&gt;  
+                &lt;p&gt;We make winning easy by providing you the time saving analysis tools to more efficiently choose your lineups. &lt;/p&gt;  
+                &lt;p&gt;The team at RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; has many ties to professional sports, and we have developed a true passion for the sports and the players that we follow. &lt;/p&gt;  
+                &lt;p&gt;When you are picking your next set of DFS lineups, have RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; in your corner. &lt;/p&gt; 
                 &lt;p&gt;The data is concise, relevant, and delivered with an edge, so you can make your decisions quickly and confidently. &lt;/p&gt; 
                 &lt;p&gt;Our subscribers are best described as DFS players who enjoy their sports, who are motivated and ready to win more, but always seem to run short on time due to work, family, and life in general&lt;/p&gt;  
-                &lt;p&gt;Join RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; today and let us show you how we make it easy to win by using our stats, strategies, insights, data-viz and an ever-growing list of other time-saving, money-making player ready tools.&lt;/p&gt;  
-                 &lt;p&gt;With the RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; tools, expect to win More &amp; More Often, while spending less time doing so.&lt;/p&gt;
-               &lt;ion-button shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot; size&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;/launch-page&quot; color&#x3D;&quot;secondary&quot;&gt;
+                &lt;p&gt;Join RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; today and let us show you how we make it easy to win by using our stats, strategies, insights, data-viz and an ever-growing list of other time-saving, money-making player ready tools.&lt;/p&gt;  
+                 &lt;p&gt;With the RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; tools, expect to win More &amp; More Often, while spending less time doing so.&lt;/p&gt;
+               &lt;/ion-text&gt;
+               &lt;ion-button color&#x3D;&quot;secondary&quot; shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot; size&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;/free-trial&quot; &gt;
             &lt;ion-ripple-effect&gt;
             &lt;/ion-ripple-effect&gt;
-            &lt;ion-text&gt;
-              &lt;strong&gt;
-                Free 7 Day Trial
-              &lt;/strong&gt;
+            &lt;ion-text style&#x3D;&quot;font-size: 1.2rem; text-shadow: 1px 1px rgb(26, 1, 1)&quot; color&#x3D;&quot;danger&quot;&gt;
+                &lt;strong&gt;
+                  7 Day Free Trial
+                &lt;/strong&gt;
             &lt;/ion-text&gt;
           &lt;/ion-button&gt;
-              &lt;/ion-card&gt;
-        
-              &lt;ion-card padding class&#x3D;&quot;cta&quot;&gt;
-                &lt;ion-card-header&gt;
-            &lt;ion-card-title&gt;
-              &lt;ion-text color&#x3D;&quot;light&quot;&gt;&lt;strong&gt;
-                Insights for building Daily Fantasy Sports lineups that &lt;ion-text color&#x3D;&quot;secondary&quot;&gt;WIN&lt;/ion-text&gt;!
-                &lt;/strong&gt;
-              &lt;/ion-text&gt;
-            &lt;/ion-card-title&gt;
-          &lt;/ion-card-header&gt;
-    
         &lt;/ion-card&gt;
       &lt;/ion-col&gt;
       
-        &lt;!-- Column 2 --&gt;
+      &lt;!-- Column 2 --&gt;
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
         &lt;ion-card class&#x3D;&quot;testi&quot; text-center&gt;
           &lt;ion-card-content&gt;
             &lt;ion-card-title&gt;
-                &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
-                  RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; Success
-                &lt;/ion-label&gt;
-              &lt;/ion-card-title&gt;
-              &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
-                &lt;p&gt;By interpreting in-house, historical, and real-time data (&lt;ion-text color&#x3D;&quot;light&quot; routerLink&#x3D;&quot;/list&quot;&gt;&lt;strong&gt;player, team, weather &amp; other ancillary data sources&lt;/strong&gt;&lt;/ion-text&gt;) while creating the RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; player scoring algorithms, our sports data analysts are turning &lt;ion-text color&#x3D;&quot;secondary&quot;&gt; $10 &lt;/ion-text&gt; lineups into game changing wins totalling over&lt;ion-text color&#x3D;&quot;secondary&quot;&gt; $8000&lt;/ion-text&gt;.&lt;/p&gt;&lt;p&gt;&lt;ion-text color&#x3D;&quot;light&quot; routerLink&#x3D;&quot;/launch-page&quot;&gt;&lt;strong&gt;Become a member today&lt;/strong&gt;&lt;/ion-text&gt; and discover how to use our proprietary tables and trademark data models --or-- use the data in your own way, the choice is yours.&lt;/p&gt;
-                &lt;ion-button shape&#x3D;&quot;round&quot; size&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;/launch-page&quot; color&#x3D;&quot;secondary&quot;&gt;
+              &lt;ion-text style&#x3D;&quot;font-size: 2rem;text-shadow: 2px 1px rgb(0, 0, 0);&quot; color&#x3D;&quot;secondary&quot;&gt;
+                RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; Success
+              &lt;/ion-text&gt;
+            &lt;/ion-card-title&gt;
+            &lt;ion-card-content&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
+              &lt;p&gt;By interpreting in-house, historical, and real-time data (&lt;ion-text color&#x3D;&quot;light&quot; routerLink&#x3D;&quot;/list/categories&quot;&gt;&lt;strong&gt;player, team, weather &amp; other ancillary data sources&lt;/strong&gt;&lt;/ion-text&gt;) while creating the RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; player scoring algorithms, our sports data analysts are turning &lt;ion-text color&#x3D;&quot;secondary&quot;&gt; $10 &lt;/ion-text&gt; lineups into game changing wins totalling over&lt;ion-text color&#x3D;&quot;secondary&quot;&gt; $8000&lt;/ion-text&gt;.&lt;/p&gt;&lt;br&gt;&lt;p&gt;&lt;ion-text color&#x3D;&quot;light&quot; routerLink&#x3D;&quot;/auth/launchpage&quot;&gt;&lt;strong&gt;Become a member today&lt;/strong&gt;&lt;/ion-text&gt; and discover how to use our proprietary tables and trademark data models --or-- use the data your own way, the choice is yours.&lt;/p&gt;
+              &lt;/ion-text&gt;
+              &lt;br&gt;
+              &lt;ion-button shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot; routerLink&#x3D;&quot;/free-trial&quot; color&#x3D;&quot;secondary&quot;&gt;
+                &lt;ion-text  style&#x3D;&quot;font-size: 1.1rem;text-shadow: 1px 1px rgb(0, 0, 0)&quot; color&#x3D;&quot;danger&quot;&gt;
+                    
+                    &lt;strong&gt;
+                      Join the Club
+                    &lt;/strong&gt;
+                    
+                  &lt;/ion-text&gt;
+                  
                   &lt;ion-ripple-effect&gt;
-            &lt;/ion-ripple-effect&gt;
-            &lt;ion-label color&#x3D;&quot;success&quot;&gt;
-              &lt;strong&gt;
-                Join Us
-              &lt;/strong&gt;
-            &lt;/ion-label&gt;
-          &lt;/ion-button&gt;
-              &lt;/ion-card&gt;
-              &lt;ion-img routerLink&#x3D;&quot;/testimonials&quot; src&#x3D;&quot;../../assets/images/16.JPG&quot;&gt;&lt;/ion-img&gt;
-            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; fill&#x3D;&quot;solid&quot; routerLink&#x3D;&quot;/testimonials&quot;&gt;
-              &lt;ion-ripple-effect&gt;
+                  &lt;/ion-ripple-effect&gt;
+              &lt;/ion-button&gt;
+            &lt;/ion-card-content&gt;
+     
+              &lt;ion-slides [options]&#x3D;&quot;slideOpts&quot;&gt;
+                &lt;ion-slide *ngFor&#x3D;&quot;let slide of [1, 2]&quot;&gt;
+                  &lt;ion-card&gt;
+                    &lt;div class&#x3D;&quot;swiper-zoom-container&quot;&gt;&lt;img src&#x3D;&quot;../../assets/images/{{ slide }}.JPG&quot;&gt;&lt;/div&gt;
+                  &lt;/ion-card&gt;
+                &lt;/ion-slide&gt;
+              &lt;/ion-slides&gt;
+              &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;danger&quot; shape&#x3D;&quot;round&quot; fill&#x3D;&quot;solid&quot; routerLink&#x3D;&quot;/credibility&quot;&gt;
+                &lt;ion-ripple-effect&gt;
               &lt;/ion-ripple-effect&gt;
-              &lt;ion-label&gt;
+              &lt;ion-text style&#x3D;&quot;font-size: 1.1rem;text-shadow: 1px 1px grey;&quot;&gt;
                 &lt;strong&gt;
-                  100+ Examples
+                  More DK Credibility
                 &lt;/strong&gt;
-              &lt;/ion-label&gt;
+              &lt;/ion-text&gt;
             &lt;/ion-button&gt;
           &lt;/ion-card-content&gt;
         &lt;/ion-card&gt;
-        &lt;ion-card padding color&#x3D;&quot;primary&quot;&gt;
-          &lt;!-- &lt;ion-img src&#x3D;&quot;../../../assets/img/  &quot; --&gt;
-               &lt;p&gt;Our mission is to provide our members the best information possible for our members to use!&lt;/p&gt;
-               &lt;p&gt;We want you to make the best decisions possible for your team&#x27;s success.&lt;/p&gt; 
-               &lt;p&gt;Initially we will also provide excellent data for our members to use in fantasy lineups for the NBA, Tennis and Golf. &lt;/p&gt; 
-               &lt;p&gt;We are striving to be &quot;the go to site&quot; for those that love daily and seasonal fantasy sports!&lt;/p&gt;
-               &lt;p&gt;Our goal is to provide the BEST available information and insight for our members and to make it easy for our members to WIN and confidently make their line-up choices.&lt;/p&gt;  
-               &lt;p&gt;Our team has invested years and 1000&#x27;s of hours to create the best information available in fantasy sports!&lt;/p&gt;    
-               &lt;p&gt; We love sports like you do and we love to win like you do! &lt;/p&gt;  
-              
-               &lt;ion-button shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot; size&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;/launch-page&quot; color&#x3D;&quot;secondary&quot;&gt;
-                 &lt;ion-label color&#x3D;&quot;success&quot;&gt;
-                   &lt;strong&gt;
-                     Sign Up Today
-                   &lt;/strong&gt;
-                 &lt;/ion-label&gt;
-                     &lt;ion-ripple-effect&gt;
-                     &lt;/ion-ripple-effect&gt;
-         &lt;/ion-button&gt;
-             &lt;/ion-card&gt;
-      &lt;/ion-col&gt;
+            &lt;/ion-col&gt;
       &lt;ion-col size-md&#x3D;&quot;4&quot;&gt;
-       
+         
         &lt;!-- Column 3 --&gt;
-
-        &lt;ion-card color&#x3D;&quot;tertiary&quot;&gt;
-          
-          &lt;ion-card text-center color&#x3D;&quot;primary&quot; class&#x3D;&quot;pattrn&quot; padding&gt;
+        
+        &lt;ion-card class&#x3D;&quot;inspire&quot;&gt;
+          &lt;ion-card text-center class&#x3D;&quot;card-metal&quot; padding&gt;
             &lt;ion-card-title&gt;
-              &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
+              &lt;ion-text style&#x3D;&quot;font-size: 2rem; text-shadow: 1px 1px rgb(0, 0, 0);&quot; color&#x3D;&quot;secondary&quot;&gt;
                 Today&#x27;s Inspirational Message
-              &lt;/ion-label&gt;
+              &lt;/ion-text&gt;
             &lt;/ion-card-title&gt;
-          &lt;ion-card-subtitle&gt;
-            We can all use more inspiration!
-          &lt;/ion-card-subtitle&gt;
+            &lt;ion-card-subtitle&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot; style&#x3D;&quot;text-shadow: 1px 1px rgb(23, 24, 0);&quot;&gt;
+                We can all use more inspiration!
+              &lt;/ion-text&gt;
+            &lt;/ion-card-subtitle&gt;
             &lt;ion-button class&#x3D;&quot;inspireButton&quot; fill&#x3D;&quot;outline&quot; size&#x3D;&quot;small&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;light&quot; href&#x3D;&quot;https://inspiration.rankfantasysports.com&quot;&gt;
-              &lt;ion-label &gt;More...&lt;/ion-label&gt;
+              &lt;ion-text &gt;More...&lt;/ion-text&gt;
             &lt;/ion-button&gt;
+          &lt;/ion-card&gt;
         &lt;/ion-card&gt;
-      &lt;/ion-card&gt;
-
-
-        &lt;ion-card padding class&#x3D;&quot;twit&quot; color&#x3D;&quot;dark&quot;&gt;
+        
+        &lt;ion-card padding class&#x3D;&quot;cta&quot;&gt;
           &lt;ion-card-content&gt;
-            &lt;ion-card-header&gt;
-              &lt;ion-card-title&gt;
-                &lt;ion-label color&#x3D;&quot;warning&quot;&gt;
-                    Recent RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; Tweets
-                &lt;/ion-label&gt;
-              &lt;/ion-card-title&gt;
-            &lt;/ion-card-header&gt;
-                &lt;ngx-twitter-timeline [data]&#x3D;&quot;{sourceType: &#x27;url&#x27;, url: &#x27;https://twitter.com/rankfsports&#x27;}&quot;
+
+            &lt;ion-card-title&gt;
+              &lt;ion-text style&#x3D;&quot;color:white; font-size: 2rem; text-shadow: 1px 1px rgb(0, 0, 0)&quot;&gt;&lt;strong&gt;
+                Insights for building Daily Fantasy Sports lineups that &lt;ion-text style&#x3D;&quot;text-shadow: 1px 1px rgb(0, 0, 0);&quot; color&#x3D;&quot;warning&quot;&gt;WIN&lt;/ion-text&gt;!
+              &lt;/strong&gt;
+            &lt;/ion-text&gt;
+          &lt;/ion-card-title&gt;
+          &lt;ion-img style&#x3D;&quot;object-position: center; height: 140px; margin: 30px;&quot; src&#x3D;&quot;../../assets/icons/drawable-hdpi-icon.png&quot;&gt;&lt;/ion-img&gt;
+          
+        &lt;/ion-card-content&gt;
+  &lt;/ion-card&gt;
+  &lt;ion-card color&#x3D;&quot;primary&quot; text-center&gt;
+    &lt;ion-card color&#x3D;&quot;light&quot;padding text-center&gt;
+      &lt;!-- &lt;ion-card-header&gt; --&gt;
+
+        &lt;ion-card-title&gt;
+          &lt;ion-text style&#x3D;&quot;text-shadow: 1px 1px grey;&quot;&gt;
+            Rank Fantasy Sports is a participating member of
+          &lt;/ion-text&gt;
+          
+        &lt;/ion-card-title&gt;
+      &lt;!-- &lt;/ion-card-header&gt; --&gt;
+      &lt;ion-card-content&gt;
+        
+        
+        &lt;img src&#x3D;&quot;../../assets/img/fsga.png&quot; href&#x3D;&quot;https://wwww.thefsga.org&quot; style&#x3D;&quot;align-content: center; min-height: 1in; min-width: 1.5in;&quot;&gt;
+        
+      &lt;/ion-card-content&gt;
+    &lt;/ion-card&gt;
+  &lt;/ion-card&gt;
+  &lt;ion-card padding class&#x3D;&quot;card-metal&quot;&gt;
+    &lt;ion-text style&#x3D;&quot;color:whitesmoke;&quot;&gt;
+        &lt;!-- &lt;p&gt;Our mission is to provide our members the best information possible for our members to use!&lt;/p&gt;
+          &lt;p&gt;We want you to make the best decisions possible for your team&#x27;s success.&lt;/p&gt;  --&gt;
+          &lt;p&gt;Initially we will be providing complete data analysis for football, tennis, golf and basketball.  We will also provide daily projections to help you create the best possible lineups for the sports you want to play&lt;/p&gt; 
+          &lt;p&gt;We are striving to be &quot;the go to site&quot; for those that love daily and seasonal fantasy sports!&lt;/p&gt;
+          &lt;p&gt;Our goal is to provide the BEST available information and insight for our members and to make it easy for our members to WIN and confidently make their line-up choices.&lt;/p&gt;  
+          &lt;p&gt;Our team has invested years and 1000&#x27;s of hours to create the best information available in fantasy sports!&lt;/p&gt;    
+          &lt;p&gt; We love sports like YOU do, And we love to win like YOU do! &lt;/p&gt;  
+        &lt;/ion-text&gt;
+        
+        &lt;ion-button color&#x3D;&quot;secondary&quot; shape&#x3D;&quot;round&quot; expand&#x3D;&quot;block&quot; size&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;/free-trial&quot; &gt;
+          &lt;ion-text color&#x3D;&quot;danger&quot; style&#x3D;&quot;font-size: 1.25rem;text-shadow:1px 1px rgb(2, 0, 0)&quot;&gt;
+           
+              &lt;strong&gt;
+                Get Started
+              &lt;/strong&gt;
+            
+          &lt;/ion-text&gt;
+            &lt;ion-ripple-effect&gt;
+            &lt;/ion-ripple-effect&gt;
+        &lt;/ion-button&gt;
+       &lt;/ion-card&gt;
+  
+            &lt;ion-card padding class&#x3D;&quot;twit&quot; color&#x3D;&quot;dark&quot;&gt;
+              &lt;ion-card-content&gt;
+                &lt;ion-card-header&gt;
+                  &lt;ion-card-title&gt;
+                    &lt;ion-text style&#x3D;&quot;font-size: 2rem; text-shadow: 1px 1px #000000;&quot; color&#x3D;&quot;warning&quot;&gt;
+                        Recent RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; Tweets
+                      &lt;/ion-text&gt;
+                    &lt;/ion-card-title&gt;
+                  &lt;/ion-card-header&gt;
+                  &lt;ngx-twitter-timeline [data]&#x3D;&quot;{sourceType: &#x27;url&#x27;, url: &#x27;https://twitter.com/rankfsports&#x27;}&quot;
                   [opts]&#x3D;&quot;{
-                    chrome: [&#x27;transparent&#x27;, &#x27;nofooter&#x27;, &#x27;noscrollbar&#x27;], 
+                    chrome: [&#x27;transparent&#x27;, &#x27;noheader&#x27;, &#x27;nofooter&#x27;, &#x27;noscrollbar&#x27;], 
                     theme: &#x27;dark&#x27;, 
-                    tweetLimit: &#x27;5&#x27;, 
+                    tweetLimit: &#x27;1&#x27;, 
                     borderColor: &#x27;#02ed25&#x27;, 
                     ariaPolite: &#x27;assertive&#x27;
                   }&quot;&gt;
                 &lt;/ngx-twitter-timeline&gt;
-            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;warning&quot; shape&#x3D;&quot;round&quot; routerLink&#x3D;&quot;/tweets&quot;&gt;
-              &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
-                &lt;strong&gt;
-                  More RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt; Tweets
+                &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;danger&quot; shape&#x3D;&quot;round&quot; routerLink&#x3D;&quot;/tweets&quot;&gt;
+                  &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+                  &lt;ion-text style&#x3D;&quot;font-size: 1.25rem;text-shadow: 1px 1px grey;&quot;&gt;
+                          &lt;strong&gt;
+                  More RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;&amp;trade; Tweets
                 &lt;/strong&gt;
-            &lt;/ion-button&gt;
-          &lt;/ion-card-content&gt;
-        &lt;/ion-card&gt;
-      &lt;/ion-col&gt;
-    &lt;/ion-row&gt;
-  &lt;/ion-grid&gt;
-  &lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;end&quot; edge slot&#x3D;&quot;fixed&quot;&gt;
-    &lt;ion-fab-button id&#x3D;&quot;scrollToTop&quot; color&#x3D;&quot;warning&quot; size&#x3D;&quot;small&quot; (click)&#x3D;&quot;ScrollToTop()&quot;&gt;
-      &lt;ion-icon name&#x3D;&quot;arrow-dropup&quot;&gt;&lt;/ion-icon&gt;
-    &lt;/ion-fab-button&gt;
-  &lt;/ion-fab&gt;
+                  &lt;/ion-text&gt;
+             &lt;/ion-button&gt;
+            &lt;/ion-card-content&gt;
+          &lt;/ion-card&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-grid&gt;
+            &lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;end&quot; edge slot&#x3D;&quot;fixed&quot; &gt;
+              &lt;ion-fab-button id&#x3D;&quot;scrollToTop&quot; [hidden]&#x3D;&quot;!scrolledDown&quot; color&#x3D;&quot;warning&quot; size&#x3D;&quot;small&quot; (click)&#x3D;&quot;ScrollToTop()&quot;&gt;
+                  &lt;ion-icon name&#x3D;&quot;arrow-dropup&quot;&gt;&lt;/ion-icon&gt;
+              &lt;/ion-fab-button&gt;
+            &lt;/ion-fab&gt;
 
-
-&lt;/ion-content&gt;
+  &lt;/ion-content&gt;
 &lt;app-footer&gt;&lt;/app-footer&gt;
 </code></pre>
     </div>
@@ -726,40 +1092,64 @@ export class HomePage implements OnInit {
                 <p class="comment">
                     <code>./home.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">    .cta{
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url(&#x27;../../assets/img/field20.jpg&#x27;);
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 300px;
-        text-align: center;
-   }
-    .testi{
-        text-align: center;
-        background:url(&#x27;../../assets/img/bball-drive.jpg&#x27;);
-        background-repeat: no-repeat;
-        background-size: cover;
-   }
-    .twit{
-        background: linear-gradient(to bottom, rgba(53, 20, 66, 0.815) 0%, rgba(14, 68, 70, 0.801) 25%), url(&#x27;../../assets/img/field-diagram.png&#x27;);
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align: center;
-   }
-    .utuub{
-        background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.25)), url(&#x27;../../assets/img/ball-court2.jpg&#x27;);
-        background-repeat: no-repeat;
-        background-size: cover;
-   }
+                <pre class="line-numbers"><code class="language-scss">.cta{
 
-   .pattrn{
-    //  background-image: url(&#x27;../../../assets/img/brown_cross.svg&#x27;);
-    //  background-repeat: no-repeat;
-    //  background-size: 25%;
-    //  background-position: right 5px top 5px; 
-   }
-  .scrollToTop{
-    display: hidden;
- }
+   
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url(&#x27;../../assets/img/field20.jpg&#x27;); /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0)), color-stop(33%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,1))), url(&#x27;../../assets/img/field20.jpg&#x27;); /* safari4+,chrome */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url(&#x27;../../assets/img/field20.jpg&#x27;); /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url(&#x27;../../assets/img/field20.jpg&#x27;); /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url(&#x27;../../assets/img/field20.jpg&#x27;); /* ie10+ */
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 100%), url(&#x27;../../assets/img/field20.jpg&#x27;); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr&#x3D;&#x27;#000000&#x27;, endColorstr&#x3D;&#x27;#000000&#x27;,GradientType&#x3D;1 ), url(&#x27;../../assets/img/field20.jpg&#x27;); /* ie6-9 */ /* ie6-9 */
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    background-position: center center;
+
+}
+
+
+.addLogo{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8)0%, rgba(0, 0, 0, 0.486)78%, rgba(0, 0, 0, 0.133)100%);
+    background-size: 94%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-indent: 15px;
+}
+.testi{
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.726) 0%, rgba(24, 24, 24, 0.781) 100%), url(&#x27;../../assets/img/bball-drive.jpg&#x27;);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.twit{
+    background: linear-gradient(to bottom, rgba(5, 41, 1, 0.726) 0%, rgba(1, 41, 5, 0.781) 100%), url(&#x27;../../assets/img/footfield.png&#x27;);
+    background-repeat: no-repeat;
+    // background-size: cover;
+    text-align: center;
+}
+.utuub{
+    background:  url(&#x27;../../assets/img/ball-court2.jpg&#x27;);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.inspire{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    background: -moz-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url(&#x27;../../assets/img/tribak.png&#x27;); /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(106,0,255,1)), color-stop(100%, rgba(0,89,19,1))), url(&#x27;../../assets/img/tribak.png&#x27;); /* safari4+,chrome */
+    background:  -webkit-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url(&#x27;../../assets/img/tribak.png&#x27;); /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url(&#x27;../../assets/img/tribak.png&#x27;); /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url(&#x27;../../assets/img/tribak.png&#x27;); /* ie10+ */
+    background: radial-gradient(ellipse at center, rgba(106,0,255,1) 0%, rgba(0,89,19,1) 100%), url(&#x27;../../assets/img/tribak.png&#x27;); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr&#x3D;&#x27;#6A00FF&#x27;, endColorstr&#x3D;&#x27;#005913&#x27;,GradientType&#x3D;1 ), url(&#x27;../../assets/img/tribak.png&#x27;); /* ie6-9 */
+}
+
+
 </code></pre>
     </div>
 
@@ -788,9 +1178,9 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content  [scrollEvents]="true">  <ion-grid>    <ion-row>      <ion-col size-md="4"><!-- Column 1 -->        <ion-card color="primary">          <img src="../../assets/logo-md.svg" slot="start">          <ion-card-content>            <ion-card-title>              <h2>                <ion-text color="light">                  RankFantasySportsâ„¢                </ion-text>              </h2>            </ion-card-title>            <ion-card-subtitle>              Our business is helping you win            </ion-card-subtitle>          </ion-card-content>        </ion-card>        <ion-card padding  class="utuub" color="dark">            <ion-card-title  class="ion-text-center">            <ion-text color="warning">Welcome to RF<ion-text color="secondary">$</ion-text>            </ion-text>          </ion-card-title>          <iframe [src]="trustedVideoUrl"></iframe>        </ion-card>                 <ion-card padding color="primary">                <p>At RF<ion-text color="secondary">$</ion-text>, when you win, we win! Helping you win is our business!</p>                  <p>We make winning easy by providing you with time saving analysis tools for choosing your lineups. </p>                  <p>The team at RF<ion-text color="secondary">$</ion-text> has many ties to professional sports, and we have developed a true passion for the sports and the players that we follow. </p>                  <p>When you are picking your next set of DFS lineups, have RF<ion-text color="secondary">$</ion-text> in your corner. </p>                 <p>The data is concise, relevant, and delivered with an edge, so you can make your decisions quickly and confidently. </p>                 <p>Our subscribers are best described as DFS players who enjoy their sports, who are motivated and ready to win more, but always seem to run short on time due to work, family, and life in general</p>                  <p>Join RF<ion-text color="secondary">$</ion-text> today and let us show you how we make it easy to win by using our stats, strategies, insights, data-viz and an ever-growing list of other time-saving, money-making player ready tools.</p>                   <p>With the RF<ion-text color="secondary">$</ion-text> tools, expect to win More & More Often, while spending less time doing so.</p>               <ion-button shape="round" expand="block" size="medium" routerLink="/launch-page" color="secondary">            <ion-ripple-effect>            </ion-ripple-effect>            <ion-text>              <strong>                Free 7 Day Trial              </strong>            </ion-text>          </ion-button>              </ion-card>                      <ion-card padding class="cta">                <ion-card-header>            <ion-card-title>              <ion-text color="light"><strong>                Insights for building Daily Fantasy Sports lineups that <ion-text color="secondary">WIN</ion-text>!                </strong>              </ion-text>            </ion-card-title>          </ion-card-header>            </ion-card>      </ion-col>              <!-- Column 2 -->      <ion-col size-md="4">        <ion-card class="testi" text-center>          <ion-card-content>            <ion-card-title>                <ion-label color="warning">                  RF<ion-text color="secondary">$</ion-text> Success                </ion-label>              </ion-card-title>              <ion-card padding color="primary">                <p>By interpreting in-house, historical, and real-time data (<ion-text color="light" routerLink="/list"><strong>player, team, weather & other ancillary data sources</strong></ion-text>) while creating the RF<ion-text color="secondary">$</ion-text> player scoring algorithms, our sports data analysts are turning <ion-text color="secondary"> $10 </ion-text> lineups into game changing wins totalling over<ion-text color="secondary"> $8000</ion-text>.</p><p><ion-text color="light" routerLink="/launch-page"><strong>Become a member today</strong></ion-text> and discover how to use our proprietary tables and trademark data models --or-- use the data in your own way, the choice is yours.</p>                <ion-button shape="round" size="medium" routerLink="/launch-page" color="secondary">                  <ion-ripple-effect>            </ion-ripple-effect>            <ion-label color="success">              <strong>                Join Us              </strong>            </ion-label>          </ion-button>              </ion-card>              <ion-img routerLink="/testimonials" src="../../assets/images/16.JPG"></ion-img>            <ion-button expand="block" color="warning" shape="round" fill="solid" routerLink="/testimonials">              <ion-ripple-effect>              </ion-ripple-effect>              <ion-label>                <strong>                  100+ Examples                </strong>              </ion-label>            </ion-button>          </ion-card-content>        </ion-card>        <ion-card padding color="primary">          <!-- <ion-img src="../../../assets/img/  " -->               <p>Our mission is to provide our members the best information possible for our members to use!</p>               <p>We want you to make the best decisions possible for your team\'s success.</p>                <p>Initially we will also provide excellent data for our members to use in fantasy lineups for the NBA, Tennis and Golf. </p>                <p>We are striving to be "the go to site" for those that love daily and seasonal fantasy sports!</p>               <p>Our goal is to provide the BEST available information and insight for our members and to make it easy for our members to WIN and confidently make their line-up choices.</p>                 <p>Our team has invested years and 1000\'s of hours to create the best information available in fantasy sports!</p>                   <p> We love sports like you do and we love to win like you do! </p>                               <ion-button shape="round" expand="block" size="medium" routerLink="/launch-page" color="secondary">                 <ion-label color="success">                   <strong>                     Sign Up Today                   </strong>                 </ion-label>                     <ion-ripple-effect>                     </ion-ripple-effect>         </ion-button>             </ion-card>      </ion-col>      <ion-col size-md="4">               <!-- Column 3 -->        <ion-card color="tertiary">                    <ion-card text-center color="primary" class="pattrn" padding>            <ion-card-title>              <ion-label color="warning">                Today\'s Inspirational Message              </ion-label>            </ion-card-title>          <ion-card-subtitle>            We can all use more inspiration!          </ion-card-subtitle>            <ion-button class="inspireButton" fill="outline" size="small" shape="round" color="light" href="https://inspiration.rankfantasysports.com">              <ion-label >More...</ion-label>            </ion-button>        </ion-card>      </ion-card>        <ion-card padding class="twit" color="dark">          <ion-card-content>            <ion-card-header>              <ion-card-title>                <ion-label color="warning">                    Recent RF<ion-text color="secondary">$</ion-text> Tweets                </ion-label>              </ion-card-title>            </ion-card-header>                <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"                  [opts]="{                    chrome: [\'transparent\', \'nofooter\', \'noscrollbar\'],                     theme: \'dark\',                     tweetLimit: \'5\',                     borderColor: \'#02ed25\',                     ariaPolite: \'assertive\'                  }">                </ngx-twitter-timeline>            <ion-button expand="block" color="warning" shape="round" routerLink="/tweets">              <ion-ripple-effect></ion-ripple-effect>                <strong>                  More RF<ion-text color="secondary">$</ion-text> Tweets                </strong>            </ion-button>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>  </ion-grid>  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">    <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">      <ion-icon name="arrow-dropup"></ion-icon>    </ion-fab-button>  </ion-fab></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content  (ionScroll)="onScroll($event)"  [scrollEvents]="true">  <ion-grid>    <ion-row>      <ion-col size-md="4"><!-- Column 1 -->        <ion-card class="main-card">          <img src="../../assets/logo.jpg" slot="start">          <ion-card-content>            <ion-card-title>                           <ion-text style="font:bolder; font-size: 2rem; font-weight: 900; text-shadow: 1px 1px rgb(0, 0, 0);" color="secondary">                  <strong>                    Rank Fantasy Sports                  </strong>                </ion-text>                       </ion-card-title>            <ion-card-subtitle>              <ion-text color="light" style="text-shadow: .5px .5px rgb(2, 0, 3); ">                <strong>                  Our business is helping you win                </strong>              </ion-text>            </ion-card-subtitle>          </ion-card-content>        </ion-card>                 <ion-card padding text-center class="utuub" color="dark">          <iframe  width="100%" height="350"  [src]="trustedVideoUrl"></iframe>          <ion-card-title  class="ion-text-center">          <ion-text style="text-shadow: 1px 1px #000000;" color="secondary"><strong>Welcome to RF</strong><ion-text color="secondary">$</ion-text>&trade;          </ion-text>        </ion-card-title>        </ion-card>                 <ion-card padding class="card-metal">               <ion-text style="color:whitesmoke;">                <p>When you win, we win! Helping you win is our business!</p>                  <p>We make winning easy by providing you the time saving analysis tools to more efficiently choose your lineups. </p>                  <p>The team at RF<ion-text color="secondary">$</ion-text>&trade; has many ties to professional sports, and we have developed a true passion for the sports and the players that we follow. </p>                  <p>When you are picking your next set of DFS lineups, have RF<ion-text color="secondary">$</ion-text>&trade; in your corner. </p>                 <p>The data is concise, relevant, and delivered with an edge, so you can make your decisions quickly and confidently. </p>                 <p>Our subscribers are best described as DFS players who enjoy their sports, who are motivated and ready to win more, but always seem to run short on time due to work, family, and life in general</p>                  <p>Join RF<ion-text color="secondary">$</ion-text>&trade; today and let us show you how we make it easy to win by using our stats, strategies, insights, data-viz and an ever-growing list of other time-saving, money-making player ready tools.</p>                   <p>With the RF<ion-text color="secondary">$</ion-text>&trade; tools, expect to win More & More Often, while spending less time doing so.</p>               </ion-text>               <ion-button color="secondary" shape="round" expand="block" size="medium" routerLink="/free-trial" >            <ion-ripple-effect>            </ion-ripple-effect>            <ion-text style="font-size: 1.2rem; text-shadow: 1px 1px rgb(26, 1, 1)" color="danger">                <strong>                  7 Day Free Trial                </strong>            </ion-text>          </ion-button>        </ion-card>      </ion-col>            <!-- Column 2 -->      <ion-col size-md="4">        <ion-card class="testi" text-center>          <ion-card-content>            <ion-card-title>              <ion-text style="font-size: 2rem;text-shadow: 2px 1px rgb(0, 0, 0);" color="secondary">                RF<ion-text color="secondary">$</ion-text>&trade; Success              </ion-text>            </ion-card-title>            <ion-card-content>              <ion-text color="warning">              <p>By interpreting in-house, historical, and real-time data (<ion-text color="light" routerLink="/list/categories"><strong>player, team, weather & other ancillary data sources</strong></ion-text>) while creating the RF<ion-text color="secondary">$</ion-text>&trade; player scoring algorithms, our sports data analysts are turning <ion-text color="secondary"> $10 </ion-text> lineups into game changing wins totalling over<ion-text color="secondary"> $8000</ion-text>.</p><br><p><ion-text color="light" routerLink="/auth/launchpage"><strong>Become a member today</strong></ion-text> and discover how to use our proprietary tables and trademark data models --or-- use the data your own way, the choice is yours.</p>              </ion-text>              <br>              <ion-button shape="round" expand="block" routerLink="/free-trial" color="secondary">                <ion-text  style="font-size: 1.1rem;text-shadow: 1px 1px rgb(0, 0, 0)" color="danger">                                        <strong>                      Join the Club                    </strong>                                      </ion-text>                                    <ion-ripple-effect>                  </ion-ripple-effect>              </ion-button>            </ion-card-content>                   <ion-slides [options]="slideOpts">                <ion-slide *ngFor="let slide of [1, 2]">                  <ion-card>                    <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>                  </ion-card>                </ion-slide>              </ion-slides>              <ion-button expand="block" color="danger" shape="round" fill="solid" routerLink="/credibility">                <ion-ripple-effect>              </ion-ripple-effect>              <ion-text style="font-size: 1.1rem;text-shadow: 1px 1px grey;">                <strong>                  More DK Credibility                </strong>              </ion-text>            </ion-button>          </ion-card-content>        </ion-card>            </ion-col>      <ion-col size-md="4">                 <!-- Column 3 -->                <ion-card class="inspire">          <ion-card text-center class="card-metal" padding>            <ion-card-title>              <ion-text style="font-size: 2rem; text-shadow: 1px 1px rgb(0, 0, 0);" color="secondary">                Today\'s Inspirational Message              </ion-text>            </ion-card-title>            <ion-card-subtitle>              <ion-text color="warning" style="text-shadow: 1px 1px rgb(23, 24, 0);">                We can all use more inspiration!              </ion-text>            </ion-card-subtitle>            <ion-button class="inspireButton" fill="outline" size="small" shape="round" color="light" href="https://inspiration.rankfantasysports.com">              <ion-text >More...</ion-text>            </ion-button>          </ion-card>        </ion-card>                <ion-card padding class="cta">          <ion-card-content>            <ion-card-title>              <ion-text style="color:white; font-size: 2rem; text-shadow: 1px 1px rgb(0, 0, 0)"><strong>                Insights for building Daily Fantasy Sports lineups that <ion-text style="text-shadow: 1px 1px rgb(0, 0, 0);" color="warning">WIN</ion-text>!              </strong>            </ion-text>          </ion-card-title>          <ion-img style="object-position: center; height: 140px; margin: 30px;" src="../../assets/icons/drawable-hdpi-icon.png"></ion-img>                  </ion-card-content>  </ion-card>  <ion-card color="primary" text-center>    <ion-card color="light"padding text-center>      <!-- <ion-card-header> -->        <ion-card-title>          <ion-text style="text-shadow: 1px 1px grey;">            Rank Fantasy Sports is a participating member of          </ion-text>                  </ion-card-title>      <!-- </ion-card-header> -->      <ion-card-content>                        <img src="../../assets/img/fsga.png" href="https://wwww.thefsga.org" style="align-content: center; min-height: 1in; min-width: 1.5in;">              </ion-card-content>    </ion-card>  </ion-card>  <ion-card padding class="card-metal">    <ion-text style="color:whitesmoke;">        <!-- <p>Our mission is to provide our members the best information possible for our members to use!</p>          <p>We want you to make the best decisions possible for your team\'s success.</p>  -->          <p>Initially we will be providing complete data analysis for football, tennis, golf and basketball.  We will also provide daily projections to help you create the best possible lineups for the sports you want to play</p>           <p>We are striving to be "the go to site" for those that love daily and seasonal fantasy sports!</p>          <p>Our goal is to provide the BEST available information and insight for our members and to make it easy for our members to WIN and confidently make their line-up choices.</p>            <p>Our team has invested years and 1000\'s of hours to create the best information available in fantasy sports!</p>              <p> We love sports like YOU do, And we love to win like YOU do! </p>          </ion-text>                <ion-button color="secondary" shape="round" expand="block" size="medium" routerLink="/free-trial" >          <ion-text color="danger" style="font-size: 1.25rem;text-shadow:1px 1px rgb(2, 0, 0)">                         <strong>                Get Started              </strong>                      </ion-text>            <ion-ripple-effect>            </ion-ripple-effect>        </ion-button>       </ion-card>              <ion-card padding class="twit" color="dark">              <ion-card-content>                <ion-card-header>                  <ion-card-title>                    <ion-text style="font-size: 2rem; text-shadow: 1px 1px #000000;" color="warning">                        Recent RF<ion-text color="secondary">$</ion-text>&trade; Tweets                      </ion-text>                    </ion-card-title>                  </ion-card-header>                  <ngx-twitter-timeline [data]="{sourceType: \'url\', url: \'https://twitter.com/rankfsports\'}"                  [opts]="{                    chrome: [\'transparent\', \'noheader\', \'nofooter\', \'noscrollbar\'],                     theme: \'dark\',                     tweetLimit: \'1\',                     borderColor: \'#02ed25\',                     ariaPolite: \'assertive\'                  }">                </ngx-twitter-timeline>                <ion-button expand="block" color="danger" shape="round" routerLink="/tweets">                  <ion-ripple-effect></ion-ripple-effect>                  <ion-text style="font-size: 1.25rem;text-shadow: 1px 1px grey;">                          <strong>                  More RF<ion-text color="secondary">$</ion-text>&trade; Tweets                </strong>                  </ion-text>             </ion-button>            </ion-card-content>          </ion-card>        </ion-col>      </ion-row>    </ion-grid>            <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" >              <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">                  <ion-icon name="arrow-dropup"></ion-icon>              </ion-fab-button>            </ion-fab>  </ion-content><app-footer></app-footer></div>'
+    var COMPONENTS = [{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'CfbPage', 'selector': 'app-cfb'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FifaPage', 'selector': 'app-fifa'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FreeTrialLoginPage', 'selector': 'app-free-trial-login'},{'name': 'FreeTrialPage', 'selector': 'app-free-trial'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HowToPage', 'selector': 'app-how-to'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchpageComponent', 'selector': 'app-launchpage'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'ListTablesComponent', 'selector': 'app-list-tables'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MlbPage', 'selector': 'app-mlb'},{'name': 'NbaPage', 'selector': 'app-nba'},{'name': 'NflPage', 'selector': 'app-nfl'},{'name': 'NflPreComponent', 'selector': 'app-nfl-pre'},{'name': 'NflScoreComponent', 'selector': 'app-nfl-score'},{'name': 'NflWeekComponent', 'selector': 'app-nfl-week'},{'name': 'NowPage', 'selector': 'app-now'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'PgaPage', 'selector': 'app-pga'},{'name': 'PgaStatsComponent', 'selector': 'app-pga-stats'},{'name': 'PgaThisWeekComponent', 'selector': 'app-pga-this-week'},{'name': 'PowerRankingsComponent', 'selector': 'app-power-rankings'},{'name': 'PricingPage', 'selector': 'app-pricing'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'PrivacyDialogComponent', 'selector': 'privacy-dialog'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScorePredictionsComponent', 'selector': 'app-score-predictions'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SportsCategoriesPage', 'selector': 'app-sports-categories'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisPage', 'selector': 'app-tennis'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TermsDialogComponent', 'selector': 'app-terms-dialog'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'UserTicketPage', 'selector': 'app-user-ticket'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'},{'name': 'SubmitIfValidDirective', 'selector': '[tsSubmitIfValid]'}];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>
 <script src="../js/tree.js"></script>

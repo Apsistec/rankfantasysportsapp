@@ -73,21 +73,36 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
+import { LaunchpageComponent } from &#x27;./launchpage/launchpage.component&#x27;;
+import { AuthGuard } from &#x27;./core/guard/auth.guard&#x27;;
+import { TermsDialogComponent } from &#x27;./shared/terms-dialog/terms-dialog.component&#x27;;
 
-import { PageNotFoundComponent } from &#x27;./page-not-found/page-not-found.component&#x27;;
 
 const appRoutes: Routes &#x3D; [
-
-  { path: &#x27;home&#x27;, loadChildren: &#x27;./main-pages/home/home.module#HomeModule&#x27; },
- 
   { path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
-  { path: &#x27;**&#x27;, component: PageNotFoundComponent },
+  { path: &#x27;home&#x27;, loadChildren: &#x27;./home/home.module#HomePageModule&#x27; },
+  { path: &#x27;tweets&#x27;, loadChildren: &#x27;./tweets/tweets.module#TweetsPageModule&#x27; },
+  { path: &#x27;credibility&#x27;, loadChildren: &#x27;./testimonials/testimonials.module#TestimonialsPageModule&#x27; },
+  { path: &#x27;pricing&#x27;, loadChildren: &#x27;./pricing/pricing.module#PricingPageModule&#x27; },
+  { path: &#x27;free-trial&#x27;, loadChildren: &#x27;./free-trial/free-trial.module#FreeTrialPageModule&#x27; },
+  { path: &#x27;freetrial&#x27;, loadChildren: &#x27;./free-trial/free-trial.module#FreeTrialPageModule&#x27; },
+  { path: &#x27;auth&#x27;, loadChildren: &#x27;./auth/auth.module#AuthPageModule&#x27; },
+  { path: &#x27;list&#x27;, loadChildren: &#x27;./list/list.module#ListPageModule&#x27; },
+  { path: &#x27;welcome&#x27;, loadChildren: &#x27;./welcome/welcome.module#WelcomePageModule&#x27; },
+  { path: &#x27;faq&#x27;, loadChildren: &#x27;./faq/faq.module#FaqPageModule&#x27; },
+  { path: &#x27;how-to&#x27;, loadChildren: &#x27;./how-to/how-to.module#HowToPageModule&#x27; },
+  { path: &#x27;launchpage&#x27;, component: LaunchpageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;terms&#x27;, component: TermsDialogComponent, outlet: &#x27;terms&#x27;},
+  {
+    path: &#x27;**&#x27;,
+    redirectTo: &#x27;/home&#x27;
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      enableTracing: true,
+      // enableTracing: true,
       preloadingStrategy: PreloadAllModules
     })
   ],

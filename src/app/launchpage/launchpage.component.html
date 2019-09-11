@@ -71,19 +71,32 @@
                     <img src="../../assets/img/gold.svg" style="width: 45px;">
                   
                     </ion-list-header>
-                    <ion-item>
-                      <ion-text text-wrap >Includes everything in Bronze Package</ion-text>
+                    <ion-item color="medium">
+                      <strong>
+
+                        <ion-text color="primary" text-wrap style="text-shadow: 1px 1px black;" >
+                            $90.00 Annually
+                          </ion-text>
+                        </strong>
                     </ion-item>
-                    <ion-item>
+                    <ion-item >
+                      <ion-text text-wrap >Includes Everything in Bronze Package</ion-text>
+                    </ion-item>
+                    <ion-item color="medium">
                       <ion-text text-wrap >One (1) Year Subscription</ion-text>
                     </ion-item>
                     <ion-item>
-                      <ion-text text-wrap >$90.00 Billed Annually
-                        <br>
-                        <sub >$7.50 per Month</sub></ion-text>
-                    </ion-item>
-                    <ion-item color="medium" lines="none">
-                      <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$30 Savings</strong></ion-text>
+                      
+                      <ion-text text-wrap >
+                        12 Months at $7.50 per Month
+                      </ion-text>
+                      </ion-item>
+                    <ion-item color="medium">
+                      <ion-text text-wrap color="success" style="text-shadow: 1px 1px 1px rgb(0, 0, 0);">
+                        <strong>
+                          $30 Savings
+                        </strong>
+                      </ion-text>
                     </ion-item>
                   </ion-list>
             <ion-button *ngIf="!isClickedGold; else gold"  strong
@@ -114,23 +127,36 @@
                   </ion-title>
                   <ion-img src="../../assets/img/silver.svg" style="width: 45px;"></ion-img>
                 </ion-list-header>
+                <ion-item color="medium">
+                  <strong>
+
+                    <ion-text color="primary" text-wrap style="text-shadow: 1px 1px black;">
+                        $50.00 Bi-annually
+                      </ion-text>
+                    </strong>
+                </ion-item>
                 <ion-item>
                   <ion-text text-wrap>Includes everything in Bronze Package</ion-text>
                 </ion-item>
-                <ion-item>
+                <ion-item  color="medium">
                   <ion-text text-wrap >Six (6) Month Subscription</ion-text>
                 </ion-item>
-                <ion-item>
-                  <ion-text text-wrap >$50.00 Billed Bi-annually
-                    <br>
-                    <sub >$8.33 per Month</sub></ion-text>
+                <ion-item >
+                <ion-text text-wrap >
+                  
+                  6 Months at $8.33 per Month
+                </ion-text>
                   </ion-item>
-                  <ion-item color="medium" lines="none">
-                  <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$10 Savings</strong></ion-text>
+                  <ion-item  color="medium">
+                    <ion-text text-wrap color="success" style="text-shadow: 1px 1px rgb(0, 0, 0);">
+                    <strong>
+                    $10 Savings
+                  </strong>
+                </ion-text>
                 </ion-item>
               </ion-list>
                 <ion-button *ngIf="!isClickedSilver; else silver"  strong expand="block"
-                   color="secondary" (click)="clickedSilver()">
+                color="secondary" (click)="clickedSilver()">
                   <ion-icon name="medal" color="silver"></ion-icon>&nbsp;&nbsp;
                   <ion-text color="silver" text-wrap style="text-shadow: 1px 1px rgb(0, 2, 2);">Select Silver</ion-text>
                 </ion-button>
@@ -157,16 +183,16 @@
                 </ion-card-title>
                 <ion-card-subtitle>
                   <ion-text color="warning" style="text-shadow: 1px 1px black;">
-                 <h3>
+                      <h3>
                    <sup>*</sup>Signup with any PRO Package today and get 7 days to try it out.
                  </h3>
-                  </ion-text>
-                </ion-card-subtitle>
-              </ion-card>
+                </ion-text>
+              </ion-card-subtitle>
+            </ion-card>
             </ion-card>
           </ion-col>
         </ion-row>
-        </ion-grid>
+      </ion-grid>
 
 <!-- Bronze Plan -->
           <ion-col size-md="4">
@@ -180,50 +206,66 @@
                   </ion-title>
                   <img src="../../assets/img/bronze.svg" style="width: 45px;">
                 </ion-list-header>
-                <ion-item>
-                  <ion-text text-wrap >
-                    Access to all DFS data-tables
-                  </ion-text>
-                </ion-item>
-                <ion-item>
-                  <ion-text text-wrap >
-                    Videos providing DFS stats analysis
-                    <br>
-                    <sub >Catagorized by topic</sub>
+                <ion-item  color="medium">
+                    <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;">
+                        <strong>
+                          $9.99 per Month
+                        </strong>
+                    </ion-text>
+                  </ion-item>
+                  <ion-item> 
+                    <ion-text text-wrap >
+                      Access to all DFS data-tables
+                    </ion-text>
+                  </ion-item>
+                  <ion-item color="medium">
+                    <ion-text text-wrap >
+                      Videos providing DFS stats analysis
+                      <br>
+                      <ion-text color="warning">
+                        <sub >Catagorized by topic</sub>
+                        
+                   </ion-text> 
                   </ion-text>
                 </ion-item>
                 <ion-item>
                   <ion-text text-wrap >
                     Access to All Past and Upcoming Livestream events
                     <br>
+                  <ion-text color="warning">
+
                     <sub >Receive notification of upcoming events</sub>
+                    </ion-text>
                   </ion-text>
                 </ion-item>
-                <ion-item>
+                <ion-item color="medium">
                   <ion-text text-wrap >
                     Exclusive DFS chat room access
                     <br>
-                    <sub >
+                  <ion-text color="warning">
+
+                    <sub>
                       Get the info you need, when you need it.
                     </sub>
+                  </ion-text>
                   </ion-text>
                 </ion-item>
                 <ion-item>
                   <ion-text text-wrap>
-                     Many other tools and resources                   
+                     Many other tools and resources  
+                  <ion-text color="warning">
+                 
                      <br>
-                    <sub >Soon to be released</sub>
+                    <sub>Soon to be released</sub>
+                    </ion-text>
                   </ion-text>
                 </ion-item>
-                <ion-item>
-                  <ion-text text-wrap >One (1) Month Subscription
-                    <br>
-                    <sub >Month -to- Month</sub>
+                <ion-item  color="medium">
+                  <ion-text text-wrap>
+                    Month -to- Month Subscription
                   </ion-text>
                 </ion-item>
-                <ion-item color="medium" lines="none">
-                  <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;"><strong>$9.99 Billed Monthly</strong></ion-text>
-                </ion-item>
+                  
               </ion-list>
                 <ion-button  *ngIf="!isClickedBronze; else bronze"  strong
                   expand="block" color="secondary" (click)="clickedBronze()">
@@ -334,7 +376,7 @@
                   <strong>
                     One (1) user per account.
                   </strong>
-                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com"><ion-text color="tertiary">Stripe</ion-text></a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <app-terms></app-terms>.
+                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com"><ion-text color="tertiary">Stripe</ion-text></a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <a [routerLink]="[ {outlets: { modal: 'terms' } } ]">Terms</a>.
                   <br>
                     The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.
                   </sub>
@@ -349,6 +391,7 @@
 
     </ion-card>
   </ion-content>
+<router-outlet name="terms"></router-outlet>
 
 
 

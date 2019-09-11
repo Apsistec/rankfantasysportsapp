@@ -19,6 +19,8 @@
     </ion-text>
     </ion-card-subtitle>
   </ion-card-header>
+  <ion-card-content>
+
     <ion-text color="light" style="font-size: 1.3em; text-shadow: 1px 1px #000000;">
         
       <ol type="1">
@@ -33,7 +35,7 @@
         </li>
         <br>
         <li>
-            Create an account with your email address and password.
+          Create an account with your email address and password.
         </li>
         <br>
         <li>
@@ -78,11 +80,22 @@
         <li>
           Click the NBA tab for access to all basketball DK cheat sheets &amp; stat models.
         </li>
-        </ol>
+      </ol>
       </ion-text>
-</ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col offset="4">
+            <ion-button *ngIf="auth.user" shape="round" color="secondary" routerLink="/launchpage">Get Started</ion-button>
+            <ion-button *ngIf="!auth.user" shape="round" color="secondary" routerLink="/pricing">View Pro Packages</ion-button>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    </ion-card>
 </ion-col>
 </ion-row>
 </ion-grid>
 </ion-content>
 
+<app-footer></app-footer>

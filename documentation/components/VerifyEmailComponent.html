@@ -241,8 +241,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:16</a></div>
                 </td>
             </tr>
 
@@ -285,7 +285,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/auth/verify-email/verify-email.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -308,63 +308,109 @@ import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
 })
 export class VerifyEmailComponent implements OnInit {
 
+
   constructor(
     public auth: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
-  }
 
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">
-&lt;ion-content fullscreen &gt;
+        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
+&lt;ion-content fullscreen text-center&gt;
     &lt;ion-grid&gt;
         &lt;ion-row&gt;
-          &lt;ion-col&gt;
-      
-          &lt;/ion-col&gt;
-      
-          &lt;ion-col&gt;
-    &lt;ion-card color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;auth.afAuth.user as user&quot;&gt;
-        &lt;img src&#x3D;&quot;../../assets/logo-md.svg&quot;&gt;
-        &lt;ion-card-content&gt;
-          &lt;hr&gt;
+          &lt;ion-col size-sm&#x3D;&quot;8&quot; offset-sm&#x3D;&quot;2&quot; size-md&#x3D;&quot;6&quot; offset-md&#x3D;&quot;3&quot; size-lg&#x3D;&quot;4&quot; offset-lg&#x3D;&quot;4&quot; size-xl&#x3D;&quot;4&quot; offset-xl&#x3D;&quot;4&quot;&gt;
+            &lt;ion-card color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;auth.afAuth.user | async as user; else login&quot;&gt;
+              &lt;ion-img src&#x3D;&quot;../../assets/logo.jpg&quot;&gt;&lt;/ion-img&gt;
+              &lt;ion-card-header&gt;
+                &lt;ion-card-title&gt;
+                  &lt;ion-text color&#x3D;&quot;secondary&quot; text-center&gt;
+                    &lt;h2&gt;Thank You For Registering!&lt;/h2&gt;
+                  &lt;/ion-text&gt;
+                &lt;/ion-card-title&gt;
+                &lt;ion-card-subtitle&gt;
+                  &lt;strong&gt;
+                    Check Your Email for Instructions
+                  &lt;/strong&gt;
+                &lt;/ion-card-subtitle&gt;
+              &lt;/ion-card-header&gt;
+              &lt;ion-card-content&gt;
+                &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
+                  &lt;p text-center&gt;
+                 We sent a confirmation email to:&lt;/p&gt;
+                &lt;/ion-text&gt;
+                 &lt;ion-text color&#x3D;&quot;light&quot;&gt;
+                   &lt;h2&gt;
+                    &lt;strong&gt;
+                      {{user.email}}
+                    &lt;/strong&gt;
+                  &lt;/h2&gt;
+                &lt;/ion-text&gt;
+                    &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
+                  &lt;p text-center&gt;
+                  Check your email and click on the enclosed link to verfiy your email address.
+                &lt;/p&gt;
+                &lt;/ion-text&gt;
+               
+                &lt;ion-text color&#x3D;&quot;light&quot; text-center&gt;
+                  &lt;p text-center&gt;We use email verification along with other security measures as part of our best-efforts to protect against fraudulent activity. We are sure you understand our reasoning, and we do appreciate your cooperation.&lt;/p&gt;
+                &lt;/ion-text&gt;
+              &lt;hr&gt;
+                &lt;ion-text color&#x3D;&quot;secondary&quot;&gt;Did not receive the link?
+                &lt;/ion-text&gt;
+                &lt;ion-button strong color&#x3D;&quot;warning&quot; size&#x3D;&quot;small&quot; fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; (click)&#x3D;&quot;auth.SendVerificationMail()&quot;&gt;
+                  &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
+                    Resend Verification
+                  &lt;/ion-text&gt;
+                &lt;/ion-button&gt;
+              &lt;/ion-card-content&gt;
+            &lt;/ion-card&gt;
 
-      &lt;ion-text color&#x3D;&quot;light&quot; &gt;
 
-          &lt;h2&gt;Thank You for Registering&lt;/h2&gt;
-          &lt;p&gt;We have sent a confirmation email to &lt;strong&gt;{{user.email}}&lt;/strong&gt;.&lt;/p&gt;
-          &lt;p&gt;Please check your email and click on the link to verfiy your email address.&lt;/p&gt;
-      &lt;/ion-text&gt;
-      
-       
-       &lt;!-- &lt;ion-card&gt; --&gt;
-        
-        &lt;!-- Calling ForgotPassword from AuthService Api --&gt;
-        &lt;!-- &lt;ion-item&gt; --&gt;
-          &lt;!-- &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Email&lt;/ion-label&gt; --&gt;
-          &lt;!-- &lt;ion-input #passwordResetEmail inputmode&#x3D;&quot;email&quot; &gt; --&gt;
-          &lt;!-- &lt;/ion-input&gt; --&gt;
-        &lt;!-- &lt;/ion-item&gt; --&gt;
-      &lt;!-- &lt;/ion-card&gt; --&gt;
-   &lt;ion-button color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;auth.SendVerificationMail()&quot;&gt;Resend&lt;/ion-button&gt;
-   
-  &lt;/ion-card-content&gt;
-&lt;/ion-card&gt;
-&lt;ion-button color&#x3D;&quot;success&quot; routerLink&#x3D;&quot;/login&quot;&gt;
-  &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;Back to Sign In &lt;/ion-button&gt;
-&lt;/ion-col&gt;
-&lt;ion-col&gt;
+  &lt;ng-template #login&gt;
+    &lt;ion-card color&#x3D;&quot;primary&quot; text-center&gt;
+      &lt;ion-img src&#x3D;&quot;../../../assets/logo.jpg&quot;&gt;&lt;/ion-img&gt;
+      &lt;ion-card-header&gt;
+        &lt;ion-card-title&gt;
+          &lt;ion-text color&#x3D;&quot;secondary&quot;&gt;
+            &lt;h2&gt;
+              Email Verification
+            &lt;/h2&gt;
+          &lt;/ion-text&gt;
+        &lt;/ion-card-title&gt;
+      &lt;/ion-card-header&gt;
+      &lt;ion-card-content&gt;
+        &lt;p text-center style&#x3D;&quot;font-size: 1.5em&quot;&gt;
+          &lt;ion-text color&#x3D;&quot;danger&quot;&gt;
+            &lt;strong&gt;Alert:&lt;/strong&gt;&lt;/ion-text&gt;&lt;/p&gt;
+            &lt;p text-center style&#x3D;&quot;font-size: 1.5em&quot;&gt;
+            &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
 
-  &lt;/ion-col&gt;
-  &lt;/ion-row&gt;
+            Login first, then validate the account by email
+          &lt;/ion-text&gt;
+          &lt;/p&gt;
+      &lt;/ion-card-content&gt;
+      &lt;ion-footer&gt;
+        &lt;ion-button strong class&#x3D;&quot;g-btn&quot; shape&#x3D;&quot;round&quot; routerLink&#x3D;&quot;/auth/login&quot; expand&#x3D;&quot;full&quot;&gt;
+          &lt;ion-ripple-effect&gt;&lt;/ion-ripple-effect&gt;
+          Login
+        &lt;/ion-button&gt;
+      &lt;/ion-footer&gt;
+    &lt;/ion-card&gt;
+  &lt;/ng-template&gt;
+
+
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
   &lt;/ion-grid&gt;
-
 &lt;/ion-content&gt;
+
 </code></pre>
     </div>
 
@@ -400,9 +446,9 @@ export class VerifyEmailComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content fullscreen >    <ion-grid>        <ion-row>          <ion-col>                </ion-col>                <ion-col>    <ion-card color="primary" *ngIf="auth.afAuth.user as user">        <img src="../../assets/logo-md.svg">        <ion-card-content>          <hr>      <ion-text color="light" >          <h2>Thank You for Registering</h2>          <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>          <p>Please check your email and click on the link to verfiy your email address.</p>      </ion-text>                    <!-- <ion-card> -->                <!-- Calling ForgotPassword from AuthService Api -->        <!-- <ion-item> -->          <!-- <ion-label position="floating">Email</ion-label> -->          <!-- <ion-input #passwordResetEmail inputmode="email" > -->          <!-- </ion-input> -->        <!-- </ion-item> -->      <!-- </ion-card> -->   <ion-button color="warning" (click)="auth.SendVerificationMail()">Resend</ion-button>     </ion-card-content></ion-card><ion-button color="success" routerLink="/login">  <ion-ripple-effect></ion-ripple-effect>Back to Sign In </ion-button></ion-col><ion-col>  </ion-col>  </ion-row>  </ion-grid></ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen text-center>    <ion-grid>        <ion-row>          <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">            <ion-card color="primary" *ngIf="auth.afAuth.user | async as user; else login">              <ion-img src="../../assets/logo.jpg"></ion-img>              <ion-card-header>                <ion-card-title>                  <ion-text color="secondary" text-center>                    <h2>Thank You For Registering!</h2>                  </ion-text>                </ion-card-title>                <ion-card-subtitle>                  <strong>                    Check Your Email for Instructions                  </strong>                </ion-card-subtitle>              </ion-card-header>              <ion-card-content>                <ion-text color="warning">                  <p text-center>                 We sent a confirmation email to:</p>                </ion-text>                 <ion-text color="light">                   <h2>                    <strong>                      {{user.email}}                    </strong>                  </h2>                </ion-text>                    <ion-text color="warning">                  <p text-center>                  Check your email and click on the enclosed link to verfiy your email address.                </p>                </ion-text>                               <ion-text color="light" text-center>                  <p text-center>We use email verification along with other security measures as part of our best-efforts to protect against fraudulent activity. We are sure you understand our reasoning, and we do appreciate your cooperation.</p>                </ion-text>              <hr>                <ion-text color="secondary">Did not receive the link?                </ion-text>                <ion-button strong color="warning" size="small" fill="outline" shape="round" (click)="auth.SendVerificationMail()">                  <ion-text color="warning">                    Resend Verification                  </ion-text>                </ion-button>              </ion-card-content>            </ion-card>  <ng-template #login>    <ion-card color="primary" text-center>      <ion-img src="../../../assets/logo.jpg"></ion-img>      <ion-card-header>        <ion-card-title>          <ion-text color="secondary">            <h2>              Email Verification            </h2>          </ion-text>        </ion-card-title>      </ion-card-header>      <ion-card-content>        <p text-center style="font-size: 1.5em">          <ion-text color="danger">            <strong>Alert:</strong></ion-text></p>            <p text-center style="font-size: 1.5em">            <ion-text color="warning">            Login first, then validate the account by email          </ion-text>          </p>      </ion-card-content>      <ion-footer>        <ion-button strong class="g-btn" shape="round" routerLink="/auth/login" expand="full">          <ion-ripple-effect></ion-ripple-effect>          Login        </ion-button>      </ion-footer>    </ion-card>  </ng-template>      </ion-col>    </ion-row>  </ion-grid></ion-content></div>'
+    var COMPONENTS = [{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'CfbPage', 'selector': 'app-cfb'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FifaPage', 'selector': 'app-fifa'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FreeTrialLoginPage', 'selector': 'app-free-trial-login'},{'name': 'FreeTrialPage', 'selector': 'app-free-trial'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HowToPage', 'selector': 'app-how-to'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchpageComponent', 'selector': 'app-launchpage'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'ListTablesComponent', 'selector': 'app-list-tables'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MlbPage', 'selector': 'app-mlb'},{'name': 'NbaPage', 'selector': 'app-nba'},{'name': 'NflPage', 'selector': 'app-nfl'},{'name': 'NflPreComponent', 'selector': 'app-nfl-pre'},{'name': 'NflScoreComponent', 'selector': 'app-nfl-score'},{'name': 'NflWeekComponent', 'selector': 'app-nfl-week'},{'name': 'NowPage', 'selector': 'app-now'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'PgaPage', 'selector': 'app-pga'},{'name': 'PgaStatsComponent', 'selector': 'app-pga-stats'},{'name': 'PgaThisWeekComponent', 'selector': 'app-pga-this-week'},{'name': 'PowerRankingsComponent', 'selector': 'app-power-rankings'},{'name': 'PricingPage', 'selector': 'app-pricing'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'PrivacyDialogComponent', 'selector': 'privacy-dialog'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScorePredictionsComponent', 'selector': 'app-score-predictions'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SportsCategoriesPage', 'selector': 'app-sports-categories'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisPage', 'selector': 'app-tennis'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TermsDialogComponent', 'selector': 'app-terms-dialog'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'UserTicketPage', 'selector': 'app-user-ticket'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'},{'name': 'SubmitIfValidDirective', 'selector': '[tsSubmitIfValid]'}];
     var ACTUAL_COMPONENT = {'name': 'VerifyEmailComponent'};
 </script>
 <script src="../js/tree.js"></script>

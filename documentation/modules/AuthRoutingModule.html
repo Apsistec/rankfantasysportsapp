@@ -73,28 +73,36 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
-import { InnerGuard } from &#x27;../core/guard/inner.guard&#x27;;
-import { RegisterComponent } from &#x27;./register/register.component&#x27;;
-import { LoginComponent } from &#x27;./login/login.component&#x27;;
+import { AuthPage } from &#x27;./auth.page&#x27;;
 import { ForgotPasswordComponent } from &#x27;./forgot-password/forgot-password.component&#x27;;
+import { LoginComponent } from &#x27;./login/login.component&#x27;;
+import { RegisterComponent } from &#x27;./register/register.component&#x27;;
 import { VerifyEmailComponent } from &#x27;./verify-email/verify-email.component&#x27;;
+import { InnerGuard } from &#x27;../core/guard/inner.guard&#x27;;
+import { AuthGuard } from &#x27;../core/guard/auth.guard&#x27;;
+
 const routes: Routes &#x3D; [
   {
-    path: &#x27;login&#x27;,
-    component: LoginComponent,
+    path: &#x27;&#x27;,
+    component: AuthPage,
+    children:
+      [
+        { path: &#x27;login&#x27;, component: LoginComponent },
+        { path: &#x27;register&#x27;, component: RegisterComponent },
+        { path: &#x27;verify-email&#x27;, component: VerifyEmailComponent },
+        { path: &#x27;forgot-password&#x27;, component: ForgotPasswordComponent, canActivate: [InnerGuard] },
+        { path: &#x27;profile&#x27;, loadChildren: &#x27;./profile/profile.module#ProfilePageModule&#x27;, canActivate: [AuthGuard] },
+        { path: &#x27;free-trial-login&#x27;, loadChildren: &#x27;./free-trial-login/free-trial-login.module#FreeTrialLoginPageModule&#x27; },
+        { path: &#x27;settings&#x27;, loadChildren: &#x27;./profile/settings/settings.module#SettingsPageModule&#x27; },
+    ]
   },
-  {
-    path: &#x27;register&#x27;,
-    component: RegisterComponent,
-  },
-  { path: &#x27;verify-email-address&#x27;, component: VerifyEmailComponent, canActivate: [InnerGuard] },
-  { path: &#x27;forgot-password&#x27;, component: ForgotPasswordComponent, canActivate: [InnerGuard] },
-  { path: &#x27;auth&#x27;, loadChildren: &#x27;./auth.module#AuthPageModule&#x27; },
+
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class AuthRoutingModule { }
 </code></pre>

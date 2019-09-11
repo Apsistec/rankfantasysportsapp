@@ -196,8 +196,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app/list/list.page.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">src/app/list/list.page.ts:12</a></div>
                 </td>
             </tr>
 
@@ -219,7 +219,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit,  } from &#x27;@angular/core&#x27;;
 
 @Component({
   selector: &#x27;app-list&#x27;,
@@ -227,113 +227,24 @@
   styleUrls: [&#x27;./list.page.scss&#x27;],
 })
 export class ListPage implements OnInit {
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
-
-&lt;ion-content fullscreen &gt;
-  &lt;ion-list color&#x3D;&quot;primary&quot;&gt;
-
-    &lt;ion-item lines&#x3D;&quot;none&quot;&gt;
-      &lt;ion-searchbar color&#x3D;&quot;medium&quot; autocomplete&#x3D;&quot;on&quot;&gt;&lt;/ion-searchbar&gt;
-    &lt;/ion-item&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;app-header&gt;&lt;/app-header&gt; --&gt;
 
 
-    &lt;ion-card&gt;
-      &lt;ion-card-header color&#x3D;&quot;primary&quot;&gt;
-        &lt;ion-card-title&gt;
-          Tennis
-        &lt;/ion-card-title&gt;
-      &lt;/ion-card-header&gt;
-      &lt;ion-item color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table1&quot;&gt;
+&lt;!-- &lt;ion-content&gt; --&gt;
+&lt;ion-router-outlet&gt;&lt;/ion-router-outlet&gt;
+  
+&lt;!-- &lt;/ion-content&gt; --&gt;
 
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;warning&quot; name&#x3D;&quot;tennisball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;Men&#x27;s Tennis Ratings and DK Statistics Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-
-      &lt;ion-item color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table2&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;warning&quot; name&#x3D;&quot;tennisball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;Women&#x27;s Tennis Ratings and DK Statistics Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-      &lt;ion-item color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table3&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;warning&quot; name&#x3D;&quot;tennisball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;Mens Tennis Tournament Stat Archives Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-      &lt;ion-item color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table4&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;warning&quot; name&#x3D;&quot;tennisball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;Women&#x27;s Tennis Tournament Stat Archives Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-    &lt;/ion-card&gt;
-
-
-
-    &lt;ion-card&gt;
-      &lt;ion-card-header color&#x3D;&quot;primary&quot;&gt;
-        &lt;ion-card-title&gt;
-          Basketball
-        &lt;/ion-card-title&gt;
-      &lt;/ion-card-header&gt;
-
-      &lt;ion-item disabled color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table5&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;danger&quot; name&#x3D;&quot;basketball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;NBA Draft Kings Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-      &lt;ion-item disabled color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table6&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;danger&quot; name&#x3D;&quot;basketball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;NBA Playoff Team Power Rankings Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-      &lt;ion-item disabled color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table7&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;danger&quot; name&#x3D;&quot;basketball&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;NBA Playoff Game Predictions Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-    &lt;/ion-card&gt;
-
-
-    &lt;ion-card&gt;
-      &lt;ion-card-header color&#x3D;&quot;primary&quot;&gt;
-        &lt;ion-card-title&gt;
-          General
-        &lt;/ion-card-title&gt;
-      &lt;/ion-card-header&gt;
-      &lt;ion-item color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table8&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;success&quot; name&#x3D;&quot;stats&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;Today&#x27;s Value Rankings Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-      &lt;ion-item color&#x3D;&quot;medium&quot; routerLink&#x3D;&quot;table9&quot;&gt;
-
-        &lt;ion-icon size&#x3D;&quot;large&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;success&quot; name&#x3D;&quot;stats&quot;&gt;&lt;/ion-icon&gt;
-        &lt;ion-label text-wrap&gt;DK Accounting Embed Code&lt;/ion-label&gt;
-
-      &lt;/ion-item&gt;
-    &lt;/ion-card&gt;
-  &lt;/ion-list&gt;
-
-
-&lt;/ion-content&gt;
-&lt;app-footer&gt;&lt;/app-footer&gt;
 </code></pre>
     </div>
 
@@ -369,9 +280,9 @@ export class ListPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><ion-content fullscreen >  <ion-list color="primary">    <ion-item lines="none">      <ion-searchbar color="medium" autocomplete="on"></ion-searchbar>    </ion-item>    <ion-card>      <ion-card-header color="primary">        <ion-card-title>          Tennis        </ion-card-title>      </ion-card-header>      <ion-item color="medium" routerLink="table1">        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>        <ion-label text-wrap>Men\'s Tennis Ratings and DK Statistics Embed Code</ion-label>      </ion-item>      <ion-item color="medium" routerLink="table2">        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>        <ion-label text-wrap>Women\'s Tennis Ratings and DK Statistics Embed Code</ion-label>      </ion-item>      <ion-item color="medium" routerLink="table3">        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>        <ion-label text-wrap>Mens Tennis Tournament Stat Archives Embed Code</ion-label>      </ion-item>      <ion-item color="medium" routerLink="table4">        <ion-icon size="large" slot="start" color="warning" name="tennisball"></ion-icon>        <ion-label text-wrap>Women\'s Tennis Tournament Stat Archives Embed Code</ion-label>      </ion-item>    </ion-card>    <ion-card>      <ion-card-header color="primary">        <ion-card-title>          Basketball        </ion-card-title>      </ion-card-header>      <ion-item disabled color="medium" routerLink="table5">        <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>        <ion-label text-wrap>NBA Draft Kings Embed Code</ion-label>      </ion-item>      <ion-item disabled color="medium" routerLink="table6">        <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>        <ion-label text-wrap>NBA Playoff Team Power Rankings Embed Code</ion-label>      </ion-item>      <ion-item disabled color="medium" routerLink="table7">        <ion-icon size="large" slot="start" color="danger" name="basketball"></ion-icon>        <ion-label text-wrap>NBA Playoff Game Predictions Embed Code</ion-label>      </ion-item>    </ion-card>    <ion-card>      <ion-card-header color="primary">        <ion-card-title>          General        </ion-card-title>      </ion-card-header>      <ion-item color="medium" routerLink="table8">        <ion-icon size="large" slot="start" color="success" name="stats"></ion-icon>        <ion-label text-wrap>Today\'s Value Rankings Embed Code</ion-label>      </ion-item>      <ion-item color="medium" routerLink="table9">        <ion-icon size="large" slot="start" color="success" name="stats"></ion-icon>        <ion-label text-wrap>DK Accounting Embed Code</ion-label>      </ion-item>    </ion-card>  </ion-list></ion-content><app-footer></app-footer></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GolfComponent', 'selector': 'app-golf'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchPageComponent', 'selector': 'app-launch-page'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoaderDddComponent', 'selector': 'app-loader-ddd'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'jw-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SoccerComponent', 'selector': 'app-soccer'},{'name': 'StatsListComponent', 'selector': 'app-stats-list'},{'name': 'StatsPage', 'selector': 'app-stats'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisComponent', 'selector': 'app-tennis'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'XstatsPage', 'selector': 'app-xstats'}];
-    var DIRECTIVES = [];
+        var COMPONENT_TEMPLATE = '<div><!-- <app-header></app-header> --><!-- <ion-content> --><ion-router-outlet></ion-router-outlet>  <!-- </ion-content> --></div>'
+    var COMPONENTS = [{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'CfbPage', 'selector': 'app-cfb'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FifaPage', 'selector': 'app-fifa'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'FreeTrialLoginPage', 'selector': 'app-free-trial-login'},{'name': 'FreeTrialPage', 'selector': 'app-free-trial'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HowToPage', 'selector': 'app-how-to'},{'name': 'ImageModalPage', 'selector': 'app-image-modal'},{'name': 'LaunchpageComponent', 'selector': 'app-launchpage'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'ListTablesComponent', 'selector': 'app-list-tables'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MlbPage', 'selector': 'app-mlb'},{'name': 'NbaPage', 'selector': 'app-nba'},{'name': 'NflPage', 'selector': 'app-nfl'},{'name': 'NflPreComponent', 'selector': 'app-nfl-pre'},{'name': 'NflScoreComponent', 'selector': 'app-nfl-score'},{'name': 'NflWeekComponent', 'selector': 'app-nfl-week'},{'name': 'NowPage', 'selector': 'app-now'},{'name': 'PaypalComponent', 'selector': 'app-paypal'},{'name': 'PgaPage', 'selector': 'app-pga'},{'name': 'PgaStatsComponent', 'selector': 'app-pga-stats'},{'name': 'PgaThisWeekComponent', 'selector': 'app-pga-this-week'},{'name': 'PowerRankingsComponent', 'selector': 'app-power-rankings'},{'name': 'PricingPage', 'selector': 'app-pricing'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'PrivacyDialogComponent', 'selector': 'privacy-dialog'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'ScorePredictionsComponent', 'selector': 'app-score-predictions'},{'name': 'SettingsPage', 'selector': 'app-settings'},{'name': 'SportsCategoriesPage', 'selector': 'app-sports-categories'},{'name': 'SupportModalComponent', 'selector': 'app-support-modal'},{'name': 'Table1Component', 'selector': 'app-table1'},{'name': 'Table2Component', 'selector': 'app-table2'},{'name': 'Table3Component', 'selector': 'app-table3'},{'name': 'Table4Component', 'selector': 'app-table4'},{'name': 'Table5Component', 'selector': 'app-table5'},{'name': 'Table6Component', 'selector': 'app-table6'},{'name': 'Table7Component', 'selector': 'app-table7'},{'name': 'Table8Component', 'selector': 'app-table8'},{'name': 'Table9Component', 'selector': 'app-table9'},{'name': 'TennisPage', 'selector': 'app-tennis'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TermsDialogComponent', 'selector': 'app-terms-dialog'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TweetsPage', 'selector': 'app-tweets'},{'name': 'UserTicketPage', 'selector': 'app-user-ticket'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'},{'name': 'SubmitIfValidDirective', 'selector': '[tsSubmitIfValid]'}];
     var ACTUAL_COMPONENT = {'name': 'ListPage'};
 </script>
 <script src="../js/tree.js"></script>

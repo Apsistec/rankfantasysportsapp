@@ -124,7 +124,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/guard/inner.guard.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/core/guard/inner.guard.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/core/guard/inner.guard.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">src/app/core/guard/inner.guard.ts:13</a></div>
                 </td>
             </tr>
 
@@ -268,29 +268,25 @@
         <div class="tab-pane fade  tab-source-code" id="c-source">
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from &#x27;@angular/router&#x27;;
-import { AuthService } from &#x27;../services/auth.service&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 @Injectable({
-  providedIn: &#x27;root&#x27;
+    providedIn: &#x27;root&#x27;
 })
-
 export class InnerGuard implements CanActivate {
-
-  constructor(
-    public authService: AuthService,
-    public router: Router
-  ) { }
-
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
-    if (this.authService.isLoggedIn) {
-      window.alert(&#x27;You are not allowed to access this URL!&#x27;);
-      this.router.navigate([&#x27;profile&#x27;]);
+    constructor(
+        public authService: AuthService,
+        public router: Router
+    ) { }
+    canActivate(
+        next: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
+        if (this.authService.isLoggedIn) {
+            window.alert(&#x27;You are not allowed to access this URL!&#x27;);
+            this.router.navigate([&#x27;/home&#x27;]);
+        }
+        return true;
     }
-    return true;
-  }
-
 }
 </code></pre>
         </div>

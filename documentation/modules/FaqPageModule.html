@@ -174,12 +174,12 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { FaqPage } from &#x27;./faq.page&#x27;;
-import { SharedModule } from &#x27;src/app/shared/shared.module&#x27;;
-
+import { SharedModule } from &#x27;../shared/shared.module&#x27;;
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
     component: FaqPage
+
   }
 ];
 
@@ -191,7 +191,10 @@ const routes: Routes &#x3D; [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FaqPage]
+  declarations: [
+    FaqPage,
+  ],
+  entryComponents: []
 })
 export class FaqPageModule {}
 </code></pre>

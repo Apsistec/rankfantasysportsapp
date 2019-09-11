@@ -71,16 +71,16 @@
                             <a href="#Faqs" title="src/app/faq/faqs.ts"><b>Faqs</b>&nbsp;&nbsp;&nbsp;(src/.../faqs.ts)</a>
                         </li>
                         <li>
-                            <a href="#paypal" title="src/app/paypal/paypal.component.ts"><b>paypal</b>&nbsp;&nbsp;&nbsp;(src/.../paypal.component.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#slideInAnimation" title="src/app/animations.ts"><b>slideInAnimation</b>&nbsp;&nbsp;&nbsp;(src/.../animations.ts)</a>
+                            <a href="#paypal" title="src/app/auth/paypal/paypal.component.ts"><b>paypal</b>&nbsp;&nbsp;&nbsp;(src/.../paypal.component.ts)</a>
                         </li>
                         <li>
                             <a href="#Slides" title="src/app/testimonials/slides.ts"><b>Slides</b>&nbsp;&nbsp;&nbsp;(src/.../slides.ts)</a>
                         </li>
                         <li>
-                            <a href="#Stripe" title="src/app/launch-page/launch-page.component.ts"><b>Stripe</b>&nbsp;&nbsp;&nbsp;(src/.../launch-page.component.ts)</a>
+                            <a href="#Stripe" title="src/app/launchpage/launchpage.component.ts"><b>Stripe</b>&nbsp;&nbsp;&nbsp;(src/.../launchpage.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#themes" title="src/app/auth/profile/profile.page.ts"><b>themes</b>&nbsp;&nbsp;&nbsp;(src/.../profile.page.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -162,12 +162,9 @@
     messagingSenderId: &#x27;436994807324&#x27;,
     appId: &#x27;1:436994807324:web:3688c0cd49139837&#x27;
   },
-  stripe: {
-    publicKey: &#x27;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&#x27;,
-  },
-  dialogflow: {
-    sportsBot: &#x27;8b3d99f449ca45cf91fa0a9f88da30bc&#x27;
-  }
+  stripe: { stripePublishable: &#x27;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&#x27; },
+
+  dialogflow: { sportsBot: &#x27;8b3d99f449ca45cf91fa0a9f88da30bc&#x27; },
 }</code>
                         </td>
                     </tr>
@@ -201,21 +198,17 @@
                             <i>Default value : </i><code>{
   production: false,
   firebaseConfig: {
-    apiKey: &#x27;AIzaSyDNWc_cp6Rgk9J79Kf4lrVMDSr9LEHXU-s&#x27;,
-    authDomain: &#x27;rankfantasysports-test.firebaseapp.com&#x27;,
-    databaseURL: &#x27;https://rankfantasysports-test.firebaseio.com&#x27;,
-    projectId: &#x27;rankfantasysports-test&#x27;,
-    storageBucket: &#x27;rankfantasysports-test.appspot.com&#x27;,
-    messagingSenderId: &#x27;815928091369&#x27;,
-    appId: &#x27;1:815928091369:web:714233e00705a8d9&#x27;
+    apiKey: &#x27;AIzaSyB-WA8n-dFs6GANhNJYIZZ05m_RgWkm_GQ&#x27;,
+    authDomain: &#x27;browser-landing.firebaseapp.com&#x27;,
+    databaseURL: &#x27;https://browser-landing.firebaseio.com&#x27;,
+    projectId: &#x27;browser-landing&#x27;,
+    storageBucket: &#x27;browser-landing.appspot.com&#x27;,
+    messagingSenderId: &#x27;436994807324&#x27;,
+    appId: &#x27;1:436994807324:web:3688c0cd49139837&#x27;
   },
-  stripe: {
-    publicKey:
-      &#x27;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&#x27;
-  },
-  dialogflow: {
-    sportsBot: &#x27;8b3d99f449ca45cf91fa0a9f88da30bc&#x27;
-  }
+  stripe: { stripePublishable: &#x27;pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt&#x27; },
+
+  dialogflow: { sportsBot: &#x27;8b3d99f449ca45cf91fa0a9f88da30bc&#x27; },
 }</code>
                         </td>
                     </tr>
@@ -247,61 +240,15 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
-    { info: &#x27;Our mission is to provide our members the best information possible for our members to use!&#x27; },
-    { info: &#x27;We want you to make the best decisions possible for your team\&#x27;s success.&#x27; },
-    { info: &#x27;Initially we will also provide excellent data for our members to use in fantasy lineups for the NBA, Tennis and Golf.&#x27; },
-    { info: &#x27;We are striving to be &quot;the go to site&quot; for those that love daily and seasonal fantasy sports!&#x27; },
+    {
+        // tslint:disable-next-line: max-line-length
+        title: &#x27;What is RankFantasySports.com?&#x27;, info: &#x27;RankFantasySports.com(RF$) is a progressive web app designed specifically for Daily Fantasy Sports(DFS) players. The sports data-analysts at RF$ carefully calculate their sports data models and DFS platform cheat sheets, and have successfully done so over the years. Their attention to detail and unique approach to data compilation has evolved over the years to become one of the key components in helping everyone at RF$ to win consistently.  Now, those same sports data analysts have decided to provide their expertise as a service to help others, like you, to make more informed winning lineups in less time, and ultimately help DFS players such as yourself win more &amp; more often!&#x27; },
     // tslint:disable-next-line: max-line-length
-    { info: &#x27;Our goal is to provide the BEST available information and insight for our members and to make it easy for our members to WIN and confidently make their line-up choices.&#x27; },
-    { info: &#x27;Our team has invested years and 1000\&#x27;s of hours to create the best information available in fantasy sports!&#x27; },
-    { info: &#x27;We love sports like you do and we love to win like you do!&#x27; },
-    { info: &#x27;I’m sure you agree, Daily Fantasy Sports (DFS) enhances the enjoyment of watching and keeping track of the games in each sport throughout the season.&#x27; },
-    { info: &#x27;At RF$, when you win, we win! Helping you win is our business!&#x27; },
-    { info: &#x27;We make winning easy by providing you with time saving analysis tools for choosing your lineups.&#x27; },
-    { info: &#x27;Our sports analysts and data scientists are not only consistent DFS players, but are also early adopters of the games.&#x27; },
-    { info: &#x27;The team at RF$ has many ties to professional sports, and we have developed a true passion for the sports and the players that we follow.&#x27; },
-    { info: &#x27;We know the immediate and critical value that real-time innovation and adaptation offers, and as such all of our tools are designed and developed in-house.&#x27; },
-    { info: &#x27;When you are picking your next set of DFS lineups, have RF$ in your corner.&#x27; },
-    { info: &#x27;The data is concise, relevant, and delivered with an edge, so you can make your decisions quickly and confidently.&#x27; },
-    { info: &#x27;Our subscribers are best described as DFS players who enjoy their sports, who are motivated and ready to win more, but always seem to run short on time due to work, family, and life in general.&#x27; },
+    { title: &#x27;What does RankFantasySports.com Offer?&#x27;, info: &#x27;The team at RankFantasySports.com(RF$) offers some of the best Daily Fantasy Sports(DFS) information available &amp; for less than $10 per month. RF$ provides unmatched insights and time savings for DFS players specifically focused on NFL, CFB, Tennis, Golf &amp; NBA.  Sign up Today &amp; start winning Today.&#x27; },
+    { title: &#x27;Where can I learn more about RankFantasySports.com?&#x27;, info: &#x27;Watch the video on the home page to hear the RankFantasySports.com(RF$) CEO explain what RF$ is all about.&#x27; },
     // tslint:disable-next-line: max-line-length
-    { info: &#x27;The RF$ app is your one-stop DFS resource for building your winning lineups; and will always be fully functional and accessible from just about any smart device (including Android, iPhone, Tablets, computers, TVs, actually anything with a browser)&#x27; },
-    // tslint:disable-next-line: max-line-length
-    { info: &#x27;Join RF$ today and let us show you how we make it easy to win by using our stats, strategies, insights, data-viz and an ever-growing list of other time-saving, money-making player ready tools.&#x27; },
-    { info: &#x27;With the RF$ tools, expect to win More &amp; More Often, while spending less time doing so.&#x27; },
-    // tslint:disable-next-line: max-line-length
-    { info: &#x27;The Tennis, Golf &amp; Football reports provided by the data analysts at  Rank Fantasy $ports (RF&lt;ion-text color&#x3D;&quot;secondary&quot;&gt;$&lt;/ion-text&gt;) are rapidly becoming some of the most sought after Daily Fantasy Sports (DFS) supplemental resources to hit the market.Why is that?&#x27; },
-    { info: &#x27;For one, their reports provide concise, easily usable time saving information.&#x27; },
-    { info: &#x27;Also, RF$ delivers their data services to subscribers using the latest cutting edge software&#x27; },
-    { info: &#x27;I’m sure you agree, Daily Fantasy Sports (DFS) enhances the enjoyment of watching and keeping track of the games in each sport all season long&#x27; },
-    { info: &#x27;At RF$, we win when you win, and we make winning easy by providing you with time saving analysis tools for choosing your lineups.&#x27; },
-    // tslint:disable-next-line: max-line-length
-    { info: &#x27;The Tennis, Golf &amp; Football reports provided by the data analysts at  Rank Fantasy $ports (RF$) are rapidly becoming some of the most sought after Daily Fantasy Sports (DFS) supplemental resources to hit the market. Why is that?&#x27; },
-    { info: &#x27;For one, their reports provide concise, easily usable time saving information.&#x27; },
-    { info: &#x27;our sports analysts and data scientists have continued to be consistent DFS players&#x27; },
-    { info: &#x27;They were early adopters in the rapidly evolving world of DFS sports&#x27; },
-    { info: &#x27;The team has many ties to professional sports, they were strong players in the leagues they participated in&#x27; },
-    { info: &#x27;Through the years they have developed a true passion for the sports they follow and the players.&#x27; },
-    // tslint:disable-next-line: max-line-length
-    { info: &#x27;It is because of the lifestyle that they have been able to create and the joy this lifestyle brings that they feel compelled to give back, and to show and teach others how to also make playing DFS rewardingly enjoyable by consistently winning more and more often without requiring all of your free time.&#x27; },
-    { info: &#x27;Winning over $8000 on single entry $10 lineups will also be possible for you when you use the RF$ data-tables as part of your DFS playing strategy&#x27; },
-    { info: &#x27;Our data-analysts are focused daily on tracking the play-by-play, player, team, league, weather, domestic and injury reports in the sports they follow. They also maintain their own unique sets of data points in each sport.&#x27; },
-    { info: &#x27;Also, RF$ delivers their data services to subscribers using the latest cutting edge software&#x27; },
-    { info: &#x27;This progressive web app (PWA) is continuously developed with a mobile first mindset&#x27; },
-    { info: &#x27;providing subscribers with the fastest loading pages possible,&#x27; },
-    { info: &#x27;a full featured user-friendly experience on any device including iPhone &amp; Android smart phones, tablets, TVs and any device with a browser.&#x27; },
-    { info: &#x27;Using the latest progressive web app (PWA) technology and the Google Cloud Platform delivers exceptional data, tools and resources enabling you to win more and more often&#x27; },
-    { info: &#x27;We want and even expect feedback from our subscribers, so that together we can evolve this platform to develop the best algorithm and Artificial Intelligence data models on the market.&#x27; },
-    { info: &#x27;We know the immediate and critical value that real-time innovation and adaptation offers, and as such all of our tools are designed and developed in-house.&#x27; },
-    { info: &#x27;The team is continuously evolving toolsets, by developing machine learning, deep learning, &amp; artificial intelligence probability models and traditional statistical algorithms.&#x27; },
-    { info: &#x27;When you are picking your next set of DFS lineups, have RF$ in your corner.&#x27; },
-    { info: &#x27;The data is concise, relevant, and delivered with an edge, so you can make your decisions quickly and confidently.&#x27; },
-    { info: &#x27;Our subscribers are best described as DFS players who enjoy their sports, who are motivated and ready to be more successful more often; but, who seem to always run short on time due to work, family, and life in general.&#x27; },
-    // tslint:disable-next-line: max-line-length
-    { info: &#x27;The RF$ app is your one-stop DFS resource for building your winning lineups; and will always be fully functional and accessible from just about any smart device (including Android, iPhone, Tablets, computers, TVs, actually anything with a browser)&#x27; },
-    { info: &#x27;Join RF$ today and let us show you how we make it easy to win with our stats, strategies, insights, data-viz and other effective time-saving, money-making player ready tools.&#x27; },
-    { info: &#x27;Properly using the RF$ tools, you can expect to win more and//or more often, while spending less time doing so.&#x27; },
-    { info: &#x27;We want and even expect feedback from our subscribers, so that together we can evolve this platform to develop the best algorithm and Artificial Intelligence data models on the market.&#x27; },
+    { title: &#x27;What is DFS (also known as &quot;Daily Fantasy Sports&quot;)?&#x27;, info: &#x27;DFS is sports related platform that provides opportunities to play fantasy sports daily and to compete for money while testing your knowledge against other DFS players.  DFS platforms are offered on sites like DraftKings, FanDuel, Draft, and Yahoo.&#x27; },
+    { title: &#x27;Why do people play Daily Fantasy Sports(DFS)?&#x27;, info: &#x27;Playing DFS makes watching sports even more fun while also giving you the opportunity to win money.&#x27; },
 ]</code>
                         </td>
                     </tr>
@@ -310,7 +257,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/app/paypal/paypal.component.ts</h3>
+    <h3>src/app/auth/paypal/paypal.component.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -324,55 +271,6 @@
                         </span>
                     </td>
                 </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/animations.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="slideInAnimation"></a>
-                        <span class="name">
-                            <b>
-                            slideInAnimation</b>
-                            <a href="#slideInAnimation"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>trigger(&#x27;routeAnimation&#x27;, [
-    transition(&#x27;heroes &lt;&#x3D;&gt; hero&#x27;, [
-      style({ position: &#x27;relative&#x27; }),
-      query(&#x27;:enter, :leave&#x27;, [
-        style({
-          position: &#x27;absolute&#x27;,
-          top: 0,
-          left: 0,
-          width: &#x27;100%&#x27;
-        })
-      ]),
-      query(&#x27;:enter&#x27;, [
-        style({ left: &#x27;-100%&#x27;})
-      ]),
-      query(&#x27;:leave&#x27;, animateChild()),
-      group([
-        query(&#x27;:leave&#x27;, [
-          animate(&#x27;300ms ease-out&#x27;, style({ left: &#x27;sz100%&#x27;}))
-        ]),
-        query(&#x27;:enter&#x27;, [
-          animate(&#x27;300ms ease-out&#x27;, style({ left: &#x27;0%&#x27;}))
-        ])
-      ]),
-      query(&#x27;:enter&#x27;, animateChild()),
-    ])
-  ])</code>
-                        </td>
-                    </tr>
 
 
             </tbody>
@@ -401,59 +299,56 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
-    { img: &#x27;assets/images/16.JPG&#x27; },
-    { img: &#x27;assets/images/01.JPG&#x27; },
-    { img: &#x27;assets/images/1.jpg&#x27; },
-    { img: &#x27;assets/images/2.jpg&#x27; },
-    { img: &#x27;assets/images/3.jpg&#x27; },
-    { img: &#x27;assets/images/4.jpg&#x27; },
-    { img: &#x27;assets/images/02.JPG&#x27; },
-    { img: &#x27;assets/images/03.JPG&#x27; },
-    { img: &#x27;assets/images/04.JPG&#x27; },
-    { img: &#x27;assets/images/05.JPG&#x27; },
-    { img: &#x27;assets/images/06.JPG&#x27; },
-    { img: &#x27;assets/images/07.JPG&#x27; },
-    { img: &#x27;assets/images/08.JPG&#x27; },
-    { img: &#x27;assets/images/09.JPG&#x27; },
-    { img: &#x27;assets/images/10.JPG&#x27; },
-    { img: &#x27;assets/images/11.JPG&#x27; },
+    // { img: &#x27;assets/images/144.JPG&#x27; },
     { img: &#x27;assets/images/12.JPG&#x27; },
+    { img: &#x27;assets/images/189.PNG&#x27; },
     { img: &#x27;assets/images/13.JPG&#x27; },
     { img: &#x27;assets/images/14.JPG&#x27; },
     { img: &#x27;assets/images/15.JPG&#x27; },
+    { img: &#x27;assets/images/16.JPG&#x27; },
     { img: &#x27;assets/images/17.JPG&#x27; },
     { img: &#x27;assets/images/18.JPG&#x27; },
     { img: &#x27;assets/images/19.JPG&#x27; },
-    { img: &#x27;assets/images/20.JPG&#x27; },
-    { img: &#x27;assets/images/21.JPG&#x27; },
-    { img: &#x27;assets/images/22.JPG&#x27; },
-    { img: &#x27;assets/images/23.JPG&#x27; },
-    { img: &#x27;assets/images/24.JPG&#x27; },
-    { img: &#x27;assets/images/25.JPG&#x27; },
-    { img: &#x27;assets/images/26.JPG&#x27; },
-    { img: &#x27;assets/images/27.JPG&#x27; },
-    { img: &#x27;assets/images/28.JPG&#x27; },
-    { img: &#x27;assets/images/29.JPG&#x27; },
-    { img: &#x27;assets/images/30.JPG&#x27; },
-    { img: &#x27;assets/images/31.JPG&#x27; },
-    { img: &#x27;assets/images/32.JPG&#x27; },
-    { img: &#x27;assets/images/33.JPG&#x27; },
-    { img: &#x27;assets/images/34.JPG&#x27; },
-    { img: &#x27;assets/images/35.JPG&#x27; },
-    { img: &#x27;assets/images/36.JPG&#x27; },
-    { img: &#x27;assets/images/37.JPG&#x27; },
-    { img: &#x27;assets/images/38.JPG&#x27; },
-    { img: &#x27;assets/images/39.JPG&#x27; },
-    { img: &#x27;assets/images/01.PNG&#x27; },
-    { img: &#x27;assets/images/02.PNG&#x27; },
-    { img: &#x27;assets/images/03.PNG&#x27; },
-    { img: &#x27;assets/images/04.PNG&#x27; },
-    { img: &#x27;assets/images/05.PNG&#x27; },
-    { img: &#x27;assets/images/06.PNG&#x27; },
-    { img: &#x27;assets/images/07.PNG&#x27; },
-    { img: &#x27;assets/images/08.PNG&#x27; },
-    { img: &#x27;assets/images/09.PNG&#x27; },
-    { img: &#x27;assets/images/10.PNG&#x27; },
+    { img: &#x27;assets/images/110.JPG&#x27; },
+    { img: &#x27;assets/images/111.JPG&#x27; },
+    { img: &#x27;assets/images/112.JPG&#x27; },
+    { img: &#x27;assets/images/11.JPG&#x27; },
+    { img: &#x27;assets/images/113.JPG&#x27; },
+    { img: &#x27;assets/images/114.JPG&#x27; },
+    { img: &#x27;assets/images/115.JPG&#x27; },
+    { img: &#x27;assets/images/116.JPG&#x27; },
+    { img: &#x27;assets/images/117.JPG&#x27; },
+    { img: &#x27;assets/images/118.JPG&#x27; },
+    { img: &#x27;assets/images/119.JPG&#x27; },
+    { img: &#x27;assets/images/120.JPG&#x27; },
+    { img: &#x27;assets/images/121.JPG&#x27; },
+    { img: &#x27;assets/images/122.JPG&#x27; },
+    { img: &#x27;assets/images/123.JPG&#x27; },
+    { img: &#x27;assets/images/124.JPG&#x27; },
+    { img: &#x27;assets/images/125.JPG&#x27; },
+    { img: &#x27;assets/images/126.JPG&#x27; },
+    { img: &#x27;assets/images/127.JPG&#x27; },
+    { img: &#x27;assets/images/128.JPG&#x27; },
+    { img: &#x27;assets/images/129.JPG&#x27; },
+    { img: &#x27;assets/images/130.JPG&#x27; },
+    { img: &#x27;assets/images/131.JPG&#x27; },
+    { img: &#x27;assets/images/132.JPG&#x27; },
+    { img: &#x27;assets/images/133.JPG&#x27; },
+    { img: &#x27;assets/images/134.JPG&#x27; },
+    { img: &#x27;assets/images/135.JPG&#x27; },
+    { img: &#x27;assets/images/136.JPG&#x27; },
+    { img: &#x27;assets/images/137.JPG&#x27; },
+    { img: &#x27;assets/images/138.JPG&#x27; },
+    { img: &#x27;assets/images/139.JPG&#x27; },
+    { img: &#x27;assets/images/140.JPG&#x27; },
+    { img: &#x27;assets/images/141.JPG&#x27; },
+    { img: &#x27;assets/images/142.JPG&#x27; },
+    { img: &#x27;assets/images/143.JPG&#x27; },
+    { img: &#x27;assets/images/145.JPG&#x27; },
+    { img: &#x27;assets/images/146.JPG&#x27; },
+    { img: &#x27;assets/images/147.JPG&#x27; },
+    { img: &#x27;assets/images/148.JPG&#x27; },
+    { img: &#x27;assets/images/149.JPG&#x27; },
     { img: &#x27;assets/images/11.PNG&#x27; },
     { img: &#x27;assets/images/12.PNG&#x27; },
     { img: &#x27;assets/images/13.PNG&#x27; },
@@ -463,82 +358,93 @@
     { img: &#x27;assets/images/17.PNG&#x27; },
     { img: &#x27;assets/images/18.PNG&#x27; },
     { img: &#x27;assets/images/19.PNG&#x27; },
-    { img: &#x27;assets/images/20.PNG&#x27; },
-    { img: &#x27;assets/images/21.PNG&#x27; },
-    { img: &#x27;assets/images/22.PNG&#x27; },
-    { img: &#x27;assets/images/23.PNG&#x27; },
-    { img: &#x27;assets/images/24.PNG&#x27; },
-    { img: &#x27;assets/images/25.PNG&#x27; },
-    { img: &#x27;assets/images/26.PNG&#x27; },
-    { img: &#x27;assets/images/27.PNG&#x27; },
-    { img: &#x27;assets/images/28.PNG&#x27; },
-    { img: &#x27;assets/images/29.PNG&#x27; },
-    { img: &#x27;assets/images/30.PNG&#x27; },
-    { img: &#x27;assets/images/31.PNG&#x27; },
-    { img: &#x27;assets/images/32.PNG&#x27; },
-    { img: &#x27;assets/images/33.PNG&#x27; },
-    { img: &#x27;assets/images/34.PNG&#x27; },
-    { img: &#x27;assets/images/35.PNG&#x27; },
-    { img: &#x27;assets/images/36.PNG&#x27; },
-    { img: &#x27;assets/images/37.PNG&#x27; },
-    { img: &#x27;assets/images/38.PNG&#x27; },
-    { img: &#x27;assets/images/39.PNG&#x27; },
-    { img: &#x27;assets/images/40.PNG&#x27; },
-    { img: &#x27;assets/images/41.PNG&#x27; },
-    { img: &#x27;assets/images/42.PNG&#x27; },
-    { img: &#x27;assets/images/43.PNG&#x27; },
-    { img: &#x27;assets/images/44.PNG&#x27; },
-    { img: &#x27;assets/images/45.PNG&#x27; },
-    { img: &#x27;assets/images/46.PNG&#x27; },
-    { img: &#x27;assets/images/47.PNG&#x27; },
-    { img: &#x27;assets/images/48.PNG&#x27; },
-    { img: &#x27;assets/images/49.PNG&#x27; },
-    { img: &#x27;assets/images/50.PNG&#x27; },
-    { img: &#x27;assets/images/51.PNG&#x27; },
-    { img: &#x27;assets/images/52.PNG&#x27; },
-    { img: &#x27;assets/images/53.PNG&#x27; },
-    { img: &#x27;assets/images/54.PNG&#x27; },
-    { img: &#x27;assets/images/55.PNG&#x27; },
-    { img: &#x27;assets/images/56.PNG&#x27; },
-    { img: &#x27;assets/images/57.PNG&#x27; },
-    { img: &#x27;assets/images/58.PNG&#x27; },
-    { img: &#x27;assets/images/59.PNG&#x27; },
-    { img: &#x27;assets/images/60.PNG&#x27; },
-    { img: &#x27;assets/images/61.PNG&#x27; },
-    { img: &#x27;assets/images/62.PNG&#x27; },
-    { img: &#x27;assets/images/63.PNG&#x27; },
-    { img: &#x27;assets/images/64.PNG&#x27; },
-    { img: &#x27;assets/images/65.PNG&#x27; },
-    { img: &#x27;assets/images/66.PNG&#x27; },
-    { img: &#x27;assets/images/67.PNG&#x27; },
-    { img: &#x27;assets/images/68.PNG&#x27; },
-    { img: &#x27;assets/images/69.PNG&#x27; },
-    { img: &#x27;assets/images/70.PNG&#x27; },
-    { img: &#x27;assets/images/71.PNG&#x27; },
-    { img: &#x27;assets/images/72.PNG&#x27; },
-    { img: &#x27;assets/images/73.PNG&#x27; },
-    { img: &#x27;assets/images/74.PNG&#x27; },
-    { img: &#x27;assets/images/75.PNG&#x27; },
-    { img: &#x27;assets/images/76.PNG&#x27; },
-    { img: &#x27;assets/images/77.PNG&#x27; },
-    { img: &#x27;assets/images/78.PNG&#x27; },
-    { img: &#x27;assets/images/79.PNG&#x27; },
-    { img: &#x27;assets/images/80.PNG&#x27; },
-    { img: &#x27;assets/images/81.PNG&#x27; },
-    { img: &#x27;assets/images/82.PNG&#x27; },
-    { img: &#x27;assets/images/83.PNG&#x27; },
-    { img: &#x27;assets/images/84.PNG&#x27; },
-    { img: &#x27;assets/images/85.PNG&#x27; },
-    { img: &#x27;assets/images/86.PNG&#x27; },
-    { img: &#x27;assets/images/87.PNG&#x27; },
-    { img: &#x27;assets/images/88.PNG&#x27; },
-    { img: &#x27;assets/images/89.PNG&#x27; },
-    { img: &#x27;assets/images/90.PNG&#x27; },
-    { img: &#x27;assets/images/91.PNG&#x27; },
-    { img: &#x27;assets/images/92.PNG&#x27; },
-    { img: &#x27;assets/images/93.PNG&#x27; },
-    { img: &#x27;assets/images/94.PNG&#x27; }
-]</code>
+    { img: &#x27;assets/images/110.PNG&#x27; },
+    { img: &#x27;assets/images/111.PNG&#x27; },
+    { img: &#x27;assets/images/112.PNG&#x27; },
+    { img: &#x27;assets/images/113.PNG&#x27; },
+    { img: &#x27;assets/images/114.PNG&#x27; },
+    { img: &#x27;assets/images/115.PNG&#x27; },
+    { img: &#x27;assets/images/116.PNG&#x27; },
+    { img: &#x27;assets/images/117.PNG&#x27; },
+    { img: &#x27;assets/images/118.PNG&#x27; },
+    { img: &#x27;assets/images/119.PNG&#x27; },
+    { img: &#x27;assets/images/120.PNG&#x27; },
+    { img: &#x27;assets/images/121.PNG&#x27; },
+    { img: &#x27;assets/images/122.PNG&#x27; },
+    { img: &#x27;assets/images/123.PNG&#x27; },
+    { img: &#x27;assets/images/124.PNG&#x27; },
+    { img: &#x27;assets/images/125.PNG&#x27; },
+    { img: &#x27;assets/images/126.PNG&#x27; },
+    { img: &#x27;assets/images/127.PNG&#x27; },
+    { img: &#x27;assets/images/128.PNG&#x27; },
+    { img: &#x27;assets/images/129.PNG&#x27; },
+    { img: &#x27;assets/images/130.PNG&#x27; },
+    { img: &#x27;assets/images/131.PNG&#x27; },
+    { img: &#x27;assets/images/132.PNG&#x27; },
+    { img: &#x27;assets/images/133.PNG&#x27; },
+    { img: &#x27;assets/images/134.PNG&#x27; },
+    { img: &#x27;assets/images/135.PNG&#x27; },
+    { img: &#x27;assets/images/136.PNG&#x27; },
+    { img: &#x27;assets/images/137.PNG&#x27; },
+    { img: &#x27;assets/images/138.PNG&#x27; },
+    { img: &#x27;assets/images/139.PNG&#x27; },
+    { img: &#x27;assets/images/140.PNG&#x27; },
+    { img: &#x27;assets/images/141.PNG&#x27; },
+    { img: &#x27;assets/images/142.PNG&#x27; },
+    { img: &#x27;assets/images/143.PNG&#x27; },
+    { img: &#x27;assets/images/144.PNG&#x27; },
+    { img: &#x27;assets/images/145.PNG&#x27; },
+    { img: &#x27;assets/images/146.PNG&#x27; },
+    { img: &#x27;assets/images/147.PNG&#x27; },
+    { img: &#x27;assets/images/148.PNG&#x27; },
+    { img: &#x27;assets/images/149.PNG&#x27; },
+    { img: &#x27;assets/images/150.PNG&#x27; },
+    { img: &#x27;assets/images/151.PNG&#x27; },
+    { img: &#x27;assets/images/152.PNG&#x27; },
+    { img: &#x27;assets/images/153.PNG&#x27; },
+    { img: &#x27;assets/images/154.PNG&#x27; },
+    { img: &#x27;assets/images/155.PNG&#x27; },
+    { img: &#x27;assets/images/156.PNG&#x27; },
+    { img: &#x27;assets/images/157.PNG&#x27; },
+    { img: &#x27;assets/images/158.PNG&#x27; },
+    { img: &#x27;assets/images/159.PNG&#x27; },
+    { img: &#x27;assets/images/160.PNG&#x27; },
+    { img: &#x27;assets/images/161.PNG&#x27; },
+    { img: &#x27;assets/images/162.PNG&#x27; },
+    { img: &#x27;assets/images/163.PNG&#x27; },
+    { img: &#x27;assets/images/164.PNG&#x27; },
+    { img: &#x27;assets/images/165.PNG&#x27; },
+    { img: &#x27;assets/images/166.PNG&#x27; },
+    { img: &#x27;assets/images/167.PNG&#x27; },
+    { img: &#x27;assets/images/168.PNG&#x27; },
+    { img: &#x27;assets/images/169.PNG&#x27; },
+    { img: &#x27;assets/images/170.PNG&#x27; },
+    { img: &#x27;assets/images/171.PNG&#x27; },
+    { img: &#x27;assets/images/172.PNG&#x27; },
+    { img: &#x27;assets/images/173.PNG&#x27; },
+    { img: &#x27;assets/images/174.PNG&#x27; },
+    { img: &#x27;assets/images/175.PNG&#x27; },
+    { img: &#x27;assets/images/176.PNG&#x27; },
+    { img: &#x27;assets/images/177.PNG&#x27; },
+    { img: &#x27;assets/images/178.PNG&#x27; },
+    { img: &#x27;assets/images/179.PNG&#x27; },
+    { img: &#x27;assets/images/180.PNG&#x27; },
+    { img: &#x27;assets/images/181.PNG&#x27; },
+    { img: &#x27;assets/images/182.PNG&#x27; },
+    { img: &#x27;assets/images/183.PNG&#x27; },
+    { img: &#x27;assets/images/184.PNG&#x27; },
+    { img: &#x27;assets/images/185.PNG&#x27; },
+    { img: &#x27;assets/images/186.PNG&#x27; },
+    { img: &#x27;assets/images/187.PNG&#x27; },
+    { img: &#x27;assets/images/188.PNG&#x27; },
+    { img: &#x27;assets/images/190.PNG&#x27; },
+    { img: &#x27;assets/images/191.PNG&#x27; },
+    { img: &#x27;assets/images/192.PNG&#x27; },
+    { img: &#x27;assets/images/193.PNG&#x27; },
+    { img: &#x27;assets/images/194.PNG&#x27; },
+    { img: &#x27;assets/images/195.PNG&#x27; },
+
+    ]</code>
                         </td>
                     </tr>
 
@@ -546,7 +452,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/app/launch-page/launch-page.component.ts</h3>
+    <h3>src/app/launchpage/launchpage.component.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -564,6 +470,61 @@
                         <td class="col-md-4">
                             <i>Type : </i>        <code><a href="../miscellaneous/variables.html#Stripe" target="_self" >stripe.StripeStatic</a></code>
 
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/auth/profile/profile.page.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="themes"></a>
+                        <span class="name">
+                            <b>
+                            themes</b>
+                            <a href="#themes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  autumn: {
+    primary: &#x27;#264E36&#x27;,
+    secondary: &#x27;#199867&#x27;,
+    tertiary: &#x27;#9B1B30&#x27;,
+    light: &#x27;#F7F7FF&#x27;,
+    medium: &#x27;#2A4B7C&#x27;,
+    dark: &#x27;#2A293E&#x27;,
+  },
+  night: {
+    primary: &#x27;#00539C&#x27;,
+    secondary: &#x27;#8CBA80&#x27;,
+    tertiary: &#x27;#BD3D3A&#x27;,
+    light: &#x27;#bcc2c7&#x27;,
+    medium: &#x27;#495867&#x27;,
+    dark: &#x27;#34162A&#x27;,
+  },
+  neon: {
+    primary: &#x27;#755139&#x27;,
+    secondary: &#x27;#D69C2F&#x27;,
+    tertiary: &#x27;#E47A2E&#x27;,
+    light: &#x27;#F0EAD6&#x27;,
+    medium: &#x27;#615550&#x27;,
+    dark: &#x27;#343148&#x27;,
+  }
+}</code>
                         </td>
                     </tr>
 
