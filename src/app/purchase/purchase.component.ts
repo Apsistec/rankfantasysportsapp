@@ -9,12 +9,12 @@ import { ToastController } from '@ionic/angular';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
-  selector: 'app-launchpage',
-  templateUrl: './launchpage.component.html',
-  styleUrls: ['./launchpage.component.scss']
+  selector: 'app-purchase',
+  templateUrl: './purchase.component.html',
+  styleUrls: ['./purchase.component.scss']
 })
 
-export class LaunchpageComponent implements OnInit, AfterViewInit {
+export class PurchaseComponent implements OnInit, AfterViewInit {
   @ViewChild('cardElement') cardElement: ElementRef;
   planId: string;
   price: string;

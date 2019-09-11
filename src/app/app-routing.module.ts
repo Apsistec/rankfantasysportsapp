@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LaunchpageComponent } from './launchpage/launchpage.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { TermsDialogComponent } from './shared/terms-dialog/terms-dialog.component';
 
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
-  { path: 'launchpage', component: LaunchpageComponent, canActivate: [AuthGuard] },
+  { path: 'purchase', component: PurchaseComponent, canActivate: [AuthGuard] },
   { path: 'terms', component: TermsDialogComponent, outlet: 'terms'},
   {
     path: '**',

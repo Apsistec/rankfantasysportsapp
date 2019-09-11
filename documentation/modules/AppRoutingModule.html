@@ -73,7 +73,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { LaunchpageComponent } from &#x27;./launchpage/launchpage.component&#x27;;
+import { PurchaseComponent } from &#x27;./purchase/purchase.component&#x27;;
 import { AuthGuard } from &#x27;./core/guard/auth.guard&#x27;;
 import { TermsDialogComponent } from &#x27;./shared/terms-dialog/terms-dialog.component&#x27;;
 
@@ -91,7 +91,7 @@ const appRoutes: Routes &#x3D; [
   { path: &#x27;welcome&#x27;, loadChildren: &#x27;./welcome/welcome.module#WelcomePageModule&#x27; },
   { path: &#x27;faq&#x27;, loadChildren: &#x27;./faq/faq.module#FaqPageModule&#x27; },
   { path: &#x27;how-to&#x27;, loadChildren: &#x27;./how-to/how-to.module#HowToPageModule&#x27; },
-  { path: &#x27;launchpage&#x27;, component: LaunchpageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;purchase&#x27;, component: PurchaseComponent, canActivate: [AuthGuard] },
   { path: &#x27;terms&#x27;, component: TermsDialogComponent, outlet: &#x27;terms&#x27;},
   {
     path: &#x27;**&#x27;,

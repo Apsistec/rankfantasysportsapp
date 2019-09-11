@@ -24,7 +24,7 @@
               <ion-text color="light">Profile</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
 
-            <ion-item *ngIf= "auth.afAuth.user | async as user; else freetrialregister" routerLink="/launchpage">
+            <ion-item *ngIf= "auth.afAuth.user | async as user; else freetrialregister" routerLink="/purchase">
               <ion-icon color="success" class="iconify" slot="start" name="medal"></ion-icon>
               <ion-text color="success">Free-Trial</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>

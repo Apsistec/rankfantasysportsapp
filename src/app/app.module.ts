@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/helpers/interceptor.service';
-import { LaunchpageComponent } from './launchpage/launchpage.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 // import { Capacitor } from '@capacitor/core';
 import { Firebase } from '@ionic-native/firebase/ngx';
@@ -29,7 +29,7 @@ import { Firebase } from '@ionic-native/firebase/ngx';
 @NgModule({
   declarations: [
     AppComponent,
-    LaunchpageComponent
+    PurchaseComponent
   ],
   entryComponents: [],
   imports: [
