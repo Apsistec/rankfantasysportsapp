@@ -91,31 +91,34 @@
   // text-shadow: 1px 1px #743691;
 }
 
-
-
-  
-.oauthcss {
-  background:  rgb(54, 136, 60);
-  border-color: rgb(81, 255, 0);
-  max-width: 350px;
+.login {
+  --background:  rgb(33, 78, 36);
+  --color: rgb(81, 255, 0);
+  --end: 4px;
+  --button-color: white;
 }
 
 .halt{
-  background:  rgb(255, 124, 124);
-  border-color: rgb(255, 0, 0);
-  max-width: 350px;
-}
+  --background:  rgb(141, 50, 50);
+  --border-color: rgb(255, 0, 0);
+  --end: 4px;
+  --button-color: white;
+ }
 
 .neutral{
-  background:  rgb(105, 114, 105);
-  border-color: rgb(134, 151, 161);
-  max-width: 350px;
+  --background:  rgb(61, 63, 61);
+  --border-color: rgb(134, 151, 161);
+  --color: greenyellow;
+  --end: 4px;
+  --button-color: white;
 }
 
 .logout{
-  background:  rgb(248, 248, 153);
-  border-color: rgb(238, 255, 0);
-  max-width: 350px;
+  --background:  rgb(141, 141, 24);
+  --border-color: rgb(238, 255, 0);
+  --color: black;
+  --end: 4px;
+  --button-color: white;
 }
 
 .bright{
@@ -137,7 +140,6 @@
   background: linear-gradient(45deg, rgba(161,48,227,1) 0%, rgba(1,127,128,1) 99%, rgba(0,128,128,1) 100%); /* w3c */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#A130E3',GradientType=1 ); /* ie6-9 */
 }
-
 
 *::-webkit-scrollbar {
   display: none;

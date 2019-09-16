@@ -21,17 +21,23 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './core/helpers/interceptor.service';
 import { PurchaseComponent } from './purchase/purchase.component';
-
-// import { Capacitor } from '@capacitor/core';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
-// export const firebaseConfig = environment.firebaseConfig;
 @NgModule({
   declarations: [
     AppComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    RegisterComponent,
+    LoginComponent
   ],
-  entryComponents: [],
+  entryComponents: [
+    RegisterComponent,
+    LoginComponent
+  ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     CommonModule,
@@ -50,6 +56,8 @@ import { Firebase } from '@ionic-native/firebase/ngx';
     AppRoutingModule,
   ],
   providers: [
+    StatusBar,
+    SplashScreen,
     Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }

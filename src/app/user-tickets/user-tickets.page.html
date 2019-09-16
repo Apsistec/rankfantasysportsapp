@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="signOut()">
+        <ion-icon name="log-out" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>My Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let ticket of tickets | async" text-wrap>
+        <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
+        <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
+
+      <ion-label>
+        <h2>{{ ticket.title }}</h2>
+        <p>{{ ticket.desc }}</p>
+      </ion-label>
+
+      <ion-note color="light" slot="end">
+        {{ ticket.created_at?.seconds*1000 | date: 'MMM d' }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openTicketModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

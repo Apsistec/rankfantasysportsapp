@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import { SubmitIfValidDirective } from '../../shared/directives/submit-if-valid.directive';
+// import { SubmitIfValidDirective } from '../../shared/directives/submit-if-valid.directive';
 
 @Component({
   selector: 'app-forgot-password',

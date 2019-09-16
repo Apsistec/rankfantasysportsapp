@@ -1,10 +1,10 @@
 import { AuthService } from '../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, ModalController, IonContent  } from '@ionic/angular';
+import { RegisterComponent } from '../register/register.component';
 
 declare var Stripe: stripe.StripeStatic;
 
@@ -19,6 +19,7 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
   planId: string;
   price: string;
 
+  @ViewChild(IonContent) ionContent: IonContent;
   isClickedSilver = false;
   isClickedGold = false;
   isClickedBronze = false;
@@ -34,34 +35,74 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
     public functions: AngularFireFunctions,
     private router: Router,
     private loadingCtrl: LoadingController,
-    public toaster: ToastController
+    public toaster: ToastController,
+    public modalController: ModalController
   ) { }
   clickedGold() {
-    this.isClickedSilver = false;
-    this.isClickedBronze = false;
-    this.isClickedGold = true;
-    this.planChosen = true;
-    this.planId = 'gold';
-    this.price = '$90.00 for 12 Months';
+    if (!this.auth.user) {
+      this.presentModal();
+      this.isClickedSilver = false;
+      this.isClickedBronze = false;
+      this.isClickedGold = true;
+      this.planChosen = true;
+      this.planId = 'gold';
+      this.price = '$90.00 for 12 Months';
+      this.ScrollToTarget();
+    } else {
+      this.presentModal();
+      this.isClickedSilver = false;
+      this.isClickedBronze = false;
+      this.isClickedGold = true;
+      this.planChosen = true;
+      this.planId = 'gold';
+      this.price = '$90.00 for 12 Months';
+      this.ScrollToTarget();
+    }
   }
   clickedSilver() {
-    this.isClickedBronze = false;
-    this.isClickedGold = false;
-    this.isClickedSilver = true;
-    this.planChosen = true;
-    this.planId = 'silver';
-    this.price = '$50.00 for 6 Months';
+    if (!this.auth.user) {
+      this.presentModal();
+      this.isClickedBronze = false;
+      this.isClickedGold = false;
+      this.isClickedSilver = true;
+      this.planChosen = true;
+      this.planId = 'silver';
+      this.price = '$50.00 for 6 Months';
+      this.ScrollToTarget();
+    } else {
+      this.presentModal();
+      this.isClickedBronze = false;
+      this.isClickedGold = false;
+      this.isClickedSilver = true;
+      this.planChosen = true;
+      this.planId = 'silver';
+      this.price = '$50.00 for 6 Months';
+      this.ScrollToTarget();
+
+    }
   }
   clickedBronze() {
-    this.isClickedSilver = false;
-    this.isClickedGold = false;
-    this.isClickedBronze = true;
-    this.planChosen = true;
-    this.planId = 'bronze';
-    this.price = '$9.99 per Month';
-  }
+    if (!this.auth.user) {
+      this.presentModal();
+      this.isClickedSilver = false;
+      this.isClickedGold = false;
+      this.isClickedBronze = true;
+      this.planChosen = true;
+      this.planId = 'bronze';
+      this.price = '$9.99 per Month';
+      this.ScrollToTarget();
+    } else {
+      this.presentModal();
+      this.isClickedSilver = false;
+      this.isClickedGold = false;
+      this.isClickedBronze = true;
+      this.planChosen = true;
+      this.planId = 'bronze';
+      this.price = '$9.99 per Month';
+      this.ScrollToTarget();
 
- 
+    }
+  }
 
   ngOnInit() {
     this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
@@ -156,5 +197,16 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
       return this.router.navigate(['/welcome']);
     }
 
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: RegisterComponent
+    });
+    return await modal.present();
+  }
+
+  ScrollToTarget() {
+    this.ionContent.scrollToBottom(500);
   }
 }

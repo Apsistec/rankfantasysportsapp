@@ -1,17 +1,17 @@
-// export interface Roles {
-//     user?: string;
-//     admin?: string;
-//     moderator?: string;
-// }
+export interface Roles {
+    USER?: string;
+    ADMIN?: string;
+}
 export interface User {
     uid: string;
+    displayName: string;
     email: string;
+    role: Roles;
     bronze?: boolean;
-    emailVerified: boolean;
     gold?: boolean;
     silver?: boolean;
-    // roles: Roles;
-    displayName?: string;
     photoURL?: string;
     stripeCustomerId?: string;
+    thisSignIn?: string;
+    lastSignIn?: string;
 }

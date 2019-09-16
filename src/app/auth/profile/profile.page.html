@@ -184,7 +184,7 @@
           
         </ion-card-content>
       </ion-card>
-      <ng-container *ngIf="auth.user | async as user">
+      <ng-container *ngIf="auth.afAuth.user | async as user">
         <div *ngIf="(user.gold || user.silver || user.bronze); else buy">
 
           <ion-card text-center padding color="primary">
