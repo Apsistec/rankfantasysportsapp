@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { PurchaseComponent } from './purchase/purchase.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { TermsDialogComponent } from './shared/terms-dialog/terms-dialog.component';
 import { RegisterComponent } from './register/register.component';
@@ -16,6 +15,7 @@ const appRoutes: Routes = [
 
   { path: 'credibility', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
   { path: 'pricing', loadChildren: './pricing/pricing.module#PricingPageModule' },
+  { path: 'purchase', loadChildren: './purchase/purchase.module#PurchasePageModule' },
   { path: 'free-trial', loadChildren: './free-trial/free-trial.module#FreeTrialPageModule' },
   { path: 'freetrial', loadChildren: './free-trial/free-trial.module#FreeTrialPageModule' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
@@ -23,7 +23,6 @@ const appRoutes: Routes = [
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
-  { path: 'purchase', component: PurchaseComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'terms', component: TermsDialogComponent, outlet: 'terms'},
   { path: '**', redirectTo: '/home' },

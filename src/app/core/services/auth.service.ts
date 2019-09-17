@@ -19,8 +19,7 @@ import {
 export class AuthService {
   user: Observable<any>;
   currentUser = new BehaviorSubject(null);
-  userExists;
-  userinfo;
+
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -88,7 +87,7 @@ export class AuthService {
 
   async getUser() {
     const user = await this.afAuth.authState.pipe(first()).toPromise();
-      return this.userinfo;
+      return user;
   }
 
   getUserInformation() {
@@ -135,8 +134,8 @@ export class AuthService {
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null ) ? true : false;
+    const user = this.getUser();
+    return (user === null ) ? true : false;
   }
 
   // get isAdmin(): boolean {
@@ -201,8 +200,8 @@ export class AuthService {
       .then(() => {
         this.resetPasswordToast();
       }).catch((error) => {
-        window.alert(error)
-      })
+        window.alert(error);
+      });
   }
 
   // Auth logic to Register using federated auth providers
@@ -230,6 +229,11 @@ export class AuthService {
               translucent: true,
             });
             toast.present();
+          })
+          .then(() => {
+            this.ngZone.run(() => {
+              this.router.navigateByUrl('/purchase');
+            });
           });
       })
       .catch((error) => {
@@ -248,7 +252,7 @@ export class AuthService {
       });
     }).then(() => {
       this.ngZone.run(() => {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/auth/profile');
       });
     }).catch((error) => {
       window.alert(error.message);

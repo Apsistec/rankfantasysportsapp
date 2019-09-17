@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     });
     await loading.present();
 
-    this.auth.signIn(this.loginForm.value).subscribe(
+    await this.auth.signIn(this.loginForm.value).subscribe(
       user => {
         loading.dismiss();
         this.isLoggedInToast(user);

@@ -3,22 +3,21 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController, ModalController, IonContent  } from '@ionic/angular';
+import { LoadingController, ToastController, ModalController, IonContent } from '@ionic/angular';
 import { RegisterComponent } from '../register/register.component';
 
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
   selector: 'app-purchase',
-  templateUrl: './purchase.component.html',
-  styleUrls: ['./purchase.component.scss']
+  templateUrl: './purchase.page.html',
+  styleUrls: ['./purchase.page.scss'],
 })
-
-export class PurchaseComponent implements OnInit, AfterViewInit {
+export class PurchasePage implements OnInit, AfterViewInit {
   @ViewChild('cardElement') cardElement: ElementRef;
   planId: string;
   price: string;
-
+  @Input() user;
   @ViewChild(IonContent) ionContent: IonContent;
   isClickedSilver = false;
   isClickedGold = false;
@@ -37,10 +36,12 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
     private loadingCtrl: LoadingController,
     public toaster: ToastController,
     public modalController: ModalController
-  ) { }
+  ) {
+  }
+
   clickedGold() {
-    if (!this.auth.user) {
-      this.presentModal();
+    console.log(this.auth.isLoggedIn);
+    if (this.auth.isLoggedIn) {
       this.isClickedSilver = false;
       this.isClickedBronze = false;
       this.isClickedGold = true;
@@ -59,9 +60,9 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
       this.ScrollToTarget();
     }
   }
+
   clickedSilver() {
-    if (!this.auth.user) {
-      this.presentModal();
+    if (this.auth.isLoggedIn) {
       this.isClickedBronze = false;
       this.isClickedGold = false;
       this.isClickedSilver = true;
@@ -78,12 +79,11 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
       this.planId = 'silver';
       this.price = '$50.00 for 6 Months';
       this.ScrollToTarget();
-
     }
   }
+
   clickedBronze() {
-    if (!this.auth.user) {
-      this.presentModal();
+    if (this.auth.isLoggedIn) {
       this.isClickedSilver = false;
       this.isClickedGold = false;
       this.isClickedBronze = true;
@@ -100,7 +100,6 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
       this.planId = 'bronze';
       this.price = '$9.99 per Month';
       this.ScrollToTarget();
-
     }
   }
 
@@ -134,23 +133,16 @@ export class PurchaseComponent implements OnInit, AfterViewInit {
     this.isClickedSilver = false;
     this.isClickedBronze = false;
     this.isClickedGold = false;
-  }
+}
 
   ngAfterViewInit() {
-    // this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
-    // const elements = this.stripe.elements();
-    // this.card = elements.create('card');
-    // this.card.mount(this.cardElement.nativeElement);
-    // this.card.addEventListener('change', ({ error }) => {
-    //   this.cardErrors = error && error.message;
-    // });
+
   }
 
   async presentLoading() {
     const loadingElement = await this.loadingCtrl.create({
       message: 'Please wait...',
       spinner: 'crescent',
-      // duration: 2000
     });
     loadingElement.present();
   }
