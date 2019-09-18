@@ -11,12 +11,12 @@
     <ion-menu-toggle auto-hide="false">
       <ion-list>
         <ion-item-group>
-          <ion-item button routerLink="/home">
+          <ion-item button  lines="none"routerLink="/home">
             <ion-icon color="tertiary" class="iconify" slot="start" name="home"></ion-icon>
             <ion-text color="light">Home</ion-text><ion-ripple-effect></ion-ripple-effect>
           </ion-item>
 
-          <ion-item button
+          <ion-item button lines="none"
           routerLink="/auth/profile"
           *ngIf="auth.afAuth.user | async as user">
               <ion-icon color="gold" class="iconify" slot="start" name="contact"></ion-icon>
@@ -28,33 +28,33 @@
               <ion-text color="success">Free-Trial</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
             <ng-template #freetrialregister> -->
-              <ion-item button  routerLink="/purchase">
+              <ion-item button lines="none"  routerLink="/purchase">
                 <ion-icon color="gold" class="iconify" slot="start" name="medal"></ion-icon>
                 <ion-text color="secondary">Free-Trial</ion-text><ion-ripple-effect></ion-ripple-effect>
               </ion-item>
             <!-- </ng-template> -->
             
-            <ion-item button routerLink="/purchase">
+            <ion-item button lines="none" routerLink="/purchase">
               <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
               <ion-text color="secondary">Purchase</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
 
-            <ion-item button routerLink="/how-to">
+            <ion-item button lines="none" routerLink="/how-to">
               <ion-icon color="warning"class="iconify" slot="start" name="star"></ion-icon>
               <ion-text color="light">How To Use RF$&trade;</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
-            <ion-item button routerLink="/credibility">
+            <ion-item button lines="none" routerLink="/credibility">
               <ion-icon color="gold"  class="iconify" slot="start" name="trophy"></ion-icon>
               <ion-text color="light">DK Credibility</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
 
 
-            <ion-item button  routerLink="/faq">
+            <ion-item button lines="none"  routerLink="/faq">
               <ion-icon color="leather" class="iconify" slot="start" name="help"></ion-icon>
               <ion-text color="light">FAQs</ion-text><ion-ripple-effect></ion-ripple-effect>
             </ion-item>
 
-            <ion-item button
+            <ion-item button lines="none"
             (click)="auth.SignOut()"
             *ngIf="auth.afAuth.user | async as user; else login">
             <ion-icon color="danger" class="iconify" slot="start" name="log-out"></ion-icon>
@@ -66,7 +66,7 @@
                 <ion-icon color="secondary" class="iconify" slot="start" name="log-in"></ion-icon>
                 <ion-text color="success">Get Started</ion-text><ion-ripple-effect></ion-ripple-effect>
               </ion-item> -->
-              <ion-item button routerLink="/login">
+              <ion-item button lines="none" routerLink="/login">
                 <ion-icon color="secondary" class="iconify" slot="start" name="log-in"></ion-icon>
                 <ion-text color="secondary">Login</ion-text><ion-ripple-effect></ion-ripple-effect>
               </ion-item>
@@ -81,40 +81,40 @@
           </ion-list-header>
           <ion-ripple-effect></ion-ripple-effect>
           
-          <ion-item button routerLink="/list/now">
+          <ion-item button lines="none" routerLink="/list/now">
             <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
             <ion-text color="light">Happening Now</ion-text>
           </ion-item>
-          <ion-item button routerLink="/list/tennis">
+          <ion-item button lines="none" routerLink="/list/tennis">
             <ion-icon color="warning"class="iconify" slot="start" name="tennisball"></ion-icon>
             <ion-text color="light">Tennis</ion-text>
           </ion-item>
 
-          <ion-item button routerLink="/list/nfl">
+          <ion-item button lines="none" routerLink="/list/nfl">
             <ion-icon color="leather" slot="start" name="american-football"></ion-icon>
             <ion-text color="light">NFL</ion-text>
           </ion-item>
-          <ion-item button routerLink="/list/cfb">
+          <ion-item button lines="none" routerLink="/list/cfb">
             <ion-icon color="leather" slot="start" name="american-football"></ion-icon>
             <ion-text color="light">CFB</ion-text>
           </ion-item>
 
-          <ion-item button routerLink="/list/pga">
+          <ion-item button lines="none" routerLink="/list/pga">
             <ion-icon style="color: snow;" name="radio-button-off" class="iconify" slot="start"></ion-icon>
             <ion-text color="light">PGA</ion-text>
           </ion-item>
 
-          <ion-item button routerLink="/list/nba">
+          <ion-item button lines="none" routerLink="/list/nba">
             <ion-icon style="color:darkorange;" class="iconify" slot="start" name="basketball"></ion-icon>
             <ion-text color="light">NBA</ion-text>
           </ion-item>
 
-          <ion-item button disabled routerLink="/list/fifa">
+          <ion-item button lines="none" disabled routerLink="/list/fifa">
             <ion-icon color="medium" slot="start" name="football"></ion-icon>
             <ion-text color="light">FIFA</ion-text>
           </ion-item>
 
-          <ion-item button disabled routerLink="/list/mlb">
+          <ion-item button lines="none" disabled routerLink="/list/mlb">
             <ion-icon color="medium" class="iconify" slot="start" name="baseball"></ion-icon>
             <ion-text color="light">MLB</ion-text>
           </ion-item>
@@ -125,7 +125,7 @@
             <ion-text><strong>DFS Toolbox</strong></ion-text>
           </ion-list-header>
 
-        <ion-item button routerLink="/tweets">
+        <ion-item button lines="none" routerLink="/tweets">
           <ion-icon style="color:#55acee;" slot="start" name="logo-twitter"></ion-icon>
           <ion-text color="light">Tweets</ion-text><ion-ripple-effect></ion-ripple-effect>
         </ion-item>
@@ -133,12 +133,12 @@
 
        
           
-          <ion-item button disabled>
+          <ion-item button lines="none" disabled>
             <ion-icon color="secondary"slot="start" name="trending-up"></ion-icon>
             <ion-text color="light">Line-up Optimizers</ion-text>
           </ion-item>
           
-          <ion-item button disabled routerLink="/xstats">
+          <ion-item button lines="none" disabled routerLink="/xstats">
             <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
             <ion-text color="light">XStats</ion-text>
           </ion-item>
@@ -152,7 +152,7 @@
             <ion-text>RF$ University </ion-text>
           </ion-list-header>
           
-          <ion-item button disabled>
+          <ion-item button lines="none" disabled>
             <ion-icon color="secondary"slot="start" name="book"></ion-icon>
             <ion-text color="light">Courseware</ion-text>
           </ion-item>

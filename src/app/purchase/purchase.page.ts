@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController, ModalController, IonContent } from '@ionic/angular';
 import { RegisterComponent } from '../register/register.component';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 declare var Stripe: stripe.StripeStatic;
 
@@ -29,8 +30,14 @@ export class PurchasePage implements OnInit, AfterViewInit {
   cardErrors;
   confirmation;
 
+  public trustedVideoUrl: SafeResourceUrl;
+  video: any = {
+    url: ' https://www.youtube.com/embed/Ok-zmmoSZe8',
+  };
+
   constructor(
     public auth: AuthService,
+    public domSanitizer: DomSanitizer,
     public functions: AngularFireFunctions,
     private router: Router,
     private loadingCtrl: LoadingController,
@@ -40,8 +47,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   clickedGold() {
-    console.log(this.auth.isLoggedIn);
-    if (this.auth.isLoggedIn) {
+    if (this.auth.afAuth.auth.currentUser) {
       this.isClickedSilver = false;
       this.isClickedBronze = false;
       this.isClickedGold = true;
@@ -62,7 +68,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   clickedSilver() {
-    if (this.auth.isLoggedIn) {
+    if (this.auth.afAuth.auth.currentUser) {
       this.isClickedBronze = false;
       this.isClickedGold = false;
       this.isClickedSilver = true;
@@ -83,7 +89,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   clickedBronze() {
-    if (this.auth.isLoggedIn) {
+    if (this.auth.afAuth.auth.currentUser) {
       this.isClickedSilver = false;
       this.isClickedGold = false;
       this.isClickedBronze = true;
@@ -104,17 +110,18 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.showVid();
     this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
 
     const elements = this.stripe.elements();
     const style = {
       base: {
-        color: '#32325d',
+        color: '#227733',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
-          color: '#aab7c4'
+          color: '#9911c4'
         }
       },
       invalid: {
@@ -199,6 +206,10 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   ScrollToTarget() {
-    this.ionContent.scrollToBottom(500);
+    this.ionContent.scrollToPoint(0, 775, 1500);
+  }
+
+  showVid() {
+    (this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url));
   }
 }

@@ -81,13 +81,23 @@
                         12 Months at $7.50 per Month
                       </ion-text>
                       </ion-item>
-                    <ion-item color="medium">
-                      <ion-text text-wrap color="success" style="text-shadow: 1px 1px 1px rgb(0, 0, 0);">
+                      <ion-item color="medium">
+                        <ion-text text-wrap color="dark" >
+                          <strong>
+                            <s>
+
+                              Regular Price $119.88
+                            </s>
+                            &nbsp;
+                              <ion-text text-wrap color="secondary" style="text-shadow: 1px 1px 1px rgb(0, 0, 0);">
                         <strong>
-                          $30 Savings
+                          $29.88 Savings
                         </strong>
                       </ion-text>
-                    </ion-item>
+                          </strong>
+                        </ion-text>
+                      </ion-item>
+        
                   </ion-list>
                   <!-- <div *ngIf="auth.user; else nogold"> -->
                   <!-- </div> -->
@@ -101,7 +111,11 @@
               <!-- </ng-template> -->
 
 <ng-template #gold>
-  <ion-button  strong expand="block" color="warning" (click)="presentModal()">
+  <ion-button *ngIf="this.auth.afAuth.auth.currentUser"   strong expand="block" color="warning">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-text style="text-shadow: 1px 1px black;">Gold Selected</ion-text>
+  </ion-button>
+  <ion-button *ngIf="!this.auth.afAuth.auth.currentUser"   strong expand="block" color="warning" (click)="presentModal()">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
     <ion-text style="text-shadow: 1px 1px black;">Gold Selected</ion-text>
   </ion-button>
@@ -142,13 +156,22 @@
                   6 Months at $8.33 per Month
                 </ion-text>
                   </ion-item>
-                  <ion-item  color="medium">
-                    <ion-text text-wrap color="success" style="text-shadow: 1px 1px rgb(0, 0, 0);">
-                    <strong>
-                    $10 Savings
-                  </strong>
-                </ion-text>
-                </ion-item>
+                    <ion-item color="medium">
+                        <ion-text text-wrap color="dark" >
+                          <strong>
+                            <del>
+
+                              Regular Price $59.94
+                            </del>
+                            &nbsp;
+                              <ion-text text-wrap color="secondary" style="text-shadow: 1px 1px 1px rgb(0, 0, 0);">
+                        <strong>
+                          $9.94 Savings
+                        </strong>
+                      </ion-text>
+                          </strong>
+                        </ion-text>
+                      </ion-item>
               </ion-list>
                 <ion-button *ngIf="!isClickedSilver; else silver"  strong expand="block"
                 color="secondary" (click)="clickedSilver()">
@@ -157,7 +180,11 @@
                 </ion-button>
               
 <ng-template #silver>
-  <ion-button strong expand="block"  color="warning"  (click)="presentModal()">
+  <ion-button *ngIf="this.auth.afAuth.auth.currentUser"  strong expand="block"  color="warning">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-text color="tertiary" style="text-shadow: 1px 1px black;">Silver Selected</ion-text>
+  </ion-button>
+  <ion-button *ngIf="!this.auth.afAuth.auth.currentUser"  strong expand="block"  color="warning"  (click)="presentModal()">
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
     <ion-text color="tertiary" style="text-shadow: 1px 1px black;">Silver Selected</ion-text>
   </ion-button>
@@ -204,7 +231,7 @@
                 <ion-item  color="medium">
                     <ion-text text-wrap color="primary" style="text-shadow: 1px 1px black;">
                         <strong>
-                          $9.99 per Month
+                          $9.99 Monthly
                         </strong>
                     </ion-text>
                   </ion-item>
@@ -269,7 +296,11 @@
                 </ion-button>
 
 <ng-template #bronze>
-  <ion-button strong expand="block" color="warning"  (click)="presentModal()">
+  <ion-button *ngIf="!this.auth.afAuth.auth.currentUser" strong expand="block" color="warning"  (click)="presentModal()">
+    <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
+    <ion-text style="text-shadow: 1px 1px black;">Bronze Selected</ion-text>
+  </ion-button>
+  <ion-button *ngIf="this.auth.afAuth.auth.currentUser" strong expand="block" color="warning" >
     <ion-icon name="medal" color="dark"></ion-icon>&nbsp;&nbsp;
     <ion-text style="text-shadow: 1px 1px black;">Bronze Selected</ion-text>
   </ion-button>
@@ -354,14 +385,57 @@
                       </form>
                       <hr>
                       <img src="../../assets/img/stripe.svg" style="height: 2em; width: 8em; float: right;">
+                      <ion-text style="float: right;">
+                        <sub>
+                          &nbsp;*See terms below&nbsp;
+                        </sub>
+                      </ion-text>
             </ion-card>
           </ion-card>
         </ion-col>
       </ion-row>
 
       <!-- Fourth Row Testimonials -->
+      <ion-card color="primary">
+        <h4>
+          <ion-text color="secondary" style="text-shadow: 1px 1px black;">
+            Helping You Win Is Our Businessfire
+          </ion-text>
+          &nbsp; 
+        </h4>
+      </ion-card>
       <ion-row>
-      
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <!-- Enter Video 1 Here -->
+          </ion-col>
+          <ion-col>
+            <!-- Enter Video 2 Here -->
+            <ion-card text-center class="resp-container" color="dark">
+              <!-- <ion-card-title  class="ion-text-center">
+                <ion-text style="text-shadow: 1px 1px #000000;" color="secondary">
+                  <strong>
+                    Welcome to RF
+                  </strong>
+                  <ion-text color="secondary">
+                    <strong>
+                      $
+                    </strong>
+                  </ion-text>
+                  &trade;
+                </ion-text>
+              </ion-card-title> -->
+              <iframe  class="resp-iframe"  [src]="trustedVideoUrl">
+              </iframe>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <!-- Enter Video 3 Here -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       </ion-row>
       
  

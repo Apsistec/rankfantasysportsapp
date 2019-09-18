@@ -171,7 +171,7 @@ export class AuthService {
   async signUp(credentials) {
       return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password).then(data => {
       return this.afs.doc(`users/${data.user.uid}`).set({
-        displayName: credentials.firstName + '' + credentials.lastName,
+        displayName: credentials.firstName + ' ' + credentials.lastName,
         email: data.user.email,
         uid: data.user.uid,
         role: 'USER',

@@ -9,7 +9,6 @@ import { Slides } from './slides';
 })
 export class TestimonialsPage {
   slides = Slides;
-  
   imgDescription = 'Submitted by RF$ Subscribers';
   slide: any;
   slideOpts = {
@@ -18,7 +17,7 @@ export class TestimonialsPage {
     slidesPerView: 1,
     spaceBetween: 10,
     width: 350,
-    loop: true
+    loop: true,
   };
 
   constructor(public modalController: ModalController) { }
