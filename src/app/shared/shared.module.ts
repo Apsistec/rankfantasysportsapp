@@ -10,10 +10,9 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TermsComponent } from './terms/terms.component';
-import { DropdownDirective } from './directives/dropdown.directive';
 import { MatExpansionModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
-import { SubmitIfValidDirective } from '../shared/directives/submit-if-valid.directive';
+
 
 
 @NgModule({
@@ -24,9 +23,7 @@ import { SubmitIfValidDirective } from '../shared/directives/submit-if-valid.dir
     TermsDialogComponent,
     PrivacyDialogComponent,
     PrivacyComponent,
-    DropdownDirective,
     ListTablesComponent,
-    SubmitIfValidDirective,
   ],
   entryComponents: [
     TermsDialogComponent,
@@ -43,7 +40,6 @@ import { SubmitIfValidDirective } from '../shared/directives/submit-if-valid.dir
   exports: [
     NgxTwitterTimelineModule,
     HeaderComponent,
-    DropdownDirective,
     FooterComponent,
     PrivacyDialogComponent,
     PrivacyComponent,
@@ -52,7 +48,6 @@ import { SubmitIfValidDirective } from '../shared/directives/submit-if-valid.dir
     MatDialogModule,
     MatExpansionModule,
     ListTablesComponent,
-    SubmitIfValidDirective
   ],
 })
 export class SharedModule {}

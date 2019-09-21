@@ -1,10 +1,12 @@
 import { AuthService } from './../services/auth.service';
-import { Directive, TemplateRef, ViewContainerRef, OnInit, Input } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[appHasPermission]'
 })
 export class HasPermissionDirective implements OnInit {
+  // subscription: Subscription;
 
   @Input('appHasPermission') permissions: string[];
 
@@ -14,14 +16,16 @@ export class HasPermissionDirective implements OnInit {
 
     ngOnInit() {
       this.auth.currentUser.subscribe(user => {
-        console.log('user in directive: ', user);
-        console.log('need permissions: ', this.permissions);
-
         if (this.auth.hasPermissions(this.permissions)) {
           this.viewContainer.createEmbeddedView(this.templateRef);
         } else {
           this.viewContainer.clear();
         }
-      })
+      });
     }
+  // ngOnDestroy(): void {
+  //   // Called once, before the instance is destroyed.
+  //   // Add 'implements OnDestroy' to the class.
+  //   this.subscription.unsubscribe();
+  // }
 }

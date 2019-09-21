@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ImageModalPage } from './image-modal/image-modal.page';
 import { Slides } from './slides';
 @Component({
   selector: 'app-testimonials',
@@ -9,7 +8,7 @@ import { Slides } from './slides';
 })
 export class TestimonialsPage {
   slides = Slides;
-  imgDescription = 'Submitted by RF$ Subscribers';
+  imgDescription = 'Submitted by RF$ PRO Members';
   slide: any;
   slideOpts = {
     centeredSlides: true,
@@ -18,6 +17,7 @@ export class TestimonialsPage {
     spaceBetween: 10,
     width: 350,
     loop: true,
+    mousewheel: true
   };
 
   constructor(public modalController: ModalController) { }

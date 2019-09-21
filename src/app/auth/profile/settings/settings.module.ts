@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../../../shared/shared.module';
 import { IonicModule } from '@ionic/angular';
-// import { CameraComponent } from '../settings/camera/camera.component';
 import { SettingsPage } from './settings.page';
 
 const routes: Routes = [

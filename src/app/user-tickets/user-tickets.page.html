@@ -1,35 +1,59 @@
-<ion-header>
+<ion-header tranlucent>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-button (click)="signOut()">
-        <ion-icon name="log-out" slot="icon-only"></ion-icon>
-      </ion-button>
+      <ion-menu-button color="warning"> 
+      </ion-menu-button>
     </ion-buttons>
-    <ion-title>My Tickets</ion-title>
+    <ion-title>User Dashboard</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <ion-col>
 
-  <ion-list>
-    <ion-item *ngFor="let ticket of tickets | async" text-wrap>
-        <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
+        <ion-card color="primary">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-text color="secondary">
+          My Trouble Tickets
+        </ion-text>
+      </ion-card-title>
+    </ion-card-header>
+
+    
+    <ion-list>
+    <ion-item *ngFor="let ticket of tickets | async" class="ion-text-wrap">
+      <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
+        
+      <ion-label >
+        <ion-text color="warning">
 
-      <ion-label>
-        <h2>{{ ticket.title }}</h2>
-        <p>{{ ticket.desc }}</p>
+          <h2>{{ ticket.title }}</h2>
+        </ion-text>
+        <ion-text color="light">
+          
+          <p class="ion-text-wrap">{{ ticket.desc }}</p>
+        </ion-text>
       </ion-label>
-
+      
       <ion-note color="light" slot="end">
         {{ ticket.created_at?.seconds*1000 | date: 'MMM d' }}
       </ion-note>
     </ion-item>
   </ion-list>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="openTicketModal()">
-      <ion-icon name="add"></ion-icon>
+</ion-card>
+</ion-col>
+      
+</ion-row>
+</ion-grid>
+  
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="secondary" (click)="openTicketModal()">
+      <ion-icon color="tertiary" name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 

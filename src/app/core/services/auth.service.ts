@@ -5,12 +5,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { switchMap, take, map, tap, first } from 'rxjs/operators';
 import { from, Observable, of, BehaviorSubject } from 'rxjs';
-// import { DbService } from './db.service';
 import {
   AlertController,
   ToastController,
-  LoadingController
-} from '@ionic/angular';
+  } from '@ionic/angular';
 // import { Storage } from '@ionic/storage';
 
 @Injectable({
@@ -23,12 +21,9 @@ export class AuthService {
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
-    // private db: DbService,
     private router: Router,
-    private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
-    // private storage: Storage,
     private ngZone: NgZone
   ) {
     this.user = this.afAuth.authState.pipe(
@@ -175,7 +170,7 @@ export class AuthService {
         email: data.user.email,
         uid: data.user.uid,
         role: 'USER',
-        permissions: [],
+        permissions: ['delete-ticket', ''],
         firstSignIn: firebase.firestore.FieldValue.serverTimestamp(),
       }, {merge: true});
     });

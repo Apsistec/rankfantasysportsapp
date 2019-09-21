@@ -12,13 +12,17 @@ import { Subject } from 'rxjs';
 export class TicketService {
   private ngUnsubscribe: Subject<any> = new Subject();
 
-  constructor(private db: AngularFirestore, private auth: AuthService, private afAuth: AngularFireAuth) {
+  constructor(
+    private db: AngularFirestore,
+    private auth: AuthService,
+    private afAuth: AngularFireAuth
+  ) {
     this.afAuth.authState.subscribe(user => {
       if (!user) {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
       }
-    })
+    });
   }
 
   createOrUpdateTicket(id = null, info): Promise<any> {
@@ -32,15 +36,16 @@ export class TicketService {
   }
 
   getUserTickets() {
-    let id = this.auth.currentUser.value.id;
+    const id = this.auth.currentUser.value.id;
     return this.db.collection('tickets', ref => ref.where('creator', '==', id)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data();
+        // tslint:disable-next-line: no-shadowed-variable
         const id = a.payload.doc.id;
         return { id, ...data };
       })),
       takeUntil(this.ngUnsubscribe)
-    )
+    );
   }
 
   getAdminTickets() {

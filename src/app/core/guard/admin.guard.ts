@@ -20,15 +20,16 @@ export class AdminGuard implements CanActivate {
           this.router.navigateByUrl('/login');
           return false;
         } else {
+          // tslint:disable-next-line: prefer-const
           let role = user['role'];
-          if (expectedRole == role) {
+          if (expectedRole === role) {
             return true;
           } else {
-            this.router.navigateByUrl('/login');
+            this.router.navigateByUrl('/home');
             return false;
           }
         }
       })
-    )
+    );
   }
 }

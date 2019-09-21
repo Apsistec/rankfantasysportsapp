@@ -1,5 +1,5 @@
 import { AuthService } from '../core/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
   AlertController,
@@ -17,7 +17,7 @@ import * as firebase from 'firebase/app';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
-  // @Input() user;
+  @Input() user;
 
   constructor(
     private fb: FormBuilder,
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     await this.auth.signIn(this.loginForm.value).subscribe(
       user => {
         loading.dismiss();
-        this.isLoggedInToast(user);
+        this.isLoggedInToast();
         const role = user['role'];
         if (role === 'ADMIN') {
           this.router.navigateByUrl('/admin');
@@ -70,14 +70,14 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  async isLoggedInToast(user) {
+  async isLoggedInToast() {
     // const user = await this.auth.getUser();
     const toast = await this.toastCtrl.create({
       header: 'Account Sign In Successful',
-      message: 'Welcome Back ' + user.displayName + '. Email: ' + user.email,
+      message: 'Welcome Back ' + this.user.displayName + '. Email: ' + this.user.email,
       cssClass: 'login',
       position: 'top',
-      duration: 4000,
+      duration: 5000,
       showCloseButton: true,
       translucent: true,
     });

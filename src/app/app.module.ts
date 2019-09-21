@@ -2,6 +2,8 @@ import {
   IonicModule,
   IonicRouteStrategy,
 } from '@ionic/angular';
+import { SharedDirectivesModule } from './core/directives/shared-directives.module';
+
 import { environment } from '../environments/environment';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
@@ -25,16 +27,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-
+// import { TicketPageModule } from './ticket/ticket.module';
+import { TicketComponent } from './tickets/ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TicketComponent
   ],
   entryComponents: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TicketComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -42,8 +47,10 @@ import { LoginComponent } from './login/login.component';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     SharedModule,
+    // TicketPageModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedDirectivesModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AngularFirestoreModule,
@@ -61,7 +68,7 @@ import { LoginComponent } from './login/login.component';
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
   exports: [
- ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,403 @@
+<ion-header tranlucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning"> 
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Admin Dashboard</ion-title>
+    <ion-item   color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+      <ion-icon name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/> 
+        </ion-avatar>
+          &nbsp; 
+          &nbsp;
+        <ion-icon color="danger" name="log-out" icon-only>
+        </ion-icon>
+      </ion-item>
+  </ion-toolbar>
+</ion-header>
+ 
+  <ion-content color="dark">
+    <ion-grid>
+      <ion-row>
+
+        <ion-grid>
+          <ion-row>
+        <ion-col>
+          <ion-card color="primary">
+            
+            <ion-card-content>
+              <ion-list lines="none">
+                <ion-list-header>
+                  <ion-title>
+                    <ion-text color="secondary">
+                      Admin Functions
+                    </ion-text>
+                  </ion-title>
+                </ion-list-header>
+                <ion-item-group>
+
+                  <ion-item>
+                    
+                    
+                    <ion-item button color="danger">
+                      <ion-icon name="rocket">
+                </ion-icon>
+                <ion-text>
+                Function 1
+              </ion-text>
+            </ion-item>
+            <ion-item button color="silver">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 2
+              </ion-text>
+            </ion-item>
+            <ion-item button color="facebk">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 3
+              </ion-text>
+            </ion-item>
+            <ion-item button color="danger">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 4
+              </ion-text>
+            </ion-item>
+            
+          </ion-item>
+          
+
+                  <ion-item>
+                    
+                
+                    <ion-item button color="facebk">
+                      <ion-icon name="rocket">
+                </ion-icon>
+                <ion-text>
+                  Function 1
+              </ion-text>
+            </ion-item>
+            <ion-item button color="danger">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 2
+              </ion-text>
+            </ion-item>
+            <ion-item button color="silver">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 3
+              </ion-text>
+            </ion-item>
+            <ion-item button color="facebk">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 4
+              </ion-text>
+            </ion-item>
+            
+          </ion-item>
+          
+
+                  <ion-item>
+                    
+                
+                    <ion-item button color="silver">
+                      <ion-icon name="rocket">
+                </ion-icon>
+                <ion-text>
+                Function 1
+              </ion-text>
+            </ion-item>
+            <ion-item button color="facebk">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 2
+              </ion-text>
+            </ion-item>
+            <ion-item button color="danger">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 3
+              </ion-text>
+            </ion-item>
+            <ion-item button color="silver">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 4
+              </ion-text>
+            </ion-item>
+            
+          </ion-item>
+        </ion-item-group>
+      </ion-list>
+
+    </ion-card-content>
+          </ion-card>
+          
+
+          <ion-card  color="primary">
+            <ion-card-header>
+
+              <ion-card-title>
+                <ion-text color="secondary">
+                  Admin Reports
+                </ion-text>
+              </ion-card-title>
+            </ion-card-header>
+        
+          <ion-item>
+            
+            <ion-button color="warning">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 1
+              </ion-text>
+            </ion-button>
+            <ion-button color="warning">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 2
+              </ion-text>
+            </ion-button>
+            <ion-button color="warning">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 3
+              </ion-text>
+            </ion-button>
+            <ion-button color="warning">
+              <ion-icon name="rocket">
+              </ion-icon>
+              <ion-text>
+                Function 4
+              </ion-text>
+            </ion-button>
+            
+          </ion-item>
+          </ion-card>
+          <ion-grid class="ion-align-items-stretch">
+          <ion-row class="ion-align-items-center">
+
+            
+            
+            <ion-card color="primary">
+
+                <ion-item-group>
+                  <ion-item-divider>
+    <ion-label>
+      Current Customers
+    </ion-label>
+  </ion-item-divider>
+                  <ion-item button color="warning">
+                    <ion-icon name="rocket">
+                    </ion-icon>
+                    <ion-text>
+                      Function 1
+                    </ion-text>
+                  </ion-item>
+                  <ion-item button color="gold">
+                    <ion-icon name="rocket">
+                    </ion-icon>
+                    <ion-text>
+                      Function 2
+                    </ion-text>
+                  </ion-item>
+                </ion-item-group>
+              </ion-card>
+              <ion-card color="primary">
+                <ion-item-group>
+  <ion-item-divider>
+    <ion-label>
+      Customer Usage
+        </ion-label>
+  </ion-item-divider>
+  <ion-item button color="silver">
+    <ion-icon slot="end" name="rocket">
+    </ion-icon>
+    <ion-text>
+      Function 3
+    </ion-text>
+  </ion-item>
+  <ion-item button color="bronze">
+    <ion-icon slot="end" name="archive">
+    </ion-icon>
+    <ion-text>
+      Function 4
+    </ion-text>
+  </ion-item>
+</ion-item-group>
+</ion-card>
+
+<ion-card color="primary">
+  <ion-item-group>
+  <ion-item-divider>
+    <ion-label>
+Churn Reports        
+</ion-label>
+  </ion-item-divider>
+  <ion-item button color="silver">
+    <ion-icon slot="end" name="rocket">
+    </ion-icon>
+    <ion-text>
+      Function 5
+    </ion-text>
+  </ion-item>
+  <ion-item button color="bronze">
+    <ion-icon slot="end" name="archive">
+    </ion-icon>
+    <ion-text>
+      Function 6
+    </ion-text>
+  </ion-item>
+</ion-item-group>
+</ion-card>
+</ion-row>
+<ion-row>
+
+
+<!-- <ion-card color="primary"> -->
+  <ion-list >
+ <ion-item-divider>
+    <ion-label>
+      Latest Messages
+    </ion-label>
+  </ion-item-divider>
+    <ion-item-sliding id="item100">
+    <ion-item href="#">
+      <ion-label>
+        <h2>HubStruck Notifications</h2>
+        <p>A new message in your network</p>
+        <p>Oceanic Next has joined your network</p>
+      </ion-label>
+      <ion-note slot="end">
+        10:45 AM
+      </ion-note>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+    <ion-item-sliding id="item100">
+    <ion-item href="#">
+      <ion-label>
+        <h2>HubStruck Notifications</h2>
+        <p>A new message in your network</p>
+        <p>BillyBob has joined your network</p>
+      </ion-label>
+      <ion-note slot="end">
+        10:45 AM
+      </ion-note>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+    <ion-item-sliding id="item100">
+    <ion-item href="#">
+      <ion-label>
+        <h2>HubStruck Notifications</h2>
+        <p>A new message in your network</p>
+        <p>Hottie2000 has joined your network</p>
+      </ion-label>
+      <ion-note slot="end">
+        10:45 AM
+      </ion-note>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+    
+
+</ion-list>
+
+<!-- </ion-card> -->
+</ion-row>
+</ion-grid>
+</ion-col>
+
+  
+        <ion-col>
+          <ion-card color="primary">
+            <ion-list >
+              <ion-list-header>
+                <ion-title>
+                  <ion-text color="secondary">
+                    Support Tickets
+                  </ion-text>
+                </ion-title>
+              </ion-list-header>
+          <ion-item color="medium" button *ngFor="let ticket of tickets | async" (click)="openTicket(ticket.id)">
+            <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
+          <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
+          <ion-label color="tertiary">
+            <h2>{{ ticket.title }}</h2>
+          <p>{{ ticket.desc }}</p>
+        </ion-label>
+          <ion-note color="dark" slot="end">{{ ticket.created_at.seconds*1000 | date: 'MMM d' }}</ion-note>
+          </ion-item>
+            </ion-list>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-row>
+
+ 
+  </ion-grid>
+  </ion-content>
+  
+

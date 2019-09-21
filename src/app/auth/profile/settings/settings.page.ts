@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastController, ModalController } from '@ionic/angular';
-// import { CameraComponent } from './camera/camera.component';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 
@@ -11,7 +10,6 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnDestroy, OnInit {
-  // userData = null;
   @Input()
   user;
   subscription;
@@ -31,19 +29,19 @@ export class SettingsPage implements OnDestroy, OnInit {
       this.user = user;
     });
   }
-
+  
   async updateUser() {
-    return await this.auth.updateUser(this.user.displayName).then(() => {
-      const toast = this.toastCtrl.create({
-        message: 'Your name was updated.',
-        duration: 2000,
-        position: 'top',
-        translucent: true
-      });
-      // tslint:disable-next-line: no-shadowed-variable
-      toast.then(toast => toast.present());
-      this.router.navigateByUrl('/auth/profile');
-    }).catch((error) => {
+    await this.auth.updateUser(this.user.displayName);
+    const toast = await this.toastCtrl.create({
+      message: 'Your name was updated.',
+      duration: 2000,
+      position: 'top',
+      cssClass: 'login',
+      translucent: true
+    });
+    toast.present();
+    return this.router.navigateByUrl('/auth/profile')
+    .catch((error) => {
       alert(error.message);
     });
   }
@@ -63,19 +61,7 @@ export class SettingsPage implements OnDestroy, OnInit {
     firebase.auth().currentUser.linkWithPopup(provider);
   }
 
-  // async presentCameraModal() {
-  //   const modal = await this.modalCtrl.create({
-  //     component: CameraComponent,
-  //     componentProps: {
 
-  //     }
-  //   });
-  //   modal.onDidDismiss()
-  //     .then((data) => {
-  //       const photoURL = data['data']; // Here's your selected image!
-  //     });
-  //   return await modal.present();
-  // }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

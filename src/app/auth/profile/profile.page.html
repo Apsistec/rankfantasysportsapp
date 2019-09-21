@@ -8,10 +8,10 @@
       <ion-col size="auto" >
 
         
-    <ng-container *ngIf="auth.user| async as user; else login">
-        <ion-card color="primary" padding>
+ <ng-container *ngIf="auth.user| async as user; else login">
+    <ion-card color="primary" class="ion-padding">
     <ion-card-header>
-       <ion-card-title text-center>
+       <ion-card-title class="ion-text-center">
          <ion-text color="secondary" style="text-shadow: 1px 1px black;">
           <h2>
             <strong>
@@ -26,67 +26,85 @@
           <ion-item lines="none" color="primary">
             
             <ion-text color="secondary">
-              Name:
+              Name:&nbsp;
             </ion-text>
-            <ion-chip color="dark">
-            <ion-text color="warning" style="font-size:1.5em"><strong>
+          
+            <ion-text color="warning" ><strong>
 
               {{ user.displayName || 'User' }}
             </strong>
               </ion-text>
-            </ion-chip>
+           
       </ion-item>
       <ion-item lines="none" color="primary">
 
-        <ion-text color="secondary">Email:</ion-text>
-        <ion-chip color="dark"><strong>
+        <ion-text color="secondary">Email:&nbsp;</ion-text>
+       <strong>
 
-          <ion-text color="warning" style="font-size:1.5em">{{ user.email }}</ion-text>
+          <ion-text color="warning" >{{ user.email }}</ion-text>
         </strong>
-        </ion-chip>
+      
       </ion-item>
-       
-        <ion-item lines="none" color="primary">
+      <ion-item lines="none" color="primary">
+          <ion-text color="secondary">Account Type:&nbsp;</ion-text>
+      
+          <strong>
+            <ion-text color="warning" >
+            {{user['role']}}
+            </ion-text>
+          </strong>
+      </ion-item>
 
+      <ion-item *ngIf="auth.user | async as user" lines="none" color="primary">
+          <ion-text color="secondary">Date Joined:&nbsp;</ion-text>
+          <strong>
+            <ion-text color="warning" >
+            {{ user.firstSignIn?.seconds*1000 | date:'longDate' }}
+            </ion-text>
+          </strong>
+      </ion-item>
+
+        <ion-item lines="none" color="primary">
           <ion-text color="secondary">
-          Current Subscription:
+          Current Subscription:&nbsp;
           </ion-text>
           
           <div *ngIf="(user.gold|| user.silver || user.bronze); else purchase">
             
             <ion-text color="secondary">
-              
-              <ion-chip color="dark"> 
+              <strong>
+
+                
                 <div [hidden]="!user.gold">
-                  <ion-text color="gold" style="font-size:1.5em"><strong>
+                  <ion-text color="gold">
 
                     Gold Package
-                  </strong>
+                  
                   </ion-text>
                 </div>   
                 
                 <div [hidden]="!user.silver">
-                  <ion-text color="silver" style="font-size:1.5em"><strong>
-
+                  <ion-text color="silver">
+                    
                     Silver Package
-                  </strong>
                   </ion-text>
                 </div>  
                 
                 <div [hidden]="!user.bronze">
-                  <ion-text color="bronze" style="font-size:1.5em"><strong>
-
+                  <ion-text color="bronze" >
+                    
                     Bronze Package 
-                  </strong>
+                    
                   </ion-text>
                 </div>   
-              </ion-chip>
+                
+              </strong>
             </ion-text>
           </div>
           
           <ng-template #purchase>
             &nbsp;
-            <ion-button color="danger" size="large" shape="round" strong routerLink="/purchase">
+            <ion-button color="danger" shape="round" strong routerLink="/purchase">
               <ion-text >
                 View PRO Packages
               </ion-text>
@@ -95,16 +113,11 @@
         </ion-item>
           <br>
           <hr>
-          <ion-grid>
-            <ion-row>
-              <ion-col offset="4">
+      
                 <ion-button strong size="small" shape="round" color="warning" routerLink="/auth/settings">
                   Edit Name, Email &amp; Photo
                 </ion-button>
 
-              </ion-col>
-            </ion-row>
-          </ion-grid>
         </ion-card-content>
       </ion-card>
     </ng-container>
@@ -115,7 +128,7 @@
     </ng-template>
     
         
-    <ion-card text-center  color="primary">
+    <ion-card class="ion-text-center"  color="primary">
           <ion-card-header>
             <ion-card-title color="secondary">
             <strong>
@@ -184,10 +197,10 @@
           
         </ion-card-content>
       </ion-card>
-      <ng-container *ngIf="auth.afAuth.user | async as user">
+      <ng-container *ngIf="auth.user | async as user">
         <div *ngIf="(user.gold || user.silver || user.bronze); else buy">
 
-          <ion-card text-center padding color="primary">
+          <ion-card class="ion-text-center ion-padding" color="primary">
             <ion-card-header>
             <ion-card-title>
               <ion-text color="secondary">
@@ -227,7 +240,7 @@
         </ion-card>
       </div>
       <ng-template #buy>
-        <ion-card text-center color="primary" padding>
+        <ion-card class="ion-text-center ion-padding" color="primary">
           <ion-card-header>
             <ion-card-title>
               <ion-text color="secondary">
@@ -236,14 +249,14 @@
             </ion-card-title>
           </ion-card-header>
           
-          <ion-button color="danger" shape="round" strong size="large" routerLink="/purchase">
+          <ion-button color="danger" shape="round" strong  routerLink="/purchase">
             View PRO Packages
           </ion-button>
         </ion-card>
       </ng-template>
     </ng-container>
 
-        <ion-card padding text-center color="primary">
+        <ion-card class="ion-padding ion-text-center" color="primary">
           
           
           <ion-card-title>
@@ -264,8 +277,8 @@
                 Not finding the answers you need? Open a support request, and we will get back to you ASAP!
               </p>
                 <hr>
-                <ion-button shape="round" color="warning" (click)="openSupportModal()">
-                  <ion-icon color="tertiary" name="help-buoy"></ion-icon>
+                <ion-button shape="round" color="warning" routerLink="/user">
+                  <ion-icon color="tertiary" name="bug"></ion-icon>
                   &nbsp;
                   <ion-text color="success">
                     Request Support 
@@ -273,7 +286,7 @@
                 </ion-button>
               </ion-card-content>
             </ion-card>
-        <ion-card  text-center color="primary" padding>
+        <ion-card color="primary"  class="ion-text-center ion-padding">
           <ion-card-title>
             <ion-text color="secondary">
 

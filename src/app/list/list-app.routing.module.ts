@@ -26,13 +26,6 @@ const routes: Routes = [
         component: ListPage,
         children: [
             { path: '', redirectTo: 'categories', pathMatch: 'full' },
-            {
-                path: 'admin',
-                loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',
-                data: {
-                    role: 'ADMIN'
-                }
-            },
             { path: 'categories', loadChildren: './sports-categories/sports-categories.module#SportsCategoriesPageModule' },
             { path: 'tennis', loadChildren: './tennis/tennis.module#TennisPageModule' },
             { path: 'nfl', loadChildren: './nfl/nfl.module#NflPageModule' },

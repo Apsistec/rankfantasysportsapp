@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
         const loginAlert = await this.alertController.create({
           header: 'Login First',
           subHeader: 'Authenticated Users Only',
-          message: 'First, You need to Login or Register an Account in order to access this page',
+          message: 'Login or Register an Account in order to access this page',
           buttons: ['OK'],
           cssClass: 'loginAlertCss'
         });

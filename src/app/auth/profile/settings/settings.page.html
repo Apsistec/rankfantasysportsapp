@@ -3,8 +3,10 @@
   <ion-grid>
     <ion-row>
       <ion-col >
-              <ion-card color="primary">
-                <ion-card-header text-center>
+        
+
+          <ion-card color="primary">
+            <ion-card-header class="ion-text-center">
                   <ion-card-title>
                     <ion-text color="secondary">
 
@@ -49,25 +51,25 @@
                     
                   </ion-item>
                   <ion-item>
-                    <ion-button color="danger" size="small" shape="round" (click)=auth.linkGoogle()> 
+                    <ion-button color="danger" size="small" shape="round" (click)=linkGoogle()> 
                       Link Your Google Account
                     </ion-button> Work In Progress
                   </ion-item>
                   <ion-item>
-                    <ion-button color="twittr" size="small" shape="round" (click)=auth.linkTwitter()> 
+                    <ion-button color="twittr" size="small" shape="round" (click)=linkTwitter()> 
                       Link Your Twitter Account
                     </ion-button>Work In Progress
                   </ion-item>
                   <ion-item>
-                    <ion-button color="facebk" size="small" shape="round" (click)=auth.linkFacebook()> 
+                    <ion-button color="facebk" size="small" shape="round" (click)=linkFacebook()> 
                       Link Your Facebook Account
                     </ion-button>Work In Progress
                   </ion-item>
                 </ion-list>
-                <ion-button expand="full" (click)="updateUser()"></ion-button>
+                
               </ion-card-content>
-              </ion-card>
-            </ion-col>
+            </ion-card>
+          </ion-col>
           </ion-row>
         </ion-grid>
       </ion-content>

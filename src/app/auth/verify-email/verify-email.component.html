@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content fullscreen text-center>
+<ion-content fullscreen class="ion-text-center">
     <ion-grid>
         <ion-row>
           <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
@@ -7,7 +7,7 @@
               <ion-img src="../../assets/logo.jpg"></ion-img>
               <ion-card-header>
                 <ion-card-title>
-                  <ion-text color="secondary" text-center>
+                  <ion-text color="secondary" class="ion-text-center">
                     <h2>Thank You For Registering!</h2>
                   </ion-text>
                 </ion-card-title>
@@ -19,7 +19,7 @@
               </ion-card-header>
               <ion-card-content>
                 <ion-text color="warning">
-                  <p text-center>
+                  <p class="ion-text-center">
                  We sent a confirmation email to:</p>
                 </ion-text>
                  <ion-text color="light">
@@ -30,28 +30,28 @@
                   </h2>
                 </ion-text>
                     <ion-text color="warning">
-                  <p text-center>
+                  <p class="ion-text-center">
                   Check your email and click on the enclosed link to verfiy your email address.
                 </p>
                 </ion-text>
                
-                <ion-text color="light" text-center>
-                  <p text-center>We use email verification along with other security measures as part of our best-efforts to protect against fraudulent activity. We are sure you understand our reasoning, and we do appreciate your cooperation.</p>
+                <ion-text color="light" class="ion-text-center">
+                  <p class="ion-text-center">We use email verification along with other security measures as part of our best-efforts to protect against fraudulent activity. We are sure you understand our reasoning, and we do appreciate your cooperation.</p>
                 </ion-text>
               <hr>
                 <ion-text color="secondary">Did not receive the link?
                 </ion-text>
-                <ion-button strong color="warning" size="small" fill="outline" shape="round" (click)="auth.SendVerificationMail()">
+                <!-- <ion-button strong color="warning" size="small" fill="outline" shape="round" (click)="auth.SendVerificationMail()"> -->
                   <ion-text color="warning">
                     Resend Verification
                   </ion-text>
-                </ion-button>
+                <!-- </ion-button> -->
               </ion-card-content>
             </ion-card>
 
 
   <ng-template #login>
-    <ion-card color="primary" text-center>
+    <ion-card color="primary" class="ion-text-center">
       <ion-img src="../../../assets/logo.jpg"></ion-img>
       <ion-card-header>
         <ion-card-title>
@@ -63,10 +63,10 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p text-center style="font-size: 1.5em">
+        <p class="ion-text-center" style="font-size: 1.5em">
           <ion-text color="danger">
             <strong>Alert:</strong></ion-text></p>
-            <p text-center style="font-size: 1.5em">
+            <p class="ion-text-center" style="font-size: 1.5em">
             <ion-text color="warning">
 
             Login first, then validate the account by email

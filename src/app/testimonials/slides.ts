@@ -1,4 +1,4 @@
-import { Slide } from './slide.model';
+import { Slide } from '../core/models/slide.model';
 
 
 export const Slides: Slide[] = [

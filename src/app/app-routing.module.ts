@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './core/guard/admin.guard';
 import { AuthGuard } from './core/guard/auth.guard';
-import { TermsDialogComponent } from './shared/terms-dialog/terms-dialog.component';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -13,9 +12,6 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signin', component: LoginComponent },
   { path: 'sign-in', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'signup', component: RegisterComponent },
-  { path: 'sign-up', component: RegisterComponent },
   { path: 'credibility', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
   { path: 'pricing', loadChildren: './pricing/pricing.module#PricingPageModule' },
   { path: 'prices', loadChildren: './pricing/pricing.module#PricingPageModule' },
@@ -31,8 +27,22 @@ const appRoutes: Routes = [
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
-  { path: 'register', component: RegisterComponent},
-  { path: 'terms', component: TermsDialogComponent, outlet: 'terms'},
+  {
+    path: 'admin',
+    loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',
+    canActivate: [AdminGuard],
+    data: {
+      role: 'ADMIN'
+    }
+  },
+  {
+    path: 'user',
+    loadChildren: './user-tickets/user-tickets.module#UserTicketsPageModule',
+    canActivate: [AdminGuard],
+    data: {
+      role: 'USER'
+    }
+  },
   { path: '**', redirectTo: '/home' },
 ];
 

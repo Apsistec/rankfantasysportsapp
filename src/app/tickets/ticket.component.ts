@@ -1,24 +1,31 @@
-import { TicketService } from './../core/services/ticket.service';
+import { TicketService } from '../core/services/ticket.service';
 import { ModalController, LoadingController, NavParams } from '@ionic/angular';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AuthService } from '../core/services/auth.service';
+
 
 @Component({
   selector: 'app-ticket',
-  templateUrl: './ticket.page.html',
-  styleUrls: ['./ticket.page.scss'],
+  templateUrl: './ticket.component.html',
+  styleUrls: ['./ticket.component.scss'],
 })
-export class TicketPage implements OnInit {
-
+export class TicketComponent implements OnInit {
+  // private subscription: Subscription;
   ticketForm: FormGroup;
   id = null;
   user = '';
 
-  constructor(private fb: FormBuilder, private modalCtrl: ModalController, 
-    private loadingCtrl: LoadingController, private ticket: TicketService,
-    private navParam: NavParams) { }
+  constructor(
+    private fb: FormBuilder,
+    private modalCtrl: ModalController,
+    private loadingCtrl: LoadingController,
+    private ticket: TicketService,
+    private navParam: NavParams,
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
     this.ticketForm = this.fb.group({
@@ -31,6 +38,7 @@ export class TicketPage implements OnInit {
     if (this.id) {
       this.ticket.getTicket(this.id).subscribe(ticket => {
         console.log('my ticket: ', ticket);
+
         this.ticketForm.patchValue({
           title: ticket['title'],
           desc: ticket['desc'],
@@ -42,7 +50,7 @@ export class TicketPage implements OnInit {
 
         this.ticket.getUser(ticket['creator']).subscribe(user => {
           this.user = user['email'];
-        })
+        });
       });
     }
   }
@@ -52,7 +60,7 @@ export class TicketPage implements OnInit {
   }
 
   async saveOrUpdate() {
-    let loading = await this.loadingCtrl.create({
+    const loading = await this.loadingCtrl.create({
       message: 'Loading...'
     });
     await loading.present();
@@ -72,4 +80,9 @@ export class TicketPage implements OnInit {
     });
   }
 
+  // ngOnDestroy(): void {
+  //   // Called once, before the instance is destroyed.
+  //   // Add 'implements OnDestroy' to the class.
+  //   this.subscription.unsubscribe();
+  // }
 }

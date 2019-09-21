@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { ThemeService } from '../../core/services/theme.service';
-import { SupportModalComponent } from './support-modal/support-modal.component';
 import { LoadingController, ModalController } from '@ionic/angular';
 
 const themes = {
@@ -44,8 +43,7 @@ export class ProfilePage implements OnInit {
   canEdit;
   loading = false;
   subscriptionList;
-  // @ViewChild(IonContent) ionContent: IonContent;
-  // scrolledDown = false;
+
   title: string;
   info: string;
   err;
@@ -86,31 +84,6 @@ export class ProfilePage implements OnInit {
   onDismissLoader() {
     return this.loader.dismiss();
   }
-
-  async openSupportModal() {
-    const modalEl = await this.modalCtrl
-      .create({
-        component: SupportModalComponent,
-        componentProps: {
-
-        }
-      });
-    return modalEl.present();
-  }
-
-
-
-  // onScroll(event) {
-  //   if (event.detail.scrollTop > 200) {
-  //     this.scrolledDown = true;
-  //   } else {
-  //     this.scrolledDown = false;
-  //   }
-  // }
-
-  // ScrollToTop() {
-  //   this.ionContent.scrollToTop(1500);
-  // }
 
   async listSubscriptions() {
     await this.presentLoader();

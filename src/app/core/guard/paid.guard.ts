@@ -36,7 +36,7 @@ export class PaidGuard implements CanActivate {
         cssClass: 'alertCustomCss'
       });
       alert.present();
-      this.router.navigateByUrl('/pricing');
+      this.router.navigateByUrl('/purchase');
     }
     return isMember;
   }
