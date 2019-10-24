@@ -97,4 +97,13 @@ export class LoginComponent implements OnInit {
   FacebookAuth() {
     return this.auth.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
+
+  MicrosoftAuth() {
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+      return this.auth.AuthLogin(provider);
+      provider.setCustomParameters({
+      tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1'
+       });
+      provider.addScope('files.read');
+  }
 }

@@ -13,8 +13,6 @@ import { TermsComponent } from './terms/terms.component';
 import { MatExpansionModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,

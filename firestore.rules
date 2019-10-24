@@ -19,6 +19,9 @@ service cloud.firestore {
     function isUser(userId) {
       return request.auth.uid == userId;
     }
+    function isAdmin() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
+    }
 
 		function userEmail(userId) {
       return get(/databases/$(database)/documents/users/$(userId)).data.email;
@@ -32,10 +35,17 @@ service cloud.firestore {
     	return isSignedIn() && isPaid();
     }
         match /{document=**} {
-          allow read: if isValidMember();
+          allow read: if isValidMember() || isAdmin();
       	}
         match /users/{userId} {
-        	allow read, write: if request.auth.uid == userId;
+        	allow read, create, update: if request.auth.uid == userId || isAdmin();
+          allow delete: if isAdmin();
       	}
-  }
+        match /tickets/{ticket} {
+          allow read: if request.auth.uid != null || isAdmin();
+          allow create: if request.auth.uid != null || isAdmin();
+          allow update, delete: if isAdmin();
+     }
+     
+	 }
 }

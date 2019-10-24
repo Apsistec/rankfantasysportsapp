@@ -31,8 +31,6 @@
                 "output": "./svg"
               },
               "src/manifest.json",
-              "src/manifest.json",
-              "src/manifest.json"
             ],
             "styles": [
               {
@@ -121,8 +119,6 @@
                 "output": "/assets"
               },
               "src/manifest.json",
-              "src/manifest.json",
-              "src/manifest.json"
             ]
           },
           "configurations": {

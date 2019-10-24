@@ -1,4 +1,3 @@
-/// <reference types="stripe-v3" />
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
 import { stripe, db } from './config'; 

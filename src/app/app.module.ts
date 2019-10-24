@@ -3,6 +3,7 @@ import {
   IonicRouteStrategy,
 } from '@ionic/angular';
 import { SharedDirectivesModule } from './core/directives/shared-directives.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { environment } from '../environments/environment';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -27,8 +28,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-// import { TicketPageModule } from './ticket/ticket.module';
 import { TicketComponent } from './tickets/ticket.component';
+
+
+// import "isomorphic-fetch";
+// import { Client } from "@microsoft/microsoft-graph-client";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +52,8 @@ import { TicketComponent } from './tickets/ticket.component';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     SharedModule,
-    // TicketPageModule,
     FormsModule,
+    BrowserModule,
     ReactiveFormsModule,
     SharedDirectivesModule,
     HttpClientModule,

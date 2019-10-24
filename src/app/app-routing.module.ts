@@ -27,6 +27,8 @@ const appRoutes: Routes = [
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
+  { path: 'table', loadChildren: './table/table.module#TablePageModule' },
+
   {
     path: 'admin',
     loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',

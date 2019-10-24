@@ -1,4 +1,3 @@
-/// <reference types="stripe-v3" />
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
 import { stripe } from './config'; 
@@ -30,10 +29,9 @@ export const createCharge = async(uid: string, source: string, amount: number, i
             customer,
             source,
             currency: 'usd',
-        }, 
+    }, 
         
-        { idempotency_key }
-     )
+    { idempotency_key });
 }
 
 

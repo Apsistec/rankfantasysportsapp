@@ -1,10 +1,29 @@
-<app-header></app-header>
+<ion-header tranlucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning"> 
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+      <!-- <ion-button type="button"  -->
+      <ion-icon name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/> 
+        </ion-avatar>
+          &nbsp; 
+          &nbsp;
+        <ion-icon color="danger" name="log-out" icon-only>
+        </ion-icon>
+      </ion-item>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content >
   <ion-grid>
     <ion-row >
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <ion-card class="ion-text-center" color="primary">
-          <ion-img src="../../../assets/logo.jpg"></ion-img>
+          <ion-img src="../../../assets/img/logo.jpg"></ion-img>
             <ion-card-header>
             <ion-card-title  class="ion-text-center">
               <ion-text color="secondary" style="text-shadow: 1px 1px #000000;">
@@ -100,15 +119,18 @@
                       
                       <ion-button 
                       type="submit" 
-                       color="success"
+                       color="tertiary"
                       expand="full" 
                     [disabled]="!loginForm.valid"><ion-ripple-effect></ion-ripple-effect>
-                      <ion-text class="shadow"> <strong>Login</strong></ion-text>
+                      <ion-text color="warning"> <strong>Login</strong></ion-text>
                     </ion-button>
                     <ion-button color="danger" type="button" (click)="GoogleAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-google"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
                     </ion-button>
                     <ion-button color="twittr" type="button" (click)="TwitterAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-twitter"></ion-icon>
+                      <ion-ripple-effect></ion-ripple-effect>
+                    </ion-button>
+                    <ion-button color="msoft"  type="button" (click)="MicrosoftAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-windows"></ion-icon>
                       <ion-ripple-effect></ion-ripple-effect>
                     </ion-button>
                     <ion-button color="facebk"  type="button" (click)="FacebookAuth()" expand="full">Login with&nbsp; <ion-icon name="logo-facebook"></ion-icon>

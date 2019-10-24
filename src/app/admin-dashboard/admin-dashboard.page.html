@@ -52,7 +52,7 @@
           <ion-card-header>
             <ion-card-title>
               <ion-text color="secondary">
-          My Trouble Tickets
+          Trouble Tickets
         </ion-text>
       </ion-card-title>
     </ion-card-header>
@@ -62,6 +62,7 @@
     <ion-item button *ngFor="let ticket of tickets | async" class="ion-text-wrap" (click)="openTicket(ticket.id)">
       <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
+        
         
       <ion-label >
         <ion-text color="warning">
@@ -94,3 +95,8 @@
   </ion-content>
   
 
+<ion-footer translucent>
+
+  <ion-toolbar color="medium">
+   </ion-toolbar>
+</ion-footer>

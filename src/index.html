@@ -3,57 +3,65 @@
 
 <head>
   <meta charset="utf-8"/>
-  <title>Rank Fantasy $ports</title>
-
+  <title>Rank Fantasy Sports</title>
   <base href="/"/>
 
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="format-detection" content="telephone=no"/>
   <meta name="msapplication-tap-highlight" content="no"/>
-  
-  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico"/>
 
-<!-- PWA required -->
+  <!-- Fallback application metadata for legacy browsers -->
+  <meta name="application-name" content="RFSports">
+  <!-- <link rel="icon" sizes="192x192" href="lo_def.ico">
+  <link rel="icon" sizes="512x512" href="hi_def.png"> -->
+  
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+
+  <!-- PWA required -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4a525e">
-
-<!-- add to homescreen for ios -->
+  
+  <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-
-
-<!-- Stripe v3 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  
+  <!-- cordova.js required for cordova apps -->
+  <!-- <script src="cordova.js"></script> -->
+  
+  <!-- Stripe v3 -->
   <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
   
-<!-- Facebook Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1392812897535117');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1392812897535117&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1392812897535117');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://drive.google.com/uc?export=view&id=1gyBYXksLHDT56A07iB_mUo8JVMCmVQFWQwTcBoxcEtM"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
 </head>
+
+  <!-- // Open graph protocol for sharing -->
+  <meta property="og:title" content="Rank Fantasy Sports Insights">
+  <meta property="og:description" content="Check out the premier Progressive Web App for Daily Fantasy Sports Players who Win!">
+  <meta property="og:image" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
+  <meta property="og:url" content="https://www.rankfantasysports.com">
+  <meta name="twitter:card" content="summary_large_image">
 
 <body>
 
-
-
   <app-root></app-root>
-  <noscript>Please enable javascript</noscript>
-  
-
-    
-  
+  <noscript>To use this application, enable javascript in your browser settings.</noscript>
+   
 </body>
 
 </html>

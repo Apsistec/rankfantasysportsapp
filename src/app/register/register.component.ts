@@ -89,7 +89,11 @@ export class RegisterComponent implements OnInit {
     await this.auth.AuthRegister(new firebase.auth.FacebookAuthProvider());
     return this.modalDismiss();
   }
-
+  async MicrosoftRegister() {
+    await this.auth.AuthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
+    return this.modalDismiss();
+  }
+  
   modalDismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data

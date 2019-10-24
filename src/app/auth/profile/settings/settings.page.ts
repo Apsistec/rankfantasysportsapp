@@ -29,7 +29,7 @@ export class SettingsPage implements OnDestroy, OnInit {
       this.user = user;
     });
   }
-  
+
   async updateUser() {
     await this.auth.updateUser(this.user.displayName);
     const toast = await this.toastCtrl.create({
@@ -58,6 +58,11 @@ export class SettingsPage implements OnDestroy, OnInit {
 
   linkTwitter() {
     const provider = new firebase.auth.TwitterAuthProvider();
+    firebase.auth().currentUser.linkWithPopup(provider);
+  }
+
+  linkMicrosoft() {
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
     firebase.auth().currentUser.linkWithPopup(provider);
   }
 

@@ -1,4 +1,23 @@
-<app-header></app-header>
+<ion-header tranlucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning"> 
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+      <!-- <ion-button type="button"  -->
+      <ion-icon name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/> 
+        </ion-avatar>
+          &nbsp; 
+          &nbsp;
+        <ion-icon color="danger" name="log-out" icon-only>
+        </ion-icon>
+      </ion-item>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content
   (ionScroll)="onScroll($event)"
   [scrollEvents]="true">
@@ -8,11 +27,11 @@
 
 <!-- Column 1 -->
         <ion-card class="main-card">
-          <img src="../../assets/logo.jpg" slot="start">
+          <img src="../../assets/img/logo.jpg" slot="start">
           <ion-card-content>
             <ion-card-title>
            
-                <ion-text style="font:bolder; font-size: 2rem; font-weight: 900; text-shadow: 1px 1px rgb(0, 0, 0);" color="secondary">
+                <ion-text style="font:bolder;   font-weight: 900; text-shadow: 1px 1px rgb(0, 0, 0);" color="secondary">
                   <strong>
                     Rank Fantasy Sports
 
@@ -63,7 +82,7 @@
                <ion-button color="secondary" shape="round" expand="block" size="medium" routerLink="/purchase" >
             <ion-ripple-effect>
             </ion-ripple-effect>
-            <ion-text style="font-size: 1.2rem; text-shadow: 1px 1px rgb(26, 1, 1)" color="danger">
+            <ion-text style="  text-shadow: 1px 1px rgb(26, 1, 1)" color="danger">
                 <strong>
                   7 Day Free Trial
                 </strong>
@@ -77,17 +96,24 @@
         <ion-card class="testi ion-text-center">
           <ion-card-content>
             <ion-card-title>
-              <ion-text style="font-size: 2rem;text-shadow: 2px 1px rgb(0, 0, 0);" color="secondary">
+              <ion-text style=" text-shadow: 2px 1px rgb(0, 0, 0);" color="secondary">
                 RF<ion-text color="secondary">$</ion-text>&trade; Success
               </ion-text>
             </ion-card-title>
             <ion-card-content>
               <ion-text color="warning">
-              <p>By interpreting in-house, historical, and real-time data (<ion-text color="light" routerLink="/list/categories"><strong>player, team, weather & other ancillary data sources</strong></ion-text>) while creating the RF<ion-text color="secondary">$</ion-text>&trade; player scoring algorithms, our sports data analysts are turning <ion-text color="secondary"> $10 </ion-text> lineups into game changing wins totalling over<ion-text color="secondary"> $8000</ion-text>.</p><br><p><ion-text color="light" routerLink="/purchase"><strong>Become a member today</strong></ion-text> and discover how to use our proprietary tables and trademark data models --or-- use the data your own way, the choice is yours.</p>
+              <p>By interpreting in-house, historical, and real-time data (
+                <ion-text color="light" routerLink="/list/categories">
+                  <strong>player, team, weather & other ancillary data sources</strong>
+                </ion-text>) while creating the RF<ion-text color="secondary">$</ion-text>&trade; player scoring algorithms, our sports data analysts are turning 
+                <ion-text color="secondary"> $10 </ion-text> lineups into game changing wins totalling over
+                <ion-text color="secondary"> $8000</ion-text>.</p><br><p><ion-text color="light" routerLink="/purchase"><strong>Become a member today</strong>
+                </ion-text> and discover how to use our proprietary tables and trademark data models --or-- use the data your own way, the choice is yours.
+              </p>
               </ion-text>
               <br>
               <ion-button shape="round" expand="block" routerLink="/purchase" color="secondary">
-                <ion-text  style="font-size: 1.1rem;text-shadow: 1px 1px rgb(0, 0, 0)" color="danger">
+                <ion-text  style=" text-shadow: 1px 1px rgb(0, 0, 0)" color="danger">
                     
                     <strong>
                       Join the Club
@@ -110,7 +136,7 @@
               <ion-button expand="block" color="danger" shape="round" fill="solid" routerLink="/credibility">
                 <ion-ripple-effect>
               </ion-ripple-effect>
-              <ion-text style="font-size: 1.1rem;text-shadow: 1px 1px grey;">
+              <ion-text style=" text-shadow: 1px 1px grey;">
                 <strong>
                   More DK Credibility
                 </strong>
@@ -126,7 +152,7 @@
         <ion-card class="inspire">
           <ion-card class="ion-text-center card-metal ion-padding">
             <ion-card-title>
-              <ion-text style="font-size: 2rem; text-shadow: 1px 1px rgb(0, 0, 0);" color="secondary">
+              <ion-text style="  text-shadow: 1px 1px rgb(0, 0, 0);" color="secondary">
                 Today's Inspirational Message
               </ion-text>
             </ion-card-title>
@@ -145,13 +171,13 @@
           <ion-card-content>
 
             <ion-card-title>
-              <ion-text style="color:white; font-size: 2rem; text-shadow: 1px 1px rgb(0, 0, 0)"><strong>
+              <ion-text style="color:white;   text-shadow: 1px 1px rgb(0, 0, 0)"><strong>
                 Insights for building Daily Fantasy Sports lineups that <ion-text style="text-shadow: 1px 1px rgb(0, 0, 0);" color="warning">WIN</ion-text>!
               </strong>
             </ion-text>
           </ion-card-title>
-          <ion-img style="object-position: center; height: 140px; margin: 30px;" src="../../assets/icons/drawable-hdpi-icon.png"></ion-img>
-          
+          <ion-img style="object-position: center; height: 140px; margin: 30px;" src="../../assets/img/icon-192x192.png"></ion-img>
+
         </ion-card-content>
   </ion-card>
   <ion-card color="primary" class="ion-text-center">
@@ -185,7 +211,7 @@
         </ion-text>
         
         <ion-button color="secondary" shape="round" expand="block" size="medium" routerLink="/purchase" >
-          <ion-text color="danger" style="font-size: 1.25rem;text-shadow:1px 1px rgb(2, 0, 0)">
+          <ion-text color="danger" style=" text-shadow:1px 1px rgb(2, 0, 0)">
            
               <strong>
                 View PRO Packages
@@ -201,7 +227,7 @@
               <ion-card-content>
                 <ion-card-header>
                   <ion-card-title>
-                    <ion-text style="font-size: 2rem; text-shadow: 1px 1px #000000;" color="warning">
+                    <ion-text style="  text-shadow: 1px 1px #000000;" color="warning">
                         Recent RF<ion-text color="secondary">$</ion-text>&trade; Tweets
                       </ion-text>
                     </ion-card-title>
@@ -217,7 +243,7 @@
                 </ngx-twitter-timeline>
                 <ion-button expand="block" color="danger" shape="round" routerLink="/tweets">
                   <ion-ripple-effect></ion-ripple-effect>
-                  <ion-text style="font-size: 1.25rem;text-shadow: 1px 1px grey;">
+                  <ion-text style=" text-shadow: 1px 1px grey;">
                           <strong>
                   More RF<ion-text color="secondary">$</ion-text>&trade; Tweets
                 </strong>
@@ -235,4 +261,23 @@
             </ion-fab>
 
   </ion-content>
-<app-footer></app-footer>
+<ion-footer translucent>
+  <ion-fab vertical="bottom" horizontal="start">
+    <ion-fab-button color="tertiary">
+      <ion-icon name="rocket"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="facebk" href="https://fb.me/ranktowinfantasysports">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="twittr" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-toolbar color="medium">
+   </ion-toolbar>
+</ion-footer>

@@ -1,4 +1,3 @@
-/// <reference types="stripe-v3" />
 const admin = require('firebase-admin');
 // admin.initializeApp();
 import * as functions from 'firebase-functions';

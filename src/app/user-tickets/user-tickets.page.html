@@ -26,7 +26,7 @@
     
     <ion-list>
     <ion-item *ngFor="let ticket of tickets | async" class="ion-text-wrap">
-      <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
+      <ion-icon name="radio-button-off" color="danger" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
         
       <ion-label >

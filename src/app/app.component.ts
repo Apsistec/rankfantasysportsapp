@@ -19,15 +19,15 @@ export class AppComponent {
     private statusBar: StatusBar,
     public ticket: TicketService
   ) {
-    this.initializeApp();
-  }
-
-
-  initializeApp() {
+    // this.initializeApp();
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
+
+
+  // initializeApp() {
+  // }
 
 }

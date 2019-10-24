@@ -37,7 +37,6 @@ export class TicketComponent implements OnInit {
     this.id = this.navParam.get('id');
     if (this.id) {
       this.ticket.getTicket(this.id).subscribe(ticket => {
-        console.log('my ticket: ', ticket);
 
         this.ticketForm.patchValue({
           title: ticket['title'],
@@ -80,9 +79,4 @@ export class TicketComponent implements OnInit {
     });
   }
 
-  // ngOnDestroy(): void {
-  //   // Called once, before the instance is destroyed.
-  //   // Add 'implements OnDestroy' to the class.
-  //   this.subscription.unsubscribe();
-  // }
 }

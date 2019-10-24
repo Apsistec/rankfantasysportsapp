@@ -10,51 +10,16 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-
 // Material Themes
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 //@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 //@import "~@angular/material/prebuilt-themes/purple-green.css";
 
-
-.alertCustomCss {
-    color: white; // text color for basic alerts
-    button {
-        color: rgb(255, 255, 255) !important;
-      
-    }
-    .alert-message {
-        color: rgb(192, 0, 0); // text color for confirm alerts
-    }
-    .alert-wrapper {
-        background-color: rgb(139, 141, 0);
-    }
-  }
-  
-.loginAlertCss {
-    color: rgb(0, 0, 0); // text color for basic alerts
-    button {
-        color: rgb(255, 255, 255) !important;
-      
-    }
-    .alert-message {
-        color: rgb(41, 2, 73) // text color for confirm alerts
-    }
-    .alert-wrapper {
-        background-color: rgb(132, 141, 151);
-    }
-  }
-
-.shadow{
-  text-shadow: 1px 1px rgb(57, 56, 58);
-  color:rgb(189, 13, 0);
-}
-
 :root { 
   ion-content{  
     --ion-background-color: none;
-    background: darkslateblue;
+    background: #400057;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -67,6 +32,37 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#400057', endColorstr='#003024',GradientType=1 );
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#400057, endColorstr=#003024)";
   }
+}
+
+.alertCustomCss {
+    color: white; // text color for basic alerts
+    button {
+        color: rgb(255, 255, 255) !important;
+    }
+    .alert-message {
+        color: rgb(192, 0, 0); // text color for confirm alerts
+    }
+    .alert-wrapper {
+        background-color: rgb(139, 141, 0);
+    }
+}
+  
+.loginAlertCss {
+    color: rgb(0, 0, 0); // text color for basic alerts
+    button {
+        color: rgb(255, 255, 255) !important;
+    }
+    .alert-message {
+        color: rgb(41, 2, 73) // text color for confirm alerts
+    }
+    .alert-wrapper {
+        background-color: rgb(132, 141, 151);
+    }
+}
+
+.shadow{
+  text-shadow: 1px 1px rgb(57, 56, 58);
+  color:rgb(189, 13, 0);
 }
 
 .card-metal{
@@ -93,9 +89,9 @@
 
 .login {
   --background:  rgb(33, 78, 36);
-  --color: rgb(81, 255, 0);
+  --color: rgb(46, 136, 4);
   --end: 4px;
-  --button-color: white;
+  --button-color: rgb(2, 91, 126);
 }
 
 .halt{
@@ -108,17 +104,17 @@
 .neutral{
   --background:  rgb(61, 63, 61);
   --border-color: rgb(134, 151, 161);
-  --color: greenyellow;
+  --color: rgb(69, 114, 2);
   --end: 4px;
-  --button-color: white;
+  --button-color: rgb(4, 98, 136);
 }
 
 .logout{
-  --background:  rgb(141, 141, 24);
+  background-color:  rgb(141, 141, 24);
   --border-color: rgb(238, 255, 0);
   --color: black;
   --end: 4px;
-  --button-color: white;
+  --button-color: rgb(2, 122, 116);
 }
 
 .bright{
@@ -157,9 +153,3 @@ text-align: left;
 a:hover {
   cursor:pointer;
 }
-
-// .utuub{
-//     background:  url('./assets/img/ball-court2.jpg');
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }

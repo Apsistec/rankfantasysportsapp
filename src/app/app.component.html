@@ -1,14 +1,14 @@
-  <ion-menu side="start" type="reveal">
-  <ion-header tranlucent>
-    <ion-menu-toggle auto-hide="false">
+  <ion-menu side="start" content-id="main" type="push">
+  <ion-header>
+    <ion-menu-toggle>
       <ion-toolbar color="primary">
-        <img src="../assets/logo.jpg" height="50rem" slot="start" />
+        <img src="../assets/img/logo.jpg" height="50rem" slot="start" />
       </ion-toolbar>
     </ion-menu-toggle>
   </ion-header>
 
   <ion-content>
-    <ion-menu-toggle auto-hide="false">
+    <ion-menu-toggle>
       <ion-list>
         <ion-item-group>
           <ion-item button  lines="none"routerLink="/home">
@@ -163,46 +163,46 @@
       </ion-list>
       <ion-note><sup>*</sup>Greyed menu items are coming soon!</ion-note>
     </ion-menu-toggle>
-  </ion-content>
-
-  <ion-footer class="ion-text-center" >
-   <app-privacy></app-privacy>
-   
+    
+    <app-privacy></app-privacy>
+    
     <app-terms></app-terms>
-    <ion-menu-toggle auto-hide="false">
+  </ion-content>
+  <ion-footer class="ion-text-center" >
+  <ion-menu-toggle>
       <ion-toolbar color="primary">
         <ion-text color="light">
           <sub> Made with</sub>&nbsp;<ion-icon style="color:aqua;" name="logo-ionic"></ion-icon>
-            &nbsp;
+          &nbsp;
           <sub>and</sub>
           &nbsp;
           <ion-icon name="logo-angular" color="danger"></ion-icon>
-            &nbsp;
+          &nbsp;
           <sub>by</sub>
-          </ion-text>
-          <ion-text color="light">
+        </ion-text>
+        <ion-text color="light">
           <sub>
-            <strong>
+            <!-- <strong> -->
               &nbsp;
               RF
               <ion-text color="secondary">$</ion-text>
               &trade;&nbsp;
-            </strong>
-            &copy;2019
-          </sub>
-        </ion-text>
-      </ion-toolbar>
-    </ion-menu-toggle>
-  </ion-footer>
-</ion-menu>
-<ion-router-outlet main></ion-router-outlet>
-<!-- <div [@routeAnimation]="getAnimationData(routerOutlet)">
-  </div> -->
-
-  
-  
-  
-  
-  
-  
-  
+              <!-- </strong> -->
+              &copy;2019
+            </sub>
+          </ion-text>
+        </ion-toolbar>
+      </ion-menu-toggle>
+    </ion-footer>
+  </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
