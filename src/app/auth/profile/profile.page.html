@@ -4,6 +4,11 @@
       <ion-menu-button color="warning"> 
       </ion-menu-button>
     </ion-buttons>
+    <ion-title>
+      <ion-text color="secondary">
+        Profile
+      </ion-text>
+    </ion-title>
     <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
       <!-- <ion-button type="button"  -->
       <ion-icon name="arrow-dropdown"></ion-icon>
@@ -234,17 +239,15 @@
             </ion-chip>
           </ion-text>
           <br>
-          <ion-button size="small" shape="round" (click)="listSubscriptions()" color="secondary">
+          <ion-button size="small" shape="round" (click)="getSubscriptionInfo()" color="secondary">
             <ion-text color="dark">
-              
-              View Subscriptions
+              Subscriptions Details
             </ion-text>
           </ion-button>
           <br>
           
-          <ion-button size="small" shape="round" color="secondary">
+          <ion-button size="small" shape="round" color="secondary" (click)="viewInvoicesModal()">
             <ion-text color="dark">
-              
               View Invoices
             </ion-text>
           </ion-button>
@@ -254,7 +257,7 @@
           <br>
           <hr>
           <br>
-          <ion-button  size="small" fill="outline" shape="round" color="danger">Cancel Subscription</ion-button>
+          <ion-button  size="small" fill="outline" shape="round" (click)="cancelSubscription()" color="danger">Cancel Subscription</ion-button>
           <br>
         </ion-card>
       </div>
@@ -274,17 +277,35 @@
         </ion-card>
       </ng-template>
     </ng-container>
+    <ion-card color="primary"  class="ion-text-center ion-padding">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-text color="secondary">
+              More Information
+            </ion-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
 
+          <pre *ngIf="subInfo" style="max-width: 500px;">
+            {{ subInfo | json }}
+            <!-- {{ subInfo.id }} -->
+          </pre>
+
+        <!-- <hr>
+        <ion-card color="tertiary">
+          <ion-text color="warning">
+          </ion-text>
+        </ion-card> -->
+            
+        </ion-card-content>
+      </ion-card>
         <ion-card class="ion-padding ion-text-center" color="primary">
-          
-          
           <ion-card-title>
             <ion-text color="secondary">
               Support Request
-      
-              </ion-text>
-              
-            </ion-card-title>
+             </ion-text>
+              </ion-card-title>
             <ion-card-subtitle>
               <ion-text color="warning">
                 Request Support, Make a Feature Request, or a General Inquiry
@@ -292,8 +313,7 @@
               </ion-card-subtitle>
               <ion-card-content>
               <p>
-  
-                Not finding the answers you need? Open a support request, and we will get back to you ASAP!
+                  Not finding the answers you need? Open a support request, and we will get back to you ASAP!
               </p>
                 <hr>
                 <ion-button shape="round" color="warning" routerLink="/user">
@@ -305,20 +325,7 @@
                 </ion-button>
               </ion-card-content>
             </ion-card>
-        <ion-card color="primary"  class="ion-text-center ion-padding">
-          <ion-card-title>
-            <ion-text color="secondary">
-
-              More Information
-
-            </ion-text>
-          </ion-card-title>
-          <pre>
-            {{ subscriptionList | json }}
-          </pre>
-    
-        </ion-card>
-        
+       
         </ion-col>
         <ion-col>
           <app-list-tables></app-list-tables>

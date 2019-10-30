@@ -4,7 +4,6 @@ import { stripe, db } from './config';
 import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
 
-
 /**
 Gets a user's subscriptions
 */
@@ -13,12 +12,10 @@ export const getSubscriptions = async(uid: string) => {
     return stripe.subscriptions.list({ customer });
 }
 
- 
-
 /**
 Creates and charges user for a new subscription
 */
-export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string) => {
+export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string, idempotency_key?: string) => {
  
     const customer = await getOrCreateCustomer(uid);
 
@@ -34,7 +31,7 @@ export const createSubscription = async (uid: string, source: string, plan: stri
         ],
         trial_from_plan: true,
         
-    });
+    }, { idempotency_key });
 
     // Add the plan to existing subscriptions
     const docData = {
@@ -43,7 +40,6 @@ export const createSubscription = async (uid: string, source: string, plan: stri
     }   
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
-
 
     return subscription;
 }
@@ -68,10 +64,11 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
 /////// DEPLOYABLE FUNCTIONS ////////
 
 export const stripeCreateSubscription = functions.https.onCall( async (data, context) => {
+    const idempotency_key = data.idempotency_key;
     const uid = assertUID(context);
     const source = assert(data, 'source');
     const plan = assert(data, 'plan');
-    return catchErrors( createSubscription(uid, source, plan, data.coupon) );
+    return catchErrors( createSubscription(uid, source, plan, data.coupon, idempotency_key) );
 });
 
 export const stripeCancelSubscription = functions.https.onCall( async (data, context) => {

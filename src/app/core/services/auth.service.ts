@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { switchMap, take, map, tap, first } from 'rxjs/operators';
 import { from, Observable, of, BehaviorSubject } from 'rxjs';
+
 import {
   AlertController,
   ToastController,
@@ -92,6 +93,11 @@ export class AuthService {
   updateUser (displayName) {
     return this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
     .update({displayName: displayName});
+  }
+
+  updateEmail (email) {
+    return this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
+    .update({email: email});
   }
 
   updateUserPhoto (photoURL) {
@@ -190,14 +196,7 @@ export class AuthService {
     );
   }
 
-  ForgotPassword(passwordResetEmail) {
-    return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        this.resetPasswordToast();
-      }).catch((error) => {
-        window.alert(error);
-      });
-  }
+
 
   // Auth logic to Register using federated auth providers
   async AuthRegister(provider) {
@@ -252,6 +251,13 @@ export class AuthService {
     }).catch((error) => {
       window.alert(error.message);
     });
+  }
+
+
+  resetPassword(email: string) {
+     this.afAuth.auth.sendPasswordResetEmail(email)
+      .then(() => this.resetPasswordToast())
+      .catch((error) => alert(error.message));
   }
 
   // Sign out

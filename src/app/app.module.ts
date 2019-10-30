@@ -4,7 +4,6 @@ import {
 } from '@ionic/angular';
 import { SharedDirectivesModule } from './core/directives/shared-directives.module';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { environment } from '../environments/environment';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
@@ -29,8 +28,7 @@ import { Firebase } from '@ionic-native/firebase/ngx';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { TicketComponent } from './tickets/ticket.component';
-
-
+// import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 // import "isomorphic-fetch";
 // import { Client } from "@microsoft/microsoft-graph-client";
 
@@ -48,17 +46,18 @@ import { TicketComponent } from './tickets/ticket.component';
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    // NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig),
     CommonModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     SharedModule,
     FormsModule,
-    BrowserModule,
     ReactiveFormsModule,
+    BrowserModule,
     SharedDirectivesModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,

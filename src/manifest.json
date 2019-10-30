@@ -1,12 +1,19 @@
 {
   "name": "Rank Fantasy Sports",
   "short_name": "RFSports",
-  "description": "Rank Fantasy Sports is the premier app for Daily Fantasy Sports players who Win.",
-  "categories": ["sports", "entertainment"],
+  "description": "The premier app for Daily Fantasy Sports players who Win.",
+  "dir": "ltr",
+  "orientation": "any",
+  "lang": "en-US",
+  "serviceworker": {
+    "src": "./ngsw-worker.js",
+    "type": "",
+    "update_via_cache": "none",
+  "categories": ["sports", "entertainment", "statistics"],
   "theme_color": "#4a525e",
-  "background_color": "#787881",
-  "display": "fullscreen",
-  "scope": "/",
+  "background_color": "#231540",
+  "display": "standalone",
+  "scope": "https://rankfantasysports.com/",
   "start_url": "/",
   "icons": [
     {

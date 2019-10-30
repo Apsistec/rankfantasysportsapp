@@ -11,10 +11,31 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 // Material Themes
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 //@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 //@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+@import '../node_modules/@angular/material/theming';
+     // Plus imports for other components in your app
+     // Include the common styles for Angular Material. We include this here so that you only
+     // have to load a single css file for Angular Material in your app.
+     // Be sure that you only ever include this mixin once!
+     @include mat-core();
+     // Define the palettes for your theme using the Material Design palettes available in palette.scss
+     // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+     // hue.
+     $candy-app-primary: mat-palette($mat-indigo);
+     $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+     // The warn palette is optional (defaults to red).
+     $candy-app-warn:    mat-palette($mat-red);
+     // Create the theme object (a Sass map containing all of the palettes).
+     $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+     // Include theme styles for core and each component used in your app.
+     // Alternatively, you can import and @include the theme mixins for each component
+     // that you are using.
+     @include angular-material-theme($candy-app-theme);
+     
 
 :root { 
   ion-content{  
@@ -88,33 +109,35 @@
 }
 
 .login {
-  --background:  rgb(33, 78, 36);
-  --color: rgb(46, 136, 4);
+  --background:  rgb(120, 167, 123);
+  --color: #000000;
   --end: 4px;
-  --button-color: rgb(2, 91, 126);
+  --button-color: ##027a74;
+  --border-color: rgb(94, 255, 1);
 }
 
 .halt{
-  --background:  rgb(141, 50, 50);
+  --background:  rgb(148, 83, 83);
   --border-color: rgb(255, 0, 0);
+  --color: black;
   --end: 4px;
-  --button-color: white;
+  --button-color: #027a74;
  }
 
 .neutral{
-  --background:  rgb(61, 63, 61);
-  --border-color: rgb(134, 151, 161);
-  --color: rgb(69, 114, 2);
+  --background:  rgb(101, 139, 129);
+  --border-color: rgb(1, 255, 192);
+  --color: #000000;
   --end: 4px;
-  --button-color: rgb(4, 98, 136);
+  --button-color: #027a74;
 }
 
 .logout{
-  background-color:  rgb(141, 141, 24);
+  background-color:  rgb(145, 145, 87);
   --border-color: rgb(238, 255, 0);
   --color: black;
   --end: 4px;
-  --button-color: rgb(2, 122, 116);
+  --button-color: #027a74;
 }
 
 .bright{
@@ -150,6 +173,6 @@ pre {
 text-align: left;
 }
 
-a:hover {
-  cursor:pointer;
-}
+// a:hover {
+//   cursor:pointer;
+// }

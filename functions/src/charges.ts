@@ -43,7 +43,7 @@ export const stripeCreateCharge = functions.https.onCall( async (data, context) 
     const amount = assert(data, 'amount');
 
     // Optional
-    const idempotency_key = data.itempotency_key;
+    const idempotency_key = data.idempotency_key;
 
     return catchErrors( createCharge(uid, source, amount, idempotency_key) );
 });

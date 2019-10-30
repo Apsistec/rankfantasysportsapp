@@ -3,7 +3,7 @@ import { AuthService } from './core/services/auth.service';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { TicketService } from './core/services/ticket.service';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-root',
@@ -17,17 +17,14 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public ticket: TicketService
   ) {
-    // this.initializeApp();
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+      this.initializeApp();
   }
 
-
-  // initializeApp() {
-  // }
-
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleBlackTranslucent();
+      this.splashScreen.hide();
+  });
+  }
 }

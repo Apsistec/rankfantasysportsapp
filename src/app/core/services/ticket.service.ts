@@ -71,6 +71,7 @@ export class TicketService {
     );
   }
 
+
   deleteTicket(id) {
     return this.db.doc(`tickets/${id}`).delete();
   }

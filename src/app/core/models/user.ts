@@ -7,11 +7,10 @@ export interface User {
     displayName: string;
     email: string;
     role: Roles;
+    firstSignIn: string;
     bronze?: boolean;
     gold?: boolean;
     silver?: boolean;
     photoURL?: string;
     stripeCustomerId?: string;
-    thisSignIn?: string;
-    lastSignIn?: string;
 }

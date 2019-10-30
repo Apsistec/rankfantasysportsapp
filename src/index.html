@@ -5,10 +5,23 @@
   <meta charset="utf-8"/>
   <title>Rank Fantasy Sports</title>
   <base href="/"/>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="The web app for Daily Fantasy Sports players who Win">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RFSports">
 
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="format-detection" content="telephone=no"/>
-  <meta name="msapplication-tap-highlight" content="no"/>
 
   <!-- Fallback application metadata for legacy browsers -->
   <meta name="application-name" content="RFSports">
@@ -21,15 +34,15 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4a525e">
   
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   
   <!-- cordova.js required for cordova apps -->
-  <!-- <script src="cordova.js"></script> -->
+  <script src="cordova.js"></script>
   
   <!-- Stripe v3 -->
   <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
   <!-- Facebook Pixel Code -->
   <script>
@@ -48,15 +61,21 @@
   </noscript>
   <!-- End Facebook Pixel Code -->
 
-</head>
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
   <!-- // Open graph protocol for sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rankfantasysports.com">
   <meta property="og:title" content="Rank Fantasy Sports Insights">
   <meta property="og:description" content="Check out the premier Progressive Web App for Daily Fantasy Sports Players who Win!">
   <meta property="og:image" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
-  <meta property="og:url" content="https://www.rankfantasysports.com">
+  <meta property="og:image:secure_url" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
-
+  
+  
+</head>
 <body>
 
   <app-root></app-root>

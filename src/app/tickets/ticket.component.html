@@ -5,7 +5,12 @@
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Ticket Details</ion-title>
+    <ion-title>
+      <ion-text color="secondary">
+        Ticket Details
+      </ion-text>
+      </ion-title>
+        
   </ion-toolbar>
 </ion-header>
 
@@ -13,8 +18,19 @@
 
   <ion-card color="primary">
     <ion-card-header>
-        <ion-card-title *ngIf="!id">New Ticket</ion-card-title>
-        <ion-card-title *ngIf="id">Ticket: #{{ id }}</ion-card-title>
+        <ion-card-title *ngIf="!id">
+          <ion-text color="secondary">
+            New Ticket
+          </ion-text>
+
+        
+        </ion-card-title>
+        <ion-card-title *ngIf="id">
+          <ion-text color="secondary">
+            Ticket: #{{ id }}
+          </ion-text>
+
+        </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       
@@ -36,29 +52,29 @@
           <ion-textarea rows="5" formControlName="desc"></ion-textarea>
         </ion-item>
 
-        <ion-item lines="none" class="ion-padding-vertical" *appHasPermission="['change-ticket-status']">
+        <ion-item lines="none" *appHasPermission="['change-ticket-status']">
 
             <ion-label position="stacked">Status</ion-label>
 
-            <ion-segment formControlName="status" color="secondary" mode="ios">
+            <ion-segment formControlName="status" color="tertiary" mode="ios">
 
               <ion-segment-button value="0" layout="icon-start">
-                <ion-label>Open</ion-label>
-                <ion-icon name="radio-button-off"></ion-icon>
+                <ion-label color="danger">Open</ion-label>
+                <ion-icon color="danger" name="radio-button-off"></ion-icon>
               </ion-segment-button>
 
               <ion-segment-button value="1" layout="icon-end">
-                <ion-icon name="done-all"></ion-icon>
-                <ion-label>Fixed</ion-label>
+                <ion-icon color="secondary" name="done-all"></ion-icon>
+                <ion-label color="secondary">Fixed</ion-label>
               </ion-segment-button>
             </ion-segment>
 
           </ion-item>
 
 
-      <ion-button class="ion-padding-horizontal ion-margin-vertical" color="primary" expand="block"
+      <ion-button class="ion-padding-horizontal ion-margin-vertical" color="warning" expand="block"
             [disabled]="!ticketForm.valid" type="submit">
-            <ion-icon name="checkmark" slot="end"></ion-icon>
+            <ion-icon name="add-circle-outline" slot="end"></ion-icon>
             <p *ngIf="!id">Create Ticket</p>
             <p *ngIf="id">Update Ticket</p>
           </ion-button>

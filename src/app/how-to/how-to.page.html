@@ -1,9 +1,14 @@
 <ion-header tranlucent>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button color="warning"> 
-      </ion-menu-button>
-    </ion-buttons>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button color="warning"> 
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        <ion-text color="secondary">
+            How To...
+        </ion-text>
+      </ion-title>
     <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
       <!-- <ion-button type="button"  -->
       <ion-icon name="arrow-dropdown"></ion-icon>

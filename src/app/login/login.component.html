@@ -23,7 +23,7 @@
     <ion-row >
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <ion-card class="ion-text-center" color="primary">
-          <ion-img src="../../../assets/img/logo.jpg"></ion-img>
+          <!-- <ion-img src="../../assets/img/logo.jpg"></ion-img> -->
             <ion-card-header>
             <ion-card-title  class="ion-text-center">
               <ion-text color="secondary" style="text-shadow: 1px 1px #000000;">
@@ -33,10 +33,19 @@
               </ion-text>
             </ion-card-title>
           </ion-card-header>
-                  <form (ngSubmit)="login()" [formGroup]="loginForm">
-                     <ion-item color="medium" >
-                  <ion-label  color="warning" position="floating">Email</ion-label>
-                     <ion-input  style="width: 95%;" type="email" formControlName="email" required></ion-input>
+     
+          
+          <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <ion-text color="warning" class="ion-text-wrap">
+              <strong>
+                * All users that joined before 9/24/19 will need to submit a password reset request before logging in. This is due to recent upgrades to our database. Thank You!
+              </strong>
+            </ion-text>
+            <br>
+            <br>
+            <ion-item color="medium" >
+              <ion-label  color="warning" position="floating">Email</ion-label>
+                     <ion-input  style="width: 95%;" type="email" formControlName="email" placeholder="Please Read Above Statement" required></ion-input>
                 </ion-item>
                
                     <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
