@@ -28,23 +28,8 @@ const appRoutes: Routes = [
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
   { path: 'table', loadChildren: './table/table.module#TablePageModule' },
-
-  {
-    path: 'admin',
-    loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardPageModule',
-    canActivate: [AdminGuard],
-    data: {
-      role: 'ADMIN'
-    }
-  },
-  {
-    path: 'user',
-    loadChildren: './user-tickets/user-tickets.module#UserTicketsPageModule',
-    canActivate: [AdminGuard],
-    data: {
-      role: 'USER'
-    }
-  },
+  { path: 'admin', loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardPageModule', canActivate: [AdminGuard], data: { role: 'ADMIN' } },
+  { path: 'user', loadChildren: './user-tickets/user-tickets.module#UserTicketsPageModule', canActivate: [AdminGuard], data: { role: 'USER' } },
   { path: '**', redirectTo: '/home' },
 ];
 

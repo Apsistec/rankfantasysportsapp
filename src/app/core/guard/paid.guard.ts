@@ -6,7 +6,7 @@ import {
   Router
 } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { AlertController } from '@ionic/angular';
+import { MessageService } from '../services/message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ import { AlertController } from '@ionic/angular';
 export class PaidGuard implements CanActivate {
   constructor(
     private auth: AuthService,
-    private alertController: AlertController,
     private router: Router,
+    private message: MessageService
   ) {}
 
   async canActivate(
@@ -28,14 +28,7 @@ export class PaidGuard implements CanActivate {
     const isMember = (!!bronze || !!gold || !!silver);
 
     if (!isMember) {
-      const alert = await this.alertController.create({
-        header: 'Security Alert',
-        subHeader: 'Pro Members only',
-        message: 'Purchase one of the RF$ Pro Memberships for immediate access.',
-        buttons: ['OK'],
-        cssClass: 'alertCustomCss'
-      });
-      alert.present();
+      this.message.needPaymentAlert();
       this.router.navigateByUrl('/purchase');
     }
     return isMember;

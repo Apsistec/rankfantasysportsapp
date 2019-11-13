@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../../core/services/message.service';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -10,11 +11,13 @@ import { NgForm } from '@angular/forms';
 })
 
 export class ForgotPasswordComponent implements OnInit {
-
+  titleId = 'Reset Password';
+  
   constructor(
+    public message: MessageService,
     public auth: AuthService,
     private router: Router,
-    private afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {
@@ -24,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
     const email = form.value.email;
     this.afAuth.auth.sendPasswordResetEmail(email).then
     (() => {
-      this.auth.resetPasswordToast();
+      this.message.resetPasswordAlert(email);
     });
   }
 }

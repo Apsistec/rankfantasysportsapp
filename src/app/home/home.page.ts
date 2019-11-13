@@ -11,6 +11,9 @@ import { ModalController } from '@ionic/angular';
 })
 
 export class HomePage implements OnInit {
+
+  @ViewChild(IonContent) ionContent: IonContent;
+  scrolledDown = false;
   slide: any;
   slideOpts = {
     centeredSlides: true,
@@ -19,12 +22,10 @@ export class HomePage implements OnInit {
       delay: 4000,
     },
   };
-  @ViewChild(IonContent) ionContent: IonContent;
-  scrolledDown = false;
-
+  titleId = 'RF$ Home';
   public trustedVideoUrl: SafeResourceUrl;
   video: any = {
-    url: 'https://www.youtube.com/embed/IlU_RBT2zE0',
+    url: 'https://www.youtube.com/embed/IlU_RBT2zE0'
   };
 
   constructor(
@@ -42,20 +43,15 @@ export class HomePage implements OnInit {
     }
   }
 
-
-
   ngOnInit() {
     this.showVid();
   }
 
-
   showVid() {
-    (this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url));
+    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url);
   }
 
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
-
-
 }

@@ -6,7 +6,8 @@ import { AuthService } from '../core/services/auth.service';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
-
+  titleId = 'Rank Fantasy $ports Welcomes You';
+  
   constructor(
     public auth: AuthService
   ) { }

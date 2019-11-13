@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
 import { AdminDashboardPage } from './admin-dashboard.page';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -18,6 +17,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],

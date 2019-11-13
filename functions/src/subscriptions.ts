@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
-import { stripe, db } from './config'; 
+import { stripe, db } from './config';
 import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
 
@@ -16,7 +16,7 @@ export const getSubscriptions = async(uid: string) => {
 Creates and charges user for a new subscription
 */
 export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string, idempotency_key?: string) => {
- 
+
     const customer = await getOrCreateCustomer(uid);
 
     await attachSource(uid, source);
@@ -24,20 +24,16 @@ export const createSubscription = async (uid: string, source: string, plan: stri
     const subscription = await stripe.subscriptions.create({
         customer: customer.id,
         coupon,
-        items: [
-            {
-            plan,
-            },
-        ],
+        items: [{ plan }],
         trial_from_plan: true,
-        
+
     }, { idempotency_key });
 
     // Add the plan to existing subscriptions
     const docData = {
         [plan]: true,
-        [subscription.id]: 'active',
-    }   
+        [subscription.id]: 'active'
+    }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
 

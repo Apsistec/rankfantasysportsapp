@@ -12,7 +12,7 @@ import { AuthService } from '../core/services/auth.service';
 export class TablePage implements OnInit {
   // @ViewChild('agGrid') agGrid: AgGridAngular;
 
-  title = 'app';
+  titleId = 'RF$ Table';
 
   // columnDefs = [
   //   { headerName: 'Make', field: 'make', sortable: true, filter: true, checkboxSelection: true },

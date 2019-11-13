@@ -1,159 +1,185 @@
-<ion-header tranlucent>
+<!-- <ion-header tranlucent>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-menu-button color="warning"> 
+      <ion-menu-button color="warning">
       </ion-menu-button>
     </ion-buttons>
-    <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
+    <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()"> -->
       <!-- <ion-button type="button"  -->
-      <ion-icon name="arrow-dropdown"></ion-icon>
+      <!-- <ion-icon name="arrow-dropdown"></ion-icon>
         <ion-avatar>
-          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/> 
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/>
         </ion-avatar>
-          &nbsp; 
+          &nbsp;
           &nbsp;
         <ion-icon color="danger" name="log-out" icon-only>
         </ion-icon>
       </ion-item>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
   <!-- <ion-grid>
     <ion-row >
       <ion-col > -->
-        <ion-card class="ion-text-center" color="primary">
+        <ion-card class="ion-text-center" color="medium">
           <!-- <ion-img src="../../../assets/logo.jpg"></ion-img>  -->
           <ion-card-header>
-              
+
             <ion-card-title>
-              <ion-text color="secondary" style="text-shadow: 1px 1px #000000;">
-                <strong>
-                  Account Registration
-                </strong>
-              </ion-text>
-            </ion-card-title>
-            <h4 style="text-shadow: 1px 1px black;">
-                          <ion-text color="warning" style="text-shadow: 1px 1px black;">Step 2:</ion-text>&nbsp;Register an Account
-                        </h4>
-                        <hr>
-         
+            <ion-text color="secondary" style="text-shadow: .1em .1em .15em black;">
+               <h2 style="text-shadow: 1px 1px #000000;">
+                 Account Registration
+                </h2>
+            </ion-text>
+              </ion-card-title>
+              <ion-card-subtitle >
+                <h5 style="text-shadow: 1px 1px #000000;">
+                <ion-text color="warning">Step 2:</ion-text>&nbsp;Register an Account
+                </h5>
+            </ion-card-subtitle>
         </ion-card-header>
           <form [formGroup]="registerForm" (ngSubmit)="register()">
-            <ion-item color="medium" >
+            <ion-item color="primary" >
               <ion-label color="warning" position="floating">First Name</ion-label>
               <ion-input formControlName="firstName" required></ion-input>
             </ion-item>
-           
+
             <div *ngIf="registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)"
                       class="alert alert-danger">
-  
+
                     <div *ngIf="registerForm.controls['firstName'].errors.required">
-                      <ion-text color="danger">
+                      <ion-text color="danger" style="text-shadow: .1em .1em   #000000;">
 
                         First Name is required.
                       </ion-text>
                     </div>
             </div>
-             
-            <ion-item  class="form-group" color="medium">
+
+            <ion-item  class="form-group" color="primary  ">
               <ion-label color="warning" position="floating">Last Name</ion-label>
               <ion-input formControlName="lastName" required></ion-input>
             </ion-item>
-        
+
               <div *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)"
                   class="alert alert-danger">
 
                 <div *ngIf="registerForm.controls['lastName'].errors.required">
-                  <ion-text color="danger">
+                  <ion-text color="danger" style="text-shadow: .1em .1em   #000000;">
 
                     Last Name is required.
                   </ion-text>
                 </div>
             </div>
-                <ion-item color="medium" >
+                <ion-item color="primary" >
                   <ion-label  color="warning" position="floating">Email</ion-label>
                      <ion-input  style="width: 95%;" type="email" formControlName="email" required></ion-input>
                 </ion-item>
-               
+
                     <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
                       class="alert alert-danger">
-  
+
                     <div *ngIf="registerForm.controls['email'].errors.required">
-                     <ion-text color="danger">
+                     <ion-text color="danger" style="text-shadow: .1em .1em   #000000;">
 
                        Email is required.
                       </ion-text>
                     </div>
                     <div *ngIf="registerForm.controls['email'].errors.email">
-                     <ion-text color="danger">
+                     <ion-text color="danger" style="text-shadow: .1em .1em #000000;">
 
                        Email is not Valid.
                       </ion-text>
                     </div>
             </div>
 
-                <ion-item color="medium">
+                <ion-item color="primary">
                   <ion-label color="warning" position="floating">Password</ion-label>
                   <ion-input id="password" style="width: 89%;" [type]="hide ? 'password' : 'text'" class="form-control" formControlName="password" required></ion-input>
-                  
-                  <ion-button color="medium" shape="round" item-end (click)="hide = !hide" *ngIf="hide" style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
+
+                  <ion-button color="light" shape="round" item-end (click)="hide = !hide" *ngIf="hide" style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
                     <ion-icon color="tertiary" name="eye" size="large">
                     </ion-icon>
                   </ion-button>
-                  <ion-button color="medium" shape="round" item-end (click)="hide = !hide" *ngIf="!hide" style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
+                  <ion-button color="light" shape="round" item-end (click)="hide = !hide" *ngIf="!hide" style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
                       <ion-icon color="tertiary" name="eye-off" size="large">
                       </ion-icon>
                     </ion-button>
                   </ion-item>
-              
+
                     <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
                       class="alert alert-danger">
-  
+
                     <div *ngIf="registerForm.controls['password'].errors.required">
-                     <ion-text color="danger">
+                     <ion-text color="danger" style="text-shadow: .1em .1em  #000000;">
 
                        Password is required.
                       </ion-text>
                     </div>
                     <div *ngIf="registerForm.controls['password'].hasError('minlength')">
-                      <ion-text color="danger">
+                      <ion-text color="danger" style="text-shadow: .1em .1em  #000000;">
 
                         Password must be at least 8 characters long.
                       </ion-text>
                     </div>
                     <div *ngIf="registerForm.controls['password'].errors.maxlength">
-                     <ion-text color="danger">
+                     <ion-text color="danger" style="text-shadow: .1em .1em  #000000;">
 
                        Password must be less than 25 characters long.
                       </ion-text>
                     </div>
                     <div *ngIf="registerForm.controls['password'].errors.pattern">
-                     <ion-text color="danger">
+                     <ion-text color="danger" style="text-shadow: .1em .1em  #000000;">
 
                        Password must contain 1 uppercase, 1 lowercase and 1 digit.
                       </ion-text>
                     </div>
                     </div>
-                  
-                  
+
+
               <ion-button strong type="submit"  color="tertiary" expand="full" [disabled]="!registerForm.valid">
-                <ion-icon name="checkmark" slot="end"></ion-icon>
-                <ion-text color="warning"><strong>Register</strong></ion-text><ion-ripple-effect></ion-ripple-effect>
+                <ion-icon slot="start" color="warning" name="checkmark" slot="end"></ion-icon>
+                <ion-text style="text-shadow: .1em .1em .15em  #000000;" color="warning"><strong>Register</strong></ion-text><ion-ripple-effect></ion-ripple-effect>
               </ion-button>
             </form>
-                        
 
-          <ion-button color="danger" type="button" (click)="GoogleRegister()" expand="full">Login with&nbsp; <ion-icon name="logo-google"></ion-icon>
+                   <ion-text color="dark" style="text-shadow: .1em .1em .1em  #8fb488;">
+                    <h6>
+                        Or register with one of your existing credentials...
+                    </h6>
+                    </ion-text>
+                   <hr>
+
+          <ion-button color="danger" type="button" (click)="GoogleRegister()" expand="full">
+            <ion-text color="silver" style="text-shadow: .1em .1em .1em  #000000;">
+              Google  &nbsp;
+            </ion-text>
+
+            <ion-icon slot="start" color="warning" name="logo-google"></ion-icon>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-button>
-          <ion-button color="twittr" type="button" (click)="TwitterRegister()" expand="full">Login with&nbsp; <ion-icon name="logo-twitter"></ion-icon>
+          <ion-button color="twittr" type="button" (click)="TwitterRegister()" expand="full">
+            <ion-text color="medium" style="text-shadow: .05em .05em .05em #1a2221; ">
+                Twitter&nbsp;
+              </ion-text>
+
+              <ion-icon slot="end" color="silver" name="logo-twitter"></ion-icon>
+              <ion-ripple-effect></ion-ripple-effect>
+            </ion-button>
+            <ion-button color="msoft"  type="button" (click)="MicrosoftRegister()" expand="full">
+              <ion-text color="gold" style="text-shadow: .1em .1em .15em #000000; ">
+                  Microsoft&nbsp;
+            </ion-text>
+
+            <ion-icon slot="start" color="deepo" name="logo-windows"></ion-icon>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-button>
-          <ion-button color="msoft"  type="button" (click)="MicrosoftRegister()" expand="full">Login with&nbsp; <ion-icon name="logo-windows"></ion-icon>
-            <ion-ripple-effect></ion-ripple-effect>
-          </ion-button>
-          <ion-button color="facebk"  type="button" (click)="FacebookRegister()" expand="full">Login with&nbsp; <ion-icon name="logo-facebook"></ion-icon>
+          <ion-button color="facebk"  type="button" (click)="FacebookRegister()" expand="full">
+            <ion-text color="twittr" style="text-shadow: .1em .1em .15em #000000; ">
+              Facebook&nbsp;
+            </ion-text>
+
+            <ion-icon slot="end" color="twittr" name="logo-facebook"></ion-icon>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-button>
             <!-- <ion-grid class="ion-class="ion-text-center"">

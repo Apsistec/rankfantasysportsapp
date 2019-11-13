@@ -24,7 +24,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
   isClickedGold = false;
   isClickedBronze = false;
   planChosen = false;
-
+  titleId = 'Rank Fantasy $ports Pro Membership'
   stripe: stripe.Stripe;
   card;
   cardErrors;
@@ -116,17 +116,17 @@ export class PurchasePage implements OnInit, AfterViewInit {
     const elements = this.stripe.elements();
     const style = {
       base: {
-        color: '#227733',
+        color: '#268135',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontSize: '22px',
         '::placeholder': {
           color: '#9911c4'
         }
       },
       invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
+        color: '#981a00',
+        iconColor: '#981a00'
       }
     };
 

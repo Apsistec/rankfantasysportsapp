@@ -1,15 +1,4 @@
-<ion-header tranlucent>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button color="warning"> 
-        </ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-       <ion-text color="secondary" text-wrap>
-          Recent RF<ion-text color="secondary">$</ion-text>&trade; Tweets</ion-text>
-        </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [titleId]= "titleId"></app-header>
 <ion-content
   (ionScroll)="onScroll($event)"
   [scrollEvents]="true"
@@ -19,7 +8,7 @@
     <ion-row>
       <ion-col offset-lg="3">
 
-        
+
         <div class="twitter-container">
           <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
           [opts]="{chrome: ['transparent', 'nofooter', 'noscrollbar'], theme: 'dark', tweetLimit: '20', borderColor: '#02ed25', ariaPolite: 'assertive'}">

@@ -8,7 +8,7 @@ import { AuthService } from '../core/services/auth.service';
   styleUrls: ['./pricing.page.scss'],
 })
 export class PricingPage implements OnInit {
-
+  titleId = 'RF$ Pro Membership Pricing';
   constructor(public auth: AuthService) { }
 
   ngOnInit() {

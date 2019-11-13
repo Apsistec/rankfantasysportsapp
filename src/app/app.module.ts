@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctionsModule, FUNCTIONS_ORIGIN  } from '@angular/fire/functions';
+import { AngularFirePerformanceModule } from '@angular/fire/performance';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicStorageModule } from '@ionic/storage';
@@ -46,6 +47,7 @@ import { TicketComponent } from './tickets/ticket.component';
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirePerformanceModule,
     // NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig),
     CommonModule,
     IonicModule.forRoot(),
@@ -69,7 +71,8 @@ import { TicketComponent } from './tickets/ticket.component';
     SplashScreen,
     Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    // { provide: FUNCTIONS_ORIGIN, useValue: 'https://.web.app' }
   ],
   exports: [
   ],

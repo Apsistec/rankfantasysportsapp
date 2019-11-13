@@ -11,9 +11,10 @@ import { IonContent } from '@ionic/angular';
 })
 export class FaqPage implements OnInit {
   faqs = Faqs;
-
+  titleId = 'Rank Fantasy Sports FAQs';
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;
+
   constructor(
     public auth: AuthService,
   ) { }

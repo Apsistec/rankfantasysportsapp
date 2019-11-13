@@ -7,7 +7,7 @@ import { AuthService } from '../core/services/auth.service';
 })
 export class HowToPage implements OnInit {
   @Input() user;
-
+  titleId = 'How To... RF$';
 
   constructor(public auth: AuthService) { }
 

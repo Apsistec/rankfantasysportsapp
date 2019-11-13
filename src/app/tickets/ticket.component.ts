@@ -45,7 +45,7 @@ export class TicketComponent implements OnInit {
         });
 
         this.ticketForm.controls['title'].disable();
-        this.ticketForm.controls['desc'].disable();
+        // this.ticketForm.controls['desc'].disable();
 
         this.ticket.getUser(ticket['creator']).subscribe(user => {
           this.user = user['email'];

@@ -1,7 +1,8 @@
 import { AuthService } from '../core/services/auth.service';
+import { MessageService } from '../core/services/message.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { AlertController, ToastController, LoadingController, ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -13,15 +14,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class RegisterComponent implements OnInit {
   @Input() user;
-
+  loading;
   registerForm: FormGroup;
   hide = true;
 
   constructor(
     public auth: AuthService,
     private afs: AngularFirestore,
-    private alertCtrl: AlertController,
-    private toastCtrl: ToastController,
+    private message: MessageService,
     private router: Router,
     private loadingCtrl: LoadingController,
     public modalCtrl: ModalController
@@ -37,41 +37,29 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+  async loadLoader() {
+    this.loading = await this.loadingCtrl.create({
+      message: 'Loading... Please wait'
+    });
+    this.loading.present();
+  }
+  async dismissLoader() {
+    await this.loadingCtrl.dismiss();
+  }
 
   async register() {
-    const loading = await this.loadingCtrl.create({
-      message: 'Loading...'
-    });
-
-    await loading.present();
-
+    this.loadLoader();
+    const fullName: string = this.registerForm.value.firstName + this.registerForm.value.lastName;
     this.auth.signUp(this.registerForm.value).then(async res => {
-      loading.dismiss();
+      this.dismissLoader();
       this.modalDismiss();
-      this.registerSuccessToast(this.registerForm.value);
-      this.modalDismiss();
+      this.message.registerSuccessToast(fullName);
     }, async err => {
-      loading.dismiss();
-      const alert = await this.alertCtrl.create({
-        header: 'Error',
-        message: err.message,
-        buttons: ['OK']
-      });
-      alert.present();
+      this.dismissLoader();
+      this.message.errorAlert(err);
     });
   }
-  async registerSuccessToast(user) {
-    const toast = await this.toastCtrl.create({
-      header: 'Registration Successful',
-      message: 'Welcome ' + user.firstName + '. Account Created using ' + user.email,
-      cssClass: 'login',
-      position: 'top',
-      duration: 5000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    return toast.present();
-  }
+
 
   // Register in with Google
   async GoogleRegister() {
@@ -93,7 +81,7 @@ export class RegisterComponent implements OnInit {
     await this.auth.AuthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
     return this.modalDismiss();
   }
-  
+
   modalDismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data

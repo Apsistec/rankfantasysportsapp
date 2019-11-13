@@ -7,13 +7,13 @@
   "lang": "en-US",
   "serviceworker": {
     "src": "./ngsw-worker.js",
-    "type": "",
-    "update_via_cache": "none",
+    "update_via_cache": "none"
+  },
   "categories": ["sports", "entertainment", "statistics"],
   "theme_color": "#4a525e",
   "background_color": "#231540",
   "display": "standalone",
-  "scope": "https://rankfantasysports.com/",
+  "scope": "/",
   "start_url": "/",
   "icons": [
     {

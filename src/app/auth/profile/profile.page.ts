@@ -2,8 +2,18 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { ThemeService } from '../../core/services/theme.service';
-import { LoadingController, AlertController, ToastController, ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument
+} from '@angular/fire/firestore';
+import { Observable, Subscription, of } from 'rxjs';
+import { switchMap, first, map } from 'rxjs/operators';
+import { User } from '../../core/models/user';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MessageService } from '../../core/services/message.service';
+import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from '../../core/models/stripe.models';
 
 const themes = {
   autumn: {
@@ -38,43 +48,44 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-
-  @Input() user;
+  titleId = 'RF$ User Profile';
   @Input() planId: string;
-  subInfo;
+  subscriptions$: Observable<SubscriptionPlan[]>;
   subId;
   confirmation;
-
+  charges$: Observable<Charge[]>;
+  data;
   constructor(
     public functions: AngularFireFunctions,
     public theme: ThemeService,
     public load: LoadingController,
     public modalCtrl: ModalController,
     public auth: AuthService,
-    private toast: ToastController,
+    private afAuth: AngularFireAuth,
     private router: Router,
-    private alert: AlertController
+    private afs: AngularFirestore,
+    private message: MessageService
   ) {
 
     }
   ngOnInit() {
+    // this.user$ = this.afAuth.authState.pipe(
+    //   switchMap(user => {
+    //     if (user) {
+    //       return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+    //     } else {
+    //       return of(null);
+    //     }
+    //   })
+    // );
+
+    // this.user = this.afAuth.authState.pipe(first()).toPromise();
+
+    // this.subscriptions$ = this.auth.user.pipe(map( user => user.subscriptions || {} ));
     this.getSubscriptionInfo();
-    // this.sortPlan();
+   this.getCharges();
   }
 
-  // sortPlan() {
-  //   this.auth.getUser();
-  //     if (this.user.gold) {
-  //       this.planId = 'gold';
-  //     } else if (this.user.silver) {
-  //       this.planId = 'silver';
-  //     } else if (this.user.bronze) {
-  //       this.planId = 'bronze';
-  //     } else {
-  //       this.planId = '';
-  //     }
-  //   console.log(this.planId);
-  // }
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
@@ -92,42 +103,27 @@ export class ProfilePage implements OnInit {
   }
 
   async getSubscriptionInfo() {
-    this.presentLoader();
-    this.user = this.auth.getUser();
+    const user = await this.auth.getUser();
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.subInfo = await fun({
-      uid: this.user.uid,
-    }).toPromise();
-    this.onDismissLoader()
-    .catch((error) => {
-      window.alert(error.message);
-    });
+    this.subscriptions$ = await fun({
+      uid: user.uid,
+    }).pipe(map(res => res.data));
   }
-  // async subscribedToast() {
-  //   const toast = await this.toast.create({
-  //     header: 'Authentication Message:',
-  //     cssClass: 'login',
-  //     message: 'Thank You for your payment. You are subscribed!',
-  //     position: 'top',
-  //     duration: 5000,
-  //     showCloseButton: true,
-  //     translucent: true,
-  //   });
-  //   toast.present();
-  // }
+
+
+  async getCharges() {
+    const user = await this.auth.getUser();
+    const fun = this.functions.httpsCallable('stripeGetCharges');
+    this.charges$ = await fun({
+      uid: user.uid,
+      limit: '10'
+    }).pipe(map(res => res.data));
+  }
+
   async viewInvoicesModal() {
 
   }
 
-  async unsubscribedAlert() {
-    const alert = await this.alert.create({
-      header: 'Account Cancellation Message',
-      cssClass: 'logout',
-      message: 'We are sorry to see you go, but your account has been canceled.',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
 
   async cancelSubscription() {
     this.presentLoader();
@@ -140,7 +136,7 @@ export class ProfilePage implements OnInit {
     return this.onDismissLoader().then
     (() => {
       this.router.navigate(['/home']);
-      return this.unsubscribedAlert();
+      return this.message.unsubscribedAlert();
     }).catch((error) => {
       window.alert(error.message);
     });

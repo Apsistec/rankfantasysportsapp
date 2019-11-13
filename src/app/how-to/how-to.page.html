@@ -1,28 +1,4 @@
-<ion-header tranlucent>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button color="warning"> 
-        </ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        <ion-text color="secondary">
-            How To...
-        </ion-text>
-      </ion-title>
-    <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
-      <!-- <ion-button type="button"  -->
-      <ion-icon name="arrow-dropdown"></ion-icon>
-        <ion-avatar>
-          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/> 
-        </ion-avatar>
-          &nbsp; 
-          &nbsp;
-        <ion-icon color="danger" name="log-out" icon-only>
-        </ion-icon>
-      </ion-item>
-  </ion-toolbar>
-</ion-header>
-
+<app-header [titleId]= "titleId"></app-header>
 
 <ion-content class="howto">
   <ion-grid>
@@ -33,15 +9,15 @@
           <ion-card-header class="ion-text-center">
 
             <ion-card-title>
-     <ion-text color="secondary" style="text-shadow: 1px 1px #000000;">
+     <ion-text color="secondary" style="text-shadow: .1em .1em .15em #000000;">
       <strong>
 
-        How To...    
+        How To...
       </strong>
      </ion-text>
     </ion-card-title>
             <ion-card-subtitle>
-     <ion-text color="warning" style="text-shadow: 1px 1px #000000;">
+     <ion-text color="warning" style="text-shadow: .1em .1em .15em #000000;">
 
       Instructions for Purchase &amp; Usage of the RF$&trade; App
     </ion-text>
@@ -49,44 +25,46 @@
   </ion-card-header>
   <ion-card-content>
 
-    <ion-text color="light" style=" text-shadow: 1px 1px #000000;">
-        
+    <ion-text color="twittr" style="text-shadow: .1em .1em .15em #000000;">
+
       <ol type="1">
         <li>
 
-          Go to www.rankfantasysports.com
+          Click on the <ion-text color="warning">&#x2630;</ion-text> "hamburger menu" in the top left corner of this app at www.rankfantasysports.com.
         </li>
         <br>
         <li>
-          Click the, “7 day free trial” button.
-
+          Click the 7 day "Free Trial” menu item button.
         </li>
         <br>
         <li>
-          Create an account with your email address and password.
-        </li>
-        <br>
-        <li>
-          Pick which package you want:
+          Pick which Pro package you want:
             <ol type="a">
               <li>
-                <ion-chip style="color:darkgoldenrod;">
+                <ion-chip color="bronze">
                 Bronze package</ion-chip> $9.99 per month
               </li>
               <li>
-                <ion-chip style="color:silver;">
+                <ion-chip color="silver">
                 Silver package</ion-chip> $50 semi-annually (every 6 months)
               </li>
               <li>
-                <ion-chip style="color:gold;">
+                <ion-chip color="gold">
                 Gold package</ion-chip> $90 annually
-                
               </li>
-            </ol> 
+            </ol>
           </li>
-          <br>
+        <br>
         <li>
-          Click the hamburger menu in the top left corner &amp; click the Happening Now tab to see Today’s DK Value Rankings.
+          Create an account with your name, email address and password, or use your Social Media credentials.
+        </li>
+        <br>
+        <li>
+          Now enter in your payment details and submit. Payment is complete when you land on the "Welcome Page". Congratualations, welcome aboard!
+        </li>
+        <br>
+        <li>
+          To View the Tables: Now, click the <ion-text color="warning">&#x2630;</ion-text> "hamburger menu" in the top left corner &amp; click the "Happening Now" menu item button to see "Today’s DraftKings Value Rankings".
         </li>
         <br>
         <li>
@@ -113,23 +91,27 @@
       <ion-grid>
         <ion-row>
           <ion-col size="12" offset="4">
-            <ion-button *ngIf="auth.user" shape="round" color="secondary" routerLink="/auth/profile">
-              <ion-text color="warning">
+            <ion-button *ngIf="auth.currentUser; else purchase" shape="round" color="deepo" routerLink="/auth/profile">
+              <ion-text color="tertiary">
                 Get Started
               </ion-text>
             </ion-button>
-            <ion-button *ngIf="!auth.user" shape="round" color="secondary" routerLink="/purchase">
-              <ion-text color="warning">
-                View Pro Packages
-              </ion-text>
-            </ion-button>
+
+            <ng-template #purchase>
+
+              <ion-button shape="round" color="deepo" routerLink="/purchase">
+                <ion-text color="tertiary">
+                  View Pro Packages
+                </ion-text>
+              </ion-button>
+            </ng-template>
 
           </ion-col>
         </ion-row>
       </ion-grid>
 
-         
-      
+
+
     </ion-card-content>
     </ion-card>
 </ion-col>

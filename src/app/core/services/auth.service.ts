@@ -5,11 +5,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { switchMap, take, map, tap, first } from 'rxjs/operators';
 import { from, Observable, of, BehaviorSubject } from 'rxjs';
+import { User } from '../models/user';
+import { MessageService } from './message.service';
 
-import {
-  AlertController,
-  ToastController,
-  } from '@ionic/angular';
 // import { Storage } from '@ionic/storage';
 
 @Injectable({
@@ -18,14 +16,14 @@ import {
 export class AuthService {
   user: Observable<any>;
   currentUser = new BehaviorSubject(null);
+  userData: User;
 
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     private router: Router,
-    private toastCtrl: ToastController,
-    private alertCtrl: AlertController,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private message: MessageService
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -168,17 +166,31 @@ export class AuthService {
     return true;
   }
 
+  // hasRole(role: string[]): boolean {
+  //   for (const rol of role) {
+  //     if (!this.currentUser.value || !this.currentUser.value.role.includes(rol)) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
 
   async signUp(credentials) {
-      return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password).then(data => {
-      return this.afs.doc(`users/${data.user.uid}`).set({
+    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password)
+    .then(data => {
+      return this.afs.doc<User>(`users/${data.user.uid}`).set({
         displayName: credentials.firstName + ' ' + credentials.lastName,
         email: data.user.email,
         uid: data.user.uid,
         role: 'USER',
-        permissions: ['delete-ticket', ''],
+        permissions: ['delete-ticket'],
         firstSignIn: firebase.firestore.FieldValue.serverTimestamp(),
+        photoURL: data.user.photoURL
       }, {merge: true});
+    })
+    .catch(async (err) => {
+      this.message.errorAlert(err);
+
     });
   }
 
@@ -186,7 +198,7 @@ export class AuthService {
     return from(this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password)).pipe(
       switchMap(user => {
         if (user) {
-          return this.afs.doc(`users/${user.user.uid}`).valueChanges().pipe(
+          return this.afs.doc<User>(`users/${user.user.uid}`).valueChanges().pipe(
             take(1)
           );
         } else {
@@ -196,166 +208,79 @@ export class AuthService {
     );
   }
 
-
-
-  // Auth logic to Register using federated auth providers
+// Auth logic to Register using federated auth providers
   async AuthRegister(provider) {
     return await this.afAuth.auth.signInWithPopup(provider)
       .then((data) => {
-        return this.afs.doc(`users/${data.user.uid}`)
-          .set({
-            displayName: data.user.displayName,
-            email: data.user.email,
-            uid: data.user.uid,
-            role: 'USER',
-            permissions: [],
-            firstSignIn: firebase.firestore.FieldValue.serverTimestamp(),
-            photoURL: data.user.photoURL
-          }, { merge: true })
-          .then(async () => {
-            const toast = await this.toastCtrl.create({
-              header: 'Registration Successful',
-              message: 'Welcome ' + data.user.displayName + '. Account Created using ' + data.user.email,
-              cssClass: 'login',
-              position: 'top',
-              duration: 5000,
-              showCloseButton: true,
-              translucent: true,
-            });
-            toast.present();
-          })
-          .then(() => {
-            this.ngZone.run(() => {
-              this.router.navigateByUrl('/purchase');
-            });
+        return this.afs.doc<User>(`users/${data.user.uid}`)
+        .set({
+          displayName: data.user.displayName,
+          email: data.user.email,
+          uid: data.user.uid,
+          role: 'USER',
+          permissions: ['delete-ticket'],
+          firstSignIn: firebase.firestore.FieldValue.serverTimestamp(),
+          photoURL: data.user.photoURL
+        }, { merge: true })
+        .then(async () => {
+
+        })
+        .then(() => {
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/purchase');
           });
+        });
       })
-      .catch((error) => {
-        window.alert(error.message);
+      .catch(async (err) => {
+        this.message.errorAlert(err);
       });
   }
 
   // Auth logic to Login using federated auth providers
-  AuthLogin(provider) {
-    this.afAuth.auth.signInWithPopup(provider)
-    .then((result) => {
-      this.federatedLoginToast(result);
-      return this.afs.doc(`users/${result.user.uid}`)
-      .update({
-        thisSignIn: firebase.firestore.FieldValue.serverTimestamp(),
-      });
-    }).then(() => {
-      this.ngZone.run(() => {
-        this.router.navigateByUrl('/auth/profile');
-      });
-    }).catch((error) => {
-      window.alert(error.message);
-    });
+  async AuthLogin(provider) {
+    const result =  await this.afAuth.auth.signInWithPopup(provider);
+    // .then((result) => {
+      if (!result.user) {
+        this.SignOut()
+        .then (async(wrongAccount) => {
+          this.message.wrongAccountAlert();
+        });
+      } else {
+        this.message.federatedLoginToast(result);
+        return this.afs.doc(`users/${result.user.uid}`).update({
+          // lastSignIn: this.afs.collection('users/${result.user.uid}', ref => ref.onSnapshot
+        })
+        .then(() => {
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/auth/profile');
+          });
+        })
+        .catch(async (err) => {
+          this.message.errorAlert(err);
+        });
+      }
   }
 
 
-  resetPassword(email: string) {
-     this.afAuth.auth.sendPasswordResetEmail(email)
-      .then(() => this.resetPasswordToast())
-      .catch((error) => alert(error.message));
+  async resetPassword(email: string) {
+    await this.afAuth.auth.sendPasswordResetEmail(email)
+    .then(() => this.message.resetPasswordAlert(email))
+    .catch(async (err) => {
+      this.message.errorAlert(err);
+
+    });
   }
 
   // Sign out
   async SignOut() {
     await this.afAuth.auth.signOut()
     .then(() => {
-      localStorage.removeItem('user');
-      return this.signOutToast()
-        .then(() => {
-          return this.router.navigate(['/home']);
-        });
-    }).catch(async (err) => {
-      const alert = await this.alertCtrl.create({
-        header: 'Error',
-        message: err.message,
-        buttons: ['OK']
+      return this.message.signOutToast()
+      .then(() => {
+        return this.router.navigate(['/home']);
       });
-      alert.present();
+    }).catch(async (err) => {
+      this.message.errorAlert(err);
     });
   }
-
-  async federatedLoginToast(data) {
-    const toast = await this.toastCtrl.create({
-      header: 'Login Successful',
-      message: 'Welcome back ' + data.user.displayName + '. Email: ' + data.user.email,
-      cssClass: 'login',
-      position: 'top',
-      duration: 5000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    toast.present();
-  }
-
-  async needLoginToast() {
-    const toast = await this.toastCtrl.create({
-    header: 'Account Required:',
-    cssClass: 'halt',
-    message: 'To Get Started, First Register an Account or Login',
-    position: 'top',
-    duration: 4000,
-    showCloseButton: true,
-    translucent: true,
-  });
-  return toast.present();
-  }
-
-  async needPaymentToast() {
-    const toast = await this.toastCtrl.create({
-      header: 'Paid Subscription Required',
-      cssClass: 'halt',
-      message: 'Immediate Access Available with a PRO Package',
-      position: 'top',
-      duration: 4000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    return toast.present();
-  }
-
-  async resetPasswordToast() {
-    const toast = await this.toastCtrl.create({
-      header: 'Request Successful:',
-      cssClass: 'neutral',
-      message: 'Check your email for further instructions',
-      position: 'top',
-      duration: 4000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    return toast.present();
-  }
-
-
-
-  async verifyEmailToast() {
-    const toast = await this.toastCtrl.create({
-      header: 'Verification Email Sent',
-      cssClass: 'neutral',
-      message: 'Check Your Email for further instructions',
-      position: 'top',
-      duration: 1500,
-      translucent: true,
-    });
-    return toast.present();
-  }
-
-  async signOutToast() {
-    const toast = await this.toastCtrl.create({
-      header: 'Sign Out Successful',
-      cssClass: 'neutral',
-      message: 'Thank You for Stopping By!',
-      position: 'top',
-      duration: 4000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    return toast.present();
-  }
-
 }

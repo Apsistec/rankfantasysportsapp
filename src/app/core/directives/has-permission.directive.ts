@@ -1,12 +1,11 @@
 import { AuthService } from './../services/auth.service';
-import { Directive, TemplateRef, ViewContainerRef, OnInit, Input, OnDestroy } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[appHasPermission]'
 })
 export class HasPermissionDirective implements OnInit {
-  // subscription: Subscription;
 
   @Input('appHasPermission') permissions: string[];
 
@@ -23,9 +22,5 @@ export class HasPermissionDirective implements OnInit {
         }
       });
     }
-  // ngOnDestroy(): void {
-  //   // Called once, before the instance is destroyed.
-  //   // Add 'implements OnDestroy' to the class.
-  //   this.subscription.unsubscribe();
-  // }
+
 }

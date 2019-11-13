@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private alertController: AlertController,
+    private alert: AlertController,
   ) { }
   async canActivate(
     next: ActivatedRouteSnapshot,
@@ -20,15 +20,15 @@ export class AuthGuard implements CanActivate {
     const isLoggedIn = !!uid;
 
       if (!isLoggedIn) {
-        const loginAlert = await this.alertController.create({
+        const loginAlert = await this.alert.create({
           header: 'Login First',
           subHeader: 'Authenticated Users Only',
           message: 'Login or Register an Account in order to access this page',
           buttons: ['OK'],
-          cssClass: 'loginAlertCss'
+          cssClass: 'danger'
         });
         loginAlert.present();
-        return this.router.navigateByUrl('/auth/register');
+        return this.router.navigateByUrl('/purchase');
       } else {
         return isLoggedIn;
       }

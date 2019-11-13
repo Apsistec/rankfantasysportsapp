@@ -2,7 +2,6 @@ import { TicketService } from './../core/services/ticket.service';
 import { AuthService } from './../core/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-// import { TicketPage } from '../ticket/ticket.page';
 import { Observable } from 'rxjs';
 import { TicketComponent } from '../tickets/ticket.component';
 @Component({
@@ -12,7 +11,7 @@ import { TicketComponent } from '../tickets/ticket.component';
 })
 export class UserTicketsPage implements OnInit {
   tickets: Observable<any>;
-
+  titleId = 'RF$ Pro Dashboard';
   constructor(
     public auth: AuthService,
     private modalCtrl: ModalController,
@@ -25,7 +24,6 @@ export class UserTicketsPage implements OnInit {
 
   async openTicketModal() {
     const modal = await this.modalCtrl.create({
-      // component: TicketPage
       component: TicketComponent
     });
     await modal.present();

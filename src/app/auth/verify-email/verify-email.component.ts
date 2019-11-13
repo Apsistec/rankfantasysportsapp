@@ -7,7 +7,7 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrls: ['./verify-email.component.scss']
 })
 export class VerifyEmailComponent implements OnInit {
-
+  titleId = 'Verify Email';
 
   constructor(
     public auth: AuthService

@@ -1,13 +1,10 @@
 import { AuthService } from '../core/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {
-  AlertController,
-  ToastController,
-  LoadingController
-} from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
+import { MessageService } from '../core/services/message.service';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +15,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
   @Input() user;
-
+  titleId = 'RF$ Login';
   constructor(
     private fb: FormBuilder,
     public auth: AuthService,
-    private alertCtrl: AlertController,
-    private toastCtrl: ToastController,
+    private message: MessageService,
     private loadingCtrl: LoadingController,
     private router: Router
   ) { }
@@ -35,16 +31,23 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  async login() {
+  async loadLoader() {
     const loading = await this.loadingCtrl.create({
-      message: 'Loading...'
+      message: 'Loading...please wait'
     });
-    await loading.present();
+    return loading.present();
+  }
 
+  dismissLoader() {
+    this.loadingCtrl.dismiss();
+  }
+
+  async login() {
+    this.loadLoader();
     await this.auth.signIn(this.loginForm.value).subscribe(
       user => {
-        loading.dismiss();
-        this.isLoggedInToast();
+        this.dismissLoader();
+        this.message.isLoggedInToast(this.loginForm.value.firstName);
         const role = user['role'];
         if (role === 'ADMIN') {
           this.router.navigateByUrl('/admin');
@@ -58,30 +61,10 @@ export class LoginComponent implements OnInit {
         }
       },
       async err => {
-        loading.dismiss();
-
-        const alert = await this.alertCtrl.create({
-          header: 'Error',
-          message: err.message,
-          buttons: ['OK']
-        });
-        alert.present();
+        this.dismissLoader();
+        this.message.errorAlert(err);
       }
     );
-  }
-
-  async isLoggedInToast() {
-    // const user = await this.auth.getUser();
-    const toast = await this.toastCtrl.create({
-      header: 'Account Sign In Successful',
-      message: 'Welcome Back ' + this.user.displayName + '. Email: ' + this.user.email,
-      cssClass: 'login',
-      position: 'top',
-      duration: 5000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    return toast.present();
   }
 
   // Sign in with Google

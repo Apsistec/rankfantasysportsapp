@@ -2,48 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8"/>
-  <title>Rank Fantasy Sports</title>
   <base href="/"/>
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8"/>
+
+  <title>Rank Fantasy Sports</title>
+  <meta name="application-name" content="RFSports">
   <meta name="description" content="The web app for Daily Fantasy Sports players who Win">
+  <meta name="theme-color" content="#4a525e">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+
+  <!-- PWA required -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
-  
+
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="RFSports">
 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <meta name="format-detection" content="telephone=no"/>
+   <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Roboto Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
   <!-- Fallback application metadata for legacy browsers -->
-  <meta name="application-name" content="RFSports">
   <!-- <link rel="icon" sizes="192x192" href="lo_def.ico">
-  <link rel="icon" sizes="512x512" href="hi_def.png"> -->
-  
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <link rel="icon" sizes="512x512" href="hi_def.png"> -->
 
-  <!-- PWA required -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4a525e">
-  
-  
-  <!-- cordova.js required for cordova apps -->
-  <script src="cordova.js"></script>
-  
   <!-- Stripe v3 -->
-  <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+  <script src="https://js.stripe.com/v3/" async></script>
+  <!-- <script type="text/javascript" src="https://js.stripe.com/v3/" ></script> -->
 
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
   <!-- Facebook Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -61,26 +58,47 @@
   </noscript>
   <!-- End Facebook Pixel Code -->
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <!-- // Open graph protocol for sharing -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.rankfantasysports.com">
-  <meta property="og:title" content="Rank Fantasy Sports Insights">
-  <meta property="og:description" content="Check out the premier Progressive Web App for Daily Fantasy Sports Players who Win!">
-  <meta property="og:image" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
-  <meta property="og:image:secure_url" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta name="twitter:card" content="summary_large_image">
-  
-  
-</head>
-<body>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9Q6WVLYF7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J9Q6WVLYF7');
+    </script>
+
+<!-- <script>
+  !function(n,e){var t,o,i,c=[],f={passive:!0,capture:!0},r=new Date,a="pointerup",u="pointercancel";
+  function p(n,c){t||(t=c,o=n,i=new Date,w(e),s())}
+  function s(){o>=0&&o<i-r&&(c.forEach(
+    function(n){n(o,t)}),c=[])}
+    function l(t){if(t.cancelable){var o=(t.timeStamp>1e12?new Date:performance.now())-t.timeStamp;"pointerdown"==t.type?
+    function(t,o){
+      function i(){p(t,o),r()}
+        function c(){r()}
+        function r(){e(a,i,f),e(u,c,f)}n(a,i,f),n(u,c,f)}(o,t):p(o,t)}}
+        function w(n){["click","mousedown","keydown","touchstart","pointerdown"].forEach(
+          function(e){n(e,l,f)})}w(n),self.perfMetrics=self.perfMetrics||{},self.perfMetrics.onFirstInputDelay=
+          function(n){c.push(n),s()}}(addEventListener,removeEventListener);
+        </script> -->
+
+        <!-- // Open graph protocol for sharing -->
+        <!-- <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.rankfantasysports.com">
+        <meta property="og:title" content="Rank Fantasy Sports Insights">
+        <meta property="og:description" content="Check out the premier Progressive Web App for Daily Fantasy Sports Players who Win!">
+        <meta property="og:image" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
+        <meta property="og:image:secure_url" content="https://drive.google.com/file/d/0B-fbO14-G6SOZGJNQzBWNERidU5KUDA5blA3aTBidkNic0JF">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta name="twitter:card" content="summary_large_image"> -->
+      </head>
+      <body>
 
   <app-root></app-root>
   <noscript>To use this application, enable javascript in your browser settings.</noscript>
-   
+
 </body>
 
 </html>

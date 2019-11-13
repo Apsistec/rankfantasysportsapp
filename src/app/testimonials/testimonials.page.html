@@ -1,27 +1,4 @@
-<ion-header tranlucent>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button color="warning"> 
-        </ion-menu-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center">
-        <ion-text color="secondary">
-          Credibility 
-        </ion-text>
-      </ion-title>
-      &nbsp;
-    <ion-title class="ion-text-center"><ion-text color="warning">Pinch</ion-text> to Zoom 
-      
-      <br>
-      <ion-icon color="warning" name="arrow-round-back" size="small"></ion-icon>
-      Swipe
-      <ion-icon color="warning" name="arrow-round-forward" size="small"></ion-icon>
-    
-    </ion-title>
-
-  </ion-toolbar>
-</ion-header>
-
+<app-header [titleId]= "titleId"></app-header>
 <ion-content color="dark" fullscreen>
   <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let slide of slides">
@@ -30,11 +7,8 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
-  
   </ion-content>
-
 <ion-footer translucent *ngIf="imgDescription.length">
-  
   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
     <ion-fab-button color="tertiary">
       <ion-icon name="rocket"></ion-icon>
@@ -51,8 +25,7 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
-  <ion-toolbar color="dark" class="ion-text-center">
+  <ion-toolbar color="medium" class="ion-text-center">
       <ion-text color="success">{{ imgDescription }}</ion-text>
 </ion-toolbar>
 </ion-footer>
-  

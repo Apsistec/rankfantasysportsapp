@@ -2,31 +2,61 @@
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
  * how you can use CSS to style your Element's container.
  */
-.StripeElement {
-  box-sizing: border-box;
+// .StripeElement {
+//   box-sizing: border-box;
 
+//   height: 40px;
+
+//   padding: 6px 10px;
+
+//   border: 1px solid transparent;
+//   border-radius: 4px;
+//   background-color: rgb(184, 184, 184);
+
+//   box-shadow: 0 1px 3px 0 #e6ebf1;
+//   -webkit-transition: box-shadow 150ms ease;
+//   transition: box-shadow 150ms ease;
+// }
+
+// .StripeElement--focus {
+//   box-shadow: 4px 4px 4px 1px #000000;
+// }
+
+// .StripeElement--invalid {
+//   border-color: #ffffff;
+// }
+
+// .StripeElement--webkit-autofill {
+//   background-color: #fff950 !important;
+// }
+
+
+/**
+* Shows how you can use CSS to style your Element's container.
+*/
+.MyCardElement {
   height: 40px;
-
   padding: 10px 12px;
-
+  width: 100%;
+  color: #32325d;
+  background-color: white;
   border: 1px solid transparent;
   border-radius: 4px;
-  background-color: white;
 
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
 }
 
-.StripeElement--focus {
+.MyCardElement--focus {
   box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
-.StripeElement--invalid {
+.MyCardElement--invalid {
   border-color: #fa755a;
 }
 
-.StripeElement--webkit-autofill {
+.MyCardElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
 
@@ -36,7 +66,7 @@
     width: 94%;
     // top: 0px;
     height: 17rem;
-    
+
 }
 
 .resp-iframe {

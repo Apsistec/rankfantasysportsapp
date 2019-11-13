@@ -1,7 +1,7 @@
 {
   "name": "rfsports",
   "description": "The App for Daily Fantasy Sports Players that Win.",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "author": "Doug White",
   "homepage": "https://www.rankfantasysports.com/",
   "scripts": {
@@ -59,7 +59,7 @@
     "css-vars-ponyfill": "^2.1.1",
     "es6-promise": "^4.2.8",
     "firebase": "^6.6.2",
-    "firebase-tools": "^7.6.2",
+    "firebase-tools": "^7.7.0",
     "google-auth-library": "^5.5.1",
     "hammerjs": "^2.0.8",
     "isomorphic-fetch": "^2.2.1",
@@ -76,7 +76,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
-    "@angular/cli": "^7.3.9",
     "@angular/compiler-cli": "^7.2.15",
     "@ionic/angular-toolkit": "~1.5.1",
     "@ionic/lab": "2.0.1",
@@ -90,6 +89,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "first-input-delay": "^0.1.3",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",

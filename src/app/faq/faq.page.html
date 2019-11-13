@@ -1,52 +1,31 @@
-<ion-header tranlucent>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button color="warning"> 
-        </ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        <ion-text color="secondary">
-          FAQs
-        </ion-text>
-      </ion-title>
-    <ion-item  button color="primary" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="auth.SignOut()">
-      <!-- <ion-button type="button"  -->
-      <ion-icon name="arrow-dropdown"></ion-icon>
-        <ion-avatar>
-          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/> 
-        </ion-avatar>
-          &nbsp; 
-          &nbsp;
-        <ion-icon color="danger" name="log-out" icon-only>
-        </ion-icon>
-      </ion-item>
-  </ion-toolbar>
-</ion-header>
+<app-header [titleId]= "titleId"></app-header>
 
-
-<ion-content 
+<ion-content
 class="ion-padding"
 fullscreen
 (ionScroll)="onScroll($event)"
 [scrollEvents]="true">
-  
-  
-  
   <ion-grid>
     <ion-row>
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <ion-card class="ion-text-center" color="primary">
           <ion-card-header>
-            <ion-card-title>
+            <ion-card-title style="text-shadow: .1em .15em .25em rgb(2, 0, 3);">
+            <ion-text color="secondary">
               RF$&trade; Frequently Asked Questions
+              </ion-text>
             </ion-card-title>
+            <ion-card-subtitle style="text-shadow: .1em .15em .25em rgb(2, 0, 3);">
+            <ion-text color="warning">
+             Click Any FAQ/Question for the Answer
+              </ion-text>
+            </ion-card-subtitle>
           </ion-card-header>
-          
           <mat-accordion >
-            <mat-expansion-panel class="colo" *ngFor="let faq of faqs">
-                <mat-expansion-panel-header >
-                  <mat-panel-title >
-                 <ion-text color="secondary"> <p ion-text-start><strong>  {{faq.title}}</strong></p></ion-text>
+            <mat-expansion-panel class="cololo" *ngFor="let faq of faqs">
+                <mat-expansion-panel-header  class="colo" >
+                  <mat-panel-title style="text-shadow: .1em .15em .25em rgb(2, 0, 3);" >
+                 <ion-text color="twittr"> <p class="ion-text-start"><strong>  {{faq.title}}</strong></p></ion-text>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <!-- <mat-panel-description>
@@ -54,29 +33,21 @@ fullscreen
                  Copy
                </ion-button>
               </mat-panel-description> -->
-              <ion-text color="warning"> <p ion-text-start>{{ faq.info }}  </p></ion-text>
-              
+              <ion-text color="tertiary"> <p style="text-shadow: .1em .1em 6 rgb(0, 0, 0);" class="ion-text-start">{{ faq.info }}
+              </p>
+            </ion-text>
             </mat-expansion-panel>
-            
           </mat-accordion>
         </ion-card>
-   
        </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
 <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" >
     <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
       <ion-icon name="arrow-dropup"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>
-
-
-
 <ion-footer translucent>
   <ion-fab vertical="bottom" horizontal="start">
     <ion-fab-button color="tertiary">

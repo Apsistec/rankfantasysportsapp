@@ -12,7 +12,7 @@ import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TermsComponent } from './terms/terms.component';
 import { MatExpansionModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
-
+import { PopoverComponent } from './popover/popover.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -22,10 +22,12 @@ import { MatDialogModule } from '@angular/material';
     PrivacyDialogComponent,
     PrivacyComponent,
     ListTablesComponent,
+    PopoverComponent
   ],
   entryComponents: [
     TermsDialogComponent,
     PrivacyDialogComponent,
+    PopoverComponent
   ],
   imports: [
     NgxTwitterTimelineModule,
@@ -38,6 +40,7 @@ import { MatDialogModule } from '@angular/material';
   exports: [
     NgxTwitterTimelineModule,
     HeaderComponent,
+    PopoverComponent,
     FooterComponent,
     PrivacyDialogComponent,
     PrivacyComponent,

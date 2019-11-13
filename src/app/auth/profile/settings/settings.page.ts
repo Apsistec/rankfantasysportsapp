@@ -13,6 +13,7 @@ export class SettingsPage implements OnDestroy, OnInit {
   @Input()
   user;
   subscription;
+  titleId = 'Profile Settings';
 
   constructor(
     public toastCtrl: ToastController,
@@ -34,9 +35,9 @@ export class SettingsPage implements OnDestroy, OnInit {
     await this.auth.updateUser(this.user.displayName);
     const toast = await this.toastCtrl.create({
       message: 'Your name was updated.',
-      duration: 2000,
+      duration: 5000,
       position: 'top',
-      cssClass: 'login',
+      cssClass: 'successT',
       translucent: true
     });
     toast.present();
