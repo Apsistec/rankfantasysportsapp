@@ -1,8 +1,6 @@
-[![Rank Fantasy Sports](https://drive.google.com/uc?export=view&id=1qNmOARsFsiJeri9mIi_sBRIPXHLHq1a22h8LZC1jzLs)](http://rankfantasysports.com)
-
 # rfs
 
-> A cross platform progressive web app for daily fantasy sports players who Win
+> A cross platform progressive web app delivering a unique suite of concise, relevent data-tables for daily fantasy sports players who Win!
 
 :football: :basketball: :tennis: :golf: :trophy: :dollar: :moneybag:
 
@@ -21,14 +19,14 @@ What is RankFantasySports.com used for?
 - Cordova
 - Angular Material
 - Firebase
- - Firestore
- - Static Hosting
- - Cloud Functions
- - Authenticaation
- - Storage
- - Analytics
+  - Firestore
+  - Static Hosting
+  - Cloud Functions
+  - Authenticaation
+  - Storage
+  - Analytics
  - Extensions
-  - Sendgrid
+    - Sendgrid
 - Stripe
 
 ---
@@ -83,6 +81,37 @@ $ ionic serve -l --devApp
 
 ---
 
+## Contributing
+
+> To get started...
+
+### Step 1
+
+- **Option 1**
+    -:fork: Fork this repo!
+
+- **Option 2**
+    - Clone this repo to your local machine using `https://github.com/apsistec/rfs.git`
+
+### Step 2
+
+-:mag: :wrench: :hammer:**Work on the previously discussed changes and/or additions**
+
+### Step 3
+
+- 🔃<a href="https://github.com/Apsistec/rfs/pulls" target="_blank">`Create a Pull Request`</a>.
+
+---
+
+## Team
+
+> Or Contributors/People
+
+| <a href="https://avatars0.githubusercontent.com/u/6438623?s=400&u=aaaf57f08f5fff530672ecd3a18f26a53f704850&v=4" target="_blank">**Apsistec**</a> | 
+
+
+---
+
 ## Documentation
 
 > Start Documentation Server
@@ -97,11 +126,11 @@ $ npm run compodoc
 
 > Reach out to me at one of the following places!
 
-- Website at <a href="http://rankfantasysports.com" target="_blank">`rankfantasysports.com`</a>
-- Facebook at <a href="https://fb.me/rankfantasysports" target="_blank">`RFSports`</a>
+- Website at <a href="http://rankfantasysports.com" target="_blank">`www.rankfantasysports.com`</a>
+- Facebook at <a href="https://fb.me/rankfantasysports" target="_blank">`Rank Fantasy Sports Page`</a>
 - Twitter at <a href="http://twitter.com/rankfsports" target="_blank">`@rankfsports`</a>
-- Instagram at <a href="https://www.instagram.com/rankfsports" target="_blank">`rankfsports`</a>
-- Youtube at <a href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg" target="_blank">`RFSports Youtube`</a>
+- Instagram at <a href="https://www.instagram.com/rankfsports" target="_blank">`rankfsports Page`</a>
+- Youtube at <a href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg" target="_blank">`RF$ports Youtube Channel`</a>
 - Slack at <a href="https://rankfantasysports.slack.com" target="_blank">`RF$ports Slack Channel`</a>
 
 ---
