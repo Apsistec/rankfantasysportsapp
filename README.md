@@ -1,139 +1,209 @@
 # rfs
 
-> A cross platform progressive web app delivering a unique suite of concise, relevent data-tables for daily fantasy sports players who Win!
+A subscription based cross-platform web-app delivering a unique suite of highly relevent, effective NFL, NCAA, NBA, PGA, & Tennis data-tables enabling daily fantasy sports players to efficiently create DFS platform lineups that win more and more often!
 
-:football: :basketball: :tennis: :golf: :trophy: :dollar: :moneybag:
+* **Pick More Winning :football:  :basketball:  :tennis:  :golf: Lineups**
 
-## Rank Fantasy Sports PWA
+* **Win :1st_place_medal:  :trophy: :medal_sports: More Often** 
 
-What is RankFantasySports.com used for?
->  Unique approach to data compilation to make more informed winning lineups in less time, and ultimately to help DFS players such as yourself win more & more often!
-> The app is a mix between a website and and an app you would install from Google Play or the App Store. Basically you visit the site like any other but it can also be visited from any device with a browser, such as a TV, tablet, smart phone, or computer. The app is designed for use by players of daily fantasy sports(DFS) platforms.
-> The app is a tool which provides concise and highly relevent data to users in a readily usable and functional way so they can be confident in their decisions. 
+* **Win More** :heavy_dollar_sign: :dollar: :moneybag:
 
+## Rank Fantasy $ports&trade; PWA
 
-#### Tech Stack
+What is RankFantasySports.com?
 
-- Ionic 4 
-- Angular 7/8
-- Cordova
-- Angular Material
-- Firebase
-  - Firestore
-  - Static Hosting
-  - Cloud Functions
-  - Authenticaation
-  - Storage
-  - Analytics
- - Extensions
-    - Sendgrid
-- Stripe
+1. A suite of sports related datatables and data-analysis tools with which a collection of data-sets and a proprietary data-set is compiled and analyzed. The data is then presented in a meaningful and highly effective way enabling subscribers to use the data as a guide for effeciently creating daily fantasy sports lineups that win more, more often.
+2. A progressive web app, PWA, enabling features such as in-app messaging and alerts, group messaging, file control, camera control, microphone control, home screen app installation, and other features that work cross-platform, on most devices that have a browser.
 
----
+### Tech Stack
 
-## Table of Contents (Optional)
+* Ionic 4
+* Angular 7/8
+* Cordova
+* Angular Material
+* Stripe
+* Firebase
+  * Firestore
+  * Static Hosting
+  * Cloud Functions
+  * Authenticaation
+  * Storage
+  * Analytics
+  * Extensions
+    * Sendgrid
 
-- [Installation](#installation)
-- [Support](#support)
+***
 
----
+## Table of Contents
+
+* [Installation](#installation)
+* [Support](#support)
+* [Contributing](#contributing)
+* [Contributors](#contributors)
 
 ## Installation
 
-- All the `code` required to get started
-- Images of what it should look like
+1. Obtain Repo
 
-### Clone
+    Clone this repo to your local machine using 
 
-- Clone this repo to your local machine using `https://github.com/apsistec/rfs`
+    ```shell
+    git clone https://github.com/apsistec/rfs
+    ```
 
-### Setup
+1. Setup
 
-#### Install App code via npm
+    1. **Install App code via npm**
 
-```shell
-$ npm install
-```
-#### Install Cloud Functions
+        ```shell
+        npm install
+        ```
 
-> Verify Stripe Secret Key (Test or Live) and Stripe Webhook Key (Test or Live) are correct configured from the Stripe account dashoard. 
+    1. **Install Cloud Functions**
 
-```shell
-$ cd functions
-$ firebase functions:config:get
-$ firebase functions:config:set
-```
+        1. Verify correct Service Account Key (accountServiceKey.json) is set in the /functions directory, else create a new Service Account Key by going to [Firebase Admin SDK Settings](https://console.firebase.google.com/project/rankfantasysports-test/settings/serviceaccounts/adminsdk) to create a new one
 
-> Verify correct Private Key (accountServiceKey.json) is set in the functions folder or create a new Private Key by going to [Firebase Admin SDK Settings](https://console.firebase.google.com/project/rankfantasysports-test/settings/serviceaccounts/adminsdk)
+        1. Verify the correct Stripe Secret Key (Test vs. Live) is configured (from the Stripe account dashoard)
 
-```shell
-$ npm i
-$ cd ..
-```
+            ```shell
+            cd functions
+            firebase functions:config:get
+            firebase functions:config:set
+            ```
 
-### Serve
+        1. Verify the correct Stripe Webhook Key (Test vs. Live) is configured (from the Stripe account dashoard)
 
-> Start Ionic Server with mobile lab and DevApp for testing live on mobile devices currently on local network **must have DevApp App installed**
+            ```shell
+            cd functions
+            firebase functions:config:get
+            firebase functions:config:set
+            ```
 
-```shell
-$ ionic serve -l --devApp
-```
+        1. CD back to app directory
 
----
+            ```shell
+            npm i
+            cd ..
+            ```
+
+1. Attach Firebase Project to App
+
+    1. Attach Firebase Project
+
+        ```shell
+        firebase use --add
+        ```
+
+    1. Initialize Firebase
+
+        ```shell
+        firebase init
+        ```
+
+    1. Deploy Firebase Locally (Emulator) -or- Live Testing Server (depending on state)
+
+        1. Emulator (local server)
+
+            ```shell
+            firebase emulators:start --only functions
+            firebase serve
+            ```
+
+        1. Firebase Servers (live testing server)
+
+            ```shell
+            firebase deploy --only functions
+            firebase deploy --only hosting
+            firebase deploy
+            ```
+
+1. Start App Server
+
+      Start Ionic Server with *local lab flag for viewing emulated view of Android and iPhone view** and **DevApp flag for testing on physical mobile devices that are currently on local network** *(must have DevApp App installed on devices)*
+
+    ```shell
+    ionic serve -l --devApp
+    ```
+
+## Documentation
+
+Start Documentation Server
+
+  ``` shell
+  npm run compodoc
+  ```
 
 ## Contributing
 
 > To get started...
 
-### Step 1
+**Step 1** Install Repo
+  
+* [ ] **Option :one:**
+  
+  :trident: Fork this repo:
 
-- **Option 1**
-    -:fork: Fork this repo!
+    ```http
+  https://github.com/apsistec/rfs
+  ```
 
-- **Option 2**
-    - Clone this repo to your local machine using `https://github.com/apsistec/rfs.git`
+* [ ] **Option :two:**
+  
+  Clone this repo to your local machine:
 
-### Step 2
+    ```shell
+  git clone https://github.com/apsistec/rfs.git
+  ```
 
--:mag: :wrench: :hammer:**Work on the previously discussed changes and/or additions**
+**Step 2** Code your Code
 
-### Step 3
+* [ ] **Option :one:**
 
-- 🔃<a href="https://github.com/Apsistec/rfs/pulls" target="_blank">`Create a Pull Request`</a>.
+  Add previously approved **new code**
 
----
+  ``` js
+    baz = foo(bar) * foo(bar)
+    betterBaz = foo(bar^2)
+  ```
 
-## Team
+ -or-
 
-> Or Contributors/People
+* [ ] **Option :two:**
 
-| <a href="https://avatars0.githubusercontent.com/u/6438623?s=400&u=aaaf57f08f5fff530672ecd3a18f26a53f704850&v=4" target="_blank">**Apsistec**</a> | 
+  :mag:Find then :wrench:work on the previously approved **changes** and/or **refactoring code**
 
+    ``` js
+      newFoo(bar2)
+      fooBar(newBaz)
+    ```
 
----
+**Step 3** Pull Request
 
-## Documentation
+* [ ] 🔃 **Create a Pull Request at**
 
-> Start Documentation Server
+  ```http
+  https://github.com/Apsistec/rfs/pulls
+  ```
 
-``` shell
-$ npm run compodoc
-```
----
+**Step 4**  Submit for Review and Acceptance
 
+* [ ] Submit! :beer:
+
+## Contributors/People
+
+![**Apsistec**](https://avatars0.githubusercontent.com/u/6438623?s=400&u=aaaf57f08f5fff530672ecd3a18f26a53f704850&v=4)
 
 ## Support
 
-> Reach out to me at one of the following places!
+> Reach me at any of the following :link:sites:
 
-- Website at <a href="http://rankfantasysports.com" target="_blank">`www.rankfantasysports.com`</a>
-- Facebook at <a href="https://fb.me/rankfantasysports" target="_blank">`Rank Fantasy Sports Page`</a>
-- Twitter at <a href="http://twitter.com/rankfsports" target="_blank">`@rankfsports`</a>
-- Instagram at <a href="https://www.instagram.com/rankfsports" target="_blank">`rankfsports Page`</a>
-- Youtube at <a href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg" target="_blank">`RF$ports Youtube Channel`</a>
-- Slack at <a href="https://rankfantasysports.slack.com" target="_blank">`RF$ports Slack Channel`</a>
+* [RF$&trade; Support Page](https://rankfantasysports.com/user)
+* [Facebook Page](https://fb.me/rankfantasysports)
+* [Twitter Channel](http://twitter.com/rankfsports)
+* [Instagram Page](https://www.instagram.com/rankfsports)
+* [Youtube Channel](https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg)
+* [Slack Channnel](https://rankfantasysports.slack.com)
 
----
+***
 
-
-- Copyright 2019 © <a href="http://rankfantasysports.com" target="_blank">RankFantasySports</a>.
+Copyright 2019 © [RankFantasySports](http://rankfantasysports.com)
