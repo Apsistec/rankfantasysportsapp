@@ -1,0 +1,297 @@
+<app-header [titleId]= "titleId"></app-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="5" >
+<ng-container *ngIf="auth.user | async as user; else login">
+ 
+        <ion-card color="primary"  class="ion-text-center" >
+          <ion-card-header>
+       <ion-card-title class="ion-text-center" >
+         <ion-text color="secondary"  >
+              User Profile
+        </ion-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-item color="medium" lines="none">
+          <ion-col size="4">
+            <ion-img style="width:100px; height:100px; position:relative;" [src]="user.photoURL || '../../assets/img/dummy-user.png'"></ion-img>
+          </ion-col>
+          <ion-col class="ion-text-start">
+            <ion-label>
+              <ion-text color="warning" >
+                {{ user.displayName || 'User' }}
+              </ion-text>
+              <hr>
+              <ion-text color="twittr">
+                {{ user.email }}
+              </ion-text>
+              <hr>
+              {{ user.role }}
+            </ion-label>    
+          </ion-col>
+          </ion-item>
+        <ion-card-content>
+        <ion-button strong size="small" shape="round" color="warning" routerLink="/settings">
+            <ion-text>
+            Edit User
+          </ion-text>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    
+
+
+      <ion-card color="primary" class="ion-text-start ion-padding"> 
+      <ion-list lines="none" *ngIf="subscriptions | async as subs; else purchase"> 
+      <ion-list-header class="ion-text-center">
+       <ion-title color="secondary">
+         Subscription Details
+        </ion-title>
+      </ion-list-header>
+          <ion-item >
+            <ion-label>
+              <h2>
+                Current Package:
+              </h2>
+   
+                 <h3>
+                   {{ subs.data[0].plan.id | uppercase }}
+                 </h3>
+            </ion-label>
+      </ion-item>
+  
+        <ion-item >          
+        <ion-label>
+        
+        <h2 color="secondary">
+          Status:
+        </h2>
+        <h3 color="warning">
+          {{ subs.data[0].status | uppercase }}
+            </h3>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+        <ion-label>
+        <h2 color="secondary" *ngIf="subs.data[0].status === 'trialing'">
+          Days Left in Trial:
+        </h2>
+      <h3 color="warning" *ngIf="subs.data[0].status === 'trialing'">
+      {{ subs.data[0].trial_end * 1000 | date }}
+    </h3>
+  </ion-label>
+          </ion-item>
+          <ion-item>
+          <ion-label>
+          <h2 color="secondary">
+            Subscription Fee:
+          </h2>
+          <h3 color="warning">
+            {{ subs.data[0].plan.amount / 100 | currency }}
+          </h3>
+        </ion-label>
+          </ion-item>
+          <ion-item>
+          <ion-label>
+          <h2 color="secondary">
+            Billing Interval:
+          </h2>
+          <h3 color="warning">
+            {{ subs.data[0].plan.interval | uppercase }}
+          </h3>
+        </ion-label>
+          </ion-item>
+          <ion-item>
+          <ion-label>
+          <h2 color="secondary">
+            Date Created:
+          </h2>
+          <h3 color="warning">
+            {{ subs.data[0].created * 1000 | date }}
+          </h3>
+        </ion-label>
+          </ion-item>
+          <ion-item> 
+          <ion-label>
+          <h2 color="secondary">
+            Cycle Start:
+          </h2>
+          <h3 color="warning">
+            {{ subs.data[0].current_period_start * 1000 | date }}
+          </h3>
+        </ion-label>
+          </ion-item>
+          <ion-item> 
+          <ion-label>
+          <h2 color="secondary">
+            Cycle End:
+          </h2>
+          <h3 color="warning">
+            {{ subs.data[0].current_period_end * 1000| date }}
+          </h3>
+        </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ng-template #purchase>
+      <ion-item>
+      <ion-button color="danger" shape="round" strong routerLink="/purchase">
+        <ion-text >
+          View PRO Packages
+        </ion-text>
+      </ion-button>
+    </ion-item>
+    </ng-template>
+    
+
+
+
+    <!-- User Dashboard-->
+    <ion-card class="ion-padding ion-text-center" color="primary" *ngIf="user.role === 'USER'">
+      <ion-card-header>
+      <ion-card-title>
+        <ion-text color="secondary">
+          User Support Dashboard
+         </ion-text>
+          </ion-card-title>
+        <ion-card-subtitle>
+          <ion-text color="warning">
+            Request Support, Make a Feature Request, or a General Inquiry
+          </ion-text>
+          </ion-card-subtitle>
+      </ion-card-header>
+          <ion-card-content>
+            <ion-text>
+          <p>
+            Not finding the answers you need? Open a support request, and we will get back to you ASAP!
+          </p>
+            </ion-text>
+            <hr>
+            <ion-button shape="round" color="warning" routerLink="/user">
+              <ion-icon color="tertiary" name="bug"></ion-icon>
+              <ion-text color="success">
+                Request Support
+              </ion-text>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+              <ion-card class="ion-text-center ion-padding" color="primary" *ngIf="(user.gold || user.silver || user.bronze)">
+              <ion-card-header>
+              <ion-card-title>
+                <ion-text color="secondary">
+                  Account Management
+                </ion-text>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+            <ion-text color="secondary">
+              UserID:
+              <ion-chip>
+                <ion-text color="warning">{{ user.uid }}</ion-text>
+              </ion-chip>
+            </ion-text>
+            <br>
+            <ion-button size="small" shape="round" color="secondary" >
+              <ion-text color="dark">
+                View Invoices
+              </ion-text>
+            </ion-button>
+            <br>
+            <ion-button  size="small" color="danger"  shape="round" (click)="auth.SignOut()" >Logout</ion-button>
+            <br>
+            <!-- <ion-button  size="small" fill="outline" shape="round" (click)="cancelSubscription()" color="danger">Cancel Subscription</ion-button> -->
+          </ion-card-content>
+          </ion-card>
+ 
+<!-- Admin Dash -->
+    <ion-card class="ion-padding ion-text-center" color="primary" *ngIf="user.role === 'ADMIN'">
+      <ion-card-header>
+      <ion-card-title>
+        <ion-text color="secondary">
+         Admin Dashboard
+         </ion-text>
+          </ion-card-title>
+          <ion-card-subtitle>
+            <ion-text color="warning">
+              Access to User Reports & Admin Functions,
+            </ion-text>
+          </ion-card-subtitle>
+      </ion-card-header>
+          <ion-card-content>
+            <ion-button shape="round" color="warning" routerLink="/admin">
+              <ion-icon color="tertiary" name="bug"></ion-icon>
+              <ion-text color="success">
+                Access Dashboard
+              </ion-text>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+
+<!-- Theme -->
+          <ion-card class="ion-text-center"  color="primary">
+              <ion-card-header>
+                <ion-card-title color="secondary">
+                <strong>
+                  <ion-text color="secondary">
+                    Theme Options
+                  </ion-text>
+                </strong>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                  <ion-text color="warning">
+                    <strong>
+                      Current Theme Colors
+                    </strong>
+                  </ion-text>
+
+                <hr>
+            <ion-button expand="full" strong size="small" color="tertiary">Accent One Color</ion-button>
+            <ion-button expand="full" strong size="small" color="light">Accent Two Color</ion-button>
+            <ion-button expand="full" strong size="small" color="medium">Accent Three Color</ion-button>
+            <ion-button expand="full" strong size="small" color="primary">Card Background Color</ion-button>
+            <ion-button expand="full" strong size="small" color="secondary">Heading/Title Color</ion-button>
+            <ion-button expand="full" strong size="small" color="warning">subscriptions-title Color</ion-button>
+            <hr>
+
+              <ion-text color="warning">
+                  Unique Themes
+              </ion-text>
+
+            <ion-button color="success" (click)="changeTheme('autumn')">Option 1</ion-button>
+            <ion-button color="success" (click)="changeTheme('night')">Option 2</ion-button>
+            <ion-button color="success" (click)="changeTheme('neon')">Option 3</ion-button>
+            <ion-button color="success" (click)="changeTheme('')">Default</ion-button>
+
+              <ion-text color="warning">
+                  Pro Team Themes
+              </ion-text>
+              <ion-button strong color="light">
+                <ion-text color="danger">
+                  Coming Soon!
+                </ion-text>
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ng-container>
+
+        <ng-template #login>
+          <ion-card color="primary">
+            <ion-card-content>
+              <ion-button color="medium" routerLink="/login">
+              </ion-button>
+            </ion-card-content>
+            </ion-card>
+          </ng-template>
+
+        </ion-col>
+        <ion-col>
+          <app-list-tables></app-list-tables>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>
+<app-footer></app-footer>

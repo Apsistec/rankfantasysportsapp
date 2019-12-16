@@ -1,3 +1,5 @@
+/// <reference types="jest" />  
+
 import { stripe } from '../src/config';
 import { updateUser } from '../src/customers';
 

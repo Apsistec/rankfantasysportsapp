@@ -14,7 +14,7 @@ export class HasPermissionDirective implements OnInit {
     private viewContainer: ViewContainerRef) { }
 
     ngOnInit() {
-      this.auth.currentUser.subscribe(user => {
+      this.auth.currentUser.subscribe( user => {
         if (this.auth.hasPermissions(this.permissions)) {
           this.viewContainer.createEmbeddedView(this.templateRef);
         } else {

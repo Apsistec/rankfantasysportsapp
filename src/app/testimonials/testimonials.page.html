@@ -1,5 +1,5 @@
 <app-header [titleId]= "titleId"></app-header>
-<ion-content color="dark" fullscreen>
+<ion-content class="ion-fullscreen">
   <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let slide of slides">
       <ion-card>
@@ -8,24 +8,4 @@
     </ion-slide>
   </ion-slides>
   </ion-content>
-<ion-footer translucent *ngIf="imgDescription.length">
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-    <ion-fab-button color="tertiary">
-      <ion-icon name="rocket"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button class="f-btn" href="https://fb.me/ranktowinfantasysports">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button class="t-btn" href="https://twitter.com/rankfsports">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button class="g-btn" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
-        <ion-icon name="logo-youtube"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-  <ion-toolbar color="medium" class="ion-text-center">
-      <ion-text color="success">{{ imgDescription }}</ion-text>
-</ion-toolbar>
-</ion-footer>
+<app-footer></app-footer>

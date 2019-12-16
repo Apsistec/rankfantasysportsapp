@@ -1,3 +1,6 @@
+import { SharedDirectivesModule } from './../core/directives/shared-directives.module';
+import { SharedPage } from './shared.page';
+import { TicketComponent } from './tickets/ticket.component';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
@@ -6,49 +9,55 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { ListTablesComponent } from './list-tables/list-tables.component';
-import { PrivacyComponent } from './privacy/privacy.component';
+import { RegModalComponent } from './reg-modal/reg-modal.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
-import { TermsComponent } from './terms/terms.component';
 import { MatExpansionModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { PopoverComponent } from './popover/popover.component';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    TermsComponent,
+    RegModalComponent,
     TermsDialogComponent,
+    TicketComponent,
     PrivacyDialogComponent,
-    PrivacyComponent,
     ListTablesComponent,
-    PopoverComponent
+    PopoverComponent,
+    SharedPage
   ],
   entryComponents: [
     TermsDialogComponent,
+    RegModalComponent,
     PrivacyDialogComponent,
     PopoverComponent
   ],
   imports: [
     NgxTwitterTimelineModule,
     IonicModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDialogModule,
     CommonModule,
     MatExpansionModule,
     RouterModule,
+    SharedDirectivesModule
   ],
   exports: [
     NgxTwitterTimelineModule,
     HeaderComponent,
     PopoverComponent,
     FooterComponent,
+    RegModalComponent,
     PrivacyDialogComponent,
-    PrivacyComponent,
     TermsDialogComponent,
-    TermsComponent,
     MatDialogModule,
     MatExpansionModule,
+    TicketComponent,
     ListTablesComponent,
   ],
 })
-export class SharedModule {}
+export class SharedPageModule {}

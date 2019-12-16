@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-terms-dialog',
+  exportAs: 'modal',
   templateUrl: './terms-dialog.component.html',
   styleUrls: ['./terms-dialog.component.scss'],
 })

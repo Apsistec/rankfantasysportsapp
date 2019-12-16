@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import { ToastController } from '@ionic/angular';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class UpdateService {
 
   constructor(
     private swUpdate: SwUpdate,
-    private toast: ToastController
+    private message: MessageService
   ) {
 
     if (this.swUpdate.isEnabled) {
@@ -22,19 +22,8 @@ export class UpdateService {
 
   async updateSW() {
     await this.swUpdate.activateUpdate();
-    return this.updatedToast();
+    return this.message.updatedToast();
   }
 
-  async updatedToast() {
-    const toast = await this.toast.create({
-      header: 'Software Update Message:',
-      cssClass: 'login',
-      message: 'You are now using the latest version',
-      position: 'top',
-      duration: 5000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    toast.present();
-    }
+
 }

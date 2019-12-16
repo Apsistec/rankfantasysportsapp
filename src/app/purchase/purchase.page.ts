@@ -3,10 +3,14 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController, ModalController, IonContent } from '@ionic/angular';
-import { RegisterComponent } from '../register/register.component';
+import { LoadingController, ModalController, IonContent } from '@ionic/angular';
+import { RegModalComponent } from '../shared/reg-modal/reg-modal.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-
+import { MessageService } from '../core/services/message.service';
+import { MatDialog } from '@angular/material';
+import { TermsDialogComponent } from '../shared/terms-dialog/terms-dialog.component';
+import { PrivacyDialogComponent } from '../shared/privacy-dialog/privacy-dialog.component';
+import * as firebase from 'firebase/app';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -24,7 +28,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
   isClickedGold = false;
   isClickedBronze = false;
   planChosen = false;
-  titleId = 'Rank Fantasy $ports Pro Membership'
+  titleId = 'RF$\u2122 Pro Memberships';
   stripe: stripe.Stripe;
   card;
   cardErrors;
@@ -32,7 +36,11 @@ export class PurchasePage implements OnInit, AfterViewInit {
 
   public trustedVideoUrl: SafeResourceUrl;
   video: any = {
-    url: ' https://www.youtube.com/embed/Ok-zmmoSZe8',
+    url: 'https://www.youtube.com/embed/Ok-zmmoSZe8'
+  };
+  public trustedVideoUrl2: SafeResourceUrl;
+  video2: any = {
+    url: 'https://www.youtube.com/embed/FWZIisrxodY'
   };
 
   constructor(
@@ -41,8 +49,9 @@ export class PurchasePage implements OnInit, AfterViewInit {
     public functions: AngularFireFunctions,
     private router: Router,
     private loadingCtrl: LoadingController,
-    public toaster: ToastController,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private message: MessageService,
+    private dialog: MatDialog
   ) {
   }
 
@@ -111,22 +120,21 @@ export class PurchasePage implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.showVid();
-    this.stripe = Stripe('pk_live_zv7QgGqhVvrQW6bAUAn7yju400T3RMqWDt');
-
+    this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
     const elements = this.stripe.elements();
     const style = {
       base: {
-        color: '#268135',
+        color: '#006b12',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '22px',
+        fontSize: '17px',
         '::placeholder': {
-          color: '#9911c4'
+          color: '#696969'
         }
       },
       invalid: {
-        color: '#981a00',
-        iconColor: '#981a00'
+        color: '#711300',
+        iconColor: '#f00f00'
       }
     };
 
@@ -140,10 +148,9 @@ export class PurchasePage implements OnInit, AfterViewInit {
     this.isClickedSilver = false;
     this.isClickedBronze = false;
     this.isClickedGold = false;
-}
+  }
 
   ngAfterViewInit() {
-
   }
 
   async presentLoading() {
@@ -151,43 +158,32 @@ export class PurchasePage implements OnInit, AfterViewInit {
       message: 'Please wait...',
       spinner: 'crescent',
     });
-    loadingElement.present();
-  }
-  onDismissLoader() {
-    return this.loadingCtrl.dismiss();
+    await loadingElement.present();
   }
 
-  async subscribedToast() {
-    const toast = await this.toaster.create({
-      header: 'Authentication Message:',
-      cssClass: 'login',
-      message: 'Thank You for your payment. You are subscribed!',
-      position: 'bottom',
-      duration: 5000,
-      showCloseButton: true,
-      translucent: true,
-    });
-    toast.present();
+  async onDismissLoader() {
+    await this.loadingCtrl.dismiss();
   }
-
 
   async onSubmit(f: NgForm) {
+    this.presentLoading();
     const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
+      this.onDismissLoader();
       // Inform the customer that there was an error.
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
-      this.presentLoading();
       const user = await this.auth.getUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
         uid: user.uid,
-        plan: this.planId
+        plan: this.planId,
+        idempotency_key: event
       }).toPromise();
-      this.subscribedToast();
       this.onDismissLoader();
+      this.message.subscribedToast();
       this.planChosen = false;
       this.isClickedSilver = false;
       this.isClickedBronze = false;
@@ -195,21 +191,35 @@ export class PurchasePage implements OnInit, AfterViewInit {
       f.reset();
       return this.router.navigate(['/welcome']);
     }
-
   }
 
   async presentModal() {
     const modal = await this.modalController.create({
-      component: RegisterComponent
+      component: RegModalComponent,
+      cssClass: 'app-reg-modal'
     });
     return await modal.present();
   }
 
-  ScrollToTarget() {
-    this.ionContent.scrollToPoint(0, 775, 1500);
+  async ScrollToTarget() {
+    await this.ionContent.scrollToPoint(0, 775, 1500);
   }
 
-  showVid() {
-    (this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url));
+  async showVid() {
+    this.trustedVideoUrl = await this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url);
+    this.trustedVideoUrl2 = await this.domSanitizer.bypassSecurityTrustResourceUrl(this.video2.url);
   }
+
+  async showModalTerms() {
+    await this.dialog.open(TermsDialogComponent);
+  }
+
+  async showModalPrivacy() {
+    await this.dialog.open(PrivacyDialogComponent);
+  }
+
+  async stopDialog() {
+    await this.dialog.closeAll();
+  }
+
 }

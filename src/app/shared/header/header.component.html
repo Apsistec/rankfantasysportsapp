@@ -1,19 +1,33 @@
 <ion-header tranlucent>
   <ion-toolbar color="dark">
-    <ion-buttons slot="start">
+    <ion-buttons collapse="true" slot="start">
       <ion-menu-button color="deepo">
       </ion-menu-button>
     </ion-buttons>
     <ion-title>
       <ion-text color="secondary">
-        {{ titleId }}
+        {{ titleId }} testing version
       </ion-text>
     </ion-title>
-    <ion-item  ion-button color="dark" slot="end" *ngIf="auth.afAuth.user | async as user" (click)="presentPopover($event)">
+
+    <ng-container *ngIf="auth.afAuth.user | async as user; else cta">
+      <ion-item  ion-button color="dark" slot="end" (click)="presentPopover($event)">
       <ion-icon name="arrow-dropdown"></ion-icon>
         <ion-avatar>
           <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"/>
         </ion-avatar>
       </ion-item>
+    </ng-container>
+
+    <ng-template #cta>
+
+        <ion-button slot="end" color="tertiary" *ngIf="isHomePage" routerLink="/purchase">
+          <!-- <ion-icon slot="start" color="warning" name="jet"></ion-icon> -->
+          <ion-text color="warning">
+            Get Started
+          </ion-text>
+        </ion-button>
+    </ng-template>
+
   </ion-toolbar>
 </ion-header>

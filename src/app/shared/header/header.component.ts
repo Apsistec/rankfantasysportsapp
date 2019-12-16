@@ -21,6 +21,12 @@ export class HeaderComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    // this.homePage();
+  }
+
+  // Returns true when user is looged in and email is verified
+  get isHomePage(): boolean {
+    return (this.titleId === 'RF$\u2122 Home' ) ? true : false;
   }
 
   async presentPopover(ev: any) {

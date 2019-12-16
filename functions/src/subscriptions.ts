@@ -3,7 +3,7 @@ import { assert, assertUID, catchErrors } from './helpers';
 import { stripe, db } from './config';
 import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
-
+import { v4 as uuid } from 'uuid';
 /**
 Gets a user's subscriptions
 */
@@ -15,10 +15,10 @@ export const getSubscriptions = async(uid: string) => {
 /**
 Creates and charges user for a new subscription
 */
-export const createSubscription = async (uid: string, source: string, plan: string, coupon?: string, idempotency_key?: string) => {
+export const createSubscription = async ( uid: string, source: string, plan: string, coupon?: string, idempotency_key?: string ) => {
 
     const customer = await getOrCreateCustomer(uid);
-
+    
     await attachSource(uid, source);
 
     const subscription = await stripe.subscriptions.create({
@@ -60,7 +60,7 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
 /////// DEPLOYABLE FUNCTIONS ////////
 
 export const stripeCreateSubscription = functions.https.onCall( async (data, context) => {
-    const idempotency_key = data.idempotency_key;
+    const idempotency_key = uuid();
     const uid = assertUID(context);
     const source = assert(data, 'source');
     const plan = assert(data, 'plan');

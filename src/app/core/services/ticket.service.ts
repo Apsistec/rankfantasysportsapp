@@ -39,8 +39,8 @@ export class TicketService {
     const id = this.auth.currentUser.value.id;
     return this.db.collection('tickets', ref => ref.where('creator', '==', id)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
-        const data = a.payload.doc.data();
-        const id = a.payload.doc.id;
+        const data: any = a.payload.doc.data();
+        const id: any = a.payload.doc.id;
         return { id, ...data };
       })),
       takeUntil(this.ngUnsubscribe)
@@ -50,8 +50,8 @@ export class TicketService {
   getAdminTickets() {
     return this.db.collection('tickets').snapshotChanges().pipe(
       map(actions => actions.map(a => {
-        const data = a.payload.doc.data();
-        const id = a.payload.doc.id;
+        const data: any = a.payload.doc.data();
+        const id: any = a.payload.doc.id;
         return { id, ...data };
       })),
       takeUntil(this.ngUnsubscribe)

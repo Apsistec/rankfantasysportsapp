@@ -7,7 +7,7 @@ import { Slides } from './slides';
   styleUrls: ['testimonials.page.scss']
 })
 export class TestimonialsPage {
-  titleId = 'RF$ Credibility' ;
+  titleId = 'RF$\u2122 Credibility' ;
   slides = Slides;
   imgDescription = 'Submitted by RF$ PRO Members';
   slide: any;

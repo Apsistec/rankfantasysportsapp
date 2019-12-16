@@ -2,18 +2,45 @@
 <ion-content
   (ionScroll)="onScroll($event)"
   [scrollEvents]="true"
-  fullscreen
->
+  fullscreen>
   <ion-grid>
     <ion-row>
       <ion-col offset-lg="3">
 
 
-        <div class="twitter-container">
-          <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-          [opts]="{chrome: ['transparent', 'nofooter', 'noscrollbar'], theme: 'dark', tweetLimit: '20', borderColor: '#02ed25', ariaPolite: 'assertive'}">
-      </ngx-twitter-timeline>
-    </div>
+        <!-- Twitter Card -->
+        <ion-card class="ion-padding twit" color="dark">
+          <ion-card-content>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-text color="secondary">
+                    RF$&trade; Twitter Account
+                  </ion-text>
+                </ion-card-title>
+                <ion-card-subtitle>
+                  <ion-text color="warning">
+                    Recent @rankfsports Tweets
+                  </ion-text>
+                </ion-card-subtitle>
+              </ion-card-header>
+              <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+              [opts]="{
+                chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'],
+                theme: 'dark',
+                tweetLimit: '3',
+                borderColor: '#02ed25',
+                ariaPolite: 'assertive'
+              }">
+            </ngx-twitter-timeline>
+            <ion-button expand="block" color="danger" strong shape="round" routerLink="/tweets">
+              <ion-ripple-effect></ion-ripple-effect>
+              <ion-text color="gold" style=" text-shadow:  .1em .15em .25em rgb(104, 0, 173);">
+              RF$&trade; Tweets
+              </ion-text>
+              <ion-icon name="logo-twitter" slot="end" color="twittr"></ion-icon>
+         </ion-button>
+        </ion-card-content>
+      </ion-card>
     <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
       <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">
         <ion-icon name="arrow-dropup"></ion-icon>
@@ -23,23 +50,4 @@
   </ion-row>
   </ion-grid>
 </ion-content>
-<ion-footer translucent>
-  <ion-fab vertical="bottom" horizontal="start">
-    <ion-fab-button color="tertiary">
-      <ion-icon name="rocket"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="facebk" href="https://fb.me/ranktowinfantasysports">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="twittr" href="https://twitter.com/rankfsports">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
-        <ion-icon name="logo-youtube"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-  <ion-toolbar color="medium">
-   </ion-toolbar>
-</ion-footer>
+<app-footer></app-footer>

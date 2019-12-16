@@ -20,12 +20,13 @@
   --ion-color-secondary-shade: #58c214;
   --ion-color-secondary-tint: #74e02e;
 
-  --ion-color-tertiary: #6c4285;
-  --ion-color-tertiary-rgb: 108,66,133;
+
+  --ion-color-tertiary: #3f005c;
+  --ion-color-tertiary-rgb: 63,0,92;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255,255,255;
-  --ion-color-tertiary-shade: #5f3a75;
-  --ion-color-tertiary-tint: #7b5591;
+  --ion-color-tertiary-shade: #370051;
+  --ion-color-tertiary-tint: #521a6c;
 
   --ion-color-success: #3fb60c;
   --ion-color-success-rgb: 63,182,12;
@@ -90,12 +91,12 @@
   --ion-color-twittr-shade: #1a8ed5;
   --ion-color-twittr-tint: #34aaf3;
 
-  --ion-color-leather: #624a2e;
-  --ion-color-leather-rgb: 98,74,46;
+  --ion-color-leather: #94592e;
+  --ion-color-leather-rgb: 148,89,46;
   --ion-color-leather-contrast: #ffffff;
   --ion-color-leather-contrast-rgb: 255,255,255;
-  --ion-color-leather-shade: #564128;
-  --ion-color-leather-tint: #725c43;
+  --ion-color-leather-shade: #824e28;
+  --ion-color-leather-tint: #9f6a43;
 
   --ion-color-gold: #ecdf7a;
   --ion-color-gold-rgb: 236,223,122;
@@ -138,9 +139,16 @@
   --ion-color-deepo-contrast-rgb: 255,255,255;
   --ion-color-deepo-shade: #e03600;
   --ion-color-deepo-tint: #ff501a;
+
+  --ion-color-white: #f3fdfe;
+  --ion-color-white-rgb: 243,253,254;
+  --ion-color-white-contrast: #000000;
+  --ion-color-white-contrast-rgb: 0,0,0;
+  --ion-color-white-shade: #d6dfe0;
+  --ion-color-white-tint: #f4fdfe;
   }
 
-$customColors: ('msoft', 'facebk', 'twittr', 'leather', 'gold', 'silver', 'bronze', 'valid', 'invalid', 'deepo');
+$customColors: ('msoft', 'facebk', 'twittr', 'leather', 'gold', 'silver', 'bronze', 'valid', 'invalid', 'deepo', 'white');
 @each $color in $customColors {
   .ion-color-#{$color} {
     --ion-color-base: var(--ion-color-#{$color}) !important;
@@ -150,6 +158,10 @@ $customColors: ('msoft', 'facebk', 'twittr', 'leather', 'gold', 'silver', 'bronz
     --ion-color-shade: var(--ion-color-#{$color}-shade) !important;
     --ion-color-tint: var(--ion-color-#{$color}-tint) !important;
   }
+}
+//   keep the label color on focus:
+.item-has-focus ion-label.ion-color {
+  color: var(--ion-color-base) !important;
 }
 
 /*
@@ -172,7 +184,7 @@ $customColors: ('msoft', 'facebk', 'twittr', 'leather', 'gold', 'silver', 'bronz
   --ion-color-secondary-shade: #46b0e0;
   --ion-color-secondary-tint: #62ceff;
 
-  --ion-color-tertiary: #6a64ff;
+  --ion-color-tertiary: #3f005c;
   --ion-color-tertiary-rgb: 106,100,255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255,255,255;

@@ -5,350 +5,252 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="4">
-
 <!-- Column 1 -->
         <ion-card class="main-card">
           <img src="../../assets/img/logo.jpg" slot="start">
           <ion-card-content>
             <ion-card-title>
-
-                <ion-text style="font:bolder; font-weight: 900; text-shadow: .1em .15em .25em rgb(0, 0, 0);" color="secondary">
+                <ion-text style="text-shadow: .1em .15em .15em #000000;"  color="secondary">
                   <strong>
                     Rank Fantasy Sports
-
                   </strong>
                 </ion-text>
-
             </ion-card-title>
-            <!-- <ion-card-subtitle>
-              <ion-text color="light" style="text-shadow: .1em .15em .25em rgb(5, 5, 5);">
-                <strong>
 
-                  Helping You Win is Our Business
-                </strong>
-              </ion-text>
-            </ion-card-subtitle> -->
             <ion-card-subtitle class="ion-text-start">
-                <ion-text color="warning" style="text-shadow: .1em .25em .25em rgb(7, 63, 0);">
+                <ion-text color="warning" style="text-shadow: .1em .15em .15em #000000;">
                   <strong>
-
                     Helping You Win is Our Business
                   </strong>
                 </ion-text>
               </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
+<!-- Video card and Ad Card together on a card -->
+        <!-- Youtube video card -->
+        <ion-card class="ion-text-center card-metal ion-padding">
+          <div class="resp-iframe">
+            <iframe  [src]="trustedVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </ion-card >
 
-        <ion-card class="ion-text-center resp-container" color="dark">
-          <iframe class="resp-iframe" [src]="trustedVideoUrl"></iframe>
-          <!-- <ion-card-title  class="ion-text-center">
-          <ion-text style="text-shadow:  .1em .15em .25em #000000;" color="secondary">
-            <strong>
-              Welcome to RF
-            </strong>
-            <ion-text color="secondary">
-              <strong>
-                $
+        <!-- Sports served Card -->
+        <ion-card class="ion-padding card-metal">
+          <ion-card-content>
+            <ion-card-title class="ion-text-center" >
+              <ion-text color="twittr" ><strong>
+                We provide the concise analysis, saving you time so you can confidently build daily fantasy sports lineups that <ion-text style="color:darkolivegreen">WIN!</ion-text>
               </strong>
-            </ion-text>
-            &trade;
+              </ion-text>
+            </ion-card-title>
+            <br>
+            <ion-text class="ion-text-center" color="warning">
+            <ion-card-subtitle>Currently Covered Sports:</ion-card-subtitle>
+            <ul>
+              <ion-text class="ion-text-center" color="white">
+                <strong>
+                  <li>
+                    NFL- Football
+                  </li>
+                  <li>
+                CFB- College Football
+              </li>
+              <li>
+                ATP & WTA- Tennis
+               </li>
+               <li>
+                 PGA- Golf
+                </li>
+                <li>
+                  NBA- Basketball
+                </li>
+              </strong>
           </ion-text>
-        </ion-card-title> -->
+          </ul>
+        </ion-text>
+          <hr>
+
+          <ion-button shape="round" strong expand="block" routerLink="/purchase" color="deepo">
+            <ion-icon name="people" color="facebk" slot="start"></ion-icon>
+            <ion-text color="warning">
+              Free for a Week!
+              <br>
+              Join Now
+                </ion-text>
+                <ion-icon name="people" color="facebk" slot="end"></ion-icon>
+              <ion-ripple-effect>
+              </ion-ripple-effect>
+          </ion-button>
+
+          </ion-card-content>
         </ion-card>
 
+      </ion-col>
+      <!-- Column 2 -->
+      <ion-col size-md="4">
+        <!-- RF$ Information Card-->
          <ion-card class="ion-padding card-metal">
            <ion-card-title class="ion-text-center">
-           <ion-text color="secondary" style="text-shadow: .1em .15em .25em rgb(2, 0, 3);">Helping You Win is Our Business</ion-text>
+           <ion-text color="secondary" >When You Win... We Win!</ion-text>
           </ion-card-title>
-           <ion-card-subtitle class="ion-text-center"><ion-text color="warning" style="text-shadow: .1em .15em .25em rgb(2, 0, 3);"><strong>When You Win... We Win!</strong></ion-text></ion-card-subtitle>
+           <ion-card-subtitle class="ion-text-center"><ion-text color="warning" ><strong>
+            <ion-text style="text-shadow: .1em .15em .25em rgb(174, 0, 255);" color="twittr">
+             <i>
+                <strong>"Have us in your corner when you pick your next set of DFS lineups"</strong>
+              </i>
+              </ion-text>
+              <hr>
+          </strong></ion-text></ion-card-subtitle>
                <ion-card-content>
-               <ion-text style="color:ghostwhite;">
-                 <p>With our tools, expect to win More & More often while spending far less time making lineup decisions.  RF<ion-text color="secondary">$</ion-text>&trade; makes winning easy by providing you with time saving, quality data analysis so you can more efficiently choose the most effective lineups. </p>
-                <br>
-                <ion-text color="twittr" style="text-shadow: .1em .15em .25em rgb(174, 0, 255);">
-                <h3 class="ion-text-center"><strong>Have RF$&trade; in your corner when picking your next set of DFS lineups</strong></h3>
-                </ion-text>
-                <br>
-                <p>We have numerous ties to professional sports and a true passion for the sports and players that we follow. Because of this, our data is concise, relevant, and delivered with an edge, so you can make your decisions quickly and confidently. </p>
-                <br>
-                <p>Our subscribers are best described as DFS players who love their sports, are motivated and are ready to play & win more, but who always seem to run short on time due to work, family, and life in general.</p>
-                <br>
-                <p><strong>Join RF<ion-text color="secondary">$</ion-text>&trade; Today</strong> and let us show you how we make it easy to win using our stats, strategies, insights, data-viz and an ever-growing list of other time-saving, money-making player ready tools.</p>
-               </ion-text>
-               <hr>
-               <ion-button color="secondary" shape="round" expand="block" size="medium" routerLink="/purchase" >
+               <ion-text color="white">
+                 <p>Expect to win more & more often. We do the leg work so you can more effectively use your time when making lineup decisions.  RF<ion-text color="secondary">$</ion-text>&trade; makes winning easy by providing you with time saving, quality data analysis so you can efficiently choose the most effective lineups. </p>
+
+                <hr>
+                <p class="ion-text-start">RF<ion-text color="secondary">$</ion-text>&trade; success comes from diligent analysis, careful interpretation, and a keen eye for spotting trends when evaluating a host of real-time, historical, and in-house data sources including, but not limited to:</p>
+               <ul>
+                 <ion-text class="ion-text-center" style="text-shadow: .1em .1em .1em #333333;" color="leather">
+                     <strong>
+                           <li> Player Stats</li>
+                           <li >Team Standings</li>
+                           <li >Weather Reports </li>
+                           <li >Injury Reports</li>
+                           <li>Social Media</li>
+                           <li >& Countless Others</li>
+                          </strong>
+                   </ion-text>
+                 </ul>
+                 <hr>
+                 <!-- <ion-text> -->
+                    </ion-text>
+                <ion-button color="success" shape="round" expand="block" size="medium" routerLink="/purchase" >
             <ion-ripple-effect>
             </ion-ripple-effect>
-            <ion-text style="  text-shadow:  .1em .15em .25em rgb(26, 1, 1);" color="bronze">
-                <strong>
-                  7 Day Free Trial
-                </strong>
+            <ion-text color="danger">
+              Signup Today
+              <br>
+              Get a 7 Day Free Trial
             </ion-text>
+            <ion-icon color="warning" name="bulb" slot="start"></ion-icon>
+            <ion-icon color="warning" name="bulb" slot="end"></ion-icon>
           </ion-button>
           </ion-card-content>
         </ion-card>
-        <ion-card class="ion-padding cta">
-            <ion-card-content>
 
-              <ion-card-title>
-                <ion-text color="deepo" style="text-shadow:  .1em .15em .25em rgb(92, 0, 168);"><strong>
-                  Insights for building Daily Fantasy Sports lineups that <ion-text style="text-shadow:  .1em .15em .25em rgb(4, 133, 0);" color="warning">WIN!</ion-text>
-                </strong>
-              </ion-text>
-            </ion-card-title>
-            <ion-img style="object-position: center; height: 140px; margin: 30px;" src="../../assets/img/icon-192x192.png"></ion-img>
-            <ion-card-title class="ion-text-start">
 
-                <ion-text style="font:bolder; font-weight: 900; text-shadow:  .1em .15em .25em rgb(204, 0, 255);" color="secondary">
-                  <strong>
-                    Rank Fantasy Sports
-
-                  </strong>
-                </ion-text>
-
-            </ion-card-title>
-            <ion-card-subtitle class="ion-text-start">
-              <ion-text color="warning" style="text-shadow: .1em .15em .25em rgb(22, 190, 0);">
-                <strong>
-
-                  Helping You Win is Our Business
-                </strong>
-              </ion-text>
-            </ion-card-subtitle>
-          </ion-card-content>
+          <!-- FSGA Card -->
+    <ion-card color="primary" class="ion-text-center">
+      <ion-card color="light" class="ion-padding ion-text-center">
+          <ion-card-title>
+            <ion-text style="text-shadow:  .1em .15em .25em grey;">
+              Rank Fantasy Sports is a participating member of
+            </ion-text>
+          </ion-card-title>
+        <ion-card-content>
+          <img src="../../assets/img/fsga.png" href="https://wwww.thefsga.org" style="align-content: center; min-height: 1in; min-width: 1.5in;">
+        </ion-card-content>
+      </ion-card>
     </ion-card>
       </ion-col>
+      <!-- Column 3 -->
+        <ion-col size-md="4">
 
-      <!-- Column 2 -->
-      <ion-col size-md="4">
-        <ion-card class="testi ion-text-center">
-          <ion-card-header>
-
-            <ion-card-title class="ion-text-center">
-              <ion-text style=" text-shadow: .1em .15em .25em rgb(255, 255, 255);" color="secondary">
-                  RF<ion-text color="secondary">$</ion-text>&trade; Successes
-                </ion-text>
-              </ion-card-title>
-              <ion-card-subtitle class="ion-text-center">
-                <ion-text style=" text-shadow: .1em .15em .25em rgb(255, 255, 255);" color="warning">
-                    Does anyone actually win any real money?
-                  </ion-text>
-                </ion-card-subtitle>
-              </ion-card-header>
-            <ion-card-content>
-              <ion-text style="color:ghostwhite;">
-                <p class="ion-text-start">Since the inception of the two major online DFS platforms, the data analysts at RF💲 have been focused on creating the best strategies for building lineups that win More and More often.  Using this data, they have been turning
-                <ion-text color="secondary"> $10 </ion-text> lineups into game "changing" wins totalling over
-                <ion-text color="secondary"> $2000</ion-text> on the regular, and even wins over <ion-text color="secondary"> $8000</ion-text>.</p>
-                <hr>
-                  <!-- <ion-text color="twittr" style="text-shadow:  .1em .15em .25em rgb(0, 0, 0);">
-                <h4 class="ion-text-center">
-                    <strong>
-                      Scroll down to check out the latest RF$&trade; testimonials
-                    </strong>
-                </h4>
-                  </ion-text> -->
-                  <ion-slides [options]="slideOpts">
-                      <ion-slide *ngFor="let slide of [1, 2]">
-                        <ion-card>
-                          <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
-                        </ion-card>
-                      </ion-slide>
-                    </ion-slides>
-                    <ion-button expand="block" color="deepo" shape="round" fill="solid" routerLink="/credibility">
-                      <ion-ripple-effect>
-                    </ion-ripple-effect>
-                    <ion-text style="  text-shadow:  .1em .15em .25em rgb(255, 255, 255)" color="tertiary">
-                        <strong>
-                        More DK Credibility
-                      </strong>
-                    </ion-text>
-                  </ion-button>
-                <br>
-                <p class="ion-text-start">RF💲 success comes from diligent analysis, careful interpretation, and a keen eye for spotting trends when evaluating a host of real-time, historical, and in-house data sources including, but not limited to:</p>
-                    <ion-text class="ion-text-start" style="text-shadow: .1em .15em .25em rgb(174, 0, 255);" color="twittr">
-                      <strong>
-                        <ion-list class="ion-text-start">
-                        <ion-item lines="none"><ion-note>Player Stats</ion-note> </ion-item>
-                        <ion-item lines="none"><ion-note>Team Standings</ion-note> </ion-item>
-                        <ion-item lines="none"><ion-note>Weather Reports </ion-note> </ion-item>
-                        <ion-item lines="none"><ion-note>Injury Reports </ion-note> </ion-item>
-                        <ion-item lines="none"><ion-note>& Many Others</ion-note> </ion-item>
-                        </ion-list>
-                      </strong>
-                    </ion-text>
-                    <hr>
-                    <p class="ion-text-start">Since the most relevent data updates at any given time throughout the day, our analysts spend countless hours behind the scenes preparing each day and even nights are often spent:</p>
-                      <ion-text style="text-shadow: .1em .15em .25em rgb(174, 0, 255);" class="ion-text-start" color="twittr">
-                        <strong>
-                          <ion-list  class="ion-text-start" >
-                          <ion-item lines="none"><ion-note>Watch Games & Highlights</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Review Post Game and Other Interviews</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Research A Variety of Ancillary Data Sourcests</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Follow Key Social Media Accounts</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Evaluate Key Player Performance Indicators</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Determine Player  vs  Matchups</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Maintain RF$ Databases</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Participate in Groups & Forums</ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Stay ahead of Industry Trends </ion-note> </ion-item>
-                          <ion-item lines="none"><ion-note>Evolve Data Models for Better Outcomes</ion-note> </ion-item>
-                          </ion-list>
-                        </strong>
+        <!-- Testimonials Card -->
+              <ion-card class="testi ion-text-center">
+                <ion-card-header>
+                  <ion-card-title class="ion-text-center">
+                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
+                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
                       </ion-text>
-                   <hr>
-                <hr>
-                <p class="ion-text-start"><strong>Join the Club Today</strong> and discover how to use our proprietary tables and trademark data models.
-              </p>
-            </ion-text>
-
-              <br>
-              <ion-button shape="round" expand="block" routerLink="/purchase" color="secondary">
-                <ion-text color="bronze" style=" text-shadow:  .1em .15em .25em #000000;">
-                  <strong>
-                      Join the Club
-                    </strong>
-
+                    </ion-card-title>
+                    <ion-card-subtitle class="ion-text-center">
+                      <ion-text style=" text-shadow: .1em .15em .25em #9900ff;" color="warning">
+                      Results That Count!
+                        </ion-text>
+                      </ion-card-subtitle>
+                    </ion-card-header>
+                  <ion-card-content>
+                    <ion-text color="white">
+                      <p class="ion-text-center">Our data-analysts are consistantly turning
+                      <ion-text color="secondary"> $10</ion-text>+ lineups into "game changing" wins frequently over
+                      <ion-text color="secondary"> $2000</ion-text> and even winning over <ion-text color="secondary"> $8000</ion-text>.</p>
+                      <hr>
+                        <ion-slides [options]="slideOpts">
+                            <ion-slide *ngFor="let slide of [1, 2]">
+                              <ion-card>
+                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
+                              </ion-card>
+                            </ion-slide>
+                          </ion-slides>
+                          <ion-button expand="block" strong color="tertiary" shape="round" fill="solid" routerLink="/credibility">
+                            <ion-ripple-effect>
+                          </ion-ripple-effect>
+                          <ion-text>
+                            Check Out Even
+                            <br>
+                            More Wins
+                          </ion-text>
+                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
+                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
+                        </ion-button>
+                      <br>
+              <!--<p class="ion-text-start"><strong>Join the Club Today</strong> and discover how to use our proprietary tables and trademark data models.
+                    </p> -->
                   </ion-text>
-
-                  <ion-ripple-effect>
-                  </ion-ripple-effect>
-              </ion-button>
-
-
-
-          </ion-card-content>
-        </ion-card>
-            </ion-col>
-      <ion-col size-md="4">
-
-        <!-- Column 3 -->
-
-        <ion-card class="inspire">
-          <ion-card class="ion-text-center card-metal ion-padding">
-            <ion-card-title>
-              <ion-text style="  text-shadow:  .1em .15em .25em rgb(0, 0, 0);" color="secondary">
-                Today's Inspirational Message
-              </ion-text>
-            </ion-card-title>
-            <ion-card-subtitle>
-              <ion-text color="warning" style="text-shadow:  .1em .15em .25em rgb(23, 24, 0);">
-                We can all use more inspiration!
-              </ion-text>
-            </ion-card-subtitle>
-            <ion-button class="inspireButton" fill="outline" size="small" shape="round" color="light" href="https://inspiration.rankfantasysports.com">
-              <ion-text >More...</ion-text>
-            </ion-button>
-          </ion-card>
-        </ion-card>
-
-
-  <ion-card color="primary" class="ion-text-center">
-    <ion-card color="light" class="ion-padding ion-text-center">
-      <!-- <ion-card-header> -->
-
-        <ion-card-title>
-          <ion-text style="text-shadow:  .1em .15em .25em grey;">
-            Rank Fantasy Sports is a participating member of
-          </ion-text>
-
-        </ion-card-title>
-      <!-- </ion-card-header> -->
-      <ion-card-content>
-
-
-        <img src="../../assets/img/fsga.png" href="https://wwww.thefsga.org" style="align-content: center; min-height: 1in; min-width: 1.5in;">
-
-      </ion-card-content>
-    </ion-card>
-  </ion-card>
-  <ion-card class="ion-padding card-metal">
+                </ion-card-content>
+              </ion-card>
+  <!-- About Us Card -->
+  <!-- <ion-card class="ion-padding card-metal">
     <ion-card-title class="ion-text-center">
       <ion-text color="secondary">
         Who is Rank Fantasy $ports&trade;?
       </ion-text>
     </ion-card-title>
     <ion-card-subtitle class="ion-text-center">
-      <ion-text style="text-shadow:  .1em .15em .25em rgb(0, 0, 0);" color="warning">
+      <ion-text  color="warning">
         Our goals are simple:
       </ion-text>
     </ion-card-subtitle>
     <ion-text style="color:ghostwhite">
         <p class="ion-text-start">It is our mission to make it easy for our members to WIN more and more often by providing the BEST available information and insights in an effecient way so they can confidently build winning lineups with minimal time and effort.</p>
-    <ion-text style="color:ghostwhite">
-  <p class="ion-text-start">Not only do we love sports <ion-text color="deepo"><strong>Just Like You</strong></ion-text>... We also love to win <ion-text color="deepo"><strong>Just Like You</strong></ion-text>. </p> </ion-text>
-         <p>RF💲 provides daily projections to help you create the best possible lineups for the sports you want to play</p>
+  <p class="ion-text-start">Not only do we love sports <ion-text color="deepo"><strong>Just Like You</strong></ion-text>... We also love to win <ion-text color="deepo"><strong>Just Like You</strong></ion-text>. </p>
+         <p>RF$&trade; provides daily projections to help you create the best possible lineups for the sports you want to play</p>
       <p>We strive each day to be <ion-text color="gold"><strong>the go-to site</strong></ion-text> for everyone that loves to play daily and seasonal fantasy sports!</p>
       <p>Currently we are providing complete data analysis for the following sports:</p>
-      <ion-text class="ion-text-start" style="text-shadow: .1em .15em .25em rgb(174, 0, 255);" color="twittr">
-        <strong>
-          <ion-list class="ion-text-xl-center">
-          <ion-item lines="none"><ion-note>
-            NFL- Football
-          </ion-note> </ion-item>
-        <ion-item lines="none"><ion-note>
-          CFB- College Football
-        </ion-note> </ion-item>
-        <ion-item lines="none"><ion-note>
-          ATP & WTA- Tennis
-        </ion-note> </ion-item>
-        <ion-item lines="none"><ion-note>
-          PGA- Golf
-        </ion-note> </ion-item>
-        <ion-item lines="none"><ion-note>
-          NBA-
-           Basketball
-        </ion-note> </ion-item>
-          </ion-list>
-      </strong>
-      </ion-text>
     </ion-text>
-
-        <ion-button color="secondary" shape="round" expand="block" size="medium" routerLink="/purchase" >
-          <ion-text color="bronze" style=" text-shadow:  .1em .15em .25em rgb(2, 0, 0)">
-
-              <strong>
-                View PRO Packages
-              </strong>
-
+      <ul>
+        <ion-text class="ion-text-center" style="text-shadow: .1em .15em .25em rgb(174, 0, 255);" color="twittr">
+          <strong>
+            <li>
+              NFL- Football
+            </li>
+            <li>
+          CFB- College Football
+        </li>
+        <li>
+          ATP & WTA- Tennis
+         </li>
+         <li>
+           PGA- Golf
+          </li>
+          <li>
+            NBA-
+            Basketball
+          </li>
+        </strong>
+        </ion-text>
+        </ul>
+        <hr>
+        <ion-button color="deepo" shape="round" expand="block" size="medium" routerLink="/purchase" >
+          <ion-text color="white">
+                View Pro Packages
           </ion-text>
             <ion-ripple-effect>
             </ion-ripple-effect>
+            <ion-icon name="stopwatch" slot="start" color="dark"></ion-icon>
         </ion-button>
-       </ion-card>
+       </ion-card> -->
 
-            <ion-card class="ion-padding twit" color="dark">
-              <ion-card-content>
-                <ion-card-header>
-                  <ion-card-title>
-                    <ion-text style="  text-shadow:  .1em .15em .25em #000000;" color="secondary">
-                        RF$&trade; Twitter Account
-                      </ion-text>
-                    </ion-card-title>
-                    <ion-card-subtitle>
-                      <ion-text color="warning">
-                        Recent @rankfsports Tweets
-                      </ion-text>
-                    </ion-card-subtitle>
-                  </ion-card-header>
-                  <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-                  [opts]="{
-                    chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'],
-                    theme: 'dark',
-                    tweetLimit: '3',
-                    borderColor: '#02ed25',
-                    ariaPolite: 'assertive'
-                  }">
-                </ngx-twitter-timeline>
-                <ion-button expand="block" color="danger" shape="round" routerLink="/tweets">
-                  <ion-ripple-effect></ion-ripple-effect>
-                  <ion-text color="silver" style=" text-shadow:  .1em .15em .25em rgb(104, 0, 173);">
-                          <strong>
-                  More RF<ion-text color="secondary">$</ion-text>&trade; Tweets
-                </strong>
-                  </ion-text>
-             </ion-button>
-            </ion-card-content>
-          </ion-card>
+
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -357,25 +259,5 @@
                   <ion-icon name="arrow-dropup"></ion-icon>
               </ion-fab-button>
             </ion-fab>
-
   </ion-content>
-<ion-footer translucent>
-  <ion-fab vertical="bottom" horizontal="start">
-    <ion-fab-button color="tertiary">
-      <ion-icon name="rocket"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="facebk" href="https://fb.me/ranktowinfantasysports">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="twittr" href="https://twitter.com/rankfsports">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="danger" href="https://www.youtube.com/channel/UCxhm1g7GjuwkVWRrdpcZbcg">
-        <ion-icon name="logo-youtube"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-  <ion-toolbar color="medium">
-   </ion-toolbar>
-</ion-footer>
+<app-footer></app-footer>

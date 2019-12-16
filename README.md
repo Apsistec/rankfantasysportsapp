@@ -1,10 +1,10 @@
-# rfs
+# RFSports
 
 A subscription based cross-platform web-app delivering a unique suite of highly relevent, effective NFL, NCAA, NBA, PGA, & Tennis data-tables enabling daily fantasy sports players to efficiently create DFS platform lineups that win more and more often!
 
 * **Pick More Winning :football:  :basketball:  :tennis:  :golf: Lineups**
 
-* **Win :1st_place_medal:  :trophy: :medal_sports: More Often** 
+* **Win :1st_place_medal:  :trophy: :medal_sports: More Often**
 
 * **Win More** :heavy_dollar_sign: :dollar: :moneybag:
 
@@ -34,24 +34,41 @@ What is RankFantasySports.com?
 
 ***
 
+## Structure of App
+
+* Purchase is for all Stripe related actions which uses CLoud Functions to facilitate securely
+* Testimonials uses the swiper carousel to display the list of slides/images of latest winning screenshots
+* Auth-stage holds all user related pages components and side menus, both before and after authentication
+* Shared holds all of the components, overlays, and modals that are used on more than one or even every page
+* sports-categories holds all of the available product categories and
+* Nested under each category in sports-categories are the affiliated **for purchase data-table pages**
+* user-tickets is the user trouble ticket area for users to make requests for changes, bug reports, user issues
+* admin-dashboard is the control panel for admins of the app to see current members trouble tickets, see all existing members, admin functions **(todo)** to create reports on usage/activity, other reports and graphs)
+
 ## Table of Contents
 
-* [Installation](#installation)
-* [Support](#support)
-* [Contributing](#contributing)
-* [Contributors](#contributors)
+- [RFSports](#RFSports)
+  - [Rank Fantasy $ports&trade; PWA](#rank-fantasy-portstrade-pwa)
+    - [Tech Stack](#tech-stack)
+  - [Structure of App](#structure-of-app)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Documentation](#documentation)
+  - [Contributing](#contributing)
+  - [Contributors/People](#contributorspeople)
+  - [Support](#support)
 
 ## Installation
 
 1. Obtain Repo
 
-    Clone this repo to your local machine using 
+    Clone this repo to your local machine using
 
     ```shell
     git clone https://github.com/apsistec/rfs
     ```
 
-1. Setup
+2. Setup
 
     1. **Install App code via npm**
 
@@ -59,11 +76,11 @@ What is RankFantasySports.com?
         npm install
         ```
 
-    1. **Install Cloud Functions**
+    2. **Install Cloud Functions**
 
         1. Verify correct Service Account Key (accountServiceKey.json) is set in the /functions directory, else create a new Service Account Key by going to [Firebase Admin SDK Settings](https://console.firebase.google.com/project/rankfantasysports-test/settings/serviceaccounts/adminsdk) to create a new one
 
-        1. Verify the correct Stripe Secret Key (Test vs. Live) is configured (from the Stripe account dashoard)
+        2. Verify the correct Stripe Secret Key (Test vs. Live) is configured (from the Stripe account dashoard)
 
             ```shell
             cd functions
@@ -71,7 +88,7 @@ What is RankFantasySports.com?
             firebase functions:config:set
             ```
 
-        1. Verify the correct Stripe Webhook Key (Test vs. Live) is configured (from the Stripe account dashoard)
+        3. Verify the correct Stripe Webhook Key (Test vs. Live) is configured (from the Stripe account dashoard)
 
             ```shell
             cd functions
@@ -79,14 +96,14 @@ What is RankFantasySports.com?
             firebase functions:config:set
             ```
 
-        1. CD back to app directory
+        4. CD back to app directory
 
             ```shell
             npm i
             cd ..
             ```
 
-1. Attach Firebase Project to App
+3. Attach Firebase Project to App
 
     1. Attach Firebase Project
 
@@ -94,13 +111,13 @@ What is RankFantasySports.com?
         firebase use --add
         ```
 
-    1. Initialize Firebase
+    2. Initialize Firebase
 
         ```shell
         firebase init
         ```
 
-    1. Deploy Firebase Locally (Emulator) -or- Live Testing Server (depending on state)
+    3. Deploy Firebase Locally (Emulator) -or- Live Testing Server (depending on state)
 
         1. Emulator (local server)
 
@@ -109,7 +126,7 @@ What is RankFantasySports.com?
             firebase serve
             ```
 
-        1. Firebase Servers (live testing server)
+        2. Firebase Servers (live testing server)
 
             ```shell
             firebase deploy --only functions
@@ -117,7 +134,7 @@ What is RankFantasySports.com?
             firebase deploy
             ```
 
-1. Start App Server
+4. Start App Server
 
       Start Ionic Server with *local lab flag for viewing emulated view of Android and iPhone view** and **DevApp flag for testing on physical mobile devices that are currently on local network** *(must have DevApp App installed on devices)*
 

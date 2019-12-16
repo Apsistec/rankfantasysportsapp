@@ -8,6 +8,7 @@ import {
   providedIn: 'root'
 })
 export class MessageService {
+  Choice;
 
   constructor(
     private toastCtrl: ToastController,
@@ -15,10 +16,10 @@ export class MessageService {
   ) {}
 
    // Toasts
-   async registerSuccessToast(user) {
+   async registerSuccessToast(user: any) {
     const toast = await this.toastCtrl.create({
       header: 'Registration Successful',
-      message: 'Welcome ' + user.firstName + '. Account registered to ' + user.email,
+      message: 'Welcome ' + user.displayName + '. Account registered to ' + user.email,
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,
@@ -29,10 +30,10 @@ export class MessageService {
     return toast.present();
   }
 
-  async isLoggedInToast(user) {
+  async isLoggedInToast(user: any) {
     const toast = await this.toastCtrl.create({
-      header: 'Account Signs In Successful',
-      message: 'Welcome back ' + user.displayName + '\n. Email: ' + user.email,
+      header: 'Login Successful',
+      message: 'Welcome back ' + user.displayName + '\n Email: ' + user.email,
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,
@@ -43,7 +44,7 @@ export class MessageService {
     return toast.present();
   }
 
-  async federatedLoginToast(data) {
+  async federatedLoginToast(data: any) {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
       message: 'Welcome back ' + data.user.displayName + '\n Email: ' + data.user.email,
@@ -65,10 +66,58 @@ export class MessageService {
       position: 'top',
       duration: 4000,
       showCloseButton: true,
-      translucent: true,
-      keyboardClose: true
+      translucent: true
     });
     return toast.present();
+  }
+
+  async updatedToast() {
+    const toast = await this.toastCtrl.create({
+      header: 'Software Update Message:',
+      cssClass: 'successT',
+      message: 'You are now using the latest version',
+      position: 'top',
+      duration: 5000,
+      showCloseButton: true,
+      translucent: true,
+    });
+    return toast.present();
+    }
+
+  async updateNameToast() {
+    const toast = await this.toastCtrl.create({
+      message: 'Your name was updated',
+      duration: 5000,
+      position: 'top',
+      cssClass: 'successT',
+      translucent: true
+    });
+    return toast.present();
+  }
+
+  async subscribedToast() {
+    const toast = await this.toastCtrl.create({
+      header: 'Authentication Message:',
+      cssClass: 'successT',
+      message: 'Thank You for your payment. You are subscribed!',
+      position: 'top',
+      duration: 5000,
+      showCloseButton: true,
+      translucent: true,
+    });
+    toast.present();
+  }
+
+  async editEnabledToast() {
+    const toast = await this.toastCtrl.create({
+      header: 'Edit is Enabled',
+      cssClass: 'successT',
+      message: 'Edit your name and/or email address, within the respective fields. When you are done, press the submit button. You will receive a confirmation if successful',
+      position: 'top',
+      showCloseButton: true,
+      translucent: true,
+    });
+    toast.present();
   }
 
   //  Alerts
@@ -96,7 +145,7 @@ export class MessageService {
     return alert.present();
   }
 
-  async verifyEmailAlert(data) {
+  async verifyEmailAlert(data: any) {
     const alert = await this.alertCtrl.create({
       header: 'Account Verification',
       subHeader: 'Verification Email Sent:',
@@ -108,12 +157,23 @@ export class MessageService {
     return alert.present();
   }
 
-  async resetPasswordAlert(data) {
+  async resetPasswordAlert(data: any) {
     const alert = await this.alertCtrl.create({
       header: 'Request Successful',
       subHeader: 'Password Reset Request Sent:',
       cssClass: 'successA',
       message: 'Check your email, ' + data.user.email + ', for a link to RESET your password',
+      translucent: true,
+      buttons: ['OK']
+    });
+    return alert.present();
+  }
+
+  async repurchaseAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'Purchase Already Made',
+      cssClass: 'successA',
+      message: 'You are already a subscriber',
       translucent: true,
       buttons: ['OK']
     });
@@ -142,7 +202,7 @@ export class MessageService {
     return alert.present();
   }
 
-  async errorAlert(err) {
+  async errorAlert(err: any) {
     const alert = await this.alertCtrl.create({
       header: 'Error',
       message: err.message,
@@ -160,4 +220,39 @@ export class MessageService {
     });
     return alert.present();
   }
+
+  async unauthenticatedAlert() {
+    const loginAlert = await this.alertCtrl.create({
+      header: 'Login First',
+      subHeader: 'Authenticated Users Only',
+      message: 'You need to login or register an account before you can access this area',
+      buttons: ['OK'],
+    });
+    loginAlert.present();
+  }
+
+  async saveOrCancel() {
+    const alert = await this.alertCtrl.create({
+      header: 'Your Changes Are Not Saved',
+      message: 'If you leave without saving, your selection will be lost?',
+      backdropDismiss: false,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: (cancel) => {
+            this.Choice = cancel.Choice;
+          }
+        }, {
+          text: 'Save',
+          handler: (save) => {
+            this.Choice = save.Choice;
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+
 }

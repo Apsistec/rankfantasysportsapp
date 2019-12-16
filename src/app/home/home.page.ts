@@ -3,6 +3,7 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
 import { AuthService } from '../core/services/auth.service';
 import { ModalController } from '@ionic/angular';
+import { SharedPageModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +23,10 @@ export class HomePage implements OnInit {
       delay: 4000,
     },
   };
-  titleId = 'RF$ Home';
+  titleId = 'RF$\u2122 Home';
   public trustedVideoUrl: SafeResourceUrl;
   video: any = {
-    url: 'https://www.youtube.com/embed/IlU_RBT2zE0'
+    url: 'https://www.youtube.com/embed/APeaBlagSNc'
   };
 
   constructor(

@@ -1,10 +1,8 @@
 export class Request {
-  constructor(
-    public id: number,
-    public type: string,
-    public description: string,
-    public os: string,
-    public model: string,
-    public topic: string
-  ) {}
+  id: string;
+  type: string;
+  description: string;
+  os: string;
+  model: string;
+  topic: string;
 }

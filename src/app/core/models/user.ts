@@ -2,16 +2,16 @@
 //     USER?: string;
 //     ADMIN?: string;
 // }
-export interface User {
+export class User {
     uid: string;
     displayName: string;
+    photoURL: string;
     email: string;
-    role: string;
-    permissions: string[];
-    firstSignIn: any;
+    role?: string;
+    permissions?: string[];
     bronze?: boolean;
     gold?: boolean;
     silver?: boolean;
-    photoURL?: string;
     stripeCustomerId?: string;
+    idempotency_key?: string;
 }

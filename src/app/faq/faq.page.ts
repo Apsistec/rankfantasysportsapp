@@ -11,7 +11,7 @@ import { IonContent } from '@ionic/angular';
 })
 export class FaqPage implements OnInit {
   faqs = Faqs;
-  titleId = 'Rank Fantasy Sports FAQs';
+  titleId = 'RF$\u2122 FAQs';
   @ViewChild(IonContent) ionContent: IonContent;
   scrolledDown = false;
 

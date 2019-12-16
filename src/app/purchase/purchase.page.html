@@ -2,12 +2,32 @@
 
 <ion-content class="ion-text-center" fullscreen >
   <ion-grid>
-<!-- Second Row Memberships -->
+
+    <!-- Row 1 Discount Available -->
+      <ion-row>
+          <ion-col size-md="12">
+            <ion-card style="box-shadow: inset 3px 3px 8px #2bff00;" color="tertiary">
+              <ion-card style="box-shadow: 5px 5px 6px #2900df, inset 0 0 20px #00fff2;" class="ion-padding" color="medium">
+                    <ion-text color="deepo" style="font-size: 25px; text-shadow: 1px 1px 38px #0038d3, 1px 1px 18px #0039d4">
+                          <strong>
+                            Free for a week!
+                          </strong>
+                        </ion-text>
+                      <hr>
+                        <ion-text color="warning" style="font-size: 16pt; ">
+                              <sup>*</sup>Signup with any PRO Package today and get 7 days to try it out.
+                            </ion-text>
+
+                        </ion-card>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+<!-- Second Row Instrction banner -->
 <ion-row class="ion-align-items-stretch">
   <ion-col size-md="12">
-    <ion-card  color="primary">
-      <h4 style="text-shadow: .1em .1em .15em black;">
-        <ion-text color="warning" style="text-shadow: .1em .1em .15em black;">Step 1:</ion-text>&nbsp;
+    <ion-card color="primary">
+      <h4 >
+        <ion-text color="warning" >Step 1:</ion-text>&nbsp;
         <ion-text color="secondary">
           Choose Your Package
         </ion-text>
@@ -15,85 +35,98 @@
     </ion-card>
   </ion-col>
   </ion-row>
+
+
   <ion-row>
       <ion-grid>
         <ion-row>
           <ion-grid>
             <ion-row>
-    <!-- Gold Plan -->
-              <ion-col size-md="6">
-                <ion-card color="light">
-                  <ion-list class="golden" lines="none">
+    <!-- Column 1 Row 3 Gold Plan -->
+    <ion-col size-xs="12" offset-xs="0" size-lg="4" offset-lg="0">
+        <ion-card color="light">
+                  <ion-list class="golden" lines="none" >
                     <ion-list-header color="tertiary">
                       <ion-title>
-                        <ion-text color="warning" style="text-shadow: .1em .1em .15em black;">
+                        <ion-text color="warning" >
                           Gold<br>Package
                         </ion-text>
                       </ion-title>
-                    <img src="../../assets/img/gold.svg" style="width: 45px;">
+                      <img src="../../assets/img/gold.svg" style="width: 45px;">
                     </ion-list-header>
                     <ion-item color="primary">
                       <strong>
-                        <ion-text color="valid"  class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >
-                            $90.00 Annually
+                        <ion-text color="success"  class="ion-text-wrap"  >
+                            $90.00
+                          </ion-text>
+                          <ion-text class="ion-text-wrap" >
+                            &nbsp;Annually
                           </ion-text>
                         </strong>
-                    </ion-item>
-                    <ion-item color="medium">
-                      <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >Includes Everything in Bronze Package</ion-text>
-                    </ion-item>
-                    <ion-item color="primary">
-                      <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >One (1) Year Subscription</ion-text>
-                    </ion-item>
-                    <ion-item color="medium">
-                      <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >
-                        12 Months at $7.50 per Month
-                      </ion-text>
                       </ion-item>
-                      <ion-item color="primary">
-                        <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;">
-                          <strong>
+                      <ion-item color="medium">
+                        <ion-text color="warning" class="ion-text-wrap" >
+                          <sup>
                             <s>
                               Regular Price $119.88
                             </s>
-                            &nbsp;
-                              <ion-text class="ion-text-wrap" color="secondary" style="text-shadow: .1em .1em .15em 1px rgb(0, 0, 0);">
+                          </sup>
+                            <br>
+                            <ion-text color="white">
+                              You Save
+                            </ion-text>
+                              <ion-text class="ion-text-wrap" color="success" >
                         <strong>
-                          $29.88 Savings
+                          $29.88
                         </strong>
                       </ion-text>
-                          </strong>
                         </ion-text>
                       </ion-item>
-                  </ion-list>
+                    <ion-item color="primary">
+                      <ion-text class="ion-text-wrap"  >Includes Everything in Bronze Package</ion-text>
+                    </ion-item>
+                    <ion-item color="medium">
+                      <ion-text class="ion-text-wrap"  >One (1) Year Subscription</ion-text>
+                    </ion-item>
+                    <ion-item color="primary">
+                      <ion-text class="ion-text-wrap"  >
+                          12 Months at <strong>
+                            <ion-text color="success"  class="ion-text-wrap"  >
+                              $7.50
+                              </ion-text>
+                            </strong> per Month
+                        </ion-text>
+                      </ion-item>
+                    </ion-list>
                   <!-- <div *ngIf="auth.user; else nogold"> -->
-                  <!-- </div> -->
-                  <!-- <ng-template #nogold> -->
+                    <!-- </div> -->
+                    <!-- <ng-template #nogold> -->
                       <ion-button *ngIf="!isClickedGold; else gold"  strong
-                          expand="block" color="danger" (click)="clickedGold()">
-                        <ion-icon name="medal" color="gold"></ion-icon>&nbsp;&nbsp;
-                        <ion-text color="gold" style="text-shadow: .1em .1em .15em black;">Select Gold</ion-text>
-                        </ion-button>
-              <!-- </ng-template> -->
-<ng-template #gold>
-  <ion-button *ngIf="this.auth.afAuth.auth.currentUser"   strong expand="block" color="warning">
-    <ion-icon name="medal" color="primary"></ion-icon>&nbsp;&nbsp;
-    <ion-text style="text-shadow: .1em .1em .15em rgb(218, 105, 0);;">Gold Selected</ion-text>
-  </ion-button>
-  <ion-button *ngIf="!this.auth.afAuth.auth.currentUser"   strong expand="block" color="warning" (click)="presentModal()">
-    <ion-icon name="medal" color="primary"></ion-icon>&nbsp;&nbsp;
-    <ion-text cstyle="text-shadow: .1em .1em .15em rgb(218, 105, 0);;">Gold Selected</ion-text>
-  </ion-button>
-</ng-template>
-            </ion-card>
-          </ion-col>
-<!-- Silver Plan -->
-          <ion-col size-md="6">
-            <ion-card color="light">
+                      expand="block" color="danger" (click)="clickedGold()">
+                      <ion-icon name="medal" color="gold"></ion-icon>&nbsp;&nbsp;
+                      <ion-text color="gold" >Select Gold</ion-text>
+                    </ion-button>
+                    <!-- </ng-template> -->
+                    <ng-template #gold>
+                      <ion-button *ngIf="this.auth.afAuth.auth.currentUser"   strong expand="block" color="warning">
+                        <ion-icon name="medal" color="primary"></ion-icon>&nbsp;&nbsp;
+                        <ion-text style="text-shadow: .1em .1em .15em rgb(218, 105, 0);;">Gold Selected</ion-text>
+                      </ion-button>
+                      <ion-button *ngIf="!this.auth.afAuth.auth.currentUser"   strong expand="block" color="warning" (click)="presentModal()">
+                        <ion-icon name="medal" color="primary"></ion-icon>&nbsp;&nbsp;
+                        <ion-text style="text-shadow: .1em .1em .15em rgb(218, 105, 0);;">Gold Selected</ion-text>
+                      </ion-button>
+                    </ng-template>
+                  </ion-card>
+                </ion-col>
+
+  <!-- Column 2 Row 3 Silver Plan -->
+  <ion-col size-xs="12" offset-xs="0" size-lg="4" offset-lg="0">
+      <ion-card color="light" class="ion-text-wrap">
               <ion-list lines="none">
                 <ion-list-header color="tertiary">
                   <ion-title>
-                    <ion-text color="silver" style="text-shadow: .1em .1em .15em black;">
+                    <ion-text color="silver" >
                       Silver<br>Package
                     </ion-text>
                   </ion-title>
@@ -101,42 +134,53 @@
                 </ion-list-header>
                 <ion-item color="primary">
                   <strong>
-                    <ion-text color="valid" class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;">
-                        $50.00 Bi-annually
+                    <ion-text color="success" class="ion-text-wrap">
+                        $50.00
+                      </ion-text>
+                      <ion-text class="ion-text-wrap">
+                        &nbsp;Bi-annually
                       </ion-text>
                     </strong>
+
                 </ion-item>
                 <ion-item color="medium">
-                  <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;">Includes Everything in Bronze Package</ion-text>
-                </ion-item>
-                <ion-item  color="primary">
-                  <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >Six (6) Month Subscription</ion-text>
-                </ion-item>
-                <ion-item color="medium" >
-                <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >
-                  6 Months at $8.33 per Month
-                </ion-text>
-                  </ion-item>
-                    <ion-item color="primary">
-                        <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;"  >
-                          <strong>
-                            <del>
-                              Regular Price $59.94
-                            </del>
-                            &nbsp;
-                              <ion-text class="ion-text-wrap" color="secondary" style="text-shadow: .1em .1em .15em 1px rgb(0, 0, 0);">
-                        <strong>
-                          $9.94 Savings
-                        </strong>
-                      </ion-text>
-                          </strong>
+                  <ion-text color="warning">
+                      <sup>
+                        <del>
+                          Regular Price $59.94
+                        </del>
+                      </sup>
+                          <br>
+                          <ion-text color="white">
+                              You Save
+                            </ion-text>
+                          <ion-text color="success">
+                              <strong>
+                                $9.94
+                              </strong>
+                          </ion-text>
                         </ion-text>
                       </ion-item>
+                <ion-item color="primary">
+                  <ion-text class="ion-text-wrap" >Includes Everything in Bronze Package</ion-text>
+                </ion-item>
+                <ion-item  color="medium">
+                  <ion-text class="ion-text-wrap"  >Six (6) Month Subscription</ion-text>
+                </ion-item>
+                <ion-item color="medium" >
+                <ion-text class="ion-text-wrap"  >
+                  6 Months at <strong>
+                    <ion-text color="success"  class="ion-text-wrap"  >
+                      $8.33
+                      </ion-text>
+                    </strong> per Month
+                </ion-text>
+                  </ion-item>
               </ion-list>
                 <ion-button *ngIf="!isClickedSilver; else silver"  strong expand="block"
                 color="danger" (click)="clickedSilver()">
                   <ion-icon name="medal" color="silver"></ion-icon>&nbsp;&nbsp;
-                  <ion-text color="silver" class="ion-text-wrap" style="text-shadow: .1em .1em .15em rgb(0, 2, 2);">Select Silver</ion-text>
+                  <ion-text color="silver" class="ion-text-wrap">Select Silver</ion-text>
                 </ion-button>
 <ng-template #silver>
   <ion-button *ngIf="this.auth.afAuth.auth.currentUser"  strong expand="block"  color="warning">
@@ -150,51 +194,24 @@
 </ng-template>
           </ion-card>
           </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size-md="12">
-            <ion-card style="box-shadow: inset 5px 4px 3px 2px rgb(22, 151, 211),  2px 3px 4px 4px rgb(255, 1, 200);" class="ion-padding"  color="tertiary">
-              <!-- <ion-card style="box-shadow:  2px 3px 4px 4px rgb(255, 1, 200);" class="ion-padding" color="medium"> -->
-                <!-- <ion-card-header>
-                  <ion-card-title> -->
-                    <ion-text color="deepo" style="font-size: 32pt; text-shadow: .15em .15em .1em rgb(0, 245, 204)">
-                        <!-- <h1> -->
-                          <strong>
-                            Free for a week!
-                          </strong>
-                          <!-- </h1> -->
-                        </ion-text>
-                      <!-- </ion-card-title> -->
-                      <hr>
-                      <!-- <ion-card-subtitle> -->
-                        <ion-text color="warning" style="font-size: 16pt; text-shadow: .15em .15em .1em rgb(24, 48, 39);">
-                            <!-- <h3> -->
-                              <sup>*</sup>Signup with any PRO Package today and get 7 days to try it out.
-                              <!-- </h3> -->
-                            </ion-text>
-                          <!-- </ion-card-subtitle>
-                        </ion-card-header> -->
-                        </ion-card>
-            <!-- </ion-card> -->
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-<!-- Bronze Plan -->
-          <ion-col size-md="4">
-            <ion-card color="light">
+
+
+<!-- Column 3 Row 3 Bronze Package -->
+          <ion-col size-xs="12" offset-xs="0" size-lg="4" offset-lg="0">
+            <ion-card color="light"  class="ion-text-wrap"  >
               <ion-list lines="none">
                 <ion-list-header color="tertiary">
                   <ion-title>
-                    <ion-text  color="bronze" style="text-shadow: .1em .1em .15em black;">
+                    <ion-text  color="bronze" >
                       Bronze<br>Package
                     </ion-text>
                   </ion-title>
                   <img src="../../assets/img/bronze.svg" style="width: 45px;">
                 </ion-list-header>
                 <ion-item  color="primary">
-                    <ion-text color="valid" class="ion-text-wrap"  style="text-shadow: .1em .1em .15em black;">
+                    <ion-text color="success">
                         <strong>
-                          $9.99 Monthly
+                          $9.99 <ion-text color="white">Monthly</ion-text>
                         </strong>
                         <br>
                         <ion-text color="warning">
@@ -203,7 +220,7 @@
                     </ion-text>
                   </ion-item>
                   <ion-item color="medium">
-                    <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >
+                    <ion-text class="ion-text-wrap"  >
                       All RF$&trade; DFS Data-tables
                       <br>
                       <ion-text color="warning">
@@ -212,7 +229,7 @@
                     </ion-text>
                   </ion-item>
                   <ion-item color="primary">
-                    <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;">
+                    <ion-text class="ion-text-wrap" >
                     DFS Stats Analysis Videos
                     <br>
                     <ion-text color="warning">
@@ -221,7 +238,7 @@
                   </ion-text>
                 </ion-item>
                 <ion-item color="medium">
-                  <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >
+                  <ion-text class="ion-text-wrap"  >
                     Livestream Events
                     <br>
                   <ion-text color="warning">
@@ -230,7 +247,7 @@
                   </ion-text>
                 </ion-item >
                 <ion-item color="primary">
-                  <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;" >
+                  <ion-text class="ion-text-wrap"  >
                     RF$&trade; Hosted DFS Chat Room
                     <br>
                   <ion-text color="warning">
@@ -242,7 +259,7 @@
                   </ion-text>
                 </ion-item>
                 <ion-item color="medium">
-                  <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;">
+                  <ion-text class="ion-text-wrap" >
                      Other DFS Tools & Resources
                      <br>
                   <ion-text color="warning">
@@ -254,32 +271,36 @@
                 <ion-button  *ngIf="!isClickedBronze; else bronze"  strong
                   expand="block" color="danger" (click)="clickedBronze()">
                   <ion-icon name="medal" color="bronze"></ion-icon>&nbsp;&nbsp;
-                  <ion-text style="text-shadow: .1em .1em .15em black;" color="bronze">Select Bronze</ion-text>
+                  <ion-text  color="bronze">Select Bronze</ion-text>
                 </ion-button>
-<ng-template #bronze>
-  <ion-button *ngIf="!this.auth.afAuth.auth.currentUser" strong expand="block" color="warning"  (click)="presentModal()">
+    <ng-template #bronze>
+    <ion-button *ngIf="!this.auth.afAuth.auth.currentUser" strong expand="block" color="warning"  (click)="presentModal()">
     <ion-icon name="medal" color="primary"></ion-icon>&nbsp;&nbsp;
     <ion-text style="text-shadow: .1em .1em .15em rgb(218, 105, 0);;">Bronze Selected</ion-text>
-  </ion-button>
-  <ion-button *ngIf="this.auth.afAuth.auth.currentUser" strong expand="block" color="warning" >
+    </ion-button>
+    <ion-button *ngIf="this.auth.afAuth.auth.currentUser" strong expand="block" color="warning" >
     <ion-icon name="medal" color="primary"></ion-icon>&nbsp;&nbsp;
     <ion-text  style="text-shadow: .1em .1em .15em rgb(218, 105, 0);">Bronze Selected</ion-text>
-  </ion-button>
-</ng-template>
+    </ion-button>
+    </ng-template>
                           </ion-card>
                         </ion-col>
+        </ion-row>
+
+      </ion-grid>
+<!-- Column 3 Row 3 Bronze Plan -->
                       </ion-row>
                     </ion-grid>
                   <!-- </ion-card> -->
                   <!-- </ion-col> -->
                 </ion-row>
-                <!-- Third Row Payment -->
+                <!-- Fourth Row Payment -->
                 <ion-row>
                   <ion-col size-md="6" offset-md="3">
                     <ion-card  color="facebk" #target style="box-shadow: inset 2px 2px 3px 3px rgb(203, 214, 224);" >
                       <ion-card class="ion-padding" color="primary" style="box-shadow: 3px 3px 2px 2px rgb(128, 202, 199);">
-                        <h4 style="text-shadow: .1em .1em .15em black;">
-                          <ion-text color="warning" style="text-shadow: .1em .1em .15em black;">Step 3:</ion-text>
+                        <h4 >
+                          <ion-text color="warning" >Step 3:</ion-text>
                            <ion-text color="secondary">
                              &nbsp;Enter Your Card Details
                            </ion-text>
@@ -287,11 +308,11 @@
                         <hr>
                         <ion-card *ngIf="planId">
                           <ion-card-title>
-                          <ion-text class="ion-text-wrap" style="text-shadow: .1em .1em .15em black;">You are purchasing:</ion-text>
+                          <ion-text class="ion-text-wrap" >You are purchasing:</ion-text>
                         </ion-card-title>
                         <br>
                         <ion-button shape="round" size="large" expand="block" fill="outline" color="success">
-                          <ion-text color="warning" style="text-shadow: .1em .1em .15em black;">
+                          <ion-text color="warning" >
                             {{ planId }}&nbsp;Package
                             <br>
                             {{ price }}
@@ -299,22 +320,22 @@
                         </ion-button>
                         <hr>
                       </ion-card>
-                      <ion-text color="gold" style="text-shadow: .1em .1em .15em rgb(28, 95, 48);">
+                      <ion-text color="deepo">
                         <h5>Credit & Debit Accepted</h5>
                       </ion-text>
                         <ion-grid>
                           <ion-row>
                             <ion-col>
-                              <img src="../../../assets/img/visa.svg"  style="height:40px; float:right;">
+                              <img class="creditCard" src="../../../assets/img/visa.svg"  style="height:40px; float:right;">
                             </ion-col>
                             <ion-col>
-                              <img src="../../../assets/img/discover.svg"  style="height:40px;" >
+                              <img class="creditCard" src="../../../assets/img/discover.svg"  style="height:40px;" >
                             </ion-col>
                             <ion-col>
-                              <img src="../../../assets/img/amex.svg"  style="height:40px;" t>
+                              <img class="creditCard" src="../../../assets/img/amex.svg"  style="height:40px;" t>
                             </ion-col>
                             <ion-col>
-                              <img src="../../../assets/img/mastercard.svg"  style="height:47px;" >
+                              <img  class="creditCard" src="../../../assets/img/mastercard.svg"  style="height:47px;" >
                             </ion-col>
                           </ion-row>
                         </ion-grid>
@@ -330,7 +351,7 @@
                         </div>
                         <hr>
                         <ion-button [disabled]="!planChosen" type="submit" expand="block" color="facebk">
-                          <ion-text color="warning" style="text-shadow: .1em .1em .15em black;">Start Subscription&nbsp;&nbsp;
+                          <ion-text color="warning" >Start Subscription&nbsp;&nbsp;
                             <ion-icon slot="end" color="primary" name="jet"></ion-icon>
                           </ion-text>
                         </ion-button>
@@ -348,10 +369,10 @@
           </ion-card>
         </ion-col>
       </ion-row>
-      <!-- Fourth Row Testimonials -->
+      <!-- Fifth Row Testimonials -->
       <ion-card color="primary">
         <h4>
-          <ion-text color="deepo" style="text-shadow: .1em .1em .15em black;">
+          <ion-text color="deepo" >
             Helping You Win Is Our Business
           </ion-text>
           &nbsp;
@@ -360,42 +381,36 @@
       <ion-row>
       <ion-grid>
         <ion-row>
-          <ion-col>
-            <!-- Enter Video 1 Here -->
-          </ion-col>
-          <ion-col>
-            <!-- Enter Video 2 Here -->
+
+            <ion-col size-xs="12" offset-xs="0" size-lg="4" offset-lg="2">
+                <!-- Enter Video 1 Here -->
             <ion-card class="ion-text-center" class="resp-container" color="primary">
-              <!-- <ion-card-title  class="ion-class="ion-text-center"">
-                <ion-text style="text-shadow: .1em .1em .15em #000000;" color="secondary">
-                  <strong>
-                    Welcome to RF
-                  </strong>
-                  <ion-text color="secondary">
-                    <strong>
-                      $
-                    </strong>
-                  </ion-text>
-                  &trade;
-                </ion-text>
-              </ion-card-title> -->
-              <iframe  class="resp-iframe"  [src]="trustedVideoUrl">
+
+              <iframe  class="resp-iframe"  [src]="trustedVideoUrl2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
               </iframe>
             </ion-card>
           </ion-col>
-          <ion-col>
-            <!-- Enter Video 3 Here -->
+
+          <ion-col size-xs="12" offset-xs="0" size-lg="4" offset-lg="0">
+              <!-- Enter Video 2 Here -->
+            <ion-card class="ion-text-center" class="resp-container" color="primary">
+
+              <iframe  class="resp-iframe"  [src]="trustedVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </ion-card>
           </ion-col>
+
+
         </ion-row>
       </ion-grid>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-card color="medium" class="ion-padding">
+          <ion-card color="light" class="ion-padding">
               <ion-text class="ion-text-start">
-                <p>
+                <p style="text-shadow: none">
                   <sup>
-                    * Credit or Debit card required for verification. During the One Week (7 day) trial period, card will not be charged. On eighth 8<sup>th</sup> day after subscription start date, card will be processed.
+                    * Credit or Debit card required for verification.  During the One Week (7 day) trial period, card will not be charged.  On eighth 8<sup>th</sup> day after subscription start date, card will be processed.
                       <strong>
                         Trial valid once per card holder/ member.
                       </strong>
@@ -403,10 +418,19 @@
                   <strong>
                     One (1) user per account.
                   </strong>
-                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account, sign in with the same email address each time.  All payments are handled by&nbsp;<a href="https://www.stripe.com"><ion-text color="deepo">Stripe</ion-text></a>.  The RF$ site is served using Secure Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.  Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may cancel your subscription at anytime.  Once a cancellation request has been submitted, your account will be terminated immediately, and no further payments will be processed.  For more details, please read our <app-terms></app-terms>.
-                  <br>
-                    The security of your information is our priority. Please read our <app-privacy></app-privacy> for more details.
+                    Subscriptions are associated with the email address you used at the time of purchase.  To ensure access to your account,
+                    sign in with the same email address each time.  All payments are handled
+                    by&nbsp;<a href="https://www.stripe.com"><ion-text color="deepo"> Stripe</ion-text></a>.  The RF$ site is served using Secure
+                    Socket Layer (SSL) encryption, and our servers submit secure tokenized versions of your payment information.  The complete
+                    card details are never visible to anyone at Rank Fantasy Sports, nor are the complete card details stored on our servers.
+                    Pro Membership Packages are subscriptions which are billed automatically, on or about the same date each billing cycle
+                    varying only on accounts which have a start date that does not occur every month (e.g. 31st day of a month).  You may
+                    cancel your subscription at anytime.  Once a cancellation request has been submitted,  your account will be terminated
+                    immediately, and no further payments will be processed.  For more details, please read our<ion-button fill="clear" size="small" (click)=showModalTerms()><ion-text color="deepo">Terms</ion-text></ion-button>.
+                    The security of your information is our priority. Please read our<ion-button fill="clear" size="small" (click)=showModalPrivacy()><ion-text color="deepo">Privacy</ion-text></ion-button>for more details.
                   </sup>
+
+
                 </p>
               </ion-text>
             </ion-card>
@@ -416,7 +440,3 @@
     <ion-card>
     </ion-card>
   </ion-content>
-<router-outlet name="terms"></router-outlet>
-
-
-

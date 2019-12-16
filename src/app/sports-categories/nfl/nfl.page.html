@@ -1,0 +1,24 @@
+<app-header [titleId]= "titleId"></app-header>
+
+<ion-content>
+       <ion-card>
+          <ion-card-header color="primary">
+            <ion-card-title>
+              NFL
+            </ion-card-title>
+          </ion-card-header>
+          <ion-item color="medium" routerLink="nfl-pre">
+            <ion-icon color="leather" size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-text class="ion-text-wrap">NFL Preseason Project</ion-text>
+          </ion-item>
+           <ion-item color="medium" routerLink="nfl-week">
+            <ion-icon color="leather" size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label class="ion-text-wrap">NFL Weekly Fantasy Projections</ion-label>
+          </ion-item>
+           <ion-item color="medium" routerLink="nfl-score">
+            <ion-icon color="leather" size="large" slot="start" class="fball-brown"  name="american-football"></ion-icon>
+            <ion-label class="ion-text-wrap">NFL Game Score Projections</ion-label>
+          </ion-item>
+        </ion-card>
+</ion-content>
+<app-footer></app-footer>
