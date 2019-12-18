@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfilePage } from './profile.page';
 import { SharedPageModule } from '../../shared/shared.module';
-import { AuthGuard } from '../../core/guards/auth.guard';
+import { AuthGuard } from '../../_guards/auth.guard';
 
 const routes: Routes = [
   {

@@ -22,13 +22,11 @@ constructor(private modalController: ModalController) { }
       cssClass: 'app-reg-modal',
       backdropDismiss: false
     });
-    return await modal.present();
+    await modal.present();
     document.body.style.overflow = 'hidden';
 
   }
-  modalDismiss() {
-    this.modalController.dismiss({
-      'dismissed': true
-    });
+  async modalDismiss() {
+    await this.modalController.dismiss();
   }
 }

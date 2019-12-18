@@ -8,7 +8,7 @@ import { IonContent } from '@ionic/angular';
 })
 export class TweetsPage implements OnInit {
 
-  @ViewChild(IonContent) ionContent: IonContent;
+  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   titleId = 'Recent RF$ Tweets';
   scrolledDown = false;
 

@@ -1,13 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../_services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { ThemeService } from '../../core/services/theme.service';
+import { ThemeService } from '../../_services/theme.service';
 import { LoadingController, ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { MessageService } from '../../core/services/message.service';
-import { switchMap } from 'rxjs/operators';
-import { User } from '../../core/models/user';
+import { Observable } from 'rxjs';
+import { User } from '../../_models/user';
+import { first } from 'rxjs/operators';
 
 const themes = {
   autumn: {
@@ -44,12 +42,8 @@ const themes = {
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
 
-  // confirmation: any = [];
   subscriptions: Observable<any>;
-  // @Input() user: User;
-  // subscriptions;
-  user: User;
-  // user;
+  user;
   constructor(
     public functions: AngularFireFunctions,
     public theme: ThemeService,
@@ -59,9 +53,15 @@ export class ProfilePage implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.getSubscriptions();
+
   }
 
+
+  // getUser() {
+  //   user => {
+  //     this.user = user['email'];
+  //   };
+  // }
    changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
@@ -78,16 +78,11 @@ export class ProfilePage implements OnInit {
     await this.load.dismiss();
   }
 
-  // getSubscriptionInfo() {
-  //   const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-  //   fun({ uid: this.user.uid });
-  // }
-
-  async getSubscriptions() {
-    const user = await this.auth.getUser();
-    console.log(user.uid);
+  getSubscriptions() {
+    // const user = await this.auth.getUser();
+    console.log(this.user.uid);
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.subscriptions = await fun({uid: user.uid});
+    this.subscriptions = fun({uid: this.user.uid});
   }
 
 

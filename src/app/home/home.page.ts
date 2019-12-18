@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../_services/auth.service';
 import { ModalController } from '@ionic/angular';
 import { SharedPageModule } from '../shared/shared.module';
 
@@ -13,7 +13,7 @@ import { SharedPageModule } from '../shared/shared.module';
 
 export class HomePage implements OnInit {
 
-  @ViewChild(IonContent) ionContent: IonContent;
+  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
   slide: any;
   slideOpts = {

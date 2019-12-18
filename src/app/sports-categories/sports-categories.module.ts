@@ -1,4 +1,4 @@
-import { PaidGuard } from '../core/guards/paid.guard';
+import { PaidGuard } from '../_guards/paid.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

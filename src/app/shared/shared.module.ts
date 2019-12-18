@@ -1,4 +1,4 @@
-import { SharedDirectivesModule } from './../core/directives/shared-directives.module';
+import { SharedDirectivesModule } from '../_directives/shared-directives.module';
 import { SharedPage } from './shared.page';
 import { TicketComponent } from './tickets/ticket.component';
 import { NgModule } from '@angular/core';

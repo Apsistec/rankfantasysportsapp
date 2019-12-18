@@ -14,19 +14,19 @@ import { AngularFireFunctionsModule, FUNCTIONS_ORIGIN  } from '@angular/fire/fun
 import { AngularFirePerformanceModule } from '@angular/fire/performance';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './core/helpers/interceptor.service';
+import { InterceptorService } from './_helpers/interceptor.service';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
-import { SharedDirectivesModule } from './core/directives/shared-directives.module';
+import { SharedDirectivesModule } from './_directives/shared-directives.module';
 import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { SharedPageModule } from './shared/shared.module';
-import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatPaginator, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
 // import { ScorePredictionsComponent } from './sports-categories/cfb/score-predictions/score-predictions.component';
@@ -87,22 +87,13 @@ import { LayoutModule } from '@angular/cdk/layout';
     CommonModule,
     IonicModule.forRoot(),
     SharedDirectivesModule,
-    FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
     LayoutModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatSortModule,
     // NowPageModule,
     // NflPageModule,
     // CfbPageModule,

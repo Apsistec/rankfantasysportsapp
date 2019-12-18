@@ -1,10 +1,10 @@
-import { TicketService } from '../../core/services/ticket.service';
+import { TicketService } from '../../_services/ticket.service';
 import { ModalController, LoadingController, NavParams } from '@ionic/angular';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../_services/auth.service';
 
 
 @Component({

@@ -91,7 +91,7 @@
       <ion-grid>
         <ion-row>
           <ion-col size="12" offset="4">
-            <ion-button *ngIf="auth.currentUser; else purchase" shape="round" color="deepo" routerLink="/profile">
+            <ion-button *ngIf="auth.user; else purchase" shape="round" color="deepo" routerLink="/profile">
               <ion-text color="tertiary">
                 Get Started
               </ion-text>

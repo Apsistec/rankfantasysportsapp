@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
-import { User } from '../../core/models/user';
+import { AuthService } from '../../_services/auth.service';
+import { User } from '../../_models/user';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../popover/popover.component';
 

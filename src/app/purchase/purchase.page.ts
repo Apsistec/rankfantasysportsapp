@@ -1,4 +1,4 @@
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../_services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { LoadingController, ModalController, IonContent } from '@ionic/angular';
 import { RegModalComponent } from '../shared/reg-modal/reg-modal.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { MessageService } from '../core/services/message.service';
+import { MessageService } from '../_services/message.service';
 import { MatDialog } from '@angular/material';
 import { TermsDialogComponent } from '../shared/terms-dialog/terms-dialog.component';
 import { PrivacyDialogComponent } from '../shared/privacy-dialog/privacy-dialog.component';
@@ -19,11 +19,11 @@ declare var Stripe: stripe.StripeStatic;
   styleUrls: ['./purchase.page.scss'],
 })
 export class PurchasePage implements OnInit, AfterViewInit {
-  @ViewChild('cardElement') cardElement: ElementRef;
+  @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   planId: string;
   price: string;
   @Input() user;
-  @ViewChild(IonContent) ionContent: IonContent;
+  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   isClickedSilver = false;
   isClickedGold = false;
   isClickedBronze = false;
@@ -174,13 +174,11 @@ export class PurchasePage implements OnInit, AfterViewInit {
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
-      const user = await this.auth.getUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
-        uid: user.uid,
+        uid: this.user.uid,
         plan: this.planId,
-        idempotency_key: event
       }).toPromise();
       this.onDismissLoader();
       this.message.subscribedToast();

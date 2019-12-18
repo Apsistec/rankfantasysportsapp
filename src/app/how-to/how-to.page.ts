@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { AuthService } from '../core/services/auth.service';
   styleUrls: ['./how-to.page.scss'],
 })
 export class HowToPage implements OnInit {
-  @Input() user;
+
   titleId = 'How To... RF$\u2122';
 
   constructor(public auth: AuthService) { }

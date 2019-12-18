@@ -3,9 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
-    "types": [
-      "stripe-v3"
-    ]
+    "module": "es2015"
 },
   "exclude": ["test.ts", "**/*.spec.ts"]
 }

@@ -2,12 +2,16 @@
     "search.exclude": {
         "**/documentation": true,
         "**/platforms": true,
-        "**/www": true
+        "**/www": true,
+        "**/node_modules": true,
+        "**/lib": true,
+        "**/plugins": true,
+        "**/resources": true,
+        "**/e2e": true
     },
     "search.followSymlinks": false,
     "search.smartCase": true,
     "editor.acceptSuggestionOnCommitCharacter": false,
-
     "debug.internalConsoleOptions": "openOnSessionStart",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.fontSize": 14,

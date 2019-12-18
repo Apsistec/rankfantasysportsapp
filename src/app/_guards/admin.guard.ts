@@ -1,6 +1,6 @@
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../_services/auth.service';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class AdminGuard implements CanActivate {
           this.router.navigateByUrl('/login');
           return false;
         } else {
-          const role = user['role'];
+          const role = user.role;
           if (expectedRole === role) {
             return true;
           } else {

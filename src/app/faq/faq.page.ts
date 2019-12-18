@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { Faqs } from './faqs';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../_services/auth.service';
 import { IonContent } from '@ionic/angular';
 // import { Plugins } from '@capacitor/core';
 // const { Clipboard } = Plugins;
@@ -12,7 +12,7 @@ import { IonContent } from '@ionic/angular';
 export class FaqPage implements OnInit {
   faqs = Faqs;
   titleId = 'RF$\u2122 FAQs';
-  @ViewChild(IonContent) ionContent: IonContent;
+  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
 
   constructor(

@@ -1,10 +1,9 @@
-import { SportsCategoriesPage } from './sports-categories/sports-categories.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AdminGuard } from './core/guards/admin.guard';
-import { AuthGuard } from './core/guards/auth.guard';
-import { PaidGuard } from './core/guards/paid.guard';
-import { InnerGuard } from './core/guards/inner.guard';
+import { AdminGuard } from './_guards/admin.guard';
+import { AuthGuard } from './_guards/auth.guard';
+import { PaidGuard } from './_guards/paid.guard';
+import { InnerGuard } from './_guards/inner.guard';
 // import { Table1Component } from './sports-categories/tennis/table1/table1.component';
 // import { Table2Component } from './sports-categories/tennis/table2/table2.component';
 // import { Table3Component } from './sports-categories/tennis/table3/table3.component';

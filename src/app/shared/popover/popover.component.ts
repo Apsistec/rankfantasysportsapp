@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { NavParams } from '@ionic/angular';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'popover-component',

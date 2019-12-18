@@ -1,12 +1,11 @@
 import { ModalController } from '@ionic/angular';
-import { TicketService } from '../../core/services/ticket.service';
-import { AuthService } from '../../core/services/auth.service';
+import { TicketService } from '../../_services/ticket.service';
+import { AuthService } from '../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { TicketPage } from '../ticket/ticket.page';
 import { TicketComponent } from '../../shared/tickets/ticket.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { User } from '../../core/models/user';
+import { User } from '../../_models/user';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -30,32 +29,9 @@ export class AdminDashboardPage implements OnInit {
 
   ngOnInit() {
     this.tickets = this.ticket.getAdminTickets();
-    // this.users = this.usersRef.valueChanges();
     this.admins = this.db.collection('users', ref => ref.where ('role', '==', 'ADMIN')).valueChanges();
     this.users = this.db.collection('users', ref => ref.where ('role', '==', 'USER')).valueChanges();
   }
-
-
-
-  // getGoldUsers() {
-  //   this.goldUsers = this.db.collection('users', ref => ref.where ('key', 'beginswith', 'gold').where('gold', '==', 'true')).valueChanges();
-  //   this.users = this.goldUsers;
-  // }
-
-  // getSilverUsers() {
-  //   this.silverUsers = this.db.collection('users', ref => ref.where ('silver', '==', 'true')).valueChanges();
-  //   this.users = this.silverUsers;
-  // }
-
-  // getBronzeUsers() {
-  //   this.bronzeUsers = this.db.collection('users', ref => ref.where ('bronze', '==', 'true')).valueChanges();
-  //   this.users = this.bronzeUsers;
-  // }
-
-
-
-
-
 
   async openTicket(id) {
     const ticketModal = await this.modalCtrl.create({

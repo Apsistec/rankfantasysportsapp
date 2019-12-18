@@ -9,7 +9,7 @@ import { CfbPage } from './cfb.page';
 import { SharedPageModule } from '../../shared/shared.module';
 // import { ScorePredictionsComponent } from './score-predictions/score-predictions.component';
 // import { PowerRankingsComponent } from './power-rankings/power-rankings.component';
-import { PaidGuard } from '../../core/guards/paid.guard';
+import { PaidGuard } from '../../_guards/paid.guard';
 
 const routes: Routes = [
   {

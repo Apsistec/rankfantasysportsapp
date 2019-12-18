@@ -8,7 +8,7 @@ import { NflPage } from './nfl.page';
 // import { NflPreComponent } from './nfl-pre/nfl-pre.component';
 // import { NflScoreComponent } from './nfl-score/nfl-score.component';
 // import { NflWeekComponent } from './nfl-week/nfl-week.component';
-import { PaidGuard } from '../../core/guards/paid.guard';
+import { PaidGuard } from '../../_guards/paid.guard';
 
 const routes: Routes = [
   {

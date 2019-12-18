@@ -1,4 +1,4 @@
-import { FAQ } from '../core/models/faq.model';
+import { FAQ } from '../_models/faq.model';
 
 export const Faqs: FAQ[] = [
     { title: 'What is "Daily Fantasy Sports" also known as DFS?', info: 'DFS is a sports related game platform that provides players with opportunities to play fantasy sports each and every day. DFS also allows players to compete for money, from just a few cents and up, while testing each players knowledge about the sport and individual players against that of other players.  DFS platforms are offered on sites like DraftKings, FanDuel, Draft, and Yahoo and their are a variety of formats available for competition.' },

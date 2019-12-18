@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="5" >
-<ng-container *ngIf="auth.user | async as user; else login">
+<ng-container *ngIf="auth.user | async as user" >
  
         <ion-card color="primary"  class="ion-text-center" >
           <ion-card-header>
@@ -43,12 +43,14 @@
 
 
       <ion-card color="primary" class="ion-text-start ion-padding"> 
+        <ion-card-header class="ion-text-center">
+         <ion-title color="secondary">
+           Subscription Details
+          </ion-title>
+        </ion-card-header>
+      <ion-card-content>
+        <ion-button size="small" color="danger" shape="round" *ngIf="user.gold || user.silver || user.bronze" (click)="getSubscriptions()">Get Subscription Details</ion-button>
       <ion-list lines="none" *ngIf="subscriptions | async as subs; else purchase"> 
-      <ion-list-header class="ion-text-center">
-       <ion-title color="secondary">
-         Subscription Details
-        </ion-title>
-      </ion-list-header>
           <ion-item >
             <ion-label>
               <h2>
@@ -133,16 +135,17 @@
         </ion-label>
         </ion-item>
       </ion-list>
+      </ion-card-content>
     </ion-card>
 
     <ng-template #purchase>
-      <ion-item>
-      <ion-button color="danger" shape="round" strong routerLink="/purchase">
+      <ion-card class="ion-text-center">
+            <ion-button color="danger" shape="round" size="small" strong routerLink="/purchase">
         <ion-text >
-          View PRO Packages
+          Buy Pro Package
         </ion-text>
       </ion-button>
-    </ion-item>
+        </ion-card>
     </ng-template>
     
 
@@ -276,15 +279,6 @@
             </ion-card-content>
           </ion-card>
         </ng-container>
-
-        <ng-template #login>
-          <ion-card color="primary">
-            <ion-card-content>
-              <ion-button color="medium" routerLink="/login">
-              </ion-button>
-            </ion-card-content>
-            </ion-card>
-          </ng-template>
 
         </ion-col>
         <ion-col>
