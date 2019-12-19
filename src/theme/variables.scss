@@ -3,9 +3,6 @@
 /** Ionic CSS Variables **/
 
 :root {
-  // --ion-background-color: #787881;
-  // --ion-color-light-rgb: 181,182,204;
-
   --ion-color-primary: #464f51;
   --ion-color-primary-rgb: 70,79,81;
   --ion-color-primary-contrast: #ffffff;
@@ -175,6 +172,11 @@
   .item-has-focus ion-label.ion-color {
     color: var(--ion-color-base) !important;
   }
+  
+/* Optional CSS, this is added for the flashing that happens when toggling between themes */
+ion-item {
+  --transition: none;
+}
 
 /*
  * Dark Colors
@@ -322,7 +324,3 @@
   --ion-item-background: #1A1B1E;
 }
 
-/* Optional CSS, this is added for the flashing that happens when toggling between themes */
-ion-item {
-  --transition: none;
-}

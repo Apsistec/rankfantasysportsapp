@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { ThemeService } from '../../_services/theme.service';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { User } from '../../_models/user';
-import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { MessageService } from '../../_services/message.service';
 
 const themes = {
   autumn: {
@@ -40,28 +40,30 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-  titleId = 'RF$\u2122 User Profile';
 
+  titleId = 'RF$\u2122 User Profile';
   subscriptions: Observable<any>;
+  confirmation;
   user;
+  planId;
+
   constructor(
     public functions: AngularFireFunctions,
     public theme: ThemeService,
     public load: LoadingController,
     public modalCtrl: ModalController,
-    public auth: AuthService
-    ) {}
+    public auth: AuthService,
+    private message: MessageService,
+    private router: Router
+
+    ) {
+
+    }
 
   ngOnInit() {
-
+    this.getSubscriptions();
   }
 
-
-  // getUser() {
-  //   user => {
-  //     this.user = user['email'];
-  //   };
-  // }
    changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
@@ -78,28 +80,45 @@ export class ProfilePage implements OnInit {
     await this.load.dismiss();
   }
 
-  getSubscriptions() {
-    // const user = await this.auth.getUser();
-    console.log(this.user.uid);
+  async getSubscriptions() {
+    const user = await this.auth.getUser();
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.subscriptions = fun({uid: this.user.uid});
+    this.subscriptions = fun({uid: user.uid});
   }
 
 
-  // async cancelSubscription() {
-  //   this.presentLoader();
-  //   const fun =  this.functions.httpsCallable('stripeCancelSubscription');
-  //   this.confirmation = await fun({
-  //     uid: this.user.uid,
-  //     plan: this.subscriptionData.items.data.plan
-  //   }).toPromise;
-  //   this.onDismissLoader();
-  //   this.message.unsubscribedAlert();
-  //   return this.router.navigate(['/home'])
-  //   .catch ((error) => {
-  //     this.message.errorAlert(error.message);
-  //   });
-  // }
+  async cancelSubscription() {
+    await this.presentLoader();
+    this.planId = await this.getPlan();
+    const user = await this.auth.getUser();
+    const fun = this.functions.httpsCallable('stripeCancelSubscription');
+    this.confirmation = await fun({
+      uid: user.uid,
+      plan: this.planId
+    }).toPromise().then(() => {
+      this.onDismissLoader();
+      this.message.unsubscribedAlert();
+      this.router.navigate(['/home']);
+    }).catch ((error) => {
+      this.onDismissLoader();
+      this.message.errorAlert(error.message);
+    })
+  }
+
+  async getPlan() {
+    const user = await this.auth.getUser();
+    if (user.bronze) {
+       this.planId = 'bronze';
+        if (user.silver) {
+          this.planId = 'silver';
+          if (user.gold) {
+            this.planId = 'gold';
+          }
+        }
+    }
+      return this.planId;
+  }
+
 
   // Coupons
 

@@ -13,7 +13,6 @@ import { AuthService } from '../../_services/auth.service';
   styleUrls: ['./ticket.component.scss'],
 })
 export class TicketComponent implements OnInit {
-  // private subscription: Subscription;
   ticketForm: FormGroup;
   id = null;
   user = '';
@@ -44,7 +43,7 @@ export class TicketComponent implements OnInit {
           status: ticket['status']
         });
 
-        this.ticketForm.controls['title'].disable();
+        // this.ticketForm.controls['title'].disable();
         // this.ticketForm.controls['desc'].disable();
 
         this.ticket.getUser(ticket['creator']).subscribe(user => {
@@ -73,7 +72,6 @@ export class TicketComponent implements OnInit {
   }
 
   deleteTicket() {
-    console.log('delete: ', this.id);
     this.ticket.deleteTicket(this.id).then(() => {
       this.modalCtrl.dismiss();
     });

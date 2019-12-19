@@ -28,6 +28,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SharedPageModule } from './shared/shared.module';
 import { } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
+import {MsalModule, MsalInterceptor} from '@azure/msal-angular';
 
 // import { ScorePredictionsComponent } from './sports-categories/cfb/score-predictions/score-predictions.component';
 // import { PowerRankingsComponent } from './sports-categories/cfb/power-rankings/power-rankings.component';
@@ -55,6 +56,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 // import { NflPageModule } from './sports-categories/nfl/nfl.module';
 // import { CfbPageModule } from './sports-categories/cfb/cfb.module';
 // import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
+
+export const protectedResourceMap: [string, string[]][] = [ ['http://localhost:8100', ['api://8b3cfe6b-4ec4-41af-be3d-4f41fd41da02/access_as_user']] , ['https://graph.microsoft.com/v1.0/me', ['user.read']] ];
+
+const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+
 
 @NgModule({
   declarations: [
@@ -94,6 +100,24 @@ import { LayoutModule } from '@angular/cdk/layout';
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LayoutModule,
+    MsalModule.forRoot({
+      clientID: 'edd1e522-2da3-4340-a899-cd6db7f61f59',
+      authority: 'https://login.microsoftonline.com/rfsports.onmicrosoft.com/',
+      redirectUri: 'http://localhost:8100/',
+      validateAuthority : true,
+      cacheLocation : 'localStorage',
+      storeAuthStateInCookie: false, // dynamically set to true when IE11
+      postLogoutRedirectUri: 'http://localhost:8100/',
+      navigateToLoginRequestUrl : true,
+      popUp: true,
+      consentScopes: ['user.read', 'api://8b3cfe6b-4ec4-41af-be3d-4f41fd41da02/access_as_user'],
+      unprotectedResources: ['https://angularjs.org/'],
+      protectedResourceMap : protectedResourceMap,
+      // logger :loggerCallback,
+      // correlationId: '1234',
+      // level: LogLevel.Verbose,
+      // piiLoggingEnabled: true,
+    }),
     // NowPageModule,
     // NflPageModule,
     // CfbPageModule,
@@ -108,6 +132,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     StatusBar,
     SplashScreen,
     Firebase,
+    {provide: HTTP_INTERCEPTORS, useClass: MsalInterceptor, multi: true},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   ],

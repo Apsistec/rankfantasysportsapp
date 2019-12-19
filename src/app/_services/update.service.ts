@@ -20,9 +20,8 @@ export class UpdateService {
     }
   }
 
-  async updateSW() {
-    await this.swUpdate.activateUpdate();
-    return this.message.updatedToast();
+  updateSW() {
+    return this.message.updateAlert();
   }
 
 

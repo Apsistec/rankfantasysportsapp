@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { switchMap, take, map, tap, first } from 'rxjs/operators';
 import { of, Observable, BehaviorSubject, from } from 'rxjs';
 import { User } from '../_models/user';
@@ -14,10 +14,10 @@ import { ModalController, LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class AuthService {
-  // user: Observable<any>;
+  user: Observable<any>;
   currentUser = new BehaviorSubject(null);
-  // userData: any;
-  user: Observable<User>;
+  userId: string;
+  planId: string;
 
   constructor(
     public afs: AngularFirestore,
@@ -29,37 +29,49 @@ export class AuthService {
     private modalCtrl: ModalController,
     private loadingCtrl: LoadingController
   ) {
-    this.user = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.afs.doc(`users/${user.uid}`).valueChanges().pipe(
-            take(1),
-            tap(data => {
-              data['id'] = user.uid;
-              this.currentUser.next(data);
-            })
-          );
-        } else {
-          this.currentUser.next(null);
-          return of(null);
-        }
-      })
-    );
+   //// Get auth data, then get firestore user document || null
+   this.user = this.afAuth.authState.pipe(
+    switchMap(user => {
+      if (user) {
+        return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+      } else {
+        return Observable.of(null);
+      }
+    })
+  );
+}
+
+  async getCurrentUser(): Promise<any> {
+    return this.user.pipe(first()).toPromise();
   }
 
-
-
   get isLoggedIn(): boolean {
-    // const user = this.getUser();
     return (this.user === null ) ? true : false;
   }
 
-
-  async getUser() {
+  getUser(): Promise<any> {
     return this.afAuth.authState.pipe(first()).toPromise();
   }
 
+  async loadSpinner() {
+    const load = await this.loadingCtrl.create({
+      spinner: 'circles',
+      message: 'Please wait...',
+      translucent: true,
+      cssClass: 'successA'
+    });
+    load.present();
+  }
 
+  dismissSpinner() {
+    this.loadingCtrl.dismiss();
+  }
+
+  modalDismiss() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalCtrl.dismiss();
+  }
 
   bronze() {
     return this.user
@@ -70,14 +82,13 @@ export class AuthService {
       .toPromise();
   }
 
-
   async isBronze() {
     const bronze = await this.bronze();
-    const isPaid = !!bronze;
-    if (!isPaid) {
+    const isPaidBronze = !!bronze;
+    if (!isPaidBronze) {
       return false;
     } else {
-      return isPaid;
+      return isPaidBronze;
     }
   }
 
@@ -92,11 +103,11 @@ export class AuthService {
 
   async isSilver() {
     const silver = await this.silver();
-    const isPaid = !!silver;
-    if (!isPaid) {
+    const isPaidSilver = !!silver;
+    if (!isPaidSilver) {
       return false;
     } else {
-      return isPaid;
+      return isPaidSilver;
     }
   }
 
@@ -108,18 +119,17 @@ export class AuthService {
       )
       .toPromise();
   }
+
   async isGold() {
     const gold = await this.gold();
-    const isPaid = !!gold;
-    if (!isPaid) {
+    const isPaidGold = !!gold;
+    if (!isPaidGold) {
       return false;
     } else {
-      return isPaid;
+      return isPaidGold;
     }
   }
 
-
-  // Returns true when user is looged in and email is verified
 
 
   // get isAdmin(): boolean {
@@ -127,13 +137,11 @@ export class AuthService {
   // }
 
   canRead(user: any): boolean {
-    // const allowed = 'user.bronze' || 'user.silver' || 'user.gold';
     return this.checkAuthorization(user);
   }
 
-  // determines if user has matching role
+  // determines if user is a member
   private checkAuthorization(user: any): boolean {
-    this.getUser();
     if (!user) { return false; }
     {
       if ( user.bronze || user.gold || user.silver ) {
@@ -152,33 +160,35 @@ export class AuthService {
     return true;
   }
 
-
+// Authentication
   SignIn(email, password) {
     this.loadSpinner();
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(user => {
-      this.dismissSpinner();
-      this.afs.doc<User>(`users/${user['uid']}`).valueChanges().pipe(
-          take(1)
-        );
-        this.message.isLoggedInToast(user);
-        if (user['role'] === 'ADMIN') {
-          this.router.navigateByUrl('/admin');
-        } else {
-            if (user['role'] === 'USER') {
-            const sub = (user['gold'] || user['silver'] || user['bronze']);
-            if (sub) {
-              this.router.navigateByUrl('/auth/profile');
-            } else {
-              this.router.navigateByUrl('/purchase');
-            }
+      .then(() => {
+        this.dismissSpinner();
+        this.message.isLoggedInToast();
+        this.navigateEntryUser();
+      }).catch((err) => {
+        this.message.errorAlert(err.message);
+      });
+    }
+
+    // navigate upon login
+    async navigateEntryUser() {
+      if (this.user['role'] === 'ADMIN') {
+        this.router.navigateByUrl('/admin');
+      } else {
+        if (this.user['role'] === 'USER') {
+          const sub = (this.user['gold'] || this.user['silver'] || this.user['bronze']);
+          if (sub) {
+            this.router.navigateByUrl('/auth/profile');
+          } else {
+            this.router.navigateByUrl('/purchase');
           }
         }
-      }).catch(err => {
-      this.dismissSpinner();
-      this.message.errorAlert(err.message);
-    });
-  }
+      }
+    }
+
 
 
     /* Sign up email*/
@@ -225,12 +235,6 @@ export class AuthService {
     });
   }
 
-  modalDismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
-    this.modalCtrl.dismiss();
-  }
-
     // Register in with Google
   async GoogleRegister() {
     await this.AuthRegister(new firebase.auth.GoogleAuthProvider());
@@ -253,7 +257,6 @@ export class AuthService {
     await this.AuthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
     return this.modalDismiss();
   }
-
 
   // Signin Login Federated
   // Sign in with Google
@@ -278,48 +281,34 @@ export class AuthService {
        });
       provider.addScope('files.read');
   }
+
   // related to Settings Page for joining additional Profiles to User
-
-  async loadSpinner() {
-    const load = await this.loadingCtrl.create({
-      spinner: 'circles',
-      message: 'Please wait...',
-      translucent: true,
-      cssClass: 'successA'
-    });
-    load.present();
-  }
-
-  dismissSpinner() {
-    this.loadingCtrl.dismiss();
-  }
-
   async linkGoogle() {
     this.loadSpinner();
     const provider = await new firebase.auth.GoogleAuthProvider();
     firebase.auth().currentUser.linkWithPopup(provider);
-    return this.dismissSpinner();
+    this.dismissSpinner();
   }
 
   async linkFacebook() {
     this.loadSpinner();
     const provider = await new firebase.auth.FacebookAuthProvider();
     firebase.auth().currentUser.linkWithPopup(provider);
-    return this.dismissSpinner();
+    this.dismissSpinner();
   }
 
   async linkTwitter() {
     this.loadSpinner();
     const provider = await new firebase.auth.TwitterAuthProvider();
     firebase.auth().currentUser.linkWithPopup(provider);
-    return this.dismissSpinner();
+    this.dismissSpinner();
   }
 
   async linkMicrosoft() {
     this.loadSpinner();
     const provider = await new firebase.auth.OAuthProvider('microsoft.com');
     firebase.auth().currentUser.linkWithPopup(provider);
-    return this.dismissSpinner();
+    this.dismissSpinner();
   }
 
   // Auth logic to Login using federated auth providers
@@ -363,14 +352,4 @@ export class AuthService {
       await this.message.errorAlert(err);
     });
   }
-
-  uid() {
-    return this.user
-      .pipe(
-        take(1),
-        // map(u => u && u.uid)
-      )
-      .toPromise();
-    }
-
 }

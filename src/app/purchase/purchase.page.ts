@@ -174,10 +174,11 @@ export class PurchasePage implements OnInit, AfterViewInit {
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
+      const user = await this.auth.getUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
-        uid: this.user.uid,
+        uid: user.uid,
         plan: this.planId,
       }).toPromise();
       this.onDismissLoader();

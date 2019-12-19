@@ -21,7 +21,10 @@
       "dom"
     ],
     "paths": {
-      "@app/*": ["src/app/*"],
+      "@services/*": ["src/app/_services/*"],
+      "@guards/*": ["src/app/_guards/*"],
+      "@directives/*": ["src/app/_directives/*"],
+      "@models/*": ["src/_models/*"],
       "@environments/*": ["src/environments/*"]
     }
   }

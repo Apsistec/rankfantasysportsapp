@@ -23,21 +23,21 @@ export class MessageService {
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,
-      duration: 5000,
+      duration: 4000,
       showCloseButton: true,
       translucent: true,
     });
     return toast.present();
   }
 
-  async isLoggedInToast(user: any) {
+  async isLoggedInToast() {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
-      message: 'Welcome back ' + user.displayName + '\n Email: ' + user.email,
+      message: 'Welcome Back',
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,
-      duration: 5000,
+      duration: 4000,
       showCloseButton: true,
       translucent: true,
     });
@@ -50,7 +50,7 @@ export class MessageService {
       message: 'Welcome back ' + data.user.displayName + '\n Email: ' + data.user.email,
       cssClass: 'successT',
       position: 'top',
-      duration: 5000,
+      duration: 4000,
       showCloseButton: true,
       keyboardClose: true,
       translucent: true,
@@ -71,23 +71,25 @@ export class MessageService {
     await toast.present();
   }
 
-  async updatedToast() {
-    const toast = await this.toastCtrl.create({
-      header: 'Software Update Message:',
-      cssClass: 'successT',
-      message: 'You are now using the latest version',
-      position: 'top',
-      duration: 5000,
-      showCloseButton: true,
-      translucent: true,
+  async updateAlert() {
+    const alert = await this.alertCtrl.create({
+      header :  'App update notification ' ,
+      message :  ' There is a new version of the app, please refresh the page.. ' ,
+      buttons :  [{
+        text :  ' Update ' ,
+        handler :  ()  =>  {
+          location.reload();
+          return  true ;
+        }
+      }]
     });
-    await toast.present();
+    await alert.present();
     }
 
   async updateNameToast() {
     const toast = await this.toastCtrl.create({
       message: 'Your name was updated',
-      duration: 5000,
+      duration: 4000,
       position: 'top',
       cssClass: 'successT',
       translucent: true
@@ -101,7 +103,7 @@ export class MessageService {
       cssClass: 'successT',
       message: 'Thank You for your payment. You are subscribed!',
       position: 'top',
-      duration: 5000,
+      duration: 4000,
       showCloseButton: true,
       translucent: true,
     });

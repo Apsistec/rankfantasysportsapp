@@ -27,12 +27,12 @@ export const createSubscription = async ( uid: string, source: string, plan: str
         items: [{ plan }],
         trial_from_plan: true,
 
-    }, { idempotency_key });
+    }, { idempotency_key })
 
     // Add the plan to existing subscriptions
     const docData = {
-        [plan]: true,
-        [subscription.id]: 'active'
+        'plan': [subscription.plan.id],
+        [subscription.id]: [subscription.status]
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });

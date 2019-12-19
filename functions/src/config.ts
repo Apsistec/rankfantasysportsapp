@@ -15,4 +15,4 @@ export const stripeSecret = functions.config().stripe.secret;
 // Export Stripe
 import * as Stripe from 'stripe'; 
 export const stripe = new Stripe(stripeSecret);
-
+stripe.setMaxNetworkRetries(3);

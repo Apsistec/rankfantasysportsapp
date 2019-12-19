@@ -15,71 +15,33 @@
 
 // Material Themes
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-//@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-//@import "~@angular/material/prebuilt-themes/purple-green.css";
+
 @import url('https://fonts.googleapis.com/css?family=Cairo|Rokkitt&display=swap');
-
-// @import '../node_modules/@angular/material/theming';
-//      // Plus imports for other components in your app
-//      // Include the common styles for Angular Material. We include this here so that you only
-//      // have to load a single css file for Angular Material in your app.
-//      // Be sure that you only ever include this mixin once!
-//      @include mat-core();
-//      // Define the palettes for your theme using the Material Design palettes available in palette.scss
-//      // (imported above). For each palette, you can optionally specify a default, lighter, and darker
-//      // hue.
-//      $candy-app-primary: mat-palette($mat-deep-purple);
-//      $candy-app-accent: mat-palette($mat-light-green, A400, A200, A700);
-//      // The warn palette is optional (defaults to red).
-//      $candy-app-warn: mat-palette($mat-deep-orange);
-//      // Create the theme object (a Sass map containing all of the palettes).
-//      $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
-//      $candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
-//      // Include theme styles for core and each component used in your app.
-//      // Alternatively, you can import and @include the theme mixins for each component
-//      // that you are using.
-//      @include angular-material-theme($candy-app-theme);
-
-// Datatable-theme
-// @import '~@swimlane/ngx-datatable/index.css';
-// @import '~@swimlane/ngx-datatable/themes/material.scss';
-// @import '~@swimlane/ngx-datatable/assets/icons.css';
 
 
 // Main styling
 :root {
   ion-content{
     --ion-background-color: none;
-    // background: #400057;
-    // background-position: center center;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-image: -moz-linear-gradient(to right top, rgba(0,48,36,1) 0%, rgba(64,0,87,1) 100%); /* ff3.6+ */
-    // background-image: -webkit-linear-gradient(to right top, rgba(0,48,36,1) 0%, rgba(64,0,87,1) 100%); /* safari5.1+,chrome10+ */
-    // background-image: -o-linear-gradient(to right top, rgba(0,48,36,1) 0%, rgba(64,0,87,1) 100%); /* opera 11.10+ */
-    // background-image: -ms-linear-gradient(to right top, rgba(0,48,36,1) 0%, rgba(64,0,87,1) 100%); /* ie10+ */
-    // background-image: linear-gradient(to right top, rgba(0,48,36,1) 0%, rgba(64,0,87,1) 100%); /* w3c */
-
     background:
-    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
     background-color: #131313;
     background-size: 20px 20px;
-    text-shadow: 1px 1px 1px #363636;
+    text-shadow: 1px 1px 1px #2b2c31;
   }
 }
 
 ion-text{
-  text-shadow: 1px 1px 1px #363636;
+  text-shadow: 1px 1px 1px #232127;
 }
 
 ion-icon{
-  filter: drop-shadow(3px 3px 4px #66148b);
+  filter: drop-shadow(3px 3px 4px #6b009c);
 }
 
 ul{
@@ -110,7 +72,7 @@ ul{
 
 // Toasts each status
 ion-toast.successT{
-  --background:  #19a122;
+  --background:  #11b81c;
   --color: #fcf9f6;
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
@@ -124,59 +86,38 @@ ion-toast.dangerT{
  }
 
  ion-toast.infoT{
-  --background:  rgb(10, 79, 158);
+  --background:  rgb(87, 107, 131);
   --color: #f6f9fd;
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
 }
 
 ion-toast.warningT{
-  background:  rgb(134, 134, 4);
+  background:  rgb(139, 139, 0);
   --color: rgb(255, 253, 255);
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
 }
 
-// Alerts each state
-.successA{
-  --background:  rgb(148, 202, 152);
-}
-
-.dangerA{
-  --background:  rgb(223, 162, 154);
- }
-
-.infoA{
-  --background:  rgb(142, 164, 189);
-}
-
-.warningA{
-  --background:  rgb(177, 177, 133);
-}
-
 // Popover User Dropdown
 .popoverUser{
-  --background: var(ion-color-primary);
+  --background: var(ion-color-medium);
 }
 
 ::-webkit-scrollbar, *::-webkit-scrollbar {
   display: none;
 }
 
-// a:hover {
-//   cursor:pointer;
-// }
-
+a:hover {
+  cursor:pointer;
+}
 
 // Credit Card Logos
 .creditCard{
   filter: drop-shadow(5px 5px 2px #130e14);
 }
 
-
 // Register Modal CSS
 .app-reg-modal {
-  --min-height: 650px;
+  --min-height: 600px;
 }
-
-a { cursor: pointer }

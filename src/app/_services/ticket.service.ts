@@ -40,6 +40,7 @@ export class TicketService {
     return this.db.collection('tickets', ref => ref.where('creator', '==', id)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data: any = a.payload.doc.data();
+        // tslint:disable-next-line: no-shadowed-variable
         const id: any = a.payload.doc.id;
         return { id, ...data };
       })),

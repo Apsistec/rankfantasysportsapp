@@ -20,7 +20,7 @@ export class User {
     emailVerified?: boolean;
 }
 
-export class ProviderUserInfo extends User {
+class ProviderUserInfo extends User {
     email: string;
     federatedId: string;
     providerId: string;

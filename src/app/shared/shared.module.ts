@@ -30,6 +30,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     SharedPage
   ],
   entryComponents: [
+    TicketComponent,
     TermsDialogComponent,
     RegModalComponent,
     PrivacyDialogComponent,
