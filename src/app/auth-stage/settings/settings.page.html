@@ -18,58 +18,64 @@
                   </ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
-                  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-
-                        <ion-item lines="none">
+                  <ion-list lines="none" *ngIf="user">
+                    <ion-item >
                     <ion-label position="floating">
                       <ion-text color="secondary">
-                        Full Name
+                        Display Name
                       </ion-text>
                     </ion-label>
-                    <ion-input type="text" [disabled]="!edit" formControlName="displayName" color="warning"></ion-input>
-            
+                    <ion-input  color="warning" [(ngModel)]="user.displayName"></ion-input>
+                    <br>
                   </ion-item>
-                  
+                  <ion-note >Update name then Submit</ion-note>
+                  <br>
+
+                  <ion-button size="small" (click)="updateUser()" color="warning" shape="round">Submit Name</ion-button>
+
                   <ion-item>
                     <ion-label position="floating">
                       <ion-text color="secondary">
                         Email
                       </ion-text>
                     </ion-label>
-                    <input color="warning" type="text" formControlName="email">
+                    <ion-input color="warning" [(ngModel)]="user.email"></ion-input>
+                    
                   </ion-item>
-                  <ion-item>
+                  <ion-note >Update email then submit</ion-note>
+                  <br>
+                  <ion-button size="small" (click)="updateEmail()" color="warning" shape="round">Submit Email</ion-button>
+
+                  <!-- <ion-item>
                     <ion-button color="warning" shape="round" size="small" >Take Photo</ion-button>
-                     Work In Progress
-                  </ion-item>
-                </form>
-                <ion-button color="danger" size="small" *ngIf="edit" shape="round" type="submit">Submit</ion-button>
-                <ion-button color="warning" size="small" *ngIf="!edit" (click)="edit = !edit" shape="round" type="button">Edit</ion-button>
+
+
+                  </ion-item> -->
                   <ion-item>
-                    <ion-button color="danger" size="small" shape="round" (click)=auth.linkGoogle()>
+                    <ion-button color="danger" size="small" shape="round" (click)=linkGoogle()>
                       Link Your Google Account
                     </ion-button> Work In Progress
                   </ion-item>
                   <ion-item>
-                    <ion-button color="twittr" size="small" shape="round" (click)=auth.linkTwitter()>
+                    <ion-button color="twittr" size="small" shape="round" (click)=linkTwitter()>
                       Link Your Twitter Account
                     </ion-button>Work In Progress
                   </ion-item>
                   <ion-item>
-                    <ion-button color="facebk" size="small" shape="round" (click)=auth.linkFacebook()>
+                    <ion-button color="facebk" size="small" shape="round" (click)=linkFacebook()>
                       Link Your Facebook Account
                     </ion-button>Work In Progress
                   </ion-item>
                   <ion-item>
-                    <ion-button color="msoft" size="small" shape="round" (click)=auth.linkMicrosoft()>
+                    <ion-button color="msoft" size="small" shape="round" (click)=linkMicrosoft()>
                       Link Your Microsoft Account
                     </ion-button>Work In Progress
                   </ion-item>
-                
+                </ion-list>
               </ion-card-content>
             </ion-card>
           </ion-col>
           </ion-row>
         </ion-grid>
       </ion-content>
-<app-footer></app-footer>
+      <app-footer></app-footer>
