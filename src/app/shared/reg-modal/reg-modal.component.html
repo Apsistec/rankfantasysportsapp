@@ -1,6 +1,6 @@
 <ion-content>
 
-  <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
+  <ion-col size-sm="6" offset-sm="3" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
     <ion-card class="ion-text-center" color="primary">
       <ion-img src="../../assets/img/logo.jpg"></ion-img>
       <ion-card-header>
@@ -96,45 +96,45 @@
                 </div>
                 <hr>
           <ion-button strong type="submit"  color="tertiary" expand="full" [disabled]="!registerForm.valid">
-            <ion-icon slot="start" color="silver" name="person-add" slot="start"></ion-icon>
-            <ion-text  color="silver">
+            <ion-icon slot="start" color="white" name="person-add" slot="start"></ion-icon>
+            <ion-text  color="white">
               <strong>Register With Email</strong>
             </ion-text>
             <ion-ripple-effect></ion-ripple-effect>
           </ion-button>
         </form>
             <ion-button color="facebk"  type="button" (click)="auth.FacebookRegister()" expand="full">
-              <ion-text color="silver">
+              <ion-text color="white">
                 Register With Facebook
               </ion-text>
-              <ion-icon slot="start" color="silver" name="logo-facebook"></ion-icon>
+              <ion-icon slot="start" color="white" name="logo-facebook"></ion-icon>
               <ion-ripple-effect></ion-ripple-effect>
             </ion-button>
       <ion-button color="danger" type="button" (click)="auth.GoogleRegister()" expand="full">
-        <ion-text color="silver" >
+        <ion-text color="white" >
           Register With Google
         </ion-text>
-        <ion-icon slot="start" color="silver" name="logo-google"></ion-icon>
+        <ion-icon slot="start" color="white" name="logo-google"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-button>
       <ion-button color="msoft"  type="button" (click)="auth.MicrosoftRegister()" expand="full">
-        <ion-text color="silver">
+        <ion-text color="white">
             Register With Microsoft
       </ion-text>
-      <ion-icon slot="start" color="silver" name="logo-windows"></ion-icon>
+      <ion-icon slot="start" color="white" name="logo-windows"></ion-icon>
       <ion-ripple-effect></ion-ripple-effect>
     </ion-button>
       <ion-button color="twittr" type="button" (click)="auth.TwitterRegister()" expand="full">
-        <ion-text color="silver">
+        <ion-text color="white">
             Register With Twitter
           </ion-text>
-          <ion-icon slot="start" color="silver" name="logo-twitter"></ion-icon>
+          <ion-icon slot="start" color="white" name="logo-twitter"></ion-icon>
           <ion-ripple-effect></ion-ripple-effect>
         </ion-button>
 
               <ion-button strong expand="block" (click)="gotoLogin()" fill="clear" >
                 <ion-text  color="deepo">
-                  <strong>I Have An Account Goto Login</strong>
+                  <strong>I Already Have An Account</strong>
                 </ion-text>
                 <ion-ripple-effect></ion-ripple-effect>
               </ion-button>

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Slides } from './slides';
+
 @Component({
   selector: 'app-testimonials',
   templateUrl: 'testimonials.page.html',
   styleUrls: ['testimonials.page.scss']
 })
+
 export class TestimonialsPage {
   titleId = 'RF$\u2122 Credibility' ;
   slides = Slides;

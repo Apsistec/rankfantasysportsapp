@@ -74,6 +74,7 @@
     "@angular/compiler-cli": "^8.2.14",
     "@ionic/angular-toolkit": "^2.0.0",
     "@ionic/lab": "2.0.1",
+    "@microsoft/microsoft-graph-types": "^1.12.0",
     "@schematics/angular": "^8.3.20",
     "@types/color": "^3.0.0",
     "@types/jasmine": "^3.5.0",

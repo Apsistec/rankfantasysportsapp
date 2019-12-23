@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AdminGuard } from './_guards/admin.guard';
-import { AuthGuard } from './_guards/auth.guard';
-import { PaidGuard } from './_guards/paid.guard';
-import { InnerGuard } from './_guards/inner.guard';
+import { AdminGuard } from '@guards/admin.guard';
+import { AuthGuard } from '@guards/auth.guard';
+import { PaidGuard } from '@guards/paid.guard';
+import { InnerGuard } from '@guards/inner.guard';
+import { TennisComponent } from './sports-categories/tennis/tennis.component';
+import { NbaComponent } from './sports-categories/nba/nba.component';
+import { NflComponent } from './sports-categories/nfl/nfl.component';
+import { CfbComponent } from './sports-categories/cfb/cfb.component';
+import { PgaComponent } from './sports-categories/pga/pga.component';
+import { NowComponent } from './sports-categories/now/now.component';
+
 // import { Table1Component } from './sports-categories/tennis/table1/table1.component';
 // import { Table2Component } from './sports-categories/tennis/table2/table2.component';
 // import { Table3Component } from './sports-categories/tennis/table3/table3.component';
@@ -36,24 +43,24 @@ const appRoutes: Routes = [
   { path: 'purchase', loadChildren: './purchase/purchase.module#PurchasePageModule' },
   { path: 'buy', redirectTo: 'purchase', pathMatch: 'full' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule'},
-  { path: 'welcome', loadChildren: './auth-stage/welcome/welcome.module#WelcomePageModule'},
-  { path: 'login', loadChildren: './auth-stage/login/login.module#LoginPageModule', canActivate: [InnerGuard] },
+  { path: 'welcome', loadChildren: './auth/welcome/welcome.module#WelcomePageModule'},
+  { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule', canActivate: [InnerGuard] },
   { path: 'sign-in', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'register', loadChildren: './auth-stage/register/register.module#RegisterPageModule', canActivate: [InnerGuard]  },
-  { path: 'forgot',  loadChildren: './auth-stage/forgot-password/forgot-password.module#ForgotPasswordPageModule', canActivate: [InnerGuard] },
+  { path: 'register', loadChildren: './auth/register/register.module#RegisterPageModule', canActivate: [InnerGuard]  },
+  { path: 'forgot',  loadChildren: './auth/forgot-password/forgot-password.module#ForgotPasswordPageModule', canActivate: [InnerGuard] },
   { path: 'reset-password',  redirectTo: 'forgot',  pathMatch: 'full',  canActivate: [InnerGuard] },
-  { path: 'verify', loadChildren: './auth-stage/verify-email/verify-email.module#VerifyEmailPageModule' },
-  { path: 'settings', loadChildren: './auth-stage/settings/settings.module#SettingsPageModule', canActivate: [AuthGuard] },
-  { path: 'profile', loadChildren: './auth-stage/profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
-  { path: 'user', loadChildren: './auth-stage/user-tickets/user-tickets.module#UserTicketsPageModule', canActivate: [AdminGuard], data: { role: 'USER' } },
-  { path: 'admin', loadChildren: './auth-stage/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule', canActivate: [AdminGuard], data: { role: 'ADMIN' } },
+  { path: 'verify', loadChildren: './auth/verify-email/verify-email.module#VerifyEmailPageModule' },
+  { path: 'settings', loadChildren: './auth/settings/settings.module#SettingsPageModule', canActivate: [AuthGuard] },
+  { path: 'profile', loadChildren: './auth/profile/profile.module#ProfilePageModule', canActivate: [AuthGuard] },
+  { path: 'user', loadChildren: './auth/user-tickets/user-tickets.module#UserTicketsPageModule', canActivate: [AdminGuard], data: { role: 'USER' } },
+  { path: 'admin', loadChildren: './auth/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule', canActivate: [AdminGuard], data: { role: 'ADMIN' } },
   { path: 'categories', loadChildren: './sports-categories/sports-categories.module#SportsCategoriesPageModule' },
-  { path: 'nba', loadChildren: './sports-categories/nba/nba.module#NbaPageModule', canActivate: [PaidGuard] },
-  { path: 'nfl', loadChildren: './sports-categories/nfl/nfl.module#NflPageModule', canActivate: [PaidGuard] },
-  { path: 'cfb', loadChildren: './sports-categories/cfb/cfb.module#CfbPageModule', canActivate: [PaidGuard] },
-  { path: 'pga', loadChildren: './sports-categories/pga/pga.module#PgaPageModule', canActivate: [PaidGuard] },
-  { path: 'tennis', loadChildren: './sports-categories/tennis/tennis.module#TennisPageModule', canActivate: [PaidGuard] },
-  { path: 'now', loadChildren: './sports-categories/now/now.module#NowPageModule', canActivate: [PaidGuard] },
+  { path: 'nba', component: NbaComponent, canActivate: [PaidGuard] },
+  { path: 'nfl', component: NflComponent, canActivate: [PaidGuard] },
+  { path: 'cfb', component: CfbComponent, canActivate: [PaidGuard] },
+  { path: 'pga', component: PgaComponent, canActivate: [PaidGuard] },
+  { path: 'tennis', component: TennisComponent, canActivate: [PaidGuard] },
+  { path: 'now',  component: NowComponent, canActivate: [PaidGuard] },
 //   {
 //     path: 'mens-ratings',
 //     component: Table1Component, canActivate: [PaidGuard]
@@ -118,7 +125,7 @@ const appRoutes: Routes = [
 //     path: 'score-predictions',
 //     component: ScorePredictionsComponent, canActivate: [PaidGuard]
 // },
-{ path: '', redirectTo: '/home', pathMatch: 'full' },
+// { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: '**', redirectTo: '/home',  pathMatch: 'full'  },
 ];

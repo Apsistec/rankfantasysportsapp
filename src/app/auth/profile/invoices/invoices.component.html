@@ -1,0 +1,9 @@
+<ion-card color="primary" class="ion-padding">
+  <ion-list *ngFor="let invoice of invoices">
+    <ion-card color="medium">
+      Invoice ID: {{ invoice.id }}
+      Date: {{ invoice.created }}
+      <a [href]="invoice.url"></a>
+    </ion-card>
+  </ion-list>
+</ion-card>

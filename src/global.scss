@@ -41,7 +41,7 @@ ion-text{
 }
 
 ion-icon{
-  filter: drop-shadow(3px 3px 4px #6b009c);
+  filter: drop-shadow(3px 3px 4px #6b3f80);
 }
 
 ul{
@@ -100,9 +100,9 @@ ion-toast.warningT{
 }
 
 // Popover User Dropdown
-.popoverUser{
-  --background: var(ion-color-medium);
-}
+// .popoverUser{
+//   --background: var(ion-color-medium);
+// }
 
 ::-webkit-scrollbar, *::-webkit-scrollbar {
   display: none;
@@ -119,5 +119,5 @@ a:hover {
 
 // Register Modal CSS
 .app-reg-modal {
-  --min-height: 600px;
+  --min-height: 750px;
 }

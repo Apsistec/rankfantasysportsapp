@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedPageModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -20,7 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    SharedPageModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [PurchasePage]

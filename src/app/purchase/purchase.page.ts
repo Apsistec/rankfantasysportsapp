@@ -1,16 +1,16 @@
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController, IonContent } from '@ionic/angular';
-import { RegModalComponent } from '../shared/reg-modal/reg-modal.component';
+import { RegModalComponent } from '@shared/reg-modal/reg-modal.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { MessageService } from '../_services/message.service';
+import { MessageService } from '@services/message.service';
 import { MatDialog } from '@angular/material';
-import { TermsDialogComponent } from '../shared/terms-dialog/terms-dialog.component';
-import { PrivacyDialogComponent } from '../shared/privacy-dialog/privacy-dialog.component';
-import * as firebase from 'firebase/app';
+import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
+import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
+
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -19,20 +19,6 @@ declare var Stripe: stripe.StripeStatic;
   styleUrls: ['./purchase.page.scss'],
 })
 export class PurchasePage implements OnInit, AfterViewInit {
-  @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
-  planId: string;
-  price: string;
-  @Input() user;
-  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
-  isClickedSilver = false;
-  isClickedGold = false;
-  isClickedBronze = false;
-  planChosen = false;
-  titleId = 'RF$\u2122 Pro Memberships';
-  stripe: stripe.Stripe;
-  card;
-  cardErrors;
-  confirmation;
 
   public trustedVideoUrl: SafeResourceUrl;
   video: any = {
@@ -42,6 +28,24 @@ export class PurchasePage implements OnInit, AfterViewInit {
   video2: any = {
     url: 'https://www.youtube.com/embed/FWZIisrxodY'
   };
+
+  @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
+  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
+
+  @Input() user;
+
+  stripe: stripe.Stripe;
+
+  planId: string;
+  price: string;
+  isClickedSilver = false;
+  isClickedGold = false;
+  isClickedBronze = false;
+  planChosen = false;
+  titleId = 'RF$\u2122 Pro Memberships';
+  card;
+  cardErrors;
+  confirmation;
 
   constructor(
     public auth: AuthService,

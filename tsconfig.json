@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -21,11 +21,13 @@
       "dom"
     ],
     "paths": {
-      "@services/*": ["src/app/_services/*"],
-      "@guards/*": ["src/app/_guards/*"],
-      "@directives/*": ["src/app/_directives/*"],
-      "@models/*": ["src/_models/*"],
-      "@environments/*": ["src/environments/*"]
+      "@services/*": ["app/_services/*"],
+      "@guards/*": ["app/_guards/*"],
+      "@directives/*": ["app/_directives/*"],
+      "@models/*": ["app/_models/*"],
+      "@helpers/*": ["app/_helpers/*"],
+      "@environments/*": ["./environments/*"],
+      "@shared/*": ["app/shared/*"]
     }
   }
  }

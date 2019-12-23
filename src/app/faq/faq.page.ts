@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { Faqs } from './faqs';
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { IonContent } from '@ionic/angular';
 // import { Plugins } from '@capacitor/core';
 // const { Clipboard } = Plugins;

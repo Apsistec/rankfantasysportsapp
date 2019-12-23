@@ -1,9 +1,8 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { ModalController } from '@ionic/angular';
-import { SharedPageModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-home',

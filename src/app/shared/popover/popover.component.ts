@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { NavParams } from '@ionic/angular';
-import { AuthService } from '../../_services/auth.service';
+import { AuthService } from '@services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'popover-component',
@@ -13,22 +13,22 @@ export class PopoverComponent {
 
   constructor(
     public popoverController: PopoverController,
-    private navParams: NavParams,
-    public auth: AuthService
+    public auth: AuthService,
+    private router: Router
     ) {}
 
-  logOut() {
-    this.auth.SignOut();
     // code for logout
+  async logOut() {
+    await this.dismissPopover();
+    return await this.auth.SignOut();
   }
 
-  eventFromPopover() {
-    // this.events.publish('fromPopoverEvent');
-    // Get data from popover page
-    this.page = this.navParams.get('data');
+  async goToProfile() {
+    await this.dismissPopover();
+    return await this.router.navigateByUrl('/profile');
   }
 
-  dismissPopover(){
-    this.popoverController.dismiss();
+  async dismissPopover() {
+    return await this.popoverController.dismiss();
   }
 }

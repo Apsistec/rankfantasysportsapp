@@ -1,5 +1,4 @@
-import { SharedDirectivesModule } from '../_directives/shared-directives.module';
-import { SharedPage } from './shared.page';
+import { SharedDirectivesModule } from '@directives/shared-directives.module';
 import { TicketComponent } from './tickets/ticket.component';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
@@ -27,7 +26,6 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     PrivacyDialogComponent,
     ListTablesComponent,
     PopoverComponent,
-    SharedPage
   ],
   entryComponents: [
     TicketComponent,
@@ -61,4 +59,4 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     ListTablesComponent,
   ],
 })
-export class SharedPageModule {}
+export class SharedModule {}

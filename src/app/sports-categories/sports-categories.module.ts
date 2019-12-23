@@ -1,9 +1,9 @@
-import { PaidGuard } from '../_guards/paid.guard';
+import { PaidGuard } from '@guards/paid.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedPageModule } from './../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { SportsCategoriesPage } from './sports-categories.page';
 import { SportsCategoriesDetailComponent } from './sports-categories-detail/sports-categories-detail.component';
@@ -116,7 +116,7 @@ const sportsRoutes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    SharedPageModule,
+    SharedModule,
     RouterModule.forChild(sportsRoutes)
   ],
   declarations: [

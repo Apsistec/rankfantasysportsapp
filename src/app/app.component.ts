@@ -1,13 +1,13 @@
-import { PrivacyDialogComponent } from './shared/privacy-dialog/privacy-dialog.component';
+import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { Component } from '@angular/core';
-import { AuthService } from './_services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatDialog } from '@angular/material';
-import { TermsDialogComponent } from './shared/terms-dialog/terms-dialog.component';
-import { MessageService } from './_services/message.service';
+import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
+import { MessageService } from '@services/message.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,9 +22,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private dialog: MatDialog,
-    private statusBar: StatusBar,
-    private message: MessageService,
-    private router: Router
+    private statusBar: StatusBar
   ) {
       this.initializeApp();
   }

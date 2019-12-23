@@ -3,8 +3,8 @@ import {
   IonicRouteStrategy,
 } from '@ionic/angular';
 import { BrowserModule } from '@angular/platform-browser';
-import { environment } from '../environments/environment';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { environment } from '@environments/environment';
+import { NgModule, ErrorHandler, ModuleWithProviders } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppComponent } from './app.component';
@@ -17,18 +17,25 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './_helpers/interceptor.service';
+import { InterceptorService } from '@helpers/interceptor.service';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
-import { SharedDirectivesModule } from './_directives/shared-directives.module';
+// import { SharedDirectivesModule } from '@directives/shared-directives.module';
 import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
-import { SharedPageModule } from './shared/shared.module';
-import { } from '@angular/material';
+import { SharedModule } from '@shared/shared.module';
+// import { } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-import {MsalModule, MsalInterceptor} from '@azure/msal-angular';
+import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+import { NowComponent } from './sports-categories/now/now.component';
+import { NflComponent } from './sports-categories/nfl/nfl.component';
+import { CfbComponent } from './sports-categories/cfb/cfb.component';
+import { PgaComponent } from './sports-categories/pga/pga.component';
+import { NbaComponent } from './sports-categories/nba/nba.component';
+import { TennisComponent } from './sports-categories/tennis/tennis.component';
+import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
 
 // import { ScorePredictionsComponent } from './sports-categories/cfb/score-predictions/score-predictions.component';
 // import { PowerRankingsComponent } from './sports-categories/cfb/power-rankings/power-rankings.component';
@@ -49,22 +56,21 @@ import {MsalModule, MsalInterceptor} from '@azure/msal-angular';
 // import { Table4Component } from './sports-categories/tennis/table4/table4.component';
 // import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
-// import { TennisPageModule } from './sports-categories/tennis/tennis.module';
-// import { NbaPageModule } from './sports-categories/nba/nba.module';
-// import { NowPageModule } from './sports-categories/now/now.module';
-// import { PgaPageModule } from './sports-categories/pga/pga.module';
-// import { NflPageModule } from './sports-categories/nfl/nfl.module';
-// import { CfbPageModule } from './sports-categories/cfb/cfb.module';
 // import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
 
 export const protectedResourceMap: [string, string[]][] = [ ['http://localhost:8100', ['api://8b3cfe6b-4ec4-41af-be3d-4f41fd41da02/access_as_user']] , ['https://graph.microsoft.com/v1.0/me', ['user.read']] ];
 
 const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
-
 @NgModule({
   declarations: [
     AppComponent,
+    NowComponent,
+    NflComponent,
+    CfbComponent,
+    PgaComponent,
+    NbaComponent,
+    TennisComponent,
     // ScorePredictionsComponent,
     // PowerRankingsComponent,
     // DkleadersComponent,
@@ -86,13 +92,15 @@ const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.naviga
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirePerformanceModule,
-    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule,
     AngularFireMessagingModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     CommonModule,
+    SportsCategoriesPageModule,
+    SharedModule,
+    AppRoutingModule,
     IonicModule.forRoot(),
-    SharedDirectivesModule,
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
@@ -117,16 +125,8 @@ const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.naviga
       // correlationId: '1234',
       // level: LogLevel.Verbose,
       // piiLoggingEnabled: true,
+    // SharedDirectivesModule,
     }),
-    // NowPageModule,
-    // NflPageModule,
-    // CfbPageModule,
-    // PgaPageModule,
-    // NbaPageModule,
-    // TennisPageModule,
-    // SportsCategoriesPageModule,
-    SharedPageModule,
-    AppRoutingModule,
   ],
   providers: [
     StatusBar,
