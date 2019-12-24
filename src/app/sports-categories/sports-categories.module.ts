@@ -31,11 +31,11 @@ import { SportsCategoriesDetailComponent } from './sports-categories-detail/spor
 // import { NflPageModule } from '../sports-categories/nfl/nfl.module';
 const sportsRoutes: Routes = [
   {
-    path: '',
+    path: 'categories',
     component: SportsCategoriesPage,
-    // children: [
+    children: [
 
-    //   // { path: '', redirectTo: '/categories', pathMatch: 'full' },
+      { path: '', redirectTo: '/categories', pathMatch: 'full' },
     //   { path: 'tennis', loadChildren: './tennis/tennis.module#TennisPageModule' },
     //   { path: 'now', loadChildren: './now/now.module#NowPageModule' },
     //   { path: 'pga', loadChildren: './pga/pga.module#PgaPageModule' },
@@ -106,7 +106,7 @@ const sportsRoutes: Routes = [
     //     path: 'score-predictions',
     //     component: ScorePredictionsComponent, canActivate: [PaidGuard]
     // },
-    // ]
+    ]
 
   }
 ];
