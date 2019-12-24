@@ -125,9 +125,9 @@ const appRoutes: Routes = [
 //     path: 'score-predictions',
 //     component: ScorePredictionsComponent, canActivate: [PaidGuard]
 // },
-// { path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  { path: '**', redirectTo: '/home',  pathMatch: 'full'  },
+  { path: '**', redirectTo: '/home'},
 ];
 
 @NgModule({

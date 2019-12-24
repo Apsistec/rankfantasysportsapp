@@ -14,10 +14,10 @@
     
     
     <!-- Row 2 -->
-    <!-- Column 1 -->
-        <ion-row align-items-stretch>
+    <ion-row class="ion-align-items-stretch">
+      <!-- Column 1 -->
           <ion-col size-md="4">
-        <ion-card class="card-metal ion-padding">
+        <ion-card class="card-metal ion-padding" style="height:95%;">
         <ion-card class="main-card">
           <img src="../../assets/img/logo.jpg" slot="start">
           <ion-card-content>
@@ -92,7 +92,7 @@
 
       <!-- Column 2 -->
       <ion-col>
-        <ion-card class="card-metal">
+        <ion-card class="card-metal" style="height:95%;">
           <ion-card-header>
           <ion-card-title class="ion-text-center" >
             <ion-text color="secondary" >
@@ -135,7 +135,7 @@ What Rank Fantasy Sports Offers
       <!-- Column 3 -->
       <!-- RF$ Information Card-->
         <ion-col size-md="4">
-           <ion-card class="ion-padding card-metal">
+           <ion-card class="ion-padding card-metal" style="height:95%;">
              <ion-card-header> 
              <ion-card-title class="ion-text-center">
              <ion-text color="secondary" >
@@ -207,27 +207,56 @@ What Rank Fantasy Sports Offers
         <!-- 4th Row -->
         <ion-row>
           <ion-col size="12">
-<ion-grid>
-    <ion-row>
-      <ion-col size="7" offset="2.5">
+            <ion-row>
+              <ion-col size="7" offset="2.5">
 
-        <ion-card class="card-metal">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">
-              <!-- <ion-text style=" text-shadow: .1em .15em .25em #9900ff;" color="warning">
-                Results That Count! -->
-                <ion-text color="warning">
-                  <p class="ion-text-center">Our data-analysts are consistantly turning
-                    <ion-text color="secondary"> $10</ion-text>+ lineups into "game changing" wins frequently over
-                    <ion-text color="secondary"> $2000</ion-text> and even winning over <ion-text color="secondary"> $8000</ion-text>.</p>
-                  </ion-text>
-                </ion-card-title>
-              </ion-card-header>
-            </ion-card>
-          </ion-col>
-    </ion-row>
+                <ion-card class="card-metal">
+                  <ion-card-header>
+                    <ion-card-title class="ion-text-center">
+                      <!-- <ion-text style=" text-shadow: .1em .15em .25em #9900ff;" color="warning">
+                        Results That Count! -->
+                        <ion-text color="warning">
+                          <p class="ion-text-center">Our data-analysts are consistantly turning
+                            <ion-text color="secondary"> $10</ion-text>+ lineups into "game changing" wins frequently over
+                            <ion-text color="secondary"> $2000</ion-text> and even winning over <ion-text color="secondary"> $8000</ion-text>.</p>
+                          </ion-text>
+                        </ion-card-title>
+                      </ion-card-header>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
     <ion-row>
-
+      <ion-col size="3">
+        <!-- Testimonials Card -->
+              <ion-card class="testi ion-text-center">
+                <ion-card-header>
+                  <ion-card-title class="ion-text-center">
+                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
+                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
+                      </ion-text>
+                    </ion-card-title>
+               
+                    </ion-card-header>
+                                    <ion-card-content>
+                        <ion-slides [options]="slideOpts">
+                            <ion-slide *ngFor="let slide of [1, 2]">
+                              <ion-card>
+                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
+                              </ion-card>
+                            </ion-slide>
+                          </ion-slides>
+                          <ion-button expand="block" strong color="deepo" shape="round" fill="solid" routerLink="/credibility">
+                            <ion-ripple-effect>
+                          </ion-ripple-effect>
+                          <ion-text class="ion-text-wrap" color="secondary">
+                            Check Out Even More Wins
+                          </ion-text>
+                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
+                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
+                        </ion-button>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
 
               <ion-col size="3">
         <!-- Testimonials Card -->
@@ -291,37 +320,7 @@ What Rank Fantasy Sports Offers
                 </ion-card-content>
               </ion-card>
         </ion-col>
-              <ion-col size="3">
-        <!-- Testimonials Card -->
-              <ion-card class="testi ion-text-center">
-                <ion-card-header>
-                  <ion-card-title class="ion-text-center">
-                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
-                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
-                      </ion-text>
-                    </ion-card-title>
-               
-                    </ion-card-header>
-                                    <ion-card-content>
-                        <ion-slides [options]="slideOpts">
-                            <ion-slide *ngFor="let slide of [1, 2]">
-                              <ion-card>
-                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
-                              </ion-card>
-                            </ion-slide>
-                          </ion-slides>
-                          <ion-button expand="block" strong color="deepo" shape="round" fill="solid" routerLink="/credibility">
-                            <ion-ripple-effect>
-                          </ion-ripple-effect>
-                          <ion-text class="ion-text-wrap" color="secondary">
-                            Check Out Even More Wins
-                          </ion-text>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
-                        </ion-button>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
+           
               <ion-col size="3">
         <!-- Testimonials Card -->
               <ion-card class="testi ion-text-center">
@@ -354,11 +353,7 @@ What Rank Fantasy Sports Offers
               </ion-card>
             </ion-col>
           </ion-row>
-
-          </ion-grid>
-
-
-        </ion-col>
+          </ion-col>
     
       </ion-row>
           <!-- 5th Row  Footer -->
