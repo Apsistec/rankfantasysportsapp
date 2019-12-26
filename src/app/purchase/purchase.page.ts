@@ -37,8 +37,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
 
   stripe: stripe.Stripe;
 
-  @Output() planId: string;
-
+  planId: string;
   price: string;
   isClickedSilver = false;
   isClickedGold = false;

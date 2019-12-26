@@ -14,7 +14,7 @@ export class StripeService {
   subscriptions: Observable<any>;
   confirmation; // : Observable<any>;
   invoices: Observable<any>;
-  
+
 
   constructor(
     private auth: AuthService,
@@ -45,7 +45,7 @@ export class StripeService {
     const fun = this.functions.httpsCallable('stripeCancelSubscription');
     this.confirmation = await fun({
       uid: user.uid,
-      plan: user.plan
+      subId: user.subId
     }).toPromise().then(() => {
       this.auth.dismissSpinner();
       this.message.unsubscribedAlert();

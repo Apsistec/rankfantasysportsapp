@@ -31,9 +31,9 @@ export const createSubscription = async ( uid: string, source: string, plan: str
 
     // Add the plan to existing subscriptions
     const docData = {
-        'plan': [subscription.plan.id],
-        'status': [subscription.status],
-        'subId': [subscription.id]
+        'plan': subscription.plan.id,
+        'status': subscription.status,
+        'subId': subscription.id
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });

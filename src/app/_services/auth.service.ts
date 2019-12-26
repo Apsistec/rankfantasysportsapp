@@ -78,7 +78,7 @@ export class AuthService {
     if (!user.plan) {
 
     }
-    
+
   }
 
 
@@ -132,7 +132,7 @@ export class AuthService {
               }
             }
           }
-        })
+        });
       }).catch((err) => {
         this.dismissSpinner();
         this.message.errorAlert(err.message);
@@ -142,10 +142,13 @@ export class AuthService {
 
     /* Sign up email*/
     SignUp(credentials) {
+      this.loadSpinner();
       this.afAuth
         .auth
         .createUserWithEmailAndPassword(credentials.email, credentials.password)
         .then((res) => {
+          this.dismissSpinner();
+          this.message.registerSuccessToast();
           this.afs.doc<User>(`users/${res.user.uid}`).set({
             displayName: credentials.firstName + ' ' + credentials.lastName,
             email: res.user.email,

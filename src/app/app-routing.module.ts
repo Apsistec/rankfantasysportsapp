@@ -10,7 +10,7 @@ import { InnerGuard } from '@guards/inner.guard';
 const appRoutes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'how-to', loadChildren: './how-to/how-to.module#HowToPageModule' },
-  { path: 'free-trial', loadChildren: './purchase/purchase.module#PurchasePageModule', canActivate: [PreventBuyGuard] },
+  { path: 'free-trial', loadChildren: './purchase/purchase.module#PurchasePageModule' },
   { path: 'freetrial', redirectTo: 'free-trial', pathMatch: 'full' },
   { path: 'free', redirectTo: 'free-trial',  pathMatch: 'full' },
   { path: 'freetrail', redirectTo: 'free-trial', pathMatch: 'full' },
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: 'prices', redirectTo: 'pricing', pathMatch: 'full' },
   { path: 'price',  redirectTo: 'pricing', pathMatch: 'full' },
   { path: 'credibility', loadChildren: './testimonials/testimonials.module#TestimonialsPageModule' },
-  { path: 'purchase', loadChildren: './purchase/purchase.module#PurchasePageModule', canActivate: [PreventBuyGuard] },
+  { path: 'purchase', loadChildren: './purchase/purchase.module#PurchasePageModule' },
   { path: 'buy', redirectTo: 'purchase', pathMatch: 'full' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'welcome', loadChildren: './auth/welcome/welcome.module#WelcomePageModule' },

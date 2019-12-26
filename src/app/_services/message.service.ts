@@ -16,10 +16,10 @@ export class MessageService {
   ) {}
 
    // Toasts
-   async registerSuccessToast(user: any) {
+   async registerSuccessToast() {
     const toast = await this.toastCtrl.create({
       header: 'Registration Successful',
-      message: 'Welcome ' + user.displayName + '. Account registered to ' + user.email,
+      message: 'Thank You for registering',
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,

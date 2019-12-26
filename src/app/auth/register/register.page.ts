@@ -1,8 +1,7 @@
 import { AuthService } from '@services/auth.service';
-import { MessageService } from '@services/message.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { LoadingController, ModalController } from '@ionic/angular';
+import {  ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,9 +23,7 @@ export class RegisterPage implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private message: MessageService,
     private router: Router,
-    private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     private fb: FormBuilder
   ) {
@@ -36,30 +33,11 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  async loadLoader() {
-    const loading = await this.loadingCtrl.create({
-      message: 'Loading... Please wait'
-    });
-    await loading.present();
-  }
-
-  async dismissLoader() {
-    await this.loadingCtrl.dismiss();
-  }
-
   register() {
-    this.loadLoader();
-    // const fullName: string = this.registerForm.value.firstName + this.registerForm.value.lastName;
     this.auth.SignUp(this.registerForm.value);
-    this.dismissLoader();
-    this.registerForm.reset();
-    // this.modalDismiss();
-    this.message.registerSuccessToast(`${this.registerForm.value.firstName} + ' ' + ${this.registerForm.value.lastName}`);
-    this.router.navigateByUrl('/purchase');
   }
 
   gotoLogin() {
-    // this.modalDismiss();
     this.router.navigateByUrl('/login');
   }
 
