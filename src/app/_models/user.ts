@@ -11,13 +11,13 @@ export class User {
     lastRefreshAt?: number;
     passwordHash?: string;
     validSince?: number;
-    stripeCustomerId?: string;
     providerUserInfo?: ProviderUserInfo;
-    bronze?: boolean;
-    gold?: boolean;
-    silver?: boolean;
     passwordUpdatedAt?: number;
     emailVerified?: boolean;
+    stripeCustomerId?: string;
+    plan?: string;
+    status?: string;
+    subId?: string;
 }
 
 class ProviderUserInfo extends User {

@@ -41,16 +41,16 @@ export class AuthService {
   );
 }
 
-  async getCurrentUser(): Promise<any> {
-    return this.user.pipe(first()).toPromise();
+  async getCurrentUser(): Promise<User> {
+    return await this.user.pipe(first()).toPromise();
   }
 
   get isLoggedIn(): boolean {
     return (this.user === null ) ? true : false;
   }
 
-  getUser(): Promise<any> {
-    return this.afAuth.authState.pipe(first()).toPromise();
+  async getUser() {
+    return await this.afAuth.authState.pipe(first()).toPromise();
   }
 
   async loadSpinner() {
@@ -73,71 +73,12 @@ export class AuthService {
     this.modalCtrl.dismiss();
   }
 
-  bronze() {
-    return this.user
-      .pipe(
-        take(1),
-        map(user => user && user.bronze)
-      )
-      .toPromise();
-  }
+   async isSubscribed() {
+    const user = await this.getCurrentUser();
+    if (!user.plan) {
 
-  async isBronze() {
-    const bronze = await this.bronze();
-    const isPaidBronze = !!bronze;
-    if (!isPaidBronze) {
-      return false;
-    } else {
-      return isPaidBronze;
     }
-  }
-
-  silver() {
-    return this.user
-      .pipe(
-        take(1),
-        map(user => user && user.silver)
-      )
-      .toPromise();
-  }
-
-  async isSilver() {
-    const silver = await this.silver();
-    const isPaidSilver = !!silver;
-    if (!isPaidSilver) {
-      return false;
-    } else {
-      return isPaidSilver;
-    }
-  }
-
-  gold() {
-    return this.user
-      .pipe(
-        take(1),
-        map(user => user && user.gold)
-      )
-      .toPromise();
-  }
-
-  async isGold()  {
-    const gold = await this.gold();
-    const isPaidGold = !!gold;
-    if (!isPaidGold) {
-      return false;
-    } else {
-      return isPaidGold;
-    }
-  }
-
-  isSubscribed() {
-    const isMember = (!!this.bronze || !!this.gold || !!this.silver);
-
-    if (!isMember) {
-      return isMember;
-    } else {
-      return false;
-    }
+    
   }
 
 
@@ -174,31 +115,29 @@ export class AuthService {
   SignIn(email, password) {
     this.loadSpinner();
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
+      .then(async(res) => {
         this.dismissSpinner();
-        this.message.isLoggedInToast();
-        this.navigateEntryUser();
+        await this.afs.doc<User>(`users/${res.user.uid}`)
+        .valueChanges().subscribe(fullUser => {
+          const user = fullUser;
+          this.message.isLoggedInToast();
+          if (user.role === 'ADMIN') {
+            this.router.navigateByUrl('/admin');
+          }  {
+            if (user.role === 'USER') {
+              if (user.plan && user.status === 'active' || 'trialing' ) {
+                this.router.navigateByUrl('/auth/profile');
+              } {
+                this.router.navigateByUrl('/purchase');
+              }
+            }
+          }
+        })
       }).catch((err) => {
+        this.dismissSpinner();
         this.message.errorAlert(err.message);
       });
     }
-
-    // navigate upon login
-    async navigateEntryUser() {
-      if (this.user['role'] === 'ADMIN') {
-        this.router.navigateByUrl('/admin');
-      } else {
-        if (this.user['role'] === 'USER') {
-          const sub = (this.user['gold'] || this.user['silver'] || this.user['bronze']);
-          if (sub) {
-            this.router.navigateByUrl('/auth/profile');
-          } else {
-            this.router.navigateByUrl('/purchase');
-          }
-        }
-      }
-    }
-
 
 
     /* Sign up email*/

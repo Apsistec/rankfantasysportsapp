@@ -20,18 +20,21 @@
           <ion-col size="4">
             <ion-img style="width:70px; height:70px; position:relative;" [src]="user.photoURL || '../../assets/img/dummy-user.png'"></ion-img>
           </ion-col>
-          <ion-col class="ion-text-start">
-            <ion-label>
-              <ion-text color="warning" >
-                {{ user.displayName || 'User' }}
-              </ion-text>
-              <br>
-              {{ user.role }}
-            </ion-label>    
+          <ion-col class="ion-text-start">            
+              <ion-card-title>
+                <ion-text color="warning" >
+                  <h2>
+                      {{ user.displayName || 'User' }}
+                  </h2>
+                </ion-text>
+              </ion-card-title>
+              
+              <ion-card-subtitle>
+                {{ user.role }}
+              </ion-card-subtitle>
           </ion-col>
         </ion-row>
         <ion-row>
-
           <ion-text color="twittr">
             {{ user.email }}
           </ion-text>
@@ -45,6 +48,9 @@
             Edit User
           </ion-text>
         </ion-button>
+        &nbsp;
+        <ion-button  size="small" color="danger"  shape="round" (click)="auth.SignOut()" >Logout</ion-button>
+
       </ion-card-content>
     </ion-card>
     
@@ -66,7 +72,7 @@
           <ion-col size-sm="5">
             <ion-label>
               <h2>
-                Current Package:
+            PRO Plan:
               </h2>
                  <h3>
                   {{ subs.data[0].plan.id | uppercase }}
@@ -90,7 +96,6 @@
       {{ subs.data[0].trial_end * 1000 | date }}
     </h3>
   </ion-label>
-          
           <ion-label>
           <h2 color="secondary">
             Subscription Fee:
@@ -99,33 +104,19 @@
             {{ subs.data[0].plan.amount / 100 | currency }}
           </h3>
         </ion-label>
-        
-        <ion-label>
-        <h2 color="secondary">
-          Billing Interval:
-        </h2>
-        <h3 color="warning">
-          {{ subs.data[0].plan.interval | uppercase }}
-        </h3>
-      </ion-label>
       </ion-col>
       <ion-col size-sm="5">
-
-    
         <ion-label>
         <h2 color="secondary">
-          Date Created:
+          Created:
         </h2>
         <h3 color="warning">
           {{ subs.data[0].start_date * 1000 | date }}
         </h3>
       </ion-label>
-        
-       
-        
           <ion-label>
           <h2 color="secondary">
-            Current Cycle Start:
+          Billing Start:
           </h2>
           <h3 color="warning">
             {{ subs.data[0].current_period_start * 1000 | date }}
@@ -134,7 +125,7 @@
       
           <ion-label>
           <h2 color="secondary">
-            Current Cycle End:
+            Billing End:
           </h2>
           <h3 color="warning">
             {{ subs.data[0].current_period_end * 1000| date }}
@@ -215,7 +206,7 @@
         </ion-card>
 
         <!-- Account Management -->
-              <ion-card class="ion-text-center" color="primary" *ngIf="(user.gold || user.silver || user.bronze)">
+              <ion-card class="ion-text-center" color="primary" *ngIf="user.plan === 'gold' || 'silver' || 'bronze'">
               <ion-card-header>
               <ion-card-title>
                 <ion-text color="secondary">
@@ -226,27 +217,23 @@
             <ion-card-content>
               <ng-container *ngIf="stripeService.subscriptions | async as subs">
 
-                <ion-button size="small" shape="round" color="secondary" [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
-                  <ion-text color="dark">
-                    Most Recent Invoice
+                <ion-button size="small" shape="round" color="tertiary" [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
+                  <ion-text color="white">
+                    Current Invoice
                   </ion-text>
                 </ion-button>
-                <br>
                 <ion-button size="small" shape="round" color="secondary" (click)="presentInvoicesModal()">
-                  <ion-text color="dark">
-                    Past Invoices
+                  <ion-text color="white">
+                    Invoice History
                   </ion-text>
                 </ion-button>
                 <br>
-                <ion-button size="small" shape="round" color="secondary" (click)="presentCancelSubModal()">
-                  <ion-text color="dark">
+                <hr>
+                <ion-button size="small" shape="round" color="danger" (click)="presentCancelSubModal()">
+                  <ion-text color="white">
                   Cancel Subscription  
                   </ion-text>
                 </ion-button>
-                <br>
-              
-                <ion-button  size="small" color="danger"  shape="round" (click)="auth.SignOut()" >Logout</ion-button>
-                <!-- <ion-button  size="small" fill="outline" shape="round" (click)="cancelSubscription()" color="danger">Cancel Subscription</ion-button> -->
               </ng-container>
               </ion-card-content>
           </ion-card>

@@ -32,7 +32,8 @@ export const createSubscription = async ( uid: string, source: string, plan: str
     // Add the plan to existing subscriptions
     const docData = {
         'plan': [subscription.plan.id],
-        [subscription.id]: [subscription.status]
+        'status': [subscription.status],
+        'subId': [subscription.id]
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
@@ -48,8 +49,9 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
     const subscription  = await stripe.subscriptions.del(subId);
 
     const docData = {
-        [subscription.plan.id]: false,
-        [subscription.id]: 'canceled',
+        'plan': '',
+        'status': [subscription.status],
+        'subId': ''
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });

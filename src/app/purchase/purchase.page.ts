@@ -1,6 +1,6 @@
 import { AuthService } from '@services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController, IonContent } from '@ionic/angular';
@@ -37,7 +37,8 @@ export class PurchasePage implements OnInit, AfterViewInit {
 
   stripe: stripe.Stripe;
 
-  planId: string;
+  @Output() planId: string;
+
   price: string;
   isClickedSilver = false;
   isClickedGold = false;
@@ -177,7 +178,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
-      await this.stripeFun.subscribeUser(source)
+      await this.stripeFun.subscribeUser(source, this.planId)
         .then(( confirmation ) => {
           this.onDismissLoader();
           this.message.subscribedToast();

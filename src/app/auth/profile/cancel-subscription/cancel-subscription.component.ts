@@ -22,8 +22,11 @@ export class CancelSubscriptionComponent implements OnInit {
 
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
-
+  dismissModal() {
+    this.modalCtrl.dismiss();
+  }
 
 }

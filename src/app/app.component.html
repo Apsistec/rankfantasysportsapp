@@ -23,7 +23,7 @@
           <ion-text  color="light">Profile</ion-text><ion-ripple-effect></ion-ripple-effect>
         </ion-item>
 
-        <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.isSubscribed; else notSubscribed">
+        <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.user.plan; else notSubscribed">
           <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
           <ion-text  color="secondary">Pricing</ion-text><ion-ripple-effect></ion-ripple-effect>
         </ion-item>

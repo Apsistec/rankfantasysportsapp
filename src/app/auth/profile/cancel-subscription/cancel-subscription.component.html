@@ -1,3 +1,25 @@
-<ion-card color="primary">
-  <ion-button size="small" color="danger" (click)="stripeService.cancelSubscription()">Cancel Subscription</ion-button>
-</ion-card>
+<ion-content>
+  <ion-card color="primary" class="ion-text-center">
+    <ion-card-header>
+      
+      <ion-card-title>
+      <ion-text color="secondary">
+          Cancel Subscription
+        </ion-text>
+      </ion-card-title>
+      <ion-card-subtitle>
+        <ion-text color="warning">
+          Are You Sure You Want To Cancel?
+        </ion-text>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-button size="small" color="danger" (click)="stripeService.cancelSubscription()">Cancel Subscription</ion-button>
+    <ion-button size="small" color="warning" (click)="dismissModal()">Close</ion-button>
+  </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="confirmation | async as confirm" color="primary">
+
+  </ion-card>
+  
+</ion-content>

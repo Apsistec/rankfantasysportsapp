@@ -3,7 +3,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class StripeService {
   subscriptions: Observable<any>;
   confirmation; // : Observable<any>;
   invoices: Observable<any>;
-  planId: string;
+  
 
   constructor(
     private auth: AuthService,
@@ -23,13 +23,13 @@ export class StripeService {
     private router: Router,
   ) { }
 
-  async subscribeUser(source) {
+  async subscribeUser(source, planId) {
       const user = await this.auth.getUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
         uid: user.uid,
-        plan: this.planId,
+        plan: planId,
       }).toPromise();
     }
 
@@ -40,12 +40,12 @@ export class StripeService {
   }
 
   async cancelSubscription() {
-    await this.auth.loadSpinner;
-    const user = await this.auth.getUser();
+    this.auth.loadSpinner();
+    const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeCancelSubscription');
     this.confirmation = await fun({
       uid: user.uid,
-      plan: this.planId
+      plan: user.plan
     }).toPromise().then(() => {
       this.auth.dismissSpinner();
       this.message.unsubscribedAlert();
