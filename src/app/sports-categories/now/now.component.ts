@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./now.component.scss'],
 })
 export class NowComponent implements OnInit {
-
+  titleId = 'Now Tables';
   constructor() { }
 
   ngOnInit() {}

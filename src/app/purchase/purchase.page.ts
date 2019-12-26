@@ -10,6 +10,7 @@ import { MessageService } from '@services/message.service';
 import { MatDialog } from '@angular/material';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
+import { StripeService } from '@services/stripe.service';
 
 declare var Stripe: stripe.StripeStatic;
 
@@ -45,7 +46,6 @@ export class PurchasePage implements OnInit, AfterViewInit {
   titleId = 'RF$\u2122 Pro Memberships';
   card;
   cardErrors;
-  confirmation;
 
   constructor(
     public auth: AuthService,
@@ -55,7 +55,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
     private loadingCtrl: LoadingController,
     public modalController: ModalController,
     private message: MessageService,
-    private dialog: MatDialog
+    private stripeFun: StripeService
   ) {
   }
 
@@ -170,31 +170,27 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   async onSubmit(f: NgForm) {
-    this.presentLoading();
-    const { source, error } = await this.stripe.createSource(this.card);
+      this.presentLoading();
+      const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
-      this.onDismissLoader();
       // Inform the customer that there was an error.
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
-      const user = await this.auth.getUser();
-      const fun = this.functions.httpsCallable('stripeCreateSubscription');
-      this.confirmation = await fun({
-        source: source.id,
-        uid: user.uid,
-        plan: this.planId,
-      }).toPromise();
-      this.onDismissLoader();
-      this.message.subscribedToast();
-      this.planChosen = false;
-      this.isClickedSilver = false;
-      this.isClickedBronze = false;
-      this.isClickedGold = false;
-      f.reset();
-      return this.router.navigate(['/welcome']);
+      await this.stripeFun.subscribeUser(source)
+        .then(( confirmation ) => {
+          this.onDismissLoader();
+          this.message.subscribedToast();
+          this.planChosen = false;
+          this.isClickedSilver = false;
+          this.isClickedBronze = false;
+          this.isClickedGold = false;
+          f.reset();
+          return this.router.navigate(['/welcome']);
+        });
     }
   }
+
 
   async presentModal() {
     const modal = await this.modalController.create({
@@ -214,15 +210,18 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   async showModalTerms() {
-    await this.dialog.open(TermsDialogComponent);
+    const modal = await this.modalController.create({
+      component: TermsDialogComponent
+    });
+    return await modal.present();
   }
 
   async showModalPrivacy() {
-    await this.dialog.open(PrivacyDialogComponent);
+    const modal = await this.modalController.create({
+      component: PrivacyDialogComponent
+    });
+    return await modal.present();
   }
 
-  async stopDialog() {
-    await this.dialog.closeAll();
-  }
 
 }

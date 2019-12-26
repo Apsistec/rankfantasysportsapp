@@ -75,6 +75,7 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header :  'App update notification ' ,
       message :  ' There is a new version of the app, please refresh the page.. ' ,
+      cssClass: 'infoT',
       buttons :  [{
         text :  ' Update ' ,
         handler :  ()  =>  {
@@ -104,6 +105,19 @@ export class MessageService {
       message: 'Thank You for your payment. You are subscribed!',
       position: 'top',
       duration: 4000,
+      showCloseButton: true,
+      translucent: true,
+    });
+    await toast.present();
+  }
+
+  async alreadySubscribedToast() {
+    const toast = await this.toastCtrl.create({
+      header: 'Redirect Message:',
+      cssClass: 'infoT',
+      message: 'You are already a Subscriber',
+      position: 'top',
+      duration: 3000,
       showCloseButton: true,
       translucent: true,
     });

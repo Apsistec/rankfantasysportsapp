@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nba.component.scss'],
 })
 export class NbaComponent implements OnInit {
-
+  titleId = 'NBA Tables';
   constructor() { }
 
   ngOnInit() {}

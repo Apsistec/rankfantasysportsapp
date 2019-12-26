@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireFunctions } from '@angular/fire/functions';
 import { ModalController } from '@ionic/angular';
-import { AuthService } from '@services/auth.service';
+import { Observable } from 'rxjs';
+import { StripeService } from '@services/stripe.service';
 
 @Component({
   selector: 'app-invoices',
@@ -9,21 +9,19 @@ import { AuthService } from '@services/auth.service';
   styleUrls: ['./invoices.component.scss'],
 })
 export class InvoicesComponent implements OnInit {
-  invoices;
-  Stripe;
+
+  // invoices;
 
   constructor(
-    private functions: AngularFireFunctions,
     private modalCtrl: ModalController,
-    private auth: AuthService
+    public stripeService: StripeService
   ) { }
 
-  ngOnInit() {}
-
-  async getSubscriptions() {
-    const user = await this.auth.getUser();
-    const fun = this.functions.httpsCallable('stripeGetInvoices');
-    this.invoices = fun({uid: user.uid});
+  ngOnInit() {
+    this.stripeService.getInvoices();
   }
 
+  async dismissModal() {
+    this.modalCtrl.dismiss();
+  }
 }

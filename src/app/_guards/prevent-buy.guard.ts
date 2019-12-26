@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router
-} from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { MessageService } from '@services/message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PaidGuard implements CanActivate {
+
+export class PreventBuyGuard implements CanActivate {
+
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -22,14 +19,15 @@ export class PaidGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
- 
+
     const isMember = !!(this.auth.bronze || this.auth.gold || this.auth.silver);
 
     if (!isMember) {
-      this.message.needPaymentAlert();
-      this.router.navigateByUrl('/purchase');
+      return true;
     } else {
-      return isMember;
+      this.message.alreadySubscribedToast();
+      this.router.navigateByUrl('/home');
+      return false;
     }
   }
 }

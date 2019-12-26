@@ -14,22 +14,30 @@
           </ion-card-title>
         </ion-card-header>
         <ion-item color="medium" lines="none">
+          <ion-grid>
+
+          <ion-row>
           <ion-col size="4">
-            <ion-img style="width:100px; height:100px; position:relative;" [src]="user.photoURL || '../../assets/img/dummy-user.png'"></ion-img>
+            <ion-img style="width:70px; height:70px; position:relative;" [src]="user.photoURL || '../../assets/img/dummy-user.png'"></ion-img>
           </ion-col>
           <ion-col class="ion-text-start">
             <ion-label>
               <ion-text color="warning" >
                 {{ user.displayName || 'User' }}
               </ion-text>
-              <hr>
-              <ion-text color="twittr">
-                {{ user.email }}
-              </ion-text>
-              <hr>
+              <br>
               {{ user.role }}
             </ion-label>    
           </ion-col>
+        </ion-row>
+        <ion-row>
+
+          <ion-text color="twittr">
+            {{ user.email }}
+          </ion-text>
+        </ion-row>
+      </ion-grid>
+
           </ion-item>
         <ion-card-content>
         <ion-button strong size="small" shape="round" color="warning" routerLink="/settings">
@@ -51,7 +59,8 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content class="ion-text-start">
-        <ng-container *ngIf="subscriptions | async as subs; else purchase">
+      
+        <ng-container *ngIf="stripeService.subscriptions | async as subs; else purchase">
           <ion-grid>
             <ion-row class="ion-justify-content-around">
           <ion-col size-sm="5">
@@ -59,7 +68,6 @@
               <h2>
                 Current Package:
               </h2>
-   
                  <h3>
                   {{ subs.data[0].plan.id | uppercase }}
                  </h3>
@@ -142,13 +150,11 @@
     </ion-card>
     
     <ng-template #purchase>
-      <ion-card class="ion-text-center ion-padding" color="primary">
             <ion-button color="danger" shape="round" size="small" strong routerLink="/purchase">
         <ion-text >
           Buy Pro Package
         </ion-text>
       </ion-button>
-        </ion-card>
     </ng-template>
     
 
@@ -218,7 +224,7 @@
               </ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <ng-container *ngIf="subscriptions | async as subs">
+              <ng-container *ngIf="stripeService.subscriptions | async as subs">
 
                 <ion-button size="small" shape="round" color="secondary" [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
                   <ion-text color="dark">
@@ -300,7 +306,12 @@
 
         </ion-col>
         <ion-col>
-          <app-list-tables></app-list-tables>
+          <app-now></app-now>
+          <app-tennis></app-tennis>
+          <app-pga></app-pga>
+          <app-nba></app-nba>
+          <app-nfl></app-nfl>
+          <app-cfb></app-cfb>
         </ion-col>
       </ion-row>
     </ion-grid>

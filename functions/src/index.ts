@@ -1,4 +1,4 @@
-const admin = require('firebase-admin');
+// const admin = require('firebase-admin');
 // admin.initializeApp();
 import * as functions from 'firebase-functions';
 
@@ -32,6 +32,10 @@ export {
 export { 
     stripeGetCoupon
 } from './coupons';
+
+export {
+    stripeGetInvoices
+} from './invoices';
 
 
 

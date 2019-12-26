@@ -1,9 +1,20 @@
-<ion-card color="primary" class="ion-padding">
-  <ion-list *ngFor="let invoice of invoices">
-    <ion-card color="medium">
+<ion-card color="primary" class="ion-padding" >
+  <ion-card-header>
+    <ion-card-title>
+      <ion-text>
+        Past Invoices
+      </ion-text>
+    </ion-card-title>
+  </ion-card-header>
+  
+    <ion-card color="medium" *ngIf="stripeService.invoices | async as invoice">
       Invoice ID: {{ invoice.id }}
       Date: {{ invoice.created }}
       <a [href]="invoice.url"></a>
     </ion-card>
-  </ion-list>
+  <ion-button color="secondary" shape="round" (click)="dismissModal()">
+    <ion-text color="white">
+      Close
+    </ion-text>
+  </ion-button>
 </ion-card>

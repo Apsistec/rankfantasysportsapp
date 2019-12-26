@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
-import { AngularFireFunctions } from '@angular/fire/functions';
 import { ThemeService } from '../../_services/theme.service';
-import { LoadingController, ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { ModalController } from '@ionic/angular';
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { StripeService } from '@services/stripe.service';
 
 const themes = {
   autumn: {
@@ -40,43 +39,45 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-  component;
-  InvoicesComponent;
-  CancelSubscriptionComponent;
+
   titleId = 'RF$\u2122 User Profile';
-  subscriptions: Observable<any>;
-  confirmation;
-  user;
-  planId;
+
+  // subscriptions;
 
   constructor(
-    public functions: AngularFireFunctions,
-    public theme: ThemeService,
-    public load: LoadingController,
-    public modalCtrl: ModalController,
+    private theme: ThemeService,
+    private modalCtrl: ModalController,
     public auth: AuthService,
+    public stripeService: StripeService
     ) {
 
     }
 
   ngOnInit() {
-    this.getSubscriptions();
+    this.stripeService.getSubscriptions();
   }
 
    changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
 
-  async getSubscriptions() {
-    const user = await this.auth.getUser();
-    const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.subscriptions = fun({uid: user.uid});
+  async presentCancelSubModal() {
+    const modal = await this.modalCtrl.create({
+      component: CancelSubscriptionComponent
+    });
+    return await modal.present();
   }
 
-  // async getPlan() {
-  //   this.subscriptions.
-  // }
+  async presentInvoicesModal() {
+    const modal = await this.modalCtrl.create({
+      component: InvoicesComponent
+    });
+    return await modal.present();
+  }
 
+  async onDismissModal() {
+    return await this.modalCtrl.dismiss();
+  }
 
   // Coupons
 
@@ -90,23 +91,4 @@ export class ProfilePage implements OnInit {
   //   console.log(coupon);
   //   alert(`sweet! ${coupon.data.name}`)
   // }
-
-
-  async presentCancelSubModal() {
-    const modal = await this.modalCtrl.create({
-      component: CancelSubscriptionComponent
-    });
-    return await modal.present();
-  }
-  
-  async presentInvoicesModal() {
-    const modal = await this.modalCtrl.create({
-      component: InvoicesComponent
-    });
-    return await modal.present();
-  }
-
-  async onDismissModal() {
-    return await this.modalCtrl.dismiss();
-  }
 }

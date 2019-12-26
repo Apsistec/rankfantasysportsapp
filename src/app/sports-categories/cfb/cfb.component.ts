@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cfb.component.scss'],
 })
 export class CfbComponent implements OnInit {
-
+  titleId = 'CFB Tables';
   constructor() { }
 
   ngOnInit() {}

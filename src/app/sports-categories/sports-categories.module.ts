@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { SportsCategoriesPage } from './sports-categories.page';
-import { SportsCategoriesDetailComponent } from './sports-categories-detail/sports-categories-detail.component';
 // import { PaidGuard } from '../core/guard/paid.guard';
 // import { Table1Component } from '../sports-categories/tennis/table1/table1.component';
 // import { Table2Component } from '../sports-categories/tennis/table2/table2.component';
@@ -29,6 +28,13 @@ import { SportsCategoriesDetailComponent } from './sports-categories-detail/spor
 // import { NowPageModule } from '../sports-categories/now/now.module';
 // import { PgaPageModule } from '../sports-categories/pga/pga.module';
 // import { NflPageModule } from '../sports-categories/nfl/nfl.module';
+import { NowComponent } from './now/now.component';
+import { NflComponent } from './nfl/nfl.component';
+import { CfbComponent } from './cfb/cfb.component';
+import { PgaComponent } from './pga/pga.component';
+import { NbaComponent } from './nba/nba.component';
+import { TennisComponent } from './tennis/tennis.component';
+
 const sportsRoutes: Routes = [
   {
     path: 'categories',
@@ -121,7 +127,12 @@ const sportsRoutes: Routes = [
   ],
   declarations: [
     SportsCategoriesPage,
-    SportsCategoriesDetailComponent,
+    NowComponent,
+    NflComponent,
+    CfbComponent,
+    PgaComponent,
+    NbaComponent,
+    TennisComponent,
     // PgaStatsComponent,
     // PowerRankingsComponent,
     // ScorePredictionsComponent,
@@ -140,8 +151,13 @@ const sportsRoutes: Routes = [
     // Table9Component
   ],
   exports: [
-    SportsCategoriesPage
-    // RouterModule
+    NowComponent,
+    NflComponent,
+    CfbComponent,
+    PgaComponent,
+    NbaComponent,
+    TennisComponent,
+    RouterModule
   ]
 })
 export class SportsCategoriesPageModule {}

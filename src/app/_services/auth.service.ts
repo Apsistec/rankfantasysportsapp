@@ -120,13 +120,23 @@ export class AuthService {
       .toPromise();
   }
 
-  async isGold() {
+  async isGold()  {
     const gold = await this.gold();
     const isPaidGold = !!gold;
     if (!isPaidGold) {
       return false;
     } else {
       return isPaidGold;
+    }
+  }
+
+  isSubscribed() {
+    const isMember = (!!this.bronze || !!this.gold || !!this.silver);
+
+    if (!isMember) {
+      return isMember;
+    } else {
+      return false;
     }
   }
 

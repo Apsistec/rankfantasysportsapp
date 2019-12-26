@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-import { ListTablesComponent } from './list-tables/list-tables.component';
 import { RegModalComponent } from './reg-modal/reg-modal.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
@@ -24,7 +23,6 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     TermsDialogComponent,
     TicketComponent,
     PrivacyDialogComponent,
-    ListTablesComponent,
     PopoverComponent,
   ],
   entryComponents: [
@@ -56,7 +54,6 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     MatDialogModule,
     MatExpansionModule,
     TicketComponent,
-    ListTablesComponent,
   ],
 })
 export class SharedModule {}

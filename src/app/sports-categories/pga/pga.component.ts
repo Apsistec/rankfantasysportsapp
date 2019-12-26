@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pga.component.scss'],
 })
 export class PgaComponent implements OnInit {
-
+  titleId = 'PGA Tables';
   constructor() { }
 
   ngOnInit() {}

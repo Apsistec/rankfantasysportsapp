@@ -1,7 +1,7 @@
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { Component } from '@angular/core';
 import { AuthService } from '@services/auth.service';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -21,23 +21,24 @@ export class AppComponent {
     public auth: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private dialog: MatDialog,
+    private modalController: ModalController,
     private statusBar: StatusBar
   ) {
       this.initializeApp();
   }
 
-
-  showModalTerms() {
-    this.dialog.open(TermsDialogComponent);
+  async showModalTerms() {
+    const modal = await this.modalController.create({
+      component: TermsDialogComponent
+    });
+    return await modal.present();
   }
 
-  showModalPrivacy() {
-    this.dialog.open(PrivacyDialogComponent);
-  }
-
-  stopDialog() {
-    this.dialog.closeAll();
+  async showModalPrivacy() {
+    const modal = await this.modalController.create({
+      component: PrivacyDialogComponent
+    });
+    return await modal.present();
   }
 
   initializeApp() {

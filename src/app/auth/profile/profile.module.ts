@@ -8,7 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthGuard } from '@guards/auth.guard';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
-
+import { SportsCategoriesPageModule } from '../../sports-categories/sports-categories.module';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +21,7 @@ const routes: Routes = [
   imports: [
     SharedModule,
     CommonModule,
+    SportsCategoriesPageModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)

@@ -29,12 +29,7 @@ import { SharedModule } from '@shared/shared.module';
 // import { } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
-import { NowComponent } from './sports-categories/now/now.component';
-import { NflComponent } from './sports-categories/nfl/nfl.component';
-import { CfbComponent } from './sports-categories/cfb/cfb.component';
-import { PgaComponent } from './sports-categories/pga/pga.component';
-import { NbaComponent } from './sports-categories/nba/nba.component';
-import { TennisComponent } from './sports-categories/tennis/tennis.component';
+
 import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
 
 // import { ScorePredictionsComponent } from './sports-categories/cfb/score-predictions/score-predictions.component';
@@ -65,12 +60,6 @@ const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.naviga
 @NgModule({
   declarations: [
     AppComponent,
-    NowComponent,
-    NflComponent,
-    CfbComponent,
-    PgaComponent,
-    NbaComponent,
-    TennisComponent,
     // ScorePredictionsComponent,
     // PowerRankingsComponent,
     // DkleadersComponent,

@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sports-categories.page.scss'],
 })
 export class SportsCategoriesPage implements OnInit {
-  titleId = 'All Sports Data-table Categories';
+  titleId = 'All Sports Tables';
+
   constructor() { }
 
   ngOnInit() {
