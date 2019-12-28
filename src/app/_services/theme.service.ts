@@ -61,8 +61,7 @@ function CSSTextGenerator(colors) {
     danger,
     dark,
     medium,
-    light,
-
+    light
   } = colors;
 
   const shadeRatio = 0.1;

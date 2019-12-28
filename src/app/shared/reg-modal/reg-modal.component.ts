@@ -8,18 +8,37 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-reg-modal',
   templateUrl: './reg-modal.component.html',
-  styleUrls: ['./reg-modal.component.scss'],
+  styleUrls: ['./reg-modal.component.scss']
 })
 export class RegModalComponent implements OnInit {
-
   @Input() user;
   hide = true;
 
   registerForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'), Validators.maxLength(25)]],
-    firstName: ['', [Validators.required, Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
-    lastName: ['', [Validators.required, Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]]
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+        Validators.maxLength(25)
+      ]
+    ],
+    firstName: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
+      ]
+    ],
+    lastName: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
+      ]
+    ]
   });
 
   constructor(
@@ -29,11 +48,9 @@ export class RegModalComponent implements OnInit {
     private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     private fb: FormBuilder
-  ) {
-    }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async loadLoader() {
     const loading = await this.loadingCtrl.create({

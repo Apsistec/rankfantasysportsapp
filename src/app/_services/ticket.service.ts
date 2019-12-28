@@ -37,43 +37,53 @@ export class TicketService {
 
   getUserTickets() {
     const id = this.auth.currentUser.value.id;
-    return this.db.collection('tickets', ref => ref.where('creator', '==', id)).snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data: any = a.payload.doc.data();
-        // tslint:disable-next-line: no-shadowed-variable
-        const id: any = a.payload.doc.id;
-        return { id, ...data };
-      })),
-      takeUntil(this.ngUnsubscribe)
-    );
+    return this.db
+      .collection('tickets', ref => ref.where('creator', '==', id))
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => {
+            const data: any = a.payload.doc.data();
+            // tslint:disable-next-line: no-shadowed-variable
+            const id: any = a.payload.doc.id;
+            return { id, ...data };
+          })
+        ),
+        takeUntil(this.ngUnsubscribe)
+      );
   }
 
   getAdminTickets() {
-    return this.db.collection('tickets').snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data: any = a.payload.doc.data();
-        const id: any = a.payload.doc.id;
-        return { id, ...data };
-      })),
-      takeUntil(this.ngUnsubscribe)
-    );
+    return this.db
+      .collection('tickets')
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => {
+            const data: any = a.payload.doc.data();
+            const id: any = a.payload.doc.id;
+            return { id, ...data };
+          })
+        ),
+        takeUntil(this.ngUnsubscribe)
+      );
   }
 
   getTicket(id) {
-    return this.db.doc(`tickets/${id}`).valueChanges().pipe(
-      take(1)
-    );
+    return this.db
+      .doc(`tickets/${id}`)
+      .valueChanges()
+      .pipe(take(1));
   }
 
   getUser(id) {
-    return this.db.doc(`users/${id}`).valueChanges().pipe(
-      take(1)
-    );
+    return this.db
+      .doc(`users/${id}`)
+      .valueChanges()
+      .pipe(take(1));
   }
-
 
   deleteTicket(id) {
     return this.db.doc(`tickets/${id}`).delete();
   }
-
 }

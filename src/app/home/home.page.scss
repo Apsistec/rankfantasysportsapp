@@ -10,15 +10,20 @@
   background-position: center center;
 }
 
-// iframe {
-//   overflow: hidden ;
-//   left: auto;
-//   right: auto;
-//   top: auto;
-//   bottom: auto;
-//   height: 360;
-//   width: 640;
-// }
+.wrap-element {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+  
+.wrapped-iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 .testi{
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(24, 24, 24, 0.1) 100%), url('../../assets/img/bball-drive.jpg');

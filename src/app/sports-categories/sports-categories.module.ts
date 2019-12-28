@@ -10,10 +10,7 @@ const sportsRoutes: Routes = [
   {
     path: 'categories',
     component: SportsCategoriesPage,
-    children: [
-      { path: '', redirectTo: '/categories', pathMatch: 'full' },
-    ]
-
+    children: [{ path: '', redirectTo: '/categories', pathMatch: 'full' }]
   }
 ];
 
@@ -25,11 +22,7 @@ const sportsRoutes: Routes = [
     SharedModule,
     RouterModule.forChild(sportsRoutes)
   ],
-  declarations: [
-    SportsCategoriesPage,
-  ],
-  exports: [
-    RouterModule
-  ]
+  declarations: [SportsCategoriesPage],
+  exports: [RouterModule]
 })
 export class SportsCategoriesPageModule {}

@@ -37,7 +37,7 @@ export class AuthService {
       if (user) {
         return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
       } else {
-        return of(null);
+        return null;
       }
     })
     );

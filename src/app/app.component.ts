@@ -8,11 +8,10 @@ import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.componen
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
+  templateUrl: 'app.component.html'
   // animations: [slideInAnimation]
 })
 export class AppComponent {
-
   constructor(
     public auth: AuthService,
     private platform: Platform,
@@ -20,7 +19,7 @@ export class AppComponent {
     private modalController: ModalController,
     private statusBar: StatusBar
   ) {
-      this.initializeApp();
+    this.initializeApp();
   }
 
   async showModalTerms() {
@@ -47,6 +46,4 @@ export class AppComponent {
   signOut() {
     this.auth.SignOut();
   }
-
 }
-

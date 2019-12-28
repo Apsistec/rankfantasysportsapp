@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  AlertController,
-  ToastController,
-  } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +9,11 @@ export class MessageService {
 
   constructor(
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController,
+    private alertCtrl: AlertController
   ) {}
 
-   // Toasts
-   async registerSuccessToast() {
+  // Toasts
+  async registerSuccessToast() {
     const toast = await this.toastCtrl.create({
       header: 'Registration Successful',
       message: 'Thank You for registering',
@@ -25,12 +22,12 @@ export class MessageService {
       keyboardClose: true,
       duration: 4000,
       showCloseButton: true,
-      translucent: true,
+      translucent: true
     });
     return toast.present();
   }
 
-   async userNotExistToast(error) {
+  async userNotExistToast(error) {
     const toast = await this.toastCtrl.create({
       header: 'Account does not exist',
       message: error.message,
@@ -39,7 +36,7 @@ export class MessageService {
       keyboardClose: true,
       duration: 4000,
       showCloseButton: true,
-      translucent: true,
+      translucent: true
     });
     return toast.present();
   }
@@ -53,7 +50,7 @@ export class MessageService {
       keyboardClose: true,
       duration: 4000,
       showCloseButton: true,
-      translucent: true,
+      translucent: true
     });
     await toast.present();
   }
@@ -61,13 +58,17 @@ export class MessageService {
   async federatedLoginToast(data: any) {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
-      message: 'Welcome back ' + data.user.displayName + '\n Email: ' + data.user.email,
+      message:
+        'Welcome back ' +
+        data.user.displayName +
+        '\n Email: ' +
+        data.user.email,
       cssClass: 'successT',
       position: 'top',
       duration: 4000,
       showCloseButton: true,
       keyboardClose: true,
-      translucent: true,
+      translucent: true
     });
     await toast.present();
   }
@@ -87,19 +88,21 @@ export class MessageService {
 
   async updateAlert() {
     const alert = await this.alertCtrl.create({
-      header :  'App update notification ' ,
-      message :  ' There is a new version of the app, please refresh the page.. ' ,
+      header: 'App update notification ',
+      message: ' There is a new version of the app, please refresh the page.. ',
       cssClass: 'infoT',
-      buttons :  [{
-        text :  ' Update ' ,
-        handler :  ()  =>  {
-          location.reload();
-          return  true ;
+      buttons: [
+        {
+          text: ' Update ',
+          handler: () => {
+            location.reload();
+            return true;
+          }
         }
-      }]
+      ]
     });
     await alert.present();
-    }
+  }
 
   async updateNameToast() {
     const toast = await this.toastCtrl.create({
@@ -120,7 +123,7 @@ export class MessageService {
       position: 'top',
       duration: 4000,
       showCloseButton: true,
-      translucent: true,
+      translucent: true
     });
     await toast.present();
   }
@@ -133,7 +136,7 @@ export class MessageService {
       position: 'top',
       duration: 3000,
       showCloseButton: true,
-      translucent: true,
+      translucent: true
     });
     await toast.present();
   }
@@ -142,10 +145,11 @@ export class MessageService {
     const toast = await this.toastCtrl.create({
       header: 'Edit is Enabled',
       cssClass: 'successT',
-      message: 'Edit your name and/or email address, within the respective fields. When you are done, press the submit button. You will receive a confirmation if successful',
+      message:
+        'Edit your name and/or email address, within the respective fields. When you are done, press the submit button. You will receive a confirmation if successful',
       position: 'top',
       showCloseButton: true,
-      translucent: true,
+      translucent: true
     });
     await toast.present();
   }
@@ -153,22 +157,23 @@ export class MessageService {
   //  Alerts
   async needLoginAlert() {
     const alert = await this.alertCtrl.create({
-    header: 'Access Denied',
-    subHeader: 'Account Required:',
-    message: 'To get started, first REGISTER an account or LOGIN',
-    buttons: ['OK'],
-    translucent: true,
-  });
-  await alert.present();
+      header: 'Access Denied',
+      subHeader: 'Account Required:',
+      message: 'To get started, first REGISTER an account or LOGIN',
+      buttons: ['OK'],
+      translucent: true
+    });
+    await alert.present();
   }
 
   async needPaymentAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Access Denied',
       subHeader: 'Subscription Required:',
-      message: 'Immediate access is available after purchasing any RF$ports PRO Package',
+      message:
+        'Immediate access is available after purchasing any RF$ports PRO Package',
       buttons: ['OK'],
-      translucent: true,
+      translucent: true
     });
     await alert.present();
   }
@@ -177,9 +182,12 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Account Verification',
       subHeader: 'Verification Email Sent:',
-      message: 'Check Your email, ' + data.user.email + ', for a link to VERIFY the email for your account',
+      message:
+        'Check Your email, ' +
+        data.user.email +
+        ', for a link to VERIFY the email for your account',
       buttons: ['OK'],
-      translucent: true,
+      translucent: true
     });
     await await alert.present();
   }
@@ -219,7 +227,8 @@ export class MessageService {
   async unsubscribedAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Account Cancellation Message',
-      message: 'We are sorry to see you go, but your account has been canceled.',
+      message:
+        'We are sorry to see you go, but your account has been canceled.',
       buttons: ['OK']
     });
     await alert.present();
@@ -229,16 +238,18 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Error',
       message: err.message,
-      buttons: ['OK'],
+      buttons: ['OK']
     });
     await alert.present();
   }
 
   async wrongAccountAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'The email address tied to your social account is not in our system.',
-      message: 'Please login using the correct email/social account, or you can register a new RF$ account using this email/social account.',
-      buttons: ['OK'],
+      header:
+        'The email address tied to your social account is not in our system.',
+      message:
+        'Please login using the correct email/social account, or you can register a new RF$ account using this email/social account.',
+      buttons: ['OK']
     });
     await alert.present();
   }
@@ -247,8 +258,9 @@ export class MessageService {
     const loginAlert = await this.alertCtrl.create({
       header: 'Login First',
       subHeader: 'Authenticated Users Only',
-      message: 'You need to login or register an account before you can access this area',
-      buttons: ['OK'],
+      message:
+        'You need to login or register an account before you can access this area',
+      buttons: ['OK']
     });
     await loginAlert.present();
   }
@@ -262,12 +274,13 @@ export class MessageService {
         {
           text: 'Cancel',
           role: 'cancel',
-          handler: (cancel) => {
+          handler: cancel => {
             this.Choice = cancel.Choice;
           }
-        }, {
+        },
+        {
           text: 'Save',
-          handler: (save) => {
+          handler: save => {
             this.Choice = save.Choice;
           }
         }
@@ -275,6 +288,4 @@ export class MessageService {
     });
     await alert.present();
   }
-
-
 }

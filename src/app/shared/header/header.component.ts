@@ -7,7 +7,7 @@ import { PopoverComponent } from '../popover/popover.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   @Input() titleId: string;
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private popoverController: PopoverController
-    ) { }
+  ) {}
 
   ngOnInit() {
     // this.homePage();
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   // Returns true when user is looged in and email is verified
   get isHomePage(): boolean {
-    return (this.titleId === 'RF$\u2122 Home' ) ? true : false;
+    return this.titleId === 'RF$\u2122 Home' ? true : false;
   }
 
   async presentPopover(ev: any) {

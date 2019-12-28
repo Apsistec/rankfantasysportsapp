@@ -5,14 +5,8 @@ import { MessageService } from './message.service';
 @Injectable({
   providedIn: 'root'
 })
-
 export class UpdateService {
-
-  constructor(
-    private swUpdate: SwUpdate,
-    private message: MessageService
-  ) {
-
+  constructor(private swUpdate: SwUpdate, private message: MessageService) {
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(evt => {
         this.updateSW();

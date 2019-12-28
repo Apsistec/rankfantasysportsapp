@@ -15,9 +15,9 @@ export class PopoverComponent {
     public popoverController: PopoverController,
     public auth: AuthService,
     private router: Router
-    ) {}
+  ) {}
 
-    // code for logout
+  // code for logout
   async logOut() {
     await this.dismissPopover();
     return await this.auth.SignOut();

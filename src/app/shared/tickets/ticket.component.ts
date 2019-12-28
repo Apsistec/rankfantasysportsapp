@@ -6,11 +6,10 @@ import { FormGroup } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '@services/auth.service';
 
-
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.scss'],
+  styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
   ticketForm: FormGroup;
@@ -24,7 +23,7 @@ export class TicketComponent implements OnInit {
     private ticket: TicketService,
     private navParam: NavParams,
     public auth: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.ticketForm = this.fb.group({
@@ -36,7 +35,6 @@ export class TicketComponent implements OnInit {
     this.id = this.navParam.get('id');
     if (this.id) {
       this.ticket.getTicket(this.id).subscribe(ticket => {
-
         this.ticketForm.patchValue({
           title: ticket['title'],
           desc: ticket['desc'],
@@ -63,12 +61,15 @@ export class TicketComponent implements OnInit {
     });
     await loading.present();
 
-    this.ticket.createOrUpdateTicket(this.id, this.ticketForm.value).then(() => {
-      loading.dismiss();
-      this.close();
-    }, err => {
-      loading.dismiss();
-    });
+    this.ticket.createOrUpdateTicket(this.id, this.ticketForm.value).then(
+      () => {
+        loading.dismiss();
+        this.close();
+      },
+      err => {
+        loading.dismiss();
+      }
+    );
   }
 
   deleteTicket() {
@@ -76,5 +77,4 @@ export class TicketComponent implements OnInit {
       this.modalCtrl.dismiss();
     });
   }
-
 }

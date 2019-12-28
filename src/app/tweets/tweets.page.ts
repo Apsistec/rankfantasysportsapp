@@ -4,17 +4,15 @@ import { IonContent } from '@ionic/angular';
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.page.html',
-  styleUrls: ['./tweets.page.scss'],
+  styleUrls: ['./tweets.page.scss']
 })
-
 export class TweetsPage {
-
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
-  
+
   titleId = 'Recent RF$ Tweets';
   scrolledDown = false;
 
-  constructor() { }
+  constructor() {}
 
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);

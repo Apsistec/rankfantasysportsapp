@@ -1,6 +1,14 @@
 import { AuthService } from '@services/auth.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { Component, OnInit, ElementRef, Output, ViewChild, AfterViewInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Output,
+  ViewChild,
+  AfterViewInit,
+  Input
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController, IonContent } from '@ionic/angular';
@@ -17,10 +25,9 @@ declare var Stripe: stripe.StripeStatic;
 @Component({
   selector: 'app-purchase',
   templateUrl: './purchase.page.html',
-  styleUrls: ['./purchase.page.scss'],
+  styleUrls: ['./purchase.page.scss']
 })
 export class PurchasePage implements OnInit, AfterViewInit {
-
   public trustedVideoUrl: SafeResourceUrl;
   video: any = {
     url: 'https://www.youtube.com/embed/Ok-zmmoSZe8'
@@ -56,8 +63,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
     public modalController: ModalController,
     private message: MessageService,
     private stripeFun: StripeService
-  ) {
-  }
+  ) {}
 
   clickedGold() {
     if (this.auth.afAuth.auth.currentUser) {
@@ -154,13 +160,12 @@ export class PurchasePage implements OnInit, AfterViewInit {
     this.isClickedGold = false;
   }
 
-  ngAfterViewInit() {
-  }
+  ngAfterViewInit() {}
 
   async presentLoading() {
     const loadingElement = await this.loadingCtrl.create({
       message: 'Please wait...',
-      spinner: 'crescent',
+      spinner: 'crescent'
     });
     await loadingElement.present();
   }
@@ -170,15 +175,16 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   async onSubmit(f: NgForm) {
-      this.presentLoading();
-      const { source, error } = await this.stripe.createSource(this.card);
+    this.presentLoading();
+    const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
       // Inform the customer that there was an error.
       const cardErrors = error.message;
       window.alert(cardErrors);
     } else {
-      await this.stripeFun.subscribeUser(source, this.planId)
-        .then(( confirmation ) => {
+      await this.stripeFun
+        .subscribeUser(source, this.planId)
+        .then(confirmation => {
           this.onDismissLoader();
           this.message.subscribedToast();
           this.planChosen = false;
@@ -190,7 +196,6 @@ export class PurchasePage implements OnInit, AfterViewInit {
         });
     }
   }
-
 
   async presentModal() {
     const modal = await this.modalController.create({
@@ -205,8 +210,12 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   async showVid() {
-    this.trustedVideoUrl = await this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url);
-    this.trustedVideoUrl2 = await this.domSanitizer.bypassSecurityTrustResourceUrl(this.video2.url);
+    this.trustedVideoUrl = await this.domSanitizer.bypassSecurityTrustResourceUrl(
+      this.video.url
+    );
+    this.trustedVideoUrl2 = await this.domSanitizer.bypassSecurityTrustResourceUrl(
+      this.video2.url
+    );
   }
 
   async showModalTerms() {
@@ -222,6 +231,4 @@ export class PurchasePage implements OnInit, AfterViewInit {
     });
     return await modal.present();
   }
-
-
 }

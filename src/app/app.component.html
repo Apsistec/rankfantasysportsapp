@@ -1,4 +1,4 @@
-  <ion-menu side="start" content-id="main" type="push">
+<ion-menu side="start" content-id="main" type="push">
   <ion-header>
     <ion-menu-toggle>
       <ion-toolbar color="primary">
@@ -11,95 +11,101 @@
       <ion-list>
         <ion-item-group>
 
-          <ion-item button  lines="none"routerLink="/home">
+          <ion-item button lines="none" routerLink="/home">
             <ion-icon color="white" class="iconify" slot="start" name="home"></ion-icon>
-            <ion-text  color="light">Home</ion-text><ion-ripple-effect></ion-ripple-effect>
+            <ion-text color="light">Home</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
           </ion-item>
 
-          <ion-item button lines="none"
-          routerLink="/profile"
-          *ngIf="auth.afAuth.user | async as user">
-          <ion-icon color="facebk" class="iconify" slot="start" name="contact"></ion-icon>
-          <ion-text  color="light">Profile</ion-text><ion-ripple-effect></ion-ripple-effect>
-        </ion-item>
+          <ion-item button lines="none" routerLink="/profile" *ngIf="auth.afAuth.user | async as user">
+            <ion-icon color="facebk" class="iconify" slot="start" name="contact"></ion-icon>
+            <ion-text color="light">Profile</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
 
-        <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.isSubscribed; else notSubscribed">
-          <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
-          <ion-text  color="secondary">Pricing</ion-text><ion-ripple-effect></ion-ripple-effect>
-        </ion-item>
+          <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.isSubscribed; else notSubscribed">
+            <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
+            <ion-text color="secondary">Pricing</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
 
-        <ng-template #notSubscribed>
-              <ion-item button lines="none"  routerLink="/purchase" >
-                <ion-icon color="gold" class="iconify" slot="start" name="medal"></ion-icon>
-                <ion-text  color="success">Free-Trial</ion-text><ion-ripple-effect></ion-ripple-effect>
-              </ion-item>
-  
+          <ng-template #notSubscribed>
+            <ion-item button lines="none" routerLink="/purchase">
+              <ion-icon color="gold" class="iconify" slot="start" name="medal"></ion-icon>
+              <ion-text color="success">Free-Trial</ion-text>
+              <ion-ripple-effect></ion-ripple-effect>
+            </ion-item>
+
             <ion-item button lines="none" routerLink="/purchase">
               <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
-              <ion-text  color="secondary">Purchase</ion-text><ion-ripple-effect></ion-ripple-effect>
+              <ion-text color="secondary">Purchase</ion-text>
+              <ion-ripple-effect></ion-ripple-effect>
             </ion-item>
-        </ng-template>
+          </ng-template>
 
-            <ion-item button lines="none" routerLink="/how-to">
-              <ion-icon color="warning"class="iconify" slot="start" name="star"></ion-icon>
-              <ion-text  color="light">How To Use RF$&trade;</ion-text><ion-ripple-effect></ion-ripple-effect>
-            </ion-item>
+          <ion-item button lines="none" routerLink="/how-to">
+            <ion-icon color="warning" class="iconify" slot="start" name="star"></ion-icon>
+            <ion-text color="light">How To Use RF$&trade;</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
 
-            <ion-item button lines="none" routerLink="/credibility">
-              <ion-icon color="gold"  class="iconify" slot="start" name="trophy"></ion-icon>
-              <ion-text  color="light">DK Credibility</ion-text><ion-ripple-effect></ion-ripple-effect>
-            </ion-item>
+          <ion-item button lines="none" routerLink="/credibility">
+            <ion-icon color="gold" class="iconify" slot="start" name="trophy"></ion-icon>
+            <ion-text color="light">DK Credibility</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
 
-            <ion-item button lines="none"  routerLink="/faq">
-              <ion-icon color="leather" class="iconify" slot="start" name="help"></ion-icon>
-              <ion-text  color="light">FAQs</ion-text><ion-ripple-effect></ion-ripple-effect>
-            </ion-item>
+          <ion-item button lines="none" routerLink="/faq">
+            <ion-icon color="leather" class="iconify" slot="start" name="help"></ion-icon>
+            <ion-text color="light">FAQs</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
 
-            <ion-item button lines="none"
-            (click)="signOut()"
-            *ngIf="auth.afAuth.user | async as user; else login">
+          <ion-item button lines="none" (click)="signOut()" *ngIf="auth.afAuth.user | async as user; else login">
             <ion-icon color="danger" class="iconify" slot="start" name="log-out"></ion-icon>
-            <ion-text  color="danger">Logout</ion-text><ion-ripple-effect></ion-ripple-effect>
+            <ion-text color="danger">Logout</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
+
+          <ng-template #login>
+            <ion-item button lines="none" routerLink="/login">
+              <ion-icon color="secondary" class="iconify" slot="start" name="log-in"></ion-icon>
+              <ion-text color="secondary">Login</ion-text>
+              <ion-ripple-effect></ion-ripple-effect>
             </ion-item>
+          </ng-template>
 
-            <ng-template #login>
-                    <ion-item button lines="none" routerLink="/login">
-                <ion-icon color="secondary" class="iconify" slot="start" name="log-in"></ion-icon>
-                <ion-text  color="secondary">Login</ion-text><ion-ripple-effect></ion-ripple-effect>
-              </ion-item>
-            </ng-template>
-
-          </ion-item-group>
-          <ion-item-group>
+        </ion-item-group>
+        <ion-item-group>
           <ion-list-header color="primary" routerLink="/categories">
-            <ion-text >RF$ Data Tables</ion-text>
+            <ion-text>RF$ Data Tables</ion-text>
             <ion-button size="small" color="tertiary">All Categories</ion-button>
           </ion-list-header>
           <ion-ripple-effect></ion-ripple-effect>
 
           <ion-item ion-button lines="none" routerLink="/categories">
-            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
-            <ion-text  color="light">Happening Now</ion-text>
+            <ion-icon color="secondary" class="iconify" slot="start" name="stats"></ion-icon>
+            <ion-text color="light">Happening Now</ion-text>
           </ion-item>
 
           <ion-item ion-button lines="none" routerLink="/categories">
-            <ion-icon color="warning"class="iconify" slot="start" name="tennisball"></ion-icon>
-            <ion-text  color="light">Tennis</ion-text>
-          </ion-item>
-
-          <ion-item ion-button lines="none" routerLink="/categories">
-            <ion-icon color="leather" slot="start" name="american-football"></ion-icon>
-            <ion-text  color="light">NFL</ion-text>
+            <ion-icon color="warning" class="iconify" slot="start" name="tennisball"></ion-icon>
+            <ion-text color="light">Tennis</ion-text>
           </ion-item>
 
           <ion-item ion-button lines="none" routerLink="/categories">
             <ion-icon color="leather" slot="start" name="american-football"></ion-icon>
-            <ion-text  color="light">CFB</ion-text>
+            <ion-text color="light">NFL</ion-text>
+          </ion-item>
+
+          <ion-item ion-button lines="none" routerLink="/categories">
+            <ion-icon color="leather" slot="start" name="american-football"></ion-icon>
+            <ion-text color="light">CFB</ion-text>
           </ion-item>
 
           <ion-item ion-bion-button lines="none" routerLink="/categories">
             <ion-icon style="color:darkorange;" class="iconify" slot="start" name="basketball"></ion-icon>
-            <ion-text  color="light">NBA</ion-text>
+            <ion-text color="light">NBA</ion-text>
           </ion-item>
 
           <!-- <ion-item ion-button lines="none" disabled routerLink="/categories/fifa">
@@ -114,22 +120,23 @@
         </ion-item-group>
         <ion-item-group>
           <ion-list-header color="primary">
-            <ion-text >DFS Toolbox</ion-text>
+            <ion-text>DFS Toolbox</ion-text>
           </ion-list-header>
 
-        <ion-item ion-button lines="none" routerLink="/tweets">
-          <ion-icon color="twittr" slot="start" name="logo-twitter"></ion-icon>
-          <ion-text  color="light">Tweets</ion-text><ion-ripple-effect></ion-ripple-effect>
-        </ion-item>
+          <ion-item ion-button lines="none" routerLink="/tweets">
+            <ion-icon color="twittr" slot="start" name="logo-twitter"></ion-icon>
+            <ion-text color="light">Tweets</ion-text>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
 
           <ion-item ion-button lines="none" disabled>
-            <ion-icon color="secondary"slot="start" name="trending-up"></ion-icon>
-            <ion-text  color="light">Line-up Optimizers</ion-text>
+            <ion-icon color="secondary" slot="start" name="trending-up"></ion-icon>
+            <ion-text color="light">Line-up Optimizers</ion-text>
           </ion-item>
 
           <ion-item ion-button lines="none" disabled routerLink="/xstats">
-            <ion-icon color="secondary"class="iconify" slot="start" name="stats"></ion-icon>
-            <ion-text  color="light">XStats</ion-text>
+            <ion-icon color="secondary" class="iconify" slot="start" name="stats"></ion-icon>
+            <ion-text color="light">XStats</ion-text>
           </ion-item>
 
           <!-- <ion-item button routerLink="/stats">
@@ -140,12 +147,12 @@
         </ion-item-group>
         <ion-item-group>
           <ion-list-header color="primary">
-            <ion-text >RF$ University </ion-text>
+            <ion-text>RF$ University </ion-text>
           </ion-list-header>
 
           <ion-item button lines="none" disabled>
-            <ion-icon color="secondary"slot="start" name="book"></ion-icon>
-            <ion-text  color="light">Courseware</ion-text>
+            <ion-icon color="secondary" slot="start" name="book"></ion-icon>
+            <ion-text color="light">Courseware</ion-text>
           </ion-item>
 
         </ion-item-group>
@@ -153,26 +160,22 @@
       <ion-note><sup>*</sup>Greyed out items- Coming Soon!</ion-note>
     </ion-menu-toggle>
     <hr>
-    <ion-button fill="clear" size="small" (click)=showModalTerms()><ion-text color="deepo">Terms</ion-text></ion-button>
-    <ion-button fill="clear" size="small" (click)=showModalPrivacy()><ion-text color="deepo">Privacy</ion-text></ion-button>
+    <ion-button fill="clear" size="small" (click)=showModalTerms()>
+      <ion-text color="deepo">Terms</ion-text>
+    </ion-button>
+    <ion-button fill="clear" size="small" (click)=showModalPrivacy()>
+      <ion-text color="deepo">Privacy</ion-text>
+    </ion-button>
   </ion-content>
-  <ion-footer class="ion-text-center" >
-  <ion-menu-toggle>
+  <ion-footer class="ion-text-center">
+    <ion-menu-toggle>
       <ion-toolbar color="primary">
-        <ion-text  color="light">
+        <ion-text color="light">
           <sup> Made with <ion-icon style="color:aqua;" name="logo-ionic"></ion-icon>
             by RF$&trade;&nbsp;&copy;2019</sup>
-          </ion-text>
-        </ion-toolbar>
-      </ion-menu-toggle>
-    </ion-footer>
-  </ion-menu>
-    <ion-router-outlet id="main"></ion-router-outlet>
-
-
-
-
-
-
-
-
+        </ion-text>
+      </ion-toolbar>
+    </ion-menu-toggle>
+  </ion-footer>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>

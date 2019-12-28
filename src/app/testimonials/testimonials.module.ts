@@ -19,7 +19,7 @@ const testiRoutes: Routes = [
     FormsModule,
     IonicModule,
     SharedModule,
-    RouterModule.forChild(testiRoutes),
+    RouterModule.forChild(testiRoutes)
   ],
   declarations: [TestimonialsPage],
   entryComponents: []

@@ -22,13 +22,13 @@ export class PreventBuyGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-
     const user = await this.auth.getCurrentUser();
     const isMember = !!(user.plan === 'gold' || 'silver' || 'bronze');
 
     if (!user) {
       return true;
-    } {
+    }
+    {
       if (user && isMember) {
         this.message.alreadySubscribedToast();
         this.router.navigateByUrl('/home');

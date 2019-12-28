@@ -98,7 +98,9 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content class="ion-text-center">
-      <iframe  [src]="trustedVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="wrap-element">
+          <iframe class="wrapped-iframe" [src]="trustedVideoUrl" frameborder="0" gesture="media" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
           <hr>
             <ion-text color="twittr" >
               <h2>

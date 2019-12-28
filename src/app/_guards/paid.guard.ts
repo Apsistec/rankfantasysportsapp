@@ -22,7 +22,6 @@ export class PaidGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-
     const user = await this.auth.getCurrentUser();
     const isMember = !!(user.plan === 'gold' || 'silver' || 'bronze');
 
