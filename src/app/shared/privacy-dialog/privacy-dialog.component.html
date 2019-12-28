@@ -1,5 +1,15 @@
-<h2 mat-dialog-title>Privacy Policy</h2>
-<mat-dialog-content class="mat-typography">
+<ion-content>
+<ion-card color="primary">
+<ion-card-header>
+  <ion-card-title>
+    <ion-text color="secondary">
+      Privacy Policy
+    </ion-text>
+  </ion-card-title>
+</ion-card-header>
+<ion-card-content>
+<ion-text>
+
 <p>
   Rank Fantasy Sports ("rankfantasysports.com & RF$&trade;") has established a privacy policy ("Policy") to offer a more transparent view into how your information is collected, where it is used, and ultimately how it is protected. RF$ may update this policy at any time. RF$ will provide notice of materially significant changes to this privacy policy by posting notice on the RF$ site.</p>
   <p>
@@ -157,11 +167,13 @@
       
       
     <p>Should Rank Fantasy Sports determine that the material is a violation of your copyright or other intellectual property rights, Rank Fantasy Sports will take all necessary actions to remove the infringing image and or information, subject to the procedures outlined in the Digital Millennium Copyright Act (DMCA).</p>
-    
+  
+  </ion-text>
+  <ion-button color="tertiary" size="small" shape="round" (click)="closeModal()">Close</ion-button>
+</ion-card-content>
+</ion-card>
+
    
 
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <ion-button (click)="closeDialog()">Close</ion-button>
+    </ion-content>
 
-</mat-dialog-actions>

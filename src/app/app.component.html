@@ -23,7 +23,7 @@
           <ion-text  color="light">Profile</ion-text><ion-ripple-effect></ion-ripple-effect>
         </ion-item>
 
-        <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.user.plan; else notSubscribed">
+        <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.isSubscribed; else notSubscribed">
           <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
           <ion-text  color="secondary">Pricing</ion-text><ion-ripple-effect></ion-ripple-effect>
         </ion-item>
@@ -161,7 +161,7 @@
       <ion-toolbar color="primary">
         <ion-text  color="light">
           <sup> Made with <ion-icon style="color:aqua;" name="logo-ionic"></ion-icon>
-            by RF$&trade;&copy;2019</sup>
+            by RF$&trade;&nbsp;&copy;2019</sup>
           </ion-text>
         </ion-toolbar>
       </ion-menu-toggle>

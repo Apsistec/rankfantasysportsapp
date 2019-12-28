@@ -18,6 +18,7 @@ export class AuthService {
   currentUser = new BehaviorSubject(null);
   userId: string;
   planId: string;
+  isSubscribed: boolean;
 
   constructor(
     public afs: AngularFirestore,
@@ -27,30 +28,27 @@ export class AuthService {
     private message: MessageService,
     private storage: Storage,
     private modalCtrl: ModalController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private route: Router
   ) {
    //// Get auth data, then get firestore user document || null
-   this.user = this.afAuth.authState.pipe(
-    switchMap(user => {
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => {
       if (user) {
         return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
       } else {
-        return Observable.of(null);
+        return of(null);
       }
     })
-  );
-}
+    );
+  }
 
-  async getCurrentUser(): Promise<User> {
-    return await this.user.pipe(first()).toPromise();
+  async getCurrentUser(): Promise<any> {
+    return await of(this.user).toPromise();
   }
 
   get isLoggedIn(): boolean {
-    return (this.user === null ) ? true : false;
-  }
-
-  async getUser() {
-    return await this.afAuth.authState.pipe(first()).toPromise();
+    return (this.user !== null ) ? true : false;
   }
 
   async loadSpinner() {
@@ -73,15 +71,10 @@ export class AuthService {
     this.modalCtrl.dismiss();
   }
 
-   async isSubscribed() {
+   async isSubscribedQ() {
     const user = await this.getCurrentUser();
-    if (!user.plan) {
-
-    }
-
+    this.isSubscribed = (user.plan === 'gold' || 'silver' || 'bronze') ? true : false;
   }
-
-
 
   // get isAdmin(): boolean {
   //   const user = this.afs.doc(`users/${this.user.uid}`)
@@ -115,9 +108,9 @@ export class AuthService {
   SignIn(email, password) {
     this.loadSpinner();
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(async(res) => {
+      .then(async(data) => {
         this.dismissSpinner();
-        await this.afs.doc<User>(`users/${res.user.uid}`)
+        await this.afs.doc<User>(`users/${data.user.uid}`)
         .valueChanges().subscribe(fullUser => {
           const user = fullUser;
           this.message.isLoggedInToast();
@@ -133,9 +126,8 @@ export class AuthService {
             }
           }
         });
-      }).catch((err) => {
-        this.dismissSpinner();
-        this.message.errorAlert(err.message);
+      }).catch((error) => {
+        this.message.errorAlert(error);
       });
     }
 
@@ -146,27 +138,33 @@ export class AuthService {
       this.afAuth
         .auth
         .createUserWithEmailAndPassword(credentials.email, credentials.password)
-        .then((res) => {
+        .then((data) => {
           this.dismissSpinner();
           this.message.registerSuccessToast();
-          this.afs.doc<User>(`users/${res.user.uid}`).set({
+          this.afs.doc<User>(`users/${data.user.uid}`).set({
             displayName: credentials.firstName + ' ' + credentials.lastName,
-            email: res.user.email,
-            uid: res.user.uid,
+            email: data.user.email,
+            uid: data.user.uid,
             role: 'USER',
             permissions: ['delete-ticket'],
-            photoURL: res.user.photoURL
+            photoURL: data.user.photoURL
           }, {merge: true});
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/purchase');
+          });
         })
-        .catch(async (err) => {
-          await this.message.errorAlert(err);
+        .catch((err) => {
+           this.message.errorAlert(err);
+          this.dismissSpinner();
         });
     }
 
 // Auth logic to Register using federated auth providers
   async AuthRegister(provider: any) {
+    this.loadSpinner();
     await this.afAuth.auth.signInWithPopup(provider).then(
       async (data: any) => {
+        this.dismissSpinner();
         await this.afs.doc<User>(`users/${data.user.uid}`).set({
           displayName: data.user.displayName,
           email: data.user.email,
@@ -174,16 +172,14 @@ export class AuthService {
           role: 'USER',
           permissions: ['delete-ticket'],
           photoURL: data.user.photoURL
-        }, { merge: true }).then(
-          async() => {
-            await this.ngZone.run(() => {
-              this.router.navigateByUrl('/purchase');
-            });
-          }
-        );
+        }, { merge: true });
+        this.ngZone.run(() => {
+          this.router.navigateByUrl('/purchase');
+        });
       }
     ).catch(err => {
-        this.message.errorAlert(err);
+       this.message.errorAlert(err);
+      this.dismissSpinner();
     });
   }
 
@@ -229,9 +225,9 @@ export class AuthService {
     const provider = new firebase.auth.OAuthProvider('microsoft.com');
       return this.AuthLogin(provider);
       provider.setCustomParameters({
-      tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1'
+      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02'
        });
-      provider.addScope('files.read');
+      provider.addScope('user.read, files.read');
   }
 
   // related to Settings Page for joining additional Profiles to User
@@ -265,33 +261,34 @@ export class AuthService {
 
   // Auth logic to Login using federated auth providers
   async AuthLogin(provider: any) {
-    const result =  await this.afAuth.auth.signInWithPopup(provider);
-    // .then((result) => {
-      if (!result.user) {
+    this.afAuth.auth.signInWithPopup(provider)
+      .then((data) => {
+      if (!data.user) {
         this.message.wrongAccountAlert();
         this.SignOut();
       } else {
-        this.message.federatedLoginToast(result.user);
-        await this.afs.doc(`users/${result.user.uid}`).update({
-          // lastSignIn: this.afs.collection('users/${result.user.uid}', ref => ref.onSnapshot
-        }).then(() => {
-          this.ngZone.run(() => {
-            this.router.navigateByUrl('/profile');
-          });
-        }).catch(async (err) => {
-          await this.message.errorAlert(err);
+        this.message.federatedLoginToast(data.user);
+        this.afs.doc(`users/${data.user.uid}`).update(
+          data.user
+        );
+        this.ngZone.run(() => {
+          this.router.navigateByUrl('/profile');
         });
       }
-    }
+    }).catch((err) => {
+      return this.message.errorAlert(err);
+    });
+  }
 
+  // Reset Password
   async resetPassword(email: string) {
     await this.afAuth.auth.sendPasswordResetEmail(email)
     .then(() => {
       this.router.navigateByUrl('/login');
       this.message.resetPasswordAlert();
     })
-    .catch(async (err) => {
-      await this.message.errorAlert(err);
+    .catch( (err) => {
+      return this.message.errorAlert(err);
     });
   }
 

@@ -4,11 +4,7 @@ import { AuthService } from '@services/auth.service';
 import { Platform, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatDialog } from '@angular/material';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
-import { MessageService } from '@services/message.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',

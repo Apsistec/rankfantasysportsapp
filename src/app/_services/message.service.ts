@@ -30,6 +30,20 @@ export class MessageService {
     return toast.present();
   }
 
+   async userNotExistToast(error) {
+    const toast = await this.toastCtrl.create({
+      header: 'Account does not exist',
+      message: error.message,
+      cssClass: 'dangerT',
+      position: 'top',
+      keyboardClose: true,
+      duration: 4000,
+      showCloseButton: true,
+      translucent: true,
+    });
+    return toast.present();
+  }
+
   async isLoggedInToast() {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',

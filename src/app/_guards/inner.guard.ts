@@ -16,13 +16,16 @@ export class InnerGuard implements CanActivate {
     private message: MessageService
   ) { }
 
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if (this.auth.isLoggedIn) {
+    state: RouterStateSnapshot): Promise<boolean> {
+      
+  const user = await this.auth.getCurrentUser();
+      
+      if ( user ) {
         this.message.internalBlockPageAlert();
         this.router.navigate(['/home']);
       }
-      return true;
+      return false;
   }
 }

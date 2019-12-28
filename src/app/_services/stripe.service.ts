@@ -3,7 +3,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class StripeService {
   ) { }
 
   async subscribeUser(source, planId) {
-      const user = await this.auth.getUser();
+      const user = await this.auth.getCurrentUser();
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
@@ -34,7 +34,7 @@ export class StripeService {
     }
 
   async getSubscriptions() {
-    const user = await this.auth.getUser();
+    const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
     this.subscriptions = fun({uid: user.uid});
   }
@@ -57,7 +57,7 @@ export class StripeService {
   }
 
   async getInvoices() {
-    const user = await this.auth.getUser();
+    const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeGetInvoices');
     this.invoices = fun({uid: user.uid});
   }

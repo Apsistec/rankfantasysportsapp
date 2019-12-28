@@ -4,7 +4,7 @@ import { AdminGuard } from '@guards/admin.guard';
 import { AuthGuard } from '@guards/auth.guard';
 import { PaidGuard } from '@guards/paid.guard';
 import { PreventBuyGuard } from '@guards/prevent-buy.guard';
-import { InnerGuard } from '@guards/inner.guard';
+// import { InnerGuard } from '@guards/inner.guard';
 
 
 const appRoutes: Routes = [
@@ -22,10 +22,10 @@ const appRoutes: Routes = [
   { path: 'buy', redirectTo: 'purchase', pathMatch: 'full' },
   { path: 'faq', loadChildren: './faq/faq.module#FaqPageModule' },
   { path: 'welcome', loadChildren: './auth/welcome/welcome.module#WelcomePageModule' },
-  { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule', canActivate: [InnerGuard] },
+  { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule' },
   { path: 'sign-in', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'register', loadChildren: './auth/register/register.module#RegisterPageModule', canActivate: [InnerGuard]  },
-  { path: 'forgot',  loadChildren: './auth/forgot-password/forgot-password.module#ForgotPasswordPageModule', canActivate: [InnerGuard] },
+  { path: 'register', loadChildren: './auth/register/register.module#RegisterPageModule' },
+  { path: 'forgot',  loadChildren: './auth/forgot-password/forgot-password.module#ForgotPasswordPageModule' },
   { path: 'reset-password',  redirectTo: 'forgot',  pathMatch: 'full' },
   { path: 'verify', loadChildren: './auth/verify-email/verify-email.module#VerifyEmailPageModule' },
   { path: 'settings', loadChildren: './auth/settings/settings.module#SettingsPageModule', canActivate: [AuthGuard] },

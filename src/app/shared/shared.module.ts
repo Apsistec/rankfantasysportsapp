@@ -10,10 +10,15 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { RegModalComponent } from './reg-modal/reg-modal.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
-import { MatExpansionModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material';
 import { PopoverComponent } from './popover/popover.component';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { NowComponent } from '../sports-categories/now/now.component';
+import { NflComponent } from '../sports-categories/nfl/nfl.component';
+import { CfbComponent } from '../sports-categories/cfb/cfb.component';
+import { PgaComponent } from '../sports-categories/pga/pga.component';
+import { NbaComponent } from '../sports-categories/nba/nba.component';
+import { TennisComponent } from '../sports-categories/tennis/tennis.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,14 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     TicketComponent,
     PrivacyDialogComponent,
     PopoverComponent,
+    NowComponent,
+    NflComponent,
+    CfbComponent,
+    PgaComponent,
+    NbaComponent,
+    TennisComponent
   ],
+
   entryComponents: [
     TicketComponent,
     TermsDialogComponent,
@@ -32,18 +44,19 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     PrivacyDialogComponent,
     PopoverComponent
   ],
+
   imports: [
     NgxTwitterTimelineModule,
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule,
     CommonModule,
-    MatExpansionModule,
     RouterModule,
     SharedDirectivesModule
   ],
+
   exports: [
+    SharedDirectivesModule,
     NgxTwitterTimelineModule,
     HeaderComponent,
     PopoverComponent,
@@ -51,9 +64,14 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
     RegModalComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,
-    MatDialogModule,
-    MatExpansionModule,
     TicketComponent,
+    NowComponent,
+    NflComponent,
+    CfbComponent,
+    PgaComponent,
+    NbaComponent,
+    TennisComponent
   ],
+
 })
 export class SharedModule {}

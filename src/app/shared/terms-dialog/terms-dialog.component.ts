@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-terms-dialog',
@@ -9,10 +9,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class TermsDialogComponent  {
 
-  constructor(public dialog: MatDialog) { }
 
+  constructor(private modalCtrl: ModalController) { }
 
-  closeDialog() {
-    this.dialog.closeAll();
+  closeModal() {
+    this.modalCtrl.dismiss();
   }
 }

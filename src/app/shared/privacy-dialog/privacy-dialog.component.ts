@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'privacy-dialog',
@@ -8,12 +8,10 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PrivacyDialogComponent {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private modalCtrl: ModalController) { }
 
-
-  closeDialog() {
-    this.dialog.closeAll();
+  closeModal() {
+    this.modalCtrl.dismiss();
   }
 }
-
 

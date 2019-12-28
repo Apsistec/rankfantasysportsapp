@@ -1,7 +1,14 @@
-<h2 mat-dialog-title>
-  TERMS of USE
-</h2>
-<mat-dialog-content class="mat-typography">
+<ion-content>
+  <ion-card color="primary">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-text color="secondary">
+        Terms of Use
+      </ion-text>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+  <ion-text>
   <p>By accessing this web app, the RankFantasySports.com (RF$&trade;) web app, you are agreeing to be bound by these Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.  If you do not agree with any of these terms, you are prohibited from using or accessing this web app.  The materials contained in this web web app are protected by applicable copyright and trademark law.</p>
   <h3>Content Copyright Policy</h3>
   <p>The custom statistics & data, web app design, logo, and video content are subject to copyright.<strong> Rank Fantasy Sports (RF$&trade;) and RankFantasySports.com &copy; 2019-present </strong></p>
@@ -21,7 +28,12 @@
 <p>RF$&trade; is committed to protecting intellectual property rights.  RF$&trade; strictly follows DMCA guidelines for unauthorized use of copyrighted material.  Any inquiries regarding the reproduction of content on this web app must be directed to the party holding the proprietary rights to the specified content.You shall not distribute, publish, transmit, modify, display or create derivative works from material obtained with this service.  To file a notice of copyright infringement with RF$&trade;, you will need to provide a written communication that follows the guidelines set in Section 512(c)(3) of the Digital Millennium Copyright Act (the “DMCA”).</p>
 <h3>Governing Law</h3>
 <p>Any claim relating to the RF$&trade; web app shall be governed by the laws of the State of Texas without regard to its conflict of law provisions.  General Terms and Conditions applicable to 'Use of a Web Site'.</p>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <ion-button (click)="closeDialog()">Close</ion-button>
-</mat-dialog-actions>
+  
+</ion-text>
+<ion-button color="tertiary" size="small" shape="round" (click)="closeModal()">Close</ion-button>
+</ion-card-content>
+</ion-card>
+
+   
+
+    </ion-content>

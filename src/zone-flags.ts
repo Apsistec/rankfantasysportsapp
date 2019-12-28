@@ -1,5 +1,5 @@
 
-import './zone-flags.ts';
+// import './zone-flags.ts';
 
 /**
  * Prevents Angular change detection from
@@ -17,9 +17,9 @@ import './zone-flags.ts';
  * (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
  */
 
-(window as any).__Zone_disable_requestAnimationFrame = true;
-(window as any).__Zone_disable_on_property = true;
-(window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove'];
+// (window as any).__Zone_disable_requestAnimationFrame = true;
+// (window as any).__Zone_disable_on_property = true;
+// (window as any).__zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove'];
 
 
 /**
@@ -30,9 +30,9 @@ import './zone-flags.ts';
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
-    if (document['documentMode'] || /Edge/.test(navigator.userAgent)) {
-        (window as any).__Zone_enable_cross_context_check = true;
-    }
+    // if (document['documentMode'] || /Edge/.test(navigator.userAgent)) {
+    //     (window as any).__Zone_enable_cross_context_check = true;
+    // }
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.

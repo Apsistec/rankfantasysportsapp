@@ -30,7 +30,6 @@ export class RegModalComponent implements OnInit {
     public modalCtrl: ModalController,
     private fb: FormBuilder
   ) {
-    document.body.style.overflow = 'hidden';
     }
 
   ngOnInit() {
@@ -49,12 +48,11 @@ export class RegModalComponent implements OnInit {
 
   register() {
     this.loadLoader();
-    // const fullName: string = this.registerForm.value.firstName + this.registerForm.value.lastName;
     this.auth.SignUp(this.registerForm.value);
     this.dismissLoader();
     this.registerForm.reset();
     this.modalDismiss();
-    this.message.registerSuccessToast(`${this.registerForm.value.firstName} + ' ' + ${this.registerForm.value.lastName}`);
+    this.message.registerSuccessToast();
     this.router.navigateByUrl('/purchase');
   }
 

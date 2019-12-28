@@ -13,11 +13,12 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-// Material Themes
+
+// material
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-@import url('https://fonts.googleapis.com/css?family=Cairo|Rokkitt&display=swap');
-
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto&display=swap&subset=latin-ext');
 
 // Main styling
 :root {
@@ -33,6 +34,7 @@
     background-color: #131313;
     background-size: 20px 20px;
     text-shadow: 1px 1px 1px #2b2c31;
+
   }
 }
 

@@ -23,6 +23,4 @@ export class UpdateService {
   updateSW() {
     return this.message.updateAlert();
   }
-
-
 }

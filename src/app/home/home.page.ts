@@ -2,7 +2,6 @@ import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +11,12 @@ import { ModalController } from '@ionic/angular';
 
 export class HomePage implements OnInit {
 
+  titleId = 'RF$\u2122 Home';
+
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
+
+
   slide: any;
   slideOpts = {
     centeredSlides: true,
@@ -22,33 +25,28 @@ export class HomePage implements OnInit {
       delay: 4000,
     },
   };
-  titleId = 'RF$\u2122 Home';
+
   public trustedVideoUrl: SafeResourceUrl;
-  video: any = {
-    url: 'https://www.youtube.com/embed/APeaBlagSNc'
-  };
 
   constructor(
-    public domSanitizer: DomSanitizer,
-    public zone: NgZone,
+    private domSanitizer: DomSanitizer,
+    // public zone: NgZone,
     public auth: AuthService,
-    public modalController: ModalController
-  ) {  }
+  ) {
+    this.showVid();
+   }
 
   onScroll(event) {
-    if (event.detail.scrollTop > 200) {
-      this.scrolledDown = true;
-    } else {
-      this.scrolledDown = false;
+    this.scrolledDown = (event.detail.scrollTop > 200) ? true : false;
     }
-  }
 
   ngOnInit() {
-    this.showVid();
+    // this.showVid();
   }
 
   showVid() {
-    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url);
+    const video = { url: 'https://www.youtube.com/embed/APeaBlagSNc' };
+    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(video.url);
   }
 
   ScrollToTop() {
