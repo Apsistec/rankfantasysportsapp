@@ -21,7 +21,7 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto&display=swap&subset=latin-ext');
 
 // Main styling
-:root {
+:root
   ion-content{
     --ion-background-color: none;
     background:
@@ -36,7 +36,6 @@
     text-shadow: 1px 1px 1px #2b2c31;
 
   }
-}
 
 ion-text{
   text-shadow: 1px 1px 1px #232127;
@@ -108,25 +107,47 @@ ion-toast.warningT{
   }
 
   // Remove scrollbars
-::-webkit-scrollbar, *::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
-* { 
-  -ms-overflow-style: none; 
-}
 
-* {
-  overflow: -moz-scrollbars-none;
-}
+
+// * { 
+//   -ms-overflow-style: none; 
+// }
+
+// * {
+//   overflow: -moz-scrollbars-none;
+// }
 
 // * {
 //    overflow: hidden; 
 // }
 
-a:hover {
-  cursor:pointer;
+router:any-link {
+  cursor:auto;
 }
+
+/* Navigation link styles */
+// nav a {
+//   padding: 5px 10px;
+//   text-decoration: none;
+//   margin-top: 10px;
+//   display: inline-block;
+//   background-color: #eee;
+//   border-radius: 4px;
+// }
+// nav a:visited, a:link {
+//   color: #607D8B;
+// }
+// nav a:hover {
+//   color: #039be5;
+//   background-color: #CFD8DC;
+// }
+// nav a.router-link-active {
+//   color: #039be5;
+// }
 
 // Credit Card Logos
 .creditCard{

@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pre-build": "npm run setVersion",
-    "compodoc": "compodoc  -s -w --theme material --hideGenerator --customLogo src/assets/img/logo.jpg --customFavicon src/assets/img/favicon.ico -o -n 'RFSports App Docs'"
+    "doc": "compodoc  -s -w --theme material --hideGenerator --customLogo src/assets/img/logo.jpg --customFavicon src/assets/img/favicon.ico -o -n 'RFSports App Docs'"
   },
   "private": true,
   "dependencies": {

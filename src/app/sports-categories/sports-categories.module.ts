@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { SportsCategoriesPage } from './sports-categories.page';
+import { SportsCategoriesDetailComponent } from './sports-categories-detail/sports-categories-detail.component';
+import { SportsTablesComponent } from './sports-tables/sports-tables.component';
 
 const sportsRoutes: Routes = [
   {
@@ -22,7 +24,11 @@ const sportsRoutes: Routes = [
     SharedModule,
     RouterModule.forChild(sportsRoutes)
   ],
-  declarations: [SportsCategoriesPage],
+  declarations: [
+    SportsCategoriesDetailComponent,
+    SportsTablesComponent,
+    SportsCategoriesPage
+  ],
   exports: [RouterModule]
 })
 export class SportsCategoriesPageModule {}

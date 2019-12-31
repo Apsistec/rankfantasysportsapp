@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 import { FaqPage } from './faq.page';
 import { SharedModule } from '@shared/shared.module';
 import { MatExpansionModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -21,7 +20,6 @@ const routes: Routes = [
     SharedModule,
     CommonModule,
     MatExpansionModule,
-    BrowserAnimationsModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)

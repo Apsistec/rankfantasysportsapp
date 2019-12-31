@@ -149,31 +149,33 @@
   --ion-font-family: var( --body-font) !important;
   --ion-font-family: var( --heading-font) !important;}
 
-  :root[mode=ios] {
-    --ion-font-family: var( --body-font) !important;
-    --ion-font-family: var( --heading-font) !important;
+:root
+  [mode=ios] {
+  --ion-font-family: var( --body-font) !important;
+  --ion-font-family: var( --heading-font) !important;
   }
 
-  :root[mode=md] {
-    --ion-font-family: var( --body-font) !important;
-    --ion-font-family: var( --heading-font) !important;
+:root
+  [mode=md] {
+  --ion-font-family: var( --body-font) !important;
+  --ion-font-family: var( --heading-font) !important;
   }
 
-  $customColors: ('msoft', 'facebk', 'twittr', 'leather', 'gold', 'silver', 'bronze', 'valid', 'invalid', 'deepo', 'white');
-  @each $color in $customColors {
-    .ion-color-#{$color} {
-      --ion-color-base: var(--ion-color-#{$color}) !important;
-      --ion-color-base-rgb: var(--ion-color-#{$color}-rgb) !important;
-      --ion-color-contrast: var(--ion-color-#{$color}-contrast) !important;
-      --ion-color-contrast-rgb: var(--ion-color-#{$color}-contrast-rgb) !important;
-      --ion-color-shade: var(--ion-color-#{$color}-shade) !important;
-      --ion-color-tint: var(--ion-color-#{$color}-tint) !important;
-    }
+$customColors: ('msoft', 'facebk', 'twittr', 'leather', 'gold', 'silver', 'bronze', 'valid', 'invalid', 'deepo', 'white');
+@each $color in $customColors {
+  .ion-color-#{$color} {
+    --ion-color-base: var(--ion-color-#{$color}) !important;
+    --ion-color-base-rgb: var(--ion-color-#{$color}-rgb) !important;
+    --ion-color-contrast: var(--ion-color-#{$color}-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-#{$color}-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-#{$color}-shade) !important;
+    --ion-color-tint: var(--ion-color-#{$color}-tint) !important;
   }
+}
 //   keep the label color on focus:
-  .item-has-focus ion-label.ion-color {
-    color: var(--ion-color-base) !important;
-  }
+.item-has-focus ion-label.ion-color {
+  color: var(--ion-color-base) !important;
+}
   
 /* Optional CSS, this is added for the flashing that happens when toggling between themes */
 ion-item {

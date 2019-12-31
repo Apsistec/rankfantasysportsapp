@@ -1,5 +1,5 @@
 <app-header [titleId]= "titleId"></app-header>
-<ion-content>
+<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
   <app-now></app-now>
   <app-tennis></app-tennis>
   <app-pga></app-pga>

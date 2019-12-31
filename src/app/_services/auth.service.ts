@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -161,10 +161,8 @@ export class AuthService {
 
 // Auth logic to Register using federated auth providers
   async AuthRegister(provider: any) {
-    this.loadSpinner();
     await this.afAuth.auth.signInWithPopup(provider).then(
       async (data: any) => {
-        this.dismissSpinner();
         await this.afs.doc<User>(`users/${data.user.uid}`).set({
           displayName: data.user.displayName,
           email: data.user.email,
@@ -179,7 +177,6 @@ export class AuthService {
       }
     ).catch(err => {
        this.message.errorAlert(err);
-      this.dismissSpinner();
     });
   }
 

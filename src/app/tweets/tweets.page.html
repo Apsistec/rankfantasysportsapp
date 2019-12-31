@@ -2,16 +2,14 @@
 <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" fullscreen>
   <ion-grid>
     <ion-row>
-      <ion-col offset-lg="3">
-
-
+      <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <!-- Twitter Card -->
-        <ion-card class="ion-padding twit" color="dark">
+        <ion-card class="ion-padding" color="dark">
           <ion-card-content>
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="secondary">
-                  RF$&trade; Twitter Account
+                <ion-text color="secondary" class="ion-text-uppercase">
+                  RF$&trade; tweets
                 </ion-text>
               </ion-card-title>
               <ion-card-subtitle>
@@ -23,7 +21,7 @@
             <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}" [opts]="{
                 chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'],
                 theme: 'dark',
-                tweetLimit: '3',
+                tweetLimit: '19',
                 borderColor: '#02ed25',
                 ariaPolite: 'assertive'
               }">

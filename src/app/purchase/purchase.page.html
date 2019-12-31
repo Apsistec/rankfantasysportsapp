@@ -11,7 +11,7 @@
                 Free for a week!
               </strong>
             </ion-text>
-            <hr />
+            <hr >
             <ion-text color="warning" style="font-size: 16pt; ">
               <sup>*</sup>Signup with any PRO Package today and get 7 days to
               try it out.
@@ -43,10 +43,12 @@
                 <ion-card color="light">
                   <ion-list class="golden" lines="none">
                     <ion-list-header color="tertiary">
-                      <ion-title>
-                        <ion-text color="warning"> Gold<br />Package </ion-text>
-                      </ion-title>
-                      <img src="../../assets/img/gold.svg" style="width: 45px;" />
+                      <ion-card-title>
+                        <ion-text color="warning">
+                          Gold<br >Package
+                        </ion-text>
+                      </ion-card-title>
+                      <img src="../../assets/img/gold.svg" style="width: 45px;" >
                     </ion-list-header>
                     <ion-item color="primary">
                       <strong>
@@ -65,7 +67,7 @@
                             Regular Price $119.88
                           </s>
                         </sup>
-                        <br />
+                        <br >
                         <ion-text color="white">
                           You Save
                         </ion-text>
@@ -118,11 +120,11 @@
                 <ion-card color="light" class="ion-text-wrap">
                   <ion-list lines="none">
                     <ion-list-header color="tertiary">
-                      <ion-title>
+                      <ion-card-title>
                         <ion-text color="silver">
-                          Silver<br />Package
+                          Silver<br >Package
                         </ion-text>
-                      </ion-title>
+                      </ion-card-title>
                       <ion-img src="../../assets/img/silver.svg" style="width: 45px;"></ion-img>
                     </ion-list-header>
                     <ion-item color="primary">
@@ -142,7 +144,7 @@
                             Regular Price $59.94
                           </del>
                         </sup>
-                        <br />
+                        <br >
                         <ion-text color="white">
                           You Save
                         </ion-text>
@@ -195,19 +197,19 @@
                 <ion-card color="light" class="ion-text-wrap">
                   <ion-list lines="none">
                     <ion-list-header color="tertiary">
-                      <ion-title>
+                      <ion-card-title>
                         <ion-text color="bronze">
-                          Bronze<br />Package
+                          Bronze<br >Package
                         </ion-text>
-                      </ion-title>
-                      <img src="../../assets/img/bronze.svg" style="width: 45px;" />
+                      </ion-card-title>
+                      <img src="../../assets/img/bronze.svg" style="width: 45px;" >
                     </ion-list-header>
                     <ion-item color="primary">
                       <ion-text color="success">
                         <strong>
                           $9.99 <ion-text color="white">Monthly</ion-text>
                         </strong>
-                        <br />
+                        <br >
                         <ion-text color="warning">
                           <sup>Month -to- Month Subscription</sup>
                         </ion-text>
@@ -216,7 +218,7 @@
                     <ion-item color="medium">
                       <ion-text class="ion-text-wrap">
                         All RF$&trade; DFS Data-tables
-                        <br />
+                        <br >
                         <ion-text color="warning">
                           <sup>Updated weekly</sup>
                         </ion-text>
@@ -225,7 +227,7 @@
                     <ion-item color="primary">
                       <ion-text class="ion-text-wrap">
                         DFS Stats Analysis Videos
-                        <br />
+                        <br >
                         <ion-text color="warning">
                           <sup>Receive notification of new videos</sup>
                         </ion-text>
@@ -234,7 +236,7 @@
                     <ion-item color="medium">
                       <ion-text class="ion-text-wrap">
                         Livestream Events
-                        <br />
+                        <br >
                         <ion-text color="warning">
                           <sup>Receive notification of upcoming events</sup>
                         </ion-text>
@@ -243,7 +245,7 @@
                     <ion-item color="primary">
                       <ion-text class="ion-text-wrap">
                         RF$&trade; Hosted DFS Chat Room
-                        <br />
+                        <br >
                         <ion-text color="warning">
                           <sup>
                             Get the info you need, when you need it
@@ -254,7 +256,7 @@
                     <ion-item color="medium">
                       <ion-text class="ion-text-wrap">
                         Other DFS Tools & Resources
-                        <br />
+                        <br >
                         <ion-text color="warning">
                           <sup>New features released each month</sup>
                         </ion-text>
@@ -298,20 +300,20 @@
                 &nbsp;Enter Your Card Details
               </ion-text>
             </h4>
-            <hr />
+            <hr >
             <ion-card *ngIf="planId">
               <ion-card-title>
                 <ion-text class="ion-text-wrap">You are purchasing:</ion-text>
               </ion-card-title>
-              <br />
+              <br >
               <ion-button shape="round" size="large" expand="block" fill="outline" color="success">
                 <ion-text color="warning">
                   {{ planId }}&nbsp;Package
-                  <br />
+                  <br >
                   {{ price }}
                 </ion-text>
               </ion-button>
-              <hr />
+              <hr >
             </ion-card>
             <ion-text color="deepo">
               <h5>Credit & Debit Accepted</h5>
@@ -319,16 +321,16 @@
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <img class="creditCard" src="../../../assets/img/visa.svg" style="height:40px; float:right;" />
+                  <img class="creditCard" src="../../../assets/img/visa.svg" style="height:40px; float:right;" >
                 </ion-col>
                 <ion-col>
-                  <img class="creditCard" src="../../../assets/img/discover.svg" style="height:40px;" />
+                  <img class="creditCard" src="../../../assets/img/discover.svg" style="height:40px;" >
                 </ion-col>
                 <ion-col>
-                  <img class="creditCard" src="../../../assets/img/amex.svg" style="height:40px;" t />
+                  <img class="creditCard" src="../../../assets/img/amex.svg" style="height:40px;" t >
                 </ion-col>
                 <ion-col>
-                  <img class="creditCard" src="../../../assets/img/mastercard.svg" style="height:47px;" />
+                  <img class="creditCard" src="../../../assets/img/mastercard.svg" style="height:47px;" >
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -344,17 +346,17 @@
                   </h4>
                 </ion-text>
               </div>
-              <hr />
+              <hr >
               <ion-button [disabled]="!planChosen" type="submit" expand="block" color="facebk">
                 <ion-text color="warning">Start Subscription&nbsp;&nbsp;
                   <ion-icon slot="end" color="primary" name="jet"></ion-icon>
                 </ion-text>
               </ion-button>
             </form>
-            <hr />
-            <img src="../../assets/img/stripe.svg" style="height: 2em; width: 8em; float: right;" />
-            <br />
-            <br />
+            <hr >
+            <img src="../../assets/img/stripe.svg" style="height: 2em; width: 8em; float: right;" >
+            <br >
+            <br >
             <ion-text style="float: right;">
               <sup>
                 &nbsp;*See terms below&nbsp;
@@ -408,7 +410,7 @@
                 <strong>
                   Trial valid once per card holder/ member.
                 </strong>
-                <hr />
+                <hr >
                 <strong>
                   One (1) user per account.
                 </strong>

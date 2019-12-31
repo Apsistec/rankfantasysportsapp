@@ -64,9 +64,7 @@ export class RegModalComponent implements OnInit {
   }
 
   register() {
-    this.loadLoader();
-    this.auth.SignUp(this.registerForm.value);
-    this.dismissLoader();
+    this.auth.SignUp(this.registerForm.value)
     this.registerForm.reset();
     this.modalDismiss();
     this.message.registerSuccessToast();

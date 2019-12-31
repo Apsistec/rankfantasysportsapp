@@ -4,6 +4,8 @@ import { AdminGuard } from '@guards/admin.guard';
 import { AuthGuard } from '@guards/auth.guard';
 import { PaidGuard } from '@guards/paid.guard';
 import { PreventBuyGuard } from '@guards/prevent-buy.guard';
+import { SportsCategoriesDetailComponent } from './sports-categories/sports-categories-detail/sports-categories-detail.component';
+import { SportsTablesComponent } from './sports-categories/sports-tables/sports-tables.component';
 // import { InnerGuard } from '@guards/inner.guard';
 
 const appRoutes: Routes = [
@@ -78,12 +80,24 @@ const appRoutes: Routes = [
     data: { role: 'ADMIN' }
   },
   {
+    path: 'tweets',
+    loadChildren:
+      './tweets/tweets.module#TweetsPageModule'
+  },
+  {
     path: 'categories',
     loadChildren:
       './sports-categories/sports-categories.module#SportsCategoriesPageModule',
     canActivate: [AuthGuard]
   },
-  // { path: 'detail:id', loadChildren: '../../sports-categories/detail.module#DetailPageModule' },
+  {
+    path: 'categories/:id',
+    component: SportsCategoriesDetailComponent
+  },
+  {
+    path: 'tables/:id',
+    component: SportsTablesComponent
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
