@@ -1,23 +1,26 @@
-<ion-header tranlucent>
-  <ion-toolbar color="dark">
-    <ion-buttons collapse="true" slot="start">
-      <ion-menu-button color="deepo">
+<ion-header>
+  <ion-toolbar color="dark"> 
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+      <ion-menu-button slot="start" color="deepo">
       </ion-menu-button>
-    </ion-buttons>
+    <!-- </ion-buttons> -->
     <ion-title>
-      <ion-text color="secondary">
+      <ion-text color="secondary" class="ion-text-wrap">
         {{ titleId }} 
       </ion-text>
     </ion-title>
+    <ion-buttons  slot="end">
 
-    <ng-container *ngIf="auth.afAuth.user | async as user; else cta">
-      <ion-item ion-button color="dark" slot="end" (click)="presentPopover($event)">
-        <ion-icon name="arrow-dropdown"></ion-icon>
+    <ng-container  *ngIf="auth.afAuth.user | async as user; else cta">
+      <ion-item button color="dark" (click)="presentPopover($event)" detail="false" lines="none">
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
         <ion-avatar>
           <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
         </ion-avatar>
       </ion-item>
     </ng-container>
+  </ion-buttons>
+
 
     <ng-template #cta>
 

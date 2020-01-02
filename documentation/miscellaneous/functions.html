@@ -59,10 +59,16 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#contrast" title="src/app/core/services/theme.service.ts"><b>contrast</b>&nbsp;&nbsp;&nbsp;(src/.../theme.service.ts)</a>
+                            <a href="#cancelSubscription" title="functions/src/subscriptions.ts"><b>cancelSubscription</b>&nbsp;&nbsp;&nbsp;(functions/.../subscriptions.ts)</a>
                         </li>
                         <li>
-                            <a href="#CSSTextGenerator" title="src/app/core/services/theme.service.ts"><b>CSSTextGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../theme.service.ts)</a>
+                            <a href="#contrast" title="src/app/_services/theme.service.ts"><b>contrast</b>&nbsp;&nbsp;&nbsp;(src/.../theme.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CSSTextGenerator" title="src/app/_services/theme.service.ts"><b>CSSTextGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../theme.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCoupon" title="functions/src/coupons.ts"><b>getCoupon</b>&nbsp;&nbsp;&nbsp;(functions/.../coupons.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -71,7 +77,80 @@
     </table>
 </section>
 
-    <h3>src/app/core/services/theme.service.ts</h3>
+    <h3>functions/src/subscriptions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelSubscription"></a>
+                    <span class="name">
+                        <b>
+                            cancelSubscription
+                        </b>
+                        <a href="#cancelSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelSubscription(uid, subId)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cancels a subscription and stops all recurring payments</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>uid</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>subId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/_services/theme.service.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -194,6 +273,63 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>functions/src/coupons.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCoupon"></a>
+                    <span class="name">
+                        <b>
+                            getCoupon
+                        </b>
+                        <a href="#getCoupon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCoupon(coupon)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Returns a coupon from Stripe</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>coupon</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -215,6 +351,7 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-functions';
             var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

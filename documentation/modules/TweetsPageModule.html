@@ -175,7 +175,7 @@ import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { NgxTwitterTimelineModule } from &#x27;ngx-twitter-timeline&#x27;;
 
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
-import { SharedModule } from &#x27;../shared/shared.module&#x27;;
+import { SharedModule } from &#x27;@shared/shared.module&#x27;;
 import { TweetsPage } from &#x27;./tweets.page&#x27;;
 
 const routes: Routes &#x3D; [
@@ -196,7 +196,7 @@ const routes: Routes &#x3D; [
   ],
   declarations: [TweetsPage]
 })
-export class TweetsPageModule { }
+export class TweetsPageModule {}
 </code></pre>
     </div>
 </div>
@@ -233,6 +233,7 @@ export class TweetsPageModule { }
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'TweetsPageModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

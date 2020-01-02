@@ -1,6 +1,6 @@
 {
-  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
-  "version": 1.0,
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
   "defaultProject": "app",
   "newProjectRoot": "projects",
   "projects": {
@@ -30,7 +30,7 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
-              "src/manifest.json"
+              "src/manifest.webmanifest"
             ],
             "styles": [
               {
@@ -68,7 +68,7 @@
                 }
               ],
               "serviceWorker": true,
-              "ngswConfigPath": "src/ngsw-config.json"
+              "ngswConfigPath": "ngsw-config.json"
             },
             "ci": {
               "progress": false
@@ -103,7 +103,6 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "scripts": [],
             "assets": [
@@ -112,8 +111,8 @@
                 "input": "src/assets",
                 "output": "/assets"
               },
-              "src/manifest.json"
-            ]
+              "src/manifest.webmanifest"
+             ]
           },
           "configurations": {
             "ci": {

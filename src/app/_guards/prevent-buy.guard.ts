@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router
-} from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { take, map } from 'rxjs/operators';
 import { AuthService } from '@services/auth.service';
 import { MessageService } from '@services/message.service';
 
@@ -12,27 +9,37 @@ import { MessageService } from '@services/message.service';
   providedIn: 'root'
 })
 export class PreventBuyGuard implements CanActivate {
+
   constructor(
     private auth: AuthService,
     private router: Router,
     private message: MessageService
   ) {}
 
-  async canActivate(
+  canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Promise<boolean> {
-    const user = await this.auth.getCurrentUser();
-    const isMember = !!(user.plan === 'gold' || 'silver' || 'bronze');
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (!user) {
-      return true;
-    }
-    {
-      if (user && isMember) {
-        this.message.alreadySubscribedToast();
-        this.router.navigateByUrl('/home');
-      }
-    }
+    return this.auth.user.pipe(
+      take(1),
+      map(user => {
+        if (!user) {
+          this.router.navigateByUrl('/login');
+          return true;
+        } else {
+          if (user && (user.plan === 'gold' || 'silver' || 'bronze')) {
+            this.message.needPaymentAlert();
+            this.router.navigateByUrl('/purchase');
+            return false;
+          } else {
+            if (user) {
+              return true;
+            }
+          }
+        }
+      })
+    );
   }
 }
+

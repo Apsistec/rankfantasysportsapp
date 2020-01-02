@@ -174,7 +174,7 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { TestimonialsPage } from &#x27;./testimonials.page&#x27;;
-import { SharedModule } from &#x27;../shared/shared.module&#x27;;
+import { SharedModule } from &#x27;@shared/shared.module&#x27;;
 
 const testiRoutes: Routes &#x3D; [
   {
@@ -188,8 +188,8 @@ const testiRoutes: Routes &#x3D; [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(testiRoutes),
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(testiRoutes)
   ],
   declarations: [TestimonialsPage],
   entryComponents: []
@@ -231,6 +231,7 @@ export class TestimonialsPageModule {}
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'TestimonialsPageModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

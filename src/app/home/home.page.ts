@@ -1,6 +1,6 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { IonContent } from '@ionic/angular';
+// import { IonContent } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class HomePage implements OnInit {
 
   titleId = 'RF$\u2122 Home';
 
-  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
-  scrolledDown = false;
+  // @ViewChild(IonContent, { static: true }) ionContent: IonContent;
+  // scrolledDown = false;
 
 
   slide: any;
@@ -36,10 +36,6 @@ export class HomePage implements OnInit {
     this.showVid();
    }
 
-  onScroll(event) {
-    this.scrolledDown = (event.detail.scrollTop > 200) ? true : false;
-    }
-
   ngOnInit() {
     // this.showVid();
   }
@@ -48,8 +44,10 @@ export class HomePage implements OnInit {
     const video = { url: 'https://www.youtube.com/embed/APeaBlagSNc' };
     this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(video.url);
   }
-
-  ScrollToTop() {
-    this.ionContent.scrollToTop(1500);
-  }
+  // onScroll(event) {
+  //   this.scrolledDown = (event.detail.scrollTop > 200) ? true : false;
+  //   }
+  // ScrollToTop() {
+  //   this.ionContent.scrollToTop(1500);
+  // }
 }

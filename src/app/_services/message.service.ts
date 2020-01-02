@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class MessageService {
 
   constructor(
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private navCtrl: NavController
   ) {}
 
   // Toasts
@@ -263,6 +264,23 @@ export class MessageService {
       buttons: ['OK']
     });
     await loginAlert.present();
+  }
+
+  async refreshBrowserAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'Software Update',
+      subHeader: 'A New Version Exists',
+      message:
+        'Please Refresh Your Browser to Update to the New Version',
+        buttons: [{
+          text: 'Ok',
+          handler: () => {
+            location.reload();
+            return false;
+          }
+        }]
+    });
+    await alert.present();
   }
 
   async saveOrCancel() {

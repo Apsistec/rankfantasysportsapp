@@ -14,64 +14,64 @@
           <ion-item button lines="none" routerLink="/home"  class="ion-text-uppercase">
             <ion-icon color="white" class="iconify" slot="start" name="home"></ion-icon>
             <ion-text color="light">Home</ion-text>
-           
+
           </ion-item>
 
           <ion-item button lines="none" routerLink="/profile" *ngIf="auth.afAuth.user | async as user"  class="ion-text-uppercase">
             <ion-icon color="facebk" class="iconify" slot="start" name="contact"></ion-icon>
             <ion-text color="light">Profile</ion-text>
-           
+
           </ion-item>
 
           <ion-item button lines="none" routerLink="/pricing" *ngIf="auth.isSubscribed; else notSubscribed"  class="ion-text-uppercase">
             <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
             <ion-text color="secondary">Pricing</ion-text>
-           
+
           </ion-item>
 
           <ng-template #notSubscribed>
             <ion-item button lines="none" routerLink="/purchase"  class="ion-text-uppercase">
               <ion-icon color="gold" class="iconify" slot="start" name="medal"></ion-icon>
               <ion-text color="success">Free-Trial</ion-text>
-             
+
             </ion-item>
 
             <ion-item button lines="none" routerLink="/purchase"  class="ion-text-uppercase">
               <ion-icon color="silver" class="iconify" slot="start" name="logo-usd"></ion-icon>
               <ion-text color="secondary">Purchase</ion-text>
-             
+
             </ion-item>
           </ng-template>
 
           <ion-item button lines="none" routerLink="/how-to"  class="ion-text-uppercase">
             <ion-icon color="warning" class="iconify" slot="start" name="star"></ion-icon>
             <ion-text color="light">How To Use RF$&trade;</ion-text>
-           
+
           </ion-item>
 
           <ion-item button lines="none" routerLink="/credibility"  class="ion-text-uppercase">
             <ion-icon color="gold" class="iconify" slot="start" name="trophy"></ion-icon>
             <ion-text color="light">DK Credibility</ion-text>
-           
+
           </ion-item>
 
           <ion-item button lines="none" routerLink="/faq"  class="ion-text-uppercase">
             <ion-icon color="leather" class="iconify" slot="start" name="help"></ion-icon>
             <ion-text color="light">FAQs</ion-text>
-           
+
           </ion-item>
 
           <ion-item button lines="none" (click)="signOut()" *ngIf="auth.afAuth.user | async as user; else login"  class="ion-text-uppercase">
             <ion-icon color="danger" class="iconify" slot="start" name="log-out"></ion-icon>
             <ion-text color="danger">Logout</ion-text>
-           
+
           </ion-item>
 
           <ng-template #login>
             <ion-item button lines="none" routerLink="/login"  class="ion-text-uppercase">
               <ion-icon color="secondary" class="iconify" slot="start" name="log-in"></ion-icon>
               <ion-text color="secondary">Login</ion-text>
-             
+
             </ion-item>
           </ng-template>
 
@@ -81,7 +81,7 @@
             <ion-text>Data Tables</ion-text>
             <ion-button size="small" color="tertiary">All Categories</ion-button>
           </ion-list-header>
-         
+
 
           <ion-item ion-button lines="none" routerLink="/categories"  class="ion-text-uppercase">
             <ion-icon color="secondary" class="iconify" slot="start" name="stats"></ion-icon>
@@ -126,7 +126,7 @@
           <ion-item ion-button lines="none" routerLink="/tweets"  class="ion-text-uppercase">
             <ion-icon color="twittr" slot="start" name="logo-twitter"></ion-icon>
             <ion-text color="light">Tweets</ion-text>
-           
+
           </ion-item>
 
           <ion-item ion-button lines="none" disabled  class="ion-text-uppercase">
@@ -177,9 +177,20 @@
         <ion-text color="light">
           <sup> Made with <ion-icon style="color:aqua;" name="logo-ionic"></ion-icon>
             by RF$&trade;&nbsp;&copy;2019</sup>
-        </ion-text>
-      </ion-toolbar>
-    </ion-menu-toggle>
-  </ion-footer>
-</ion-menu>
-<ion-router-outlet id="main"></ion-router-outlet>
+          </ion-text>
+        </ion-toolbar>
+      </ion-menu-toggle>
+    </ion-footer>
+  </ion-menu>
+
+  <!-- Main Body of App -->
+  <app-header [titleId]="titleId"></app-header>
+  <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  </ion-content>
+  <app-footer></app-footer>

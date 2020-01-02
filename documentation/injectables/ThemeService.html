@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/services/theme.service.ts</code>
+            <code>src/app/_services/theme.service.ts</code>
         </p>
 
 
@@ -123,7 +123,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/services/theme.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/_services/theme.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -203,7 +203,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/core/services/theme.service.ts:31</a></div>
+                            class="link-to-prism">src/app/_services/theme.service.ts:31</a></div>
                 </td>
             </tr>
 
@@ -273,7 +273,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/core/services/theme.service.ts:20</a></div>
+                            class="link-to-prism">src/app/_services/theme.service.ts:20</a></div>
                 </td>
             </tr>
 
@@ -339,7 +339,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/core/services/theme.service.ts:27</a></div>
+                            class="link-to-prism">src/app/_services/theme.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -413,7 +413,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/core/services/theme.service.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/_services/theme.service.ts:35</a></div>
                                 </td>
                             </tr>
 
@@ -437,7 +437,7 @@ export class ThemeService {
     @Inject(DOCUMENT) private document: Document,
     private storage: Storage
   ) {
-    storage.get(&#x27;theme&#x27;).then(cssText &#x3D;&gt; {
+    this.storage.get(&#x27;theme&#x27;).then(cssText &#x3D;&gt; {
       this.setGlobalCSS(cssText);
     });
   }
@@ -487,8 +487,7 @@ function CSSTextGenerator(colors) {
     danger,
     dark,
     medium,
-    light,
-
+    light
   } &#x3D; colors;
 
   const shadeRatio &#x3D; 0.1;
@@ -597,6 +596,7 @@ function contrast(color, ratio &#x3D; 0.8) {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'ThemeService.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -73,30 +73,45 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { PurchaseComponent } from &#x27;./purchase/purchase.component&#x27;;
-import { AuthGuard } from &#x27;./core/guard/auth.guard&#x27;;
-import { TermsDialogComponent } from &#x27;./shared/terms-dialog/terms-dialog.component&#x27;;
-
+import { AdminGuard } from &#x27;@guards/admin.guard&#x27;;
+import { AuthGuard } from &#x27;@guards/auth.guard&#x27;;
+import { PaidMemberGuard } from &#x27;@guards/paid-member.guard&#x27;;
+import { PreventBuyGuard } from &#x27;@guards/prevent-buy.guard&#x27;;
+import { SportsCategoriesDetailComponent } from &#x27;./sports-categories/sports-categories-detail/sports-categories-detail.component&#x27;;
+import { SportsTablesComponent } from &#x27;./sports-categories/sports-tables/sports-tables.component&#x27;;
+import { InnerRoutesGuard } from &#x27;@guards/inner-routes.guard&#x27;;
 
 const appRoutes: Routes &#x3D; [
-  { path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
   { path: &#x27;home&#x27;, loadChildren: &#x27;./home/home.module#HomePageModule&#x27; },
-  { path: &#x27;tweets&#x27;, loadChildren: &#x27;./tweets/tweets.module#TweetsPageModule&#x27; },
-  { path: &#x27;credibility&#x27;, loadChildren: &#x27;./testimonials/testimonials.module#TestimonialsPageModule&#x27; },
-  { path: &#x27;pricing&#x27;, loadChildren: &#x27;./pricing/pricing.module#PricingPageModule&#x27; },
-  { path: &#x27;free-trial&#x27;, loadChildren: &#x27;./free-trial/free-trial.module#FreeTrialPageModule&#x27; },
-  { path: &#x27;freetrial&#x27;, loadChildren: &#x27;./free-trial/free-trial.module#FreeTrialPageModule&#x27; },
-  { path: &#x27;auth&#x27;, loadChildren: &#x27;./auth/auth.module#AuthPageModule&#x27; },
-  { path: &#x27;list&#x27;, loadChildren: &#x27;./list/list.module#ListPageModule&#x27; },
-  { path: &#x27;welcome&#x27;, loadChildren: &#x27;./welcome/welcome.module#WelcomePageModule&#x27; },
-  { path: &#x27;faq&#x27;, loadChildren: &#x27;./faq/faq.module#FaqPageModule&#x27; },
   { path: &#x27;how-to&#x27;, loadChildren: &#x27;./how-to/how-to.module#HowToPageModule&#x27; },
-  { path: &#x27;purchase&#x27;, component: PurchaseComponent, canActivate: [AuthGuard] },
-  { path: &#x27;terms&#x27;, component: TermsDialogComponent, outlet: &#x27;terms&#x27;},
-  {
-    path: &#x27;**&#x27;,
-    redirectTo: &#x27;/home&#x27;
-  },
+  { path: &#x27;free-trial&#x27;, loadChildren: &#x27;./purchase/purchase.module#PurchasePageModule&#x27; },
+  { path: &#x27;freetrial&#x27;, redirectTo: &#x27;free-trial&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;free&#x27;, redirectTo: &#x27;free-trial&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;freetrail&#x27;, redirectTo: &#x27;free-trial&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;pricing&#x27;, loadChildren: &#x27;./pricing/pricing.module#PricingPageModule&#x27; },
+  { path: &#x27;prices&#x27;, redirectTo: &#x27;pricing&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;price&#x27;, redirectTo: &#x27;pricing&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;credibility&#x27;, loadChildren: &#x27;./testimonials/testimonials.module#TestimonialsPageModule&#x27; },
+  { path: &#x27;purchase&#x27;, loadChildren: &#x27;./purchase/purchase.module#PurchasePageModule&#x27;, canActivate: [PreventBuyGuard] },
+  { path: &#x27;buy&#x27;, redirectTo: &#x27;purchase&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;faq&#x27;, loadChildren: &#x27;./faq/faq.module#FaqPageModule&#x27; },
+  { path: &#x27;welcome&#x27;, loadChildren: &#x27;./auth/welcome/welcome.module#WelcomePageModule&#x27; },
+  { path: &#x27;login&#x27;, loadChildren: &#x27;./auth/login/login.module#LoginPageModule&#x27;, canActivate: [InnerRoutesGuard] },
+  { path: &#x27;sign-in&#x27;, redirectTo: &#x27;login&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;register&#x27;, loadChildren: &#x27;./auth/register/register.module#RegisterPageModule&#x27;, canActivate: [InnerRoutesGuard] },
+  { path: &#x27;forgot&#x27;, loadChildren: &#x27;./auth/forgot-password/forgot-password.module#ForgotPasswordPageModule&#x27;, canActivate: [InnerRoutesGuard] },
+  { path: &#x27;reset-password&#x27;, redirectTo: &#x27;forgot&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;verify&#x27;, loadChildren: &#x27;./auth/verify-email/verify-email.module#VerifyEmailPageModule&#x27; },
+  { path: &#x27;settings&#x27;, loadChildren: &#x27;./auth/settings/settings.module#SettingsPageModule&#x27;, canActivate: [AuthGuard] },
+  { path: &#x27;profile&#x27;, loadChildren: &#x27;./auth/profile/profile.module#ProfilePageModule&#x27;, canActivate: [AuthGuard] },
+  { path: &#x27;user&#x27;, loadChildren: &#x27;./auth/user-tickets/user-tickets.module#UserTicketsPageModule&#x27;, canActivate: [AdminGuard], data: { role: &#x27;USER&#x27; } },
+  { path: &#x27;admin&#x27;, loadChildren: &#x27;./auth/admin-dashboard/admin-dashboard.module#AdminDashboardPageModule&#x27;, canActivate: [AdminGuard], data: { role: &#x27;ADMIN&#x27; } },
+  { path: &#x27;tweets&#x27;, loadChildren: &#x27;./tweets/tweets.module#TweetsPageModule&#x27; },
+  { path: &#x27;categories&#x27;, loadChildren: &#x27;./sports-categories/sports-categories.module#SportsCategoriesPageModule&#x27;, canActivate: [AuthGuard] },
+  { path: &#x27;categories/:id&#x27;, component: SportsCategoriesDetailComponent },
+  { path: &#x27;tables/:id&#x27;, component: SportsTablesComponent, canActivate: [PaidMemberGuard], },
+  { path: &#x27;&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;**&#x27;, redirectTo: &#x27;/home&#x27;, pathMatch: &#x27;full&#x27; }
 ];
 
 @NgModule({
@@ -108,7 +123,7 @@ const appRoutes: Routes &#x3D; [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 </code></pre>
     </div>
 </div>
@@ -145,6 +160,7 @@ export class AppRoutingModule { }
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -10,7 +10,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFirePerformanceModule } from '@angular/fire/performance';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -24,6 +23,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SharedModule } from '@shared/shared.module';
 // import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
 import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,9 +44,7 @@ import { SportsCategoriesPageModule } from './sports-categories/sports-categorie
     HttpClientModule,
     BrowserAnimationsModule,
     IonicStorageModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production
-    })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,

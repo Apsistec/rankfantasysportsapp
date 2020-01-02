@@ -1,5 +1,5 @@
-<app-header [titleId]="titleId"></app-header>
-<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
+<!-- <app-header [titleId]="titleId"></app-header> -->
+<!-- <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true"> -->
   <ion-grid>
 
     <!-- Row 1 -->
@@ -378,25 +378,23 @@
     <!-- Row 5-->
     <ion-row>
       <ion-col>
-        <ion-card color="primary" class="ion-padding">
-          <ion-card-content>
-            <ion-grid>
-              <ion-row class="ion-align-items-center">
-                <ion-col>
-                  <ion-img src="../../assets/img/devices.svg" height="150px"></ion-img>
-                </ion-col>
-                <ion-col class="ion-text-center">
-                  <h1>
-                    <ion-text>
-                      GET RANK FANTASY SPORTS
-                      <br>
-                      ANYTIME, ANYWHERE.
-                    </ion-text>
-                  </h1>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
+        <ion-card color="primary">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col>
+                <ion-img src="../../assets/img/devices.svg" height="150px"></ion-img>
+              </ion-col>
+              <ion-col class="ion-text-center">
+                <h1>
+                  <ion-text>
+                    GET RANK FANTASY SPORTS
+                    <br>
+                    ANYTIME, ANYWHERE.
+                  </ion-text>
+                </h1>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -483,10 +481,10 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+  <!-- <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
     <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
       <ion-icon name="arrow-dropup"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
-</ion-content>
-<app-footer></app-footer>
+  </ion-fab> -->
+<!-- </ion-content>
+<app-footer></app-footer> -->

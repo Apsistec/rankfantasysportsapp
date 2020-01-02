@@ -174,7 +174,9 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { FaqPage } from &#x27;./faq.page&#x27;;
-import { SharedModule } from &#x27;../shared/shared.module&#x27;;
+import { SharedModule } from &#x27;@shared/shared.module&#x27;;
+import { MatExpansionModule } from &#x27;@angular/material&#x27;;
+
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
@@ -187,6 +189,7 @@ const routes: Routes &#x3D; [
   imports: [
     SharedModule,
     CommonModule,
+    MatExpansionModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
@@ -233,6 +236,7 @@ export class FaqPageModule {}
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'FaqPageModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

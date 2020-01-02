@@ -3,6 +3,7 @@ import { AuthService } from '@services/auth.service';
 import { User } from '@models/user';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../popover/popover.component';
+import { Platform } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-header',
@@ -17,12 +18,17 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private popoverController: PopoverController
+    private popoverController: PopoverController,
+    public platform: Platform
   ) {}
 
   ngOnInit() {
     // this.homePage();
   }
+
+  // getPlatformMenu() {
+  //   this.platforms() 
+  // }
 
   // Returns true when user is looged in and email is verified
   get isHomePage(): boolean {

@@ -11,4 +11,4 @@ Firefox ESR
 not dead
 IE 11
 not IE 9-10 # For IE 9-11 support, remove 'not'.
-not ie_mob <= 10
+ie_mob <= 10

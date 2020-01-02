@@ -59,7 +59,7 @@
             <h3>File</h3>
             </p>
             <p class="comment">
-                <code>src/app/core/guard/auth.guard.ts</code>
+                <code>src/app/_guards/auth.guard.ts</code>
             </p>
 
 
@@ -80,7 +80,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#canActivate">canActivate</a>
                             </li>
                         </ul>
@@ -101,12 +100,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, alertController: AlertController)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, message: <a href="../injectables/MessageService.html">MessageService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/guard/auth.guard.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/_guards/auth.guard.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -148,10 +147,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>alertController</td>
+                                                        <td>message</td>
                                                   
                                                         <td>
-                                                                    <code>AlertController</code>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -180,7 +179,6 @@
                     <a name="canActivate"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
                             canActivate
                         </b>
                         <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
@@ -189,16 +187,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
+<code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/core/guard/auth.guard.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/_guards/auth.guard.ts:19</a></div>
                 </td>
             </tr>
 
@@ -247,7 +244,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+                        <b>Returns : </b>    <code>Observable | Promise | boolean | UrlTree</code>
 
                     </div>
                     <div class="io-description">
@@ -263,39 +260,42 @@
 
         <div class="tab-pane fade  tab-source-code" id="c-source">
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from &#x27;@angular/router&#x27;;
-import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
-import { AlertController } from &#x27;@ionic/angular&#x27;;
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from &#x27;@angular/router&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { take, map } from &#x27;rxjs/operators&#x27;;
+import { AuthService } from &#x27;@services/auth.service&#x27;;
+import { MessageService } from &#x27;@services/message.service&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class AuthGuard implements CanActivate {
+
   constructor(
     private auth: AuthService,
     private router: Router,
-    private alertController: AlertController,
-  ) { }
-  async canActivate(
+    private message: MessageService
+  ) {}
+
+  canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Promise &lt;boolean&gt; {
+    state: RouterStateSnapshot
+  ): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
 
-    const uid &#x3D; await this.auth.uid();
-    const isLoggedIn &#x3D; !!uid;
-
-      if (!isLoggedIn) {
-        const loginAlert &#x3D; await this.alertController.create({
-          header: &#x27;Login First&#x27;,
-          subHeader: &#x27;Authenticated Users Only&#x27;,
-          message: &#x27;First, You need to Login or Register an Account in order to access this page&#x27;,
-          buttons: [&#x27;OK&#x27;],
-          cssClass: &#x27;loginAlertCss&#x27;
-        });
-        loginAlert.present();
-        return this.router.navigateByUrl(&#x27;/auth/register&#x27;);
-      } else {
-        return isLoggedIn;
-      }
+    return this.auth.user.pipe(
+      take(1),
+      map(user &#x3D;&gt; {
+        if (!user) {
+          this.message.unauthenticatedAlert();
+          this.router.navigateByUrl(&#x27;/register&#x27;);
+          return false;
+        } else {
+          if (user &amp;&amp; user.uid) {
+            return true;
+          }
+        }
+      })
+    );
   }
 }
 </code></pre>
@@ -329,6 +329,7 @@ export class AuthGuard implements CanActivate {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
             var COMPODOC_CURRENT_PAGE_URL = 'AuthGuard.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
