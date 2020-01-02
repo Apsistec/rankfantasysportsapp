@@ -17,8 +17,6 @@
 // material
 // @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto&display=swap&subset=latin-ext');
 
 // Main styling
 :root
@@ -33,11 +31,9 @@
       linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
     background-color: #131313;
     background-size: 20px 20px;
-    text-shadow: 1px 1px 1px #2b2c31;
-
   }
 
-ion-text{
+ion-text, p {
   text-shadow: 1px 1px 1px #232127;
 }
 
@@ -54,7 +50,6 @@ ul{
 // primary card background color images shadow gradients/gradients for each browser type with fallback gradients and color
 .card-metal{
   background: #33344b;
-  // background-image: radial-gradient(ellipse at center, hsla(273, 61%, 13%, 1) 0%, rgba(38, 60, 63, 1) 100%); /* w3c */
   background: -moz-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* ff3.6+ */
   background: -webkit-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* safari5.1+,chrome10+ */
   background: -o-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* opera 11.10+ */
@@ -72,28 +67,28 @@ ul{
 }
 
 // Toasts each status
-ion-toast.successT{
+.successT{
   --background:  #11b81c;
   --color: #fcf9f6;
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
 }
 
-ion-toast.dangerT{
+.dangerT{
   --background:  rgb(184, 49, 32);
   --color: rgb(251, 251, 255);
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
  }
 
- ion-toast.infoT{
+ .infoT{
   --background:  rgb(87, 107, 131);
   --color: #f6f9fd;
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
 }
 
-ion-toast.warningT{
+.warningT{
   background:  rgb(139, 139, 0);
   --color: rgb(255, 253, 255);
   --button-color: #ff7300;
@@ -107,54 +102,21 @@ ion-toast.warningT{
   }
 
   // Remove scrollbars
-*::-webkit-scrollbar {
-  display: none;
-}
-
-
-
-// * { 
-//   -ms-overflow-style: none; 
+// *::-webkit-scrollbar {
+//   display: none;
 // }
 
-// * {
-//   overflow: -moz-scrollbars-none;
-// }
-
-// * {
-//    overflow: hidden; 
-// }
-
-router:any-link {
+:any-link {
   cursor:auto;
 }
 
-/* Navigation link styles */
-// nav a {
-//   padding: 5px 10px;
-//   text-decoration: none;
-//   margin-top: 10px;
-//   display: inline-block;
-//   background-color: #eee;
-//   border-radius: 4px;
-// }
-// nav a:visited, a:link {
-//   color: #607D8B;
-// }
-// nav a:hover {
-//   color: #039be5;
-//   background-color: #CFD8DC;
-// }
-// nav a.router-link-active {
-//   color: #039be5;
-// }
 
 // Credit Card Logos
 .creditCard{
   filter: drop-shadow(5px 5px 2px #130e14);
 }
 
-// Register Modal CSS
+// Register Modal CSS to show all options in full view
 .app-reg-modal {
   --min-height: 750px;
 }

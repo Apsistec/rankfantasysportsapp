@@ -1,29 +1,29 @@
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { BrowserModule } from '@angular/platform-browser';
-import { environment } from '@environments/environment';
-import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
-import { AngularFirePerformanceModule } from '@angular/fire/performance';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from '@services/interceptor.service';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Firebase } from '@ionic-native/firebase/ngx';
-import { RouteReuseStrategy } from '@angular/router';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirePerformanceModule } from '@angular/fire/performance';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { environment } from '@environments/environment';
+import { Firebase } from '@ionic-native/firebase/ngx';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from '@services/interceptor.service';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
-import { SharedModule } from '@shared/shared.module';
-// import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
-import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SharedModule } from '@shared/shared.module';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+// import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,7 +44,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HttpClientModule,
     BrowserAnimationsModule,
     IonicStorageModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [
     StatusBar,
@@ -56,4 +58,4 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

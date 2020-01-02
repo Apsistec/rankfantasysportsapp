@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../_services/auth.service';
-import { ThemeService } from '../../_services/theme.service';
+import { AuthService } from '@services/auth.service';
+import { ThemeService } from '@services/theme.service';
 import { ModalController } from '@ionic/angular';
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { SettingsComponent } from '../settings/settings.component';
 import { StripeService } from '@services/stripe.service';
 
 const themes = {
@@ -13,7 +14,7 @@ const themes = {
     tertiary: '#9B1B30',
     light: '#F7F7FF',
     medium: '#2A4B7C',
-    dark: '#2A293E',
+    dark: '#2A293E'
   },
   night: {
     primary: '#00539C',
@@ -21,7 +22,7 @@ const themes = {
     tertiary: '#BD3D3A',
     light: '#bcc2c7',
     medium: '#495867',
-    dark: '#34162A',
+    dark: '#34162A'
   },
   neon: {
     primary: '#755139',
@@ -29,7 +30,7 @@ const themes = {
     tertiary: '#E47A2E',
     light: '#F0EAD6',
     medium: '#615550',
-    dark: '#343148',
+    dark: '#343148'
   }
 };
 
@@ -39,7 +40,6 @@ const themes = {
   styleUrls: ['./profile.page.scss']
 })
 export class ProfilePage implements OnInit {
-
   titleId = 'RF$\u2122 User Profile';
 
   // subscriptions;
@@ -49,15 +49,13 @@ export class ProfilePage implements OnInit {
     private modalCtrl: ModalController,
     public auth: AuthService,
     public stripeService: StripeService
-    ) {
-
-    }
+  ) {}
 
   ngOnInit() {
     this.stripeService.getSubscriptions();
   }
 
-   changeTheme(name) {
+  changeTheme(name) {
     this.theme.setTheme(themes[name]);
   }
 
@@ -65,18 +63,24 @@ export class ProfilePage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: CancelSubscriptionComponent
     });
-    return await modal.present();
+    return modal.present();
   }
 
   async presentInvoicesModal() {
     const modal = await this.modalCtrl.create({
       component: InvoicesComponent
     });
-    return await modal.present();
+    return modal.present();
+  }
+  async presentSettingsModal() {
+    const modal = await this.modalCtrl.create({
+      component: SettingsComponent
+    });
+    return modal.present();
   }
 
   async onDismissModal() {
-    return await this.modalCtrl.dismiss();
+    return this.modalCtrl.dismiss();
   }
 
   // Coupons

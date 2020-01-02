@@ -1,4 +1,4 @@
-<ion-menu side="start" content-id="main" type="push">
+<ion-menu side="start" type="push">
   <ion-header>
     <ion-menu-toggle>
       <ion-toolbar color="primary">
@@ -183,14 +183,4 @@
     </ion-footer>
   </ion-menu>
 
-  <!-- Main Body of App -->
-  <app-header [titleId]="titleId"></app-header>
-  <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
-  <ion-router-outlet id="main"></ion-router-outlet>
-  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
-    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
-      <ion-icon name="arrow-dropup"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  </ion-content>
-  <app-footer></app-footer>
+  <ion-router-outlet main></ion-router-outlet>

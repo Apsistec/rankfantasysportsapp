@@ -20,7 +20,7 @@
           <ion-col size="4">
             <ion-img style="width:70px; height:70px; position:relative;" [src]="user.photoURL || '../../assets/img/dummy-user.png'"></ion-img>
           </ion-col>
-          <ion-col class="ion-text-start">            
+          <ion-col class="ion-text-start">
               <ion-card-title>
                 <ion-text color="warning" >
                   <h2>
@@ -28,7 +28,7 @@
                   </h2>
                 </ion-text>
               </ion-card-title>
-              
+
               <ion-card-subtitle>
                 {{ user.role }}
               </ion-card-subtitle>
@@ -43,7 +43,7 @@
 
           </ion-item>
         <ion-card-content>
-        <ion-button strong size="small" shape="round" color="warning" routerLink="/settings">
+        <ion-button strong size="small" shape="round" color="warning" (click)="presentSettingsModal()">
             <ion-text>
             Edit User
           </ion-text>
@@ -53,19 +53,19 @@
 
       </ion-card-content>
     </ion-card>
-    
 
-    <ion-card color="primary" class="ion-text-center ion-padding" > 
+
+    <ion-card color="primary" class="ion-text-center ion-padding" >
       <ion-card-header>
-        <ion-card-title>  
-          
+        <ion-card-title>
+
           <ion-text color="secondary">
             Subscription Details
           </ion-text>
         </ion-card-title>
       </ion-card-header>
       <ion-card-content class="ion-text-start">
-      
+
         <ng-container *ngIf="stripeService.subscriptions | async as subs; else purchase">
           <ion-grid>
             <ion-row class="ion-justify-content-around">
@@ -78,9 +78,9 @@
                   {{ subs.data[0].plan.id | uppercase }}
                  </h3>
             </ion-label>
-  
+
         <ion-label>
-        
+
         <h2 color="secondary">
           Status:
         </h2>
@@ -122,7 +122,7 @@
             {{ subs.data[0].current_period_start * 1000 | date }}
           </h3>
         </ion-label>
-      
+
           <ion-label>
           <h2 color="secondary">
             Billing End:
@@ -136,10 +136,10 @@
           </ion-grid>
 
       </ng-container>
-       
+
       </ion-card-content>
     </ion-card>
-    
+
     <ng-template #purchase>
             <ion-button color="danger" shape="round" size="small" strong routerLink="/purchase">
         <ion-text >
@@ -147,7 +147,7 @@
         </ion-text>
       </ion-button>
     </ng-template>
-    
+
 
 <!-- Admin Dash -->
 <ion-card class="ion-text-center" color="primary" *ngIf="user.role === 'ADMIN'">
@@ -231,13 +231,13 @@
                 <hr>
                 <ion-button size="small" shape="round" color="danger" (click)="presentCancelSubModal()">
                   <ion-text color="white">
-                  Cancel Subscription  
+                  Cancel Subscription
                   </ion-text>
                 </ion-button>
               </ng-container>
               </ion-card-content>
           </ion-card>
- 
+
 
 
 <!-- Theme -->

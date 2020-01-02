@@ -8,8 +8,8 @@ fullscreen
   <ion-grid>
     <ion-row>
       <ion-col size-sm="10" offset-sm="1" size-lg="6" offset-lg="3">
-        <ion-card class="ion-text-center" color="medium">
-          <ion-card-header>
+        <ion-card class="ion-text-start" color="medium">
+          <ion-card-header class="ion-text-center">
             <ion-card-title >
             <ion-text color="secondary">
               RF$&trade; FAQs
@@ -17,7 +17,7 @@ fullscreen
             </ion-card-title>
             <ion-card-subtitle >
             <ion-text color="warning">
-             Click Any FAQ for Responses
+             Responses to our frequently asked questions
               </ion-text>
             </ion-card-subtitle>
           </ion-card-header>
@@ -25,7 +25,7 @@ fullscreen
             <mat-expansion-panel class="cololo" *ngFor="let faq of faqs">
                 <mat-expansion-panel-header  class="ion-text-start colo" collapsedHeight="70px" expandedHeight="70px">
                   <mat-panel-title  >
-                 <ion-text color="dark">{{faq.title}}</ion-text>
+                 <ion-text>{{faq.title}}</ion-text>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <!-- <mat-panel-description>
@@ -33,8 +33,9 @@ fullscreen
                  Copy
                </ion-button>
               </mat-panel-description> -->
-              <ion-text color="dark"> <p style="text-shadow: none;" class="ion-text-start">{{ faq.info }}
-              </p>
+              <ion-text color="deepo" class="ion-wrap">
+                <p>{{ faq.info }}
+                  </p>
             </ion-text>
             </mat-expansion-panel>
           </mat-accordion>

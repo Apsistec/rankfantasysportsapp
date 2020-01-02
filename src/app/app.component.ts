@@ -1,14 +1,12 @@
-import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '@services/auth.service';
-import { Platform, ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent, ModalController, Platform } from '@ionic/angular';
+import { MessageService } from '@services/message.service';
+import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { SwUpdate } from '@angular/service-worker';
-import { MessageService } from '@services/message.service';
-import { IonContent } from '@ionic/angular';
-
+import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +14,13 @@ import { IonContent } from '@ionic/angular';
   // animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit {
-
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
 
   titleId;
 
-  constructor(private swUpdate: SwUpdate,
+  constructor(
+    private swUpdate: SwUpdate,
     public auth: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -33,16 +31,19 @@ export class AppComponent implements OnInit {
     this.initializeApp();
   }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     if (this.swUpdate.isEnabled) {
-        this.swUpdate.available.subscribe((evt) => {
-          this.message.refreshBrowserAlert();
-            console.log('service worker updated');
-        });
-        this.swUpdate.checkForUpdate().then(() => {
-             // noop
-        }).catch((err) => {
-             console.error('error when checking for update', err);
+      this.swUpdate.available.subscribe(evt => {
+        this.message.refreshBrowserAlert();
+        console.log('service worker updated');
+      });
+      this.swUpdate
+        .checkForUpdate()
+        .then(() => {
+          // noop
+        })
+        .catch(err => {
+          console.error('error when checking for update', err);
         });
     }
   }
@@ -51,14 +52,14 @@ export class AppComponent implements OnInit {
     const modal = await this.modalController.create({
       component: TermsDialogComponent
     });
-    return await modal.present();
+    return modal.present();
   }
 
   async showModalPrivacy() {
     const modal = await this.modalController.create({
       component: PrivacyDialogComponent
     });
-    return await modal.present();
+    return modal.present();
   }
 
   initializeApp() {
@@ -69,8 +70,8 @@ export class AppComponent implements OnInit {
   }
 
   onScroll(event) {
-    this.scrolledDown = (event.detail.scrollTop > 200) ? true : false;
-    }
+    this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
+  }
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }

@@ -1,27 +1,29 @@
 import { AuthService } from '@services/auth.service';
-import { Directive, TemplateRef, ViewContainerRef, OnInit, Input, OnDestroy } from '@angular/core';
+import {  Directive,  Input,  OnDestroy,  OnInit,  TemplateRef,  ViewContainerRef,
+  } from '@angular/core';
 
 @Directive({
-  selector: '[appHasPermission]'
+  selector: '[appHasPermission]',
 })
 export class HasPermissionDirective implements OnInit, OnDestroy {
-
   @Input('appHasPermission') permissions: string[];
 
-  constructor(private auth: AuthService,
+  constructor(
+    private auth: AuthService,
     private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef) { }
+    private viewContainer: ViewContainerRef
+  ) {}
 
-    ngOnInit() {
-      this.auth.currentUser.subscribe( user => {
-        if (this.auth.hasPermissions(this.permissions)) {
-          this.viewContainer.createEmbeddedView(this.templateRef);
-        } else {
-          this.viewContainer.clear();
-        }
-      });
-    }
-    ngOnDestroy() {
-      this.auth.currentUser.unsubscribe();
-    }
+  ngOnInit() {
+    this.auth.currentUser.subscribe(user => {
+      if (this.auth.hasPermissions(this.permissions)) {
+        this.viewContainer.createEmbeddedView(this.templateRef);
+      } else {
+        this.viewContainer.clear();
+      }
+    });
+  }
+  ngOnDestroy() {
+    this.auth.currentUser.unsubscribe();
+  }
 }

@@ -8,10 +8,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss']
 })
-export class SettingsPage implements  OnInit {
+export class SettingsComponent implements OnInit {
   @Input()
   user;
   subscription;
@@ -24,10 +24,9 @@ export class SettingsPage implements  OnInit {
     private auth: AuthService,
     private modalCtrl: ModalController,
     public router: Router
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ionViewWillEnter() {
     this.user = this.getUserInformation();
@@ -44,25 +43,30 @@ export class SettingsPage implements  OnInit {
     await toast.present();
     return this.router.navigateByUrl('/auth/profile');
   }
-  async getUserInformation() {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges();
+  getUserInformation() {
+    this.afs
+      .doc(`users/${this.afAuth.auth.currentUser.uid}`)
+      .valueChanges();
   }
 
-  async updateUser (displayName) {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
-    .update({displayName: displayName});
+  async updateUser(displayName) {
+    await this.afs
+      .doc(`users/${this.afAuth.auth.currentUser.uid}`)
+      .update({ displayName: displayName });
     this.updateToast();
   }
 
-  async updateEmail (email) {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
-    .update({email: email});
+  async updateEmail(email) {
+    await this.afs
+      .doc(`users/${this.afAuth.auth.currentUser.uid}`)
+      .update({ email: email });
     this.updateToast();
   }
 
-  async updateUserPhoto (photoURL) {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
-    .update({photoURL: photoURL});
+  async updateUserPhoto(photoURL) {
+    await this.afs
+      .doc(`users/${this.afAuth.auth.currentUser.uid}`)
+      .update({ photoURL: photoURL });
     this.updateToast();
   }
 
