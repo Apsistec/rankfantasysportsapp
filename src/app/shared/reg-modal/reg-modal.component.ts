@@ -13,33 +13,7 @@ import { Router } from '@angular/router';
 export class RegModalComponent implements OnInit {
   @Input() user;
   hide = true;
-
-  registerForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
-        Validators.maxLength(25)
-      ]
-    ],
-    firstName: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
-      ]
-    ],
-    lastName: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
-      ]
-    ]
-  });
+  registerForm;
 
   constructor(
     public auth: AuthService,
@@ -50,7 +24,35 @@ export class RegModalComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+          Validators.maxLength(25)
+        ]
+      ],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
+        ]
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
+        ]
+      ]
+    });
+
+  }
 
   async loadLoader() {
     const loading = await this.loadingCtrl.create({
