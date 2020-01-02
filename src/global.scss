@@ -14,8 +14,13 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 
-// material
-// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/*
+ * App CSS
+ * ----------------------------------------------------------------------------
+ * Imports a file that can contain Sass/CSS that should be used throughout
+ * the entire app.
+ */
+@import "./app/app.scss";
 
 
 // Main styling

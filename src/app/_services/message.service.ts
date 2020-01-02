@@ -1,9 +1,5 @@
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
-import {
-  AlertController,
-  ToastController,
-  NavController
-} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -194,7 +190,7 @@ export class MessageService {
       buttons: ['OK'],
       translucent: true
     });
-    await await alert.present();
+    await alert.present();
   }
 
   async resetPasswordAlert() {
@@ -205,7 +201,7 @@ export class MessageService {
       translucent: true,
       buttons: ['OK']
     });
-    await await alert.present();
+    await alert.present();
   }
 
   async repurchaseAlert() {
