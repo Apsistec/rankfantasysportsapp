@@ -1,7 +1,7 @@
 import { AuthService } from '@services/auth.service';
 import { MessageService } from '@services/message.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -66,7 +66,7 @@ export class RegModalComponent implements OnInit {
   }
 
   register() {
-    this.auth.SignUp(this.registerForm.value)
+    this.auth.SignUp(this.registerForm.value);
     this.registerForm.reset();
     this.modalDismiss();
     this.message.registerSuccessToast();
