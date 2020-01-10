@@ -1,9 +1,10 @@
 import { AuthService } from '@services/auth.service';
-import { MessageService } from '@services/message.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { LoadingController, ModalController } from '@ionic/angular';
+import { MessageService } from '@services/message.service';
+import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { SpinnerService } from '@services/spinner.service';
 
 @Component({
   selector: 'app-reg-modal',
@@ -11,17 +12,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./reg-modal.component.scss']
 })
 export class RegModalComponent implements OnInit {
-  @Input() user;
+  titleId = 'RF$\u2122 Signup';
   hide = true;
   registerForm;
 
   constructor(
     public auth: AuthService,
-    private message: MessageService,
     private router: Router,
-    private loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private spinner: SpinnerService,
+    private message: MessageService
   ) {}
 
   ngOnInit() {
@@ -40,47 +41,35 @@ export class RegModalComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
+          Validators.maxLength(25)
         ]
       ],
       lastName: [
         '',
         [
           Validators.required,
-          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$')
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
+          Validators.maxLength(25)
         ]
       ]
     });
-
   }
 
-  async loadLoader() {
-    const loading = await this.loadingCtrl.create({
-      message: 'Loading... Please wait'
+  async register() {
+    this.spinner.loadSpinner();
+    this.auth.SignUp(this.registerForm.value).then(async res => {
+      await this.spinner.dismissSpinner();
+      this.message.registerSuccessToast(res);
+      this.router.navigateByUrl('/purchase');
+    }, async err => {
+      await this.spinner.dismissSpinner();
+      this.message.errorAlert(err.message);
     });
-    await loading.present();
-  }
-
-  async dismissLoader() {
-    await this.loadingCtrl.dismiss();
-  }
-
-  register() {
-    this.auth.SignUp(this.registerForm.value);
-    this.registerForm.reset();
-    this.modalDismiss();
-    this.message.registerSuccessToast();
-    this.router.navigateByUrl('/purchase');
   }
 
   gotoLogin() {
-    this.modalDismiss();
-    this.router.navigateByUrl('/login');
-  }
-
-  modalDismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
     this.modalCtrl.dismiss();
+    this.router.navigateByUrl('/login');
   }
 }

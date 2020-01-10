@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '@services/auth.service';
-import { User } from '@models/user';
+import { Component, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../popover/popover.component';
-import { Platform } from '@ionic/angular'; 
+import { User } from '@models/user';
+
 
 @Component({
   selector: 'app-header',
@@ -19,18 +19,14 @@ export class HeaderComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private popoverController: PopoverController,
-    public platform: Platform
   ) {}
 
   ngOnInit() {
-    // this.homePage();
   }
 
-  // getPlatformMenu() {
-  //   this.platforms() 
-  // }
 
-  // Returns true when user is looged in and email is verified
+
+  // Returns true when user is looged in and home page is verified
   get isHomePage(): boolean {
     return this.titleId === 'RF$\u2122 Home' ? true : false;
   }
@@ -42,6 +38,6 @@ export class HeaderComponent implements OnInit {
       translucent: true,
       cssClass: 'popoverUser'
     });
-    return await popover.present();
+    return popover.present();
   }
 }

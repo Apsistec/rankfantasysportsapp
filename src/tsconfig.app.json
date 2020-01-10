@@ -1,8 +1,31 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "outDir": "../out-tsc/app",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "module": "es2015",
+    "types": [
+      "moment",
+      "jquery"
+    ],
+    "paths": {
+      "jszip": [
+        "../node_modules/jszip/dist/jszip.min.js"
+      ]
+    }
   },
-  "exclude": ["test.ts", "**/*.spec.ts"]
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "paths": {
+    "@services/*": ["app/_services/*"],
+    "@guards/*": ["app/_guards/*"],
+    "@directives/*": ["app/_directives/*"],
+    "@models/*": ["app/_models/*"],
+    "@helpers/*": ["app/_helpers/*"],
+    "@environments/*": ["./environments/*"],
+    "@shared/*": ["app/shared/*"]
+  }
 }

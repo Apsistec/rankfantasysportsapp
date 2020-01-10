@@ -1,0 +1,16 @@
+.center-content{
+  position: relative;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3{
+  line-height: 1;
+  font-size: 2em;
+  // margin-bottom: 1;
+  font-variant: small-caps;
+  font-weight: 800;
+  font-stretch:semi-condensed;
+}

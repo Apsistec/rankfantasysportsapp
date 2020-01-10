@@ -1,4 +1,8 @@
-import { AlertController, NavController, ToastController } from '@ionic/angular';
+import {
+  AlertController,
+  NavController,
+  ToastController
+} from '@ionic/angular';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -14,10 +18,11 @@ export class MessageService {
   ) {}
 
   // Toasts
-  async registerSuccessToast() {
+  async registerSuccessToast(user) {
     const toast = await this.toastCtrl.create({
       header: 'Registration Successful',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Thank You for registering',
+      message:
+        '<ion-icon name="flag"  slot="start"></ion-icon> Thank You ' + user.displayName + '! You are now Registered',
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,
@@ -28,24 +33,10 @@ export class MessageService {
     return toast.present();
   }
 
-  async userNotExistToast(error) {
-    const toast = await this.toastCtrl.create({
-      header: 'Account does not exist',
-      message: error.message,
-      cssClass: 'dangerT',
-      position: 'top',
-      keyboardClose: true,
-      duration: 4000,
-      showCloseButton: true,
-      translucent: true
-    });
-    return toast.present();
-  }
-
-  async isLoggedInToast() {
+  async isLoggedInToast(user) {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Welcome Back',
+      message: '<ion-icon name="flag"  slot="start"></ion-icon> Welcome Back ' + user.displayName + '!',
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,
@@ -60,10 +51,7 @@ export class MessageService {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Welcome back ' +
-        data.user.displayName +
-        '\n Email: ' +
-        data.user.email,
+        '<ion-icon name="flag"  slot="start"></ion-icon> Welcome back ' + data.user.displayName + '!',
       cssClass: 'successT',
       position: 'top',
       duration: 4000,
@@ -78,7 +66,8 @@ export class MessageService {
     const toast = await this.toastCtrl.create({
       header: 'Sign Out Successful',
       cssClass: 'successT',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Thank You for Stopping By!',
+      message:
+        '<ion-icon name="flag"  slot="start"></ion-icon> Thank You for Stopping By!',
       position: 'top',
       duration: 4000,
       showCloseButton: true,
@@ -87,27 +76,11 @@ export class MessageService {
     await toast.present();
   }
 
-  async updateAlert() {
-    const alert = await this.alertCtrl.create({
-      header: 'App update notification ',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon>  There is a new version of the app, please refresh the page.. ',
-      cssClass: 'infoT',
-      buttons: [
-        {
-          text: ' Update ',
-          handler: () => {
-            location.reload();
-            return true;
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
-
   async updateNameToast() {
     const toast = await this.toastCtrl.create({
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Your name was updated',
+      header: 'Update Successful',
+      message:
+        '<ion-icon name="flag"  slot="start"></ion-icon> User info was updated',
       duration: 4000,
       position: 'top',
       cssClass: 'successT',
@@ -118,9 +91,10 @@ export class MessageService {
 
   async subscribedToast() {
     const toast = await this.toastCtrl.create({
-      header: 'Authentication Message:',
+      header: 'Payment Successful',
       cssClass: 'successT',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Thank You for your payment. You are subscribed!',
+      message:
+        '<ion-icon name="flag"  slot="start"></ion-icon> You are subscribed! Thank You!',
       position: 'top',
       duration: 4000,
       showCloseButton: true,
@@ -131,9 +105,10 @@ export class MessageService {
 
   async alreadySubscribedToast() {
     const toast = await this.toastCtrl.create({
-      header: 'Redirect Message:',
+      header: 'Invalid Request',
       cssClass: 'infoT',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> You are already a Subscriber',
+      message:
+        '<ion-icon name="flag"  slot="start"></ion-icon> You are already Subscribed',
       position: 'top',
       duration: 3000,
       showCloseButton: true,
@@ -142,37 +117,36 @@ export class MessageService {
     await toast.present();
   }
 
-  async editEnabledToast() {
-    const toast = await this.toastCtrl.create({
-      header: 'Edit is Enabled',
-      cssClass: 'successT',
-      message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Edit your name and/or email address, within the respective fields. When you are done, press the submit button. You will receive a confirmation if successful',
-      position: 'top',
-      showCloseButton: true,
-      translucent: true
-    });
-    await toast.present();
-  }
-
   //  Alerts
-  async needLoginAlert() {
+  async noExistFederatedUserAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'Access Denied',
-      subHeader: 'Account Required:',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> To get started, first REGISTER an account or LOGIN',
-      buttons: ['OK'],
-      translucent: true
+      header: 'Error Occurred',
+      subHeader: 'That email address is not in our system',
+      translucent: true,
+      message: 'Try another account. If you continue to have trouble, \n open a trouble ticket and we will assist you',
+      buttons: ['OK']
     });
     await alert.present();
   }
 
+  async unauthenticatedAlert() {
+    const loginAlert = await this.alertCtrl.create({
+      header: 'Authentication Required',
+      subHeader: 'Login or Register',
+      translucent: true,
+      message:
+        'You will need to Login or Register an account for access',
+      buttons: ['OK']
+    });
+    await loginAlert.present();
+  }
+
   async needPaymentAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'Access Denied',
-      subHeader: 'Subscription Required:',
+      header: 'Members Area Only',
+      subHeader: 'Paid PRO Package Required',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Immediate access is available after purchasing any RF$ports PRO Package',
+        'Purchase any RF$ports PRO Package for immediate access',
       buttons: ['OK'],
       translucent: true
     });
@@ -181,12 +155,10 @@ export class MessageService {
 
   async verifyEmailAlert(data: any) {
     const alert = await this.alertCtrl.create({
-      header: 'Account Verification',
-      subHeader: 'Verification Email Sent:',
+      header: 'Request Successful',
+      subHeader: 'Verification Email Sent',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Check Your email, ' +
-        data.user.email +
-        ', for a link to VERIFY the email for your account',
+        'Check your ' + data.user.email + ' email for further instructions',
       buttons: ['OK'],
       translucent: true
     });
@@ -196,8 +168,8 @@ export class MessageService {
   async resetPasswordAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Request Successful',
-      subHeader: 'Password Reset Request Sent:',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Check your email for a link to RESET your password',
+      subHeader: 'Password Reset Request Sent',
+      message: 'Check your email for a link to RESET your password',
       translucent: true,
       buttons: ['OK']
     });
@@ -206,8 +178,8 @@ export class MessageService {
 
   async repurchaseAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'Purchase Already Made',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> You are already a subscriber',
+      header: 'Invalid Request',
+      message: 'You are already Subscribed',
       translucent: true,
       buttons: ['OK']
     });
@@ -216,9 +188,9 @@ export class MessageService {
 
   async internalBlockPageAlert() {
     const internalBlock = await this.alertCtrl.create({
-      header: 'Unauthorized Access',
-      subHeader: 'Irrelevant Area:',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Your account does not have access to this area',
+      header: 'Invalid Request',
+      subHeader: 'You are already Signed In',
+      message: 'Your account does not have access to this area',
       translucent: true,
       buttons: ['OK']
     });
@@ -227,9 +199,11 @@ export class MessageService {
 
   async unsubscribedAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'Account Cancellation Message',
+      header: 'Cancellation Successful',
+      subHeader: 'Your account has been cancelled',
+      translucent: true,
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> We are sorry to see you go, but your account has been canceled.',
+        'Your account has been terminated, effective immediately. Thank you for giving us a try!.',
       buttons: ['OK']
     });
     await alert.present();
@@ -237,61 +211,26 @@ export class MessageService {
 
   async errorAlert(err: any) {
     const alert = await this.alertCtrl.create({
-      header: 'Error',
-      message: err.message,
+      header: 'Error Occurred',
+      subHeader: 'err.message',
+      translucent: true,
+      cssClass: 'errStyle',
+      message: 'If errors continue to occur, please create a support ticket so we can help',
       buttons: ['OK']
-    });
-    await alert.present();
-  }
-
-  async wrongAccountAlert() {
-    const alert = await this.alertCtrl.create({
-      header:
-        'The email address tied to your social account is not in our system.',
-      message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Please login using the correct email/social account, or you can register a new RF$ account using this email/social account.',
-      buttons: ['OK']
-    });
-    await alert.present();
-  }
-
-  async unauthenticatedAlert() {
-    const loginAlert = await this.alertCtrl.create({
-      header: 'Login First',
-      subHeader: 'Authenticated Users Only',
-      message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> You need to login or register an account before you can access this area',
-      buttons: ['OK']
-    });
-    await loginAlert.present();
-  }
-
-  async refreshBrowserAlert() {
-    const alert = await this.alertCtrl.create({
-      header: 'Software Update',
-      subHeader: 'A New Version Exists',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Please Refresh Your Browser to Update to the New Version',
-      buttons: [
-        {
-          text: 'Ok',
-          handler: () => {
-            location.reload();
-            return false;
-          }
-        }
-      ]
     });
     await alert.present();
   }
 
   async saveOrCancel() {
     const alert = await this.alertCtrl.create({
-      header: 'Your Changes Are Not Saved',
-      message: 'If you leave without saving, your selection will be lost?',
+      header: 'Are You Sure?',
+      subHeader: 'Changes were NOT saved',
+      translucent: true,
+      message: 'Press Save to resume editing or press OK to close',
       backdropDismiss: false,
       buttons: [
         {
-          text: 'Cancel',
+          text: 'OK',
           role: 'cancel',
           handler: cancel => {
             this.Choice = cancel.Choice;
@@ -307,4 +246,22 @@ export class MessageService {
     });
     await alert.present();
   }
+
+  // async updateAlert() {
+  //   const alert = await this.alertCtrl.create({
+  //     header: 'App update notification ',
+  //     message: '<ion-icon name="flag"  slot="start"></ion-icon>  There is a new version of the app, please refresh the page.. ',
+  //     cssClass: 'infoT',
+  //     buttons: [
+  //       {
+  //         text: ' Update ',
+  //         handler: () => {
+  //           location.reload();
+  //           return true;
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   await alert.present();
+  // }
 }

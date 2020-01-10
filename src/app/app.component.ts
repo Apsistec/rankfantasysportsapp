@@ -1,7 +1,6 @@
 import { AuthService } from '@services/auth.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent, ModalController, Platform } from '@ionic/angular';
-import { MessageService } from '@services/message.service';
+import { IonContent, ModalController, Platform, ToastController } from '@ionic/angular';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -14,9 +13,9 @@ import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.componen
   // animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit {
+
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
-
   titleId;
 
   constructor(
@@ -26,26 +25,27 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private modalController: ModalController,
     private statusBar: StatusBar,
-    private message: MessageService
+    private toastCtrl: ToastController
   ) {
     this.initializeApp();
   }
 
   ngOnInit(): void {
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.available.subscribe(evt => {
-        this.message.refreshBrowserAlert();
-        console.log('service worker updated');
+    this.swUpdate.available.subscribe(async res => {
+      const toast = await this.toastCtrl.create({
+        message: 'Update available!',
+        showCloseButton: true,
+        position: 'bottom',
+        closeButtonText: `Reload`
       });
-      this.swUpdate
-        .checkForUpdate()
-        .then(() => {
-          // noop
-        })
-        .catch(err => {
-          console.error('error when checking for update', err);
-        });
-    }
+
+      await toast.present();
+
+      toast
+        .onDidDismiss()
+        .then(() => this.swUpdate.activateUpdate())
+        .then(() => window.location.reload());
+    });
   }
 
   async showModalTerms() {

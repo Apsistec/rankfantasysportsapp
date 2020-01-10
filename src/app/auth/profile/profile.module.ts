@@ -1,4 +1,3 @@
-import { AuthGuard } from '@guards/auth.guard';
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,9 +13,7 @@ import { SportsCategoriesPageModule } from '../../sports-categories/sports-categ
 const routes: Routes = [
   {
     path: '',
-    component: ProfilePage,
-    canActivate: [AuthGuard]
-  }
+    component: ProfilePage }
 ];
 
 @NgModule({

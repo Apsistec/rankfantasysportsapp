@@ -1,11 +1,16 @@
 import { AuthService } from '@services/auth.service';
-import {  Directive,  Input,  OnDestroy,  OnInit,  TemplateRef,  ViewContainerRef,
-  } from '@angular/core';
+import {
+  Directive,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 
 @Directive({
-  selector: '[appHasPermission]',
+  selector: '[appHasPermission]'
 })
-export class HasPermissionDirective implements OnInit, OnDestroy {
+export class HasPermissionDirective implements OnInit {
   @Input('appHasPermission') permissions: string[];
 
   constructor(
@@ -22,8 +27,5 @@ export class HasPermissionDirective implements OnInit, OnDestroy {
         this.viewContainer.clear();
       }
     });
-  }
-  ngOnDestroy() {
-    this.auth.currentUser.unsubscribe();
   }
 }

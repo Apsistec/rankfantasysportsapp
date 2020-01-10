@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { AuthService } from '@services/auth.service';
-import { ToastController, ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from '@services/auth.service';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ModalController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+// tslint:disable: object-literal-shorthand
 
 @Component({
   selector: 'app-settings',
@@ -16,7 +17,8 @@ export class SettingsComponent implements OnInit {
   user;
   subscription;
   titleId = 'Profile Settings';
-
+  unsavedChanges;
+  
   constructor(
     public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -34,7 +36,7 @@ export class SettingsComponent implements OnInit {
 
   async updateToast() {
     const toast = await this.toastCtrl.create({
-      message: 'Your name was updated.',
+      message: 'Your info was updated.',
       duration: 5000,
       position: 'top',
       cssClass: 'successT',
@@ -44,9 +46,7 @@ export class SettingsComponent implements OnInit {
     return this.router.navigateByUrl('/auth/profile');
   }
   getUserInformation() {
-    this.afs
-      .doc(`users/${this.afAuth.auth.currentUser.uid}`)
-      .valueChanges();
+    this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges();
   }
 
   async updateUser(displayName) {
@@ -88,5 +88,9 @@ export class SettingsComponent implements OnInit {
   linkMicrosoft() {
     const provider = new firebase.auth.OAuthProvider('microsoft.com');
     firebase.auth().currentUser.linkWithPopup(provider);
+  }
+
+  closeModal() {
+    this.modalCtrl.dismiss();
   }
 }

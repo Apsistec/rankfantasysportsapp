@@ -1,8 +1,10 @@
 import { AuthService } from '@services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { SpinnerService } from '@services/spinner.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,9 @@ export class RegisterPage implements OnInit {
     public auth: AuthService,
     private router: Router,
     public modalCtrl: ModalController,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private spinner: SpinnerService,
+    private message: MessageService
   ) {}
 
   ngOnInit() {
@@ -52,16 +56,15 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  register() {
-    this.auth.SignUp(this.registerForm.value);
+  async register() {
+    this.spinner.loadSpinner();
+    this.auth.SignUp(this.registerForm.value).then(async res => {
+      await this.spinner.dismissSpinner();
+      this.message.registerSuccessToast(res);
+      this.router.navigateByUrl('/purchase');
+    }, async err => {
+      await this.spinner.dismissSpinner();
+      this.message.errorAlert(err.message);
+    });
   }
-
-  gotoLogin() {
-    this.router.navigateByUrl('/login');
-  }
-
-  // modalDismiss() {
-  //   // using the injected ModalController this page
-  //   // can "dismiss" itself and optionally pass back data
-  //   this.modalCtrl.dismiss();
 }

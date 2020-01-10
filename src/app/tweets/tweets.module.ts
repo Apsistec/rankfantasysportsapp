@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-
 import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { TweetsPage } from './tweets.page';
+
 
 const routes: Routes = [
   {

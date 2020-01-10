@@ -19,9 +19,9 @@ export class TweetsPage {
   }
   onScroll(event) {
     if (event.detail.scrollTop > 200) {
-      this.scrolledDown = true;
+      return this.scrolledDown;
     } else {
-      this.scrolledDown = false;
+      return !this.scrolledDown;
     }
   }
 }

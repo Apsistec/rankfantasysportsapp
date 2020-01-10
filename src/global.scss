@@ -14,28 +14,25 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 
-/*
- * App CSS
- * ----------------------------------------------------------------------------
- * Imports a file that can contain Sass/CSS that should be used throughout
- * the entire app.
- */
-@import "./app/app.scss";
+// @import "scss/fontawesome.scss";
+@import "scss/solid.scss";
 
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+
+/* for example, let's change the mouse hover color */
+$cell-odd-background-color: lightyellow;
+$row-mouse-hover-color: lightgreen;
+
+/* make sure to add the @import the SlickGrid Bootstrap Theme AFTER the variables changes */
+// @import '../node_modules/angular-slickgrid/styles/sass/slickgrid-theme-bootstrap.scss';
 
 // Main styling
 :root
-  ion-content{
+ion-content{
     --ion-background-color: none;
-    background:
-      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-    background-color: #131313;
-    background-size: 20px 20px;
+    background: rgb(91,91,91);
+    background: linear-gradient(180deg, rgba(91,91,91,1) 0%, rgba(228,228,228,1) 35%, rgba(17,17,17,1) 100%);
   }
 
 ion-text, p {
@@ -43,7 +40,7 @@ ion-text, p {
 }
 
 ion-icon{
-  filter: drop-shadow(3px 3px 4px #6b3f80);
+  filter:  drop-shadow(1px 1px 2px rgb(44, 37, 61));
 }
 
 ul{
@@ -84,9 +81,9 @@ ul{
   --color: rgb(251, 251, 255);
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
- }
+}
 
- .infoT{
+.infoT{
   --background:  rgb(87, 107, 131);
   --color: #f6f9fd;
   --button-color: #ff7300;
@@ -104,15 +101,15 @@ ul{
 // Text selection background
 *::selection{
   background-color: #5f00ad;
-  }
+}
 
-  // Remove scrollbars
+// Remove scrollbars
 // *::-webkit-scrollbar {
-//   display: none;
-// }
+  //   display: none;
+  // }
 
-:any-link {
-  cursor:auto;
+  a, link {
+  cursor:pointer;
 }
 
 
@@ -125,3 +122,75 @@ ul{
 .app-reg-modal {
   --min-height: 750px;
 }
+
+
+.center-heading{
+  font-size:20px;
+  font-variant: small-caps;
+  font-weight: 800;
+  font-stretch:semi-condensed;
+}
+
+
+
+/* You can add global styles to this file, and also import other style files */
+.italic {
+  font-style: italic;
+}
+.subtitle {
+  font-size: 16px;
+  font-style: italic;
+  color: grey;
+  margin-bottom: 10px;
+}
+.lightblue {
+  color: lightblue;
+}
+.red {
+  color: red;
+}
+.faded {
+    opacity: 0.2;
+  }
+  .faded:hover {
+    opacity: 0.5;
+  }
+  .pointer {
+  cursor: pointer !important;
+}
+.padding10 {
+  padding: 10px !important;
+}
+.text-danger {
+  color: red !important;
+}
+
+
+.errStyle{
+  color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * App CSS
+ * ----------------------------------------------------------------------------
+ * Imports a file that can contain Sass/CSS that should be used throughout
+ * the entire app.
+ */
+@import "./app/app.scss";

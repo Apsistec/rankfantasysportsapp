@@ -20,14 +20,14 @@
       "es2018",
       "dom"
     ],
-    "paths": {
-      "@services/*": ["app/_services/*"],
-      "@guards/*": ["app/_guards/*"],
-      "@directives/*": ["app/_directives/*"],
-      "@models/*": ["app/_models/*"],
-      "@helpers/*": ["app/_helpers/*"],
-      "@environments/*": ["./environments/*"],
-      "@shared/*": ["app/shared/*"]
-    }
+    // "paths": {
+    //   "@services/*": ["app/_services/*"],
+    //   "@guards/*": ["app/_guards/*"],
+    //   "@directives/*": ["app/_directives/*"],
+    //   "@models/*": ["app/_models/*"],
+    //   "@helpers/*": ["app/_helpers/*"],
+    //   "@environments/*": ["./environments/*"],
+    //   "@shared/*": ["app/shared/*"]
+    // }
   }
  }

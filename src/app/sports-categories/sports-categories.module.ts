@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// import { DialogBoxComponent } from 'app/dialog-box/dialog-box.component';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
 import { IonicModule } from '@ionic/angular';
-import { SportsCategoriesPage } from './sports-categories.page';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '@shared/shared.module';
 import { SportsCategoriesDetailComponent } from './sports-categories-detail/sports-categories-detail.component';
+import { SportsCategoriesPage } from './sports-categories.page';
 import { SportsTablesComponent } from './sports-tables/sports-tables.component';
 
 const sportsRoutes: Routes = [
@@ -27,8 +28,14 @@ const sportsRoutes: Routes = [
   declarations: [
     SportsCategoriesDetailComponent,
     SportsTablesComponent,
-    SportsCategoriesPage
+    SportsCategoriesPage,
+
   ],
-  exports: [RouterModule]
+  entryComponents: [
+    // DialogBoxComponent,
+  ],
+  exports: [
+    RouterModule,
+  ]
 })
 export class SportsCategoriesPageModule {}

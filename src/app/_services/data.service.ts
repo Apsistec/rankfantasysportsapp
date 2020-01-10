@@ -1,22 +1,20 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { pipe, range, timer, zip } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { retryWhen, map, mergeMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map, mergeMap, retryWhen } from 'rxjs/operators';
+import { pipe, range, timer, zip } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  private REST_API_SERVER = 'http://localhost:3000';
 
-  private REST_API_SERVER = "http://localhost:3000";
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-  public sendGetRequest(){
+  sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER);
   }
-  
 
   // function backoff(maxTries, ms) {
   //   return pipe(
@@ -28,11 +26,11 @@ export class DataService {
   //     )
   //   );
   //  }
-   
+
   //  ajax('/api/endpoint')
   //    .pipe(backoff(3, 250))
   //    .subscribe(data => handleData(data));
-   
+
   //  function handleData(data) {
   //    // ...
   //  }

@@ -28,9 +28,9 @@
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
-// if (document['documentMode'] || /Edge/.test(navigator.userAgent)) {
-//     (window as any).__Zone_enable_cross_context_check = true;
-// }
+if (document['documentMode'] || /Edge/.test(navigator.userAgent)) {
+    (window as any).__Zone_enable_cross_context_check = true;
+}
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.

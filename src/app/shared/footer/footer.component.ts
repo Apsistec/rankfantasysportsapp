@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-footer',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
+  @Input() titleId;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
 
+  }
+
+  // Returns true when user is looged in and home page is verified
+  get isHomePage(): boolean {
+    return this.titleId === 'RF$\u2122 Home' ? true : false;
+  }
 }

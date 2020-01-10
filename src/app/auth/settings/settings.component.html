@@ -1,4 +1,3 @@
-<app-header [titleId]= "titleId"></app-header>
 
 <ion-content>
   <ion-grid>
@@ -46,36 +45,51 @@
                   <br>
                   <ion-button size="small" (click)="updateEmail()" color="warning" shape="round">Submit Email</ion-button>
 
-                  <!-- <ion-item>
-                    <ion-button color="warning" shape="round" size="small" >Take Photo</ion-button>
+                </ion-list>
 
-
-                  </ion-item> -->
+                  <ion-list>
+                    <ion-list-header>
+                      <ion-title>
+                        <ion-text color="secondary">
+                          Link Your Social Media Accounts
+                        </ion-text>
+                      </ion-title>
+                      <h5>
+                        <ion-text color="warning">
+                         You can use any linked account to login 
+                        </ion-text>
+                      </h5>
+                    </ion-list-header>
                   <ion-item>
                     <ion-button color="danger" size="small" shape="round" (click)=linkGoogle()>
                       Link Your Google Account
-                    </ion-button> Work In Progress
+                    </ion-button>
                   </ion-item>
                   <ion-item>
                     <ion-button color="twittr" size="small" shape="round" (click)=linkTwitter()>
                       Link Your Twitter Account
-                    </ion-button>Work In Progress
+                    </ion-button>
                   </ion-item>
                   <ion-item>
                     <ion-button color="facebk" size="small" shape="round" (click)=linkFacebook()>
                       Link Your Facebook Account
-                    </ion-button>Work In Progress
+                    </ion-button>
                   </ion-item>
-                  <ion-item>
+                  <!-- <ion-item>
                     <ion-button color="msoft" size="small" shape="round" (click)=linkMicrosoft()>
                       Link Your Microsoft Account
                     </ion-button>Work In Progress
-                  </ion-item>
+                  </ion-item> -->
                 </ion-list>
+                <ion-button (click)="closeModal()">
+                  <ion-text>
+                    Close
+                  </ion-text>
+                </ion-button>
               </ion-card-content>
             </ion-card>
           </ion-col>
           </ion-row>
         </ion-grid>
+        
       </ion-content>
-      <app-footer></app-footer>

@@ -1,23 +1,23 @@
-import { SharedDirectivesModule } from '@directives/shared-directives.module';
-import { TicketComponent } from './tickets/ticket.component';
-import { NgModule } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { RouterModule } from '@angular/router';
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-import { RegModalComponent } from './reg-modal/reg-modal.component';
-import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
-import { PopoverComponent } from './popover/popover.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { NowComponent } from '../sports-categories/now/now.component';
-import { NflComponent } from '../sports-categories/nfl/nfl.component';
 import { CfbComponent } from '../sports-categories/cfb/cfb.component';
-import { PgaComponent } from '../sports-categories/pga/pga.component';
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { IonicModule } from '@ionic/angular';
 import { NbaComponent } from '../sports-categories/nba/nba.component';
+import { NflComponent } from '../sports-categories/nfl/nfl.component';
+import { NgModule } from '@angular/core';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+import { NowComponent } from '../sports-categories/now/now.component';
+import { PgaComponent } from '../sports-categories/pga/pga.component';
+import { PopoverComponent } from './popover/popover.component';
+import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
+import { RegModalComponent } from './reg-modal/reg-modal.component';
+import { RouterModule } from '@angular/router';
+import { SharedDirectivesModule } from '@directives/shared-directives.module';
 import { TennisComponent } from '../sports-categories/tennis/tennis.component';
+import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
+import { TicketComponent } from './tickets/ticket.component';
 
 @NgModule({
   declarations: [

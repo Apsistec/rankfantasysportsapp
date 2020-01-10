@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SpinnerService } from './spinner.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class StripeService {
     private auth: AuthService,
     private functions: AngularFireFunctions,
     private message: MessageService,
-    private router: Router
+    private router: Router,
+    private spinner: SpinnerService
   ) {}
 
   async subscribeUser(source, planId) {
@@ -37,7 +39,7 @@ export class StripeService {
   }
 
   async cancelSubscription() {
-    this.auth.loadSpinner();
+    this.spinner.loadSpinner();
     const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeCancelSubscription');
     this.confirmation = await fun({
@@ -46,12 +48,12 @@ export class StripeService {
     })
       .toPromise()
       .then(() => {
-        this.auth.dismissSpinner();
+        this.spinner.dismissSpinner();
         this.message.unsubscribedAlert();
         this.router.navigate(['/home']);
       })
       .catch(error => {
-        this.auth.dismissSpinner();
+        this.spinner.dismissSpinner();
         this.message.errorAlert(error.message);
       });
   }

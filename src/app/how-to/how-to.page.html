@@ -1,21 +1,26 @@
 <app-header [titleId]="titleId"></app-header>
 
-<ion-content class="howto">
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-col size-sm="12" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="6" offset-xl="3">
-        <ion-card class="ion-text-left">
+        <ion-card class="ion-text-left" color="medium">
           <ion-card-header class="ion-text-center">
             <ion-card-title>
               <ion-text color="secondary">
+                <h2>
                 <strong>
                   How To...
                 </strong>
+                </h2>
               </ion-text>
             </ion-card-title>
             <ion-card-subtitle>
               <ion-text color="warning">
-                Instructions for Purchase &amp; Usage of the RF$&trade; App
+                <h3>
+
+                  Instructions for Purchase &amp; Usage of the RF$&trade; App
+                </h3>
               </ion-text>
             </ion-card-subtitle>
           </ion-card-header>
@@ -89,15 +94,15 @@
             <ion-grid>
               <ion-row>
                 <ion-col size="12" offset="4">
-                  <ion-button *ngIf="auth.isLoggedIn === true; else purchase" shape="round" color="deepo"
+                  <ion-button *ngIf="auth.isLoggedIn === true; else purchase" color="facebk"
                     routerLink="/profile">
-                    <ion-text color="tertiary">
+                    <ion-text color="secondary">
                       Get Started
                     </ion-text>
                   </ion-button>
                   <ng-template #purchase>
-                    <ion-button shape="round" color="deepo" routerLink="/purchase">
-                      <ion-text color="tertiary">
+                    <ion-button  color="facebk" routerLink="/purchase">
+                      <ion-text color="warning">
                         View Pro Packages
                       </ion-text>
                     </ion-button>

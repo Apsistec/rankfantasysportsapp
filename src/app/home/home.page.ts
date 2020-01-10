@@ -1,7 +1,11 @@
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { IonContent } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
+import {
+  Component,
+  OnInit,
+  ViewChild
+  } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +16,7 @@ import { AuthService } from '@services/auth.service';
 export class HomePage implements OnInit {
 
   titleId = 'RF$\u2122 Home';
+  core;
 
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
@@ -26,18 +31,17 @@ export class HomePage implements OnInit {
     },
   };
 
-  public trustedVideoUrl: SafeResourceUrl;
+  trustedVideoUrl: SafeResourceUrl;
 
   constructor(
     private domSanitizer: DomSanitizer,
-    // public zone: NgZone,
+
     public auth: AuthService,
   ) {
-    this.showVid();
    }
 
   ngOnInit() {
-    // this.showVid();
+    this.showVid();
   }
 
   showVid() {
