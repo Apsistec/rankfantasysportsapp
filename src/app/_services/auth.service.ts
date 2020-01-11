@@ -14,7 +14,7 @@ import { SpinnerService } from './spinner.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService{
   user: Observable<any>;
   currentUser = new BehaviorSubject(null);
   userId: string;

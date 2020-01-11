@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../../_shared/shared.module';
 import { RegisterPage } from './register.page';
-
 const routes: Routes = [
   {
     path: '',

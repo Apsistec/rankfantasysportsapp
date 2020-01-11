@@ -1,9 +1,8 @@
-import { AuthService } from '@services/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../popover/popover.component';
-import { User } from '@models/user';
-
+import { PopoverController } from '@ionic/angular';
+import { User } from '../../_models/user';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,13 +17,10 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private popoverController: PopoverController,
+    private popoverController: PopoverController
   ) {}
 
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 
   // Returns true when user is looged in and home page is verified
   get isHomePage(): boolean {

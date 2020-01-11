@@ -6,7 +6,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { Widget } from '@models/widget';
+import { Widget } from '../_models/widget';
 
 @Injectable({
   providedIn: 'root'

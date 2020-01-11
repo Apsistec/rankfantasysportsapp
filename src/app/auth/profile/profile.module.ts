@@ -7,13 +7,14 @@ import { NgModule } from '@angular/core';
 import { ProfilePage } from './profile.page';
 import { RouterModule, Routes } from '@angular/router';
 import { SettingsComponent } from '../settings/settings.component';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../../_shared/shared.module';
 import { SportsCategoriesPageModule } from '../../sports-categories/sports-categories.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfilePage }
+    component: ProfilePage
+  }
 ];
 
 @NgModule({

@@ -5,13 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { MatExpansionModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../_shared/shared.module';
 
 const routes: Routes = [
   {
     path: '',
     component: FaqPage
-
   }
 ];
 
@@ -24,9 +23,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [
-    FaqPage,
-  ],
+  declarations: [FaqPage],
   entryComponents: []
 })
 export class FaqPageModule {}

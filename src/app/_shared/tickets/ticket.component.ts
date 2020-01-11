@@ -1,10 +1,8 @@
-import { TicketService } from '@services/ticket.service';
-import { ModalController, LoadingController, NavParams } from '@ionic/angular';
-import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { AuthService } from '../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoadingController, ModalController, NavParams } from '@ionic/angular';
+import { TicketService } from '../../_services/ticket.service';
 
 @Component({
   selector: 'app-ticket',

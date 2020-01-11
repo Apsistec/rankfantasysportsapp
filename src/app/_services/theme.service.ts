@@ -1,6 +1,6 @@
-import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 import * as Color from 'color';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 @Injectable({

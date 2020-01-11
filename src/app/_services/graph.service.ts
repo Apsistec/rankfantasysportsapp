@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Client } from '@microsoft/microsoft-graph-client';
 
-import { MsalaService } from '@services/msala.service';
+import { MsalaService } from '../_services/msala.service';
 // import { Event } from './event';
-import { MessageService } from '@services/message.service';
+import { MessageService } from '../_services/message.service';
 
 @Injectable({
   providedIn: 'root'

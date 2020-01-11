@@ -1,11 +1,16 @@
-import { AuthService } from '@services/auth.service';
+import { AuthService } from './_services/auth.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent, ModalController, Platform, ToastController } from '@ionic/angular';
-import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
+import {
+  IonContent,
+  ModalController,
+  Platform,
+  ToastController
+} from '@ionic/angular';
+import { PrivacyDialogComponent } from './_shared/privacy-dialog/privacy-dialog.component';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SwUpdate } from '@angular/service-worker';
-import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
+import { TermsDialogComponent } from './_shared/terms-dialog/terms-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +18,6 @@ import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.componen
   // animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit {
-
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
   titleId;

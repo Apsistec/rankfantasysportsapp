@@ -4,9 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../_shared/shared.module';
 import { TweetsPage } from './tweets.page';
-
 
 const routes: Routes = [
   {

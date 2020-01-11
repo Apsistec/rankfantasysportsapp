@@ -10,12 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { environment } from '@environments/environment';
+import { environment } from '../environments/environment';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { InterceptorService } from '@services/interceptor.service';
+import { InterceptorService } from './_services/interceptor.service';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import {
@@ -24,11 +24,11 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatTableModule
-  } from '@angular/material';
-import { MyErrorHandler } from '@services/error-handler.service';
+} from '@angular/material';
+import { MyErrorHandler } from './_services/error-handler.service';
 import { RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from './_shared/shared.module';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -39,9 +39,12 @@ import { AngularSlickgridModule } from 'angular-slickgrid';
 // import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 // import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
 
-
 @NgModule({
-  declarations: [AppComponent, TableDisplayComponent, DialogBoxComponent ],
+  declarations: [
+    AppComponent,
+    TableDisplayComponent,
+    DialogBoxComponent
+  ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirePerformanceModule,
@@ -80,9 +83,7 @@ import { AngularSlickgridModule } from 'angular-slickgrid';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
-  entryComponents: [
-    DialogBoxComponent,
-  ],
+  entryComponents: [DialogBoxComponent],
   exports: [],
   bootstrap: [AppComponent]
 })

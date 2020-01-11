@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPage } from './login.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from './../../_shared/shared.module';
 
 const routes: Routes = [
   {

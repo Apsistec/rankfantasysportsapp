@@ -4,18 +4,17 @@ import {
   Router,
   RouterStateSnapshot,
   UrlTree
-  } from '@angular/router';
-import { AuthService } from '@services/auth.service';
+} from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 import { Injectable } from '@angular/core';
 import { map, take } from 'rxjs/operators';
-import { MessageService } from '@services/message.service';
+import { MessageService } from '../_services/message.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaidMemberGuard implements CanActivate {
-
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -25,8 +24,11 @@ export class PaidMemberGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     return this.auth.user.pipe(
       take(1),
       map(user => {

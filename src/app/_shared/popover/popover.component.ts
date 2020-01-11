@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { AuthService } from '@services/auth.service';
+import { AuthService } from '../../_services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

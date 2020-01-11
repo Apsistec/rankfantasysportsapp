@@ -1,24 +1,24 @@
-import { AuthService } from '@services/auth.service';
-import { AngularFireFunctions } from '@angular/fire/functions';
 import {
-  Component,
-  OnInit,
-  ElementRef,
-  Output,
-  ViewChild,
   AfterViewInit,
-  Input
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
 } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoadingController, ModalController, IonContent } from '@ionic/angular';
-import { RegModalComponent } from '@shared/reg-modal/reg-modal.component';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { MessageService } from '@services/message.service';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { AuthService } from '../_services/auth.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { IonContent, LoadingController, ModalController } from '@ionic/angular';
 import { MatDialog } from '@angular/material';
-import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
-import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
-import { StripeService } from '@services/stripe.service';
+import { MessageService } from '../_services/message.service';
+import { NgForm } from '@angular/forms';
+import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
+import { RegModalComponent } from '../_shared/reg-modal/reg-modal.component';
+import { Router } from '@angular/router';
+import { StripeService } from '../_services/stripe.service';
+import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
 
 declare var Stripe: stripe.StripeStatic;
 
@@ -28,11 +28,11 @@ declare var Stripe: stripe.StripeStatic;
   styleUrls: ['./purchase.page.scss']
 })
 export class PurchasePage implements OnInit, AfterViewInit {
-  public trustedVideoUrl: SafeResourceUrl;
+  trustedVideoUrl: SafeResourceUrl;
   video: any = {
     url: 'https://www.youtube.com/embed/Ok-zmmoSZe8'
   };
-  public trustedVideoUrl2: SafeResourceUrl;
+  trustedVideoUrl2: SafeResourceUrl;
   video2: any = {
     url: 'https://www.youtube.com/embed/FWZIisrxodY'
   };
@@ -149,7 +149,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
     };
 
     // Create an instance of the card Element.
-    this.card = elements.create('card', { style: style });
+    this.card = elements.create('card', { style });
     this.card.mount(this.cardElement.nativeElement);
     this.card.addEventListener('change', ({ error }) => {
       this.cardErrors = error && error.message;
@@ -202,7 +202,7 @@ export class PurchasePage implements OnInit, AfterViewInit {
       component: RegModalComponent,
       cssClass: 'app-reg-modal'
     });
-    return await modal.present();
+    return modal.present();
   }
 
   async ScrollToTarget() {
@@ -210,10 +210,10 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   async showVid() {
-    this.trustedVideoUrl = await this.domSanitizer.bypassSecurityTrustResourceUrl(
+    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
       this.video.url
     );
-    this.trustedVideoUrl2 = await this.domSanitizer.bypassSecurityTrustResourceUrl(
+    this.trustedVideoUrl2 = this.domSanitizer.bypassSecurityTrustResourceUrl(
       this.video2.url
     );
   }
@@ -222,13 +222,13 @@ export class PurchasePage implements OnInit, AfterViewInit {
     const modal = await this.modalController.create({
       component: TermsDialogComponent
     });
-    return await modal.present();
+    return modal.present();
   }
 
   async showModalPrivacy() {
     const modal = await this.modalController.create({
       component: PrivacyDialogComponent
     });
-    return await modal.present();
+    return modal.present();
   }
 }

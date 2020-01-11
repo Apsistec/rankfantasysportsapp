@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
 import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
 import { PricingPage } from './pricing.page';
+import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../_shared/shared.module';
 
 const routes: Routes = [
   {
@@ -21,10 +21,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [
-    PricingPage
-  ],
-  entryComponents: [
-  ]
+  declarations: [PricingPage],
+  entryComponents: []
 })
 export class PricingPageModule {}

@@ -1,10 +1,10 @@
-import { AuthService } from '@services/auth.service';
+import { AuthService } from '../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MessageService } from '@services/message.service';
+import { MessageService } from '../../_services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { SpinnerService } from '@services/spinner.service';
+import { SpinnerService } from '../../_services/spinner.service';
 
 @Component({
   selector: 'app-reg-modal',
@@ -58,14 +58,17 @@ export class RegModalComponent implements OnInit {
 
   async register() {
     this.spinner.loadSpinner();
-    this.auth.SignUp(this.registerForm.value).then(async res => {
-      await this.spinner.dismissSpinner();
-      this.message.registerSuccessToast(res);
-      this.router.navigateByUrl('/purchase');
-    }, async err => {
-      await this.spinner.dismissSpinner();
-      this.message.errorAlert(err.message);
-    });
+    this.auth.SignUp(this.registerForm.value).then(
+      async res => {
+        await this.spinner.dismissSpinner();
+        this.message.registerSuccessToast(res);
+        this.router.navigateByUrl('/purchase');
+      },
+      async err => {
+        await this.spinner.dismissSpinner();
+        this.message.errorAlert(err.message);
+      }
+    );
   }
 
   gotoLogin() {

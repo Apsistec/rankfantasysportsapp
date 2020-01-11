@@ -14,10 +14,10 @@ import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { RegModalComponent } from './reg-modal/reg-modal.component';
 import { RouterModule } from '@angular/router';
-import { SharedDirectivesModule } from '@directives/shared-directives.module';
 import { TennisComponent } from '../sports-categories/tennis/tennis.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TicketComponent } from './tickets/ticket.component';
+import { SharedDirectivesModule } from '../_directives/shared-directives.module';
 
 @NgModule({
   declarations: [

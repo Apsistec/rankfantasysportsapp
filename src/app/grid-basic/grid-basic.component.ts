@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
 import { Column, GridOption } from 'angular-slickgrid';
 
 
@@ -31,7 +30,8 @@ export class GridBasicComponent implements OnInit {
     };
 
     // fill the dataset with your data
-    // VERY IMPORTANT, Angular-Slickgrid uses Slickgrid DataView which REQUIRES a unique "id" and it has to be lowercase "id" and be part of the dataset
+    // VERY IMPORTANT, Angular-Slickgrid uses Slickgrid DataView which REQUIRES a unique "id" and it has to be lowercase "id" and be
+    // part of the dataset
     this.dataset = [];
 
     // for demo purpose, let's mock a 1000 lines of data

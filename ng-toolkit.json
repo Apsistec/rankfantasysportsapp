@@ -1,7 +1,0 @@
-{
-  "pwa": {
-    "clientProject": "app",
-    "skipInstall": false,
-    "directory": "."
-  }
-}

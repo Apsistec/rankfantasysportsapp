@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { Client } from '@microsoft/microsoft-graph-client';
 
-import { User } from '@models/user';
+import { User } from './../_models/user';
 import { MessageService } from './message.service';
 
 export const OAuthSettings = {
@@ -13,7 +13,7 @@ export const OAuthSettings = {
   providedIn: 'root'
 })
 export class MsalaService {
-  public authenticated: boolean;
+  authenticated: boolean;
 
   constructor(
     private msalService: MsalService,
