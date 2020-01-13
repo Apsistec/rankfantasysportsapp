@@ -7,14 +7,14 @@ import { Injectable, NgZone } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
 import { User } from '../_models/user';
 import { SpinnerService } from './spinner.service';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService{
+export class AuthService {
   user: Observable<any>;
   currentUser = new BehaviorSubject(null);
   userId: string;
@@ -27,7 +27,7 @@ export class AuthService{
     private router: Router,
     private ngZone: NgZone,
     private message: MessageService,
-    private storage: Storage,
+    private storage: StorageService,
     private modalCtrl: ModalController,
     private navCtrl: NavController
   ) {

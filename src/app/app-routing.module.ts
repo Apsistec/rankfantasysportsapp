@@ -6,12 +6,12 @@ import {
   redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TableDetailComponent } from './tables/table-detail/table-detail.component';
+import { TableDisplayComponent } from './tables/table-display/table-display.component';
+
 // import { MemberGuard } from '../../../Member.guard';
 // import { PaidMemberGuard } from '../../../paid-member.guard';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { SportsCategoriesDetailComponent } from './sports-categories/sports-categories-detail/sports-categories-detail.component';
-import { SportsTablesComponent } from './sports-categories/sports-tables/sports-tables.component';
-import { TableDisplayComponent } from './table-display/table-display.component';
 
 const adminOnly = () => hasCustomClaim('admin');
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -25,16 +25,118 @@ const appRoutes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
- 
+  {
+    path: 'tables',
+    loadChildren: () =>
+      import('./tables/table.module').then(
+        m => m.TableModule
+      )
+  },
+  {
+    path: 'how-to',
+    loadChildren: () =>
+      import('./sales-funnel/how-to/how-to.module').then(m => m.HowToPageModule)
+  },
+  {
+    path: 'free-trial',
+    loadChildren: () =>
+      import('./sales-funnel/purchase/purchase.module').then(m => m.PurchasePageModule)
+  },
+  { path: 'freetrial', redirectTo: 'free-trial', pathMatch: 'full' },
+  { path: 'free', redirectTo: 'free-trial', pathMatch: 'full' },
+  { path: 'freetrail', redirectTo: 'free-trial', pathMatch: 'full' },
+  {
+    path: 'pricing',
+    loadChildren: () =>
+      import('./sales-funnel/pricing/pricing.module').then(m => m.PricingPageModule)
+  },
+  { path: 'prices', redirectTo: 'pricing', pathMatch: 'full' },
+  { path: 'price', redirectTo: 'pricing', pathMatch: 'full' },
+  {
+    path: 'purchase',
+    loadChildren: () =>
+      import('./sales-funnel/purchase/purchase.module').then(m => m.PurchasePageModule)
+  },
+  { path: 'buy', redirectTo: 'purchase', pathMatch: 'full' },
+  {
+    path: 'faq',
+    loadChildren: () => import('./sales-funnel/faq/faq.module').then(m => m.FaqPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () =>
+      import('./sales-funnel/welcome/welcome.module').then(m => m.WelcomePageModule),
+    canActivate: [AngularFireAuthGuard]
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./auth/login/login.module').then(m => m.LoginPageModule),
+    ...canActivate(redirectLoggedInToProfile)
+  },
+  { path: 'sign-in', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./auth/register/register.module').then(m => m.RegisterPageModule),
+    ...canActivate(redirectLoggedInToProfile)
+  },
+  {
+    path: 'forgot',
+    loadChildren: () =>
+      import('./auth/forgot-password/forgot-password.module').then(
+        m => m.ForgotPasswordPageModule
+      )
+  },
+  { path: 'reset-password', redirectTo: 'forgot', pathMatch: 'full' },
+  {
+    path: 'verify',
+    loadChildren: () =>
+      import('./auth/verify-email/verify-email.module').then(
+        m => m.VerifyEmailPageModule
+      )
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then(m => m.ProfilePageModule),
+    canActivate: [AngularFireAuthGuard]
+  },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./profile/user-tickets/user-tickets.module').then(
+        m => m.UserTicketsPageModule
+      ),
+    canActivate: [AngularFireAuthGuard],
+    data: { role: 'USER' }
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./profile/admin-dashboard/admin-dashboard.module').then(
+        m => m.AdminDashboardPageModule
+      ),
+    data: { role: 'ADMIN' },
+    ...canActivate(adminOnly)
+  },
+  {
+    path: 'tweets',
+    loadChildren: () =>
+      import('./sales-funnel/tweets/tweets.module').then(m => m.TweetsPageModule)
+  },
+
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      initialNavigation: 'enabled',
+      // initialNavigation: 'enabled',
       preloadingStrategy: PreloadAllModules,
-      relativeLinkResolution: 'corrected',
-      onSameUrlNavigation: 'reload'
+      // relativeLinkResolution: 'corrected',
+      // onSameUrlNavigation: 'reload',
+      enableTracing: true
     })
   ],
   exports: [RouterModule]

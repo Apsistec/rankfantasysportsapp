@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-import { SettingsComponent } from '../auth/settings/settings.component';
+import { SettingsComponent } from '../profile/settings/settings.component';
 
 @Injectable()
 export class CanDeactivateRouteGuard implements CanDeactivate<SettingsComponent> {

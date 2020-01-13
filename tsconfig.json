@@ -1,13 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
     "sourceMap": true,
     "declaration": false,
     "module": "esnext",
     "moduleResolution": "node",
-    "noImplicitAny": false,
     "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -22,7 +21,7 @@
     ],
     // "paths": {
     //   "_services/*": ["/app/__services/*"],
-    //   "_guards/*": ["app/__guards/*"],
+    //   "_guards/*": ["/app/__guards/*"],
     //   "@directives/*": ["app/_directives/*"],
     //   "@models/*": ["app/_models/*"],
     //   "@helpers/*": ["app/_helpers/*"],

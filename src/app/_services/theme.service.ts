@@ -1,7 +1,7 @@
 import * as Color from 'color';
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Storage } from '@ionic/storage';
 export class ThemeService {
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private storage: Storage
+    private storage: StorageService
   ) {
     this.storage.get('theme').then(cssText => {
       this.setGlobalCSS(cssText);

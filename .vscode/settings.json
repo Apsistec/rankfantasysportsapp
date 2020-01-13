@@ -18,7 +18,6 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "debug.internalConsoleOptions": "openOnSessionStart",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontSize": 14,
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "workbench.colorCustomizations": {
     "activityBar.background": "#e7ab5d",
@@ -38,5 +37,6 @@
   "peacock.color": "#e19430",
   "files.associations": {
     "tslint.json": "jsonc"
-  }
+  },
+  "editor.fontFamily": "Fira Code"
 }

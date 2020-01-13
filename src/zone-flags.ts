@@ -1,4 +1,5 @@
-// import './zone-flags.ts';
+// tslint:disable: no-import-side-effect
+import './zone-flags.ts';
 
 /**
  * Prevents Angular change detection from

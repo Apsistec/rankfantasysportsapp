@@ -42,6 +42,12 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "npm",
+            "script": "start",
+            "path": "functions/",
+            "problemMatcher": []
         }
     ]
 }
