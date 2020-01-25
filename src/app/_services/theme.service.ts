@@ -1,7 +1,7 @@
-import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 import * as Color from 'color';
-import { Storage } from '@ionic/storage';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Storage } from '@ionic/storage';
 export class ThemeService {
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private storage: Storage
+    private storage: StorageService
   ) {
     this.storage.get('theme').then(cssText => {
       this.setGlobalCSS(cssText);
@@ -61,8 +61,7 @@ function CSSTextGenerator(colors) {
     danger,
     dark,
     medium,
-    light,
-
+    light
   } = colors;
 
   const shadeRatio = 0.1;

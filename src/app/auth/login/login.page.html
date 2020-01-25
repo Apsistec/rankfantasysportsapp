@@ -1,12 +1,18 @@
-<app-header [titleId]= "titleId"></app-header>
+<app-header [titleId]="titleId"></app-header>
 <ion-content>
   <ion-grid>
-    <ion-row >
+    <ion-row>
+<<<<<<< Updated upstream
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
         <ion-card class="ion-text-center" color="primary">
           <ion-img src="../../assets/img/logo.jpg"></ion-img>
-            <ion-card-header>
-            <ion-card-title  class="ion-text-center">
+=======
+      <ion-col size-sm="6" offset-sm="3" size-md="4" offset-md="4" size-lg="3" offset-lg="4.5" size-xl="3" offset-xl="4.5">
+        <ion-card class="ion-text-center" color="primary">
+          <ion-img src="../../assets/img/logo.jpg" width="auto"></ion-img>
+>>>>>>> Stashed changes
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
               <ion-text color="secondary">
                 <strong>
                   RF$&trade; Login
@@ -15,8 +21,9 @@
             </ion-card-title>
 
           </ion-card-header>
-          <form (ngSubmit)="Login()" [formGroup]="loginForm">
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <ion-item color="medium" >
               <ion-label  color="warning" position="floating">Email</ion-label>
                      <ion-input  style="width: 95%;" type="email" formControlName="email"  required></ion-input>
@@ -105,26 +112,218 @@
                             <ion-icon slot="start" color="white" name="logo-twitter"></ion-icon>
                             <ion-ripple-effect></ion-ripple-effect>
                           </ion-button>
+=======
+            <ion-item color="medium">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input style="width: 95%;" type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <div
+              *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['email'].errors.required">
+                <ion-text>
+                  Email is required.
+                </ion-text>
+              </div>
+              <div *ngIf="loginForm.controls['email'].errors.email">
+                <ion-text>
+                  Email is not Valid.
+                </ion-text>
+              </div>
+            </div>
+            <ion-item color="medium">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input id="password" style="width: 89%;" [type]="hide ? 'password' : 'text'"
+                formControlName="password"></ion-input>
+              <ion-button color="primary" item-end (click)="hide = !hide" *ngIf="hide"
+                style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
+=======
+          <form (ngSubmit)="Login()" [formGroup]="loginForm">
+          <ion-item color="medium">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input style="width: 95%;" type="email"  debounce="1000" formControlName="email"></ion-input>
+          </ion-item>
+            <div
+              *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['email'].errors.required">
+                <ion-text>
+                  Email is required.
+                </ion-text>
+              </div>
+              <div *ngIf="loginForm.controls['email'].errors.email">
+                <ion-text>
+                  Email is not Valid.
+                </ion-text>
+              </div>
+            </div>
+            <ion-item color="medium">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input id="password" style="width: 89%;" [type]="hide ? 'password' : 'text'" debounce="1000"
+                formControlName="password"></ion-input>
+              <ion-button color="primary" item-end (click)="hide = !hide" *ngIf="hide"
+                style="position: absolute; right: 5px; bottom: 5px; background: transparent;width:35px;">
+>>>>>>> Stashed changes
+                <ion-icon name="eye" size="large">
+                </ion-icon>
+              </ion-button>
+              <ion-button color="primary" item-end (click)="hide = !hide" *ngIf="!hide"
+<<<<<<< Updated upstream
+                style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
+                <ion-icon name="eye-off" size="large">
+                </ion-icon>
+              </ion-button>
+            </ion-item>
+            <div
+              *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['password'].errors.required">
+                <ion-text>
+                  Password is required.
+                </ion-text>
+              </div>
+              <div *ngIf="loginForm.controls['password'].hasError('minlength')">
+                <ion-text>
+                  Password must be at least 8 characters long
+                </ion-text>
+              </div>
+              <div *ngIf="loginForm.controls['password'].errors.maxlength">
+                <ion-text>
+                  Password must be less than 25 characters long
+                </ion-text>
+              </div>
+              <div *ngIf="loginForm.controls['password'].errors.pattern">
+                <ion-text>
+                  Password must contain 1 uppercase, 1 lowercase and 1 digit
+                </ion-text>
+              </div>
+            </div>
+            <ion-button strong type="submit" expand="block" [disabled]="!loginForm.valid">
+              <ion-icon slot="start" color="white" name="glasses" slot="start"></ion-icon>
+              <ion-text color="white">
+                <strong>Login With Email</strong>
+              </ion-text>
+              <ion-ripple-effect></ion-ripple-effect>
+            </ion-button>
+          </form>
+          <ion-button type="button" (click)="auth.FacebookAuth()" expand="block">
+            <ion-text color="white">
+              Login With Facebook
+            </ion-text>
+            <ion-icon slot="start" color="white" name="logo-facebook"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-button>
+          <ion-button type="button" (click)="auth.GoogleAuth()" expand="block">
+            <ion-text color="white">
+              Login With Google
+            </ion-text>
+            <ion-icon slot="start" color="white" name="logo-google"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-button>
+          <ion-button type="button" (click)="auth.MicrosoftAuth()" expand="block">
+            <ion-text color="white">
+              Login With Microsoft
+            </ion-text>
+            <ion-icon slot="start" color="white" name="logo-windows"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-button>
+          <ion-button type="button" (click)="auth.TwitterAuth()" expand="block">
+            <ion-text color="white">
+              Login With Twitter
+=======
+              style="position: absolute; right: 5px; bottom: 5px; background: transparent;width:35px;">
+              <ion-icon name="eye-off" size="large">
+              </ion-icon>
+            </ion-button>
+          </ion-item>
+          <div
+          *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="loginForm.controls['password'].errors.required">
+            <ion-text>
+              Password is required.
+            </ion-text>
+          </div>
+          <div *ngIf="loginForm.controls['password'].hasError('minlength')">
+            <ion-text>
+              Password must be at least 8 characters long
+            </ion-text>
+          </div>
+          <div *ngIf="loginForm.controls['password'].errors.maxlength">
+            <ion-text>
+              Password must be less than 25 characters long
+            </ion-text>
+          </div>
+          <div *ngIf="loginForm.controls['password'].errors.pattern">
+            <ion-text>
+              Password must contain 1 uppercase, 1 lowercase and 1 digit
+            </ion-text>
+          </div>
+        </div>
+        <hr>
+        <ion-button class="button" strong type="submit"  [disabled]="!loginForm.valid" color="silver">
+          <ion-icon slot="start" color="white" name="glasses" slot="start"></ion-icon>
+          <ion-text color="white">
+            Email Login
+          </ion-text>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-button>
+      </form>
+            <ion-button class="button" type="button" (click)="auth.FacebookAuth()" color="silver">
+              <ion-text color="white">
+              Facebook Login
+              </ion-text>
+              <ion-icon slot="start" color="white" name="logo-facebook"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-button>
+          <br>
+            <ion-button class="button" type="button" (click)="auth.GoogleAuth()" color="silver">
+            <ion-text color="white">
+               Google Login
+              </ion-text>
+            <ion-icon slot="start" color="white" name="logo-google"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-button>
+          <br>
+          <ion-button class="button" type="button" (click)="auth.TwitterAuth()" color="silver">
+            <ion-text color="white">
+              Twitter Login
+>>>>>>> Stashed changes
+            </ion-text>
+            <ion-icon slot="start" color="white" name="logo-twitter"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-button>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 
-                    <ion-grid>
-                      <ion-row>
-                        <ion-col size="6">
-                            <ion-button strong shape="round" routerLink="/forgot" color="deepo" fill="clear">
-                              <ion-text  color="deepo"><strong>Reset<br>Password</strong></ion-text>
-                              <ion-ripple-effect></ion-ripple-effect>
-                            </ion-button>
-                        </ion-col>
-                        <ion-col size="6">
-                            <ion-button strong shape="round" routerLink="/register" color="deepo" fill="clear">
-                              <ion-text  color="deepo"><strong>I Want <br> to Sign Up</strong></ion-text>
-                              <ion-ripple-effect></ion-ripple-effect>
-                            </ion-button>
-                        </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                  </ion-card>
-                </ion-col>
-              </ion-row>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button strong routerLink="/forgot" fill="clear">
+=======
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button  style="width:80%;" strong routerLink="/forgot" fill="outline" color="silver">
+>>>>>>> Stashed changes
+                  <ion-text><strong>Reset<br>Password</strong></ion-text>
+                  <ion-ripple-effect></ion-ripple-effect>
+                </ion-button>
+              </ion-col>
+              <ion-col size="6">
+<<<<<<< Updated upstream
+                <ion-button strong routerLink="/register" fill="clear">
+=======
+                <ion-button  style="width:80%;" strong routerLink="/register" fill="outline" color="silver">
+>>>>>>> Stashed changes
+                  <ion-text><strong>I Want <br> to Sign Up</strong></ion-text>
+                  <ion-ripple-effect></ion-ripple-effect>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
-

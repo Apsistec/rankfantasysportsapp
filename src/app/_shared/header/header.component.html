@@ -1,0 +1,70 @@
+<ion-header>
+<<<<<<< Updated upstream
+  <ion-toolbar color="medium">
+    <!-- <ion-buttons slot="start">
+=======
+  <ion-toolbar color="primary" *ngIf="mobile">
+    <ion-buttons slot="start">
+>>>>>>> Stashed changes
+    <ion-menu-button  color="silver">
+    </ion-menu-button>
+    </ion-buttons>
+      <ion-text color="secondary" class="ion-text-wrap">
+        {{ titleId }}
+      </ion-text>
+    <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
+<<<<<<< Updated upstream
+        <ion-item type="button" color="dark" (click)="presentPopover($event)" detail="false" lines="none">
+=======
+        <ion-item slot="end" type="button" color="primary" (click)="presentPopover($event)" detail="false" lines="none">
+>>>>>>> Stashed changes
+          <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+          <ion-avatar>
+            <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+          </ion-avatar>
+        </ion-item>
+      </ng-container>
+    <ng-template #getStarted>
+<<<<<<< Updated upstream
+      <ion-button slot="end"   *ngIf="isHomePage" routerLink="/purchase">
+        <ion-text  >
+          Get Started
+        </ion-text>
+      </ion-button>
+    </ng-template> -->
+=======
+      <ion-button slot="end" *ngIf="!isHomePage && !isLoginPage && !isRegisterPage && !isWelcomePage && !isPurchasePage && !isForgotPage"  color="tertiary" routerLink="/purchase" style="margin-right:15px;">
+        <ion-text>
+          Get Started
+        </ion-text>
+      </ion-button>
+    </ng-template>
+  </ion-toolbar>
+  <ion-toolbar color="primary" *ngIf="!mobile">
+    <div class="top-nav">
+      <a [routerLink]="['/home']">Home</a>
+      <a [routerLink]="['/faq']">FAQ</a>
+      <!-- <a routerLink="'/user">Support</a> -->
+      <a [routerLink]="['/testimonials']">Testimonials</a>
+      <a [routerLink]="['/how-to']">How-to</a>
+      <a [routerLink]="['/tables']">Stats & Projections</a>
+      <a [routerLink]="['/login']">Login</a>
+      <!-- <a routerLink="#vlog">vLog</a> -->
+      <!-- <a routerLink="#more">More</a>
+      <a routerLink="#logo">Logo</a>
+      <a routerLink="#friends">Friends</a>
+      <a routerLink="#partners">Partners</a>
+      <a routerLink="#people">People</a>
+      <a routerLink="#work">Work</a> -->
+    </div>
+    <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
+      <ion-item slot="end" type="button" color="primary" (click)="presentPopover($event)" detail="false" lines="none">
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+        </ion-avatar>
+      </ion-item>
+    </ng-container>
+>>>>>>> Stashed changes
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,59 @@
+<<<<<<< Updated upstream
+<ion-card color="primary" class="ion-padding" >
+  <ion-card-header>
+    <ion-card-title>
+      <ion-text>
+        Past Invoices
+      </ion-text>
+    </ion-card-title>
+  </ion-card-header>
+<<<<<<< Updated upstream:src/app/auth/profile/invoices/invoices.component.html
+  
+    <ion-card color="medium" *ngIf="stripeService.invoices | async as invoice">
+      Invoice ID: {{ invoice.id }}
+      Date: {{ invoice.created }}
+      <a [href]="invoice.url"></a>
+    </ion-card>
+  <ion-button color="secondary" shape="round" (click)="dismissModal()">
+    <ion-text color="white">
+      Close
+    </ion-text>
+  </ion-button>
+</ion-card>
+=======
+=======
+<ion-content>
+
+  <ion-card color="primary" class="ion-padding"  class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>
+      <ion-text>
+        Invoice History
+      </ion-text>
+    </ion-card-title>
+  </ion-card-header>
+>>>>>>> Stashed changes
+  <ion-card color="dark" *ngIf="stripeService.invoices | async as invoice">
+    <ion-card-content>
+      Date: {{ invoice.data[0].created * 1000 | date }}
+      <br>
+      Paid: {{ invoice.data[0].amount_paid / 100 | currency }}
+      <br>
+      <ion-button [href]="invoice.data[0].hosted_invoice_url" size="small" >
+        <ion-text color="white">
+          View Full Invoice
+        </ion-text>
+      </ion-button>
+    </ion-card-content>
+    </ion-card>
+    <ion-button color="secondary"  (click)="dismissModal()">
+      <ion-text color="white">
+        Close
+      </ion-text>
+    </ion-button>
+</ion-card>
+</ion-content>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes:src/app/profile/invoices/invoices.component.html
+=======
+>>>>>>> Stashed changes

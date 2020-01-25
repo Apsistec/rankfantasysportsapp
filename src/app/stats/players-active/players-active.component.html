@@ -1,0 +1,101 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <!-- <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+      Reached API linmit for max # of calls in a day
+    </div> -->
+  </div>
+
+  <div class="example-table-container">
+
+    <table mat-table [dataSource]="data" class="example-table">
+     <!-- matSort matSortActive="created" matSortDisableClear matSortDirection="desc" -->
+
+      <ng-container matColumnDef="playerid">
+        <th mat-header-cell *matHeaderCellDef>Player ID</th>
+        <td mat-cell *matCellDef="let row">{{row.Playerid}}</td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let row">{{row.status}}</td>
+      </ng-container>
+      <ng-container matColumnDef="teamid">
+        <th mat-header-cell *matHeaderCellDef>Team ID</th>
+        <td mat-cell *matCellDef="let row">{{row.teamid}}</td>
+      </ng-container>
+      <ng-container matColumnDef="team">
+        <th mat-header-cell *matHeaderCellDef>Team</th>
+        <td mat-cell *matCellDef="let row">{{row.team}}</td>
+      </ng-container>
+      <ng-container matColumnDef="jersey">
+        <th mat-header-cell *matHeaderCellDef>Jersey</th>
+        <td mat-cell *matCellDef="let row">{{row.jersey}}</td>
+      </ng-container>
+      <ng-container matColumnDef="positioncategory">
+        <th mat-header-cell *matHeaderCellDef>Position Category</th>
+        <td mat-cell *matCellDef="let row">{{row.positioncategory}}</td>
+      </ng-container>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>Position</th>
+        <td mat-cell *matCellDef="let row">{{row.position}}</td>
+      </ng-container>
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let row">{{row.firstname}}</td>
+      </ng-container>
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let row">{{row.lastname}}</td>
+      </ng-container>
+      <ng-container matColumnDef="height">
+        <th mat-header-cell *matHeaderCellDef>Height</th>
+        <td mat-cell *matCellDef="let row">{{row.height}}</td>
+      </ng-container>
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef>Weight</th>
+        <td mat-cell *matCellDef="let row">{{row.weight}}</td>
+      </ng-container>
+      <ng-container matColumnDef="birthdate">
+        <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+        <td mat-cell *matCellDef="let row">{{row.birthdate | date}}</td>
+      </ng-container>
+      <ng-container matColumnDef="birthcity">
+        <th mat-header-cell *matHeaderCellDef>Birth City</th>
+        <td mat-cell *matCellDef="let row">{{row.birthcity}}</td>
+      </ng-container>
+      <ng-container matColumnDef="birthstate">
+        <th mat-header-cell *matHeaderCellDef>Birth State</th>
+        <td mat-cell *matCellDef="let row">{{row.birthstate}}</td>
+      </ng-container>
+      <ng-container matColumnDef="birthcountry">
+        <th mat-header-cell *matHeaderCellDef>Birth Country</th>
+        <td mat-cell *matCellDef="let row">{{row.birthcountry}}</td>
+      </ng-container>
+      <ng-container matColumnDef="highschool">
+        <th mat-header-cell *matHeaderCellDef>High School</th>
+        <td mat-cell *matCellDef="let row">{{row.highschool}}</td>
+      </ng-container>
+      <ng-container matColumnDef="college">
+        <th mat-header-cell *matHeaderCellDef>College</th>
+        <td mat-cell *matCellDef="let row">{{row.college}}</td>
+      </ng-container>
+      <ng-container matColumnDef=salary>
+        <th mat-header-cell *matHeaderCellDef>Salary</th>
+        <td mat-cell *matCellDef="let row">{{row.salary}}</td>
+      </ng-container>
+      <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef>Experience</th>
+        <td mat-cell *matCellDef="let row">{{row.experience}}</td>
+      </ng-container>
+      <ng-container matColumnDef="injurystatus">
+        <th mat-header-cell *matHeaderCellDef>Injury Status</th>
+        <td mat-cell *matCellDef="let row">{{row.injurystatus}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <!-- <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator> -->
+</div>

@@ -1,0 +1,55 @@
+<app-header [titleId]="titleId"></app-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
+        <ion-card class="ion-text-center ion-padding-bottom" color="primary">
+          <ion-img src="../../assets/img/logo.jpg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-text color="secondary">
+                <strong>
+                  Welcome to the RF$&trade; Club
+                </strong>
+              </ion-text>
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-text>
+                Thank you for your payment!
+              </ion-text>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-text>
+              <p>
+                You are now an official Pro Member at Rank Fantasy $ports&trade;.</p>
+              <hr>
+              <p>Select the "hamburger menu" (<ion-text>&#9776;</ion-text>) for normal navigation.</p>
+              <br>
+              <p>Each time you login, you will land on your profile, where you have access to:</p>
+              <ul>
+                <ion-text>
+                  <li>The RF$&trade; Data-tables</li>
+                  <li>View Account Details</li>
+                  <li>Update Profile</li>
+                  <li>Create Trouble Tickets</li>
+                  <li>Request New Features</li>
+                  <li>Change Theme</li>
+                </ion-text>
+              </ul>
+            </ion-text>
+          </ion-card-content>
+          <ion-button expand="block" strong routerLink="/profile">
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-text >
+
+              Goto My Profile
+            </ion-text>
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-footer></app-footer>

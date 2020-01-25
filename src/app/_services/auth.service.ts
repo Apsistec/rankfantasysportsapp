@@ -1,14 +1,34 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { switchMap, take, map, tap, first } from 'rxjs/operators';
-import { of, Observable, BehaviorSubject, from } from 'rxjs';
+import { switchMap, take, map, first } from 'rxjs/operators';
+import { of, Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../_models/user';
+=======
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+=======
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+>>>>>>> Stashed changes
+import { AngularFirestore } from '@angular/fire/firestore';
+import { BehaviorSubject, Observable, from, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { Injectable, NgZone } from '@angular/core';
+import { ModalController, NavController } from '@ionic/angular';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 import { MessageService } from './message.service';
-import { Storage } from '@ionic/storage';
-import { ModalController, LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { User } from '../_models/user';
+import { SpinnerService } from './spinner.service';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +38,7 @@ export class AuthService {
   currentUser = new BehaviorSubject(null);
   userId: string;
   planId: string;
+  isSubscribed: boolean;
 
   constructor(
     public afs: AngularFirestore,
@@ -25,46 +46,82 @@ export class AuthService {
     private router: Router,
     private ngZone: NgZone,
     private message: MessageService,
-    private storage: Storage,
+    private storage: StorageService,
     private modalCtrl: ModalController,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private loadingCtrl: LoadingController
+=======
+    private navCtrl: NavController
+>>>>>>> Stashed changes
   ) {
-   //// Get auth data, then get firestore user document || null
-   this.user = this.afAuth.authState.pipe(
-    switchMap(user => {
-      if (user) {
-        return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
-      } else {
-        return Observable.of(null);
-      }
-    })
-  );
-}
-
-  async getCurrentUser(): Promise<any> {
-    return this.user.pipe(first()).toPromise();
+    //// Get auth data, then get firestore user document || null
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+        } else {
+          return null;
+        }
+      })
+    );
   }
 
-  get isLoggedIn(): boolean {
-    return (this.user === null ) ? true : false;
-  }
-
+<<<<<<< Updated upstream
   getUser(): Promise<any> {
     return this.afAuth.authState.pipe(first()).toPromise();
+=======
+    private navCtrl: NavController
+  ) {
+    //// Get auth data, then get firestore user document || null
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+        } else {
+          return null;
+        }
+      })
+    );
   }
 
-  async loadSpinner() {
-    const load = await this.loadingCtrl.create({
-      spinner: 'circles',
-      message: 'Please wait...',
-      translucent: true,
-      cssClass: 'successA'
-    });
-    load.present();
+  hasPermissions(permissions: string[]): boolean {
+    for (const perm of permissions) {
+      if (
+        !this.currentUser.value ||
+        !this.currentUser.value.permissions.includes(perm)
+      ) {
+        return false;
+      }
+    }
+    return true;
+>>>>>>> Stashed changes
   }
 
-  dismissSpinner() {
-    this.loadingCtrl.dismiss();
+  async getCurrentUser(): Promise<any> {
+    return of(this.user).toPromise();
+  }
+
+=======
+  hasPermissions(permissions: string[]): boolean {
+    for (const perm of permissions) {
+      if (
+        !this.currentUser.value ||
+        !this.currentUser.value.permissions.includes(perm)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  async getCurrentUser(): Promise<any> {
+    return of(this.user).toPromise();
+  }
+
+>>>>>>> Stashed changes
+  get isLoggedIn(): boolean {
+    return this.user !== null ? true : false;
   }
 
   modalDismiss() {
@@ -73,6 +130,8 @@ export class AuthService {
     this.modalCtrl.dismiss();
   }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   bronze() {
     return this.user
       .pipe(
@@ -90,112 +149,69 @@ export class AuthService {
     } else {
       return isPaidBronze;
     }
+=======
+  async isSubscribedQ() {
+    const user = await this.getCurrentUser();
+    this.isSubscribed =
+      user.plan === 'gold' || 'silver' || 'bronze' ? true : false;
+>>>>>>> Stashed changes
   }
 
-  silver() {
-    return this.user
-      .pipe(
-        take(1),
-        map(user => user && user.silver)
+  // Authentication
+  SignIn(credentials): Observable<any> {
+    return from(
+      this.afAuth.auth.signInWithEmailAndPassword(
+        credentials.email,
+        credentials.password
       )
-      .toPromise();
-  }
-
-  async isSilver() {
-    const silver = await this.silver();
-    const isPaidSilver = !!silver;
-    if (!isPaidSilver) {
-      return false;
-    } else {
-      return isPaidSilver;
-    }
-  }
-
-  gold() {
-    return this.user
-      .pipe(
-        take(1),
-        map(user => user && user.gold)
-      )
-      .toPromise();
-  }
-
-  async isGold()  {
-    const gold = await this.gold();
-    const isPaidGold = !!gold;
-    if (!isPaidGold) {
-      return false;
-    } else {
-      return isPaidGold;
-    }
-  }
-
-  isSubscribed() {
-    const isMember = (!!this.bronze || !!this.gold || !!this.silver);
-
-    if (!isMember) {
-      return isMember;
-    } else {
-      return false;
-    }
-  }
-
-
-
-  // get isAdmin(): boolean {
-  //   const user = this.afs.doc(`users/${this.user.uid}`)
-  // }
-
-  canRead(user: any): boolean {
-    return this.checkAuthorization(user);
-  }
-
-  // determines if user is a member
-  private checkAuthorization(user: any): boolean {
-    if (!user) { return false; }
-    {
-      if ( user.bronze || user.gold || user.silver ) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  hasPermissions(permissions: string[]): boolean {
-    for (const perm of permissions) {
-      if (!this.currentUser.value || !this.currentUser.value.permissions.includes(perm)) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-// Authentication
-  SignIn(email, password) {
-    this.loadSpinner();
-    this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.dismissSpinner();
-        this.message.isLoggedInToast();
-        this.navigateEntryUser();
-      }).catch((err) => {
-        this.message.errorAlert(err.message);
-      });
-    }
-
-    // navigate upon login
-    async navigateEntryUser() {
-      if (this.user['role'] === 'ADMIN') {
-        this.router.navigateByUrl('/admin');
-      } else {
-        if (this.user['role'] === 'USER') {
-          const sub = (this.user['gold'] || this.user['silver'] || this.user['bronze']);
-          if (sub) {
-            this.router.navigateByUrl('/auth/profile');
+    ).pipe(
+      map(
+        data => {
+          if (data) {
+            return this.afs.doc<User>(`users/${data.user.uid}`).valueChanges();
           } else {
-            this.router.navigateByUrl('/purchase');
+            return of(null);
           }
+        },
+        async error => {
+          this.message.errorAlert(error);
         }
+      )
+    );
+  }
+
+  /* Sign up email*/
+  SignUp(credentials) {
+    return this.afAuth.auth
+      .createUserWithEmailAndPassword(credentials.email, credentials.password)
+      .then(data => {
+        return this.afs.doc<User>(`users/${data.user.uid}`).set({
+          displayName: credentials.firstName + ' ' + credentials.lastName,
+          email: data.user.email,
+          uid: data.user.uid,
+          role: 'USER',
+          permissions: ['delete-ticket'],
+          photoURL: data.user.photoURL
+        });
+      });
+  }
+
+  // Auth logic to Login using federated auth providers
+  async AuthLogin(provider: any) {
+    this.afAuth.auth
+      .signInWithPopup(provider)
+      .then(data => {
+        if (!data.user) {
+          this.message.noExistFederatedUserAlert();
+          this.SignOut();
+        } else {
+          this.message.federatedLoginToast(data.user);
+          this.afs.doc(`users/${data.user.uid}`).update(data.user);
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/profile');
+          });
+        }
+<<<<<<< Updated upstream
       }
     }
 
@@ -220,18 +236,93 @@ export class AuthService {
           await this.message.errorAlert(err);
         });
     }
+=======
+  async isSubscribedQ() {
+    const user = await this.getCurrentUser();
+    this.isSubscribed =
+      user.plan === 'gold' || 'silver' || 'bronze' ? true : false;
+  }
 
-// Auth logic to Register using federated auth providers
+  // Authentication
+  SignIn(credentials): Observable<any> {
+    return from(
+      this.afAuth.auth.signInWithEmailAndPassword(
+        credentials.email,
+        credentials.password
+      )
+    ).pipe(
+      map(
+        data => {
+          if (data) {
+            return this.afs.doc<User>(`users/${data.user.uid}`).valueChanges();
+          } else {
+            return of(null);
+          }
+        },
+        async error => {
+          this.message.errorAlert(error);
+        }
+      )
+    );
+  }
+
+  /* Sign up email*/
+  SignUp(credentials) {
+    return this.afAuth.auth
+      .createUserWithEmailAndPassword(credentials.email, credentials.password)
+      .then(data => {
+        return this.afs.doc<User>(`users/${data.user.uid}`).set({
+          displayName: credentials.firstName + ' ' + credentials.lastName,
+          email: data.user.email,
+          uid: data.user.uid,
+          role: 'USER',
+          permissions: ['delete-ticket'],
+          photoURL: data.user.photoURL
+        });
+      });
+  }
+
+  // Auth logic to Login using federated auth providers
+  async AuthLogin(provider: any) {
+    this.afAuth.auth
+      .signInWithPopup(provider)
+      .then(data => {
+        if (!data.user) {
+          this.message.noExistFederatedUserAlert();
+          this.SignOut();
+        } else {
+          this.message.federatedLoginToast(data.user);
+          this.afs.doc(`users/${data.user.uid}`).update(data.user);
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/profile');
+          });
+        }
+=======
+>>>>>>> Stashed changes
+      })
+      .catch(err => {
+        return this.message.errorAlert(err);
+      });
+  }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+
+  // Auth logic to Register using federated auth providers
   async AuthRegister(provider: any) {
-    await this.afAuth.auth.signInWithPopup(provider).then(
-      async (data: any) => {
-        await this.afs.doc<User>(`users/${data.user.uid}`).set({
+    return this.afAuth.auth
+      .signInWithPopup(provider)
+      .then(async (data: any) => {
+        this.afs.doc<User>(`users/${data.user.uid}`).set({
           displayName: data.user.displayName,
           email: data.user.email,
           uid: data.user.uid,
           role: 'USER',
           permissions: ['delete-ticket'],
           photoURL: data.user.photoURL
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         }, { merge: true }).then(
           async() => {
             await this.ngZone.run(() => {
@@ -243,30 +334,38 @@ export class AuthService {
     ).catch(err => {
         this.message.errorAlert(err);
     });
+=======
+=======
+>>>>>>> Stashed changes
+        });
+        return this.ngZone.run(() => {
+          this.router.navigateByUrl('/purchase');
+        });
+      });
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   }
 
-    // Register in with Google
+  // Register in with Google
   async GoogleRegister() {
-    await this.AuthRegister(new firebase.auth.GoogleAuthProvider());
-    return this.modalDismiss();
+    return this.AuthRegister(new firebase.auth.GoogleAuthProvider());
   }
 
   // Register in with Twitter
-  async TwitterRegister() {
-    await this.AuthRegister(new firebase.auth.TwitterAuthProvider());
-    return this.modalDismiss();
+  TwitterRegister() {
+    return this.AuthRegister(new firebase.auth.TwitterAuthProvider());
   }
 
   // Register in with Facebook
-  async FacebookRegister() {
-    await this.AuthRegister(new firebase.auth.FacebookAuthProvider());
-    return this.modalDismiss();
+  FacebookRegister() {
+    return this.AuthRegister(new firebase.auth.FacebookAuthProvider());
   }
 
-  async MicrosoftRegister() {
-    await this.AuthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
-    return this.modalDismiss();
-  }
+  // MicrosoftRegister() {
+  //   return this.AuthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
+  // }
 
   // Signin Login Federated
   // Sign in with Google
@@ -283,8 +382,11 @@ export class AuthService {
     return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
 
+  // For working with Azure AD app to query Microsoft Graph using Excel API and MS Javascript after getting a token from MSAL
   MicrosoftAuth() {
     const provider = new firebase.auth.OAuthProvider('microsoft.com');
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
       return this.AuthLogin(provider);
       provider.setCustomParameters({
       tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1'
@@ -298,29 +400,43 @@ export class AuthService {
     const provider = await new firebase.auth.GoogleAuthProvider();
     firebase.auth().currentUser.linkWithPopup(provider);
     this.dismissSpinner();
+=======
+    provider.setCustomParameters({
+      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02'
+    });
+    provider.addScope('user.read, files.read');
+    // rfs-test@appspot.gserviceaccount.com
+>>>>>>> Stashed changes
   }
 
-  async linkFacebook() {
-    this.loadSpinner();
-    const provider = await new firebase.auth.FacebookAuthProvider();
-    firebase.auth().currentUser.linkWithPopup(provider);
-    this.dismissSpinner();
+  // Reset Password
+  async resetPassword(email: string) {
+    await this.afAuth.auth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        this.router.navigateByUrl('/login');
+        this.message.resetPasswordAlert();
+      })
+      .catch(err => {
+        return this.message.errorAlert(err);
+      });
   }
 
-  async linkTwitter() {
-    this.loadSpinner();
-    const provider = await new firebase.auth.TwitterAuthProvider();
-    firebase.auth().currentUser.linkWithPopup(provider);
-    this.dismissSpinner();
+  // Sign out
+  async SignOut() {
+    await this.afAuth.auth.signOut().then(() => {
+      this.message.signOutToast();
+      return this.navCtrl.navigateRoot('/');
+    });
   }
 
-  async linkMicrosoft() {
-    this.loadSpinner();
-    const provider = await new firebase.auth.OAuthProvider('microsoft.com');
-    firebase.auth().currentUser.linkWithPopup(provider);
-    this.dismissSpinner();
+  ///// hasPermissions(permissions: string[]): boolean {
+  canRead(user: User): boolean {
+    const allowed = 'ADMIN' || 'EDITOR' || 'USER';
+    return this.checkAuthorization(user, allowed);
   }
 
+<<<<<<< Updated upstream
   // Auth logic to Login using federated auth providers
   async AuthLogin(provider: any) {
     const result =  await this.afAuth.auth.signInWithPopup(provider);
@@ -351,15 +467,72 @@ export class AuthService {
     .catch(async (err) => {
       await this.message.errorAlert(err);
     });
+=======
+  canEdit(user: User): boolean {
+    const allowed = 'ADMIN' || 'EDITOR';
+    return this.checkAuthorization(user, allowed);
+  }
+
+  canDelete(user: User): boolean {
+    const allowed = 'ADMIN';
+    return this.checkAuthorization(user, allowed);
+>>>>>>> Stashed changes
+  }
+
+=======
+    provider.setCustomParameters({
+      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02'
+    });
+    provider.addScope('user.read, files.read');
+    // rfs-test@appspot.gserviceaccount.com
+  }
+
+  // Reset Password
+  async resetPassword(email: string) {
+    await this.afAuth.auth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        this.router.navigateByUrl('/login');
+        this.message.resetPasswordAlert();
+      })
+      .catch(err => {
+        return this.message.errorAlert(err);
+      });
   }
 
   // Sign out
   async SignOut() {
-    await this.afAuth.auth.signOut();
-    this.message.signOutToast();
-    return this.router.navigate(['/home'])
-    .catch(async (err) => {
-      await this.message.errorAlert(err);
+    await this.afAuth.auth.signOut().then(() => {
+      this.message.signOutToast();
+      return this.navCtrl.navigateRoot('/');
     });
+  }
+
+  ///// hasPermissions(permissions: string[]): boolean {
+  canRead(user: User): boolean {
+    const allowed = 'ADMIN' || 'EDITOR' || 'USER';
+    return this.checkAuthorization(user, allowed);
+  }
+
+  canEdit(user: User): boolean {
+    const allowed = 'ADMIN' || 'EDITOR';
+    return this.checkAuthorization(user, allowed);
+  }
+
+  canDelete(user: User): boolean {
+    const allowed = 'ADMIN';
+    return this.checkAuthorization(user, allowed);
+  }
+
+>>>>>>> Stashed changes
+  // determines if user has matching role
+  private checkAuthorization(user: User, allowedRoles: string): boolean {
+    if (!user) return false;
+    for (const role of allowedRoles) {
+      if (user[role]) {
+        return true;
+      }
+    }
+    return false;
   }
 }

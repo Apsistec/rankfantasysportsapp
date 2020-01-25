@@ -1,0 +1,48 @@
+<ion-content color="primary">
+  <ion-list color="medium" *ngIf="auth.user | async as user">
+<<<<<<< Updated upstream:src/app/shared/popover/popover.component.html
+<ion-item lines="none">
+  <ion-text color="msoft">
+    <h2>
+      {{ user.displayName }}
+    </h2>
+  </ion-text>
+</ion-item>
+<!-- <ion-item-divider></ion-item-divider> -->
+
+<ion-item button (click)="goToProfile()" lines="none" color="medium">
+    <ion-text color="white">
+      Profile
+    </ion-text>
+    <ion-icon color="facebk" slot="start" name="person">
+    </ion-icon>
+  </ion-item>
+=======
+    <ion-item lines="none">
+      <ion-text>
+        <h2>
+          {{ user.displayName }}
+        </h2>
+      </ion-text>
+    </ion-item>
+    <!-- <ion-item-divider></ion-item-divider> -->
+
+    <ion-item button (click)="goToProfile()" lines="none" color="medium">
+      <ion-text color="white">
+        Profile
+      </ion-text>
+      <ion-icon slot="start" name="person">
+      </ion-icon>
+    </ion-item>
+>>>>>>> Stashed changes:src/app/_shared/popover/popover.component.html
+
+    <ion-item button (click)="logOut()" lines="none" color="medium">
+      <ion-text>
+        Log Out
+      </ion-text>
+      <ion-icon slot="start" name="log-out">
+      </ion-icon>
+    </ion-item>
+</ion-list>
+
+</ion-content>

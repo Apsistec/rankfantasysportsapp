@@ -1,0 +1,37 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream:src/app/auth/profile/cancel-subscription/cancel-subscription.component.html
+<ion-card color="primary">
+  <ion-button size="small" color="danger" (click)="stripeService.cancelSubscription()">Cancel Subscription</ion-button>
+</ion-card>
+=======
+=======
+>>>>>>> Stashed changes
+<ion-content>
+  <ion-card color="primary" class="ion-text-center">
+    <ion-card-header>
+
+      <ion-card-title>
+        <ion-text color="secondary">
+          Cancel Subscription
+        </ion-text>
+      </ion-card-title>
+      <ion-card-subtitle>
+        <ion-text>
+          Are You Sure You Want To Cancel?
+        </ion-text>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button size="small" (click)="stripeService.cancelSubscription()">Cancel Subscription</ion-button>
+      <ion-button size="small" (click)="dismissModal()">Close</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="stripeService.confirmation | async as confirm" color="primary">
+
+  </ion-card>
+
+</ion-content>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes:src/app/profile/cancel-subscription/cancel-subscription.component.html
+=======
+>>>>>>> Stashed changes

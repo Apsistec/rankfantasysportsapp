@@ -1,367 +1,216 @@
-<app-header [titleId]= "titleId"></app-header>
-<ion-content
-  (ionScroll)="onScroll($event)"
-  [scrollEvents]="true">
+<app-header [titleId]="titleId"></app-header>
+<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
   <ion-grid>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <!-- Row 1 -->
     <ion-row>
       <ion-col>
         <ion-card color="primary" style="min-height: 800px;">
+=======
+>>>>>>> Stashed changes
 
-        </ion-card>
+    <!--Landing-page -->
+    <ion-row class="ion-align-items-stretch ion-justify-content-center">
+      <ion-col>
+        <app-landing-page></app-landing-page>
       </ion-col>
     </ion-row>
 
-    
-    
-    <!-- Row 2 -->
-    <ion-row class="ion-align-items-stretch">
-      <!-- Column 1 -->
-          <ion-col size-xl="4" size-lg="4" size-md="12" size-sm="12" size="12">
-        <ion-card class="card-metal ion-padding" style="height:95%;">
-        <ion-card class="main-card">
-          <img src="../../assets/img/logo.jpg" slot="start">
-          <ion-card-content>
-            <ion-card-title>
-                <ion-text style="text-shadow: .1em .15em .15em #000000;"  color="secondary">
-                  <strong>
-                    Rank Fantasy Sports
-                  </strong>
-                </ion-text>
-            </ion-card-title>
-            <ion-card-subtitle class="ion-text-start">
-                <ion-text color="warning" style="text-shadow: .1em .15em .15em #000000;">
-                  <strong>
-                    Helping You Win is Our Business
-                  </strong>
-                </ion-text>
-              </ion-card-subtitle>
-          </ion-card-content>
-        </ion-card>
-      <ion-card-content class="ion-text-center">
-        <ion-card-subtitle>
-          <h2>
-            <strong>
-              <ion-text color="warning">
-                Sports Currently Analyzed:
-              </ion-text>
-            </strong> 
-          </h2>
-        </ion-card-subtitle>
-              <h2>
-                <strong>
-                  <ul>
-                    <ion-text class="ion-text-center" color="twittr">
-                        <li>
-                          NFL- Football
-                        </li>
-                        <li>
-                          CFB- College Football
-                        </li>
-                        <li>
-                          ATP & WTA- Tennis
-                        </li>
-                        <li>
-                          PGA- Golf
-                        </li>
-                        <li>
-                          NBA- Basketball
-                        </li>
-                      </ion-text>
-                    </ul>
-                  </strong> 
-              </h2>
-              <hr>
-              <br>
-          <ion-button shape="round" strong expand="block" routerLink="/purchase" color="deepo">
-            <ion-icon name="people" color="facebk" slot="start"></ion-icon>
-            <ion-text class="ion-text-wrap">
-              <ion-text color="secondary" >
-               Get a Free Trial for One Week!
-              </ion-text>
-              <br>
-              <ion-text>Join Now</ion-text>
-            </ion-text>
-            <ion-icon name="people" color="facebk" slot="end"></ion-icon>
-            <ion-ripple-effect>
-            </ion-ripple-effect>
-          </ion-button>
-      </ion-card-content>
-      </ion-card>   
+    <!--Icon Row-->
+    <ion-row>
+      <ion-col>
+        <app-icon-row></app-icon-row>
       </ion-col>
+    </ion-row>
 
-
-      <!-- Column 2 -->
-      <ion-col size-xl="4" size-lg="4" size-md="12" size-sm="12" size="12">
-        <ion-card class="card-metal" style="height:95%;">
-          <ion-card-header>
-          <ion-card-title class="ion-text-center" >
-            <ion-text color="secondary" >
-              <strong>
-What Rank Fantasy Sports Offers
-            </strong>
-          </ion-text>
-        </ion-card-title>
-      </ion-card-header>
-          <ion-card-content class="ion-text-center">
-          <iframe  [src]="trustedVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <hr>
-          <ion-card-title class="ion-text-center" >
-            <ion-text color="twittr" >
-              <strong>
-                We provide the concise analysis, saving you time so you can confidently build daily fantasy sports lineups that 
-                <ion-text color="msoft">WIN!</ion-text>
-              </strong>
-            </ion-text>
-          </ion-card-title>
-        </ion-card-content>      
-    
-              <!-- FSGA Card -->
-              <ion-card color="primary" >
-                <ion-card color="light" class="ion-padding ion-text-center">
-                  
-                  <ion-text style="text-shadow: .1em .15em .25em grey;" class="ion-text-wrap">
-                      Rank Fantasy Sports is a participating member of
-                    </ion-text>
-                    
-                    <img src="../../assets/img/fsga.png" href="https://wwww.thefsga.org" 
-                    style="display: block; margin-left: auto; margin-right: auto; max-height: 6em; max-width: 12em;">
-                    
-                </ion-card>
-              </ion-card>
-            </ion-card>
+    <!-- Video Row -->
+    <ion-row>
+      <ion-col>
+        <app-video></app-video>
       </ion-col>
+    </ion-row>
+
+    <!-- Informa -->
+    <ion-row class="ion-justify-content-stretch">
+      <ion-col>
+        <app-informa></app-informa>
+      </ion-col>
+    </ion-row>
+
+    <!-- Phonetest -->
+    <ion-row class="ion-align-items-stretch ion-justify-content-center">
+      <ion-col>
+        <app-phonetest></app-phonetest>
+      </ion-col>
+    </ion-row>
 
 
-      <!-- Column 3 -->
-      <!-- RF$ Information Card-->
-      <ion-col size-xl="4" size-lg="4" size-md="12" size-sm="12" size="12">
-        <ion-card class="ion-padding card-metal" style="height:95%;">
-             <ion-card-header> 
-             <ion-card-title class="ion-text-center">
-             <ion-text color="secondary" >
-              <strong>
-                When You Win... We Win!
-              </strong> 
-              </ion-text>
-            </ion-card-title>        
-          </ion-card-header>
-                 <ion-card-content>
-                 <ion-text color="white">
-                   <p>Expect to win more & more often. We do the leg work so you can more effectively use your time when making lineup decisions.  RF
-                     <ion-text color="secondary">$</ion-text>
-                     &trade; makes winning easy by providing you with time saving, quality data analysis so you can efficiently choose the most effective lineups. </p>
-                  <hr>
-                   <h2 class="ion-text-center ion-text-wrap"><ion-text color="warning" >
-                    <ion-text style="text-shadow: .1em .15em .25em rgb(174, 0, 255);" color="twittr">
-                     Have us in your corner when you pick your next set of DFS lineups               
-                      </ion-text>
-                  </ion-text></h2>
-                  <hr>
-                  <p class="ion-text-start">RF
-                    <ion-text color="secondary">$</ion-text>
-                    &trade; success comes from diligent analysis, careful interpretation, and a keen eye for spotting trends when evaluating a host of real-time, historical, 
-                    and in-house data sources including, but not limited to:
-                   <ion-text class="ion-text-center"  color="twittr">
-                      <strong>
-                        Player Stats,
-                        Team Standings,
-                        Weather Reports,
-                        Injury Reports,
-                        Social Media
-                        & Countless Others
-                      </strong>
-                     </ion-text>
-                  </p>
-                   <hr>
-                      </ion-text>
-                      <ion-button color="success" shape="round" expand="block" size="medium" routerLink="/purchase" >
-                        <ion-ripple-effect>
-                        </ion-ripple-effect>
-                        <ion-text class="ion-text-wrap">
-                          <ion-text color="danger" >
-                            Get a 7 Day Free Trial! 
-              </ion-text>
-              <br>
-              <ion-text>
-                Signup Today
-              </ion-text>
-            </ion-text>  
-              <ion-icon color="warning" name="bulb" slot="start"></ion-icon>
-              <ion-icon color="warning" name="bulb" slot="end"></ion-icon>
-            </ion-button>
-          </ion-card-content>
-            </ion-card>
-          </ion-col>
-          
-        </ion-row>
+    <!-- Devices Row -->
+    <ion-row class="ion-align-items-stretch justify-content-start">
+      <ion-col>
+        <app-devices></app-devices>
+      </ion-col>
+    </ion-row>
 
-        <!-- Row 3-->
-        <ion-row>
-          <ion-col>
-            <ion-card color="primary" style="min-height: 250px;">
-    
-            </ion-card>
-          </ion-col>
-        </ion-row>
+    <!-- Spots Row -->
+    <!-- <ion-row class="ion-align-items-stretch justify-content-start">
+      <ion-col>
+        <app-spots></app-spots>
+      </ion-col>
+    </ion-row> -->
 
-        <!--  Row 4 -->
-        <ion-row>
-       
-        <ion-col size-xl="6" offset-xl="3" size-lg="6" offset-lg="3" size-md="10" offset-md="1" size-sm="12" size="12">
-
-                <ion-card class="card-metal">
-                  <ion-card-header>
-                    <ion-card-title class="ion-text-center">
-                      <!-- <ion-text style=" text-shadow: .1em .15em .25em #9900ff;" color="warning">
-                        Results That Count! -->
-                        <ion-text color="warning">
-                          <p class="ion-text-center">Our data-analysts are consistantly turning
-                            <ion-text color="secondary"> $10</ion-text>+ lineups into "game changing" wins frequently over
-                            <ion-text color="secondary"> $2000</ion-text> and even winning over <ion-text color="secondary"> $8000</ion-text>.</p>
-                          </ion-text>
-                        </ion-card-title>
-                      </ion-card-header>
-                    </ion-card>
-                  </ion-col>
-        </ion-row>
-        <!-- Row 5 -->
-      <ion-row>    
-        <ion-col>
-
+    <!-- Row 6 aka Footer -->
+    <ion-row class="blackback ion-align-items-start">
+      <ion-col size="10" offset="1" class="ion-align-self-start">
         <ion-grid>
-          <ion-row>
-      <!-- Testimonials Card #1-->
-      <ion-col size-xl="3" size-lg="3" size-md="3" size-sm="12" size="12">
-        <ion-card class="testi ion-text-center">
-                <ion-card-header>
-                  <ion-card-title class="ion-text-center">
-                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
-                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
-                      </ion-text>
-                    </ion-card-title>
-               
-                    </ion-card-header>
-                                    <ion-card-content>
-                        <ion-slides [options]="slideOpts">
-                            <ion-slide *ngFor="let slide of [1, 2]">
-                              <ion-card>
-                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
-                              </ion-card>
-                            </ion-slide>
-                          </ion-slides>
-                          <ion-button expand="block" strong color="warning" shape="round" fill="solid" routerLink="/credibility">
-                            <ion-ripple-effect>
-                          </ion-ripple-effect>
-                          <ion-text class="ion-text-wrap" color="secondary">
-                            Check Out Even More Wins
-                          </ion-text>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
-                        </ion-button>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
+          <ion-row class="ion-justify-content-around">
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6"
+              class="ion-padding ion-text-start ion-align-self-start">
 
-            <!-- Testimonials Card #3  -->
-            <ion-col size-xl="3" size-lg="3" size-md="3"  size-sm="12" size="12">
-              <ion-card class="inspire ion-text-center">
-                <ion-card-header>
-                  <ion-card-title class="ion-text-center">
-                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
-                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
-                      </ion-text>
-                    </ion-card-title>
-                </ion-card-header>
-      
-                                    <ion-card-content>
-                        <ion-slides [options]="slideOpts">
-                            <ion-slide *ngFor="let slide of [11, 12]">
-                              <ion-card>
-                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.PNG"></div>
-                              </ion-card>
-                            </ion-slide>
-                          </ion-slides>
-                          <ion-button expand="block" strong color="warning" shape="round" fill="solid" routerLink="/credibility">
-                            <ion-ripple-effect>
-                          </ion-ripple-effect>
-                          <ion-text class="ion-text-wrap" color="secondary">
-                            Check Out Even More Wins
-                          </ion-text>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
-                        </ion-button>
-                </ion-card-content>
-              </ion-card>
-        </ion-col>
-        <!-- Testimonials Card #4-->
-        <ion-col size-xl="3" size-lg="3" size-md="3"  size-sm="12" size="12">
-          <ion-card class="twit ion-text-center">
-                <ion-card-header>
-                  <ion-card-title class="ion-text-center">
-                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
-                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
-                      </ion-text>
-                    </ion-card-title>
- 
-                    </ion-card-header>
-                                    <ion-card-content>
-                        <ion-slides [options]="slideOpts">
-                            <ion-slide *ngFor="let slide of [15, 16]">
-                              <ion-card>
-                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
-                              </ion-card>
-                            </ion-slide>
-                          </ion-slides>
-                          <ion-button expand="block" strong color="deepo" shape="round" fill="solid" routerLink="/credibility">
-                            <ion-ripple-effect>
-                          </ion-ripple-effect>
-                          <ion-text class="ion-text-wrap" color="secondary">
-                            Check Out Even More Wins
-                          </ion-text>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
-                        </ion-button>
-                </ion-card-content>
-              </ion-card>
-        </ion-col>
-           
-        <!-- Testimonials Card #4-->
-        <ion-col size-xl="3" size-lg="3" size-md="3" size-sm="12" size="12">
-          <ion-card class="ball ion-text-center">
-                <ion-card-header>
-                  <ion-card-title class="ion-text-center">
-                    <ion-text style=" text-shadow: .1em .15em .25em #9901ff;" color="secondary">
-                        RF<ion-text color="secondary">$</ion-text>&trade; Successes
-                      </ion-text>
-                    </ion-card-title>
-                 
-                    </ion-card-header>
-                                    <ion-card-content>
-                        <ion-slides [options]="slideOpts">
-                            <ion-slide *ngFor="let slide of [1, 2]">
-                              <ion-card>
-                                <div class="swiper-zoom-container"><img src="../../assets/images/{{ slide }}.JPG"></div>
-                              </ion-card>
-                            </ion-slide>
-                          </ion-slides>
-                          <ion-button expand="block" strong color="secondary" shape="round" fill="solid" routerLink="/credibility">
-                            <ion-ripple-effect>
-                          </ion-ripple-effect>
-                          <ion-text class="ion-text-wrap" color="deepo">
-                            Check Out Even More Wins
-                          </ion-text>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="end"></ion-icon>
-                          <ion-icon name="cash" style="color:darkolivegreen" slot="start"></ion-icon>
-                        </ion-button>
-                </ion-card-content>
-              </ion-card>
+              <ul>
+                <li>
+                  <h4>
+                    <ion-text color="secondary">
+                      Pages
+                    </ion-text>
+                  </h4>
+                </li>
+                <ion-text color="white">
+                  <li routerLink="/purchase">
+                    Get Started
+                  </li>
+                  <li routerLink="/login">
+                    Login
+                  </li>
+                  <li routerLink="/how-to">
+                    How-to Use Site
+                  </li>
+                  <li routerLink="/testimonials">
+                    Testimonials
+                  </li>
+                  <li routerLink="/user">
+                    Support
+                  </li>
+                  <li routerLink="/about">
+                    About
+                  </li>
+                  <li routerLink="/faq">
+                    FAQ
+                  </li>
+                  <li routerLink="/tweets">
+                    Recent Tweets
+                  </li>
+                </ion-text>
+              </ul>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6"
+              class="ion-padding ion-text-start ion-align-self-start">
+
+              <ul>
+                <li>
+                  <h4>
+                    <ion-text color="secondary">
+                      Cheatsheet Tables
+                    </ion-text>
+                  </h4>
+                </li>
+                <ion-text color="white">
+                  <li routerLink="/NOW">
+                    Happening Now
+                  </li>
+                  <li routerLink="/NBA">
+                    Pro Basketball
+                  </li>
+                  <li routerLink="/CBB">
+                    College Basketball
+                  </li>
+                  <li routerLink="/NFL">
+                    Pro Football
+                  </li>
+                  <li routerLink="/CFB">
+                    College Football
+                  </li>
+                  <li routerLink="/PGA">
+                    Pro Golf
+                  </li>
+                  <li routerLink="/ATP">
+                    Men's Tennis
+                  </li>
+                  <li routerLink="/WTA">
+                    Women's Tennis
+                  </li>
+                </ion-text>
+              </ul>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size="12" class="ion-align-self-center">
+
+              <h4>
+                <ion-text color="secondary">
+                  Location
+                </ion-text>
+              </h4>
+              <p>
+                <ion-text color="white">
+                  2406 14th St
+                  <br>
+                  Suite A
+                  <br>
+                  Lubbock TX 79401
+                </ion-text>
+              </p>
+              <div>
+                <img class="card" src="../assets/img/visa.svg" height="40px" />
+                <img class="card" src="../assets/img/mastercard.svg" height="40px" />
+                <img class="card" src="../assets/img/discover.svg" height="40px" />
+                <img class="card" src="../assets/img/amex.svg" height="40px" />
+                <br>
+                <img class="card" src="../assets/img/stripe.svg" height="40px" />
+              </div>
             </ion-col>
           </ion-row>
-
         </ion-grid>
-      </ion-col>
+=======
 
+    <!--Landing-page -->
+    <ion-row class="align-items-stretch justify-content-center">
+      <ion-col>
+        <app-landing-page></app-landing-page>
+      </ion-col>
+    </ion-row>
+
+    <!--Icon Row-->
+    <ion-row>
+      <ion-col>
+        <app-icon-row></app-icon-row>
+      </ion-col>
+    </ion-row>
+
+    <!-- Informa -->
+    <ion-row class="justify-content-stretch">
+      <ion-col>
+        <app-informa></app-informa>
+      </ion-col>
+    </ion-row>
+
+    <!-- Phonetest -->
+    <ion-row class="align-items-stretch justify-content-center">
+      <ion-col>
+        <app-phonetest></app-phonetest>
+      </ion-col>
+    </ion-row>
+
+
+    <!-- Devices Row -->
+
+    <ion-row class="align-items-stretch justify-content-center">
+      <ion-col>
+        <app-devices></app-devices>
+>>>>>>> Stashed changes
+      </ion-col>
+<<<<<<< Updated upstream
+
+<<<<<<< Updated upstream
       </ion-row>
           <!-- Row 6 aka Footer -->
           <ion-row class="blackback" >
@@ -459,9 +308,90 @@ What Rank Fantasy Sports Offers
                       </ion-list>
                       </ion-col>
                </ion-row>
+=======
+    <!-- Row 6 aka Footer -->
+    <ion-row class="blackback align-items-stretch justify-content-center">
+      <ion-col size="10" offset="1">
+        <ion-grid>
+          <ion-row class="align-items-center">
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding align-self-center">
+              <ion-list>
+                <ion-list-header>
+                  <h5>
+                    <ion-text color="secondary">
+                      Pages
+                    </ion-text>
+                  </h5>
+                </ion-list-header>
+                <h6>
+                  <ion-text color="white">
+                    Page1
+                  </ion-text>
+                </h6>
+                <h6>
+                  <ion-text color="white">
+                    Page2
+                  </ion-text>
+                </h6>
+                <h6>
+                  <ion-text color="white">
+                    Page3
+                  </ion-text>
+                </h6>
+              </ion-list>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding align-self-center">
+              <ion-list>
+                <ion-list-header>
+                  <h5>
+                    <ion-text color="secondary">
+                      Sports
+                    </ion-text>
+                  </h5>
+                </ion-list-header>
+                <h6>
+                  <ion-text color="white">
+                    Sport 1
+                  </ion-text>
+                </h6>
+                <h6>
+                  <ion-text color="white">
+                    Sport 2
+                  </ion-text>
+                </h6>
+                <h6>
+                  <ion-text color="white">
+                    Sport 3
+                  </ion-text>
+                </h6>
+              </ion-list>
+            </ion-col>
+            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size="12" class="ion-padding align-self-end">
+              <ion-list>
+                <ion-list-header>
+                  <h5>
+                    <ion-text color="secondary">
+                      Location
+                    </ion-text>
+                  </h5>
+                </ion-list-header>
+                <p>
+                  <ion-text color="white">
+                    2406 14th St
+                    <br>
+                    Suite A
+                    <br>
+                    Lubbock TX 79401
+                  </ion-text>
+                </p>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+>>>>>>> Stashed changes
         </ion-grid>
 
       </ion-col>
+<<<<<<< Updated upstream
 
               <!-- </ion-content> -->
           </ion-row>
@@ -475,4 +405,39 @@ What Rank Fantasy Sports Offers
               </ion-fab-button>
             </ion-fab>
   </ion-content>
+=======
+=======
+>>>>>>> Stashed changes
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="start" edge slot="fixed">
+    <ion-fab-button color="silver">
+<<<<<<< Updated upstream
+      <ion-icon color="success" name="share"></ion-icon>
+=======
+      <ion-icon color="white" name="share"></ion-icon>
+>>>>>>> Stashed changes
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button target="_blank" size="small" href="https://www.facebook.com/RankFantasySports/">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button target="_blank" size="small" href="https://twitter.com/rankfsports">
+        <ion-icon name="logo-twitter" color="white"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="instagram" target="_blank" size="small" href="https://www.instagram.com/rankfsports">
+        <ion-icon name="logo-instagram" color="white"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" size="small" (click)="ScrollToTop()">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 <app-footer></app-footer>

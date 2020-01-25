@@ -1,3 +1,5 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import {
   IonicModule,
   IonicRouteStrategy,
@@ -5,9 +7,16 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from '@environments/environment';
 import { NgModule, ErrorHandler, ModuleWithProviders } from '@angular/core';
+=======
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+>>>>>>> Stashed changes
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppComponent } from './app.component';
+<<<<<<< Updated upstream
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireFunctionsModule, FUNCTIONS_ORIGIN  } from '@angular/fire/functions';
@@ -28,7 +37,22 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SharedModule } from '@shared/shared.module';
 // import { } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+// import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+=======
+import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import { environment } from '../environments/environment';
+import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
+import { PrimaryInterceptorService } from './_services/primary-interceptor.service';
+import { RouteReuseStrategy } from '@angular/router';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
+>>>>>>> Stashed changes
 
 import { SportsCategoriesPageModule } from './sports-categories/sports-categories.module';
 
@@ -56,39 +80,55 @@ import { SportsCategoriesPageModule } from './sports-categories/sports-categorie
 export const protectedResourceMap: [string, string[]][] = [ ['http://localhost:8100', ['api://8b3cfe6b-4ec4-41af-be3d-4f41fd41da02/access_as_user']] , ['https://graph.microsoft.com/v1.0/me', ['user.read']] ];
 
 const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+=======
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { BrowserModule } from "@angular/platform-browser";
+import { environment } from "../environments/environment";
+import { ErrorHandler, NgModule } from "@angular/core";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
+import { RouteReuseStrategy } from "@angular/router";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireFunctionsModule } from "@angular/fire/functions";
+import { AngularFireMessagingModule } from "@angular/fire/messaging";
+import { AngularFirePerformanceModule } from "@angular/fire/performance";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { IonicStorageModule } from "@ionic/storage";
+import { HomePageModule } from "./home/home.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// import { TableModule } from './tables/table.module';
+import { StatsPageModule } from "./stats/stats.module";
+>>>>>>> Stashed changes
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    // ScorePredictionsComponent,
-    // PowerRankingsComponent,
-    // DkleadersComponent,
-    // NflWeekComponent,
-    // NflScoreComponent,
-    // NflPreComponent,
-    // PgaStatsComponent,
-    // PgaThisWeekComponent,
-    // Table1Component,
-    // Table2Component,
-    // Table3Component,
-    // Table4Component,
-    // Table5Component,
-    // Table6Component,
-    // Table7Component,
-    // Table8Component,
-    // Table9Component
-  ],
+  declarations: [AppComponent],
   imports: [
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirePerformanceModule,
-    AngularFirestoreModule,
-    AngularFireMessagingModule,
-    AngularFireAuthModule,
-    AngularFireFunctionsModule,
+<<<<<<< Updated upstream
+    BrowserAnimationsModule,
     CommonModule,
-    SportsCategoriesPageModule,
-    SharedModule,
+    HttpClientModule,
+=======
+    BrowserModule,
+    StatsPageModule,
+>>>>>>> Stashed changes
+    IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFirePerformanceModule,
+    AngularFireFunctionsModule,
+    AngularFireMessagingModule,
+    AngularFireAuthGuardModule,
+    AngularFireAuthModule,
+<<<<<<< Updated upstream
     AppRoutingModule,
+<<<<<<< Updated upstream
     IonicModule.forRoot(),
     ReactiveFormsModule,
     BrowserModule,
@@ -97,36 +137,59 @@ const isIE = window.navigator.userAgent.indexOf( 'MSIE ' ) > -1 || window.naviga
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LayoutModule,
-    MsalModule.forRoot({
-      clientID: 'edd1e522-2da3-4340-a899-cd6db7f61f59',
-      authority: 'https://login.microsoftonline.com/rfsports.onmicrosoft.com/',
-      redirectUri: 'http://localhost:8100/',
-      validateAuthority : true,
-      cacheLocation : 'localStorage',
-      storeAuthStateInCookie: false, // dynamically set to true when IE11
-      postLogoutRedirectUri: 'http://localhost:8100/',
-      navigateToLoginRequestUrl : true,
-      popUp: true,
-      consentScopes: ['user.read', 'api://8b3cfe6b-4ec4-41af-be3d-4f41fd41da02/access_as_user'],
-      unprotectedResources: ['https://angularjs.org/'],
-      protectedResourceMap : protectedResourceMap,
+    // MsalModule.forRoot({
+    //   clientID: 'edd1e522-2da3-4340-a899-cd6db7f61f59',
+    //   authority: 'https://login.microsoftonline.com/rfsports.onmicrosoft.com/',
+    //   redirectUri: 'http://localhost:8100/',
+    //   validateAuthority : true,
+    //   cacheLocation : 'localStorage',
+    //   storeAuthStateInCookie: false, // dynamically set to true when IE11
+    //   postLogoutRedirectUri: 'http://localhost:8100/',
+    //   navigateToLoginRequestUrl : true,
+    //   popUp: true,
+    //   consentScopes: ['user.read', 'api://8b3cfe6b-4ec4-41af-be3d-4f41fd41da02/access_as_user'],
+    //   unprotectedResources: ['https://angularjs.org/'],
+    //   protectedResourceMap : protectedResourceMap,
       // logger :loggerCallback,
       // correlationId: '1234',
       // level: LogLevel.Verbose,
       // piiLoggingEnabled: true,
     // SharedDirectivesModule,
+    // }),
+=======
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+>>>>>>> Stashed changes
+=======
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production
     }),
+    HttpClientModule,
+    HomePageModule,
+    AppRoutingModule,
+    // TableModule,
+    BrowserAnimationsModule
+>>>>>>> Stashed changes
   ],
   providers: [
     StatusBar,
     SplashScreen,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Firebase,
-    {provide: HTTP_INTERCEPTORS, useClass: MsalInterceptor, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: MsalInterceptor, multi: true},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   ],
   exports: [
+=======
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: PrimaryInterceptorService, multi: true },
+>>>>>>> Stashed changes
+=======
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+>>>>>>> Stashed changes
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
