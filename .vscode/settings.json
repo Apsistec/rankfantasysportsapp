@@ -11,6 +11,7 @@
     },
     "search.followSymlinks": false,
     "search.smartCase": true,
+    "prettier.singleQuote": true,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "debug.internalConsoleOptions": "openOnSessionStart",
     "javascript.updateImportsOnFileMove.enabled": "always",

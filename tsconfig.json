@@ -27,7 +27,7 @@
       "@models/*": ["app/_models/*"],
       "@helpers/*": ["app/_helpers/*"],
       "@environments/*": ["./environments/*"],
-      "@shared/*": ["app/shared/*"]
+      "@shared/*": ["app/_shared/*"]
     }
   }
  }
