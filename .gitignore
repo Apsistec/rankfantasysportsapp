@@ -43,3 +43,4 @@ functions/test/
 documentation/
 resources/
 functions/
+sendgrid.env
