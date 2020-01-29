@@ -1,13 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream:src/app/profile/profile.page.ts
-<<<<<<< Updated upstream:src/app/auth/profile/profile.page.ts
-import { AuthService } from '../../_services/auth.service';
-import { ThemeService } from '../../_services/theme.service';
-import { ModalController } from '@ionic/angular';
-import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { StripeService } from '@services/stripe.service';
-=======
 import { AuthService } from '../_services/auth.service';
 import { ThemeService } from '../_services/theme.service';
 import { ModalController } from '@ionic/angular';
@@ -15,43 +6,33 @@ import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscr
 import { InvoicesComponent } from './invoices/invoices.component';
 import { SettingsComponent } from './settings/settings.component';
 import { StripeService } from '../_services/stripe.service';
->>>>>>> Stashed changes:src/app/profile/profile.page.ts
-=======
-import { AuthService } from '../_services/auth.service';
-import { ThemeService } from '../_services/theme.service';
-import { ModalController } from '@ionic/angular';
-import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { SettingsComponent } from './settings/settings.component';
-import { StripeService } from '../_services/stripe.service';
->>>>>>> Stashed changes:src/app/auth/profile/profile.page.ts
 
-const themes = {
-  autumn: {
-    primary: '#264E36',
-    secondary: '#199867',
-    tertiary: '#9B1B30',
-    light: '#F7F7FF',
-    medium: '#2A4B7C',
-    dark: '#2A293E'
-  },
-  night: {
-    primary: '#00539C',
-    secondary: '#8CBA80',
-    tertiary: '#BD3D3A',
-    light: '#bcc2c7',
-    medium: '#495867',
-    dark: '#34162A'
-  },
-  neon: {
-    primary: '#755139',
-    secondary: '#D69C2F',
-    tertiary: '#E47A2E',
-    light: '#F0EAD6',
-    medium: '#615550',
-    dark: '#343148'
-  }
-};
+// const themes = {
+//   autumn: {
+//     primary: '#264E36',
+//     secondary: '#199867',
+//     tertiary: '#9B1B30',
+//     light: '#F7F7FF',
+//     medium: '#2A4B7C',
+//     dark: '#2A293E'
+//   },
+//   night: {
+//     primary: '#00539C',
+//     secondary: '#8CBA80',
+//     tertiary: '#BD3D3A',
+//     light: '#bcc2c7',
+//     medium: '#495867',
+//     dark: '#34162A'
+//   },
+//   neon: {
+//     primary: '#755139',
+//     secondary: '#D69C2F',
+//     tertiary: '#E47A2E',
+//     light: '#F0EAD6',
+//     medium: '#615550',
+//     dark: '#343148'
+//   }
+// };
 
 @Component({
   selector: 'app-profile',
@@ -74,10 +55,16 @@ export class ProfilePage implements OnInit {
     this.stripeService.getSubscriptions();
   }
 
-  changeTheme(name) {
-    this.theme.setTheme(themes[name]);
+  // changeTheme(name) {
+  //   this.theme.setTheme(themes[name]);
+  // }
+  enableDark() {
+    this.theme.enableDark();
   }
 
+  enableLight() {
+    this.theme.enableLight();
+  }
   async presentCancelSubModal() {
     const modal = await this.modalCtrl.create({
       component: CancelSubscriptionComponent

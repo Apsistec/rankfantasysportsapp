@@ -1,39 +1,3 @@
-<<<<<<< Updated upstream
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '../_shared/shared.module';
-import { TableListComponent } from './table-list.component';
-import { TableDetailComponent } from '../tables/table-detail/table-detail.component';
-import { TableResolver } from '../_services/table-resolver.service';
-import {
-  MatButtonModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatTableModule
-} from '@angular/material';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: TableListComponent
-  },
-  {
-    path: ':id',
-    component: TableDetailComponent,
-    resolve: { resolvedData: TableResolver }
-  },
-
-]
-
-@NgModule({
-  declarations: [
-    TableDetailComponent,
-    TableListComponent
-=======
 import { CbbComponent } from './cbb/cbb.component';
 import { CfbComponent } from './cfb/cfb.component';
 import { CommonModule } from '@angular/common';
@@ -65,7 +29,7 @@ import { TableDetailComponent } from '../tables/table-detail/table-detail.compon
 import { TableListComponent } from './table-list.component';
 import { TablePage } from './table.page';
 import { TableRoutingModule } from './table-routing.module';
-import { TennisComponent } from './tennis/tennis.component';
+// import { TennisComponent } from './tennis/tennis.component';
 import { WhcbarComponent } from './tennis/whcbar/whcbar.component';
 import { WtrdsComponent } from './tennis/wtrds/wtrds.component';
 import { WttsaComponent } from './tennis/wttsa/wttsa.component';
@@ -77,15 +41,8 @@ import { WttsaComponent } from './tennis/wttsa/wttsa.component';
     NflPreComponent,
     ScorePredictionsComponent,
     PowerRankingsComponent,
-    CbbComponent,
-    CfbComponent,
     PgaThisWeekComponent,
     PgaStatsComponent,
-    PgaComponent,
-    NowComponent,
-    NflComponent,
-    NbaComponent,
-    TennisComponent,
     Table5Component,
     Table6Component,
     Table7Component,
@@ -100,34 +57,17 @@ import { WttsaComponent } from './tennis/wttsa/wttsa.component';
     WttsaComponent,
     WhcbarComponent,
     MhcbarComponent
->>>>>>> Stashed changes
   ],
   entryComponents: [],
   imports: [
     CommonModule,
-<<<<<<< Updated upstream
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-=======
->>>>>>> Stashed changes
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
     SharedModule,
-<<<<<<< Updated upstream
-    RouterModule.forChild(routes)
-  ],
-  exports: [RouterModule]
-=======
     HttpClientModule,
     TableRoutingModule
   ],
-  exports: [
-    
-  ]
->>>>>>> Stashed changes
+  exports: []
 })
 export class TableModule {}

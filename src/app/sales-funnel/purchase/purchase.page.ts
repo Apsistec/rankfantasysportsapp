@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream:src/app/sales-funnel/purchase/purchase.page.ts
-<<<<<<< Updated upstream:src/app/purchase/purchase.page.ts
-import { AuthService } from '@services/auth.service';
-import { AngularFireFunctions } from '@angular/fire/functions';
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
-=======
 import {
   AfterViewInit,
   Component,
@@ -19,35 +13,12 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonContent, LoadingController, ModalController } from '@ionic/angular';
 import { MatDialog } from '@angular/material';
 import { MessageService } from '../../_services/message.service';
->>>>>>> Stashed changes:src/app/sales-funnel/purchase/purchase.page.ts
-=======
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  Output,
-  ViewChild
-} from '@angular/core';
-import { AngularFireFunctions } from '@angular/fire/functions';
-import { AuthService } from '../../_services/auth.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonContent, LoadingController, ModalController } from '@ionic/angular';
-import { MatDialog } from '@angular/material/dialog';
-import { MessageService } from '../../_services/message.service';
->>>>>>> Stashed changes:src/app/purchase/purchase.page.ts
 import { NgForm } from '@angular/forms';
 import { PrivacyDialogComponent } from '../../_shared/privacy-dialog/privacy-dialog.component';
 import { RegModalComponent } from '../../_shared/reg-modal/reg-modal.component';
 import { Router } from '@angular/router';
 import { StripeService } from '../../_services/stripe.service';
 import { TermsDialogComponent } from '../../_shared/terms-dialog/terms-dialog.component';
-<<<<<<< Updated upstream:src/app/sales-funnel/purchase/purchase.page.ts
-// import Stripe from 'stripe';
-=======
-
->>>>>>> Stashed changes:src/app/purchase/purchase.page.ts
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -56,16 +27,8 @@ declare var Stripe: stripe.StripeStatic;
   styleUrls: ['./purchase.page.scss']
 })
 export class PurchasePage implements OnInit, AfterViewInit {
-<<<<<<< Updated upstream:src/app/sales-funnel/purchase/purchase.page.ts
-<<<<<<< Updated upstream:src/app/purchase/purchase.page.ts
+  trustedVideoUrl: SafeResourceUrl;
 
-  public trustedVideoUrl: SafeResourceUrl;
-=======
-  trustedVideoUrl: SafeResourceUrl;
->>>>>>> Stashed changes:src/app/sales-funnel/purchase/purchase.page.ts
-=======
-  trustedVideoUrl: SafeResourceUrl;
->>>>>>> Stashed changes:src/app/purchase/purchase.page.ts
   video: any = {
     url: 'https://www.youtube.com/embed/Ok-zmmoSZe8'
   };
@@ -247,23 +210,12 @@ export class PurchasePage implements OnInit, AfterViewInit {
   }
 
   async showVid() {
-<<<<<<< Updated upstream:src/app/sales-funnel/purchase/purchase.page.ts
-<<<<<<< Updated upstream:src/app/purchase/purchase.page.ts
-    this.trustedVideoUrl = await this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url);
-    this.trustedVideoUrl2 = await this.domSanitizer.bypassSecurityTrustResourceUrl(this.video2.url);
-=======
-=======
->>>>>>> Stashed changes:src/app/purchase/purchase.page.ts
     this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
       this.video.url
     );
     this.trustedVideoUrl2 = this.domSanitizer.bypassSecurityTrustResourceUrl(
       this.video2.url
     );
-<<<<<<< Updated upstream:src/app/sales-funnel/purchase/purchase.page.ts
->>>>>>> Stashed changes:src/app/sales-funnel/purchase/purchase.page.ts
-=======
->>>>>>> Stashed changes:src/app/purchase/purchase.page.ts
   }
 
   async showModalTerms() {

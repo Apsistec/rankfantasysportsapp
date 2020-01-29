@@ -1,443 +1,203 @@
 <app-header [titleId]="titleId"></app-header>
 <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
   <ion-grid>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     <!-- Row 1 -->
     <ion-row>
       <ion-col>
         <ion-card color="primary" style="min-height: 800px;">
-=======
->>>>>>> Stashed changes
+          <!--Landing-page -->
+          <ion-row class="ion-align-items-stretch ion-justify-content-center">
+            <ion-col>
+              <app-landing-page></app-landing-page>
+            </ion-col>
+          </ion-row>
 
-    <!--Landing-page -->
-    <ion-row class="ion-align-items-stretch ion-justify-content-center">
-      <ion-col>
-        <app-landing-page></app-landing-page>
-      </ion-col>
-    </ion-row>
+          <!--Icon Row-->
+          <ion-row>
+            <ion-col>
+              <app-icon-row></app-icon-row>
+            </ion-col>
+          </ion-row>
 
-    <!--Icon Row-->
-    <ion-row>
-      <ion-col>
-        <app-icon-row></app-icon-row>
-      </ion-col>
-    </ion-row>
+          <!-- Video Row -->
+          <ion-row>
+            <ion-col>
+              <app-video></app-video>
+            </ion-col>
+          </ion-row>
 
-    <!-- Video Row -->
-    <ion-row>
-      <ion-col>
-        <app-video></app-video>
-      </ion-col>
-    </ion-row>
+          <!-- Informa -->
+          <ion-row class="ion-justify-content-stretch">
+            <ion-col>
+              <app-informa></app-informa>
+            </ion-col>
+          </ion-row>
 
-    <!-- Informa -->
-    <ion-row class="ion-justify-content-stretch">
-      <ion-col>
-        <app-informa></app-informa>
-      </ion-col>
-    </ion-row>
+          <!-- Phonetest -->
+          <ion-row class="ion-align-items-stretch ion-justify-content-center">
+            <ion-col>
+              <app-phonetest></app-phonetest>
+            </ion-col>
+          </ion-row>
 
-    <!-- Phonetest -->
-    <ion-row class="ion-align-items-stretch ion-justify-content-center">
-      <ion-col>
-        <app-phonetest></app-phonetest>
-      </ion-col>
-    </ion-row>
+          <!-- Devices Row -->
+          <ion-row class="ion-align-items-stretch justify-content-start">
+            <ion-col>
+              <app-devices></app-devices>
+            </ion-col>
+          </ion-row>
 
-
-    <!-- Devices Row -->
-    <ion-row class="ion-align-items-stretch justify-content-start">
-      <ion-col>
-        <app-devices></app-devices>
-      </ion-col>
-    </ion-row>
-
-    <!-- Spots Row -->
-    <!-- <ion-row class="ion-align-items-stretch justify-content-start">
+          <!-- Spots Row -->
+          <!-- <ion-row class="ion-align-items-stretch justify-content-start">
       <ion-col>
         <app-spots></app-spots>
       </ion-col>
     </ion-row> -->
 
-    <!-- Row 6 aka Footer -->
-    <ion-row class="blackback ion-align-items-start">
-      <ion-col size="10" offset="1" class="ion-align-self-start">
-        <ion-grid>
-          <ion-row class="ion-justify-content-around">
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6"
-              class="ion-padding ion-text-start ion-align-self-start">
-
-              <ul>
-                <li>
-                  <h4>
-                    <ion-text color="secondary">
-                      Pages
-                    </ion-text>
-                  </h4>
-                </li>
-                <ion-text color="white">
-                  <li routerLink="/purchase">
-                    Get Started
-                  </li>
-                  <li routerLink="/login">
-                    Login
-                  </li>
-                  <li routerLink="/how-to">
-                    How-to Use Site
-                  </li>
-                  <li routerLink="/testimonials">
-                    Testimonials
-                  </li>
-                  <li routerLink="/user">
-                    Support
-                  </li>
-                  <li routerLink="/about">
-                    About
-                  </li>
-                  <li routerLink="/faq">
-                    FAQ
-                  </li>
-                  <li routerLink="/tweets">
-                    Recent Tweets
-                  </li>
-                </ion-text>
-              </ul>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6"
-              class="ion-padding ion-text-start ion-align-self-start">
-
-              <ul>
-                <li>
-                  <h4>
-                    <ion-text color="secondary">
-                      Cheatsheet Tables
-                    </ion-text>
-                  </h4>
-                </li>
-                <ion-text color="white">
-                  <li routerLink="/NOW">
-                    Happening Now
-                  </li>
-                  <li routerLink="/NBA">
-                    Pro Basketball
-                  </li>
-                  <li routerLink="/CBB">
-                    College Basketball
-                  </li>
-                  <li routerLink="/NFL">
-                    Pro Football
-                  </li>
-                  <li routerLink="/CFB">
-                    College Football
-                  </li>
-                  <li routerLink="/PGA">
-                    Pro Golf
-                  </li>
-                  <li routerLink="/ATP">
-                    Men's Tennis
-                  </li>
-                  <li routerLink="/WTA">
-                    Women's Tennis
-                  </li>
-                </ion-text>
-              </ul>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size="12" class="ion-align-self-center">
-
-              <h4>
-                <ion-text color="secondary">
-                  Location
-                </ion-text>
-              </h4>
-              <p>
-                <ion-text color="white">
-                  2406 14th St
-                  <br>
-                  Suite A
-                  <br>
-                  Lubbock TX 79401
-                </ion-text>
-              </p>
-              <div>
-                <img class="card" src="../assets/img/visa.svg" height="40px" />
-                <img class="card" src="../assets/img/mastercard.svg" height="40px" />
-                <img class="card" src="../assets/img/discover.svg" height="40px" />
-                <img class="card" src="../assets/img/amex.svg" height="40px" />
-                <br>
-                <img class="card" src="../assets/img/stripe.svg" height="40px" />
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-=======
-
-    <!--Landing-page -->
-    <ion-row class="align-items-stretch justify-content-center">
-      <ion-col>
-        <app-landing-page></app-landing-page>
-      </ion-col>
-    </ion-row>
-
-    <!--Icon Row-->
-    <ion-row>
-      <ion-col>
-        <app-icon-row></app-icon-row>
-      </ion-col>
-    </ion-row>
-
-    <!-- Informa -->
-    <ion-row class="justify-content-stretch">
-      <ion-col>
-        <app-informa></app-informa>
-      </ion-col>
-    </ion-row>
-
-    <!-- Phonetest -->
-    <ion-row class="align-items-stretch justify-content-center">
-      <ion-col>
-        <app-phonetest></app-phonetest>
-      </ion-col>
-    </ion-row>
-
-
-    <!-- Devices Row -->
-
-    <ion-row class="align-items-stretch justify-content-center">
-      <ion-col>
-        <app-devices></app-devices>
->>>>>>> Stashed changes
-      </ion-col>
-<<<<<<< Updated upstream
-
-<<<<<<< Updated upstream
-      </ion-row>
           <!-- Row 6 aka Footer -->
-          <ion-row class="blackback" >
-            <ion-col>
-            <!-- <ion-content  color="dark" style="min-height: 250px;"> -->
-        <ion-grid>
-          <ion-row class="ion-justify-content-center">
-
-     
-                    <ion-col size="4">
-                      <ion-list>
-
-                      <ion-list-header>
-
-                      <h5>
-                        <ion-text color="secondary">
-                          Pages
-                        </ion-text>
-                        </h5>
-                      </ion-list-header>
-
-                      <h6>
-                        <ion-text color="white">
-                          Page1
-                        </ion-text>
-                        </h6>
-                      
-                      <h6>
-                        <ion-text color="white">
-                            Page2
-                          </ion-text>
-                          </h6>
-                      
-                      <h6>
-                        <ion-text color="white">
-                            Page3
-                          </ion-text>
-                          </h6>    
-                        </ion-list>
-                    </ion-col>
-                    <ion-col size="4">
-
-                      
-                        <ion-list>
-
-                          <ion-list-header>
-    
-                          <h5>
-                            <ion-text color="secondary">
-                              Sports
-                            </ion-text>
-                            </h5>
-                          </ion-list-header>
-
-                        <h6>
-                          <ion-text color="white">
-
-                          Sport 1
-                          </ion-text>
-                        </h6>
-                          <h6>
-                            <ion-text color="white">
-
-                            Sport 2
-                            </ion-text>
-                          </h6>                           
-                            <h6>
-                              <ion-text color="white">
-
-                            Sport 3
-                          </ion-text>
-                        </h6>
-                        </ion-list>
-                    </ion-col>
-                    <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size="12">
-                      <ion-list>
-
-                        <ion-list-header>
-  
-                        <h5>
+          <ion-row class="blackback ion-align-items-start">
+            <ion-col size="10" offset="1" class="ion-align-self-start">
+              <ion-grid>
+                <ion-row class="ion-justify-content-around">
+                  <ion-col
+                    size-xl="4"
+                    size-lg="4"
+                    size-md="4"
+                    size-sm="6"
+                    size="6"
+                    class="ion-padding ion-text-start ion-align-self-start"
+                  >
+                    <ul>
+                      <li>
+                        <h4>
                           <ion-text color="secondary">
-                            Location
+                            Pages
                           </ion-text>
-                          </h5>
-                        </ion-list-header>
-                      <p>
-                        <ion-text color="white">
-                         2406 14th St
-                        <br>
-                         Suite A
-                          <br>
-                         Lubbock TX 79401
+                        </h4>
+                      </li>
+                      <ion-text color="white">
+                        <li routerLink="/purchase">
+                          Get Started
+                        </li>
+                        <li routerLink="/login">
+                          Login
+                        </li>
+                        <li routerLink="/how-to">
+                          How-to Use Site
+                        </li>
+                        <li routerLink="/testimonials">
+                          Testimonials
+                        </li>
+                        <li routerLink="/user">
+                          Support
+                        </li>
+                        <li routerLink="/about">
+                          About
+                        </li>
+                        <li routerLink="/faq">
+                          FAQ
+                        </li>
+                        <li routerLink="/tweets">
+                          Recent Tweets
+                        </li>
+                      </ion-text>
+                    </ul>
+                  </ion-col>
+                  <ion-col
+                    size-xl="4"
+                    size-lg="4"
+                    size-md="4"
+                    size-sm="6"
+                    size="6"
+                    class="ion-padding ion-text-start ion-align-self-start"
+                  >
+                    <ul>
+                      <li>
+                        <h4>
+                          <ion-text color="secondary">
+                            Cheatsheet Tables
                           </ion-text>
-                        </p>
-                      </ion-list>
-                      </ion-col>
-               </ion-row>
-=======
-    <!-- Row 6 aka Footer -->
-    <ion-row class="blackback align-items-stretch justify-content-center">
-      <ion-col size="10" offset="1">
-        <ion-grid>
-          <ion-row class="align-items-center">
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding align-self-center">
-              <ion-list>
-                <ion-list-header>
-                  <h5>
-                    <ion-text color="secondary">
-                      Pages
-                    </ion-text>
-                  </h5>
-                </ion-list-header>
-                <h6>
-                  <ion-text color="white">
-                    Page1
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Page2
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Page3
-                  </ion-text>
-                </h6>
-              </ion-list>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding align-self-center">
-              <ion-list>
-                <ion-list-header>
-                  <h5>
-                    <ion-text color="secondary">
-                      Sports
-                    </ion-text>
-                  </h5>
-                </ion-list-header>
-                <h6>
-                  <ion-text color="white">
-                    Sport 1
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Sport 2
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Sport 3
-                  </ion-text>
-                </h6>
-              </ion-list>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size="12" class="ion-padding align-self-end">
-              <ion-list>
-                <ion-list-header>
-                  <h5>
-                    <ion-text color="secondary">
-                      Location
-                    </ion-text>
-                  </h5>
-                </ion-list-header>
-                <p>
-                  <ion-text color="white">
-                    2406 14th St
-                    <br>
-                    Suite A
-                    <br>
-                    Lubbock TX 79401
-                  </ion-text>
-                </p>
-              </ion-list>
-            </ion-col>
-          </ion-row>
->>>>>>> Stashed changes
-        </ion-grid>
-
-      </ion-col>
-<<<<<<< Updated upstream
-
-              <!-- </ion-content> -->
-          </ion-row>
-
-
-
-    </ion-grid>
-            <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" >
-              <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
-                  <ion-icon name="arrow-dropup"></ion-icon>
-              </ion-fab-button>
-            </ion-fab>
-  </ion-content>
-=======
-=======
->>>>>>> Stashed changes
-    </ion-row>
-  </ion-grid>
-  <ion-fab vertical="bottom" horizontal="start" edge slot="fixed">
-    <ion-fab-button color="silver">
-<<<<<<< Updated upstream
-      <ion-icon color="success" name="share"></ion-icon>
-=======
-      <ion-icon color="white" name="share"></ion-icon>
->>>>>>> Stashed changes
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button target="_blank" size="small" href="https://www.facebook.com/RankFantasySports/">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button target="_blank" size="small" href="https://twitter.com/rankfsports">
-        <ion-icon name="logo-twitter" color="white"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="instagram" target="_blank" size="small" href="https://www.instagram.com/rankfsports">
-        <ion-icon name="logo-instagram" color="white"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
-    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" size="small" (click)="ScrollToTop()">
-      <ion-icon name="arrow-dropup"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-</ion-content>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<app-footer></app-footer>
+                        </h4>
+                      </li>
+                      <ion-text color="white">
+                        <li routerLink="/NOW">
+                          Happening Now
+                        </li>
+                        <li routerLink="/NBA">
+                          Pro Basketball
+                        </li>
+                        <li routerLink="/CBB">
+                          College Basketball
+                        </li>
+                        <li routerLink="/NFL">
+                          Pro Football
+                        </li>
+                        <li routerLink="/CFB">
+                          College Football
+                        </li>
+                        <li routerLink="/PGA">
+                          Pro Golf
+                        </li>
+                        <li routerLink="/ATP">
+                          Men's Tennis
+                        </li>
+                        <li routerLink="/WTA">
+                          Women's Tennis
+                        </li>
+                      </ion-text>
+                    </ul>
+                  </ion-col>
+                  <ion-col
+                    size-xl="4"
+                    size-lg="4"
+                    size-md="4"
+                    size-sm="12"
+                    size="12"
+                    class="ion-align-self-center"
+                  >
+                    <h4>
+                      <ion-text color="secondary">
+                        Location
+                      </ion-text>
+                    </h4>
+                    <p>
+                      <ion-text color="white">
+                        2406 14th St
+                        <br />
+                        Suite A
+                        <br />
+                        Lubbock TX 79401
+                      </ion-text>
+                    </p>
+                    <div>
+                      <img
+                        class="card"
+                        src="../assets/img/visa.svg"
+                        height="40px"
+                      />
+                      <img
+                        class="card"
+                        src="../assets/img/mastercard.svg"
+                        height="40px"
+                      />
+                      <img
+                        class="card"
+                        src="../assets/img/discover.svg"
+                        height="40px"
+                      />
+                      <img
+                        class="card"
+                        src="../assets/img/amex.svg"
+                        height="40px"
+                      />
+                      <br />
+                      <img
+                        class="card"
+                        src="../assets/img/stripe.svg"
+                        height="40px"
+                      />
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid> </ion-col></ion-row></ion-card></ion-col></ion-row></ion-grid
+></ion-content>

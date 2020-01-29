@@ -6,17 +6,13 @@ import { RouterEvent } from '@angular/router';
   providedIn: 'root'
 })
 export class SpinnerService {
-
-  constructor(
-    private loadingCtrl: LoadingController
-  ) { }
-
+  constructor(private loadingCtrl: LoadingController) {}
 
   async loadSpinner() {
     const load = await this.loadingCtrl.create({
       spinner: 'circles',
       message: 'Please wait...',
-      translucent: true,
+      translucent: true
     });
     load.present();
   }
@@ -24,5 +20,4 @@ export class SpinnerService {
   async dismissSpinner() {
     await this.loadingCtrl.dismiss();
   }
-
 }

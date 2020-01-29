@@ -14,86 +14,133 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 // Material Themes
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 @import url('https://fonts.googleapis.com/css?family=Cairo|Rokkitt&display=swap');
 
-
 // Main styling
 :root {
-  ion-content{
+  ion-content {
     --ion-background-color: none;
-    background:
-      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
       linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
       linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
       linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
       linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+      linear-gradient(
+        #1d1d1d 25%,
+        #1a1a1a 25%,
+        #1a1a1a 50%,
+        transparent 50%,
+        transparent 75%,
+        #242424 75%,
+        #242424
+      );
     background-color: #131313;
     background-size: 20px 20px;
     text-shadow: 1px 1px 1px #2b2c31;
   }
 }
 
-ion-text{
+ion-text {
   text-shadow: 1px 1px 1px #232127;
 }
 
-ion-icon{
+ion-icon {
   filter: drop-shadow(3px 3px 4px #6b3f80);
 }
 
-ul{
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
 // primary card background color images shadow gradients/gradients for each browser type with fallback gradients and color
-.card-metal{
+.card-metal {
   background: #33344b;
   // background-image: radial-gradient(ellipse at center, hsla(273, 61%, 13%, 1) 0%, rgba(38, 60, 63, 1) 100%); /* w3c */
-  background: -moz-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* ff3.6+ */
-  background: -webkit-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* opera 11.10+ */
-  background: -ms-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* ie10+ */
-  background: radial-gradient(ellipse at center, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* w3c */
+  background: -moz-radial-gradient(
+    center,
+    ellipse farthest-corner,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(38, 60, 63, 1) 100%
+  ); /* ff3.6+ */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse farthest-corner,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(38, 60, 63, 1) 100%
+  ); /* safari5.1+,chrome10+ */
+  background: -o-radial-gradient(
+    center,
+    ellipse farthest-corner,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(38, 60, 63, 1) 100%
+  ); /* opera 11.10+ */
+  background: -ms-radial-gradient(
+    center,
+    ellipse farthest-corner,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(38, 60, 63, 1) 100%
+  ); /* ie10+ */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(35, 13, 53, 1) 0%,
+    rgba(38, 60, 63, 1) 100%
+  ); /* w3c */
 }
 
-.main-card{
+.main-card {
   background: #454049;
-  background-image: -moz-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-  background-image: -webkit-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
+  background-image: -moz-linear-gradient(
+    to right,
+    rgb(69, 64, 73),
+    rgb(144, 0, 240)
+  );
+  background-image: -webkit-linear-gradient(
+    to right,
+    rgb(69, 64, 73),
+    rgb(144, 0, 240)
+  );
   background: -o-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
   background: -ms-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-  background: linear-gradient(to right, rgba(144, 0, 240, 1) 10%, rgba(69, 64, 73, 1) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(144, 0, 240, 1) 10%,
+    rgba(69, 64, 73, 1) 100%
+  );
 }
 
 // Toasts each status
-ion-toast.successT{
-  --background:  #11b81c;
+ion-toast.successT {
+  --background: #11b81c;
   --color: #fcf9f6;
   --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
+  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
 }
 
-ion-toast.dangerT{
-  --background:  rgb(184, 49, 32);
+ion-toast.dangerT {
+  --background: rgb(184, 49, 32);
   --color: rgb(251, 251, 255);
   --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
- }
-
- ion-toast.infoT{
-  --background:  rgb(87, 107, 131);
-  --color: #f6f9fd;
-  --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
+  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
 }
 
-ion-toast.warningT{
-  background:  rgb(139, 139, 0);
+ion-toast.infoT {
+  --background: rgb(87, 107, 131);
+  --color: #f6f9fd;
+  --button-color: #ff7300;
+  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
+}
+
+ion-toast.warningT {
+  background: rgb(139, 139, 0);
   --color: rgb(255, 253, 255);
   --button-color: #ff7300;
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
@@ -104,16 +151,17 @@ ion-toast.warningT{
 //   --background: var(ion-color-medium);
 // }
 
-::-webkit-scrollbar, *::-webkit-scrollbar {
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
   display: none;
 }
 
 a:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 // Credit Card Logos
-.creditCard{
+.creditCard {
   filter: drop-shadow(5px 5px 2px #130e14);
 }
 

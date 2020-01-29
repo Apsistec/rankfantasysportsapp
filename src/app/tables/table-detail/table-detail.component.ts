@@ -6,19 +6,19 @@ import { Table, TableResolved } from '../../_models/table.model';
 @Component({
   selector: 'app-table-detail',
   templateUrl: './table-detail.component.html',
-  styleUrls: ['./table-detail.component.scss'],
+  styleUrls: ['./table-detail.component.scss']
 })
 export class TableDetailComponent implements OnInit {
-
   pageTitle = 'Table Detail';
   table: Table;
   errorMessage: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const resolvedData: TableResolved =
-      this.route.snapshot.data['resolvedData'];
+    const resolvedData: TableResolved = this.route.snapshot.data[
+      'resolvedData'
+    ];
     this.errorMessage = resolvedData.error;
     this.onTableRetrieved(resolvedData.table);
   }

@@ -8,14 +8,12 @@ import { CollectionService } from '../../_services/collection.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 
-
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.page.html',
   styleUrls: ['./admin-dashboard.page.scss']
 })
 export class AdminDashboardPage implements OnInit {
-
   tickets: Observable<any>;
   titleId = 'RF$\u2122 Admin Dashboard';
   admins: Observable<any>;
@@ -28,8 +26,7 @@ export class AdminDashboardPage implements OnInit {
     private modalCtrl: ModalController,
     private collection: CollectionService,
     private db: AngularFirestore,
-    private fun: AngularFireFunctions,
-
+    private fun: AngularFireFunctions
   ) {}
 
   ngOnInit() {
@@ -51,7 +48,11 @@ export class AdminDashboardPage implements OnInit {
 
   sendEmail() {
     const callable = this.fun.httpsCallable('genericEmail');
-    callable({ text: 'Sending email with Angular and SendGrid is fun!', subject: 'Email from Angular' }).subscribe(); }
+    callable({
+      text: 'Sending email with Angular and SendGrid is fun!',
+      subject: 'Email from Angular'
+    }).subscribe();
+  }
 
   SignOut() {
     this.auth.SignOut();

@@ -5,12 +5,10 @@ import { ModalController } from '@ionic/angular';
   selector: 'app-terms-dialog',
   exportAs: 'modal',
   templateUrl: './terms-dialog.component.html',
-  styleUrls: ['./terms-dialog.component.scss'],
+  styleUrls: ['./terms-dialog.component.scss']
 })
-export class TermsDialogComponent  {
-
-
-  constructor(private modalCtrl: ModalController) { }
+export class TermsDialogComponent {
+  constructor(private modalCtrl: ModalController) {}
 
   closeModal() {
     this.modalCtrl.dismiss();

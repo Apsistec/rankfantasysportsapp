@@ -24,13 +24,13 @@ export const webhookHandler = async (data: any) => {
 export const invoiceWebhookEndpoint = functions.https.onRequest(
   async (req, res) => {
     try {
-      const sig = req.headers['stripe-signature'];
+      const sig = await req.headers['stripe-signature'];
       const event = stripe.webhooks.constructEvent(
         (req as any).rawBody,
         sig,
         stripeWebhookSignature
       );
-      const data = event.data.object;
+      const data = await event.data.object;
 
       await webhookHandler(data);
 

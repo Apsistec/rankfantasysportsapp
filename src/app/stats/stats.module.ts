@@ -5,10 +5,10 @@ import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material/material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgModule } from '@angular/core';
-import { PlayersActiveComponent } from './players-active/players-active.component';
 import { SharedModule } from '@shared/shared.module';
 import { StatsPage } from './stats.page';
 import { StatsPageRoutingModule } from './stats-routing.module';
+import { PlayersActiveComponent } from './players-active/players-active.component';
 
 @NgModule({
   imports: [

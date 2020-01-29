@@ -1,32 +1,13 @@
-<app-header [titleId]= "titleId"></app-header>
-<ion-content
-  (ionScroll)="onScroll($event)"
-  [scrollEvents]="true"
-  fullscreen>
+<app-header [titleId]="titleId"></app-header>
+<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" fullscreen>
   <ion-grid>
     <ion-row>
       <ion-col offset-lg="3">
-
-
         <!-- Twitter Card -->
         <ion-card class="ion-padding twit" color="dark">
           <ion-card-content>
             <ion-card-header>
               <ion-card-title>
-<<<<<<< Updated upstream:src/app/tweets/tweets.page.html
-                <ion-text color="secondary">
-                    RF$&trade; Twitter Account
-                  </ion-text>
-                </ion-card-title>
-                <ion-card-subtitle>
-                  <ion-text color="warning">
-                    Recent @rankfsports Tweets
-                  </ion-text>
-                </ion-card-subtitle>
-              </ion-card-header>
-              <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
-              [opts]="{
-=======
                 <ion-text color="secondary" class="ion-text-uppercase">
                   RF$&trade; tweets
                 </ion-text>
@@ -37,34 +18,20 @@
                 </ion-text>
               </ion-card-subtitle>
             </ion-card-header>
-            <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}" [opts]="{
->>>>>>> Stashed changes:src/app/sales-funnel/tweets/tweets.page.html
+            <ngx-twitter-timeline
+              [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+              [opts]="{
                 chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'],
                 theme: 'dark',
                 tweetLimit: '3',
                 borderColor: '#02ed25',
                 ariaPolite: 'assertive'
-              }">
+              }"
+            >
             </ngx-twitter-timeline>
             <ion-button expand="block" strong routerLink="/tweets">
               <ion-ripple-effect></ion-ripple-effect>
-<<<<<<< Updated upstream:src/app/tweets/tweets.page.html
-              <ion-text color="gold" style=" text-shadow:  .1em .15em .25em rgb(104, 0, 173);">
-              RF$&trade; Tweets
-              </ion-text>
-              <ion-icon name="logo-twitter" slot="end" color="twittr"></ion-icon>
-         </ion-button>
-        </ion-card-content>
-      </ion-card>
-    <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
-      <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">
-        <ion-icon name="arrow-dropup"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ion-col>
-  </ion-row>
-=======
-              <ion-text >
+              <ion-text>
                 RF$&trade; Tweets
               </ion-text>
               <ion-icon name="logo-twitter" slot="end"></ion-icon>
@@ -78,7 +45,6 @@
         </ion-fab>
       </ion-col>
     </ion-row>
->>>>>>> Stashed changes:src/app/sales-funnel/tweets/tweets.page.html
   </ion-grid>
 </ion-content>
 <app-footer></app-footer>

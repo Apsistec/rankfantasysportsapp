@@ -5,21 +5,13 @@ import { AuthService } from '../../_services/auth.service';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-// tslint:disable: object-literal-shorthand
 
 @Component({
   selector: 'app-settings',
-<<<<<<< Updated upstream
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
-})
-export class SettingsPage implements  OnInit {
-=======
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
->>>>>>> Stashed changes
   @Input()
   user;
   subscription;
@@ -33,16 +25,9 @@ export class SettingsComponent implements OnInit {
     private auth: AuthService,
     private modalCtrl: ModalController,
     public router: Router
-<<<<<<< Updated upstream
-  ) { }
-
-  ngOnInit() {
-  }
-=======
   ) {}
 
   ngOnInit() {}
->>>>>>> Stashed changes
 
   ionViewWillEnter() {
     this.user = this.getUserInformation();
@@ -59,40 +44,8 @@ export class SettingsComponent implements OnInit {
     await toast.present();
     return this.router.navigateByUrl('/auth/profile');
   }
-<<<<<<< Updated upstream
-=======
-<<<<<<<< Updated upstream:src/app/profile/settings/settings.component.ts
   getUserInformation() {
     this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges();
-========
->>>>>>> Stashed changes
-<<<<<<< Updated upstream:src/app/auth/settings/settings.page.ts
-  async getUserInformation() {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges();
-=======
-  getUserInformation() {
-    this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`).valueChanges();
->>>>>>> Stashed changes:src/app/profile/settings/settings.component.ts
-<<<<<<< Updated upstream
-  }
-
-  async updateUser (displayName) {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
-    .update({displayName: displayName});
-    this.updateToast();
-  }
-
-  async updateEmail (email) {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
-    .update({email: email});
-    this.updateToast();
-  }
-
-  async updateUserPhoto (photoURL) {
-    await this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`)
-    .update({photoURL: photoURL});
-=======
->>>>>>>> Stashed changes:src/app/auth/settings/settings.page.ts
   }
 
   async updateUser(displayName) {
@@ -113,7 +66,6 @@ export class SettingsComponent implements OnInit {
     await this.afs
       .doc(`users/${this.afAuth.auth.currentUser.uid}`)
       .update({ photoURL: photoURL });
->>>>>>> Stashed changes
     this.updateToast();
   }
 

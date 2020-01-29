@@ -4,11 +4,7 @@
     <ion-row>
       <ion-grid>
         <ion-row>
-<<<<<<< Updated upstream
-          <ion-col size="9">
-=======
           <ion-col size-lg="8" size-xl="8">
->>>>>>> Stashed changes
             <ion-card color="primary">
               <ion-card-header>
                 <ion-card-title>
@@ -18,10 +14,24 @@
                 </ion-card-title>
               </ion-card-header>
               <ion-list>
-                <ion-item button *ngFor="let ticket of tickets | async" class="ion-text-wrap"
-                  (click)="openTicket(ticket.id)">
-                  <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
-                  <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
+                <ion-item
+                  button
+                  *ngFor="let ticket of tickets | async"
+                  class="ion-text-wrap"
+                  (click)="openTicket(ticket.id)"
+                >
+                  <ion-icon
+                    name="radio-button-off"
+                    color="light"
+                    *ngIf="ticket.status == 0"
+                    slot="start"
+                  ></ion-icon>
+                  <ion-icon
+                    name="done-all"
+                    color="success"
+                    *ngIf="ticket.status == 1"
+                    slot="start"
+                  ></ion-icon>
                   <ion-label>
                     <ion-text>
                       <h2>{{ ticket.title }}</h2>
@@ -34,7 +44,7 @@
                     <ion-note>
                       {{ ticket.id }}
                     </ion-note>
-                    <br>
+                    <br />
                     <ion-note>
                       {{ ticket.created_at?.seconds*1000 | date: 'MMM d H:HH' }}
                     </ion-note>
@@ -55,14 +65,16 @@
               <ion-list>
                 <ion-item *ngFor="let admin of admins | async">
                   <ion-avatar>
-                    <img [src]="admin.photoURL || '../assets/img/dummy-user.png'" />
+                    <img
+                      [src]="admin.photoURL || '../assets/img/dummy-user.png'"
+                    />
                   </ion-avatar>
                   &nbsp; &nbsp;
                   <ion-label>
                     <ion-text>
                       {{ admin.displayName }}
                     </ion-text>
-                    <br>
+                    <br />
                     <ion-note>
                       {{ admin.email }}
                     </ion-note>
@@ -84,30 +96,39 @@
                   </ion-label>
                 </ion-card-subtitle>
                 <ion-toolbar>
-                  <ion-searchbar inputmode="search" type="search" autocomplete="'on'" animated="true"
-                    style="border-radius: 5em;">
+                  <ion-searchbar
+                    inputmode="search"
+                    type="search"
+                    autocomplete="'on'"
+                    animated="true"
+                    style="border-radius: 5em;"
+                  >
                   </ion-searchbar>
-                  <br>
+                  <br />
                   <ion-text>
-                    <sup class="ion-text-center ion-text-wrap">Search by any field</sup>
+                    <sup class="ion-text-center ion-text-wrap"
+                      >Search by any field</sup
+                    >
                   </ion-text>
                 </ion-toolbar>
               </ion-card-header>
               <ion-list>
                 <ion-item class="userlist" *ngFor="let user of users | async">
                   <ion-avatar>
-                    <img [src]="user.photoURL || '../assets/img/dummy-user.png'" />
+                    <img
+                      [src]="user.photoURL || '../assets/img/dummy-user.png'"
+                    />
                   </ion-avatar>
                   &nbsp; &nbsp;
                   <ion-label>
                     <ion-text>
                       {{ user.displayName }}
                     </ion-text>
-                    <br>
+                    <br />
                     <ion-note>
                       {{ user.email }}
                     </ion-note>
-                    <br>
+                    <br />
                     <ion-note [hidden]="!user.gold" color="gold">
                       Gold
                     </ion-note>
@@ -118,7 +139,11 @@
                       Bronze
                     </ion-note>
                   </ion-label>
-                  <ion-button color="success" size="small" (click)="sendEmail(user.email)">
+                  <ion-button
+                    color="success"
+                    size="small"
+                    (click)="sendEmail(user.email)"
+                  >
                     <ion-icon name="email" icon-only></ion-icon>
                   </ion-button>
                 </ion-item>
@@ -132,6 +157,5 @@
   </ion-grid>
 </ion-content>
 <ion-footer translucent>
-  <ion-toolbar color="medium">
-  </ion-toolbar>
+  <ion-toolbar color="medium"> </ion-toolbar>
 </ion-footer>

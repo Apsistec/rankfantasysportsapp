@@ -5,21 +5,16 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
+    "module": "esNext",
     "moduleResolution": "node",
-    "noImplicitAny": false,
     "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "diagnostics": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
     "paths": {
       "@services/*": ["app/_services/*"],
       "@guards/*": ["app/_guards/*"],
@@ -27,7 +22,8 @@
       "@models/*": ["app/_models/*"],
       "@helpers/*": ["app/_helpers/*"],
       "@environments/*": ["./environments/*"],
-      "@shared/*": ["app/_shared/*"]
+      "@shared/*": ["app/_shared/*"],
+      "@pipes/*": ["app/_pipes/*"]
     }
   }
- }
+}

@@ -1,25 +1,8 @@
-<<<<<<< Updated upstream:src/app/_shared/tickets/ticket.component.ts
-<<<<<<< Updated upstream:src/app/shared/tickets/ticket.component.ts
-import { TicketService } from '@services/ticket.service';
-import { ModalController, LoadingController, NavParams } from '@ionic/angular';
-import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '@services/auth.service';
-=======
-=======
->>>>>>> Stashed changes:src/app/shared/tickets/ticket.component.ts
 import { AuthService } from '../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController, NavParams } from '@ionic/angular';
 import { TicketService } from '../../_services/ticket.service';
-<<<<<<< Updated upstream:src/app/_shared/tickets/ticket.component.ts
->>>>>>> Stashed changes:src/app/_shared/tickets/ticket.component.ts
-
-=======
->>>>>>> Stashed changes:src/app/shared/tickets/ticket.component.ts
 
 @Component({
   selector: 'app-ticket',

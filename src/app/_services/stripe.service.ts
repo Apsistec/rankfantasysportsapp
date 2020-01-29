@@ -19,17 +19,8 @@ export class StripeService {
     private functions: AngularFireFunctions,
     private message: MessageService,
     private router: Router,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  ) { }
-=======
     private spinner: SpinnerService
   ) {}
->>>>>>> Stashed changes
-=======
-    private spinner: SpinnerService
-  ) {}
->>>>>>> Stashed changes
 
   async subscribeUser(source, planId) {
     const user = await this.auth.getCurrentUser();
@@ -48,35 +39,11 @@ export class StripeService {
   }
 
   async cancelSubscription() {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    await this.auth.loadSpinner;
-    const user = await this.auth.getUser();
-    const fun = this.functions.httpsCallable('stripeCancelSubscription');
-    this.confirmation = await fun({
-      uid: user.uid,
-      plan: this.planId
-    }).toPromise().then(() => {
-      this.auth.dismissSpinner();
-      this.message.unsubscribedAlert();
-      this.router.navigate(['/home']);
-    }).catch ((error) => {
-      this.auth.dismissSpinner();
-      this.message.errorAlert(error.message);
-    });
-=======
     this.spinner.loadSpinner();
     const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeCancelSubscription');
     this.confirmation = await fun({
       uid: user.uid,
-=======
-    this.spinner.loadSpinner();
-    const user = await this.auth.getCurrentUser();
-    const fun = this.functions.httpsCallable('stripeCancelSubscription');
-    this.confirmation = await fun({
-      uid: user.uid,
->>>>>>> Stashed changes
       subId: user.subId
     })
       .toPromise()
@@ -89,10 +56,6 @@ export class StripeService {
         this.spinner.dismissSpinner();
         this.message.errorAlert(error.message);
       });
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   }
 
   async getInvoices() {

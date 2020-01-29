@@ -1,8 +1,4 @@
 import { Slide } from '../../_models/slide.model';
-<<<<<<< Updated upstream:src/app/sales-funnel/testimonials/slides.ts
-
-=======
->>>>>>> Stashed changes:src/app/testimonials/slides.ts
 
 export const Slides: Slide[] = [
   // { img: 'assets/images/144.JPG' },

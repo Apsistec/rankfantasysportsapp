@@ -19,28 +19,9 @@ export class CancelSubscriptionComponent implements OnInit {
     public auth: AuthService,
     public stripeService: StripeService
   ) {}
-<<<<<<< Updated upstream:src/app/profile/cancel-subscription/cancel-subscription.component.ts
-
-<<<<<<< Updated upstream:src/app/auth/profile/cancel-subscription/cancel-subscription.component.ts
-  ) { }
-
-  ngOnInit() {}
-
-
-
-=======
   ngOnInit() {}
 
   dismissModal() {
     this.modalCtrl.dismiss();
   }
->>>>>>> Stashed changes:src/app/profile/cancel-subscription/cancel-subscription.component.ts
-=======
-
-  ngOnInit() {}
-
-  dismissModal() {
-    this.modalCtrl.dismiss();
-  }
->>>>>>> Stashed changes:src/app/auth/profile/cancel-subscription/cancel-subscription.component.ts
 }

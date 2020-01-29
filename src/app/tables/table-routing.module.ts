@@ -35,7 +35,7 @@ const routes: Routes = [
     component: TablePage,
     children: [
       // { path: '', redirectTo: 'tables', pathMatch: 'full' },
-      { path: 'table-list', component: TableListComponent},
+      { path: 'table-list', component: TableListComponent },
       { path: 'tennis', component: TennisComponent },
       { path: 'nfl', component: NflComponent },
       { path: 'nba', component: NbaComponent },

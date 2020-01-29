@@ -7,9 +7,8 @@ import { Slides } from './slides';
   templateUrl: 'testimonials.page.html',
   styleUrls: ['testimonials.page.scss']
 })
-
 export class TestimonialsPage {
-  titleId = 'RF$\u2122 Credibility' ;
+  titleId = 'RF$\u2122 Credibility';
   slides = Slides;
   imgDescription = 'Submitted by RF$ PRO Members';
   slide: any;
@@ -23,6 +22,5 @@ export class TestimonialsPage {
     mousewheel: true
   };
 
-  constructor(public modalController: ModalController) { }
-
+  constructor(public modalController: ModalController) {}
 }
