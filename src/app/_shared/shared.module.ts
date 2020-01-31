@@ -1,3 +1,4 @@
+import { ToHttpsPipe } from './../_pipes/to-https.pipe';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ import { TennisComponent } from 'app/tables/tennis/tennis.component';
     NflComponent,
     CfbComponent,
     PgaComponent,
+    ToHttpsPipe,
     NbaComponent,
     TennisComponent,
     CbbComponent,
@@ -67,6 +69,7 @@ import { TennisComponent } from 'app/tables/tennis/tennis.component';
     RegModalComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,
+    ToHttpsPipe,
     TicketComponent,
     NowComponent,
     NflComponent,

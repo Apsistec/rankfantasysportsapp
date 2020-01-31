@@ -1,29 +1,37 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "sourceMap": true,
     "baseUrl": "src",
     "outDir": "./dist/out-tsc",
-    "sourceMap": true,
     "declaration": false,
-    "module": "esNext",
+    "module": "esnext",
     "moduleResolution": "node",
-    "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "diagnostics": true,
-    "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
-    "paths": {
-      "@services/*": ["app/_services/*"],
-      "@guards/*": ["app/_guards/*"],
-      "@directives/*": ["app/_directives/*"],
-      "@models/*": ["app/_models/*"],
-      "@helpers/*": ["app/_helpers/*"],
-      "@environments/*": ["./environments/*"],
-      "@shared/*": ["app/_shared/*"],
-      "@pipes/*": ["app/_pipes/*"]
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+      "noErrorTruncation": true,
+      "extendedDiagnostics": true,
+      "allowSyntheticDefaultImports": true,
+      "downlevelIteration": true,
+      "diagnostics": true,
+      "paths": {
+        "@services/*": ["app/_services/*"],
+        "@guards/*": ["app/_guards/*"],
+        "@directives/*": ["app/_directives/*"],
+        "@models/*": ["app/_models/*"],
+        "@helpers/*": ["app/_helpers/*"],
+        "@environments/*": ["environments/*"],
+        "@shared/*": ["app/_shared/*"],
+        "@pipes/*": ["app/_pipes/*"]
     }
   }
 }

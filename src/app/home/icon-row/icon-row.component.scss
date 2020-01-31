@@ -1,13 +1,21 @@
 img {
-  height: 36px;
-  width: 36px;
+  height: 100px;
+  width: 100px;
+  display: -webkit-inline-box;
   display: inline-block;
 }
 
-.button {
-  cursor: pointer;
+h5, h2{
+color: var(--ion-color-medium);
+font-weight: 800;
 }
-ion-icon:hover {
-  --ion-background-color: var(--ion-color-light);
-  color: var(--ion-color-light);
+.top {
+  font-size: x-large  ;
+
+}
+
+.iconrow {
+  border-top: thick solid silver;
+  padding-top: 30px;
+  padding-bottom: 40px;
 }

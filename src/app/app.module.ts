@@ -1,3 +1,4 @@
+import { StartModalComponent } from 'app/start-modal/start-modal.component';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
@@ -20,9 +21,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HomePageModule } from './home/home.module';
 import { SafePipe } from './_pipes/safe.pipe';
+import { BlinkDirective } from './_directives/blink.directive';
 
 @NgModule({
-  declarations: [AppComponent, SafePipe],
+  declarations: [AppComponent, SafePipe, StartModalComponent, BlinkDirective],
+  entryComponents: [StartModalComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -34,7 +37,7 @@ import { SafePipe } from './_pipes/safe.pipe';
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    ServiceWorkerModule.register('/app/ngsw-worker.js', {
       enabled: environment.production
     }),
     HttpClientModule,

@@ -1,6 +1,6 @@
 {
-  "name": "Rank Fantasy $ports",
-  "short_name": "RF$",
+  "name": "Rank Fantasy Sports",
+  "short_name": "RFSports",
   "description": "The premier app for Daily Fantasy Sports players who Win.",
   "dir": "ltr",
   "orientation": "any",
@@ -9,8 +9,8 @@
     "src": "./ngsw-worker.js"
   },
   "categories": ["sports", "entertainment", "statistics"],
-  "theme_color": "#231540",
-  "background_color": "#4a525e",
+  "theme_color": "#121212",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

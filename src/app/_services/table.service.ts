@@ -1,38 +1,79 @@
+// import { HttpErrorHandler } from './http-error-handler.service';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
+import { environment } from '@environments/environment';
 import { Table } from '@models/table.model';
-import {
-  HttpErrorHandler,
-  HandleError
-} from '@services/http-error-handler.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: 'my-auth-token'
-  })
-};
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TableService {
-  // tslint:disable-next-line: quotemark
-  tableUrl =
-    "https://graph.microsoft.com/v1.0/me/drive/items/E6DAB4F84D6D7119!748/workbook/worksheets('Thru 01.20.20')/usedRange?$format=json"; // URL to web api
-  private handleError: HandleError;
-
-  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
-    this.handleError = httpErrorHandler.createHandleError('HeroesService');
+ dataSource: Table;
+  constructor(
+    private http: HttpClient,
+  ) {
   }
-
-  /** GET Table from the server */
-  getTable(): Observable<Table[]> {
-    return this.http
-      .get<Table[]>(this.tableUrl)
-      .pipe(catchError(this.handleError('getTable', [])));
+  getStats() {
+    return this.http.get(`${environment.tableUrl}`).pipe(
+      tap(data => {
+        this.dataSource = data;
+      }),
+      catchError(err => {
+         throw new Error(err);
+      })
+    );
   }
+}
+
+
+
+
+// import { Injectable } from '@angular/core';
+// import {
+//   HttpClient,
+//   // HttpParams
+// } from '@angular/common/http';
+// import { HttpHeaders } from '@angular/common/http';
+// import { Observable } from 'rxjs';
+// import { catchError, retry, map } from 'rxjs/operators';
+// import { Table } from '@models/table.model';
+// import {
+//   HttpErrorHandler,
+//   HandleError
+// } from '@services/http-error-handler.service';
+
+
+// @Injectable()
+// export class TableService {
+
+//   tableUrl =
+//     // tslint:disable-next-line: quotemark
+//     "https://graph.microsoft.com/v1.0/me/drive/items/E6DAB4F84D6D7119!748/workbook/worksheets('Thru 01.20.20')/usedRange?$format=json"; // URL to web api
+
+//     private handleError: HandleError;
+
+//   constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
+//     this.handleError = httpErrorHandler.createHandleError('HeroesService');
+//   }
+
+//   httpOptions = {
+//     headers: new HttpHeaders({
+//       'Content-Type': 'application/json',
+//       Authorization: 'my-auth-token'
+//     })
+//   };
+
+//   /** GET Table from the server */
+//   getTable(): Observable<any> {
+//    const response = this.http
+//       .get<Table>(this.tableUrl)
+//       .pipe(
+//         retry(2),
+//         (map( response: Response) => response.jsonf());
+//         catchError(this.handleError('getTable', []))
+//       );
+//   }
 
   // /* GET heroes whose name contains search term */
   // searchHeroes(term: string): Observable<Table[]> {
@@ -77,4 +118,4 @@ export class TableService {
   //       catchError(this.handleError('updateHero', hero))
   //     );
   // }
-}
+// }

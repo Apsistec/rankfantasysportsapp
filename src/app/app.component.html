@@ -11,7 +11,7 @@
       </ion-toolbar>
     </ion-menu-toggle>
   </ion-header>
-  <ion-content color="medium">
+  <ion-content color="white">
     <ion-menu-toggle>
       <ion-list>
         <ion-item-group>
@@ -198,44 +198,27 @@
             routerLink="/tweets"
             class="ion-text-uppercase"
           >
-            <ion-icon color="white" slot="start" name="logo-twitter"></ion-icon>
-            <ion-text color="light">Tweets</ion-text>
+            <ion-icon color="dark" slot="start" name="logo-twitter"></ion-icon>
+            <ion-text color="dark">Tweets</ion-text>
           </ion-item>
 
           <ion-item button lines="none" disabled class="ion-text-uppercase">
-            <ion-icon color="white" slot="start" name="trending-up"></ion-icon>
-            <ion-text color="light">Line-up Optimizers<sup>*</sup></ion-text>
+            <ion-icon color="dark" slot="start" name="trending-up"></ion-icon>
+            <ion-text color="dark">Line-up Optimizers<sup>*</sup></ion-text>
           </ion-item>
         </ion-item-group>
       </ion-list>
 
       <div style="margin-left:7px;">
-        <ion-note>*<sub>Coming Soon</sub> </ion-note>
-      </div>
+        <ion-text color="dark">
+          <ion-note>*<sub>Coming Soon</sub> </ion-note>
+          </ion-text>
+          </div>
+          <hr />
+
     </ion-menu-toggle>
-    <hr />
-    <ion-button
-      fill="clear"
-      size="small"
-      (click)="showModalTerms()"
-      class="ion-text-uppercase"
-    >
-      <ion-text color="white">Terms</ion-text>
-    </ion-button>
-    <ion-button
-      fill="clear"
-      size="small"
-      (click)="showModalPrivacy()"
-      class="ion-text-uppercase"
-    >
-      <ion-text color="white">Privacy</ion-text>
-    </ion-button>
   </ion-content>
-  <ion-footer class="ion-text-center">
-    <ion-menu-toggle>
-      <ion-toolbar color="dark"> </ion-toolbar>
-    </ion-menu-toggle>
-  </ion-footer>
+
 </ion-menu>
 
 <ion-router-outlet main></ion-router-outlet>

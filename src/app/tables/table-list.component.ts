@@ -1,9 +1,9 @@
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
-import { Table } from '../_models/table.model';
+// import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+// import { IonContent } from '@ionic/angular';
+// import { Table } from '../_models/table.model';
 // import { TableService } from '@services/table.service';
-import { TableModule } from './table.module';
+// import { TableModule } from './table.module';
 
 @Component({
   selector: 'app-table-list',
@@ -13,7 +13,7 @@ import { TableModule } from './table.module';
 export class TableListComponent implements OnInit {
   titleId = 'All Sports Tables';
 
-  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
+  // @ViewChild(IonContent, { static: true }) ionContent: IonContent;
 
   scrolledDown = false;
   // filteredTables: Table[] = [];
@@ -21,16 +21,16 @@ export class TableListComponent implements OnInit {
 
   constructor(
     // private tableService: TableService,
-    private route: ActivatedRoute
+    // private route: ActivatedRoute
   ) {}
 
   ngOnInit() {}
 
-  onScroll(event) {
+  onScroll(event: { detail: { scrollTop: number; }; }) {
     this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
   }
 
   ScrollToTop() {
-    this.ionContent.scrollToTop(1500);
+    // this.ionContent.scrollToTop(1500);
   }
 }

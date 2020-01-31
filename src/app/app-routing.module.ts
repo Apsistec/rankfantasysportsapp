@@ -1,17 +1,13 @@
-import {
-  AngularFireAuthGuard,
-  canActivate,
-  hasCustomClaim,
-  redirectLoggedInTo,
-  redirectUnauthorizedTo
-} from '@angular/fire/auth-guard';
+// import {
+//   AngularFireAuthGuard,
+//   canActivate,
+//   hasCustomClaim,
+//   redirectLoggedInTo,
+//   redirectUnauthorizedTo
+// } from '@angular/fire/auth-guard';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { TableDetailComponent } from './tables/table-detail/table-detail.component';
-import { MtrdsComponent } from './tables/tennis/mtrds/mtrds.component';
-import { WtrdsComponent } from './tables/tennis/wtrds/wtrds.component';
-import { MttsaComponent } from './tables/tennis/mttsa/mttsa.component';
-import { WttsaComponent } from './tables/tennis/wttsa/wttsa.component';
+
 
 // import { MemberGuard } from '../../../Member.guard';
 // import { PaidMemberGuard } from '../../../paid-member.guard';
@@ -40,7 +36,7 @@ const appRoutes: Routes = [
   {
     path: 'free-trial',
     loadChildren: () =>
-      import('./sales-funnel/purchase/purchase.module').then(
+      import('./purchase/purchase.module').then(
         m => m.PurchasePageModule
       )
   },
@@ -61,7 +57,7 @@ const appRoutes: Routes = [
   {
     path: 'purchase',
     loadChildren: () =>
-      import('./sales-funnel/purchase/purchase.module').then(
+      import('./purchase/purchase.module').then(
         m => m.PurchasePageModule
       )
   },
@@ -77,7 +73,7 @@ const appRoutes: Routes = [
       import('./sales-funnel/welcome/welcome.module').then(
         m => m.WelcomePageModule
       ),
-    canActivate: [AngularFireAuthGuard]
+    // canActivate: [AngularFireAuthGuard]
   },
   {
     path: 'login',
@@ -111,7 +107,7 @@ const appRoutes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./profile/profile.module').then(m => m.ProfilePageModule),
-    canActivate: [AngularFireAuthGuard]
+    // canActivate: [AngularFireAuthGuard]
   },
   {
     path: 'user',
@@ -119,7 +115,7 @@ const appRoutes: Routes = [
       import('./profile/user-tickets/user-tickets.module').then(
         m => m.UserTicketsPageModule
       ),
-    canActivate: [AngularFireAuthGuard],
+    // canActivate: [AngularFireAuthGuard],
     data: { role: 'USER' }
   },
   {

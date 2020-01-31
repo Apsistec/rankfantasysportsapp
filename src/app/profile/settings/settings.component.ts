@@ -1,8 +1,7 @@
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AuthService } from '../../_services/auth.service';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -22,7 +21,6 @@ export class SettingsComponent implements OnInit {
     public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private toastCtrl: ToastController,
-    private auth: AuthService,
     private modalCtrl: ModalController,
     public router: Router
   ) {}

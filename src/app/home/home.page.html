@@ -1,158 +1,73 @@
-<app-header [titleId]="titleId"></app-header>
+<!-- <app-header [titleId]="titleId"></app-header> -->
 <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
   <ion-grid>
     <!-- Row 1 -->
     <ion-row>
-      <ion-col>
-        <ion-card color="primary" style="min-height: 800px;">
+
           <!--Landing-page -->
-          <ion-row class="ion-align-items-stretch ion-justify-content-center">
-            <ion-col>
-              <app-landing-page></app-landing-page>
-            </ion-col>
+          <ion-col>
+
+            <app-landing-page></app-landing-page>
+          </ion-col>
+      
           </ion-row>
 
           <!--Icon Row-->
           <ion-row>
-            <ion-col>
+            
               <app-icon-row></app-icon-row>
-            </ion-col>
+    
           </ion-row>
 
           <!-- Video Row -->
           <ion-row>
-            <ion-col>
-              <app-video></app-video>
-            </ion-col>
-          </ion-row>
+       <ion-col>
 
-          <!-- Informa -->
-          <ion-row class="ion-justify-content-stretch">
-            <ion-col>
-              <app-informa></app-informa>
-            </ion-col>
+         <app-video></app-video>
+        </ion-col>
+            
+          </ion-row>
+       
+          <!--Testimonials Row -->
+          <ion-row>
+          
+              <app-endorsements></app-endorsements>
+       
           </ion-row>
 
           <!-- Phonetest -->
-          <ion-row class="ion-align-items-stretch ion-justify-content-center">
+          <ion-row>
             <ion-col>
+
+              
               <app-phonetest></app-phonetest>
+              
             </ion-col>
           </ion-row>
 
           <!-- Devices Row -->
-          <ion-row class="ion-align-items-stretch justify-content-start">
+          <ion-row >
             <ion-col>
               <app-devices></app-devices>
             </ion-col>
           </ion-row>
-
-          <!-- Spots Row -->
-          <!-- <ion-row class="ion-align-items-stretch justify-content-start">
-      <ion-col>
-        <app-spots></app-spots>
-      </ion-col>
-    </ion-row> -->
+          
 
           <!-- Row 6 aka Footer -->
-          <ion-row class="blackback ion-align-items-start">
-            <ion-col size="10" offset="1" class="ion-align-self-start">
+          <ion-row class="blackback ion-justify-content-center" >
+            <!-- <ion-col>
               <ion-grid>
-                <ion-row class="ion-justify-content-around">
+                <ion-row> -->
+
+                  
+                  
                   <ion-col
-                    size-xl="4"
-                    size-lg="4"
-                    size-md="4"
-                    size-sm="6"
-                    size="6"
-                    class="ion-padding ion-text-start ion-align-self-start"
-                  >
-                    <ul>
-                      <li>
-                        <h4>
-                          <ion-text color="secondary">
-                            Pages
-                          </ion-text>
-                        </h4>
-                      </li>
-                      <ion-text color="white">
-                        <li routerLink="/purchase">
-                          Get Started
-                        </li>
-                        <li routerLink="/login">
-                          Login
-                        </li>
-                        <li routerLink="/how-to">
-                          How-to Use Site
-                        </li>
-                        <li routerLink="/testimonials">
-                          Testimonials
-                        </li>
-                        <li routerLink="/user">
-                          Support
-                        </li>
-                        <li routerLink="/about">
-                          About
-                        </li>
-                        <li routerLink="/faq">
-                          FAQ
-                        </li>
-                        <li routerLink="/tweets">
-                          Recent Tweets
-                        </li>
-                      </ion-text>
-                    </ul>
-                  </ion-col>
-                  <ion-col
-                    size-xl="4"
-                    size-lg="4"
-                    size-md="4"
-                    size-sm="6"
-                    size="6"
-                    class="ion-padding ion-text-start ion-align-self-start"
-                  >
-                    <ul>
-                      <li>
-                        <h4>
-                          <ion-text color="secondary">
-                            Cheatsheet Tables
-                          </ion-text>
-                        </h4>
-                      </li>
-                      <ion-text color="white">
-                        <li routerLink="/NOW">
-                          Happening Now
-                        </li>
-                        <li routerLink="/NBA">
-                          Pro Basketball
-                        </li>
-                        <li routerLink="/CBB">
-                          College Basketball
-                        </li>
-                        <li routerLink="/NFL">
-                          Pro Football
-                        </li>
-                        <li routerLink="/CFB">
-                          College Football
-                        </li>
-                        <li routerLink="/PGA">
-                          Pro Golf
-                        </li>
-                        <li routerLink="/ATP">
-                          Men's Tennis
-                        </li>
-                        <li routerLink="/WTA">
-                          Women's Tennis
-                        </li>
-                      </ion-text>
-                    </ul>
-                  </ion-col>
-                  <ion-col
-                    size-xl="4"
-                    size-lg="4"
-                    size-md="4"
+                    size-xl="3"
+                    offset-xl="1.5"
+                    size-lg="3"
+                    offset-lg="1.5"
+                    size-md="12"
                     size-sm="12"
-                    size="12"
                     class="ion-align-self-center"
                   >
                     <h4>
@@ -169,35 +84,69 @@
                         Lubbock TX 79401
                       </ion-text>
                     </p>
-                    <div>
-                      <img
-                        class="card"
-                        src="../assets/img/visa.svg"
-                        height="40px"
-                      />
-                      <img
-                        class="card"
-                        src="../assets/img/mastercard.svg"
-                        height="40px"
-                      />
-                      <img
-                        class="card"
-                        src="../assets/img/discover.svg"
-                        height="40px"
-                      />
-                      <img
-                        class="card"
-                        src="../assets/img/amex.svg"
-                        height="40px"
-                      />
-                      <br />
-                      <img
+                  </ion-col>
+                  <ion-col 
+                  size-xl="3"
+                  size-lg="3"
+                  size-md="12"
+                  size-sm="12"
+                  class="ion-align-self-center">
+                  <div>
+                    <img
+                    class="card"
+                    src="../assets/img/visa.svg"
+                    height="40px"
+                    />
+                    <img
+                    class="card"
+                    src="../assets/img/mastercard.svg"
+                    height="40px"
+                    />
+                    <img
+                    class="card"
+                    src="../assets/img/discover.svg"
+                    height="40px"
+                    />
+                    <img
+                    class="card"
+                    src="../assets/img/amex.svg"
+                    height="40px"
+                    />
+                        <br />
+                        <img
                         class="card"
                         src="../assets/img/stripe.svg"
                         height="40px"
-                      />
+                        />
+                      </div>
+                    </ion-col>
+                    <ion-col
+                    size-xl="3"
+                    size-lg="3"
+                    size-md="12"
+                    size-sm="12"
+                    class="ion-align-self-center">
+                    <div class="terms">
+                      <ion-button size="small"  fill="clear" (click)="showModalTerms()">
+                        <ion-text color="white">
+                          
+                          Terms
+                          
+                        </ion-text>
+                      </ion-button>
+                      <ion-button size="small"  fill="clear" (click)="showModalPrivacy()">
+                        <ion-text color="white">
+                          
+                          Privacy
+                          
+                        </ion-text>
+                      </ion-button>
                     </div>
-                  </ion-col>
+                  <!-- </ion-col>
                 </ion-row>
-              </ion-grid> </ion-col></ion-row></ion-card></ion-col></ion-row></ion-grid
-></ion-content>
+              </ion-grid> -->
+            </ion-col>
+                  
+                </ion-row>
+              </ion-grid>
+  </ion-content>

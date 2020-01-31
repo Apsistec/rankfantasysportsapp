@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { StatsPage } from './stats.page';
 import { Routes, RouterModule } from '@angular/router';
-import { PlayersActiveComponent } from './players-active/players-active.component';
+// import { PlayersActiveComponent } from './players-active/players-active.component';
 
 const routes: Routes = [
   {
     path: '',
     component: StatsPage,
     children: [
-      { path: 'active-players', component: PlayersActiveComponent }
+      // { path: 'active-players', component: PlayersActiveComponent }
     ]
   }
 ];

@@ -73,7 +73,7 @@
                 *ngIf="stripeService.subscriptions | async as subs; else purchase"
               >
                 <ion-grid>
-                  <ion-row class="ion-justify-content-around">
+                  <ion-row class="ion-justify-content-center">
                     <ion-col size-sm="5">
                       <ion-label>
                         <h2>
@@ -316,37 +316,14 @@
                 color="white"
                 >Heading/Title</ion-button
               >
-              <ion-button size="small" expand="block" strong size="small"
-                >titles</ion-button
-              >
-              <hr />
+    
               <ion-card-subtitle>
                 <ion-text>
                   Unique Themes
                 </ion-text>
               </ion-card-subtitle>
 
-              <ion-button
-                size="small"
-                color="white"
-                (click)="changeTheme('autumn')"
-                >Option 1</ion-button
-              >
-              <ion-button
-                size="small"
-                color="white"
-                (click)="changeTheme('night')"
-                >Option 2</ion-button
-              >
-              <ion-button
-                size="small"
-                color="white"
-                (click)="changeTheme('neon')"
-                >Option 3</ion-button
-              >
-              <ion-button size="small" color="white" (click)="changeTheme('')"
-                >Default</ion-button
-              >
+  
             </ion-card-content>
           </ion-card>
         </ng-container>

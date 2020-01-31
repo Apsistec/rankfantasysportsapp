@@ -1,32 +1,49 @@
-<!-- <ion-card color="primary"> -->
-<ion-grid>
-  <ion-row>
-    <ion-col
-      size-sm="6"
-      offset-sm="3"
-      size-md="4"
-      offset-md="4"
-      size-lg="4"
-      offset-lg="4"
-      size-xl="4"
-      offset-xl="4"
-    >
-      <!-- Enter Video 1 Here -->
-      <ion-card
-        class="ion-text-center ion-padding"
-        class="resp-container"
-        color="primary"
+<div class="vidrow">
+  <ion-grid>
+    <ion-row color="silver" class="ion-justify-content-around">
+      <ion-col
+        size-xl="3"
+        size-lg="3"
+        size-md="12"
+        size-sm="12"
+        class="ion-text-wrap ion-text-center ion-align-self-center"
       >
-        <iframe
-          class="resp-iframe"
-          [src]="trustedVideoUrl4"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        >
-        </iframe>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-<!-- </ion-card> -->
+        <div class="youtube">
+          <ion-text>
+            <h4>
+              Watch The Video To See How
+              <br />
+              We Stay Consistently Profitable -
+            </h4>
+            <h3>
+              Fast!
+            </h3>
+            <h5>
+              What is your time worth to you?
+            </h5>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col
+        size-xl="4"
+        size-lg="4"
+        size-md="12"
+        size-sm="12"
+        class="ion-align-self-center"
+      >
+        <div class="vidbox">
+          <iframe
+            class="resp-iframe"
+            [src]="trustedVideoUrl4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            width="700"
+            height="400"
+          >
+          </iframe>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

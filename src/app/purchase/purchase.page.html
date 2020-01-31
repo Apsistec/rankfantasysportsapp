@@ -1,0 +1,147 @@
+<!-- <app-header [titleId]="titleId"></app-header> -->
+
+<ion-content class="ion-text-center" fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="12">
+
+        <ion-button size="large" color="success">
+          <ion-text>
+
+          </ion-text>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-stretch">
+      <ion-col size-lg="4" offset-lg="4">
+        <ion-card class="primary" color="primary">
+          <ion-card-header>
+            <ion-text>
+              Get your
+              <strong>
+
+                <u>
+                  Free
+                </u>
+
+                <br>
+                7 Day Trial
+              </strong>
+              Today
+            </ion-text>
+          </ion-card-header>
+          <ion-card-content>
+
+            <ion-card class="stepper">
+              <ion-card-content>
+                This is a step
+
+<button class="button is-success" (click)="checkout($event)">
+
+  Buy for ${{ amount / 100 }}.00
+
+</button>
+
+<hr>
+
+<pre *ngIf="confirmation" style="max-width: 500px;">
+  {{ confirmation | json }}
+</pre>
+                <ion-item>
+                </ion-item>
+
+              <ion-card style="border: 4px black dotted;">
+                <ion-card-header>
+                  <ion-item color="warning">
+                      <ion-icon *blink slot="start" name="arrow-round-forward"></ion-icon>
+                      <ion-checkbox   (ionChange)="bumpOrder()"></ion-checkbox>
+                      <ion-label color="success">
+                        Enhance My Trial
+                      </ion-label>
+                  </ion-item>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-text color="danger" class="bump" >
+                    ONE TIME OFFER ($57):
+                  </ion-text>
+                  <ion-text color="white">
+                    You'll never see this offer again! By checking the box, we will Send you our DFS Lineup Checklist and You will get a complimentary 30 min strategy session with one of our DFS Pros to help you win some contests early (Normally $250) for just $57 when you check the box above. This offer is only available when you sign up for your trial today.
+                  </ion-text>
+                </ion-card-content>
+              </ion-card>
+              </ion-card-content>
+
+              <ion-card class="step ion-padding">
+
+              </ion-card>
+            </ion-card>
+
+            </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+
+
+    <ion-row>
+      <ion-col>
+        <ion-card color="light" class="ion-padding">
+          <ion-text class="ion-text-start">
+            <p style="text-shadow: none">
+              <sup>
+                * Credit or Debit card required for verification. During the One
+                Week (7 day) trial period, card will not be charged. On eighth 8
+                <sup>
+                  th
+                </sup>
+                day after subscription start date, card will be processed.
+                <strong>
+                  Trial valid once per card holder/ member.
+                </strong>
+                <hr />
+                <strong>
+                  One (1) user per account.
+                </strong>
+                Subscriptions are associated with the email address you used at
+                the time of purchase. To ensure access to your account, sign in
+                with the same email address each time. All payments are handled
+                by &nbsp;
+                <a href="https://www.stripe.com">
+                  <ion-text>
+                    Stripe
+                  </ion-text>
+                </a>
+                . The RF$ site is served using Secure Socket Layer (SSL)
+                encryption, and our servers submit secure tokenized versions of
+                your payment information. The complete card details are never
+                visible to anyone at Rank Fantasy Sports, nor are the complete
+                card details stored on our servers. Pro Membership Packages are
+                subscriptions which are billed automatically, on or about the
+                same date each billing cycle varying only on accounts which have
+                a start date that does not occur every month (e.g. 31st day of a
+                month). You may cancel your subscription at anytime. Once a
+                cancellation request has been submitted, your account will be
+                terminated immediately, and no further payments will be
+                processed. For more details, please read our
+                <a (click)="showModalTerms()">
+                  <ion-text color="medium">
+                    Terms
+                  </ion-text>
+                </a>
+                . The security of your information is our priority. Please read
+                our
+                <a (click)="showModalPrivacy()">
+                  <ion-text color="medium">
+                    Privacy
+                  </ion-text>
+                </a>
+                for more details.
+              </sup>
+            </p>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

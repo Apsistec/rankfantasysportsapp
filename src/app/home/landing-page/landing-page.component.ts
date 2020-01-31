@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Config, PopoverController } from '@ionic/angular';
+import { Config } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
 import { ThemeService } from '@services/theme.service';
 
@@ -13,7 +13,6 @@ export class LandingPageComponent implements OnInit {
 
   constructor(
     private config: Config,
-    private popoverCtrl: PopoverController,
     public auth: AuthService,
     private theme: ThemeService
   ) {}

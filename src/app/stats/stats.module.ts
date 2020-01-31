@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { StatsPage } from './stats.page';
 import { StatsPageRoutingModule } from './stats-routing.module';
-import { PlayersActiveComponent } from './players-active/players-active.component';
+// import { PlayersActiveComponent } from './players-active/players-active.component';
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import { PlayersActiveComponent } from './players-active/players-active.componen
     ReactiveFormsModule,
     StatsPageRoutingModule
   ],
-  entryComponents: [PlayersActiveComponent],
-  declarations: [StatsPage, PlayersActiveComponent]
+  entryComponents: [],
+  declarations: [StatsPage]
 })
 export class StatsPageModule {}

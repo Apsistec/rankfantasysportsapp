@@ -2,16 +2,14 @@ import { AuthService } from './_services/auth.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   IonContent,
-  ModalController,
   Platform,
   ToastController
 } from '@ionic/angular';
-import { PrivacyDialogComponent } from './_shared/privacy-dialog/privacy-dialog.component';
+
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
-import { TermsDialogComponent } from './_shared/terms-dialog/terms-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +26,6 @@ export class AppComponent implements OnInit, OnDestroy {
     public auth: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private modalController: ModalController,
     private statusBar: StatusBar,
     private toastCtrl: ToastController
   ) {
@@ -59,19 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsDialogComponent
-    });
-    return modal.present();
-  }
 
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyDialogComponent
-    });
-    return modal.present();
-  }
 
   onScroll(event) {
     this.scrolledDown = event.detail.scrollTop > 200 ? true : false;

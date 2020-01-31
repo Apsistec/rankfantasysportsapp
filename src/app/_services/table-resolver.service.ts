@@ -1,29 +1,31 @@
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
-import { catchError, map } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { TableResolved } from '../_models/table.model';
-import { TableService } from './table.service';
+// import {
+//   ActivatedRouteSnapshot,
+//   Resolve,
+//   RouterStateSnapshot
+// } from '@angular/router';
+// // import { catchError, map } from 'rxjs/operators';
+// import { Injectable } from '@angular/core';
+// import { Observable, of } from 'rxjs';
+// import { TableResolved } from '../_models/table.model';
+// // import { TableService } from './table.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class TableResolver implements Resolve<TableResolved> {
-  constructor(private tableService: TableService) {}
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class TableResolver implements Resolve<TableResolved> {
+//   constructor(
+//     // private tableService: TableService
+//     ) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<TableResolved> {
-    const id = route.paramMap.get('id');
-    if (isNaN(+id)) {
-      const message = `Table id was not a number: ${id}`;
-      return of({ table: null, error: message });
-    }
+  // resolve(
+  //   route: ActivatedRouteSnapshot,
+  //   state: RouterStateSnapshot
+  // ): Observable<TableResolved> {
+  //   const id = route.paramMap.get('id');
+  //   if (isNaN(+id)) {
+  //     const message = `Table id was not a number: ${id}`;
+  //     return of({ table: null, error: message });
+  //   }
 
     //   return this.tableService.getTable()
     //   .pipe(
@@ -34,7 +36,7 @@ export class TableResolver implements Resolve<TableResolved> {
     //     })
     //   );
     // }
-  }
+  // }
   // import {
   //   ActivatedRouteSnapshot,
   //   Resolve,
@@ -74,4 +76,4 @@ export class TableResolver implements Resolve<TableResolved> {
   //       })
   //     );
   //   }
-}
+// }

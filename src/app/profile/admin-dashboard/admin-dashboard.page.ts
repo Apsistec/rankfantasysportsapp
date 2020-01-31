@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TicketComponent } from '../../_shared/tickets/ticket.component';
 import { CollectionService } from '../../_services/collection.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
@@ -25,7 +24,6 @@ export class AdminDashboardPage implements OnInit {
     private ticket: TicketService,
     private modalCtrl: ModalController,
     private collection: CollectionService,
-    private db: AngularFirestore,
     private fun: AngularFireFunctions
   ) {}
 

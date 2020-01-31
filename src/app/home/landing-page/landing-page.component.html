@@ -1,38 +1,39 @@
-<ion-card class="hero">
-  <div class="center-content">
-    <div>
-      <img
-        class="landingImg"
-        height="=50%"
-        width="50%"
-        src="../../assets/img/logo.jpg"
-      />
-    </div>
-    <div>
-      <ion-text class="ion-text-capitalize center-landing">
-        <h1>
-          try any Pro Package for
-          <ion-text>
-            <b>
-              One Week free
-            </b>
+<div class="hero ion-text-center">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="cta">
+          <ion-text color="white">
+
+            <h1>
+              Get our Pro Package
+              <strong>
+                One Week free
+              </strong>
+            </h1>
+            
+            <h2>
+              Hand Picked Data - DFS Expert Curation - Win First!
+            </h2>
           </ion-text>
-        </h1>
-      </ion-text>
-    </div>
-    <div style="padding-top: 35px;">
-      <ion-button fill="solid" color="tertiary" routerLink="/register">
-        <ion-text color="white">
-          Sign up w/ Email
-        </ion-text>
-      </ion-button>
-    </div>
-    <div style="padding-top: 35px;">
-      <ion-button fill="outline" color="dark" (click)="auth.FacebookRegister()">
-        <ion-text color="tertiary">
-          Sign up w/ Facebook
-        </ion-text>
-      </ion-button>
-    </div>
-  </div>
-</ion-card>
+          </div>
+        <ion-button
+          fill="solid"
+          color="danger"
+          size="large"
+          routerLink="/purchase"
+        >
+          <ion-text color="white" style="font-stretch: condensed;">
+            <ion-text style="font-size: large; ">
+              >> Start My 7 Day Trial
+            </ion-text>
+            <br />
+            <ion-text style="font-size: small;">
+              No Risk - Win Before You Pay
+            </ion-text>
+          </ion-text>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

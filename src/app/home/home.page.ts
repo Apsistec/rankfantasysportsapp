@@ -2,6 +2,12 @@ import { AuthService } from '../_services/auth.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
+import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
+import { ModalController } from '@ionic/angular';
+import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
+import { StartModalComponent } from 'app/start-modal/start-modal.component';
+import { timeout } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-home',
@@ -26,13 +32,14 @@ export class HomePage implements OnInit {
   trustedVideoUrl: SafeResourceUrl;
 
   constructor(
+    private modalController: ModalController,
     private domSanitizer: DomSanitizer,
-
     public auth: AuthService
   ) {}
 
   ngOnInit() {
     this.showVid();
+    this.functionPop();
   }
 
   showVid() {
@@ -42,6 +49,7 @@ export class HomePage implements OnInit {
     );
   }
 
+
   onScroll(event) {
     this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
   }
@@ -49,4 +57,30 @@ export class HomePage implements OnInit {
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
+  async showModalTerms() {
+    const modal = await this.modalController.create({
+      component: TermsDialogComponent
+    });
+    return modal.present();
+  }
+
+  async showModalPrivacy() {
+    const modal = await this.modalController.create({
+      component: PrivacyDialogComponent
+    });
+    return modal.present();
+  }
+  async showPopModal() {
+    const modal = await this.modalController.create({
+      component: StartModalComponent
+    });
+    return modal.present();
+  }
+
+  functionPop() {
+    setTimeout (() => {
+      this.showPopModal();
+    }, 4000);
+  }
+
 }

@@ -1,40 +1,28 @@
-.hero{
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjY2MiPjwvcmVjdD4KPC9zdmc+");
-  width: 100wh;
-  height: 100vh;
-  display: flex;
-}
 
-.landingImg{
-  height:100%;
-  width: 240px
-}
 
-.center-content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-}
 
-.center-landing{
-  font-variant: small-caps;
-  font-weight: 800;
-  font-stretch:semi-condensed;
-}
-
-h1, h3{
-  line-height: 1;
+.hero {
+  background: rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
+  height: 50vh;
+  width: 100vl;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1{
   font-size: 3em;
-  margin-bottom: 0;
-  text-align: center;
 }
 
 h3{
-  margin-bottom: 40px;
   font-size: 1.5em;
 }
 
+
+.cta {
+  // padding-top: 60px;
+  line-height: 1;
+  font-weight: 800;
+  padding-bottom: 30px;
+  font-variant: small-caps;
+  margin: auto;
+}
