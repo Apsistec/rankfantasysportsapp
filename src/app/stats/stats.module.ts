@@ -8,6 +8,10 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { StatsPage } from './stats.page';
 import { StatsPageRoutingModule } from './stats-routing.module';
+import { PlayerActiveDetailComponent } from './player-active-detail/player-active-detail.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 // import { PlayersActiveComponent } from './players-active/players-active.component';
 
 @NgModule({
@@ -22,9 +26,12 @@ import { StatsPageRoutingModule } from './stats-routing.module';
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    StatsPageRoutingModule
+    StatsPageRoutingModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   entryComponents: [],
-  declarations: [StatsPage]
+  declarations: [StatsPage, PlayerActiveDetailComponent]
 })
 export class StatsPageModule {}

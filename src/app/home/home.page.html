@@ -1,152 +1,281 @@
 <!-- <app-header [titleId]="titleId"></app-header> -->
 <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
-  <ion-grid>
+  <ion-grid class="ion-no-padding">
     <!-- Row 1 -->
-    <ion-row>
+    <ion-row style="border-bottom: 6px groove var(--ion-color-silver);">
+      <ion-col class="ion-text-center ion-no-padding">
+        <!--Landing-page -->
+        <app-landing-page></app-landing-page>
+      </ion-col>
+    </ion-row>
 
-          <!--Landing-page -->
-          <ion-col>
+    <!--Icon Row-->
+    <ion-row
+      class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
+    >
+      <ion-col style="padding-top: 20px; ">
+        <ion-text class="top ">
+          <h2>
+            Helping You Win Is Our Business
+          </h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class=" ion-text-center ion-text-wrap ion-justify-content-center">
+      <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="4" size-xl="4">
+        <img src="../../../assets/img/football.png" />
 
-            <app-landing-page></app-landing-page>
-          </ion-col>
-      
-          </ion-row>
+        <h5>
+          <ion-text color="light">
+            DraftKings Sports & Data
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            NFL, NBA (March Madness), CFB, GOLF & TENNIS
+          </ion-text>
+        </h6>
+      </ion-col>
 
-          <!--Icon Row-->
-          <ion-row>
-            
-              <app-icon-row></app-icon-row>
-    
-          </ion-row>
+      <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="4" size-xl="4">
+        <img src="../../../assets/img/dashboard.webp" />
 
-          <!-- Video Row -->
-          <ion-row>
-       <ion-col>
+        <h5>
+          <ion-text color="light">
+            Advanced Stats
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            Tournament Rankings, all DK relevant stats, power rankings,
+            Moneyline and Bracketology
+          </ion-text>
+        </h6>
+      </ion-col>
+      <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="4" size-xl="4">
+        <img src="../../../assets/img/brains.webp" />
 
-         <app-video></app-video>
+        <h5>
+          <ion-text color="light">
+            Custom Picks and Projections
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            Value Rankings, cheat sheets, and Hand-picked data to give you the
+            edge without wasting time
+          </ion-text>
+        </h6>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
+    >
+      <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="6" size-xl="6">
+        <img src="../../../assets/img/price-tag.webp" />
+
+        <h5>
+          <ion-text color="light">
+            Industry Best Pricing
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            We offer the best price for sports advice on the web!
+          </ion-text>
+        </h6>
+      </ion-col>
+      <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="6" size-xl="6">
+        <img src="../../../assets/img/world.webp" />
+
+        <h5>
+          <ion-text color="light">
+            Weekly and Season-long
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            Whether your playing a one-off contest or are in a season-long
+            league, we've got you covered
+          </ion-text>
+        </h6>
+      </ion-col>
+    </ion-row>
+
+    <!-- Video Row -->
+    <ion-row
+      class="ion-text-center ion-justify-content-center ion-align-items-center"
+      style="background-color: var(--ion-color-light);height:50vh; width:100vl;"
+    >
+      <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="5" size-xl="5">
+        <div class="youtube">
+          <ion-text>
+            <h4>
+              Watch The Video To See How
+              <br />
+              We Stay Consistently Profitable -
+              <ion-text style="font-weight: 900;">
+                Fast!
+              </ion-text>
+            </h4>
+            <h5>
+              What is your time worth to you?
+            </h5>
+          </ion-text>
+        </div>
+      </ion-col>
+      <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="5" size-xl="5">
+        <div class="vidbox">
+          <iframe
+            class="resp-iframe"
+            [src]="trustedVideoUrl4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!--Testimonials Row -->
+    <ion-row class="padtopbot ion-text-center ion-text-wrap">
+      <app-endorsements></app-endorsements>
+    </ion-row>
+
+    <!-- Phonetest -->
+
+    <ion-item-divider></ion-item-divider>
+    <ion-row class=" ion-align-items-center ion-justify-content-center">
+        <!-- <div class="cta"> -->
+        <ion-col
+          size-xs="12"
+          size-sm="12"
+          size-md="6"
+          size-lg="6"
+          size-xl="6"
+          class="ion-no-padding ion-text-center ion-align-self-center"
+        >
+          <div class="easy">
+            <ion-text color="dark">
+              <h2>
+                Signing Up As Easy As 1, 2, 3...
+              </h2>
+            </ion-text>
+            <div class="easier">
+              <br />
+              <ul>
+                <h5>
+                  <li>
+                    1.) Click "Start My 7 Day Trial" Button Below
+                  </li>
+                </h5>
+                <li>
+                  <h5>
+                    2.) Register Your Account Info
+                  </h5>
+                </li>
+                <li>
+                  <h5>
+                    3.) Plug in your Credit Card Details
+                  </h5>
+                </li>
+              </ul>
+            </div>
+
+            <ion-button
+              fill="solid"
+              color="danger"
+              size="medium"
+              routerLink="/purchase"
+            >
+              <ion-text color="white">
+                Start My 7 Day Trial
+              </ion-text>
+            </ion-button>
+          </div>
         </ion-col>
-            
-          </ion-row>
-       
-          <!--Testimonials Row -->
-          <ion-row>
-          
-              <app-endorsements></app-endorsements>
-       
-          </ion-row>
+        <ion-col
+          size-xs="12"
+          size-sm="12"
+          size-md="6"
+          size-lg="6"
+          size-xl="6"
+          class="ion-no-padding ion-text-center ion-align-self-center"
+        >
+          <div>
+            <img src="../../../assets/img/phones.webp" />
+          </div>
+        </ion-col>
+      <!-- </div> -->
+      </ion-row>
 
-          <!-- Phonetest -->
-          <ion-row>
-            <ion-col>
+      <ion-item-divider></ion-item-divider>
 
-              
-              <app-phonetest></app-phonetest>
-              
-            </ion-col>
-          </ion-row>
+    <!-- Devices Row -->
+    <ion-row >
+      <ion-col>
 
-          <!-- Devices Row -->
-          <ion-row >
-            <ion-col>
-              <app-devices></app-devices>
-            </ion-col>
-          </ion-row>
-          
+        <app-devices></app-devices>
+      </ion-col>
+    </ion-row>
 
-          <!-- Row 6 aka Footer -->
-          <ion-row class="blackback ion-justify-content-center" >
-            <!-- <ion-col>
-              <ion-grid>
-                <ion-row> -->
+    <!-- Row 6 aka Footer -->
+    <ion-row class=" ion-justify-content-center blackback ion-text-center">
+      <ion-col 
+      size-xs="12"
+      size-sm="12"
+      size-md="4"
+      size-lg="4"
+      size-xl="4" class="ion-no-padding ion-text-start">
+        <h4>
+          <ion-text color="primary">
+            Location
+          </ion-text>
+        </h4>
+        <p>
+          <ion-text color="white">
+            2406 14th St
+            <br />
+            Suite A
+            <br />
+            Lubbock TX 79401
+          </ion-text>
+        </p>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-align-self-center" size="auto">
+        <div class="payservice">
+          <div class="cards">
+            <img class="card" src="../assets/img/visa.svg" height="40px" />
+            <img
+              class="card"
+              src="../assets/img/mastercard.svg"
+              height="40px"
+            />
+            <img class="card" src="../assets/img/discover.svg" height="40px" />
+            <img class="card" src="../assets/img/amex.svg" height="40px" />
+          </div>
+          <br />
 
-                  
-                  
-                  <ion-col
-                    size-xl="3"
-                    offset-xl="1.5"
-                    size-lg="3"
-                    offset-lg="1.5"
-                    size-md="12"
-                    size-sm="12"
-                    class="ion-align-self-center"
-                  >
-                    <h4>
-                      <ion-text color="secondary">
-                        Location
-                      </ion-text>
-                    </h4>
-                    <p>
-                      <ion-text color="white">
-                        2406 14th St
-                        <br />
-                        Suite A
-                        <br />
-                        Lubbock TX 79401
-                      </ion-text>
-                    </p>
-                  </ion-col>
-                  <ion-col 
-                  size-xl="3"
-                  size-lg="3"
-                  size-md="12"
-                  size-sm="12"
-                  class="ion-align-self-center">
-                  <div>
-                    <img
-                    class="card"
-                    src="../assets/img/visa.svg"
-                    height="40px"
-                    />
-                    <img
-                    class="card"
-                    src="../assets/img/mastercard.svg"
-                    height="40px"
-                    />
-                    <img
-                    class="card"
-                    src="../assets/img/discover.svg"
-                    height="40px"
-                    />
-                    <img
-                    class="card"
-                    src="../assets/img/amex.svg"
-                    height="40px"
-                    />
-                        <br />
-                        <img
-                        class="card"
-                        src="../assets/img/stripe.svg"
-                        height="40px"
-                        />
-                      </div>
-                    </ion-col>
-                    <ion-col
-                    size-xl="3"
-                    size-lg="3"
-                    size-md="12"
-                    size-sm="12"
-                    class="ion-align-self-center">
-                    <div class="terms">
-                      <ion-button size="small"  fill="clear" (click)="showModalTerms()">
-                        <ion-text color="white">
-                          
-                          Terms
-                          
-                        </ion-text>
-                      </ion-button>
-                      <ion-button size="small"  fill="clear" (click)="showModalPrivacy()">
-                        <ion-text color="white">
-                          
-                          Privacy
-                          
-                        </ion-text>
-                      </ion-button>
-                    </div>
-                  <!-- </ion-col>
-                </ion-row>
-              </ion-grid> -->
-            </ion-col>
-                  
-                </ion-row>
-              </ion-grid>
-  </ion-content>
+          <div class="stripe">
+            <img class="card" src="../assets/img/stripe.svg" height="40px" />
+          </div>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-align-self-center">
+        <div class="terms">
+          <ion-button size="small" fill="clear" (click)="showModalTerms()">
+            <ion-text color="white">
+              Terms
+            </ion-text>
+          </ion-button>
+          <ion-button size="small" fill="clear" (click)="showModalPrivacy()">
+            <ion-text color="white">
+              Privacy
+            </ion-text>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

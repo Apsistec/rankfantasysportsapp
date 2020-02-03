@@ -16,26 +16,23 @@
 // Material Themes
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-// @import url('https://fonts.googleapis.com/css?family=Cairo|Rokkitt&display=swap');
+// NGX-Share
 
-// Main styling
-:root {
-  ion-content {
-    --ion-background-color: var(--ion-color-white);
-  }
-}
+@import '~@ngx-share/button/themes/default/default-theme';
 
-// ion-text {
-//   text-shadow: 1px 1px 1px #232127;
+// Local Globals
+
+// body {
+//   font-family: Roboto, Arial, sans-serif;
+//   margin: 0;
 // }
-
-ion-icon {
-  filter: drop-shadow(0 -1px 1px var(--ion-color-silver));
-}
-
-
-
-// primary card background color images shadow gradients/gradients for each browser type with fallback gradients and color
+// .basic-container {
+//   padding: 30px;
+// }
+// .version-info {
+//   font-size: 8pt;
+//   float: right;
+// }
 
 // Toasts each status
 ion-toast.successT {
@@ -66,10 +63,6 @@ ion-toast.warningT {
   --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
 }
 
-// Popover User Dropdown
-// .popoverUser{
-//   --background: var(ion-color-medium);
-// }
 
 ::-webkit-scrollbar,
 *::-webkit-scrollbar {
@@ -80,16 +73,21 @@ a:hover {
   cursor: pointer;
 }
 
-// Credit Card Logos
-// .creditCard {
-//   filter: drop-shadow(5px 5px 2px #130e14);
-// }
 
 // Register Modal CSS
-.app-reg-modal {
-  --min-height: 750px;
-}
-.modal-wrapper {
-  --width: 40%;
-  --height: 77%;
+// .app-reg-modal {
+//   --min-height: 750px;
+// }
+// .modal-wrapper {
+//   max-width: 55%;
+//   max-height: 65%;
+
+// }
+
+
+
+.modalcss{
+  --background: tranparent;
+  --max-height: 85%;
+  --max-width: 85%;
 }

@@ -28,6 +28,10 @@ const appRoutes: Routes = [
     path: 'tables',
     loadChildren: () => import('./tables/table.module').then(m => m.TableModule)
   },
+    // {
+    // path: 'slides',
+    // loadChildren: () => import('./purchase/slides/slides.module').then(m => m.SlidesModule)
+    // },
   {
     path: 'how-to',
     loadChildren: () =>
@@ -82,12 +86,7 @@ const appRoutes: Routes = [
     // ...canActivate(redirectLoggedInToProfile)
   },
   { path: 'sign-in', redirectTo: 'login', pathMatch: 'full' },
-  {
-    path: 'register',
-    loadChildren: () =>
-      import('./auth/register/register.module').then(m => m.RegisterPageModule)
-    // ...canActivate(redirectLoggedInToProfile)
-  },
+
   {
     path: 'forgot',
     loadChildren: () =>
@@ -112,7 +111,7 @@ const appRoutes: Routes = [
   {
     path: 'user',
     loadChildren: () =>
-      import('./profile/user-tickets/user-tickets.module').then(
+      import('./profile/settings/user-tickets/user-tickets.module').then(
         m => m.UserTicketsPageModule
       ),
     // canActivate: [AngularFireAuthGuard],
@@ -132,6 +131,13 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./sales-funnel/tweets/tweets.module').then(
         m => m.TweetsPageModule
+      )
+  },
+  {
+    path: 'flip',
+    loadChildren: () =>
+      import('./flip/flip.module').then(
+        m => m.FlipPageModule
       )
   },
   {

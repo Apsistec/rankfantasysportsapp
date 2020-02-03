@@ -1,32 +1,32 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-buttons slot="start">
       <ion-button (click)="close()">
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>
-      <ion-text color="secondary">
+      <ion-text color="primary">
         Ticket Details
       </ion-text>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card color="primary">
+  <ion-card color="light">
     <ion-card-header>
       <ion-card-title *ngIf="!id">
-        <ion-text color="secondary">
+        <ion-text color="primary">
           New Ticket
         </ion-text>
       </ion-card-title>
       <ion-card-title *ngIf="id">
-        <ion-text color="secondary"> Ticket: #{{ id }} </ion-text>
+        <ion-text color="primary"> Ticket: #{{ id }} </ion-text>
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form (ngSubmit)="saveOrUpdate()" [formGroup]="ticketForm">
-        <ion-item color="medium" *ngIf="id">
+        <ion-item color="light" *ngIf="id">
           <ion-label position="stacked">User</ion-label>
           <ion-input
             type="text"
@@ -35,11 +35,11 @@
             disabled="true"
           ></ion-input>
         </ion-item>
-        <ion-item color="medium">
+        <ion-item color="light">
           <ion-label position="stacked">Problem</ion-label>
           <ion-input type="text" formControlName="title"></ion-input>
         </ion-item>
-        <ion-item color="medium" lines="none">
+        <ion-item color="light" lines="none">
           <ion-label position="stacked">Description</ion-label>
           <ion-textarea rows="5" formControlName="desc"></ion-textarea>
         </ion-item>
@@ -51,8 +51,8 @@
               <ion-icon name="radio-button-off"></ion-icon>
             </ion-segment-button>
             <ion-segment-button value="1" layout="icon-end">
-              <ion-icon color="secondary" name="done-all"></ion-icon>
-              <ion-label color="secondary">Fixed</ion-label>
+              <ion-icon color="primary" name="done-all"></ion-icon>
+              <ion-label color="primary">Fixed</ion-label>
             </ion-segment-button>
           </ion-segment>
         </ion-item>

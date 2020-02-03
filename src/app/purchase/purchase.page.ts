@@ -1,119 +1,202 @@
+import { environment } from './../../environments/environment.prod';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { AuthService } from '../_services/auth.service';
+import { BlinkDirective } from '@directives/blink.directive';
 import {
-  OnDestroy,
   Component,
+  HostBinding,
+  ElementRef,
   Input,
   OnInit,
   ViewChild,
-  HostListener,
-  HostBinding
-} from "@angular/core";
-import { AngularFireFunctions } from "@angular/fire/functions";
-import { AuthService } from "../_services/auth.service";
-import { IonContent, ModalController } from "@ionic/angular";
-import { PrivacyDialogComponent } from "../_shared/privacy-dialog/privacy-dialog.component";
-import { RegModalComponent } from "../_shared/reg-modal/reg-modal.component";
-import { TermsDialogComponent } from "../_shared/terms-dialog/terms-dialog.component";
-import { SpinnerService } from "@services/spinner.service";
-import { environment } from "@environments/environment";
-
-declare var StripeCheckout: StripeCheckoutStatic;
+} from '@angular/core';
+import { FormBuilder, Validators, NgForm } from '@angular/forms';
+import { IonContent, ModalController } from '@ionic/angular';
+import { MessageService } from '@services/message.service';
+import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
+import { Router } from '@angular/router';
+import { SpinnerService } from '@services/spinner.service';
+import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
+declare var Stripe: stripe.StripeStatic;
 
 @Component({
-  selector: "app-purchase",
-  templateUrl: "./purchase.page.html",
-  styleUrls: ["./purchase.page.scss"]
+  selector: 'app-purchase',
+  templateUrl: './purchase.page.html',
+  styleUrls: ['./purchase.page.scss'],
 })
 export class PurchasePage implements OnInit {
-  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
+  
+  
+  titleId = 'RF$\u2122 Pro Memberships';
 
-  @Input() user;
-  // @Input() description;
-  description;
-  amount;
-  finalAmount;
-  handler: StripeCheckoutHandler;
+  // @ViewChild(IonContent, { static: true }) ionContent: IonContent;
+  hide = true;
+  registerForm;
+  // @Input() blinker$;
+  amount: number= 999;
+  description: string = 'Rank Fantasy Sports Bronze Pro Plan';
+  @ViewChild('cardElement',{ static: true }) cardElement: ElementRef;
+  
+  checked= false;
+  bumpupAmount;
+  
+  stripe:stripe.Stripe;
+  card;
+  cardErrors;
 
-  confirmation: any;
-  stripe: stripe.Stripe;
-
-  titleId = "RF$\u2122 Pro Memberships";
+  loading = false;
+  confirmation;
 
   constructor(
     public auth: AuthService,
     public functions: AngularFireFunctions,
     private spinner: SpinnerService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router,
+    private fb: FormBuilder,
+    private message: MessageService
   ) {}
 
   ngOnInit() {
-    this.handler = StripeCheckout.configure({
-      key: environment.stripeKey,
-      image: "../../assets/img/icon-500x500.png",
-      locale: "auto",
-      source: async source => {
-        this.spinner.loadSpinner();
-        const fun = this.functions.httpsCallable("stripeCreateCharge");
-        this.confirmation = await fun({
-          source: source.id,
-          uid: this.user.uid,
-          amount: this.amount
-        }).toPromise();
-        this.spinner.dismissSpinner();
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+          Validators.maxLength(25),
+        ],
+      ],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
+          Validators.maxLength(25),
+        ],
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
+          Validators.maxLength(25),
+        ],
+      ],
+    });
+ 
+    this.stripe = Stripe(environment.stripeKey);
+
+    const elements = this.stripe.elements();
+    const style = {
+      base: {
+        color: '#227733',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#9911c4'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
       }
+    };
+
+    // Create an instance of the card Element.
+    this.card = elements.create('card', { style: style });
+    this.card.mount(this.cardElement.nativeElement);
+    this.card.addEventListener('change', ({ error }) => {
+      this.cardErrors = error && error.message;
     });
-  }
-
-  // Open the checkout handler
-  async checkout(e) {
-    // thi user = await this.auth.getUser();
-    this.handler.open({
-      name: "RANK FANTASY SPORTS",
-      description: this.description,
-      amount: this.amount,
-      email: this.user.email
-    });
-    e.preventDefault();
-  }
-
-  // Close on navigate
-  @HostListener("window:popstate")
-  onPopstate() {
-    this.handler.close();
-  }
-
-  // Skip down to Payment Form after choosing plan and while modal pops up
-  // async ScrollToTarget() {
-  //   await this.ionContent.scrollToPoint(0, 775, 1500);
-  // }
-
-  // Modalized version of Register Form Page
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: RegModalComponent,
-      cssClass: "app-reg-modal"
-    });
-    return modal.present();
-  }
-
-  async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsDialogComponent
-    });
-    return modal.present();
-  }
-
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyDialogComponent
-    });
-    return modal.present();
   }
 
   // Stop Spinner
   async onDismissLoader() {
     await this.spinner.dismissSpinner();
   }
+
+  async showModalTerms() {
+    const modal = await this.modalController.create({
+      component: TermsDialogComponent,
+      cssClass: 'modalcss',
+    });
+    return modal.present();
+  }
+
+  async showModalPrivacy() {
+    const modal = await this.modalController.create({
+      component: PrivacyDialogComponent,
+      cssClass: 'modalcss',
+    });
+    return modal.present();
+  }
+
+  async register() {
+    this.spinner.loadSpinner();
+    this.auth.SignUp(this.registerForm.value).then(
+      async res => {
+        await this.spinner.dismissSpinner();
+        this.message.registerSuccessToast();
+      },
+      async err => {
+        await this.spinner.dismissSpinner();
+        this.message.errorAlert(err.message);
+      }
+    );
+  }
+
+
+
+  async onSubmit(f: NgForm) {
+    const { source, error } = await this.stripe.createSource(this.card);
+    if (error) {
+      // Inform the customer that there was an error.
+      const cardErrors = error.message;
+      window.alert(cardErrors);
+    } else {
+      this.spinner.loadSpinner();
+      const user = await this.auth.getUser();
+      const fun = this.functions.httpsCallable('stripeCreateSubscription');
+      this.confirmation = await fun({
+        source: source.id,
+        uid: user.uid,
+        plan: 'bronze'
+      }).toPromise();
+      this.message.subscribedToast();
+      this.spinner.dismissSpinner();
+      f.reset();
+      return this.router.navigate(['/welcome']);
+    }
+
+
+  // async handleForm(e) {
+  //   e.preventDefault();
+
+  //   const { source, error } = await this.stripe.createSource(this.card);
+
+  //   if (error) {
+  //     // Inform the customer that there was an error.
+  //     const cardErrors = error.message;
+  //   } else {
+  //     // Send the token to your server.
+  //     this.loading = true;
+  //     const user = await this.auth.getUser();
+  //     const fun = this.functions.httpsCallable('stripeCreateCharge');
+  //     this.confirmation = await fun({ source: source.id, uid: user.uid, amount: this.amount }).toPromise();
+  //     this.loading = false;
+
+  //   }
+
+
+
+  }
+  
+
   bumpOrder() {
-    this.finalAmount = +this.amount + 57;
+
   }
 }

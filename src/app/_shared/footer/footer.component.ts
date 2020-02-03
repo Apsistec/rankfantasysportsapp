@@ -7,18 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   @Input() titleId;
-
+  
+  
   constructor(
 
   ) {}
 
   ngOnInit() {}
 
+
+
   // Returns true when user is looged in and home page is verified
   get isHomePage(): boolean {
     return this.titleId === 'RF$\u2122 Home' ? true : false;
   }
-
-
 
 }

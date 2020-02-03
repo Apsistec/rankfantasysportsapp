@@ -1,14 +1,12 @@
-<ion-menu side="start" type="push">
+<ion-menu side="start" contentId="content1" type="push">
   <ion-header>
     <ion-menu-toggle>
-      <ion-toolbar color="medium">
-        <ion-img
+      <ion-toolbar color="light">
+        <img
           src="../assets/img/logo.jpg"
-          height="50rem"
-          style="margin-left: 7px;"
-          slot="start"
-        ></ion-img>
-      </ion-toolbar>
+          height="42px"
+          slot="start" routerLink="/home" />
+       </ion-toolbar>
     </ion-menu-toggle>
   </ion-header>
   <ion-content color="white">
@@ -123,18 +121,18 @@
               class="ion-text-uppercase"
             >
               <ion-icon class="iconify" slot="start" name="log-in"></ion-icon>
-              <ion-text color="secondary">Login</ion-text>
+              <ion-text color="primary">Login</ion-text>
             </ion-item>
           </ng-template>
         </ion-item-group>
         <ion-item-group>
           <ion-list-header
-            color="primary"
+            color="light"
             routerLink="/tables"
             class="ion-text-uppercase"
           >
             <ion-text>Stats & Projections</ion-text>
-            <ion-button size="small" color="tertiary">All Tables</ion-button>
+            <ion-button size="small" color="silver">All Tables</ion-button>
           </ion-list-header>
 
           <ion-item
@@ -188,7 +186,7 @@
           </ion-item>
         </ion-item-group>
         <ion-item-group>
-          <ion-list-header color="primary" class="ion-text-uppercase">
+          <ion-list-header color="light" class="ion-text-uppercase">
             <ion-text>DFS Toolbox</ion-text>
           </ion-list-header>
 
@@ -206,19 +204,27 @@
             <ion-icon color="dark" slot="start" name="trending-up"></ion-icon>
             <ion-text color="dark">Line-up Optimizers<sup>*</sup></ion-text>
           </ion-item>
+          <div style="margin-right:7px;">
+            <ion-text color="dark">
+              <ion-note>*<sub>Coming Soon</sub> </ion-note>
+            </ion-text>
+          </div>
         </ion-item-group>
       </ion-list>
-
-      <div style="margin-left:7px;">
-        <ion-text color="dark">
-          <ion-note>*<sub>Coming Soon</sub> </ion-note>
-          </ion-text>
-          </div>
-          <hr />
-
     </ion-menu-toggle>
   </ion-content>
-
+  <ion-footer>
+    <ion-toolbar color="dark">
+      <ion-text style="font-size: 12px;font-variant: petite-caps;">
+          Made with
+          <img
+            style="height:20px;width:auto;"
+            src="../../../assets/img/flagUSA.png"
+          />
+          by RF$ &copy;{{ year }}
+        </ion-text>
+    </ion-toolbar>
+  </ion-footer>
 </ion-menu>
 
-<ion-router-outlet main></ion-router-outlet>
+<ion-router-outlet id="content1" main></ion-router-outlet>

@@ -8,7 +8,6 @@ import { NgModule } from '@angular/core';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { RegModalComponent } from './reg-modal/reg-modal.component';
 import { RouterModule } from '@angular/router';
 import { TicketComponent } from './tickets/ticket.component';
 import { SharedDirectivesModule } from '../_directives/shared-directives.module';
@@ -21,12 +20,14 @@ import { CfbComponent } from 'app/tables/cfb/cfb.component';
 import { PgaComponent } from 'app/tables/pga/pga.component';
 import { NbaComponent } from 'app/tables/nba/nba.component';
 import { TennisComponent } from 'app/tables/tennis/tennis.component';
+import { ShareButtonsModule } from '@ngx-share/buttons';
+import '../../icons';
+
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    RegModalComponent,
     TermsDialogComponent,
     TicketComponent,
     PrivacyDialogComponent,
@@ -45,12 +46,13 @@ import { TennisComponent } from 'app/tables/tennis/tennis.component';
   entryComponents: [
     TicketComponent,
     TermsDialogComponent,
-    RegModalComponent,
     PrivacyDialogComponent,
-    PopoverComponent
+    PopoverComponent,
+
   ],
 
   imports: [
+    ShareButtonsModule,
     NgxTwitterTimelineModule,
     IonicModule,
     FormsModule,
@@ -61,12 +63,12 @@ import { TennisComponent } from 'app/tables/tennis/tennis.component';
   ],
 
   exports: [
+    ShareButtonsModule,
     SharedDirectivesModule,
     NgxTwitterTimelineModule,
     HeaderComponent,
     PopoverComponent,
     FooterComponent,
-    RegModalComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,
     ToHttpsPipe,

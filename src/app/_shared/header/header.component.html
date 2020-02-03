@@ -1,16 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary" *ngIf="mobile">
+  <ion-toolbar color="light" *ngIf="mobile">
     <ion-buttons slot="start">
       <ion-menu-button color="silver"> </ion-menu-button>
     </ion-buttons>
-    <ion-text color="secondary" class="ion-text-wrap">
+    <ion-text color="primary" class="ion-text-wrap">
       {{ titleId }}
     </ion-text>
     <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
       <ion-item
         slot="end"
         type="button"
-        color="primary"
+        color="light"
         (click)="presentPopover($event)"
         detail="false"
         lines="none"
@@ -32,7 +32,7 @@
           !isPurchasePage &&
           !isForgotPage
         "
-        color="tertiary"
+        color="silver"
         routerLink="/purchase"
         style="margin-right:15px;"
       >
@@ -42,7 +42,7 @@
       </ion-button>
     </ng-template>
   </ion-toolbar>
-  <ion-toolbar color="primary" *ngIf="!mobile">
+  <ion-toolbar color="light" *ngIf="!mobile">
     <div class="top-nav">
       <a [routerLink]="['/home']">Home</a>
       <a [routerLink]="['/faq']">FAQ</a>
@@ -50,13 +50,12 @@
       <a [routerLink]="['/how-to']">How-to</a>
       <a [routerLink]="['/tables']">Stats & Projections</a>
       <a [routerLink]="['/login']">Login</a>
- 
     </div>
     <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
       <ion-item
         slot="end"
         type="button"
-        color="primary"
+        color="light"
         (click)="presentPopover($event)"
         detail="false"
         lines="none"

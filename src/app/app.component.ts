@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   scrolledDown = false;
   titleId;
   subs: Subscription;
+  year;
 
   constructor(
     private swUpdate: SwUpdate,
@@ -54,6 +55,12 @@ export class AppComponent implements OnInit, OnDestroy {
         .then(() => this.swUpdate.activateUpdate())
         .then(() => window.location.reload());
     });
+
+    this.getYear();
+  }
+  
+  getYear() {
+    this.year = new Date().getFullYear();
   }
 
 

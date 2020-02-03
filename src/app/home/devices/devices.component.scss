@@ -2,18 +2,21 @@
 h3{
   line-height: 1;
   font-size: x-large;
-  // margin-bottom: 1;
   font-variant: small-caps;
   font-weight: 900;
+  padding-right: 3px;
 }
 h5{
   line-height: 1;
   font-size: large;
-  // margin-bottom: 1;
   font-variant: small-caps;
 }
 
 
 img {
-  max-height: 300px;
+  max-height: 200px;
+}
+.foot {
+  padding-top: 70px;
+  padding-bottom: 70px;
 }

@@ -3,7 +3,7 @@
 <ion-content fullscreen class="ion-text-center">
   <ion-grid>
     <ion-row>
-      <ion-col
+      <ion-col class="ion-no-padding"
         size-sm="8"
         offset-sm="2"
         size-md="6"
@@ -14,13 +14,13 @@
         offset-xl="4"
       >
         <ion-card
-          color="primary"
+          color="light"
           *ngIf="auth.afAuth.user | async as user; else login"
         >
           <!-- <ion-img src="../../assets/logo.jpg"></ion-img> -->
           <ion-card-header>
             <ion-card-title>
-              <ion-text color="secondary" class="ion-text-center">
+              <ion-text color="primary" class="ion-text-center">
                 <h2>Thank You For Registering!</h2>
               </ion-text>
             </ion-card-title>
@@ -59,7 +59,7 @@
               </p>
             </ion-text>
             <hr />
-            <ion-text color="secondary">Did not receive the link? </ion-text>
+            <ion-text color="primary">Did not receive the link? </ion-text>
             <!-- <ion-button strong   size="small" fill="outline"   (click)="auth.SendVerificationMail()"> -->
             <ion-text>
               Resend Verification
@@ -69,11 +69,11 @@
         </ion-card>
 
         <ng-template #login>
-          <ion-card color="primary" class="ion-text-center">
+          <ion-card color="light" class="ion-text-center">
             <ion-img src="../../../assets/logo.jpg"></ion-img>
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="secondary">
+                <ion-text color="primary">
                   <h2>
                     Email Verification
                   </h2>

@@ -4,8 +4,8 @@
     <ion-row>
       <ion-grid>
         <ion-row>
-          <ion-col size-lg="8" size-xl="8">
-            <ion-card color="primary">
+          <ion-col class="ion-no-padding" size-lg="8" size-xl="8">
+            <ion-card color="light">
               <ion-card-header>
                 <ion-card-title>
                   <ion-label color="secondary">
@@ -28,7 +28,7 @@
                   ></ion-icon>
                   <ion-icon
                     name="done-all"
-                    color="success"
+                    color="primary"
                     *ngIf="ticket.status == 1"
                     slot="start"
                   ></ion-icon>
@@ -53,8 +53,8 @@
               </ion-list>
             </ion-card>
           </ion-col>
-          <ion-col size="3">
-            <ion-card color="primary">
+          <ion-col class="ion-no-padding" size="3">
+            <ion-card color="light">
               <ion-card-header>
                 <ion-card-title>
                   <ion-label color="secondary">
@@ -83,7 +83,7 @@
               </ion-list>
             </ion-card>
 
-            <ion-card color="primary">
+            <ion-card color="light">
               <ion-card-header>
                 <ion-card-title>
                   <ion-label color="secondary">
@@ -140,7 +140,7 @@
                     </ion-note>
                   </ion-label>
                   <ion-button
-                    color="success"
+                    color="primary"
                     size="small"
                     (click)="sendEmail(user.email)"
                   >
@@ -157,5 +157,5 @@
   </ion-grid>
 </ion-content>
 <ion-footer translucent>
-  <ion-toolbar color="medium"> </ion-toolbar>
+  <ion-toolbar color="light"> </ion-toolbar>
 </ion-footer>

@@ -5,7 +5,7 @@ import { IonContent } from '@ionic/angular';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { ModalController } from '@ionic/angular';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
-import { StartModalComponent } from 'app/start-modal/start-modal.component';
+import { StartModalComponent } from 'app/home/start-modal/start-modal.component';
 import { timeout } from 'rxjs/operators';
 
 
@@ -29,7 +29,10 @@ export class HomePage implements OnInit {
     }
   };
 
-  trustedVideoUrl: SafeResourceUrl;
+  trustedVideoUrl4: SafeResourceUrl;
+  video4: any = {
+    url: 'https://www.youtube.com/embed/APeaBlagSNc'
+  };
 
   constructor(
     private modalController: ModalController,
@@ -44,7 +47,7 @@ export class HomePage implements OnInit {
 
   showVid() {
     const video = { url: 'https://www.youtube.com/embed/APeaBlagSNc' };
-    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(
+    this.trustedVideoUrl4 = this.domSanitizer.bypassSecurityTrustResourceUrl(
       video.url
     );
   }
@@ -59,20 +62,23 @@ export class HomePage implements OnInit {
   }
   async showModalTerms() {
     const modal = await this.modalController.create({
-      component: TermsDialogComponent
+      component: TermsDialogComponent,
+      cssClass: 'modalcss'
     });
     return modal.present();
   }
 
   async showModalPrivacy() {
     const modal = await this.modalController.create({
-      component: PrivacyDialogComponent
+      component: PrivacyDialogComponent,
+      cssClass: 'modalcss'
     });
     return modal.present();
   }
   async showPopModal() {
     const modal = await this.modalController.create({
-      component: StartModalComponent
+      component: StartModalComponent,
+      cssClass: 'custom-modal modalcss'
     });
     return modal.present();
   }

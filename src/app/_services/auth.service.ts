@@ -12,7 +12,7 @@ import { SpinnerService } from './spinner.service';
 import { StorageService } from './storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   user: Observable<any>;
@@ -54,6 +54,9 @@ export class AuthService {
       }
     }
     return true;
+  }
+  async getUser() {
+    return this.afAuth.authState.pipe(first()).toPromise();
   }
 
   async getCurrentUser(): Promise<any> {
@@ -130,7 +133,7 @@ export class AuthService {
             uid: res.user.uid,
             role: 'USER',
             permissions: ['delete-ticket'],
-            photoURL: res.user.photoURL
+            photoURL: res.user.photoURL,
           },
           { merge: true }
         );
@@ -175,7 +178,7 @@ export class AuthService {
               uid: data.user.uid,
               role: 'USER',
               permissions: ['delete-ticket'],
-              photoURL: data.user.photoURL
+              photoURL: data.user.photoURL,
             },
             { merge: true }
           )
@@ -229,7 +232,7 @@ export class AuthService {
     const provider = new firebase.auth.OAuthProvider('microsoft.com');
     return this.AuthLogin(provider);
     provider.setCustomParameters({
-      tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1'
+      tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1',
     });
     provider.addScope('files.read');
   }
@@ -241,7 +244,7 @@ export class AuthService {
     firebase.auth().currentUser.linkWithPopup(provider);
     this.spinner.dismissSpinner();
     provider.setCustomParameters({
-      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02'
+      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02',
     });
     provider.addScope('user.read, files.read');
     // rfs-test@appspot.gserviceaccount.com

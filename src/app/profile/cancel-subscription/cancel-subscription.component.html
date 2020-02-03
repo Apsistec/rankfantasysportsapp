@@ -1,8 +1,8 @@
 <ion-content>
-  <ion-card color="primary" class="ion-text-center">
+  <ion-card color="light" class="ion-text-center">
     <ion-card-header>
       <ion-card-title>
-        <ion-text color="secondary">
+        <ion-text color="primary">
           Cancel Subscription
         </ion-text>
       </ion-card-title>
@@ -19,9 +19,6 @@
       <ion-button size="small" (click)="dismissModal()">Close</ion-button>
     </ion-card-content>
   </ion-card>
-  <ion-card
-    *ngIf="stripeService.confirmation | async as confirm"
-    color="primary"
-  >
+  <ion-card *ngIf="stripeService.confirmation | async as confirm" color="light">
   </ion-card>
 </ion-content>

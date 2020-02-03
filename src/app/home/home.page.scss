@@ -1,32 +1,48 @@
-.wrap-element {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%;
-}
 
-.addLogo {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.486) 78%,
-    rgba(0, 0, 0, 0.133) 100%
-  );
-  background-size: 94%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  text-indent: 15px;
-}
-
-.wrapped-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 
 .blackback {
-  background-color: #1b1b1b;
-  height: 300px;
+  background-color: var(--ion-color-dark);
+  padding-left: 60px;
+  height: 30vh;
+}
+.payservice{
+  float:left !important;
+
+}
+cards {
+  float:right !important;
+}
+.stripe{
+  float:right !important;
+}
+.vidrow {
+  background-color: var(--ion-color-silver);
+  width: 100vl;
+}
+.padtopbot {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+ h2{
+  color: var(--ion-color-medium);
+  font-weight: 800;
+  font-size: xx-large;
+  text-shadow: 0 2px 1px var(--ion-color-dark);
+}
+.backg{
+  background-color:"var(--ion-color-light)";
+}
+ul {
+  display: block;
+  list-style: none;
+  list-style-position: inside;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 10px;
+  padding-left: 10px;
+  text-align: left;
+  font-variant: small-caps;
+}
+.easy{
+  padding-left: 30px;
 }

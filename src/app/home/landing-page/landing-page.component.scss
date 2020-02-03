@@ -1,13 +1,12 @@
 
-
-
-.hero {
+.hero{
   background: rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
-  height: 50vh;
+  height: 60vh;
   width: 100vl;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 
 h1{
   font-size: 3em;
@@ -18,11 +17,11 @@ h3{
 }
 
 
+
 .cta {
-  // padding-top: 60px;
+  padding-top: 60px;
   line-height: 1;
   font-weight: 800;
-  padding-bottom: 30px;
   font-variant: small-caps;
-  margin: auto;
+
 }

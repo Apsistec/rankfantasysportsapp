@@ -1,10 +1,10 @@
 <app-header [titleId]="titleId"></app-header>
-<ion-content class="text-wrap">
+<ion-content class="ion-text-wrap">
   <ion-grid>
     <ion-row>
-      <ion-col size-sm="5">
+      <ion-col class="ion-no-padding" size-sm="5">
         <ng-container *ngIf="auth.user | async as user">
-          <ion-card color="primary" class="ion-text-center">
+          <ion-card color="light" class="ion-text-center">
             <ion-card-header>
               <ion-card-title class="ion-text-center">
                 <ion-text>
@@ -12,16 +12,16 @@
                 </ion-text>
               </ion-card-title>
             </ion-card-header>
-            <ion-item color="primary" lines="none">
+            <ion-item color="light" lines="none">
               <ion-grid>
                 <ion-row>
-                  <ion-col size="4">
+                  <ion-col class="ion-no-padding" size="4">
                     <ion-img
                       style="width:70px; height:70px; position:relative;"
                       [src]="user.photoURL || '../../assets/img/dummy-user.png'"
                     ></ion-img>
                   </ion-col>
-                  <ion-col class="ion-text-start">
+                  <ion-col class="ion-no-padding ion-text-start">
                     <ion-card-title>
                       <ion-text color="white">
                         <h2>
@@ -47,7 +47,7 @@
                 strong
                 size="small"
                 (click)="presentSettingsModal()"
-                color="tertiary"
+                color="silver"
               >
                 <ion-text>
                   Edit User
@@ -60,7 +60,7 @@
             </ion-card-content>
           </ion-card>
 
-          <ion-card color="primary" class="ion-text-center ion-padding">
+          <ion-card color="light" class="ion-text-center ion-padding">
             <ion-card-header>
               <ion-card-title>
                 <ion-text color="white">
@@ -73,8 +73,8 @@
                 *ngIf="stripeService.subscriptions | async as subs; else purchase"
               >
                 <ion-grid>
-                  <ion-row class="ion-justify-content-center">
-                    <ion-col size-sm="5">
+                  <ion-row class="">
+                    <ion-col class="ion-no-padding" size-sm="5">
                       <ion-label>
                         <h2>
                           PRO Plan:
@@ -112,7 +112,7 @@
                         </h3>
                       </ion-label>
                     </ion-col>
-                    <ion-col size-sm="5">
+                    <ion-col class="ion-no-padding" size-sm="5">
                       <ion-label>
                         <h2 color="white">
                           Created:
@@ -156,7 +156,7 @@
           <!-- Admin Dash -->
           <ion-card
             class="ion-text-center"
-            color="primary"
+            color="light"
             *ngIf="user.role === 'ADMIN'"
           >
             <ion-card-header>
@@ -185,7 +185,7 @@
           <!-- User Dashboard-->
           <ion-card
             class="ion-padding ion-text-center"
-            color="primary"
+            color="light"
             *ngIf="user.role === 'USER'"
           >
             <ion-card-header>
@@ -221,7 +221,7 @@
           <!-- Account Management -->
           <ion-card
             class="ion-text-center"
-            color="primary"
+            color="light"
             *ngIf="user.plan === 'gold' || 'silver' || 'bronze'"
           >
             <ion-card-header>
@@ -234,7 +234,7 @@
             <ion-card-content>
               <ng-container *ngIf="stripeService.subscriptions | async as subs">
                 <ion-button
-                  color="tertiary"
+                  color="silver"
                   size="small"
                   [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice"
                 >
@@ -247,7 +247,7 @@
                   color="white"
                   (click)="presentInvoicesModal()"
                 >
-                  <ion-text color="tertiary">
+                  <ion-text color="silver">
                     Invoice History
                   </ion-text>
                 </ion-button>
@@ -263,7 +263,7 @@
           </ion-card>
 
           <!-- Theme -->
-          <ion-card class="ion-text-center" color="primary">
+          <ion-card class="ion-text-center" color="light">
             <ion-card-header>
               <ion-card-title color="white">
                 <strong>
@@ -297,7 +297,7 @@
                 expand="block"
                 strong
                 size="small"
-                color="medium"
+                color="light"
                 >Accent Three</ion-button
               >
               <ion-button
@@ -305,7 +305,7 @@
                 expand="block"
                 strong
                 size="small"
-                color="primary"
+                color="light"
                 >Card Background</ion-button
               >
               <ion-button
@@ -316,19 +316,17 @@
                 color="white"
                 >Heading/Title</ion-button
               >
-    
+
               <ion-card-subtitle>
                 <ion-text>
                   Unique Themes
                 </ion-text>
               </ion-card-subtitle>
-
-  
             </ion-card-content>
           </ion-card>
         </ng-container>
       </ion-col>
-      <ion-col>
+      <ion-col class="ion-no-padding">
         <app-now></app-now>
         <app-tennis></app-tennis>
         <app-pga></app-pga>

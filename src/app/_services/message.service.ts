@@ -24,13 +24,11 @@ export class MessageService {
   }
 
   // Toasts
-  async registerSuccessToast(user) {
+  async registerSuccessToast() {
     const toast = await this.toastCtrl.create({
       header: 'Registration Successful',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Thank You ' +
-        user.displayName +
-        '! You are now Registered',
+        '<ion-icon name="flag"  slot="start"></ion-icon>Y',
       cssClass: 'successT',
       position: 'top',
       keyboardClose: true,

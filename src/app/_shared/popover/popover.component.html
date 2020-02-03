@@ -1,5 +1,5 @@
-<ion-content color="primary">
-  <ion-list color="medium" *ngIf="auth.user | async as user">
+<ion-content color="light">
+  <ion-list color="light" *ngIf="auth.user | async as user">
     <ion-item lines="none">
       <ion-text>
         <h2>
@@ -9,14 +9,14 @@
     </ion-item>
     <!-- <ion-item-divider></ion-item-divider> -->
 
-    <ion-item button (click)="goToProfile()" lines="none" color="medium">
+    <ion-item button (click)="goToProfile()" lines="none" color="light">
       <ion-text color="white">
         Profile
       </ion-text>
       <ion-icon slot="start" name="person"> </ion-icon>
     </ion-item>
 
-    <ion-item button (click)="logOut()" lines="none" color="medium">
+    <ion-item button (click)="logOut()" lines="none" color="light">
       <ion-text>
         Log Out
       </ion-text>
