@@ -1,20 +1,5 @@
 
 
-.blackback {
-  background-color: var(--ion-color-dark);
-  padding-left: 60px;
-  height: 30vh;
-}
-.payservice{
-  float:left !important;
-
-}
-cards {
-  float:right !important;
-}
-.stripe{
-  float:right !important;
-}
 .vidrow {
   background-color: var(--ion-color-silver);
   width: 100vl;
@@ -23,26 +8,32 @@ cards {
   padding-top: 40px;
   padding-bottom: 40px;
 }
- h2{
+h2{
   color: var(--ion-color-medium);
   font-weight: 800;
   font-size: xx-large;
-  text-shadow: 0 2px 1px var(--ion-color-dark);
+  text-shadow: 0 2px 2px var(--ion-color-dark);
 }
-.backg{
-  background-color:"var(--ion-color-light)";
-}
+
 ul {
+  text-align:left;
   display: block;
-  list-style: none;
-  list-style-position: inside;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 10px;
-  padding-left: 10px;
-  text-align: left;
+  list-style: decimal;
+  list-style-type: decimal();
+  margin-left: 50px;
+  padding-left: 50px;
   font-variant: small-caps;
+  text-transform: capitalize;
 }
-.easy{
-  padding-left: 30px;
+
+
+
+
+.blackback {
+  background-color: var(--ion-color-dark);
+  padding-left: 60px;
+  height: 30vh;
+}
+.payservice{
+  float:left !important;
 }

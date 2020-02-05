@@ -46,6 +46,7 @@
     "@ngx-share/button": "^7.1.4",
     "@ngx-share/buttons": "^7.1.4",
     "@ngx-share/core": "^7.1.4",
+    "angular-archwizard": "^5.0.0",
     "classlist.js": "^1.1.20150312",
     "cordova": "^9.0.0",
     "cordova-browser": "^6.0.0",

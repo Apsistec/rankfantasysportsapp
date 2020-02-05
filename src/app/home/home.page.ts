@@ -78,7 +78,7 @@ export class HomePage implements OnInit {
   async showPopModal() {
     const modal = await this.modalController.create({
       component: StartModalComponent,
-      cssClass: 'custom-modal modalcss'
+      cssClass: 'start-modal modalcss'
     });
     return modal.present();
   }

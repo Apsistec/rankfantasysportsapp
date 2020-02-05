@@ -20,6 +20,11 @@
 
 @import '~@ngx-share/button/themes/default/default-theme';
 
+
+// Wizard
+@import '../node_modules/angular-archwizard/archwizard.css';
+
+
 // Local Globals
 
 // body {
@@ -90,4 +95,6 @@ a:hover {
   --background: tranparent;
   --max-height: 85%;
   --max-width: 85%;
+  border-radius: 25px;
+
 }

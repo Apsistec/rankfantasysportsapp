@@ -14,14 +14,14 @@
         Paid: {{ invoice.data[0].amount_paid / 100 | currency }}
         <br />
         <ion-button [href]="invoice.data[0].hosted_invoice_url" size="small">
-          <ion-text color="white">
+          <ion-text>
             View Full Invoice
           </ion-text>
         </ion-button>
       </ion-card-content>
     </ion-card>
     <ion-button color="primary" (click)="dismissModal()">
-      <ion-text color="white">
+      <ion-text>
         Close
       </ion-text>
     </ion-button>

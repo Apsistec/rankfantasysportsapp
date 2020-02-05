@@ -23,7 +23,7 @@
                   </ion-col>
                   <ion-col class="ion-no-padding ion-text-start">
                     <ion-card-title>
-                      <ion-text color="white">
+                      <ion-text>
                         <h2>
                           {{ user.displayName || 'User' }}
                         </h2>
@@ -36,7 +36,7 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-text color="white">
+                  <ion-text>
                     {{ user.email }}
                   </ion-text>
                 </ion-row>
@@ -63,7 +63,7 @@
           <ion-card color="light" class="ion-text-center ion-padding">
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="white">
+                <ion-text>
                   Subscription Details
                 </ion-text>
               </ion-card-title>
@@ -161,7 +161,7 @@
           >
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="white">
+                <ion-text>
                   Admin Dashboard
                 </ion-text>
               </ion-card-title>
@@ -175,7 +175,7 @@
               <ion-button size="small" routerLink="/admin">
                 <ion-icon slot="end" color="dark" name="glasses"></ion-icon>
                 <ion-icon slot="start" color="dark" name="glasses"></ion-icon>
-                <ion-text color="white">
+                <ion-text>
                   Admin Dashboard
                 </ion-text>
               </ion-button>
@@ -190,7 +190,7 @@
           >
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="white">
+                <ion-text>
                   User Support Dashboard
                 </ion-text>
               </ion-card-title>
@@ -211,7 +211,7 @@
               <ion-button routerLink="/user">
                 <ion-icon slot="start" color="dark" name="bug"></ion-icon>
                 <ion-icon slot="end" color="dark" name="bug"></ion-icon>
-                <ion-text color="white">
+                <ion-text>
                   Support Dashboard
                 </ion-text>
               </ion-button>
@@ -226,7 +226,7 @@
           >
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="white">
+                <ion-text>
                   Account Management
                 </ion-text>
               </ion-card-title>
@@ -238,7 +238,7 @@
                   size="small"
                   [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice"
                 >
-                  <ion-text color="white">
+                  <ion-text>
                     Current Invoice
                   </ion-text>
                 </ion-button>
@@ -267,7 +267,7 @@
             <ion-card-header>
               <ion-card-title color="white">
                 <strong>
-                  <ion-text color="white">
+                  <ion-text>
                     Theme Options
                   </ion-text>
                 </strong>

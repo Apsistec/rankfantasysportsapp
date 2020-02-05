@@ -5,6 +5,7 @@ import { BlinkDirective } from '@directives/blink.directive';
 import {
   Component,
   HostBinding,
+  AfterViewInit,
   ElementRef,
   Input,
   OnInit,
@@ -24,7 +25,7 @@ declare var Stripe: stripe.StripeStatic;
   templateUrl: './purchase.page.html',
   styleUrls: ['./purchase.page.scss'],
 })
-export class PurchasePage implements OnInit {
+export class PurchasePage implements OnInit, AfterViewInit {
   
   
   titleId = 'RF$\u2122 Pro Memberships';
@@ -38,12 +39,12 @@ export class PurchasePage implements OnInit {
   @ViewChild('cardElement',{ static: true }) cardElement: ElementRef;
   
   checked= false;
-  bumpupAmount;
+  bumpup;
   
   stripe:stripe.Stripe;
   card;
   cardErrors;
-
+  hideSignUp = true;
   loading = false;
   confirmation;
 
@@ -58,6 +59,7 @@ export class PurchasePage implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -97,12 +99,12 @@ export class PurchasePage implements OnInit {
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
-          color: '#9911c4'
+          color: '#121212'
         }
       },
       invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
+        color: '#f73008',
+        iconColor: '#f73008'
       }
     };
 
@@ -112,6 +114,8 @@ export class PurchasePage implements OnInit {
     this.card.addEventListener('change', ({ error }) => {
       this.cardErrors = error && error.message;
     });
+  }
+  ngAfterViewInit() {
   }
 
   // Stop Spinner
@@ -171,6 +175,8 @@ export class PurchasePage implements OnInit {
       f.reset();
       return this.router.navigate(['/welcome']);
     }
+  }
+
 
 
   // async handleForm(e) {
@@ -190,11 +196,9 @@ export class PurchasePage implements OnInit {
   //     this.loading = false;
 
   //   }
-
-
-
+  showSignUpForms() {
+    this.hideSignUp = !this.hideSignUp;
   }
-  
 
   bumpOrder() {
 

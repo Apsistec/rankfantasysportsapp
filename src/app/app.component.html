@@ -19,7 +19,7 @@
             routerLink="/home"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="home"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="home"></ion-icon>
             <ion-text>Home</ion-text>
           </ion-item>
 
@@ -30,7 +30,7 @@
             *ngIf="auth.afAuth.user | async as user"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="contact"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="contact"></ion-icon>
             <ion-text>Profile</ion-text>
           </ion-item>
 
@@ -41,7 +41,7 @@
             *ngIf="auth.isSubscribed; else notSubscribed"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="logo-usd"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="logo-usd"></ion-icon>
             <ion-text>Pricing</ion-text>
           </ion-item>
 
@@ -52,7 +52,7 @@
               routerLink="/purchase"
               class="ion-text-uppercase"
             >
-              <ion-icon class="iconify" slot="start" name="medal"></ion-icon>
+             <ion-icon color="dark"  class="iconify" slot="start" name="medal"></ion-icon>
               <ion-text>Free-Trial</ion-text>
             </ion-item>
 
@@ -62,7 +62,7 @@
               routerLink="/purchase"
               class="ion-text-uppercase"
             >
-              <ion-icon class="iconify" slot="start" name="logo-usd"></ion-icon>
+             <ion-icon color="dark"  class="iconify" slot="start" name="logo-usd"></ion-icon>
               <ion-text>Purchase</ion-text>
             </ion-item>
           </ng-template>
@@ -73,7 +73,7 @@
             routerLink="/how-to"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="star"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="star"></ion-icon>
             <ion-text>How To Use RF$&trade;</ion-text>
           </ion-item>
 
@@ -83,7 +83,7 @@
             routerLink="/credibility"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="trophy"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="trophy"></ion-icon>
             <ion-text>DK Credibility</ion-text>
           </ion-item>
 
@@ -93,7 +93,7 @@
             routerLink="/faq"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="help"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="help"></ion-icon>
             <ion-text>FAQs</ion-text>
           </ion-item>
 
@@ -104,7 +104,7 @@
             *ngIf="auth.afAuth.user | async as user; else login"
             class="ion-text-uppercase"
           >
-            <ion-icon
+           <ion-icon color="dark" 
               color="danger"
               class="iconify"
               slot="start"
@@ -120,7 +120,7 @@
               routerLink="/login"
               class="ion-text-uppercase"
             >
-              <ion-icon class="iconify" slot="start" name="log-in"></ion-icon>
+             <ion-icon color="dark"  class="iconify" slot="start" name="log-in"></ion-icon>
               <ion-text color="primary">Login</ion-text>
             </ion-item>
           </ng-template>
@@ -130,9 +130,10 @@
             color="light"
             routerLink="/tables"
             class="ion-text-uppercase"
+            style="font-size:x-large;font-weight: 900;"
           >
             <ion-text>Stats & Projections</ion-text>
-            <ion-button size="small" color="silver">All Tables</ion-button>
+            <ion-button size="small" style="padding-right: 10px;" color="silver">All Tables</ion-button>
           </ion-list-header>
 
           <ion-item
@@ -141,7 +142,7 @@
             routerLink="/tables"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="stats"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="stats"></ion-icon>
             <ion-text>Happening Now</ion-text>
           </ion-item>
 
@@ -151,7 +152,7 @@
             routerLink="/tables"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="tennisball"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="tennisball"></ion-icon>
             <ion-text>Tennis</ion-text>
           </ion-item>
 
@@ -161,7 +162,7 @@
             routerLink="/tables"
             class="ion-text-uppercase"
           >
-            <ion-icon slot="start" name="american-football"></ion-icon>
+           <ion-icon color="dark"  slot="start" name="american-football"></ion-icon>
             <ion-text>NFL</ion-text>
           </ion-item>
 
@@ -171,7 +172,7 @@
             routerLink="/tables"
             class="ion-text-uppercase"
           >
-            <ion-icon slot="start" name="american-football"></ion-icon>
+           <ion-icon color="dark"  slot="start" name="american-football"></ion-icon>
             <ion-text>CFB</ion-text>
           </ion-item>
 
@@ -181,7 +182,7 @@
             routerLink="/tables"
             class="ion-text-uppercase"
           >
-            <ion-icon class="iconify" slot="start" name="basketball"></ion-icon>
+           <ion-icon color="dark"  class="iconify" slot="start" name="basketball"></ion-icon>
             <ion-text>NBA</ion-text>
           </ion-item>
         </ion-item-group>
@@ -196,13 +197,13 @@
             routerLink="/tweets"
             class="ion-text-uppercase"
           >
-            <ion-icon color="dark" slot="start" name="logo-twitter"></ion-icon>
+           <ion-icon color="dark"  slot="start" name="logo-twitter"></ion-icon>
             <ion-text color="dark">Tweets</ion-text>
           </ion-item>
 
           <ion-item button lines="none" disabled class="ion-text-uppercase">
-            <ion-icon color="dark" slot="start" name="trending-up"></ion-icon>
-            <ion-text color="dark">Line-up Optimizers<sup>*</sup></ion-text>
+           <ion-icon color="dark"  slot="start" name="trending-up"></ion-icon>
+            <ion-text>Line-up Optimizers<sup>*</sup></ion-text>
           </ion-item>
           <div style="margin-right:7px;">
             <ion-text color="dark">
