@@ -1,17 +1,29 @@
-h4 {
-  font-size: large;
-  font-variant: all-small-caps;
+
+ion-item-group{
   font-weight: 800;
+  font-size: large;
+  font-variant: small-caps;
+  color: var(--ion-color-dark);
+  padding-left:5%;
+
 }
 
 p {
+  font-weight: 700;
   color: var(--ion-color-medium);
   font-variant:small-caps;
 }
-h2 {
-  font-variant-numeric: tabular-nums;;
-  font-size: xx-large;
+h3 {
+  font-size: x-large;
+  text-transform: capitalize;
+  font-variant: small-caps;
   font-weight: 900;
+}
+.aboveprice {
+  font-size: large;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-weight: 800;
 }
 
 ion-item {
@@ -19,18 +31,17 @@ ion-item {
   // border-radius: 10px;
   // font-size: larger;
   // font-weight: 700;
+  padding-left:5%;
   text-transform: capitalize;
 }
+
 sub{
   font-variant: small-caps;
-  font-weight: 600;
-  font-stretch: condensed;
-
+  font-weight: 700;
 }
 ion-list{
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-bottom: 15px;
+  overflow: hidden;
   border-radius: 10px;
   border: 3px solid black;
+  font-variant: small-caps;
 }

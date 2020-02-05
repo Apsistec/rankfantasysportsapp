@@ -78,23 +78,28 @@ a:hover {
   cursor: pointer;
 }
 
-
-// Register Modal CSS
-// .app-reg-modal {
-//   --min-height: 750px;
-// }
-// .modal-wrapper {
-//   max-width: 55%;
-//   max-height: 65%;
-
-// }
+:root {
+  // All modals
 
 
+  // Register Modal CSS
+  .app-reg-modal {
+    --min-height: 80%;
+  }
 
-.modalcss{
-  --background: tranparent;
-  --max-height: 85%;
-  --max-width: 85%;
-  border-radius: 25px;
+// Purchase Modal
+  // .startmodal
+   .modal-wrapper{
+    --background: transparent !important;
+    border: 3px solid var(--ion-color-white);
+    border-radius: 18px 18px 18px 18px;
+    --max-height: 85%;
+    --max-width: 85%;
+  }
 
+  // Terms and Privacy Modals
+  .modalcss{
+    --max-height: 85%;
+    --max-width: 90%;
+  }
 }

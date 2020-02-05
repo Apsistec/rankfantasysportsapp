@@ -1,3 +1,5 @@
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 // import {
 //   AngularFireAuthGuard,
 //   canActivate,
@@ -5,8 +7,6 @@
 //   redirectLoggedInTo,
 //   redirectUnauthorizedTo
 // } from '@angular/fire/auth-guard';
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 
 // import { MemberGuard } from '../../../Member.guard';
@@ -133,13 +133,7 @@ const appRoutes: Routes = [
         m => m.TweetsPageModule
       )
   },
-  {
-    path: 'flip',
-    loadChildren: () =>
-      import('./flip/flip.module').then(
-        m => m.FlipPageModule
-      )
-  },
+  
   {
     path: 'testimonials',
     loadChildren: () =>

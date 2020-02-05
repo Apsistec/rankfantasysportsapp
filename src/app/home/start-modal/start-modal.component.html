@@ -1,35 +1,32 @@
-<ion-content style="border:3px solid var(--ion-color-white);" color="light" class="ion-align-items-center ion-padding ion-text-center ion-text-wrap"
->
-
-
-   
+<ion-content color="light" class="ion-text-center ion-text-wrap ion-padding">
       <ion-list>
-     
-        
-        <ion-list-header>
-          <ion-title>
-            <ion-text class="ion-text-capitalize" color="medium">
-              <h3>
-                Price after your complimentary trial
-              </h3>
+        <ion-list-header color="light" >
+          <ion-title class="aboveprice">
+            <ion-text class="ion-text-wrap ion-text-center" color="primary" style="text-shadow: 1px 0 1px var(--ion-color-silver);">
+              Price after your complimentary trial
             </ion-text>
-            <ion-text>
-              <h2>
+          </ion-title>
+
+        </ion-list-header>
+        <ion-toolbar color="light">
+             <ion-title>
+            <ion-text class="ion-text-no-wrap">
+              <h3>
                 $9.99<sub class="ion-text-capitalize">
                   /month
                 </sub>
-              </h2>
+              </h3>
             </ion-text>
           </ion-title>
-        </ion-list-header>
-        <ion-item-group>
-          <ion-text class="ion-text-capitalize ion-text-start" color="medium">
-            <h3>
+        </ion-toolbar>
+        <ion-item-group class="ion-text-start">
+          <ion-text  color="primary">
+
             Features:
-            </h3>
+
           </ion-text>
         </ion-item-group>
-          <ion-item>
+          <ion-item lines="inset">
             <ion-text>
               <p>
                 Season Long Projections & Picks
@@ -37,7 +34,7 @@
             </ion-text>
           </ion-item>
 
-          <ion-item>
+          <ion-item lines="inset">
             <ion-text>
               <p>
                 RFS Aggregated information
@@ -45,7 +42,7 @@
             </ion-text>
           </ion-item>
 
-          <ion-item>
+          <ion-item lines="inset">
             <ion-text>
               <p>
                 Advanced RFS Stats
@@ -53,7 +50,7 @@
             </ion-text>
           </ion-item>
 
-          <ion-item>
+          <ion-item lines="inset">
             <ion-text>
               <p>
                 Hand Curated data
@@ -61,7 +58,7 @@
             </ion-text>
           </ion-item>
 
-          <ion-item>
+          <ion-item lines="inset">
             <ion-text>
               <p>
                 Data Dashboard
@@ -69,7 +66,7 @@
             </ion-text>
           </ion-item>
 
-          <ion-item>
+          <ion-item lines="none">
             <ion-text>
               <p>
                 Billed monthly, no set up fee
@@ -77,8 +74,7 @@
             </ion-text>
           </ion-item>
         </ion-list>
-      <!-- </ion-card> -->
-      
+        <hr />
       <ion-button
         size="large"
         class="ion-text-wrap"
@@ -86,7 +82,7 @@
         color="danger"
         (click)="gotoPurchase()"
       >
-        <ion-text class="ion-text-wrap ion-text-capitalize">
+        <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
           Claim Your 7 Free days
         </ion-text>
       </ion-button>
@@ -96,9 +92,9 @@
         color="primary"
         (click)="dismiss()"
       >
-        <ion-text>
+        <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
         Close
         </ion-text>
       </ion-button>
-      
+
 </ion-content>

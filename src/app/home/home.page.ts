@@ -2,10 +2,10 @@ import { AuthService } from '../_services/auth.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
-import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { ModalController } from '@ionic/angular';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { StartModalComponent } from 'app/home/start-modal/start-modal.component';
+import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { timeout } from 'rxjs/operators';
 
 
@@ -78,7 +78,7 @@ export class HomePage implements OnInit {
   async showPopModal() {
     const modal = await this.modalController.create({
       component: StartModalComponent,
-      cssClass: 'start-modal modalcss'
+      cssClass: 'startmodal'
     });
     return modal.present();
   }
