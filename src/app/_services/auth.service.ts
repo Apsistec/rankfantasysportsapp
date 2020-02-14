@@ -10,6 +10,7 @@ import { MessageService } from './message.service';
 import { Router } from '@angular/router';
 import { SpinnerService } from './spinner.service';
 import { StorageService } from './storage.service';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root',
@@ -95,7 +96,7 @@ export class AuthService {
   async isSubscribedQ() {
     const user = await this.getCurrentUser();
     this.isSubscribed =
-      user.plan === 'gold' || 'silver' || 'bronze' ? true : false;
+      user.plan === 'bronze' ? true : false;
   }
 
   // Authentication
@@ -122,26 +123,37 @@ export class AuthService {
   }
 
   /* Sign up email*/
-  SignUp(credentials) {
-    return this.afAuth.auth
-      .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then(res => {
-        this.afs.doc<User>(`users/${res.user.uid}`).set(
-          {
-            displayName: credentials.firstName + ' ' + credentials.lastName,
-            email: res.user.email,
-            uid: res.user.uid,
-            role: 'USER',
-            permissions: ['delete-ticket'],
-            photoURL: res.user.photoURL,
-          },
-          { merge: true }
-        );
-      })
-      .catch(async err => {
-        await this.message.errorAlert(err);
-      });
-  }
+
+   
+  registerUser(value){
+    return new Promise<any>((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
+      .then(
+        res => resolve(res),
+        err => reject(err))
+    })
+   }
+
+  // SignUp(credentials) {
+  //   return this.afAuth.auth
+  //     .createUserWithEmailAndPassword(credentials.email, credentials.password)
+  //     .then(res => {
+  //       this.afs.doc<User>(`users/${res.user.uid}`).set(
+  //         {
+  //           displayName: credentials.firstName + ' ' + credentials.lastName,
+  //           email: res.user.email,
+  //           uid: res.user.uid,
+  //           role: 'USER',
+  //           permissions: ['delete-ticket'],
+  //           photoURL: res.user.photoURL,
+  //         },
+  //         { merge: true }
+  //       );
+  //     })
+  //     .catch(async err => {
+  //       await this.message.errorAlert(err);
+  //     });
+  // }
 
   // Auth logic to Login using federated auth providers
   async AuthLogin(provider: any) {
@@ -195,17 +207,17 @@ export class AuthService {
 
   // Register in with Google
   async GoogleRegister() {
-    return this.AuthRegister(new firebase.auth.GoogleAuthProvider());
+    return this.AuthRegister(new auth.GoogleAuthProvider());
   }
 
   // Register in with Twitter
   TwitterRegister() {
-    return this.AuthRegister(new firebase.auth.TwitterAuthProvider());
+    return this.AuthRegister(new auth.TwitterAuthProvider());
   }
 
   // Register in with Facebook
   FacebookRegister() {
-    return this.AuthRegister(new firebase.auth.FacebookAuthProvider());
+    return this.AuthRegister(new auth.FacebookAuthProvider());
   }
 
   // MicrosoftRegister() {
@@ -215,21 +227,21 @@ export class AuthService {
   // Signin Login Federated
   // Sign in with Google
   GoogleAuth() {
-    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
+    return this.AuthLogin(new auth.GoogleAuthProvider());
   }
   // Sign in with Twitter
   TwitterAuth() {
-    return this.AuthLogin(new firebase.auth.TwitterAuthProvider());
+    return this.AuthLogin(new auth.TwitterAuthProvider());
   }
 
   // Sign in with Facebook
   FacebookAuth() {
-    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
+    return this.AuthLogin(new auth.FacebookAuthProvider());
   }
 
   // For working with Azure AD app to query Microsoft Graph using Excel API and MS Javascript after getting a token from MSAL
   MicrosoftAuth() {
-    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    const provider = new auth.OAuthProvider('microsoft.com');
     return this.AuthLogin(provider);
     provider.setCustomParameters({
       tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1',
@@ -240,8 +252,8 @@ export class AuthService {
   // related to Settings Page for joining additional Profiles to User
   async linkGoogle() {
     this.spinner.loadSpinner();
-    const provider = await new firebase.auth.GoogleAuthProvider();
-    firebase.auth().currentUser.linkWithPopup(provider);
+    const provider = await new auth.GoogleAuthProvider();
+    auth().currentUser.linkWithPopup(provider);
     this.spinner.dismissSpinner();
     provider.setCustomParameters({
       tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02',
@@ -267,7 +279,7 @@ export class AuthService {
   async SignOut() {
     await this.afAuth.auth.signOut().then(() => {
       this.message.signOutToast();
-      return this.navCtrl.navigateRoot('/');
+      return this.navCtrl.navigateRoot('/home');
     });
   }
 
@@ -299,4 +311,5 @@ export class AuthService {
     }
     return false;
   }
+
 }

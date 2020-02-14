@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stats.page.scss']
 })
 export class StatsPage implements OnInit {
+  titleId= "DFS Stats Page"
   constructor() {}
 
   ngOnInit() {}

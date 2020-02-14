@@ -1,32 +1,39 @@
 
-      
+
       <ion-grid class="ion-no-padding ">
         <ion-row>
 
+      <ion-col  class="hero heading ion-align-items-center ion-no-padding ion-text-center">
+          <a class="ahome" routerLink="/profile" title="Home"><h3 class="ahome">Title</h3></a>
 
-      <ion-col  class="hero ion-align-items-center ion-no-padding ion-text-center">
+
+        <div style="overflow:auto; float:right;padding-right:20px; padding-top:20px;">
+            <a [routerLink]="['/login']">
+              <ion-text color="white">
+                Log In
+              </ion-text>
+          </a>
+        </div>
         <div class="cta">
-          <ion-text color="white">
+<ion-text>
+    <h1>
+    Get our Pro Package
+    <strong>
+      One Week free
+  </strong>
+  </h1>
 
-            <h1>
-              Get our Pro Package
-              <strong>
-                One Week free
-              </strong>
-            </h1>
-
-            <h2>
-              Hand Picked Data - DFS Expert Curation - Win First!
-            </h2>
-          </ion-text>
-          </div>
+  <h2>
+    Hand Picked Data - DFS Expert Curation - Win First!
+  </h2>
+</ion-text>
         <ion-button
           fill="solid"
           color="danger"
           size="large"
           routerLink="/purchase"
         >
-          <ion-text style="font-stretch: condensed;">
+          <ion-text>
             <ion-text style="font-size: large; ">
               >> Start My 7 Day Trial
             </ion-text>
@@ -36,6 +43,8 @@
             </ion-text>
           </ion-text>
         </ion-button>
+      </div>
+
       </ion-col>
     </ion-row>
   </ion-grid>

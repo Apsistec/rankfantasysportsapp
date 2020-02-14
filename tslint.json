@@ -1,7 +1,4 @@
 {
-  "extends": [
-    "stylelint-config-prettier"
-  ],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],

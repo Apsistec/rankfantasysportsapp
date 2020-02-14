@@ -7,32 +7,6 @@ import { InvoicesComponent } from './invoices/invoices.component';
 import { SettingsComponent } from './settings/settings.component';
 import { StripeService } from '../_services/stripe.service';
 
-// const themes = {
-//   autumn: {
-//     light: '#264E36',
-//     secondary: '#199867',
-//     tertiary: '#9B1B30',
-//     light: '#F7F7FF',
-//     medium: '#2A4B7C',
-//     dark: '#2A293E'
-//   },
-//   night: {
-//     light: '#00539C',
-//     secondary: '#8CBA80',
-//     tertiary: '#BD3D3A',
-//     light: '#bcc2c7',
-//     medium: '#495867',
-//     dark: '#34162A'
-//   },
-//   neon: {
-//     light: '#755139',
-//     secondary: '#D69C2F',
-//     tertiary: '#E47A2E',
-//     light: '#F0EAD6',
-//     medium: '#615550',
-//     dark: '#343148'
-//   }
-// };
 
 @Component({
   selector: 'app-profile',
@@ -41,7 +15,7 @@ import { StripeService } from '../_services/stripe.service';
 })
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
-
+  user;
   // subscriptions;
 
   constructor(
@@ -52,12 +26,19 @@ export class ProfilePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.stripeService.getSubscriptions();
+    this.getStripeDataIfValidUser();
   }
 
-  // changeTheme(name) {
-  //   this.theme.setTheme(themes[name]);
-  // }
+ async getStripeDataIfValidUser() {
+    this.user = await this.auth.getUser();
+      if (this.user.stripeCustomerId) {
+        this.stripeService.getSubscriptions();
+      } else {
+        return false;
+      }
+    }
+
+
   enableDark() {
     this.theme.enableDark();
   }

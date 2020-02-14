@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cbb.component.scss'],
 })
 export class CbbComponent implements OnInit {
+  titleId = 'CBB Tables';
+
 
   constructor() { }
 

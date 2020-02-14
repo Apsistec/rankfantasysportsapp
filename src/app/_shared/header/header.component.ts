@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   user: User;
   button = document.querySelector('ion-button');
   mobile;
+  showSecondToolbar: Boolean;
   constructor(
     public auth: AuthService,
     private popoverController: PopoverController
@@ -45,13 +46,20 @@ export class HeaderComponent implements OnInit {
   get isForgotPage(): boolean {
     return this.titleId === 'Reset RF$\u2122 Password' ? true : false;
   }
+  get isProfilePage(): boolean {
+    return this.titleId === 'RF$\u2122 User Profile' ? true : false;
+  }
 
+
+  ngAfterViewInit() {
+    this.showSecondToolbar = !this.isProfilePage && !this.isHomePage && !this.isLoginPage && !this.isRegisterPage && !this.isWelcomePage && !this.isPurchasePage && !this.isForgotPage
+  }
 
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       event: ev,
-      translucent: true,
+
       cssClass: 'popoverUser'
     });
     return popover.present();

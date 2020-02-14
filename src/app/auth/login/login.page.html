@@ -1,20 +1,188 @@
 <app-header [titleId]="titleId"></app-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-text-center ion-padding ion-text-wrap tech">
+      <ion-col
+      class=" ion-align-self-center"
+      
+      size-sm="12"
+        size-md="6"
+        offset-md="3"
+        size-lg="4"
+        offset-lg="4"
+        size-xl="4"
+        offset-xl="4"
+      >
+      <ion-card color="primary" class="ion-padding" style="border: 3px solid white; border-radius: 10px;">
+
+        <form #login
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit(login)" novalidate
+        >
+        <img src="../../../assets/img/logo.jpg">
+        <hr>
+ <ion-card-title>
+   <ion-text
+   style="font-size: large; font-weight: 900; font-variant: small-caps; font-stretch: condensed; line-height: 1;"
+   >
+   Log In to Rank Fantasy Sports
+  </ion-text>
+</ion-card-title>
+ <ion-text>
+   Before using your <strong>Pro Plan</strong>, you need to
+   log in to Rank Fantasy Sports
+  </ion-text>
+
+  <ion-card color="primary">
+
+<ion-item color="light">
+  <ion-label position="floating">Email</ion-label>
+  <ion-input
+   debounce="300"
+   style="width: 95%;"
+   type="email"
+   inputmode="email"
+   formControlName="email"
+   ></ion-input>
+ </ion-item>
+ <div
+ *ngIf="
+         loginForm.controls['email'].invalid &&
+         (loginForm.controls['email'].dirty ||
+          loginForm.controls['email'].touched)"
+   class="alert alert-danger"
+ >
+ <div *ngIf="loginForm.controls['email'].errors.required">
+  <ion-text color="danger" class="inputError">
+    Email is required.
+  </ion-text>
+</div>
+<div *ngIf="loginForm.controls['email'].errors.email">
+   <ion-text color="danger" class="inputError">
+     Email is not Valid.
+    </ion-text>
+  </div>
+</div>
+<ion-item color="light">
+  <ion-label position="floating">Password</ion-label>
+  <ion-input
+  debounce="300"
+  id="password"
+ style="width: 89%;"
+ [type]="hidePass ? 'password' : 'text'"
+ inputmode="text"
+ formControlName="password"
+ ></ion-input>
+ <ion-button
+ item-end
+ (click)="hidePass = !hidePass"
+ *ngIf="hidePass"
+ style="position: absolute; right: 5px; bottom: 15px; background: transparent;"
+ >
+ <ion-icon name="eye" size="medium" color="white">
+ </ion-icon>
+</ion-button>
+<ion-button
+item-end
+(click)="hidePass = !hidePass"
+*ngIf="!hidePass"
+style="position: absolute; right: 5px; bottom: 15px; background: transparent;"
+>
+<ion-icon name="eye-off" size="medium" color="white">
+</ion-icon>
+</ion-button>
+</ion-item>
+<div
+*ngIf="loginForm.controls['password'].invalid &&  (loginForm.controls['password'].dirty ||
+loginForm.controls['password'].touched)"
+   class="alert alert-danger"
+   >
+   <div
+   *ngIf="loginForm.controls['password'].errors.required"
+   >
+   <ion-text color="danger" class="inputError">
+     Password is required.
+    </ion-text>
+ </div>
+ <div
+     *ngIf="loginForm.controls['password'].hasError('minlength')"
+     >
+     <ion-text color="danger" class="inputError">
+       Password must be at least 8 characters long.
+     </ion-text>
+    </div>
+    <div
+   *ngIf="loginForm.controls['password'].errors.maxlength"
+   >
+   <ion-text color="danger" class="inputError">
+     Password must be less than 25 characters long.
+    </ion-text>
+ </div>
+ <div
+ *ngIf="loginForm.controls['password'].errors.pattern"
+ >
+ <ion-text color="danger" class="inputError">
+   Password must contain 1 uppercase, 1 lowercase and 1
+   digit.
+  </ion-text>
+</div>
+</div>
+</ion-card>
+<hr />
+
+<ion-button  color="danger" type="submit" style="width: 70%;">
+  <ion-icon
+  slot="start"
+  color="white"
+  name="arrow-round-forward"
+  slot="start"
+  ></ion-icon>
+  <ion-text>
+    Log In
+  </ion-text>
+</ion-button>
+<br />
+
+
+<hr />
+<div style="border-top:1px solid var(--ion-color-medium);">
+  <hr />
+  <ion-text
+  >Need an account?</ion-text
+  >
+  <a routerLink="/purchase">
+    <ion-text color="facebk">
+       Sign Up
+      </ion-text>
+    </a>
+  </div>
+</form>
+</ion-card>
+
+
+
+
+
+<!-- <app-header [titleId]="titleId"></app-header>
+
+
+
+
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col class="ion-no-padding"
-        size-sm="6"
-        offset-sm="3"
         size-md="4"
         offset-md="4"
-        size-lg="3"
-        offset-lg="4.5"
-        size-xl="3"
-        offset-xl="4.5"
+        size-lg="4"
+        offset-lg="4"
+        size-xl="4"
+        offset-xl="4"
       >
-        <ion-card class="ion-text-center ion-padding ion-text-wrap" color="light">
+        <ion-card class="ion-text-center ion-padding ion-text-wrap" color="primary">
           <ion-img src="../../assets/img/logo.jpg"></ion-img>
-         
+
           <form
           [formGroup]="loginForm"
           (ngSubmit)="Login()"
@@ -29,14 +197,14 @@
             </ion-text>
           </ion-card-title>
           <ion-card-subtitle>
-            <ion-text color="primary">
+            <ion-text>
               Before using your <strong>Pro Plan</strong>, you need to login to Rank Fantasy Sports
           </ion-text>
           </ion-card-subtitle>
 
-        
 
-          <ion-item color="light">
+
+          <ion-item color="medium">
             <ion-label position="floating">Email</ion-label>
             <ion-input
               debounce="700"
@@ -70,7 +238,7 @@
             </div>
           </ion-card>
 
-          <ion-item color="light">
+          <ion-item color="medium">
             <ion-label position="floating">Password</ion-label>
             <ion-input
               debounce="1200"
@@ -81,19 +249,19 @@
               formControlName="password"
             ></ion-input>
             <ion-button
-              item-end
+
               (click)="hide = !hide"
               *ngIf="hide"
-              style="position: absolute; right: 1px; bottom: 15px; background: transparent;"
+              style="position: absolute; right: 3px; bottom: 5px;"
             >
               <ion-icon name="eye" size="medium" color="white">
               </ion-icon>
             </ion-button>
             <ion-button
-              item-end
+
               (click)="hide = !hide"
               *ngIf="!hide"
-              style="position: absolute; right: 1px; bottom: 15px; background: transparent;"
+              style="position: absolute; right: 3px; bottom: 5px;"
             >
               <ion-icon name="eye-off" size="medium" color="white">
               </ion-icon>
@@ -101,7 +269,7 @@
           </ion-item>
           <ion-card color="dark">
             <div
-              *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || 
+              *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty ||
                       loginForm.controls['password'].touched)"
               class="alert alert-danger"
             >
@@ -154,14 +322,14 @@
             </ion-text>
           </ion-button>
           <br />
-          
+
           <ion-button
             class="loginbutton"
             type="button"
             (click)="auth.FacebookAuth()"
             color="primary"
           >
-            <ion-text>
+            <ion-text  class="ion-text-wrap">
               Facebook Log In
             </ion-text>
             <ion-icon
@@ -177,7 +345,7 @@
             (click)="auth.GoogleAuth()"
             color="primary"
           >
-            <ion-text>
+            <ion-text  class="ion-text-wrap">
               Google Log In
             </ion-text>
             <ion-icon slot="start" color="white" name="logo-google"></ion-icon>
@@ -189,16 +357,16 @@
             (click)="auth.TwitterAuth()"
             color="primary"
           >
-            <ion-text>
+            <ion-text  class="ion-text-wrap">
               Twitter Log In
             </ion-text>
             <ion-icon slot="start" color="white" name="logo-twitter"></ion-icon>
           </ion-button>
-       
+
           <hr />
           <div style="border-top:1px solid var(--ion-color-medium);">
             <hr />
-            <ion-text color="primary"
+            <ion-text color="primary"  class="ion-text-wrap"
               >Don't have an account?</ion-text
             >
             <a routerLink="/purchase">
@@ -208,13 +376,8 @@
             </a>
           </div>
         </form>
-
-
-
-
-          
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+</ion-content> -->

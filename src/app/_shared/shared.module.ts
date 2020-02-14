@@ -11,7 +11,6 @@ import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.componen
 import { RouterModule } from '@angular/router';
 import { TicketComponent } from './tickets/ticket.component';
 import { SharedDirectivesModule } from '../_directives/shared-directives.module';
-import { StarComponent } from './star/star.component';
 import { CbbComponent } from '../tables/cbb/cbb.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { NowComponent } from 'app/tables/now/now.component';
@@ -22,6 +21,7 @@ import { NbaComponent } from 'app/tables/nba/nba.component';
 import { TennisComponent } from 'app/tables/tennis/tennis.component';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import '../../icons';
+import { MailComponent } from 'app/profile/mail/mail.component';
 
 
 @NgModule({
@@ -40,7 +40,8 @@ import '../../icons';
     NbaComponent,
     TennisComponent,
     CbbComponent,
-    StarComponent
+    MailComponent
+
   ],
 
   entryComponents: [
@@ -79,7 +80,8 @@ import '../../icons';
     PgaComponent,
     NbaComponent,
     TennisComponent,
-    StarComponent
+    MailComponent
+
   ]
 })
 export class SharedModule {}

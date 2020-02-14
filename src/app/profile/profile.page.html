@@ -2,9 +2,9 @@
 <ion-content class="ion-text-wrap">
   <ion-grid>
     <ion-row>
-      <ion-col class="ion-no-padding" size-sm="5">
+      <ion-col class="ion-no-padding ion-text-center ion-align-items-center" size-sm="5">
         <ng-container *ngIf="auth.user | async as user">
-          <ion-card color="light" class="ion-text-center">
+          <ion-card color="primary" class="ion-text-center">
             <ion-card-header>
               <ion-card-title class="ion-text-center">
                 <ion-text>
@@ -15,7 +15,7 @@
             <ion-item color="light" lines="none">
               <ion-grid>
                 <ion-row>
-                  <ion-col class="ion-no-padding" size="4">
+                  <ion-col class="ion-no-padding ion-align-items-center ion-text-center" size="4">
                     <ion-img
                       style="width:70px; height:70px; position:relative;"
                       [src]="user.photoURL || '../../assets/img/dummy-user.png'"
@@ -54,13 +54,13 @@
                 </ion-text>
               </ion-button>
               &nbsp;
-              <ion-button size="small" (click)="auth.SignOut()"
+              <ion-button color="danger" size="small" (click)="auth.SignOut()"
                 >Logout</ion-button
               >
             </ion-card-content>
           </ion-card>
 
-          <ion-card color="light" class="ion-text-center ion-padding">
+          <ion-card color="primary" class="ion-text-center ion-padding">
             <ion-card-header>
               <ion-card-title>
                 <ion-text>
@@ -68,13 +68,13 @@
                 </ion-text>
               </ion-card-title>
             </ion-card-header>
-            <ion-card-content class="ion-text-start">
+            <ion-card-content class="ion-text-center">
               <ng-container
                 *ngIf="stripeService.subscriptions | async as subs; else purchase"
               >
                 <ion-grid>
                   <ion-row class="">
-                    <ion-col class="ion-no-padding" size-sm="5">
+                    <ion-col class="ion-no-padding ion-text-center ion-justify-content-center" size-sm="5">
                       <ion-label>
                         <h2>
                           PRO Plan:
@@ -145,8 +145,8 @@
             </ion-card-content>
           </ion-card>
 
-          <ng-template #purchase>
-            <ion-button size="small" strong routerLink="/purchase">
+          <ng-template #purchase >
+            <ion-button class="center ion-text-center" size="small" color="success" routerLink="/purchase">
               <ion-text>
                 Buy Pro Package
               </ion-text>
@@ -156,7 +156,7 @@
           <!-- Admin Dash -->
           <ion-card
             class="ion-text-center"
-            color="light"
+            color="primary"
             *ngIf="user.role === 'ADMIN'"
           >
             <ion-card-header>
@@ -172,7 +172,7 @@
               </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
-              <ion-button size="small" routerLink="/admin">
+              <ion-button color="tertiary" size="small" routerLink="/admin">
                 <ion-icon slot="end" color="dark" name="glasses"></ion-icon>
                 <ion-icon slot="start" color="dark" name="glasses"></ion-icon>
                 <ion-text>
@@ -185,7 +185,7 @@
           <!-- User Dashboard-->
           <ion-card
             class="ion-padding ion-text-center"
-            color="light"
+            color="primary"
             *ngIf="user.role === 'USER'"
           >
             <ion-card-header>
@@ -221,8 +221,7 @@
           <!-- Account Management -->
           <ion-card
             class="ion-text-center"
-            color="light"
-            *ngIf="user.plan === 'gold' || 'silver' || 'bronze'"
+            color="primary"
           >
             <ion-card-header>
               <ion-card-title>
@@ -263,9 +262,9 @@
           </ion-card>
 
           <!-- Theme -->
-          <ion-card class="ion-text-center" color="light">
+          <ion-card class="ion-text-center" color="primary">
             <ion-card-header>
-              <ion-card-title color="white">
+              <ion-card-title>
                 <strong>
                   <ion-text>
                     Theme Options
@@ -281,32 +280,44 @@
               </ion-text>
 
               <hr />
-              <ion-button size="small" expand="block" strong size="small"
-                >Accent One</ion-button
+              <ion-button size="small" expand="block" size="small" (click)="enableDark()" >Dark</ion-button>
+
+              <ion-button size="small" expand="block" size="small" (click)="enableLight()" >Light</ion-button>
+              <ion-button
+                size="small"
+                expand="block"
+                strong
+                size="small"
+                color="silver"
+                routerLink="guide"
+                >Guide</ion-button
               >
               <ion-button
                 size="small"
                 expand="block"
                 strong
                 size="small"
-                color="light"
-                >Accent Two</ion-button
+                color="silver"
+                routerLink="player-active-detail"
+                >Player ACtive Detail</ion-button
               >
               <ion-button
                 size="small"
                 expand="block"
                 strong
                 size="small"
-                color="light"
-                >Accent Three</ion-button
+                color="medium"
+                routerLink="star"
+                >Stars </ion-button
               >
               <ion-button
                 size="small"
                 expand="block"
                 strong
                 size="small"
-                color="light"
-                >Card Background</ion-button
+                color="medium"
+                routerLink="mail"
+                >Mail</ion-button
               >
               <ion-button
                 size="small"
@@ -314,7 +325,16 @@
                 strong
                 size="small"
                 color="white"
-                >Heading/Title</ion-button
+                routerLink="analytics"
+                >Analytics</ion-button>
+              <ion-button
+                size="small"
+                expand="block"
+                strong
+                size="small"
+                color="white"
+                routerLink="/about"
+                >About</ion-button
               >
 
               <ion-card-subtitle>
@@ -326,7 +346,7 @@
           </ion-card>
         </ng-container>
       </ion-col>
-      <ion-col class="ion-no-padding">
+      <ion-col class="ion-no-padding ion-align-items-center ion-text-center">
         <app-now></app-now>
         <app-tennis></app-tennis>
         <app-pga></app-pga>

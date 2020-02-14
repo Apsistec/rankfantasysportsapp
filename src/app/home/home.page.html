@@ -1,5 +1,5 @@
-<!-- <app-header [titleId]="titleId"></app-header> -->
-<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
+<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" color="white">
+  <!-- <app-header [titleId]="titleId"></app-header> -->
   <ion-grid class="ion-no-padding">
     <!-- Row 1 -->
     <ion-row style="border-bottom: 6px groove var(--ion-color-silver);">
@@ -11,22 +11,22 @@
 
     <!--Icon Row-->
     <ion-row
-      class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
+      class="ion-text-center ion-text-wrap ion-justify-content-center"
     >
-      <ion-col style="padding-top: 20px; ">
-        <ion-text class="top ">
-          <h2>
-            Helping You Win Is Our Business
-          </h2>
-        </ion-text>
+      <ion-col class="topicon">
+          <ion-text>
+            <h3>
+              Helping You Win Is Our Business
+            </h3>
+          </ion-text>
       </ion-col>
     </ion-row>
     <ion-row class=" ion-text-center ion-text-wrap ion-justify-content-center">
-      <ion-col size-xs="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
         <img src="../../../assets/img/football.png" />
 
         <h5>
-          <ion-text color="light">
+          <ion-text>
             DraftKings Sports & Data
           </ion-text>
         </h5>
@@ -37,11 +37,11 @@
         </h6>
       </ion-col>
 
-      <ion-col size-xs="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
         <img src="../../../assets/img/dashboard.webp" />
 
         <h5>
-          <ion-text color="light">
+          <ion-text>
             Advanced Stats
           </ion-text>
         </h5>
@@ -52,11 +52,11 @@
           </ion-text>
         </h6>
       </ion-col>
-      <ion-col size-xs="12" size-sm="12" size-md="4" size-lg="4" size-xl="4">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
         <img src="../../../assets/img/brains.webp" />
 
         <h5>
-          <ion-text color="light">
+          <ion-text>
             Custom Picks and Projections
           </ion-text>
         </h5>
@@ -71,11 +71,11 @@
     <ion-row
       class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
     >
-      <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="6" size-xl="6">
+      <ion-col  size-sm="12" size-md="10" size-lg="6" size-xl="6" class="topicon">
         <img src="../../../assets/img/price-tag.webp" />
 
         <h5>
-          <ion-text color="light">
+          <ion-text>
             Industry Best Pricing
           </ion-text>
         </h5>
@@ -85,11 +85,11 @@
           </ion-text>
         </h6>
       </ion-col>
-      <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="6" size-xl="6">
+      <ion-col  size-sm="12" size-md="10" size-lg="6" size-xl="6" class="topicon">
         <img src="../../../assets/img/world.webp" />
 
         <h5>
-          <ion-text color="light">
+          <ion-text>
             Weekly and Season-long
           </ion-text>
         </h5>
@@ -103,12 +103,11 @@
     </ion-row>
 
     <!-- Video Row -->
-    <ion-row class="ion-text-center ion-justify-content-center ion-align-items-center"
-      style="height:50vh; width:100vl;" color="primary">
+    <ion-row style="height:50vh; width:100vl;" class="silverbak ion-align-items-center ion-text-center ion-justify-content-center">
 
-      <ion-col size-xs="12" size-sm="12" size-md="5" size-lg="5" size-xl="5">
-        <div class="youtube">
-          <ion-text>
+  <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
+    <div class="youtube">
+      <ion-text>
             <h4>
               Watch The Video To See How
               <br />
@@ -123,19 +122,20 @@
           </ion-text>
         </div>
       </ion-col>
-      <ion-col size-xs="12" size-sm="12" size-md="5" size-lg="5" size-xl="5">
+
+      <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
         <div class="vidbox">
           <iframe
-            class="resp-iframe"
-            [src]="trustedVideoUrl4"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+          class="resp-iframe"
+          [src]="trustedVideoUrl4"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
           >
-          </iframe>
-        </div>
-      </ion-col>
-            </ion-row>
+        </iframe>
+      </div>
+    </ion-col>
+  </ion-row>
 
 
 
@@ -147,14 +147,14 @@
     <!-- Phonetest -->
 
     <ion-row
-      style="border-top: 3px groove var(--ion-color-silver); border-bottom: 3px groove var(--ion-color-silver);" class="ion-justify-content-around">
+      style="padding: 10px 0; border-top: 3px groove var(--ion-color-silver); border-bottom: 3px groove var(--ion-color-silver);" class="ion-justify-content-around">
       <ion-col
-        size-xs="12"
+        
         size-sm="12"
         size-md="5"
         size-lg="5"
         size-xl="5"
-        class="ion-align-items-center"
+        class="ion-align-self-center"
       >
       <div class="ion-text-center">
         <ion-text>
@@ -189,14 +189,14 @@
       </div>
       </ion-col>
       <ion-col
-        size-xs="12"
+        
         size-sm="12"
         size-md="5"
         size-lg="5"
         size-xl="5"
         class="ion-align-self-center">
       <div class="ion-text-center">
-        <img style="object-fit:cover;" src="../../assets/img/phone.png" />
+        <img src="../../assets/img/phone.png" />
       </div>
       </ion-col>
     </ion-row>
@@ -211,7 +211,7 @@
     <!-- Row 6 aka Footer -->
     <ion-row class="ion-justify-content-center blackback ion-text-center">
       <ion-col
-        size-xs="12"
+        
         size-sm="12"
         size-md="4"
         size-lg="4"

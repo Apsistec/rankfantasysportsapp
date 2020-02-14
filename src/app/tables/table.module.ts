@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,8 +20,8 @@ import { Table6Component } from './nba/table6/table6.component';
 import { Table7Component } from './nba/table7/table7.component';
 import { Table8Component } from './now/table8/table8.component';
 import { Table9Component } from './now/table9/table9.component';
-// import { TableDetailComponent } from '../tables/table-detail/table-detail.component';
-import { TableListComponent } from './table-list.component';
+import { TableDetailComponent } from '../tables/table-detail/table-detail.component';
+import { TableListComponent } from './table-list/table-list.component';
 import { TablePage } from './table.page';
 import { TableRoutingModule } from './table-routing.module';
 import { WhcbarComponent } from './tennis/whcbar/whcbar.component';
@@ -41,7 +42,7 @@ import { WttsaComponent } from './tennis/wttsa/wttsa.component';
     Table7Component,
     Table8Component,
     Table9Component,
-    // TableDetailComponent,
+    TableDetailComponent,
     TableListComponent,
     TablePage,
     MtrdsComponent,
@@ -59,7 +60,8 @@ import { WttsaComponent } from './tennis/wttsa/wttsa.component';
     IonicModule,
     SharedModule,
     HttpClientModule,
-    TableRoutingModule
+    TableRoutingModule,
+    MaterialModule
   ],
   exports: []
 })

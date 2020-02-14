@@ -20,7 +20,7 @@ import { Table6Component } from './nba/table6/table6.component';
 import { Table7Component } from './nba/table7/table7.component';
 import { Table8Component } from './now/table8/table8.component';
 import { Table9Component } from './now/table9/table9.component';
-import { TableListComponent } from './table-list.component';
+import { TableListComponent } from './table-list/table-list.component';
 import { TennisComponent } from './tennis/tennis.component';
 import { WhcbarComponent } from './tennis/whcbar/whcbar.component';
 import { WtrdsComponent } from './tennis/wtrds/wtrds.component';
@@ -115,7 +115,12 @@ const routes: Routes = [
         component: ScorePredictionsComponent // canActivate: [PaidGuard]
       }
     ]
-  }
+  },
+  {
+    path: 'data-table',
+    loadChildren: () => import('./data-table/data-table.module').then( m => m.DataTablePageModule)
+  },
+  
 ];
 
 @NgModule({

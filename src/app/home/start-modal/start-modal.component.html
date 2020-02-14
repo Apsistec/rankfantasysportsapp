@@ -9,21 +9,18 @@
 
         </ion-list-header>
         <ion-toolbar color="light">
-             <ion-title>
-            <ion-text class="ion-text-no-wrap">
+          <ion-button size="large" color="dark" routerLink="/purchase">
+            <ion-text class="ion-text-no-wrap ion-text-capitalize">
               <h3>
-                $9.99<sub class="ion-text-capitalize">
-                  /month
-                </sub>
+                $9.99
+                <sub>per month</sub>
               </h3>
             </ion-text>
-          </ion-title>
+          </ion-button>
         </ion-toolbar>
         <ion-item-group class="ion-text-start">
-          <ion-text  color="primary">
-
+          <ion-text color="primary">
             Features:
-
           </ion-text>
         </ion-item-group>
           <ion-item lines="inset">
@@ -89,7 +86,7 @@
       <ion-button
         size="large"
         fill="outline"
-        color="primary"
+        color="white"
         (click)="dismiss()"
       >
         <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">

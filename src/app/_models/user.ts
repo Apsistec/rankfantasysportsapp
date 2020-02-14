@@ -8,7 +8,7 @@ export interface User {
   displayName: string;
   uid: string;
   photoURL: string;
-  role: null | '' | 'USER' | 'EDITOR' | 'ADMIN' ;
+  role: string;
   permissions: string[];
   email: string;
   createdAt?: number;
@@ -20,7 +20,7 @@ export interface User {
   passwordUpdatedAt?: number;
   emailVerified?: boolean;
   stripeCustomerId?: string;
-  plan?: null | '' | 'bronze' | 'silver' | 'gold';
+  plan?: string;
   status?: string;
   subId?: string;
 }

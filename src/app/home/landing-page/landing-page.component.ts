@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Config } from '@ionic/angular';
+import { Config, MenuController } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
 import { ThemeService } from '@services/theme.service';
 
@@ -14,7 +14,8 @@ export class LandingPageComponent implements OnInit {
   constructor(
     private config: Config,
     public auth: AuthService,
-    private theme: ThemeService
+    private theme: ThemeService,
+    private menu: MenuController
   ) {}
 
   ngOnInit() {
@@ -27,5 +28,10 @@ export class LandingPageComponent implements OnInit {
 
   enableLight() {
     this.theme.enableLight();
+  }
+
+  toggleMenu() {
+    // this.menu.getOpen('first')
+    this.menu.open();
   }
 }

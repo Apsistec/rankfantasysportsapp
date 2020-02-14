@@ -9,25 +9,26 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-no-padding" size-sm="10" offset-sm="1" size-lg="6" offset-lg="3">
-        <ion-card class="ion-text-start" color="light">
-          <ion-card-header class="ion-text-center">
+        <ion-card class="ion-text-start">
+          <ion-card-header class="ion-text-center" color="primary">
             <ion-card-title>
-              <ion-text color="primary">
+              <ion-text color="silver">
                 RF$&trade; FAQs
               </ion-text>
             </ion-card-title>
             <ion-card-subtitle>
-              <ion-text>
+              <ion-text color="silver">
                 Responses to our frequently asked questions
               </ion-text>
             </ion-card-subtitle>
           </ion-card-header>
           <mat-accordion>
-            <mat-expansion-panel class="cololo" *ngFor="let faq of faqs">
+            <mat-expansion-panel *ngFor="let faq of faqs">
               <mat-expansion-panel-header
-                class="ion-text-start colo"
+                class="ion-text-start"
                 collapsedHeight="70px"
                 expandedHeight="70px"
+                style="background-color: grey;"
               >
                 <mat-panel-title>
                   <ion-text>{{faq.title}}</ion-text>

@@ -1,11 +1,17 @@
 <app-header [titleId]="titleId"></app-header>
 <ion-content color="dark">
   <ion-grid>
-    <ion-row>
-      <ion-grid>
-        <ion-row>
-          <ion-col class="ion-no-padding" size-lg="8" size-xl="8">
-            <ion-card color="light">
+        <ion-row
+          class=" ion-text-center ion-text-wrap ion-justify-content-center"
+        >
+          <ion-col
+            size-sm="12"
+            size-md="4"
+            size-lg="4"
+            size-xl="4"
+            
+          >
+            <ion-card color="primary">
               <ion-card-header>
                 <ion-card-title>
                   <ion-label color="secondary">
@@ -53,8 +59,14 @@
               </ion-list>
             </ion-card>
           </ion-col>
-          <ion-col class="ion-no-padding" size="3">
-            <ion-card color="light">
+          <ion-col
+            size-sm="12"
+            size-md="4"
+            size-lg="4"
+            size-xl="4"
+            
+            >
+            <ion-card color="primary">
               <ion-card-header>
                 <ion-card-title>
                   <ion-label color="secondary">
@@ -83,19 +95,16 @@
               </ion-list>
             </ion-card>
 
-            <ion-card color="light">
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-label color="secondary">
+            <ion-card color="primary">
+              <ion-list-header>
+                <ion-title>
+                  <ion-text color="secondary">
                     All Users
-                  </ion-label>
-                </ion-card-title>
-                <ion-card-subtitle>
-                  <ion-label>
+                  </ion-text>
+                </ion-title>
+                  <ion-text>
                     Unpaid, Current & Cancelled
-                  </ion-label>
-                </ion-card-subtitle>
-                <ion-toolbar>
+                  </ion-text>
                   <ion-searchbar
                     inputmode="search"
                     type="search"
@@ -104,14 +113,8 @@
                     style="border-radius: 5em;"
                   >
                   </ion-searchbar>
-                  <br />
-                  <ion-text>
-                    <sup class="ion-text-center ion-text-wrap"
-                      >Search by any field</sup
-                    >
-                  </ion-text>
-                </ion-toolbar>
-              </ion-card-header>
+   
+              </ion-list-header>
               <ion-list>
                 <ion-item class="userlist" *ngFor="let user of users | async">
                   <ion-avatar>
@@ -139,23 +142,14 @@
                       Bronze
                     </ion-note>
                   </ion-label>
-                  <ion-button
-                    color="primary"
-                    size="small"
-                    (click)="sendEmail(user.email)"
-                  >
-                    <ion-icon name="email" icon-only></ion-icon>
-                  </ion-button>
-                </ion-item>
+             
+                    <ion-icon name="send-outline" color="white" icon-only (click)="sendEmail(user.email)"
+                    ></ion-icon>
+              </ion-item>
               </ion-list>
             </ion-card>
-            <!-- </ion-card> -->
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-row>
-  </ion-grid>
+
 </ion-content>
-<ion-footer translucent>
-  <ion-toolbar color="light"> </ion-toolbar>
-</ion-footer>

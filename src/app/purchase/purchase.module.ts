@@ -25,10 +25,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatStepperModule,
     IonicModule,
-    ArchwizardModule,  
+    ArchwizardModule,
     MaterialModule,
     SharedModule,
     RouterModule.forChild(routes),
+  ],
+  providers: [
   ],
   declarations: [
     PurchasePage,

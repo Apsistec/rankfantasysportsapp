@@ -1,16 +1,18 @@
 <ion-header>
-  <ion-toolbar color="light" *ngIf="mobile">
+
+  <!-- Mobile vwersioin of navigation -->
+  <ion-toolbar color="primary" *ngIf="mobile">
     <ion-buttons slot="start">
       <ion-menu-button color="silver"> </ion-menu-button>
     </ion-buttons>
-    <ion-text color="primary" class="ion-text-wrap">
+    <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; align-self:center; margin:0px 25px;">
       {{ titleId }}
     </ion-text>
     <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
       <ion-item
         slot="end"
         type="button"
-        color="light"
+        color="primary"
         (click)="presentPopover($event)"
         detail="false"
         lines="none"
@@ -24,38 +26,41 @@
     <ng-template #getStarted>
       <ion-button
         slot="end"
-        *ngIf="
-          !isHomePage &&
-          !isLoginPage &&
-          !isRegisterPage &&
-          !isWelcomePage &&
-          !isPurchasePage &&
-          !isForgotPage
-        "
-        color="silver"
+        *ngIf="showSecondToolbar"
+        color="tertiary"
         routerLink="/purchase"
-        style="margin-right:15px;"
+        style="margin-right:20px;"
       >
-        <ion-text>
-          Get Started
+      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
+        Get Started
         </ion-text>
       </ion-button>
     </ng-template>
   </ion-toolbar>
-  <ion-toolbar color="light" *ngIf="!mobile">
+
+<!-- Desktop Version of Top Nav -->
+  <ion-toolbar color="primary" *ngIf="!mobile">
+    <ion-buttons slot="start">
+      <ion-menu-button color="silver"> </ion-menu-button>
+    </ion-buttons>
+
     <div class="top-nav">
+      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; align-self:center;">
+
       <a [routerLink]="['/home']">Home</a>
       <a [routerLink]="['/faq']">FAQ</a>
       <a [routerLink]="['/testimonials']">Testimonials</a>
       <a [routerLink]="['/how-to']">How-to</a>
-      <a [routerLink]="['/tables']">Stats & Projections</a>
-      <a [routerLink]="['/login']">Login</a>
+      <a [routerLink]="['/tables/table-list']">Stats & Projections</a>
+      <a [routerLink]="['/login']" *ngIf="!auth.afAuth.user || !isLoginPage">Log In</a>
+      </ion-text>
+
     </div>
     <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
       <ion-item
         slot="end"
         type="button"
-        color="light"
+        color="primary"
         (click)="presentPopover($event)"
         detail="false"
         lines="none"
@@ -66,5 +71,23 @@
         </ion-avatar>
       </ion-item>
     </ng-container>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="!mobile" color="primary" style="--min-height:20px;" >
+    <ion-text color="silver" class="ion-text-capitalize ion-text-wrap ion-text-center" style="font-weight: 700;font-variant:small-caps; align-self:center;">
+      {{ titleId }}
+    </ion-text>
+    <ng-template #getStarted>
+      <ion-button
+        slot="end"
+        *ngIf="showSecondToolbar"
+        color="tertiary"
+        routerLink="/purchase"
+        style="margin-right:20px;"
+      >
+      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
+        Get Started
+        </ion-text>
+      </ion-button>
+    </ng-template>
   </ion-toolbar>
 </ion-header>

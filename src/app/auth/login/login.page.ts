@@ -11,9 +11,8 @@ import { MessageService } from '../../_services/message.service';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-  hide = true;
+  hidePass: boolean;
   user;
-  // @Input() user: User;
   titleId = 'RF$\u2122 Login';
 
   loginForm = this.fb.group({
@@ -38,6 +37,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.hidePass = true;
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -52,22 +52,24 @@ export class LoginPage implements OnInit {
     });
   }
 
-  async Login() {
+  async onSubmit(login) {
     this.spinner.loadSpinner();
     this.auth.SignIn(this.loginForm.value).subscribe(
       data => {
-        this.message.isLoggedInToast(data.displayName);
+        this.message.isLoggedInToast();
         this.spinner.dismissSpinner();
+        login.reset();
         if (data.role === 'ADMIN') {
           this.router.navigateByUrl('/admin');
         } else if (data.plan && (data.status === 'active' || 'trialing')) {
-          this.router.navigateByUrl('/auth/profile');
+          this.router.navigateByUrl('/profile');
         } else {
           this.router.navigateByUrl('/purchase');
         }
       },
       async err => {
         this.spinner.dismissSpinner();
+        login.reset();
         this.message.errorAlert(err.message);
       }
     );

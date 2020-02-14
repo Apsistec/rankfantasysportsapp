@@ -5,11 +5,11 @@ import {
   Platform,
   ToastController
 } from '@ionic/angular';
-
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
+// import { FcmService } from '@services/fcm.service';
 
 @Component({
   selector: 'app-root',
@@ -28,15 +28,18 @@ export class AppComponent implements OnInit, OnDestroy {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    // private fcm: FcmService,
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleBlackTranslucent();
+      this.statusBar.styleDefault();
       this.splashScreen.hide();
+      // this.fcm.getPermission().subscribe();
+      // this.fcm.listenToMessages().subscribe();
     });
   }
   ngOnInit(): void {
@@ -58,7 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.getYear();
   }
-  
+
   getYear() {
     this.year = new Date().getFullYear();
   }

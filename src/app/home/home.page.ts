@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
+import { StorageService } from './../_services/storage.service';
 import { AuthService } from '../_services/auth.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonContent } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
@@ -7,6 +9,7 @@ import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.co
 import { StartModalComponent } from 'app/home/start-modal/start-modal.component';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { timeout } from 'rxjs/operators';
+import { SeoService } from '@services/seo.service';
 
 
 @Component({
@@ -14,7 +17,7 @@ import { timeout } from 'rxjs/operators';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss']
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, AfterViewInit {
   titleId = 'RF$\u2122 Home';
   core;
 
@@ -37,12 +40,24 @@ export class HomePage implements OnInit {
   constructor(
     private modalController: ModalController,
     private domSanitizer: DomSanitizer,
-    public auth: AuthService
-  ) {}
+    public auth: AuthService,
+    private seo: SeoService,
+    private storage: StorageService,
+    private route: Router
+    ) {
+      seo.addTwitterCard(
+        this.titleId,
+        'This is the landing page for new visitors and those who are interested in learning more about a Rank Fantasy Sports Pro Subscription',
+        '../../../assets/img/rfs-logo.svg'
+      );}
 
   ngOnInit() {
-    this.showVid();
     this.functionPop();
+  }
+
+  ngAfterViewInit() {
+    this.showVid();
+
   }
 
   showVid() {
@@ -80,13 +95,25 @@ export class HomePage implements OnInit {
       component: StartModalComponent,
       cssClass: 'startmodal'
     });
-    return modal.present();
+    await modal.present();
+    await this.storage.setObject('firsVisit', 'visitOccurred');
   }
 
-  functionPop() {
-    setTimeout (() => {
-      this.showPopModal();
-    }, 4000);
+  async functionPop() {
+    const user = await this.auth.getUser
+    const firsVisit = await this.storage.getObject('firsVisit')
+      if (firsVisit === 'visitOccurred'){
+        if (!this.auth.isLoggedIn) {
+          console.log(this.auth.isLoggedIn)
+          this.route.navigateByUrl('/profile');
+        } else {
+          this.route.navigateByUrl('/login');
+        }
+      } else {
+        setTimeout (() => {
+          this.showPopModal();
+        }, 4000);
+        return true;
+      }
   }
-
 }

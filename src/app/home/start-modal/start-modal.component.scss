@@ -5,12 +5,11 @@ ion-item-group{
   font-variant: small-caps;
   color: var(--ion-color-dark);
   padding-left:5%;
-
 }
 
 p {
   font-weight: 700;
-  color: var(--ion-color-medium);
+  // color: var(--ion-color-medium);
   font-variant:small-caps;
 }
 h3 {
@@ -27,21 +26,18 @@ h3 {
 }
 
 ion-item {
-  // border: medium solid var(--ion-color-white);
-  // border-radius: 10px;
-  // font-size: larger;
-  // font-weight: 700;
   padding-left:5%;
+  padding: 0 5px;
   text-transform: capitalize;
 }
 
-sub{
+.sub{
   font-variant: small-caps;
-  font-weight: 700;
+  font-weight: 600;
 }
 ion-list{
   overflow: hidden;
   border-radius: 10px;
-  border: 3px solid black;
+  border: 4px solid rgb(255, 255, 255);
   font-variant: small-caps;
 }

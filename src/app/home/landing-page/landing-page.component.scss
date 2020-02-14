@@ -1,28 +1,55 @@
 
 .hero{
-  background: rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
+  background: url(../../../assets/img/rfs-logo.svg), rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
   height: 60vh;
   width: 100vl;
-  background-size: cover;
+  background-size: 80px, cover;
+  background-position: top 0.5% left 0.5%, center;
   background-repeat: no-repeat;
 }
 
 
-h1{
-  font-size: 3em;
-}
-
-h3{
-  font-size: 1.5em;
-}
-
-
-
 .cta {
-  padding-top: 60px;
-  line-height: 1;
-  font-weight: 800;
-  font-variant: small-caps;
+  color:white;
+  top: 20%;
+  text-align: center;
   position: relative;
-  overflow: auto;
+
+}
+ion-text{
+  text-align: center;
+}
+    h1{
+      font-size: xx-large;
+      font-variant: small-caps;
+    }
+
+    h3{
+      font-size: large;
+      font-variant: small-caps;
+    }
+    .free{
+      font-weight: 900;
+      font-size: xx-large;
+      text-transform: capitalize;
+      font-variant: small-caps;
+    }
+
+// .heading
+// {
+//     position: relative;
+// }
+
+.ahome
+{
+    position: absolute;
+    top: 0.5%;
+    left: 0.5%;
+    width: 80px;
+    height: 80px;
+}
+
+.ahome
+{
+    display: none;
 }

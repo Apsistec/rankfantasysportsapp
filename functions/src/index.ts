@@ -37,6 +37,10 @@ export {
     stripeGetInvoices
 } from './invoices';
 
-
+export {
+    subscribeToTopic,
+    unsubscribeFromTopic,
+    sendOnFirestoreCreate
+  } from './fcm';
 
 

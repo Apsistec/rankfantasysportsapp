@@ -3,17 +3,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material/material.module';
-import { MatNativeDateModule } from '@angular/material/core';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 import { StatsPage } from './stats.page';
 import { StatsPageRoutingModule } from './stats-routing.module';
 import { PlayerActiveDetailComponent } from './player-active-detail/player-active-detail.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-// import { PlayersActiveComponent } from './players-active/players-active.component';
-
+import { TestComponent } from './test/test.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,14 +19,13 @@ import { MatSortModule } from '@angular/material/sort';
     FormsModule,
     HttpClientModule,
     MaterialModule,
-    MatNativeDateModule,
     ReactiveFormsModule,
-    StatsPageRoutingModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
-  ],
+    StatsPageRoutingModule  ],
   entryComponents: [],
-  declarations: [StatsPage, PlayerActiveDetailComponent]
+  declarations: [
+    StatsPage,
+    PlayerActiveDetailComponent,
+    TestComponent
+  ]
 })
 export class StatsPageModule {}
