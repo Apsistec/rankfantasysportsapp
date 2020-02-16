@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
 
-  declarations: []
+  declarations: [
+  ],
+  exports: [
+  ]
 })
 export class AuthModule {}

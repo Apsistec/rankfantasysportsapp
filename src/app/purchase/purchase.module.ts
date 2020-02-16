@@ -1,8 +1,8 @@
 import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BlinkDirective } from '@directives/blink.directive';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PurchasePage } from './purchase.page';
 import { RouterModule, Routes } from '@angular/router';
@@ -34,7 +34,7 @@ const routes: Routes = [
   ],
   declarations: [
     PurchasePage,
-    BlinkDirective,
+    BlinkDirective
   ],
 })
 export class PurchasePageModule {}

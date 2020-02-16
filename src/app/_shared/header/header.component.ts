@@ -15,16 +15,20 @@ export class HeaderComponent implements OnInit {
   user: User;
   button = document.querySelector('ion-button');
   mobile;
-  showSecondToolbar: Boolean;
+  showGetStartedButton: Boolean;
   constructor(
     public auth: AuthService,
     private popoverController: PopoverController
   ) {}
 
   ngOnInit() {
-    if (window.screen.width <= 400) { // 768px portrait
+    if ( window.screen.width < 768 ) { // 768px portrait
       this.mobile = true;
     }
+  }
+  
+  ngAfterViewInit() {
+    this.showGetStartedButton = !this.isHomePage && !this.isLoginPage && !this.isRegisterPage  && !this.isPurchasePage && !this.isForgotPage
   }
 
   // Returns true when user is looged in and home page is verified
@@ -40,19 +44,11 @@ export class HeaderComponent implements OnInit {
   get isPurchasePage(): boolean {
     return this.titleId === 'RF$\u2122 Pro Memberships' ? true : false;
   }
-  get isWelcomePage(): boolean {
-    return this.titleId === 'RF$\u2122 Welcomes You' ? true : false;
-  }
   get isForgotPage(): boolean {
     return this.titleId === 'Reset RF$\u2122 Password' ? true : false;
   }
   get isProfilePage(): boolean {
     return this.titleId === 'RF$\u2122 User Profile' ? true : false;
-  }
-
-
-  ngAfterViewInit() {
-    this.showSecondToolbar = !this.isProfilePage && !this.isHomePage && !this.isLoginPage && !this.isRegisterPage && !this.isWelcomePage && !this.isPurchasePage && !this.isForgotPage
   }
 
   async presentPopover(ev: any) {

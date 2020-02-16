@@ -16,7 +16,7 @@ import { auth } from 'firebase/app';
   providedIn: 'root',
 })
 export class AuthService {
-  user: Observable<any>;
+  user: Observable<User>;
   currentUser = new BehaviorSubject(null);
   userId: string;
   planId: string;
@@ -45,27 +45,18 @@ export class AuthService {
     );
   }
 
-  hasPermissions(permissions: string[]): boolean {
-    for (const perm of permissions) {
-      if (
-        !this.currentUser.value ||
-        !this.currentUser.value.permissions.includes(perm)
-      ) {
-        return false;
-      }
-    }
-    return true;
-  }
+
   async getUser() {
     return this.afAuth.authState.pipe(first()).toPromise();
   }
 
   async getCurrentUser(): Promise<any> {
-    return of(this.user).toPromise();
+    return await of(this.user).toPromise();
   }
 
   get isLoggedIn(): boolean {
-    return this.user !== null ? true : false;
+    const user = this.getCurrentUser();
+    return (user !== null) ? true : false;
   }
 
   modalDismiss() {
@@ -74,30 +65,7 @@ export class AuthService {
     this.modalCtrl.dismiss();
   }
 
-  bronze() {
-    return this.user
-      .pipe(
-        take(1),
-        map(user => user && user.bronze)
-      )
-      .toPromise();
-  }
-
-  async isBronze() {
-    const bronze = await this.bronze();
-    const isPaidBronze = !!bronze;
-    if (!isPaidBronze) {
-      return false;
-    } else {
-      return isPaidBronze;
-    }
-  }
-
-  async isSubscribedQ() {
-    const user = await this.getCurrentUser();
-    this.isSubscribed =
-      user.plan === 'bronze' ? true : false;
-  }
+ 
 
   // Authentication
   SignIn(credentials): Observable<any> {
@@ -181,7 +149,7 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithPopup(provider)
       .then(async (data: any) => {
-        this.afs
+        await this.afs
           .doc<User>(`users/${data.user.uid}`)
           .set(
             {
@@ -190,7 +158,7 @@ export class AuthService {
               uid: data.user.uid,
               role: 'USER',
               permissions: ['delete-ticket'],
-              photoURL: data.user.photoURL,
+              photoURL: data.user.photoURL
             },
             { merge: true }
           )
@@ -283,7 +251,9 @@ export class AuthService {
     });
   }
 
-  ///// hasPermissions(permissions: string[]): boolean {
+
+
+// User Roles to coincide with backend server permissions/rules
   canRead(user: User): boolean {
     const allowed = 'ADMIN' || 'EDITOR' || 'USER';
     return this.checkAuthorization(user, allowed);
@@ -310,6 +280,48 @@ export class AuthService {
       }
     }
     return false;
+  }
+
+  // Current and Valid Subscription Check
+  
+  isCurrentSubscriber(user: User): boolean {
+    const validStatus = 'active' || 'trialing';
+    return this.checkCurrentStatus(user, validStatus);
+  }
+
+  private checkCurrentStatus(user: User, validStatus: string): boolean {
+    if (!user) {
+      return false;
+    }
+    for (const valid of validStatus) {
+      if (user[valid]) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+  // Permissions Check for Trouble Tickets and Admin Dashboard
+
+  hasPermissions(permissions: string[]): boolean {
+    for (const perm of permissions) {
+      if (
+        !this.currentUser.value ||
+        !this.currentUser.value.permissions.includes(perm)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  async isCurrentSub() {
+    const user = await this.getCurrentUser();
+    // const user = await this.getUser();
+    this.isSubscribed =
+      (user.plan === 'bronze') ? true : false;
   }
 
 }

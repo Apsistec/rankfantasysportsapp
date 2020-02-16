@@ -11,14 +11,6 @@ export interface User {
   role: string;
   permissions: string[];
   email: string;
-  createdAt?: number;
-  lastLoginAt?: number;
-  lastRefreshAt?: number;
-  passwordHash?: string;
-  validSince?: number;
-  providerUserInfo?: ProviderUserInfo;
-  passwordUpdatedAt?: number;
-  emailVerified?: boolean;
   stripeCustomerId?: string;
   plan?: string;
   status?: string;

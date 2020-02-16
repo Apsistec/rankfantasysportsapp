@@ -40,5 +40,16 @@
     "pubsub": {
       "port": 8085
     }
-  }
+  },
+  "headers": [
+    {
+      "source": "ngsw-worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
 }

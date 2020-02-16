@@ -1,3 +1,4 @@
+import { SeoService } from '@services/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Faqs } from './faqs';
 import { AuthService } from '../../_services/auth.service';
@@ -15,7 +16,16 @@ export class FaqPage implements OnInit {
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
 
-  constructor(public auth: AuthService) {}
+  constructor(
+    public auth: AuthService,
+    private seo: SeoService
+    ) {
+      this.seo.addTwitterCard(
+        this.titleId,
+        'This is the FAQ page for those who are have questions about the Rank Fantasy Sports products and services',
+        '../../../assets/img/rfs-logo.svg'
+      );
+    }
 
   ngOnInit() {}
 

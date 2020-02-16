@@ -22,6 +22,8 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
+  exports: [
+  ]
 })
 export class LoginPageModule {}

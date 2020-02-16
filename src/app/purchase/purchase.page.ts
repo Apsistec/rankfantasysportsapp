@@ -1,3 +1,6 @@
+import { SeoService } from '@services/seo.service';
+import { Subscription, interval } from 'rxjs';
+import { ModalService } from './../_services/modal.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from '../_services/auth.service';
 import { BlinkDirective } from '@directives/blink.directive';
@@ -10,6 +13,7 @@ import { Router } from '@angular/router';
 import { SpinnerService } from '@services/spinner.service';
 import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
 import { WizardComponent } from 'angular-archwizard';
+
 import {
   Component,
   HostBinding,
@@ -18,151 +22,100 @@ import {
   Input,
   OnInit,
   ViewChild,
+  OnDestroy,
 } from '@angular/core';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
-  selector: "app-purchase",
-  templateUrl: "./purchase.page.html",
-  styleUrls: ["./purchase.page.scss"]
+  selector: 'app-purchase',
+  templateUrl: './purchase.page.html',
+  styleUrls: ['./purchase.page.scss']
 })
-export class PurchasePage implements OnInit, AfterViewInit {
+export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
 
-  titleId = "RF$\u2122 Pro Memberships";
+  titleId = 'RF$\u2122 Pro Memberships';
 
-  // @ViewChild(WizardComponent)
-  // @ViewChild(IonContent, { static: true }) ionContent: IonContent;
-  // @Input() blinker$;
   user;
 
   loading = false;
 
-  registerForm;
-  hidePass: boolean;
-
   @ViewChild(WizardComponent, {static: false})
   public wizard: WizardComponent;
-
-  checked: boolean;
-
-  card;
-  @ViewChild("cardElement", { static: true }) cardElement: ElementRef;
-  stripe: stripe.Stripe;
-  description: string = "Rank Fantasy Sports Bronze Pro Plan";
-  amount: number = 999;
-  confirmation;
-  cardErrors;
 
   showDetails: boolean;
   hideProduct: boolean;
 
+  // blinker: Subscription;
+  checked: boolean;
+  card;
+  @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
+  stripe: stripe.Stripe;
+  description = 'Rank Fantasy Sports Pro Membership';
+  amount = 999;
+  confirmation;
+  cardErrors;
 
-  // myControl = new FormControl('');
+  @Input()register;
+  @Input()login;
 
   constructor(
-    public auth: AuthService,
     public functions: AngularFireFunctions,
     private spinner: SpinnerService,
-    private modalController: ModalController,
-    private router: Router,
-    private fb: FormBuilder,
+    public auth: AuthService,
     private message: MessageService,
-  ) {}
+    public modal: ModalService,
+    private seo: SeoService
+  ) {
+    this.seo.addTwitterCard(
+      this.titleId,
+      'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
+      '../../../assets/img/rfs-logo.svg'
+    );
+  }
 
 
   ngOnInit() {
-    !this.checked;
-    this.hidePass = true;
     this.showDetails = true;
-    this.registerForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: [
-        "",
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.pattern("^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$"),
-          Validators.maxLength(25)
-        ]
-      ],
-      firstName: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern("^[_A-z0-9]*((-|s)*[_A-z0-9])*$"),
-          Validators.maxLength(25)
-        ]
-      ],
-      lastName: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern("^[_A-z0-9]*((-|s)*[_A-z0-9])*$"),
-          Validators.maxLength(25)
-        ]
-      ]
-    });
-
-
-    console.log('oninit' + this.checked);
 
     this.navigateToStep();
 
   }
 
   ngAfterViewInit() {
-    console.log('afterinit' + this.checked);
+
 
     this.stripe = Stripe(environment.stripeKey);
 
     const elements = this.stripe.elements();
     const style = {
       base: {
-        color: "#227733",
+        color: '#227733',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: "antialiased",
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#121212"
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#121212'
         }
       },
       invalid: {
-        color: "#f73008",
-        iconColor: "#f73008"
+        color: '#f73008',
+        iconColor: '#f73008'
       }
     };
 
     // Create an instance of the card Element.
-    this.card = elements.create("card", { style: style });
+    this.card = elements.create('card', { style: style });
     this.card.mount(this.cardElement.nativeElement);
-    this.card.addEventListener("change", ({ error }) => {
+    this.card.addEventListener('change', ({ error }) => {
       this.cardErrors = error && error.message;
     });
   }
 
-    isChecked() {
-      this.checked = !this.checked;
-      console.log('onCheck' + this.checked);
-    }
-
-  async registerUser(reg: NgForm) {
-    this.spinner.loadSpinner();
-    this.auth.registerUser(this.registerForm.value).then(
-      async res => {
-        await this.spinner.dismissSpinner();
-        if (res.user.uid) {
-          this.message.registerSuccessToast();
-          this.wizard.goToStep(1);
-          reg.reset();
-        }
-      },
-      async err => {
-        await this.spinner.dismissSpinner();
-        await this.message.errorAlert(err.message);
-        reg.reset();
-      }
-    );
+  isChecked() {
+    this.checked = !this.checked;
+    console.log('onCheck' + this.checked);
   }
+
 
   async onSubmit(stripe: NgForm) {
     const { source, error } = await this.stripe.createSource(this.card);
@@ -175,11 +128,11 @@ export class PurchasePage implements OnInit, AfterViewInit {
     } else {
       this.spinner.loadSpinner();
       const user = await this.auth.getUser();
-      const fun = this.functions.httpsCallable("stripeCreateSubscription");
+      const fun = this.functions.httpsCallable('stripeCreateSubscription');
       this.confirmation = await fun({
         source: source.id,
         uid: user.uid,
-        plan: "bronze"
+        plan: 'bronze'
       }).toPromise();
       this.spinner.dismissSpinner();
       stripe.reset();
@@ -207,33 +160,14 @@ export class PurchasePage implements OnInit, AfterViewInit {
   //   }
 
 // wizard for signed in user to skip to step 2
- async navigateToStep() {
-    this.user = await this.auth.getUser();
-    this.user ? true : false;
-    if (this.user) {
-      await this.wizard.goToStep(1);
-    }
+  async navigateToStep() {
+      this.user = await this.auth.getUser();
+      if (this.user) {
+        return this.wizard.goToStep(1);
+      }
   }
 
-
-  // Stop Spinner
-  async onDismissLoader() {
-    await this.spinner.dismissSpinner();
-  }
-
-  async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsDialogComponent,
-      cssClass: "modalcss"
-    });
-    return modal.present();
-  }
-
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyDialogComponent,
-      cssClass: "modalcss"
-    });
-    return modal.present();
+  ngOnDestroy() {
+    // this.blinker.unsubscribe();
   }
 }

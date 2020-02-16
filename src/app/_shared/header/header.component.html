@@ -1,13 +1,11 @@
 <ion-header>
 
-  <!-- Mobile vwersioin of navigation -->
+  <!-- Mobile 1st toolbar -->
   <ion-toolbar color="primary" *ngIf="mobile">
     <ion-buttons slot="start">
       <ion-menu-button color="silver"> </ion-menu-button>
     </ion-buttons>
-    <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; align-self:center; margin:0px 25px;">
-      {{ titleId }}
-    </ion-text>
+  
     <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
       <ion-item
         slot="end"
@@ -26,7 +24,7 @@
     <ng-template #getStarted>
       <ion-button
         slot="end"
-        *ngIf="showSecondToolbar"
+        *ngIf="showGetStartedButton"
         color="tertiary"
         routerLink="/purchase"
         style="margin-right:20px;"
@@ -38,7 +36,7 @@
     </ng-template>
   </ion-toolbar>
 
-<!-- Desktop Version of Top Nav -->
+<!-- Desktop 1st toolbar Version of Top Nav -->
   <ion-toolbar color="primary" *ngIf="!mobile">
     <ion-buttons slot="start">
       <ion-menu-button color="silver"> </ion-menu-button>
@@ -72,17 +70,19 @@
       </ion-item>
     </ng-container>
   </ion-toolbar>
-  <ion-toolbar *ngIf="!mobile" color="primary" style="--min-height:20px;" >
-    <ion-text color="silver" class="ion-text-capitalize ion-text-wrap ion-text-center" style="font-weight: 700;font-variant:small-caps; align-self:center;">
+
+  <!-- 2nd toolbar for title -->
+  <ion-toolbar color="primary" style="--min-height:20px;" >
+    <ion-text color="silver" class="ion-padding-start ion-text-capitalize ion-text-wrap ion-text-center" style="font-size:x-large;font-variant:small-caps; align-self:center;">
       {{ titleId }}
     </ion-text>
     <ng-template #getStarted>
       <ion-button
         slot="end"
-        *ngIf="showSecondToolbar"
+        *ngIf="showGetStartedButton"
         color="tertiary"
         routerLink="/purchase"
-        style="margin-right:20px;"
+        class="ion-padding-end"
       >
       <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
         Get Started

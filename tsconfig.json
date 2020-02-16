@@ -1,38 +1,41 @@
+
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "sourceMap": true,
     "baseUrl": "src",
+    "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
+    "sourceMap": true,
     "declaration": false,
-    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es5",
+    "target": "es2015",
+    "esModuleInterop": true,
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "types": [
+      "stripe-v3"
     ],
     "lib": [
       "es2018",
       "dom"
     ],
-      "noErrorTruncation": true,
-      "extendedDiagnostics": true,
-      "allowSyntheticDefaultImports": true,
-      "downlevelIteration": true,
-      "diagnostics": true,
-      "paths": {
-        "@services/*": ["app/_services/*"],
-        "@guards/*": ["app/_guards/*"],
-        "@directives/*": ["app/_directives/*"],
-        "@models/*": ["app/_models/*"],
-        "@helpers/*": ["app/_helpers/*"],
-        "@environments/*": ["environments/*"],
-        "@shared/*": ["app/_shared/*"],
-        "@pipes/*": ["app/_pipes/*"]
-    }
-  }
+    "paths": {
+      "@services/*": ["app/_services/*"],
+      "@guards/*": ["app/_guards/*"],
+      "@directives/*": ["app/_directives/*"],
+      "@models/*": ["app/_models/*"],
+      "@helpers/*": ["app/_helpers/*"],
+      "@environments/*": ["environments/*"],
+      "@shared/*": ["app/_shared/*"],
+      "@pipes/*": ["app/_pipes/*"]
+    },
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

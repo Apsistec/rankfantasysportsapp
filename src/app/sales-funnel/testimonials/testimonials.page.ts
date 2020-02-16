@@ -1,3 +1,4 @@
+import { SeoService } from '@services/seo.service';
 import { Component } from '@angular/core';
 // import { ModalController } from '@ionic/angular';
 import { Slides } from './slides';
@@ -21,5 +22,13 @@ export class TestimonialsPage {
     mousewheel: true
   };
 
-  // constructor(public modalController: ModalController) {}
+  constructor(
+    private seo: SeoService
+  ) {
+    this.seo.addTwitterCard(
+      this.titleId,
+      'This is the testimonials page for those who want to learn first hand from members how they have had success with their Rank Fantasy Sports Pro Subscription',
+      '../../../assets/img/rfs-logo.svg'
+    );
+  }
 }

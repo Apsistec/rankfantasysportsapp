@@ -28,7 +28,7 @@
             lines="none"
             routerLink="/profile"
             class="ion-text-uppercase"
-            *ngIf="auth.afAuth.user | async as user"
+            *ngIf="auth.afAuth.user | async"
           >
            <ion-icon color="dark" slot="start" name="contact"></ion-icon>
             <ion-text>Profile</ion-text>
@@ -46,8 +46,6 @@
           </ion-item>
 
           <ng-template #notSubscribed >
-
-
             <ion-item
               button
               lines="none"
@@ -56,6 +54,17 @@
             >
              <ion-icon color="dark" slot="start" name="logo-usd"></ion-icon>
               <ion-text>Sign Up</ion-text>
+            </ion-item>
+          </ng-template>
+          <ng-template #login>
+            <ion-item
+              button
+              lines="none"
+              routerLink="/login"
+              class="ion-text-uppercase"
+            >
+             <ion-icon color="dark" slot="start" name="log-in"></ion-icon>
+              <ion-text color="primary">Login</ion-text>
             </ion-item>
           </ng-template>
 
@@ -94,28 +103,15 @@
             lines="none"
             (click)="signOut()"
             class="ion-text-uppercase"
-            *ngIf="auth.afAuth.user | async as user; else login"
+            *ngIf="auth.afAuth.user | async; else login"
           >
            <ion-icon color="dark"
               color="danger"
-
               slot="start"
               name="log-out"
             ></ion-icon>
             <ion-text color="danger">Logout</ion-text>
           </ion-item>
-
-          <ng-template #login>
-            <ion-item
-              button
-              lines="none"
-              routerLink="/login"
-              class="ion-text-uppercase"
-            >
-             <ion-icon color="dark" slot="start" name="log-in"></ion-icon>
-              <ion-text color="primary">Login</ion-text>
-            </ion-item>
-          </ng-template>
         </ion-item-group>
         <ion-item-group>
           <ion-list-header

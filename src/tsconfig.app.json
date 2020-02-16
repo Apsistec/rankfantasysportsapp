@@ -2,9 +2,10 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": [
-      "stripe-v3",
-    ]
-  },
+    "baseUrl": "./"
+},
+//  "angularCompilerOptions": {
+//    "enableIvy": true
+//  },
   "exclude": ["test.ts", "**/*.spec.ts"]
 }

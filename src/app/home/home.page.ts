@@ -31,7 +31,7 @@ export class HomePage implements OnInit, AfterViewInit {
       delay: 4000
     }
   };
-
+  user: any;
   trustedVideoUrl4: SafeResourceUrl;
   video4: any = {
     url: 'https://www.youtube.com/embed/APeaBlagSNc'
@@ -45,11 +45,12 @@ export class HomePage implements OnInit, AfterViewInit {
     private storage: StorageService,
     private route: Router
     ) {
-      seo.addTwitterCard(
+      this.seo.addTwitterCard(
         this.titleId,
         'This is the landing page for new visitors and those who are interested in learning more about a Rank Fantasy Sports Pro Subscription',
         '../../../assets/img/rfs-logo.svg'
-      );}
+      );
+    }
 
   ngOnInit() {
     this.functionPop();
@@ -100,20 +101,19 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async functionPop() {
-    const user = await this.auth.getUser
+    this.user = await this.auth.getUser
     const firsVisit = await this.storage.getObject('firsVisit')
       if (firsVisit === 'visitOccurred'){
-        if (!this.auth.isLoggedIn) {
-          console.log(this.auth.isLoggedIn)
+        if (this.user.uid) {
+          console.log(this.user.uid);
           this.route.navigateByUrl('/profile');
         } else {
-          this.route.navigateByUrl('/login');
+          return false;
         }
       } else {
         setTimeout (() => {
           this.showPopModal();
         }, 4000);
-        return true;
       }
   }
 }

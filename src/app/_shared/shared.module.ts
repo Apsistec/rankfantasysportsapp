@@ -1,3 +1,5 @@
+import { RegisterElementComponent } from './register-element/register-element.component';
+import { LoginElementComponent } from './login-element/login-element.component';
 import { ToHttpsPipe } from './../_pipes/to-https.pipe';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
@@ -40,8 +42,9 @@ import { MailComponent } from 'app/profile/mail/mail.component';
     NbaComponent,
     TennisComponent,
     CbbComponent,
-    MailComponent
-
+    MailComponent,
+    LoginElementComponent,
+    RegisterElementComponent
   ],
 
   entryComponents: [
@@ -65,6 +68,8 @@ import { MailComponent } from 'app/profile/mail/mail.component';
 
   exports: [
     ShareButtonsModule,
+    LoginElementComponent,
+    RegisterElementComponent,
     SharedDirectivesModule,
     NgxTwitterTimelineModule,
     HeaderComponent,
