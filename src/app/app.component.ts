@@ -1,10 +1,7 @@
 import { AuthService } from './_services/auth.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import {
-  IonContent,
-  Platform,
-  ToastController
-} from '@ionic/angular';
+import { IonContent, Platform, ToastController } from '@ionic/angular';
+import { ModalService } from './_services/modal.service';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
@@ -29,6 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private toastCtrl: ToastController,
+    private modal: ModalService
     // private fcm: FcmService,
   ) {
     this.initializeApp();
@@ -79,6 +77,13 @@ export class AppComponent implements OnInit, OnDestroy {
     this.auth.SignOut();
   }
 
+  authModal() {
+    this.modal.loginModal();
+  }
+  dismis() {
+    this.modal.dismiss();
+  }
+  
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }

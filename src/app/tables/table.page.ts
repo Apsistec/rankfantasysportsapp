@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-page',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.page.scss']
 })
 export class TablePage implements OnInit {
-  // titleId = ' RF$\u2122 Email';
+
+  @Input() tableId;
 
   constructor() {}
 

@@ -1,8 +1,8 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
-
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 
-import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+
 // import { EditDialogPage } from '../../tables/edit-dialog/edit-dialog.page';
 
 @Component({
@@ -24,7 +24,7 @@ export class DataTablePage implements AfterViewInit {
     this.afs.collection<any>('hackers').valueChanges().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
-    })
+    });
   }
 
   applyFilter(filterValue: string) {

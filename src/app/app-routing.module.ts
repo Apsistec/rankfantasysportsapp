@@ -1,135 +1,112 @@
-import { AboutComponent } from "app/home/about/about.component";
-import { AnalyticsComponent } from "app/analytics/analytics.component";
-import { MailComponent } from "app/profile/mail/mail.component";
-import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { AboutComponent } from './home/about/about.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 import {
   AngularFireAuthGuard,
   canActivate,
   hasCustomClaim,
   redirectLoggedInTo,
   redirectUnauthorizedTo
-} from "@angular/fire/auth-guard";
+  } from '@angular/fire/auth-guard';
+import { MailComponent } from './profile/mail/mail.component';
+import { NgModule } from '@angular/core';
+import { PaidMemberGuard } from '@guards/paid-member.guard';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { ProfileGuard } from "@guards/profile.guard";
-import { PaidMemberGuard } from "@guards/paid-member.guard";
 
-const adminOnly = () => hasCustomClaim("admin");
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["/login"]);
-const redirectLoggedInToProfile = () => redirectLoggedInTo(["items"]);
+const adminOnly = () => hasCustomClaim('admin');
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
+const redirectLoggedInToProfile = () => redirectLoggedInTo(['items']);
 const belongsToTables = next => hasCustomClaim(`account-${next.params.id}`);
 const belongsToCategories = next => hasCustomClaim(`account-${next.params.id}`);
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: "home",
+    path: 'home',
     loadChildren: () =>
-      import("./home/home.module").then(m => m.HomePageModule),
-    canActivate: [ProfileGuard]
+      import('./home/home.module').then(m => m.HomePageModule),
   },
   {
-    path: "tables",
-    loadChildren: () => import("./tables/table.module").then(m => m.TableModule)
+    path: 'tables',
+    loadChildren: () => import('./tables/table.module').then(m => m.TableModule)
   },
 
   {
-    path: "lineup-builder",
+    path: 'lineup-builder',
     loadChildren: () =>
-      import("./lineup-builder/lineup-builder.module").then(
+      import('./lineup-builder/lineup-builder.module').then(
         m => m.LineupBuilderPageModule
       )
   },
 
   {
-    path: "how-to",
+    path: 'how-to',
     loadChildren: () =>
-      import("./sales-funnel/how-to/how-to.module").then(m => m.HowToPageModule)
+      import('./sales-funnel/how-to/how-to.module').then(m => m.HowToPageModule)
   },
 
-  { path: "mail", component: MailComponent },
+  { path: 'mail', component: MailComponent },
 
-  { path: "analytics", component: AnalyticsComponent },
-  { path: "about", component: AboutComponent },
-  
-  {
-    path: "purchase",
-    loadChildren: () =>
-    import("./purchase/purchase.module").then(m => m.PurchasePageModule)
-  },
-  { path: "sign-up", redirectTo: "purchase", pathMatch: "full" },
-  { path: "register", redirectTo: "purchase", pathMatch: "full" },
-  { path: "buy", redirectTo: "purchase", pathMatch: "full" },
-  {
-    path: "faq",
-    loadChildren: () =>
-      import("./sales-funnel/faq/faq.module").then(m => m.FaqPageModule)
-  },
+  { path: 'analytics', component: AnalyticsComponent },
+  { path: 'about', component: AboutComponent },
 
   {
-    path: "login",
+    path: 'membership',
     loadChildren: () =>
-      import("./auth/login/login.module").then(m => m.LoginPageModule)
-    // ...canActivate(redirectLoggedInToProfile)
+    import('./membership/membership.module').then(m => m.MembershipPageModule)
   },
-  { path: "sign-in", redirectTo: "login", pathMatch: "full" },
-
+  { path: 'buy', redirectTo: 'purchase', pathMatch: 'full' },
   {
-    path: "forgot",
+    path: 'faq',
     loadChildren: () =>
-      import("./auth/forgot-password/forgot-password.module").then(
-        m => m.ForgotPasswordPageModule
-      )
+      import('./sales-funnel/faq/faq.module').then(m => m.FaqPageModule)
   },
-  { path: "reset-password", redirectTo: "forgot", pathMatch: "full" },
-
   {
-    path: "user",
+    path: 'user',
     loadChildren: () =>
-      import("./profile/settings/user-tickets/user-tickets.module").then(
+      import('./profile/settings/user-tickets/user-tickets.module').then(
         m => m.UserTicketsPageModule
       ),
     // canActivate: [AngularFireAuthGuard],
-    data: { role: "USER" }
+    data: { role: 'USER' }
   },
   {
-    path: "admin",
+    path: 'admin',
     loadChildren: () =>
-      import("./profile/admin-dashboard/admin-dashboard.module").then(
+      import('./profile/admin-dashboard/admin-dashboard.module').then(
         m => m.AdminDashboardPageModule
       ),
-    data: { role: "ADMIN" }
+    data: { role: 'ADMIN' }
     // ...canActivate(adminOnly)
   },
   {
-    path: "tweets",
+    path: 'tweets',
     loadChildren: () =>
-      import("./sales-funnel/tweets/tweets.module").then(
+      import('./sales-funnel/tweets/tweets.module').then(
         m => m.TweetsPageModule
       )
   },
 
   {
-    path: "testimonials",
+    path: 'testimonials',
     loadChildren: () =>
-      import("./sales-funnel/testimonials/testimonials.module").then(
+      import('./sales-funnel/testimonials/testimonials.module').then(
         m => m.TestimonialsPageModule
       )
   },
   {
-    path: "profile",
+    path: 'profile',
     loadChildren: () =>
-      import("./profile/profile.module").then(m => m.ProfilePageModule),
-    canActivate: [ProfileGuard]
+      import('./profile/profile.module').then(m => m.ProfilePageModule),
   },
 
   {
-    path: "stats",
+    path: 'stats',
     loadChildren: () =>
-      import("./stats/stats.module").then(m => m.StatsPageModule)
+      import('./stats/stats.module').then(m => m.StatsPageModule)
   },
 
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

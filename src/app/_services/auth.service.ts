@@ -1,16 +1,17 @@
-import { switchMap, take, map, first } from 'rxjs/operators';
-import { User } from '../_models/user';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, of } from 'rxjs';
+import { auth } from 'firebase/app';
+import { BehaviorSubject, from, Observable, of } from 'rxjs';
+import { environment } from '@environments/environment';
+import { first, map, switchMap, take } from 'rxjs/operators';
 import { Injectable, NgZone } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
 import { MessageService } from './message.service';
+import { ModalController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SpinnerService } from './spinner.service';
 import { StorageService } from './storage.service';
-import { auth } from 'firebase/app';
+import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -33,16 +34,26 @@ export class AuthService {
     private navCtrl: NavController,
     private spinner: SpinnerService
   ) {
-    // Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
-        } else {
-          return null;
-        }
-      })
-    );
+ //// Get auth data, then get firestore user document || null
+ this.user = this.afAuth.authState.pipe(
+  switchMap(user => {
+    if (user) {
+      return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+    } else {
+      return of(null)
+    }
+  })
+)
+
+    // this.user = this.afAuth.authState.pipe(
+    //   switchMap(user => {
+    //     if (user) {
+    //       return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+    //     } else {
+    //       return null;
+    //     }
+    //   })
+    // );
   }
 
 
@@ -65,7 +76,7 @@ export class AuthService {
     this.modalCtrl.dismiss();
   }
 
- 
+
 
   // Authentication
   SignIn(credentials): Observable<any> {
@@ -92,14 +103,14 @@ export class AuthService {
 
   /* Sign up email*/
 
-   
-  registerUser(value){
+
+  registerUser(value) {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
       .then(
         res => resolve(res),
-        err => reject(err))
-    })
+        err => reject(err));
+    });
    }
 
   // SignUp(credentials) {
@@ -164,7 +175,7 @@ export class AuthService {
           )
           .then(async () => {
             await this.ngZone.run(() => {
-              this.router.navigateByUrl('/purchase');
+              this.router.navigateByUrl('/membership');
             });
           });
       })
@@ -283,7 +294,7 @@ export class AuthService {
   }
 
   // Current and Valid Subscription Check
-  
+
   isCurrentSubscriber(user: User): boolean {
     const validStatus = 'active' || 'trialing';
     return this.checkCurrentStatus(user, validStatus);
@@ -324,4 +335,24 @@ export class AuthService {
       (user.plan === 'bronze') ? true : false;
   }
 
+
+
+  // Token Http INterceptor
+    // Used by the http interceptor to set the auth header
+    // getUserIdToken(): Observable<string> {
+    //   return fromPromise ( this.afAuth.auth.currentUser.getIdToken() );
+    // }
+
+
+    ///// STRIPE CONNECT //////
+
+
+    // Login popup window
+    stripeLogin() {
+      // const popup = window.open(`${environment.functionsURL}/stripeRedirect`, '_blank', 'height=700,width=800')
+    }
+    // Signin with a custom token from
+    customSignIn(token) {
+      return this.afAuth.auth.signInWithCustomToken(token).then(() => window.close())
+    }
 }

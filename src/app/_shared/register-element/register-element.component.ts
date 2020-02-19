@@ -1,9 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { SpinnerService } from '@services/spinner.service';
 import { AuthService } from '@services/auth.service';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild
+  } from '@angular/core';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MessageService } from '@services/message.service';
-import { FormBuilder, Validators, NgForm } from '@angular/forms';
 import { ModalService } from '@services/modal.service';
+import { SpinnerService } from '@services/spinner.service';
+import { WizardComponent } from 'angular-archwizard';
 
 @Component({
   selector: 'app-register-element',
@@ -11,45 +18,49 @@ import { ModalService } from '@services/modal.service';
   styleUrls: ['./register-element.component.scss'],
 })
 export class RegisterElementComponent implements OnInit {
+  // @Output() loginMode = new EventEmitter;
 
+  // @ViewChild(WizardComponent, {static: false})
   registerForm;
   hidePass: boolean;
-  register;
+  registerMode;
+  @ViewChild(WizardComponent, {static: false})
 
+  public wizard: WizardComponent;
   constructor(
     private fb: FormBuilder,
     private spinner: SpinnerService,
     public auth: AuthService,
     private message: MessageService,
-    public modalService: ModalService
+    public modalService: ModalService,
   ) { }
 
   ngOnInit() {
     this.hidePass = true;
     this.registerForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: [
-        "",
+        '',
         [
           Validators.required,
           Validators.minLength(8),
-          Validators.pattern("^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$"),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
           Validators.maxLength(25)
         ]
       ],
       firstName: [
-        "",
+        '',
         [
           Validators.required,
-          Validators.pattern("^[_A-z0-9]*((-|s)*[_A-z0-9])*$"),
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
           Validators.maxLength(25)
         ]
       ],
       lastName: [
-        "",
+        '',
         [
           Validators.required,
-          Validators.pattern("^[_A-z0-9]*((-|s)*[_A-z0-9])*$"),
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
           Validators.maxLength(25)
         ]
       ]
@@ -57,32 +68,25 @@ export class RegisterElementComponent implements OnInit {
 
   }
 
-  switchToLogin(){
-    this.register = !this.register;
-  }
-
   async registerUser(reg: NgForm) {
-    try{
+    try {
       this.spinner.loadSpinner();
-        this.auth.registerUser(this.registerForm.value).then(
-          async res => {
-            await this.spinner.dismissSpinner();
-              if (res.user.uid) {
-                this.message.registerSuccessToast();
-                // this.wizard.goToStep(1);
-                reg.reset();
-              }
-          }
-        );
-    }
-    catch{
-      async err => {
-        await this.spinner.dismissSpinner();
-        await this.message.errorAlert(err.message);
+      const response = await this.auth.registerUser(this.registerForm.value);
+      this.spinner.dismissSpinner();
+      if (response.user.uid) {
+        this.message.registerSuccessToast();
+        reg.reset();
+        return this.wizard.goToStep(1);
+      }
+    } catch (error) {
+        this.spinner.dismissSpinner();
+        this.message.errorAlert(error.message);
         reg.reset();
       }
-    }
-
-
   }
+
+  // onLoginMode() {
+  //   this.loginMode.emit;
+  // }
 }
+

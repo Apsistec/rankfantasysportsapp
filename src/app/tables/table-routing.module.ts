@@ -1,3 +1,4 @@
+import { CbbComponent } from './cbb/cbb.component';
 import { CfbComponent } from './cfb/cfb.component';
 import { MhcbarComponent } from './tennis/mhcbar/mhcbar.component';
 import { MtrdsComponent } from './tennis/mtrds/mtrds.component';
@@ -21,11 +22,11 @@ import { Table7Component } from './nba/table7/table7.component';
 import { Table8Component } from './now/table8/table8.component';
 import { Table9Component } from './now/table9/table9.component';
 import { TableListComponent } from './table-list/table-list.component';
+import { TablePage } from './table.page';
 import { TennisComponent } from './tennis/tennis.component';
 import { WhcbarComponent } from './tennis/whcbar/whcbar.component';
 import { WtrdsComponent } from './tennis/wtrds/wtrds.component';
 import { WttsaComponent } from './tennis/wttsa/wttsa.component';
-import { TablePage } from './table.page';
 
 // import { PaidGuard } from '../core/guard/paid.guard';
 
@@ -34,93 +35,19 @@ const routes: Routes = [
     path: '',
     component: TablePage,
     children: [
-      // { path: '', redirectTo: 'tables', pathMatch: 'full' },
-      { path: 'table-list', component: TableListComponent },
+      { path: '', component: TableListComponent },
+      { path: 'list', component: TableListComponent },
       { path: 'tennis', component: TennisComponent },
       { path: 'nfl', component: NflComponent },
       { path: 'nba', component: NbaComponent },
       { path: 'pga', component: PgaComponent },
       { path: 'now', component: NowComponent },
       { path: 'cfb', component: CfbComponent },
-      {
-        path: 'mhcbar',
-        component: MhcbarComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'mtrds',
-        component: MtrdsComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'mttsa',
-        component: MttsaComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'whcbar',
-        component: WhcbarComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'wtrds',
-        component: WtrdsComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'wttsa',
-        component: WttsaComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'nba-dk',
-        component: Table5Component // canActivate: [PaidGuard]
-      },
-      {
-        path: 'nba-power-rank',
-        component: Table6Component // canActivate: [PaidGuard]
-      },
-      {
-        path: 'nba-play-pred',
-        component: Table7Component // canActivate: [PaidGuard]
-      },
-      {
-        path: 'today-val',
-        component: Table8Component // canActivate: [PaidGuard]
-      },
-      {
-        path: 'dk-acct',
-        component: Table9Component // canActivate: [PaidGuard]
-      },
-      {
-        path: 'pga-this-week',
-        component: PgaThisWeekComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'pga-stats',
-        component: PgaStatsComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'nfl-pre',
-        component: NflPreComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'nfl-week',
-        component: NflWeekComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'nfl-score',
-        component: NflScoreComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'power-rankings',
-        component: PowerRankingsComponent // canActivate: [PaidGuard]
-      },
-      {
-        path: 'score-predictions',
-        component: ScorePredictionsComponent // canActivate: [PaidGuard]
-      }
+      { path: 'cbb', component: CbbComponent },
+      { path: 'detail/:id, '}
     ]
   },
-  {
-    path: 'data-table',
-    loadChildren: () => import('./data-table/data-table.module').then( m => m.DataTablePageModule)
-  },
-  
+
 ];
 
 @NgModule({

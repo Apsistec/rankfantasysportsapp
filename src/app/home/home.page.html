@@ -1,9 +1,9 @@
 <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" color="white">
-  <!-- <app-header [titleId]="titleId"></app-header> -->
   <ion-grid class="ion-no-padding">
     <!-- Row 1 -->
     <ion-row style="border-bottom: 6px groove var(--ion-color-silver);">
       <ion-col class="ion-text-center ion-no-padding">
+
         <!--Landing-page -->
         <app-landing-page></app-landing-page>
       </ion-col>
@@ -103,7 +103,7 @@
     </ion-row>
 
     <!-- Video Row -->
-    <ion-row style="height:50vh; width:100vl;" class="silverbak ion-align-items-center ion-text-center ion-justify-content-center">
+    <ion-row style="height:50vh; width:100vw;" class="silverbak ion-align-items-center ion-text-center ion-justify-content-center">
 
   <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
     <div class="youtube">
@@ -124,9 +124,8 @@
       </ion-col>
 
       <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
-        <div class="vidbox">
+        <div class="video-container">
           <iframe
-          class="resp-iframe"
           [src]="trustedVideoUrl4"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -140,7 +139,7 @@
 
 
     <!--Testimonials Row -->
-    <ion-row class="padtopbot ion-text-center ion-text-wrap">
+    <ion-row class="ion-margin ion-padding ion-text-center ion-justify-content-center">
       <app-endorsements></app-endorsements>
     </ion-row>
 
@@ -149,7 +148,7 @@
     <ion-row
       style="padding: 10px 0; border-top: 3px groove var(--ion-color-silver); border-bottom: 3px groove var(--ion-color-silver);" class="ion-justify-content-around">
       <ion-col
-        
+
         size-sm="12"
         size-md="5"
         size-lg="5"
@@ -180,7 +179,7 @@
           fill="solid"
           color="danger"
           size="large"
-          routerLink="/purchase"
+          routerLink="/membership"
         >
           <ion-text>
             Start My 7 Day Trial
@@ -189,7 +188,7 @@
       </div>
       </ion-col>
       <ion-col
-        
+
         size-sm="12"
         size-md="5"
         size-lg="5"
@@ -211,7 +210,7 @@
     <!-- Row 6 aka Footer -->
     <ion-row class="ion-justify-content-center blackback ion-text-center">
       <ion-col
-        
+
         size-sm="12"
         size-md="4"
         size-lg="4"

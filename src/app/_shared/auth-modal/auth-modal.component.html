@@ -1,0 +1,32 @@
+<ion-card
+  color="primary"
+  class="ion-no-margin ion-text-capitalize ion-text-center ion-padding"
+>
+<ion-fab style="top:0px;right:0px" vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button color="white" size="small" (click)="modalDismiss()">
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+  <!-- <img style="max-height: 150px;" src="../../../assets/img/logo.jpg" /> -->
+<!-- <ng-container *ngIf="isReset">
+  <app-forgot-password-element (changeLogin)="switchLoginMode($event)"></app-forgot-password-element>
+</ng-container> -->
+  <!-- Sign  Up form -->
+  <ng-container *ngIf="isLogin">
+    <hr />
+    <app-login-element ></app-login-element>
+    <hr />
+  </ng-container>
+  <!-- Login form -->
+  <ng-container *ngIf="!isLogin">
+    <app-register-element></app-register-element>
+  </ng-container>
+  <hr />
+  <!-- <ion-button fill="clear" size="small" color="light" (click)="onPasswordReset()">
+    Forgot Password?
+  </ion-button> -->
+  <ion-button color="light" size="small" fill="clear" (click)="switchAuthMode()">
+   Need to {{ isLogin ? 'Sign Up': 'Log In' }}
+  </ion-button>
+
+</ion-card>

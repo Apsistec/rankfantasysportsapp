@@ -1,21 +1,44 @@
-<app-header [titleId]="titleId"></app-header>
-<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
 
 
 
+<ion-card class="ion-padding" color="primary">
+  <ion-card-header color="primary">
+  <button mat-raised-button color="accent" (click)="addOne()">Add to Favorites</button>
+  </ion-card-header>
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
 <ion-card color="primary" class="mat-elevation-z8">
   <mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
+
+    <ng-container matColumnDef="TourneyRank">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Tourney-Rank</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.TourneyRank}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="TournamentTotals">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Tournament-Totals</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.TournamentTotals}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="DKPointsPerMatch">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>DK-Pts=per-Match</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.DKPointsPerMatch}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Matches">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Matches</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.Matches}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BreakAdv">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Break Adv</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.BreakAdv}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="PerformAdj">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Perform Adj</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.PerformAdj}}</mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
-    </ng-container>
 
     <mat-row *matHeaderRowDef="displayedColumns"></mat-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -28,6 +51,3 @@
       [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
 </ion-card>
-
-
-<app-footer></app-footer>

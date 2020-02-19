@@ -1,11 +1,11 @@
-import { db, stripe } from './config';
 import * as functions from 'firebase-functions';
+import { db, stripe } from './config';
 
 export const stripeWebhookSignature = functions.config().stripe.webhook_signature;
 
 export const webhookHandler = async (data: any) => {
   const customerId = data.customer;
-  const subId = data.subscription; 
+  const subId = data.subscription;
   const customer = await stripe.customers.retrieve(customerId);
   const uid = customer.metadata.firebaseUID;
 
@@ -30,7 +30,7 @@ export const invoiceWebhookEndpoint = functions.https.onRequest(
         sig,
         stripeWebhookSignature
       );
-      const data = await event.data.object;
+      const data = event.data.object;
 
       await webhookHandler(data);
 

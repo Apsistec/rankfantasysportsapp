@@ -4,15 +4,15 @@
         <ion-row>
 
       <ion-col  class="hero heading ion-align-items-center ion-no-padding ion-text-center">
-          <a class="ahome" routerLink="/profile" title="Home"><h3 class="ahome">Title</h3></a>
+
 
 
         <div style="overflow:auto; float:right;padding-right:20px; padding-top:20px;">
-            <a [routerLink]="['/login']">
+            <ion-button fill="clear" size="small" (click)="openModal()">
               <ion-text color="white">
                 Log In
               </ion-text>
-          </a>
+            </ion-button>
         </div>
         <div class="cta">
 <ion-text>
@@ -31,7 +31,7 @@
           fill="solid"
           color="danger"
           size="large"
-          routerLink="/purchase"
+          routerLink="/membership"
         >
           <ion-text>
             <ion-text style="font-size: large; ">

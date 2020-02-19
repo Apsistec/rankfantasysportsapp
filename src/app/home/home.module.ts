@@ -1,3 +1,4 @@
+import { LoginElementComponent } from './../_shared/login-element/login-element.component';
 import { EndorsementsComponent } from './endorsements/endorsements.component';
 import { AboutComponent } from './about/about.component';
 import { CommonModule } from '@angular/common';
@@ -22,7 +23,7 @@ const routes: Routes = [
     LandingPageComponent,
     AboutComponent,
     EndorsementsComponent,
-    DevicesComponent
+    DevicesComponent,
   ],
 
   imports: [
@@ -31,6 +32,7 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  entryComponents: [ ]
+  entryComponents: [
+   ]
 })
 export class HomePageModule {}

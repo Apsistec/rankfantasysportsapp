@@ -1,41 +1,25 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-		function isSignedIn() {
-    	return request.auth != null;
-    }
-    function isGold() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.gold;
-    }
-    function isSilver() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.silver;
-    }
-    function isBronze() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.bronze;
-    }
-    function isPaid() {
-    	return (isGold() == true || isSilver() == true || isBronze() == true);
-    }
-    function isUser(userId) {
-      return request.auth.uid == userId;
-    }
+
     function isAdmin() {
     	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
     }
-
-		function userEmail(userId) {
-      return get(/databases/$(database)/documents/users/$(userId)).data.email;
+    function isSuperSub() {
+    	return userExists() && isSignedIn() && isCurrentSub();
+    }
+    function isCurrentSub() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status
+    }
+    function isSignedIn() {
+    	return request.auth != null;
+    }
+   	function userExists() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
     }
 
-    function emailVerified() {
-      return request.auth.token.email_verified;
-    }
-  
-    function isValidMember() {
-    	return isSignedIn() && isPaid();
-    }
         match /{document=**} {
-          allow read: if isValidMember() || isAdmin();
+          allow read, write: if isSuperSub() || isAdmin();
       	}
         match /users/{userId} {
         	allow read, create, update: if request.auth.uid == userId || isAdmin();
@@ -45,7 +29,24 @@ service cloud.firestore {
           allow read: if request.auth.uid != null || isAdmin();
           allow create: if request.auth.uid != null || isAdmin();
           allow update, delete: if isAdmin();
-     }
-     
+     		}
+     		match /users/{userId} {
+    			allow write: if userExists() && belongsTo(userId);
+				}
+          function belongsTo(userId) {
+                return request.auth.uid == userId
+              }
+        match /posts/{postId} {
+          allow write: if requestMatchesUID();
+          allow update: if requestMatchesUID() && resourceMatchesUID();
+          allow delete: if resourceMatchesUID();
+      	}
+          function requestMatchesUID() {
+              return request.auth.uid == request.resource.data.uid;
+          }
+          function resourceMatchesUID() {
+              return request.auth.uid == resource.data.uid;
+          }
+
 	 }
 }

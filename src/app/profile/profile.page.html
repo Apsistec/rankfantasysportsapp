@@ -2,7 +2,10 @@
 <ion-content class="ion-text-wrap">
   <ion-grid>
     <ion-row>
-      <ion-col class="ion-no-padding ion-text-center ion-align-items-center" size-sm="5">
+      <ion-col
+        class="ion-no-padding ion-text-center ion-align-items-center"
+        size-sm="5"
+      >
         <ng-container *ngIf="auth.user | async as user">
           <ion-card color="primary" class="ion-text-center">
             <ion-card-header>
@@ -12,33 +15,32 @@
                 </ion-text>
               </ion-card-title>
             </ion-card-header>
-            <ion-item color="light" lines="none">
+            <ion-item color="primary" lines="none">
               <ion-grid>
                 <ion-row>
-                  <ion-col class="ion-no-padding ion-align-items-center ion-text-center" size="4">
+                  <ion-col
+                    class="ion-no-padding ion-align-items-center ion-text-center"
+                    size="4"
+                  >
                     <ion-img
-                      style="width:70px; height:70px; position:relative;"
+                      style="width:100px; height:100px; position:relative;"
                       [src]="user.photoURL || '../../assets/img/dummy-user.png'"
                     ></ion-img>
                   </ion-col>
-                  <ion-col class="ion-no-padding ion-text-start">
+                  <ion-col class="ion-no-padding">
+                    <hr />
                     <ion-card-title>
                       <ion-text>
-                        <h2>
-                          {{ user.displayName || 'User' }}
-                        </h2>
+                        {{ user.displayName || 'User' }}
                       </ion-text>
                     </ion-card-title>
 
                     <ion-card-subtitle>
                       {{ user.role }}
+                      <hr />
+                      {{ user.email }}
                     </ion-card-subtitle>
                   </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-text>
-                    {{ user.email }}
-                  </ion-text>
                 </ion-row>
               </ion-grid>
             </ion-item>
@@ -74,7 +76,10 @@
               >
                 <ion-grid>
                   <ion-row class="">
-                    <ion-col class="ion-no-padding ion-text-center ion-justify-content-center" size-sm="5">
+                    <ion-col
+                      class="ion-no-padding ion-text-center ion-justify-content-center"
+                      size-sm="5"
+                    >
                       <ion-label>
                         <h2>
                           PRO Plan:
@@ -145,8 +150,13 @@
             </ion-card-content>
           </ion-card>
 
-          <ng-template #purchase >
-            <ion-button class="center ion-text-center" size="small" color="success" routerLink="/purchase">
+          <ng-template #purchase>
+            <ion-button
+              class="center ion-text-center"
+              size="small"
+              color="success"
+              routerLink="/membership"
+            >
               <ion-text>
                 Buy Pro Package
               </ion-text>
@@ -219,10 +229,7 @@
           </ion-card>
 
           <!-- Account Management -->
-          <ion-card
-            class="ion-text-center"
-            color="primary"
-          >
+          <ion-card class="ion-text-center" color="primary">
             <ion-card-header>
               <ion-card-title>
                 <ion-text>
@@ -280,9 +287,21 @@
               </ion-text>
 
               <hr />
-              <ion-button size="small" expand="block" size="small" (click)="enableDark()" >Dark</ion-button>
+              <ion-button
+                size="small"
+                expand="block"
+                size="small"
+                (click)="enableDark()"
+                >Dark</ion-button
+              >
 
-              <ion-button size="small" expand="block" size="small" (click)="enableLight()" >Light</ion-button>
+              <ion-button
+                size="small"
+                expand="block"
+                size="small"
+                (click)="enableLight()"
+                >Light</ion-button
+              >
               <ion-button
                 size="small"
                 expand="block"
@@ -308,8 +327,8 @@
                 size="small"
                 color="medium"
                 routerLink="star"
-                >Stars </ion-button
-              >
+                >Stars
+              </ion-button>
               <ion-button
                 size="small"
                 expand="block"
@@ -326,7 +345,8 @@
                 size="small"
                 color="white"
                 routerLink="analytics"
-                >Analytics</ion-button>
+                >Analytics</ion-button
+              >
               <ion-button
                 size="small"
                 expand="block"
@@ -351,6 +371,7 @@
         <app-tennis></app-tennis>
         <app-pga></app-pga>
         <app-nba></app-nba>
+        <app-cbb></app-cbb>
         <app-nfl></app-nfl>
         <app-cfb></app-cfb>
       </ion-col>

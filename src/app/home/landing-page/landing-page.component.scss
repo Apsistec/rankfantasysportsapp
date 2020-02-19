@@ -2,7 +2,7 @@
 .hero{
   background: url(../../../assets/img/rfs-logo.svg), rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
   height: 60vh;
-  width: 100vl;
+  width: 100vw;
   background-size: 80px, cover;
   background-position: top 0.5% left 0.5%, center;
   background-repeat: no-repeat;
@@ -40,16 +40,4 @@ ion-text{
 //     position: relative;
 // }
 
-.ahome
-{
-    position: absolute;
-    top: 0.5%;
-    left: 0.5%;
-    width: 80px;
-    height: 80px;
-}
 
-.ahome
-{
-    display: none;
-}

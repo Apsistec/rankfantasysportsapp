@@ -1,32 +1,32 @@
-<ion-menu side="start" menuId="first" contentId="content1" type="push">
+<ion-menu side="start" menuId="first" contentId="content1" type="push" >
   <ion-header>
     <ion-menu-toggle>
-      <ion-toolbar color="silver" style="--min-height:46px;">
+      <ion-toolbar color="medium" style="height:84px;">
         <img
           src="../assets/img/logo.jpg"
-          height="42px"
+          height="84px"
           slot="start" routerLink="/home" />
        </ion-toolbar>
     </ion-menu-toggle>
   </ion-header>
-  <ion-content color="white">
+  <ion-content>
     <ion-menu-toggle>
       <ion-list>
         <ion-item-group>
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/home"
+            routerLink="/home" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="home"></ion-icon>
             <ion-text>Home</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/profile"
+            routerLink="/profile" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
             *ngIf="auth.afAuth.user | async"
           >
@@ -34,10 +34,10 @@
             <ion-text>Profile</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/pricing"
+            routerLink="/pricing" routerLinkActive="router-link-active"
             *ngIf="auth.isSubscribed; else notSubscribed"
             class="ion-text-uppercase"
           >
@@ -46,59 +46,59 @@
           </ion-item>
 
           <ng-template #notSubscribed >
-            <ion-item
+            <ion-item color="silver"
               button
               lines="none"
-              routerLink="/purchase"
+              routerLink="/membership"
               class="ion-text-uppercase"
             >
              <ion-icon color="dark" slot="start" name="logo-usd"></ion-icon>
-              <ion-text>Sign Up</ion-text>
+              <ion-text>Free Trial</ion-text>
             </ion-item>
           </ng-template>
           <ng-template #login>
-            <ion-item
+            <ion-item color="silver"
               button
               lines="none"
-              routerLink="/login"
+              (click)="authModal()"
               class="ion-text-uppercase"
             >
              <ion-icon color="dark" slot="start" name="log-in"></ion-icon>
-              <ion-text color="primary">Login</ion-text>
+              <ion-text color="primary">Log In</ion-text>
             </ion-item>
           </ng-template>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/how-to"
+            routerLink="/how-to" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="star"></ion-icon>
             <ion-text>How To Use RF$&trade;</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/testimonials"
+            routerLink="/testimonials" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="trophy"></ion-icon>
-            <ion-text>DK Credibility</ion-text>
+            <ion-text>Testimonials</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/faq"
+            routerLink="/faq" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="help"></ion-icon>
-            <ion-text>FAQs</ion-text>
+            <ion-text>FAQ</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
             (click)="signOut()"
@@ -115,67 +115,76 @@
         </ion-item-group>
         <ion-item-group>
           <ion-list-header
-            color="light"
+            color="primary"
             class="ion-text-uppercase"
             style="font-weight: 900;"
           >
             <ion-text>Stats & Projections</ion-text>
-            <ion-button size="small" style="padding-right: 10px;" color="silver" routerLink="/tables/table-list">All Tables</ion-button>
+            <ion-button size="small" style="padding-right: 10px;" color="tertiary" routerLink="/tables">All Tables</ion-button>
           </ion-list-header>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tables/now"
+            routerLink="/tables/now" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="stats"></ion-icon>
             <ion-text>Happening Now</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tables/tennis"
+            routerLink="/tables/tennis" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="tennisball"></ion-icon>
             <ion-text>Tennis</ion-text>
           </ion-item>
-
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tables/nfl"
+            routerLink="/tables/golf" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
-           <ion-icon color="dark"slot="start" name="american-football"></ion-icon>
+           <ion-icon color="dark" slot="start" name="radio-button-off"></ion-icon>
+            <ion-text>PGA</ion-text>
+          </ion-item>
+
+          <ion-item color="silver"
+            button
+            lines="none"
+            routerLink="/tables/nfl" routerLinkActive="router-link-active"
+            class="ion-text-uppercase"
+          >
+           <ion-icon color="dark" slot="start" name="american-football"></ion-icon>
             <ion-text>NFL</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tables/cfb"
+            routerLink="/tables/cfb" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark"slot="start" name="american-football"></ion-icon>
             <ion-text>CFB</ion-text>
           </ion-item>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tables/nba"
+            routerLink="/tables/nba" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="basketball"></ion-icon>
             <ion-text>NBA</ion-text>
           </ion-item>
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tables/cbb"
+            routerLink="/tables/cbb" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="basketball"></ion-icon>
@@ -183,22 +192,22 @@
           </ion-item>
         </ion-item-group>
         <ion-item-group>
-          <ion-list-header color="light" class="ion-text-uppercase"
+          <ion-list-header color="primary" class="ion-text-uppercase"
             style="font-weight: 900;">
             <ion-text>DFS Toolbox</ion-text>
           </ion-list-header>
 
-          <ion-item
+          <ion-item color="silver"
             button
             lines="none"
-            routerLink="/tweets"
+            routerLink="/tweets" routerLinkActive="router-link-active"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark"  slot="start" name="logo-twitter"></ion-icon>
             <ion-text color="dark">Tweets</ion-text>
           </ion-item>
 
-          <ion-item button lines="none" disabled class="ion-text-uppercase">
+          <ion-item color="silver" button lines="none" disabled class="ion-text-uppercase">
            <ion-icon color="dark"  slot="start" name="trending-up"></ion-icon>
             <ion-text>Line-up Optimizers<sup>*</sup></ion-text>
           </ion-item>
@@ -212,7 +221,7 @@
     </ion-menu-toggle>
   </ion-content>
   <ion-footer>
-    <ion-toolbar color="dark" style="--min-height:30px;">
+    <ion-toolbar class="ion-text-center" color="dark" style="--min-height:30px;">
       <ion-text style="font-size: 12px;font-variant: petite-caps;">
           Made with
           <img

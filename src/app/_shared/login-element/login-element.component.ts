@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@services/auth.service';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Output,
+  ViewChild
+  } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SpinnerService } from '@services/spinner.service';
-import { Router } from '@angular/router';
 import { MessageService } from '@services/message.service';
-
+import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { SpinnerService } from '@services/spinner.service';
 @Component({
   selector: 'app-login-element',
   templateUrl: './login-element.component.html',
   styleUrls: ['./login-element.component.scss'],
 })
 export class LoginElementComponent implements OnInit {
-
   hidePass: boolean;
   user;
-
-  login; 
+  // @Output() passwordReset = new EventEmitter;
+  // @Output() registerMode = new EventEmitter;
+  // loginMode;
   loginForm;
 
   // loginForm = this.fb.group({
@@ -36,7 +43,8 @@ export class LoginElementComponent implements OnInit {
     public auth: AuthService,
     private spinner: SpinnerService,
     private router: Router,
-    private message: MessageService
+    private message: MessageService,
+    private modal: ModalController
   ) {}
 
   ngOnInit() {
@@ -55,6 +63,10 @@ export class LoginElementComponent implements OnInit {
     });
   }
 
+  dismissModal() {
+    this.modal.dismiss();
+  }
+
   async onSubmit(login) {
     this.spinner.loadSpinner();
     this.auth.SignIn(this.loginForm.value).subscribe(
@@ -67,7 +79,7 @@ export class LoginElementComponent implements OnInit {
         } else if (data.plan && (data.status === 'active' || 'trialing')) {
           this.router.navigateByUrl('/profile');
         } else {
-          this.router.navigateByUrl('/purchase');
+          this.router.navigateByUrl('/membership');
         }
       },
       async err => {
@@ -77,4 +89,12 @@ export class LoginElementComponent implements OnInit {
       }
     );
   }
+
+  // switchAuthMode() {
+  //   this.registerMode.emit();
+  // }
+
+  // onPasswordReset() {
+  //   this.passwordReset.emit();
+  // }
 }

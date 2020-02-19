@@ -16,7 +16,7 @@ export class BlinkDirective implements OnInit, OnDestroy {
 
   constructor() {
     const show$ = timer(0, 1000);
-    const hide$ = timer(750, 1000);
+    const hide$ = timer(1000, 1000);
 
     this.blinker$ = merge(
       show$.pipe(mapTo('visible')),

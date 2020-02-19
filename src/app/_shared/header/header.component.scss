@@ -2,6 +2,9 @@
 div.top-nav {
   overflow: auto;
   white-space: nowrap;
+  font-weight: 700;
+  font-size: large;
+  font-variant:small-caps;
   margin-left: 10px;
   // position: absolute;
 }
@@ -12,9 +15,10 @@ div.top-nav a {
   text-align: center;
   padding: 14px;
   text-decoration: none;
+  font-weight: 700;
 }
 
 div.top-nav a:hover {
-  background-color: var(--ion-color-tertiary);
-  color: var(--ion-color-white);
+  background-color: var(--ion-color-silver);
+  color: var(--ion-color-tertiary);
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Config, MenuController } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { Config } from '@ionic/angular';
+import { ModalService } from '@services/modal.service';
 import { ThemeService } from '@services/theme.service';
 
 @Component({
@@ -9,17 +10,23 @@ import { ThemeService } from '@services/theme.service';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  core;
+  // core;
 
   constructor(
-    private config: Config,
+    // private config: Config,
     public auth: AuthService,
     private theme: ThemeService,
-    private menu: MenuController
+    public modal: ModalService
   ) {}
 
   ngOnInit() {
-    this.core = this.config.get('mode') === 'core';
+    // this.core = this.config.get('mode') === 'core';
+  }
+  openModal() {
+    this.modal.loginModal();
+  }
+  dismiss() {
+    this.modal.dismiss();
   }
 
   enableDark() {
@@ -30,8 +37,4 @@ export class LandingPageComponent implements OnInit {
     this.theme.enableLight();
   }
 
-  toggleMenu() {
-    // this.menu.getOpen('first')
-    this.menu.open();
-  }
 }

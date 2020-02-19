@@ -1,7 +1,8 @@
-import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '@services/message.service';
+import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
+import { StorageService } from '@services/storage.service';
 
 
 @Component({
@@ -14,25 +15,25 @@ export class StartModalComponent implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private router: Router,
-    private storage: Storage
+    private storage: StorageService,
+    private message: MessageService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.storage.set('popModalState', 'shown');
 
-  async showNoMoreModal() {
-    await this.storage.set('modalAlreadyShown', true);
-    this.router.navigateByUrl('/home');
   }
 
   dismiss() {
     this.modalCtrl.dismiss();
-    this.showNoMoreModal();
   }
 
   gotoPurchase() {
-    this.modalCtrl.dismiss().then(() => {
-      this.router.navigateByUrl('/purchase');
-    })
+    this.modalCtrl.dismiss()
+    .then( () =>
+      this.router.navigateByUrl('/membership')
+    ).catch(error => {
+      this.message.errorAlert(error.message);
+    });
   }
-
 }

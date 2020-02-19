@@ -1,9 +1,4 @@
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { Injectable } from '@angular/core';
 import { map, take, tap } from 'rxjs/operators';
@@ -28,7 +23,7 @@ export class CanReadGuard implements CanActivate {
       tap(canView => {
         if (!canView) {
           this.message.needPaymentAlert();
-          this.router.navigateByUrl('/purchase');
+          this.router.navigateByUrl('/membership');
         }
       })
     );

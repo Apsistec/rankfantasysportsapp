@@ -4,12 +4,12 @@ import {
   Router,
   RouterStateSnapshot,
   UrlTree
-} from '@angular/router';
-import { Injectable } from '@angular/core';
-import { MessageService } from '../_services/message.service';
-import { map, take } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+  } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
+import { Injectable } from '@angular/core';
+import { map, take } from 'rxjs/operators';
+import { MessageService } from '../_services/message.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +40,7 @@ export class PaidMemberGuard implements CanActivate {
             return true;
           } else {
             this.message.needPaymentAlert();
-            this.router.navigateByUrl('/purchase');
+            this.router.navigateByUrl('/membership');
             return false;
           }
         }

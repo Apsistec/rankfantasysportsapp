@@ -1,28 +1,36 @@
-<ion-content color="light" class="ion-text-center ion-text-wrap ion-padding">
-      <ion-list>
-        <ion-list-header color="light" >
-          <ion-title class="aboveprice">
-            <ion-text class="ion-text-wrap ion-text-center" color="primary" style="text-shadow: 1px 0 1px var(--ion-color-silver);">
-              Price after your complimentary trial
-            </ion-text>
-          </ion-title>
+<ion-card
+  style="background-color:white;"
+  class="ion-margin ion-text-capitalize ion-text-center"
+>
+<ion-fab style="top:0px;right:0px" vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button color="white" size="small" (click)="dismiss()">
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
-        </ion-list-header>
-        <ion-toolbar color="light">
-          <ion-button size="large" color="dark" routerLink="/purchase">
-            <ion-text class="ion-text-no-wrap ion-text-capitalize">
-              <h3>
-                $9.99
-                <sub>per month</sub>
-              </h3>
-            </ion-text>
-          </ion-button>
-        </ion-toolbar>
-        <ion-item-group class="ion-text-start">
-          <ion-text color="primary">
+  <ion-card-header color="light" >
+    <ion-title class="aboveprice">
+      <ion-text class="ion-text-wrap ion-text-center" style="font-weight: 800;" color="dark">
+        Price after your complimentary trial
+      </ion-text>
+    </ion-title>
+    <ion-button size="large" color="tertiary" routerLink="/membership">
+      <ion-text class="ion-text-no-wrap ion-text-capitalize"  style="font-weight: 900;">
+
+          $9.99
+          <sub>per month</sub>
+
+      </ion-text>
+    </ion-button>
+
+  </ion-card-header>
+  <ion-card-content>
+
+    <ion-list>
+      <ion-item-group class="ion-text-start">
+    <ion-text color="primary" style="font-weight: 800;">
             Features:
           </ion-text>
-        </ion-item-group>
           <ion-item lines="inset">
             <ion-text>
               <p>
@@ -63,35 +71,27 @@
             </ion-text>
           </ion-item>
 
-          <ion-item lines="none">
+          <ion-item lines="none" >
             <ion-text>
               <p>
                 Billed monthly, no set up fee
               </p>
             </ion-text>
           </ion-item>
+        </ion-item-group>
         </ion-list>
-        <hr />
-      <ion-button
-        size="large"
-        class="ion-text-wrap"
-        fill="solid"
-        color="danger"
-        (click)="gotoPurchase()"
-      >
-        <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
-          Claim Your 7 Free days
-        </ion-text>
-      </ion-button>
-      <ion-button
-        size="large"
-        fill="outline"
-        color="white"
-        (click)="dismiss()"
-      >
-        <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
-        Close
-        </ion-text>
-      </ion-button>
+            <ion-button
+            size="large"
+            class="ion-text-wrap ion-text-center"
+            fill="solid"
+            color="danger"
+            (click)="gotoPurchase()"
+            >
+            <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
+              Claim Your 7 Free days
+            </ion-text>
+          </ion-button>
 
-</ion-content>
+    </ion-card-content>
+  </ion-card>
+

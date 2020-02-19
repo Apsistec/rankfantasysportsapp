@@ -2,11 +2,20 @@
 * Shows how you can use CSS to style your Element's container.
 */
 .tech {
-  background: rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
+  background:url(../../assets/img/rfs-logo.svg), rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
   min-height: 100vh;
-  width: 100vl;
-  background-size: cover;
+  width: 100vw;
+  background-size: 80px, cover;
+  background-position: top 0.5% left 0.5%, center;
   background-repeat: no-repeat;
+}
+.home{
+  top: 0.5%;
+  left: 0.5%;
+  width:80px;
+  height: 80px;
+  cursor: link;
+
 }
 
 .bottom {

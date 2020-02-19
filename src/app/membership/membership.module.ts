@@ -1,20 +1,19 @@
-import { MatStepperModule } from '@angular/material/stepper';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { ArchwizardModule } from 'angular-archwizard';
 import { BlinkDirective } from '@directives/blink.directive';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { PurchasePage } from './purchase.page';
+import { MaterialModule } from '../material/material.module';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MembershipPage } from './membership.page';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../_shared/shared.module';
-import { NgModule } from '@angular/core';
-import { MaterialModule } from '../material/material.module';
-import { ArchwizardModule } from 'angular-archwizard';
 
 const routes: Routes = [
   {
     path: '',
-    component: PurchasePage
+    component: MembershipPage
   }
 ];
 
@@ -33,8 +32,8 @@ const routes: Routes = [
   providers: [
   ],
   declarations: [
-    PurchasePage,
+    MembershipPage,
     BlinkDirective
   ],
 })
-export class PurchasePageModule {}
+export class MembershipPageModule {}

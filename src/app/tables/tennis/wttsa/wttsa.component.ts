@@ -1,12 +1,11 @@
-import { CollectionService } from './../../../_services/collection.service';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { CollectionService } from './../../../_services/collection.service';
+import { IonContent } from '@ionic/angular';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { MatTableDataSource } from '@angular/material/table'
-import { WttsaDataSource, WttsaItem } from './wttsa-datasource';
-import { IonContent } from '@ionic/angular';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-wttsa',
@@ -16,11 +15,19 @@ import { IonContent } from '@ionic/angular';
 export class WttsaComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
-  @ViewChild(MatTable, {static: false}) table: MatTable<WttsaItem>;
+  // @ViewChild(MatTable, {static: false}) table: MatTable<WttsaItem>;
   dataSource: MatTableDataSource<any>;
-  titleId= 'Women\'s Tennis Tournament Stat Archives';
+  titleId   = 'Women\'s Tennis Tournament Stat Archives';
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+  // 'Tourney Rank',
+  // 'Tournament Totals',
+  // 'DK Pts/ Match',
+  // 'Matches',
+  // 'Break Adv',
+  // 'Perform Adj'
+
 
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
 
@@ -30,22 +37,21 @@ export class WttsaComponent implements AfterViewInit, OnInit {
   constructor(
     private afs: AngularFirestore,
     private collection: CollectionService
-  ){}
+  ) {}
 
   ngOnInit() {}
 
- 
-  
-  
-
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    this.afs.collection<any>('Acapulco').valueChanges().subscribe(data => {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.sort = this.sort;
+    });
   }
+  addOne() {  }
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); 
+    filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
@@ -58,9 +64,6 @@ export class WttsaComponent implements AfterViewInit, OnInit {
     this.ionContent.scrollToTop(1500);
   }
 
-  getStats() {
-    return this.afs.collection('Acapulco', ref => ref.orderBy('studentAge')).valueChanges();
-  }
 
   trackByUid(index, item) {
     return item.uid;

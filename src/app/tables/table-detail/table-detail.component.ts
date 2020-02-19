@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-detail',
@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TableDetailComponent implements OnInit {
 
   // @Input()= "titleId";
-  
+
 
 constructor() { }
 

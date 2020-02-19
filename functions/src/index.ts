@@ -1,6 +1,5 @@
-// const admin = require('firebase-admin');
-// admin.initializeApp();
 import * as functions from 'firebase-functions';
+
 
 // A simple callable function for a sanity check
 export const testFunction = functions.https.onCall( async (data, context) => {
@@ -10,26 +9,26 @@ export const testFunction = functions.https.onCall( async (data, context) => {
     return `${uid} sent a message of ${message}`
 });
 
-export { 
-    stripeAttachSource 
+export {
+    stripeAttachSource
 } from './sources';
 
-export { 
-    stripeCreateCharge, 
-    stripeGetCharges 
+export {
+    stripeCreateCharge,
+    stripeGetCharges
 } from './charges';
 
-export { 
-    stripeCreateSubscription, 
-    stripeGetSubscriptions, 
-    stripeCancelSubscription 
+export {
+    stripeCreateSubscription,
+    stripeGetSubscriptions,
+    stripeCancelSubscription
 } from './subscriptions';
 
-export { 
+export {
     invoiceWebhookEndpoint
 } from './webhooks';
 
-export { 
+export {
     stripeGetCoupon
 } from './coupons';
 

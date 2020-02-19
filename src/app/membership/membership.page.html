@@ -1,14 +1,16 @@
 <ion-content>
+  <a class="home" routerLink='/home'></a>
   <ion-grid class="ion-no-padding">
     <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
       <ion-col
         class=" ion-align-self-center ion-no-padding ion-no-margin"
         size-sm="12"
-        size-md="12"
+        size-md="8"
+        offset-md="2"
         size-lg="4"
-        offset-lg="3"
+        offset-lg="2"
         size-xl="4"
-        offset-xl="4"
+        offset-xl="2"
       >
         <ion-card
           color="primary"
@@ -24,13 +26,14 @@
                 [navigationSymbol]="{ symbol: 1 }"
               >
     <!-- Sign  Up form -->
-              <ng-container *ngIf="register else login">
-              <app-register-element></app-register-element>
+              <ng-container *ngIf="isRegister">
+                <app-register-element ></app-register-element>
               </ng-container>
     <!-- Login form -->
-              <ng-template #login>
+              <ng-container *ngIf="!isRegister">
                 <app-login-element></app-login-element>
-              </ng-template>
+              </ng-container>
+                <ion-button color="light" size="small" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Login' : 'Sign Up' }}?</ion-button>
       <!-- Step 2  Pay     -->
               </aw-wizard-step>
               <aw-wizard-step
@@ -45,7 +48,6 @@
                     Payment Details
                   </ion-text>
                 </ion-card-title>
-                <hr />
 
                 <ion-grid>
                   <ion-row>
@@ -139,7 +141,6 @@
                   <ion-button
                     type="submit"
                     fill="solid"
-                    size="large"
                     color="tertiary"
                   >
                     <ion-text color="white" style="text-shadow: 1px 1px black;">
@@ -254,7 +255,7 @@
         >
         <ion-card
           style="top:20%;background: rgb(0,0,0);
-      background: linear-gradient(90deg, rgba(0,0,0,0.4962359943977591) 0%, rgba(0,0,0,0.5046393557422969) 100%);"
+      background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 100%);"
         >
           <ion-card-header style="background-color:transparent !important;">
             <ion-card-subtitle>

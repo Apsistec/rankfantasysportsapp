@@ -1,15 +1,16 @@
-import { SeoService } from '@services/seo.service';
-import { Subscription, interval } from 'rxjs';
-import { ModalService } from './../_services/modal.service';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from '../_services/auth.service';
 import { BlinkDirective } from '@directives/blink.directive';
-import { environment } from './../../environments/environment.prod';
-import { FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
+import { environment } from '../../environments/environment.prod';
+import { FormBuilder, FormControl, NgForm, Validators } from '@angular/forms';
+import { interval, Subscription } from 'rxjs';
 import { IonContent, ModalController } from '@ionic/angular';
+import { MembershipPageModule } from './membership.module';
 import { MessageService } from '@services/message.service';
+import { ModalService } from '../_services/modal.service';
 import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
 import { Router } from '@angular/router';
+import { SeoService } from '@services/seo.service';
 import { SpinnerService } from '@services/spinner.service';
 import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
 import { WizardComponent } from 'angular-archwizard';
@@ -28,11 +29,13 @@ declare var Stripe: stripe.StripeStatic;
 
 @Component({
   selector: 'app-purchase',
-  templateUrl: './purchase.page.html',
-  styleUrls: ['./purchase.page.scss']
+  templateUrl: './membership.page.html',
+  styleUrls: ['./membership.page.scss']
 })
-export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
+// tslint:disable-next-line: component-class-suffix
+export class MembershipPage implements OnInit, AfterViewInit {
 
+  isRegister = true;
   titleId = 'RF$\u2122 Pro Memberships';
 
   user;
@@ -50,8 +53,7 @@ export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
   card;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   stripe: stripe.Stripe;
-  description = 'Rank Fantasy Sports Pro Membership';
-  amount = 999;
+
   confirmation;
   cardErrors;
 
@@ -76,9 +78,6 @@ export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.showDetails = true;
-
-    this.navigateToStep();
-
   }
 
   ngAfterViewInit() {
@@ -113,7 +112,6 @@ export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
 
   isChecked() {
     this.checked = !this.checked;
-    console.log('onCheck' + this.checked);
   }
 
 
@@ -132,7 +130,7 @@ export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
       this.confirmation = await fun({
         source: source.id,
         uid: user.uid,
-        plan: 'bronze'
+        plan: 'plan_Gl53WD33vJA3uR'
       }).toPromise();
       this.spinner.dismissSpinner();
       stripe.reset();
@@ -142,32 +140,32 @@ export class PurchasePage implements OnInit, AfterViewInit, OnDestroy {
   }
 
   // async handleForm(e) {
-  //   e.preventDefault();
+    //   e.preventDefault();
 
-  //   const { source, error } = await this.stripe.createSource(this.card);
+    //   const { source, error } = await this.stripe.createSource(this.card);
 
-  //   if (error) {
-  //     // Inform the customer that there was an error.
-  //     const cardErrors = error.message;
-  //   } else {
-  //     // Send the token to your server.
-  //     this.loading = true;
-  //     const user = await this.auth.getUser();
-  //     const fun = this.functions.httpsCallable('stripeCreateCharge');
-  //     this.confirmation = await fun({ source: source.id, uid: user.uid, amount: this.amount }).toPromise();
-  //     this.loading = false;
+    //   if (error) {
+      //     // Inform the customer that there was an error.
+      //     const cardErrors = error.message;
+      //   } else {
+        //     // Send the token to your server.
+        //     this.loading = true;
+        //     const user = await this.auth.getUser();
+        //     const fun = this.functions.httpsCallable('stripeCreateCharge');
+        //     this.confirmation = await fun({ source: source.id, uid: user.uid, amount: this.amount }).toPromise();
+        //     this.loading = false;
 
-  //   }
+        //   }
 
-// wizard for signed in user to skip to step 2
-  async navigateToStep() {
-      this.user = await this.auth.getUser();
-      if (this.user) {
-        return this.wizard.goToStep(1);
+        // wizard for signed in user to skip to step 2
+      navigateToStep() {
+
       }
-  }
 
-  ngOnDestroy() {
-    // this.blinker.unsubscribe();
-  }
-}
+
+
+        switchAuthMode() {
+          this.isRegister = !this.isRegister;
+        }
+      }
+

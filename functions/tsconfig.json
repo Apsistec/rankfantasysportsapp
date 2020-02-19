@@ -1,28 +1,18 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
+    "lib": ["es6", "dom", "esnext.asynciterable"],
+    "strictNullChecks": false,
     "outDir": "lib",
     "sourceMap": true,
     "target": "es2015",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "types": [
       "jest",
-      "stripe-v3"
-      
+      "stripe"
     ]
   },
+  "compileOnSave": true,
   "include": [
-      "src/**/*.ts",
-      "node_modules/@types"
-  ],
-  "atom": {
-      "rewriteTsconfig": false
-  }
+    "src"
+  ]
 }

@@ -93,13 +93,13 @@
 
 
 
-::-webkit-scrollbar,
+::-webkit-scrollb%ar,
 *::-webkit-scrollbar {
   display: none;
 }
 
 a:hover {
-  cursor: pointer;
+  cursor: auto;
 }
 
 :root {
@@ -112,19 +112,48 @@ a:hover {
   }
 
 // Purchase Modal
-  // .startmodal
-   .modal-wrapper{
+  .startmodal{
+    // background: transparent !important;
+    // border: 3px solid var(--ion-color-white);
+    // border-radius: 18px 18px 18px 18px;
+    --box-shadow:none;
+    overflow: scroll !important;
+  }
+
+  .modal-wrapper{
     --background: transparent !important;
-    border: 5px solid var(--ion-color-white);
-    border-radius: 18px 18px 18px 18px;
     --max-height: 85%;
     --max-width: 85%;
   }
 
-  // Terms and Privacy Modals
-  // .modalcss{
-  //   --max-height: 85%;
-  //   --max-width: 90%;
-  // }
+  .auth-modal-css{
+    --box-shadow:none;
+      // --background: var(--ion-color-primary) !important;
+      // --ion-backdrop-opacity: 0.8 !important;
+      // --min-width: auto !important;
+      overflow: scroll !important;
+  }
+
+
+  .router-link-active{
+    color: var(--ion-color-tertiary) !important;
+    font-weight: 800 !important;
+    font-variant:small-caps !important;
+  }
+
+  ion-card{
+    border-radius: 18px 18px 18px 18px;
+    border: 3px solid var(--ion-color-white);
+    box-shadow: 5px 10px 12px #070707;
+  }
+
+  ion-card-title{
+    font-variant: small-caps;
+    font-weight: 800;
+    text-transform:capitalize;
+  }
+  .popoverUser{
+    --background: var(ion-color-primary)!important;
+  }
 }
 
