@@ -1,6 +1,6 @@
-// import * as Color from 'color';
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable, RendererFactory2, Renderer2 } from '@angular/core';
+import { Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+// import * as Color from 'color';
 // import { StorageService } from './storage.service';
 
 @Injectable({

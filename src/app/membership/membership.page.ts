@@ -67,25 +67,29 @@ export class MembershipPage implements OnInit, AfterViewInit {
     private message: MessageService,
     public modal: ModalService,
     private seo: SeoService
-  ) {
-    this.seo.addTwitterCard(
-      this.titleId,
-      'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
-      '../../../assets/img/rfs-logo.svg'
-    );
-  }
+    ) {
+      this.seo.addTwitterCard(
+        this.titleId,
+        'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
+        '../../../assets/img/rfs-logo.svg'
+        );
+      }
 
 
-  ngOnInit() {
-    this.showDetails = true;
-  }
-
-  ngAfterViewInit() {
+      ngOnInit() {
+        this.showDetails = true;
+      }
 
 
-    this.stripe = Stripe(environment.stripeKey);
 
-    const elements = this.stripe.elements();
+
+
+      ngAfterViewInit() {
+
+
+        this.stripe = Stripe(environment.stripeKey);
+
+        const elements = this.stripe.elements();
     const style = {
       base: {
         color: '#227733',

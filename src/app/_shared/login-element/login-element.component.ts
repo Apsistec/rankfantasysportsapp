@@ -1,17 +1,12 @@
 import { AuthService } from '@services/auth.service';
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  Output,
-  ViewChild
-  } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SpinnerService } from '@services/spinner.service';
+
 @Component({
   selector: 'app-login-element',
   templateUrl: './login-element.component.html',
@@ -21,7 +16,7 @@ export class LoginElementComponent implements OnInit {
   hidePass: boolean;
   user;
   // @Output() passwordReset = new EventEmitter;
-  // @Output() registerMode = new EventEmitter;
+  // @Output() m = new EventEmitter;
   // loginMode;
   loginForm;
 

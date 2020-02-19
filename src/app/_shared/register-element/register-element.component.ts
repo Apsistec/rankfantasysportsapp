@@ -24,7 +24,7 @@ export class RegisterElementComponent implements OnInit {
   registerForm;
   hidePass: boolean;
   registerMode;
-  @ViewChild(WizardComponent, {static: false})
+  @Output() stepToOne = new EventEmitter;
 
   public wizard: WizardComponent;
   constructor(

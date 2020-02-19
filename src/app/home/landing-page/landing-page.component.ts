@@ -10,17 +10,17 @@ import { ThemeService } from '@services/theme.service';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  // core;
+  core;
 
   constructor(
-    // private config: Config,
+    private config: Config,
     public auth: AuthService,
     private theme: ThemeService,
     public modal: ModalService
   ) {}
 
   ngOnInit() {
-    // this.core = this.config.get('mode') === 'core';
+    this.core = this.config.get('mode') === 'core';
   }
   openModal() {
     this.modal.loginModal();

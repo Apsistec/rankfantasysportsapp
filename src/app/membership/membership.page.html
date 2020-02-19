@@ -27,11 +27,11 @@
               >
     <!-- Sign  Up form -->
               <ng-container *ngIf="isRegister">
-                <app-register-element ></app-register-element>
+                <app-register-element  (stepsStepped)="onStepForward($event)" ></app-register-element>
               </ng-container>
     <!-- Login form -->
               <ng-container *ngIf="!isRegister">
-                <app-login-element></app-login-element>
+                <app-login-element (stepsStepped)="onStepForward($event)"></app-login-element>
               </ng-container>
                 <ion-button color="light" size="small" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Login' : 'Sign Up' }}?</ion-button>
       <!-- Step 2  Pay     -->

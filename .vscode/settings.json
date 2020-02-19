@@ -12,10 +12,7 @@
         "titleBar.inactiveForeground": "#15202b99",
         "statusBar.background": "#d19b81",
         "statusBarItem.hoverBackground": "#c37d5c",
-        "statusBar.foreground": "#15202b",
-        "panel.border": "#dfb9a6",
-        "sideBar.border": "#dfb9a6",
-        "editorGroup.border": "#dfb9a6"
+        "statusBar.foreground": "#15202b"
     },
     "peacock.color": "#d19b81",
     "jshint.options": {"esversion": 6}
