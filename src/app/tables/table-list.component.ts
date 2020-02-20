@@ -1,5 +1,4 @@
 import { ActivatedRoute } from '@angular/router';
-import { AngularSlickgridComponent } from 'angular-slickgrid';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { Table } from '../_models/table.model';

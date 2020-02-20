@@ -1,16 +1,23 @@
-
-<ion-card>
+<ion-card class="ion-padding" color="primary">
   <ion-card-header color="primary">
     <ion-card-title>
-      PGA
+      Golf
     </ion-card-title>
   </ion-card-header>
-  <ion-item color="light" routerLink="/list/pga-stats">
-    <ion-icon size="large" slot="start" name="radio-button-off" name="radio-button-off"></ion-icon>
-    <ion-label class="ion-text-wrap">Golf Stats and Rankings</ion-label>
-  </ion-item>
-  <ion-item color="light" routerLink="/list/pga-this-week">
-    <ion-icon size="large" slot="start"name="radio-button-off"></ion-icon>
-    <ion-label class="ion-text-wrap">Golf This Week</ion-label>
-  </ion-item>
+  <ion-card>
+
+    <ion-item color="light" routerLink="/tables/pga-stats">
+      <ion-icon
+      size="large"
+      slot="start"
+      name="radio-button-off"
+      name="radio-button-off"
+      ></ion-icon>
+      <ion-label class="ion-text-wrap">Golf Stats and Rankings</ion-label>
+    </ion-item>
+    <ion-item color="light" routerLink="/tables/pga-this-week">
+      <ion-icon size="large" slot="start" name="radio-button-off"></ion-icon>
+      <ion-label class="ion-text-wrap">Golf This Week</ion-label>
+    </ion-item>
+  </ion-card>
 </ion-card>

@@ -1,0 +1,120 @@
+<form #login  [formGroup]="loginForm" (ngSubmit)="onSubmit(login)" novalidate>
+  <hr />
+  <ion-card-title>
+    <ion-text
+      style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;" class="ion-text-capitalize"
+    >
+      Log In to Rank Fantasy Sports
+    </ion-text>
+  </ion-card-title>
+  <hr />
+  <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
+    Before using your <strong>Pro Plan</strong>, you need to log in to Rank
+    Fantasy Sports
+  </ion-text>
+  <hr />
+  <ion-card color="silver">
+    <ion-item color="light">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+        debounce="300"
+        style="width: 95%;"                                                                                                                                                                                                                                                           type="email"
+        inputmode="email"
+        formControlName="email"
+      ></ion-input>
+    </ion-item>
+    <div
+      *ngIf="
+        loginForm.controls['email'].invalid &&
+        (loginForm.controls['email'].dirty ||
+          loginForm.controls['email'].touched)"
+      class="alert alert-danger"
+    >
+      <div *ngIf="loginForm.controls['email'].errors.required">
+        <ion-text color="danger" class="inputError">
+          Email is required.
+        </ion-text>
+      </div>
+      <div *ngIf="loginForm.controls['email'].errors.email">
+        <ion-text color="danger" class="inputError">
+          Email is not Valid.
+        </ion-text>
+      </div>
+    </div>
+    <ion-item color="light">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        debounce="300"
+        id="password"
+        style="width: 89%;"
+        [type]="hidePass ? 'password' : 'text'"
+        inputmode="text"
+        formControlName="password"
+      ></ion-input>
+      <ion-button
+        item-end
+        (click)="hidePass = !hidePass"
+        *ngIf="hidePass"
+        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+      >
+        <ion-icon size="large" name="eye" color="white"> </ion-icon>
+      </ion-button>
+      <ion-button
+        item-end
+        (click)="hidePass = !hidePass"
+        *ngIf="!hidePass"
+        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+      >
+        <ion-icon size="large" name="eye-off" color="white"> </ion-icon>
+      </ion-button>
+    </ion-item>
+    <div
+      *ngIf="
+        loginForm.controls['password'].invalid &&
+        (loginForm.controls['password'].dirty ||
+          loginForm.controls['password'].touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="loginForm.controls['password'].errors.required">
+        <ion-text color="danger" class="inputError">
+          Password is required.
+        </ion-text>
+      </div>
+      <div *ngIf="loginForm.controls['password'].hasError('minlength')">
+        <ion-text color="danger" class="inputError">
+          Password must be at least 8 characters long.
+        </ion-text>
+      </div>
+      <div *ngIf="loginForm.controls['password'].errors.maxlength">
+        <ion-text color="danger" class="inputError">
+          Password must be less than 25 characters long.
+        </ion-text>
+      </div>
+      <div *ngIf="loginForm.controls['password'].errors.pattern">
+        <ion-text color="danger" class="inputError">
+          Password must contain 1 uppercase, 1 lowercase and 1 digit.
+        </ion-text>
+      </div>
+    </div>
+  </ion-card>
+  <hr />
+
+  <ion-button
+    [disabled]="loginForm.invalid"
+    color="danger"
+    style="width: 70%;"
+    type="submit"
+    >
+    <ion-icon
+      slot="start"
+      color="white"
+      name="arrow-round-forward"
+      slot="start"
+    ></ion-icon>
+    <ion-text>
+      Log In
+    </ion-text>
+  </ion-button>
+
+</form>

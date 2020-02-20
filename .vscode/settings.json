@@ -1,42 +1,19 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
-  },  
-  "search.exclude": {
-      "**/documentation": true,
-      "**/platforms": true,
-      "**/www": true,
-      "**/node_modules": true,
-      "**/lib": true,
-      "**/plugins": true,
-      "**/resources": true,
-      "**/e2e": true
-  },
-  "search.followSymlinks": false,
-  "search.smartCase": true,
-  "editor.formatOnSave": true,
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  "debug.internalConsoleOptions": "openOnSessionStart",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.tsdk": "node_modules\\typescript\\lib",
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#e7ab5d",
-    "activityBar.activeBorder": "#158b57",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#158b57",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "titleBar.activeBackground": "#e19430",
-    "titleBar.inactiveBackground": "#e1943099",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveForeground": "#15202b99",
-    "statusBar.background": "#e19430",
-    "statusBarItem.hoverBackground": "#c27a1c",
-    "statusBar.foreground": "#15202b"
-  },
-  "peacock.color": "#e19430",
-  "files.associations": {
-    "tslint.json": "jsonc"
-  },
-  "editor.fontFamily": "Fira Code"
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#dfb9a6",
+        "activityBar.activeBorder": "#338d51",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#338d51",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "titleBar.activeBackground": "#d19b81",
+        "titleBar.inactiveBackground": "#d19b8199",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveForeground": "#15202b99",
+        "statusBar.background": "#d19b81",
+        "statusBarItem.hoverBackground": "#c37d5c",
+        "statusBar.foreground": "#15202b"
+    },
+    "peacock.color": "#d19b81",
+    "jshint.options": {"esversion": 6}
 }

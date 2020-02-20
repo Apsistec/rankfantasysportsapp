@@ -1,21 +1,23 @@
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, from, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { auth } from 'firebase/app';
+import { BehaviorSubject, from, Observable, of } from 'rxjs';
+import { environment } from '..//../environments/environment';
+import { first, map, switchMap, take } from 'rxjs/operators';
 import { Injectable, NgZone } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
 import { MessageService } from './message.service';
+import { ModalController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { User } from '../_models/user';
 import { SpinnerService } from './spinner.service';
 import { StorageService } from './storage.service';
+import { User } from '../_models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  user: Observable<any>;
+  user: Observable<User>;
   currentUser = new BehaviorSubject(null);
   userId: string;
   planId: string;
@@ -29,38 +31,43 @@ export class AuthService {
     private message: MessageService,
     private storage: StorageService,
     private modalCtrl: ModalController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private spinner: SpinnerService
   ) {
-    //// Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
-        } else {
-          return null;
-        }
-      })
-    );
+ //// Get auth data, then get firestore user document || null
+ this.user = this.afAuth.authState.pipe(
+  switchMap(user => {
+    if (user) {
+      return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+    } else {
+      return of(null);
+    }
+  })
+);
+
+    // this.user = this.afAuth.authState.pipe(
+    //   switchMap(user => {
+    //     if (user) {
+    //       return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+    //     } else {
+    //       return null;
+    //     }
+    //   })
+    // );
   }
 
-  hasPermissions(permissions: string[]): boolean {
-    for (const perm of permissions) {
-      if (
-        !this.currentUser.value ||
-        !this.currentUser.value.permissions.includes(perm)
-      ) {
-        return false;
-      }
-    }
-    return true;
+
+  async getUser() {
+    return this.afAuth.authState.pipe(first()).toPromise();
   }
 
   async getCurrentUser(): Promise<any> {
-    return of(this.user).toPromise();
+    return await of(this.user).toPromise();
   }
 
   get isLoggedIn(): boolean {
-    return this.user !== null ? true : false;
+    const user = this.getCurrentUser();
+    return (user !== null) ? true : false;
   }
 
   modalDismiss() {
@@ -69,11 +76,6 @@ export class AuthService {
     this.modalCtrl.dismiss();
   }
 
-  async isSubscribedQ() {
-    const user = await this.getCurrentUser();
-    this.isSubscribed =
-      user.plan === 'gold' || 'silver' || 'bronze' ? true : false;
-  }
 
   // Authentication
   SignIn(credentials): Observable<any> {
@@ -99,20 +101,27 @@ export class AuthService {
   }
 
   /* Sign up email*/
-  SignUp(credentials) {
-    return this.afAuth.auth
-      .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then(data => {
-        return this.afs.doc<User>(`users/${data.user.uid}`).set({
-          displayName: credentials.firstName + ' ' + credentials.lastName,
-          email: data.user.email,
-          uid: data.user.uid,
-          role: 'USER',
-          permissions: ['delete-ticket'],
-          photoURL: data.user.photoURL
-        });
-      });
+
+
+  async registerUser(value) {
+    this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
+    .then(async (data: any) => {
+      await this.afs
+        .doc<User>(`users/${data.user.uid}`)
+        .set(
+          {
+            displayName: value.firstName + ' ' + value.lastName,
+            email: data.user.email,
+            uid: data.user.uid,
+            role: 'USER',
+            permissions: ['delete-ticket'],
+            photoURL: data.user.photoURL
+          },
+          { merge: true }
+        );
+    });
   }
+
 
   // Auth logic to Login using federated auth providers
   async AuthLogin(provider: any) {
@@ -140,33 +149,43 @@ export class AuthService {
     return this.afAuth.auth
       .signInWithPopup(provider)
       .then(async (data: any) => {
-        this.afs.doc<User>(`users/${data.user.uid}`).set({
-          displayName: data.user.displayName,
-          email: data.user.email,
-          uid: data.user.uid,
-          role: 'USER',
-          permissions: ['delete-ticket'],
-          photoURL: data.user.photoURL
-        });
-        return this.ngZone.run(() => {
-          this.router.navigateByUrl('/purchase');
-        });
+        await this.afs
+          .doc<User>(`users/${data.user.uid}`)
+          .set(
+            {
+              displayName: data.user.displayName,
+              email: data.user.email,
+              uid: data.user.uid,
+              role: 'USER',
+              permissions: ['delete-ticket'],
+              photoURL: data.user.photoURL
+            },
+            { merge: true }
+          )
+          .then(async () => {
+            await this.ngZone.run(() => {
+              this.router.navigateByUrl('/membership');
+            });
+          });
+      })
+      .catch(err => {
+        this.message.errorAlert(err);
       });
   }
 
   // Register in with Google
   async GoogleRegister() {
-    return this.AuthRegister(new firebase.auth.GoogleAuthProvider());
+    return this.AuthRegister(new auth.GoogleAuthProvider());
   }
 
   // Register in with Twitter
   TwitterRegister() {
-    return this.AuthRegister(new firebase.auth.TwitterAuthProvider());
+    return this.AuthRegister(new auth.TwitterAuthProvider());
   }
 
   // Register in with Facebook
   FacebookRegister() {
-    return this.AuthRegister(new firebase.auth.FacebookAuthProvider());
+    return this.AuthRegister(new auth.FacebookAuthProvider());
   }
 
   // MicrosoftRegister() {
@@ -176,23 +195,36 @@ export class AuthService {
   // Signin Login Federated
   // Sign in with Google
   GoogleAuth() {
-    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
+    return this.AuthLogin(new auth.GoogleAuthProvider());
   }
   // Sign in with Twitter
   TwitterAuth() {
-    return this.AuthLogin(new firebase.auth.TwitterAuthProvider());
+    return this.AuthLogin(new auth.TwitterAuthProvider());
   }
 
   // Sign in with Facebook
   FacebookAuth() {
-    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
+    return this.AuthLogin(new auth.FacebookAuthProvider());
   }
 
   // For working with Azure AD app to query Microsoft Graph using Excel API and MS Javascript after getting a token from MSAL
   MicrosoftAuth() {
-    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    const provider = new auth.OAuthProvider('microsoft.com');
+    return this.AuthLogin(provider);
     provider.setCustomParameters({
-      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02'
+      tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1',
+    });
+    provider.addScope('files.read');
+  }
+
+  // related to Settings Page for joining additional Profiles to User
+  async linkGoogle() {
+    this.spinner.loadSpinner();
+    const provider = await new auth.GoogleAuthProvider();
+    auth().currentUser.linkWithPopup(provider);
+    this.spinner.dismissSpinner();
+    provider.setCustomParameters({
+      tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02',
     });
     provider.addScope('user.read, files.read');
     // rfs-test@appspot.gserviceaccount.com
@@ -215,11 +247,13 @@ export class AuthService {
   async SignOut() {
     await this.afAuth.auth.signOut().then(() => {
       this.message.signOutToast();
-      return this.navCtrl.navigateRoot('/');
+      return this.navCtrl.navigateRoot('/home');
     });
   }
 
-  ///// hasPermissions(permissions: string[]): boolean {
+
+
+// User Roles to coincide with backend server permissions/rules
   canRead(user: User): boolean {
     const allowed = 'ADMIN' || 'EDITOR' || 'USER';
     return this.checkAuthorization(user, allowed);
@@ -237,7 +271,9 @@ export class AuthService {
 
   // determines if user has matching role
   private checkAuthorization(user: User, allowedRoles: string): boolean {
-    if (!user) return false;
+    if (!user) {
+      return false;
+    }
     for (const role of allowedRoles) {
       if (user[role]) {
         return true;
@@ -245,4 +281,48 @@ export class AuthService {
     }
     return false;
   }
+
+  // Current and Valid Subscription Check
+
+  isCurrentSubscriber(user: User): boolean {
+    const validStatus = 'active' || 'trialing';
+    return this.checkCurrentStatus(user, validStatus);
+  }
+
+  private checkCurrentStatus(user: User, validStatus: string): boolean {
+    if (!user) {
+      return false;
+    }
+    for (const valid of validStatus) {
+      if (user[valid]) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+  // Permissions Check for Trouble Tickets and Admin Dashboard
+
+  hasPermissions(permissions: string[]): boolean {
+    for (const perm of permissions) {
+      if (
+        !this.currentUser.value ||
+        !this.currentUser.value.permissions.includes(perm)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  async isCurrentSub() {
+    const user = await this.getCurrentUser();
+    // const user = await this.getUser();
+    this.isSubscribed =
+      (user.plan === 'bronze') ? true : false;
+  }
+
+
 }

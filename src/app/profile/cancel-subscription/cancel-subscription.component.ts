@@ -19,7 +19,6 @@ export class CancelSubscriptionComponent implements OnInit {
     public auth: AuthService,
     public stripeService: StripeService
   ) {}
-
   ngOnInit() {}
 
   dismissModal() {

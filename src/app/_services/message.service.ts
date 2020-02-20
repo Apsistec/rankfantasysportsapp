@@ -1,8 +1,4 @@
-import {
-  AlertController,
-  NavController,
-  ToastController
-} from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,36 +9,42 @@ export class MessageService {
 
   constructor(
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController,
-    private navCtrl: NavController
-  ) {}
+    private alertCtrl: AlertController  ) {}
+  messages: string[] = [];
+
+  add(message: string) {
+    this.messages.push(message);
+  }
+
+  clear() {
+    this.messages = [];
+  }
 
   // Toasts
-  async registerSuccessToast(user) {
+  async registerSuccessToast() {
     const toast = await this.toastCtrl.create({
       header: 'Registration Successful',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Thank You ' + user.displayName + '! You are now Registered',
+        'You have successfully registered your email with Rank Fantasy Sports!',
       cssClass: 'successT',
-      position: 'top',
+      position: 'middle',
       keyboardClose: true,
       duration: 4000,
       showCloseButton: true,
-      translucent: true
     });
     return toast.present();
   }
 
-  async isLoggedInToast(user) {
+  async isLoggedInToast() {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
-      message: '<ion-icon name="flag"  slot="start"></ion-icon> Welcome Back ' + user.displayName + '!',
+      message:
+        'Welcome Back!',
       cssClass: 'successT',
-      position: 'top',
+      position: 'middle',
       keyboardClose: true,
-      duration: 4000,
+      duration: 3000,
       showCloseButton: true,
-      translucent: true
     });
     await toast.present();
   }
@@ -51,13 +53,14 @@ export class MessageService {
     const toast = await this.toastCtrl.create({
       header: 'Login Successful',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Welcome back ' + data.user.displayName + '!',
+        ' Welcome back ' +
+        data.user.displayName +
+        '!',
       cssClass: 'successT',
-      position: 'top',
-      duration: 4000,
+      position: 'middle',
+      duration: 3000,
       showCloseButton: true,
       keyboardClose: true,
-      translucent: true
     });
     await toast.present();
   }
@@ -67,11 +70,13 @@ export class MessageService {
       header: 'Sign Out Successful',
       cssClass: 'successT',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> Thank You for Stopping By!',
-      position: 'top',
-      duration: 4000,
+        'Thank You for Stopping By!',
+      position: 'middle',
+      duration: 3000,
       showCloseButton: true,
-      translucent: true
+
+      keyboardClose: true,
+
     });
     await toast.present();
   }
@@ -80,11 +85,14 @@ export class MessageService {
     const toast = await this.toastCtrl.create({
       header: 'Update Successful',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> User info was updated',
-      duration: 4000,
-      position: 'top',
+        'User info was updated',
+      duration: 3000,
+      position: 'middle',
       cssClass: 'successT',
-      translucent: true
+      showCloseButton: true,
+
+      keyboardClose: true,
+
     });
     await toast.present();
   }
@@ -94,11 +102,12 @@ export class MessageService {
       header: 'Payment Successful',
       cssClass: 'successT',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> You are subscribed! Thank You!',
-      position: 'top',
-      duration: 4000,
+        'You are subscribed! Thank You!',
+      position: 'middle',
+      duration: 3000,
       showCloseButton: true,
-      translucent: true
+      keyboardClose: true,
+
     });
     await toast.present();
   }
@@ -106,13 +115,15 @@ export class MessageService {
   async alreadySubscribedToast() {
     const toast = await this.toastCtrl.create({
       header: 'Invalid Request',
-      cssClass: 'infoT',
+      cssClass: 'warningT',
       message:
-        '<ion-icon name="flag"  slot="start"></ion-icon> You are already Subscribed',
-      position: 'top',
+        ' You are already Subscribed',
+      position: 'middle',
       duration: 3000,
       showCloseButton: true,
-      translucent: true
+
+      keyboardClose: true,
+
     });
     await toast.present();
   }
@@ -122,45 +133,21 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Error Occurred',
       subHeader: 'That email address is not in our system',
-      translucent: true,
-      message: 'Try another account. If you continue to have trouble, \n open a trouble ticket and we will assist you',
+      message:
+        'Try another account. If you continue to have trouble, \n open a trouble ticket and we will assist you',
       buttons: ['OK']
     });
     await alert.present();
   }
 
-  async unauthenticatedAlert() {
-    const loginAlert = await this.alertCtrl.create({
-      header: 'Authentication Required',
-      subHeader: 'Login or Register',
-      translucent: true,
-      message:
-        'You will need to Login or Register an account for access',
-      buttons: ['OK']
-    });
-    await loginAlert.present();
-  }
 
   async needPaymentAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Members Area Only',
       subHeader: 'Paid PRO Package Required',
-      message:
-        'Purchase any RF$ports PRO Package for immediate access',
+      message: 'Purchase any RF$ports PRO Package for immediate access',
       buttons: ['OK'],
-      translucent: true
-    });
-    await alert.present();
-  }
 
-  async verifyEmailAlert(data: any) {
-    const alert = await this.alertCtrl.create({
-      header: 'Request Successful',
-      subHeader: 'Verification Email Sent',
-      message:
-        'Check your ' + data.user.email + ' email for further instructions',
-      buttons: ['OK'],
-      translucent: true
     });
     await alert.present();
   }
@@ -170,7 +157,7 @@ export class MessageService {
       header: 'Request Successful',
       subHeader: 'Password Reset Request Sent',
       message: 'Check your email for a link to RESET your password',
-      translucent: true,
+
       buttons: ['OK']
     });
     await alert.present();
@@ -180,7 +167,6 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Invalid Request',
       message: 'You are already Subscribed',
-      translucent: true,
       buttons: ['OK']
     });
     await alert.present();
@@ -190,8 +176,8 @@ export class MessageService {
     const internalBlock = await this.alertCtrl.create({
       header: 'Invalid Request',
       subHeader: 'You are already Signed In',
-      message: 'Your account does not have access to this area',
-      translucent: true,
+      message: 'Your account does not need access to this area',
+
       buttons: ['OK']
     });
     await internalBlock.present();
@@ -201,9 +187,9 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Cancellation Successful',
       subHeader: 'Your account has been cancelled',
-      translucent: true,
+
       message:
-        'Your account has been terminated, effective immediately. Thank you for giving us a try!.',
+        'Effective immediately. Thank you for giving us a try!',
       buttons: ['OK']
     });
     await alert.present();
@@ -211,12 +197,10 @@ export class MessageService {
 
   async errorAlert(err: any) {
     const alert = await this.alertCtrl.create({
-      header: 'Error Occurred',
-      subHeader: 'err.message',
-      translucent: true,
-      cssClass: 'errStyle',
-      message: 'If errors continue to occur, please create a support ticket so we can help',
-      buttons: ['OK']
+      header: 'An Error Occurred',
+      message: err.message,
+      buttons: ['OK'],
+
     });
     await alert.present();
   }
@@ -225,7 +209,6 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Are You Sure?',
       subHeader: 'Changes were NOT saved',
-      translucent: true,
       message: 'Press Save to resume editing or press OK to close',
       backdropDismiss: false,
       buttons: [
@@ -247,21 +230,4 @@ export class MessageService {
     await alert.present();
   }
 
-  // async updateAlert() {
-  //   const alert = await this.alertCtrl.create({
-  //     header: 'App update notification ',
-  //     message: '<ion-icon name="flag"  slot="start"></ion-icon>  There is a new version of the app, please refresh the page.. ',
-  //     cssClass: 'infoT',
-  //     buttons: [
-  //       {
-  //         text: ' Update ',
-  //         handler: () => {
-  //           location.reload();
-  //           return true;
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   await alert.present();
-  // }
 }

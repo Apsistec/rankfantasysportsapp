@@ -47,16 +47,16 @@ What is RankFantasySports.com?
 
 ## Table of Contents
 
-- [RFSports](#RFSports)
-  - [Rank Fantasy $ports&trade; PWA](#rank-fantasy-portstrade-pwa)
-    - [Tech Stack](#tech-stack)
-  - [Structure of App](#structure-of-app)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Documentation](#documentation)
-  - [Contributing](#contributing)
-  - [Contributors/People](#contributorspeople)
-  - [Support](#support)
+* [RFSports](#RFSports)
+  * [Rank Fantasy $ports&trade; PWA](#rank*fantasy-portstrade-pwa)
+    * [Tech Stack](#tech-stack)
+  * [Structure of App](#structure-of-app)
+  * [Table of Contents](#table-of-contents)
+  * [Installation](#installation)
+  * [Documentation](#documentation)
+  * [Contributing](#contributing)
+  * [Contributors/People](#contributorspeople)
+  * [Support](#support)
 
 ## Installation
 

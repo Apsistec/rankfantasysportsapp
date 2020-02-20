@@ -1,3 +1,4 @@
+/* autoprefixer grid: autoplace */
 // for unicode characters
 @charset 'utf-8';
 
@@ -13,186 +14,131 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+// Material Themes
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-// @import "scss/fontawesome.scss";
-// @import "scss/solid.scss";
+// NGX-Share
 
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import '~@ngx-share/button/themes/default/default-theme';
+
+:root {
+// Toasts each status
+.successT {
+  --background: #d0ffe5;
+  --color: #121212;
+  --button-color: var(--ion-color-success);
+  --box-shadow: '0 3px 6px rgba(0, 0, 0, 0.36), 0 3px 6px rgba(0, 0, 0, 0.49)';
+  --border-color: var(--ion-color-success);
+  --border-width: '10px';
+  --border-style: solid;
+  --width: '300px';
+  --height: '48px';
+
+}
+.dangerT {
+  --background: #ffc4c4;
+  --color: #121212;
+  --button-color: var(--ion-color-danger);
+  --box-shadow: '0 3px 6px rgba(0, 0, 0, 0.36), 0 3px 6px rgba(0, 0, 0, 0.49)';
+  --border-color: var(--ion-color-danger);
+  --border-width: '2px';
+  --border-style: solid;
+  --border-radius: '10px';
+  --width: '300px';
+  --height: '48px';
+
+}
+.warningT {
+  --background: #fbffd4;
+  --color: #121212;
+  --button-color: var(--ion-color-warning);
+  --box-shadow: '0 3px 6px rgba(0, 0, 0, 0.36), 0 3px 6px rgba(0, 0, 0, 0.49)';
+  --border-color: var(--ion-color-warning);
+  --border-width: '2px';
+  --border-style: solid;
+  --border-radius: '10px';
+  --width: '300px';
+  --height: '48px';
+}
+
+.infoT {
+  --background: #ffffff;
+  --color: #121212;
+  --button-color: var(--ion-color-facebk);
+  --box-shadow: '0 3px 6px rgba(0, 0, 0, 0.36), 0 3px 6px rgba(0, 0, 0, 0.49)';
+  --border-color: var(--ion-color-success);
+  --border-width: '2px';
+  --border-radius: '10px';
+  --width: '0px';
+  --height: '48px';
+}
 
 
-/* for example, let's change the mouse hover color */
-// $cell-odd-background-color: lightyellow;
-// $row-mouse-hover-color: lightgreen;
 
-/* make sure to add the @import the SlickGrid Bootstrap Theme AFTER the variables changes */
-// @import '../node_modules/angular-slickgrid/styles/sass/slickgrid-theme-bootstrap.scss';
 
-// Main styling
-:root
-ion-content{
-    --ion-background-color: none;
-    background: rgb(91,91,91);
-    background: linear-gradient(180deg, rgba(91,91,91,1) 0%, rgba(228,228,228,1) 35%, rgba(17,17,17,1) 100%);
+::scrollbar,
+*::scrollbar {
+  display: none;
+}
+
+a:hover {
+  cursor: auto;
+}
+
+
+
+  // Register Modal CSS
+  .app-reg-modal {
+    --min-height: 80%;
   }
 
-ion-text, p {
-  text-shadow: 1px 1px 1px #232127;
-}
+// Purchase Modal
+  .startmodal{
+    // background: transparent !important;
+    // border: 3px solid var(--ion-color-white);
+    // border-radius: 18px 18px 18px 18px;
+    --box-shadow:none;
+    overflow: scroll !important;
+  }
 
-ion-icon{
-  filter:  drop-shadow(1px 1px 2px rgb(44, 37, 61));
-}
+  .modal-wrapper{
+    --background: transparent !important;
+    --max-height: 85%;
+    --max-width: 85%;
+  }
 
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-// primary card background color images shadow gradients/gradients for each browser type with fallback gradients and color
-.card-metal{
-  background: #33344b;
-  background: -moz-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* ff3.6+ */
-  background: -webkit-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* opera 11.10+ */
-  background: -ms-radial-gradient(center, ellipse farthest-corner, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* ie10+ */
-  background: radial-gradient(ellipse at center, rgba(35,13,53,1) 0%, rgba(35,13,53,1) 0%, rgba(38,60,63,1) 100%); /* w3c */
-}
-
-.main-card{
-  background: #454049;
-  background-image: -moz-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-  background-image: -webkit-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-  background: -o-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-  background: -ms-linear-gradient(to right, rgb(69, 64, 73), rgb(144, 0, 240));
-  background: linear-gradient(to right, rgba(144, 0, 240, 1) 10%, rgba(69, 64, 73, 1) 100%);
-}
-
-// Toasts each status
-.successT{
-  --background:  #11b81c;
-  --color: #fcf9f6;
-  --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
-}
-
-.dangerT{
-  --background:  rgb(184, 49, 32);
-  --color: rgb(251, 251, 255);
-  --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
-}
-
-.infoT{
-  --background:  rgb(87, 107, 131);
-  --color: #f6f9fd;
-  --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, .2);
-}
-
-.warningT{
-  background:  rgb(139, 139, 0);
-  --color: rgb(255, 253, 255);
-  --button-color: #ff7300;
-  --box-shadow: 12px 12px 2px 1px rgba(0, 0, 66, 0.2);
-}
+  .auth-modal-css{
+    --box-shadow:none;
+      // --background: var(--ion-color-primary) !important;
+      // --ion-backdrop-opacity: 0.8 !important;
+      // --min-width: auto !important;
+      overflow: scroll !important;
+  }
 
 
-// Text selection background
-*::selection{
-  background-color: #5f00ad;
-}
+  .router-link-active{
+    color: var(--ion-color-tertiary) !important;
+    font-weight: 800 !important;
+    font-variant:small-caps !important;
+  }
 
-// Remove scrollbars
-// *::-webkit-scrollbar {
-  //   display: none;
+  // ion-card{
+  //   border-radius: 18px 18px 18px 18px;
+  //   border: 3px solid var(--ion-color-white);
+  //   box-shadow: 5px 10px 12px #070707;
   // }
 
-  a, link {
-  cursor:pointer;
-}
-
-
-// Credit Card Logos
-.creditCard{
-  filter: drop-shadow(5px 5px 2px #130e14);
-}
-
-// Register Modal CSS to show all options in full view
-.app-reg-modal {
-  --min-height: 750px;
-}
-
-
-.center-heading{
-  font-size:20px;
-  font-variant: small-caps;
-  font-weight: 800;
-  font-stretch:semi-condensed;
-}
-
-
-
-/* You can add global styles to this file, and also import other style files */
-.italic {
-  font-style: italic;
-}
-.subtitle {
-  font-size: 16px;
-  font-style: italic;
-  color: grey;
-  margin-bottom: 10px;
-}
-.lightblue {
-  color: lightblue;
-}
-.red {
-  color: red;
-}
-.faded {
-    opacity: 0.2;
+  ion-card-title{
+    font-variant: small-caps;
+    font-weight: 800;
+    text-transform:capitalize;
   }
-  .faded:hover {
-    opacity: 0.5;
+  .popoverUser{
+    --background: var(ion-color-primary)!important;
   }
-  .pointer {
-  cursor: pointer !important;
-}
-.padding10 {
-  padding: 10px !important;
-}
-.text-danger {
-  color: red !important;
+
+  Adding Font for Body
+  html, body { height: 100%; }
+  body { margin: 0; font-family: 'Roboto', sans-serif; }
 }
 
-
-.errStyle{
-  color:black;
-  background: linear-gradient(to right, rgba(248, 60, 60, 0.534) 0%, rgba(255, 79, 79, 0.623) 100%);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- * App CSS
- * ----------------------------------------------------------------------------
- * Imports a file that can contain Sass/CSS that should be used throughout
- * the entire app.
- */
-@import "./app/app.scss";

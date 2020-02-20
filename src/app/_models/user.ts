@@ -8,19 +8,11 @@ export interface User {
   displayName: string;
   uid: string;
   photoURL: string;
-  role: null | '' | 'USER' | 'EDITOR' | 'ADMIN' ;
+  role: string;
   permissions: string[];
   email: string;
-  createdAt?: number;
-  lastLoginAt?: number;
-  lastRefreshAt?: number;
-  passwordHash?: string;
-  validSince?: number;
-  providerUserInfo?: ProviderUserInfo;
-  passwordUpdatedAt?: number;
-  emailVerified?: boolean;
   stripeCustomerId?: string;
-  plan?: null | '' | 'bronze' | 'silver' | 'gold';
+  plan?: string;
   status?: string;
   subId?: string;
 }

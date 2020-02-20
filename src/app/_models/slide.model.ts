@@ -1,3 +1,3 @@
 export interface Slide {
-    img: string;
+  img: string;
 }

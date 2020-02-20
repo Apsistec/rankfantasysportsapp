@@ -1,9 +1,10 @@
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
-import { stripe, db } from './config';
-import { getCustomer, getOrCreateCustomer } from './customers';
 import { attachSource } from './sources';
+import { db, stripe } from './config';
+import { getCustomer } from './customers';
 import { v4 as uuid } from 'uuid';
+
 /**
 Gets a user's subscriptions
 */
@@ -17,12 +18,12 @@ Creates and charges user for a new subscription
 */
 export const createSubscription = async ( uid: string, source: string, plan: string, coupon?: string, idempotency_key?: string ) => {
 
-    const customer = await getOrCreateCustomer(uid);
-    
+    const customer = await getCustomer(uid);
+
     await attachSource(uid, source);
 
     const subscription = await stripe.subscriptions.create({
-        customer: customer.id,
+        customer,
         coupon,
         items: [{ plan }],
         trial_from_plan: true,
@@ -31,9 +32,11 @@ export const createSubscription = async ( uid: string, source: string, plan: str
 
     // Add the plan to existing subscriptions
     const docData = {
-        'plan': subscription.plan.id,
-        'status': subscription.status,
-        'subId': subscription.id
+
+      [plan]: true,
+      [subscription.id]: 'active',
+      'plan': [plan],
+      [subscription.id]: [subscription.status]
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
@@ -49,9 +52,9 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
     const subscription  = await stripe.subscriptions.del(subId);
 
     const docData = {
-        'plan': '',
-        'status': [subscription.status],
-        'subId': ''
+      [subscription.plan.id]: false,
+      [subscription.id]:'cancelled',
+      'status': [subscription.status],
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });

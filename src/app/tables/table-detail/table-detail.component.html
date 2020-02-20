@@ -1,74 +1,12 @@
-<div class="card">
-  <div class="card-header">
-    {{pageTitle}}
-  </div>
+<app-header></app-header>
+<ion-content>
+  <ion-card class="ion-padding" color="primary">
+    <ion-card-header color="primary">
 
-  <div class="card-body"
-       *ngIf="table">
+    </ion-card-header>
+  <!-- <data-table></data-table> -->
 
-    <div class="row">
+  </ion-card>
 
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-3">Name:</div>
-          <div class="col-md-6">{{table.tableName}}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Code:</div>
-          <div class="col-md-6">{{table.tableCode}}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Description:</div>
-          <div class="col-md-6">{{table.description}}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Availability:</div>
-          <div class="col-md-6">{{table.releaseDate}}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">5 Star Rating:</div>
-          <div class="col-md-6">
-            <app-star [rating]="table.starRating">
-            </app-star>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Category:</div>
-          <div class="col-md-6">{{table.category}}</div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Tags:</div>
-          <div class="col-md-6">{{table.tags}}</div>
-        </div>
-      </div>
-
-      <div class="col-md-4"
-        <img class="center-block img-responsive"
-             [style.height.px]="150"
-             [style.margin.px]="2"
-             [title]="table.tableName">
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <button class="btn btn-outline-secondary mr-3"
-                style="width:80px"
-                [routerLink]="['/tables']"
-                queryParamsHandling="preserve">
-          <i class="fa fa-chevron-left"></i> Back
-        </button>
-        <button class="btn btn-outline-primary"
-                style="width:80px"
-                [routerLink]="['/tables', table.id, 'edit']">
-          Edit
-        </button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="alert alert-danger"
-     *ngIf="errorMessage">{{errorMessage}}
-</div>
+</ion-content>
+<app-footer></app-footer>

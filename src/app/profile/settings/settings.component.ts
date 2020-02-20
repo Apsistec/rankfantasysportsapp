@@ -1,11 +1,9 @@
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AuthService } from '../../_services/auth.service';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-// tslint:disable: object-literal-shorthand
 
 @Component({
   selector: 'app-settings',
@@ -23,7 +21,6 @@ export class SettingsComponent implements OnInit {
     public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private toastCtrl: ToastController,
-    private auth: AuthService,
     private modalCtrl: ModalController,
     public router: Router
   ) {}
@@ -40,7 +37,7 @@ export class SettingsComponent implements OnInit {
       duration: 5000,
       position: 'top',
       cssClass: 'successT',
-      translucent: true
+
     });
     await toast.present();
     return this.router.navigateByUrl('/auth/profile');

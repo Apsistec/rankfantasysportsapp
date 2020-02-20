@@ -1,32 +1,40 @@
+import { AuthService } from '@services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Config, PopoverController } from '@ionic/angular';
+import { ModalService } from '@services/modal.service';
+import { ThemeService } from '@services/theme.service';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
+  styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-
   core;
 
   constructor(
     private config: Config,
-    private popoverCtrl: PopoverController,
-  ) { }
+    public auth: AuthService,
+    private theme: ThemeService,
+    public modal: ModalService,
+  ) {}
 
   ngOnInit() {
     this.core = this.config.get('mode') === 'core';
   }
+  openModal() {
+    this.modal.loginModal();
+  }
+  dismiss() {
+    this.modal.dismiss();
+  }
 
+  enableDark() {
+    this.theme.enableDark();
+  }
 
-  // async presentPopover(ev: any) {
-  //   const popover = await this.popoverCtrl.create({
-  //     component: , //PagesComponent,
-  //     event: ev,
-  //     translucent: true,
-  //     cssClass: 'popoverUser'
-  //   });
-  //   return popover.present();
-  // }
+  enableLight() {
+    this.theme.enableLight();
+  }
+
 }

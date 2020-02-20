@@ -1,82 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
 
-<head>
-  <meta charset="utf-8"/>
-  <title>Rank Fantasy Sports</title>
-
-  <base href="/"/>
-  <meta name="application-name" content="RFSports"/>
-  <meta name="description" content="The web app for Daily Fantasy Sports players who Win"/>
-  <!-- <link rel="icon" type="image/x-icon" src="src/assets/icon/favicon.png"/> -->
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-  <meta name="format-detection" content="telephone=no"/>
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes"/>
-
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-  <meta name="apple-mobile-web-app-title" content="RFSports"/>
-
-  <!-- Stripe v3 -->
-  <script src="https://js.stripe.com/v3/" async=""></script>
-
-  <!-- Facebook Pixel Code -->
-  <!-- <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1392812897535117');
-    fbq('track', 'PageView');
-  </script> -->
-  <!-- <noscript><img height="1" width="1" style="display:none"
-      src="https://drive.google.com/uc?export=view&id=1gyBYXksLHDT56A07iB_mUo8JVMCmVQFWQwTcBoxcEtM" />
-  </noscript> -->
-  <!-- End Facebook Pixel Code -->
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9Q6WVLYF7"></script> -->
-  <!-- <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-J9Q6WVLYF7');
-  </script> -->
+    <!-- Material -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
 
-  <!-- <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@microsoft/microsoft-graph-client/lib/graph-js-sdk.js"></script> -->
+    <title>Rank Fantasy Sports</title>
+    <meta name="application-name" content="RFSports" />
+    <meta name="description"
+      content="The web app for Daily Fantasy Sports players who Win"/>
+    <meta name="theme-color" content="#121212" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
 
-  <link rel="manifest" href="manifest.json"/>
-  <meta name="theme-color" content="#3f005c"/>
-</head>
+    <!-- PWA required -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-<body>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <app-root></app-root>
-  <noscript>To use this application, enable javascript in your browser settings.</noscript>
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
 
-</body>
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="RFSports" />
 
+    <!-- Stripe v3 -->
+    <script src="https://js.stripe.com/v3/" async></script>
+    <!-- <script src="https://checkout.stripe.com/checkout.js" async></script> -->
+
+
+    <!-- Facebook Pixel Code -->
+    <!-- <script>
+      !(function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js'
+      );
+      fbq('init', '1392812897535117');
+      fbq('track', 'PageView');
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://drive.google.com/uc?export=view&id=1gyBYXksLHDT56A07iB_mUo8JVMCmVQFWQwTcBoxcEtM"
+      />
+    </noscript> -->
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-J9Q6WVLYF7"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-J9Q6WVLYF7');
+    </script> -->
+  </head>
+  <body>
+    <app-root></app-root>
+    <noscript
+      >To use this application, enable javascript in your browser
+      settings.</noscript
+    >
+  </body>
 </html>

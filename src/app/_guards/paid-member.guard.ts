@@ -4,7 +4,7 @@ import {
   Router,
   RouterStateSnapshot,
   UrlTree
-} from '@angular/router';
+  } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { Injectable } from '@angular/core';
 import { map, take } from 'rxjs/operators';
@@ -40,7 +40,7 @@ export class PaidMemberGuard implements CanActivate {
             return true;
           } else {
             this.message.needPaymentAlert();
-            this.router.navigateByUrl('/purchase');
+            this.router.navigateByUrl('/membership');
             return false;
           }
         }

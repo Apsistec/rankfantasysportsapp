@@ -1,4 +1,4 @@
 export interface FAQ {
-    title: string;
-    info: string;
+  title: string;
+  info: string;
 }

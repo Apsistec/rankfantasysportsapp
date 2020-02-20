@@ -1,0 +1,414 @@
+<ion-content>
+  <ion-toolbar style="background-color: transparent;">
+
+
+    <ion-item *ngIf="auth.afAuth.user | async as user"
+        slot="end"
+        type="button"
+        color="medium"
+        (click)="presentPopover($event)"
+        detail="false"
+        lines="none"
+        >
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+        </ion-avatar>
+      </ion-item>
+
+
+  </ion-toolbar>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
+      <ion-col
+        class=" ion-align-self-center ion-no-padding ion-no-margin"
+        size-sm="12"
+        size-md="8"
+        offset-md="2"
+        size-lg="4"
+        offset-lg="2"
+        size-xl="4"
+        offset-xl="2"
+      >
+        <ion-card
+          color="primary"
+        >
+          <ion-card-content>
+
+
+  <!-- Step 1 Log In Sign Up -->
+            <aw-wizard navBarLayout="large-filled-symbols">
+              <aw-wizard-step
+                stepTitle="Sign Up / Log In"
+                [navigationSymbol]="{ symbol: 1 }"
+              >
+    <!-- Sign  Up form -->
+              <ng-container *ngIf="isRegister">
+                <app-register-element (readyToStep)="navigateToStep()"></app-register-element>
+              </ng-container>
+    <!-- Login form -->
+              <ng-container *ngIf="!isRegister">
+                <app-login-element (readyToStep)="navigateToStep()"></app-login-element>
+              </ng-container>
+                <ion-button color="light" size="small" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Login' : 'Sign Up' }}?</ion-button>
+      <!-- Step 2  Pay     -->
+              </aw-wizard-step>
+              <aw-wizard-step
+                stepTitle="Pay"
+                [navigationSymbol]="{ symbol: 2 }"
+              >
+                <hr />
+                <ion-card-title>
+                  <ion-text class="ion-text-wrap"
+                    style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed; line-height: 1;"
+                  >
+                    Payment Details
+                  </ion-text>
+                </ion-card-title>
+
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-text style="font-size: large; font-weight: 600;">
+                        <u>
+                          Items
+                        </u>
+                      </ion-text>
+
+                      <br />
+                    </ion-col>
+                    <ion-col>
+                      <ion-text style="font-size: large; font-weight: 600;">
+                        <u>
+                          Price
+                        </u>
+                      </ion-text>
+                    </ion-col>
+                  </ion-row>
+                  <ion-card
+                    color="white"
+                    style="padding-left:17%; border: 3px solid black;text-align: left;"
+                  >
+                    <ion-row>
+                      <ion-col>
+                        <ion-text>
+                          RFS Pro Package
+                        </ion-text>
+                        <br />
+                        <ion-text *ngIf="isChecked">
+                          ***
+                        </ion-text>
+                        <ion-text *ngIf="!isChecked">
+                          1-ON-1 Training
+                        </ion-text>
+                        <br />
+                        <br />
+                        <ion-text>
+                          Total $ Today
+                        </ion-text>
+                      </ion-col>
+
+                      <ion-col>
+                        <ion-text> $9.99/<sub>Month</sub> </ion-text>
+                        <br />
+
+                        <ion-text *ngIf="!isChecked">
+                          $57.00
+                        </ion-text>
+                        <br />
+                        <br />
+                        <ion-text *ngIf="!isChecked">
+                          $57.00
+                        </ion-text>
+                        <ion-text *ngIf="isChecked">
+                          $0.00
+                        </ion-text>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card>
+                </ion-grid>
+                <div style="display: flex;">
+                  <img
+                    src="../../assets/img/1.png"
+                    style="height: 22.5px; width: 37.5px;"
+                  />
+                  <img
+                    src="../../assets/img/2.png"
+                    style="height: 22.5px; width: 37.5px;"
+                  />
+                  <img
+                    src="../../assets/img/14.png"
+                    style="height: 22.5px; width: 37.5px;"
+                  />
+                  <img
+                    src="../../assets/img/22.png"
+                    style="height: 22.5px; width: 37.5px;"
+                  />
+                </div>
+
+                <form #stripe novalidate (ngSubmit)="onSubmit(stripe)">
+                  <div class="form-row">
+                    <div id="card-element" #cardElement>
+                      <!-- A Stripe Element will be inserted here. -->
+                    </div>
+                    <!-- Used to display Element errors. -->
+                    <p class="StripeElement--invalid">{{ cardErrors }}</p>
+                  </div>
+                  <hr />
+                  <ion-button
+                    type="submit"
+                    fill="solid"
+                    color="tertiary"
+                  >
+                    <ion-text color="white" style="text-shadow: 1px 1px black;">
+                      <ion-icon
+                        slot="start"
+                        color="dark"
+                        name="arrow-round-forward"
+                      ></ion-icon>
+                      Get Started Now!
+                    </ion-text>
+                  </ion-button>
+                </form>
+
+
+                <!-- bumpup offer -->
+                <ion-card
+                  class="ion-text-start ion-text-wrap "
+                  style="border: 4px black dotted;background-color:palegoldenrod;"
+                >
+                <ion-card-content>
+
+                  <ion-item color="warning">
+                    <ion-icon appBlink name="arrow-round-forward" color="danger" slot="start"></ion-icon>
+
+                    <form #check novalidate (ngSubmit)="onSubmit(check)">
+
+                      <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" /> Checked + Change
+                    </form>
+
+                      <ion-label color="success" class="ion-text-wrap">
+                        Enhance My Trial
+                      </ion-label>
+                    </ion-item>
+                    <ion-text color="danger"  class="bump">
+                      ONE TIME OFFER ($57):
+                    </ion-text>
+                    <ion-text>
+                      You'll never see this offer again! By checking the box, we
+                      will Send you our DFS Lineup Checklist and You will get a
+                    complimentary 30 min strategy session with one of our DFS
+                    Pros to help you win some contests early (Normally $250) for
+                    just $57 when you check the box above. This offer is only
+                    available when you sign up for your trial today.
+                  </ion-text>
+                </ion-card-content>
+                </ion-card>
+
+                <ion-button fill="clear" color="light" awPreviousStep
+                  >Need to Start Over?</ion-button
+                >
+              </aw-wizard-step>
+      <!-- Step 3 Done -->
+              <aw-wizard-completion-step
+                stepTitle="Done!"
+                [navigationSymbol]="{ symbol: 3 }"
+              >
+                <ion-card color="light">
+                  <img src="../../../assets/img/logo.jpg" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      <ion-text color="primary" class="ion-text-center ion-text-capitalize" style="font-variant:small-caps;">
+                        <strong>
+                          Welcome to RF$&trade;
+                        </strong>
+                      </ion-text>
+                    </ion-card-title>
+                    <ion-card-subtitle>
+
+                    </ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-text class="ion-text-wrap">
+                      <p>
+                          Thank you! Your Rank Fantasy Sports trial account has officially started! This 7 day trial is provided to you at no cost for the next 7 days! Your card will be chaged $9.99 at the end of the trial period, and will be continue to be charged each following month.
+                      </p>
+                      <hr />
+
+                      <hr />
+                      <ul>
+                        <ion-text class="ion-text-capitalize" style="font-variant:small-caps;">
+                          <li>The RF$&trade; Data Tables</li>
+                          <li>View Account Details</li>
+                          <li>Update Profile</li>
+                          <li>Create Trouble Tickets</li>
+                          <li>Request New Features</li>
+                          <li>Change Theme</li>
+                        </ion-text>
+                      </ul>
+                    </ion-text>
+                    <ion-button expand="block" routerLink="/profile">
+                      <ion-icon slot="start" name="person"></ion-icon>
+                      <ion-text>
+                        Goto My Profile
+                      </ion-text>
+                    </ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </aw-wizard-completion-step>
+            </aw-wizard>
+          </ion-card-content>
+
+          <hr />
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        *ngIf="showDetails"
+        class=" ion-align-self-center ion-no-margin ion-no-padding"
+        size-sm="6"
+        size-md="6"
+        size-lg="3"
+        size-xl="3"
+        >
+        <ion-card
+          style="top:20%;background: rgb(0,0,0);
+      background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 100%);"
+        >
+          <ion-card-header style="background-color:transparent !important;">
+            <ion-card-subtitle>
+              <ion-text class="ion-text-wrap ion-text-center" color="white">
+                Price after your complimentary trial
+              </ion-text>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-title style="background-color:transparent !important;">
+            <ion-text
+              color="white"
+              class="ion-text-no-wrap ion-text-capitalize"
+            >
+              $9.99
+              <sub>per month</sub>
+              <hr />
+            </ion-text>
+          </ion-card-title>
+          <ion-text color="white" class="ion-text-start">
+            <ion-text>
+              Features:
+            </ion-text>
+            <ul>
+              <li>
+                <ion-text>
+                  <p>
+                    Season Long Projections & Picks
+                  </p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>
+                    RFS Aggregated information
+                  </p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>
+                    Advanced RFS Stats
+                  </p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>
+                    Hand Curated data
+                  </p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>
+                    Data Dashboard
+                  </p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>
+                    Billed monthly, no set up fee
+                  </p>
+                </ion-text>
+              </li>
+            </ul>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-padding bottom">
+        <ion-text>
+          <p>
+            * A valid Credit or Debit card in your name is required for account
+            authorization, and further verification may be requeseted if
+            necessary to validate the subscription service. During the One Week
+            (7 day) Free trial period, your card will not be charged, however
+            the information will be used to validate the subscription. On the
+            eighth 8
+            <sup>
+              th
+            </sup>
+            day following the subscription start date, your card will be
+            processed for the full membership fee, according to the plan you
+            chose on the day you began your One Week Free Trial.
+            <strong>
+              The One Week Free Trial can only be activated one (1) time per
+              card holder and all memberships are valid for only one (1) user
+              per account, the card holder.
+            </strong>
+            Memberships are also associated with the email address you used at
+            the time you submitted your Credit or Debit card information and
+            began your One Week Free Trial. To ensure access to your account,
+            sign in with the same email address each time. All payments are
+            handled by
+            <a href="https://www.stripe.com">
+              <ion-text color="facebk">
+                Stripe
+              </ion-text>
+            </a>
+            . The RF$ site is served using Secure Socket Layer (SSL) encryption,
+            and our servers submit secure tokenized versions of your payment
+            information. The complete card details are never visible to anyone
+            at Rank Fantasy Sports, nor are the complete card details stored on
+            our servers. Pro Membership Packages are subscriptions which are
+            billed automatically, on or about the same date each billing cycle
+            varying only on accounts which have a start date that does not occur
+            every month (e.g. 31st day of a month). You may cancel your
+            subscription at anytime. Once a cancellation request has been
+            submitted, your account will be terminated immediately, and no
+            further payments will be processed. For more details, please read
+            our
+            <a (click)="modal.showModalTerms()">
+              <ion-text color="facebk">
+                Terms
+              </ion-text>
+            </a>
+            . The security of your information is our priority. Please read our
+            <a (click)="modal.showModalPrivacy()">
+              <ion-text color="facebk">
+                Privacy
+              </ion-text>
+            </a>
+            for more details.
+          </p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,20 +1,70 @@
 
-
-.wrap-element {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%;
+.padtopbot {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+h3{
+  font-weight: 900;
+  font-size: x-large;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+h5{
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-weight: 700;
+  font-size: x-large;
+}
+h6{
+  text-transform: capitalize;
+  font-variant: small-caps;
+  font-weight: 500;
+}
+.topicon{
+  top:25px;
+  padding-bottom:35px;
+}
+ul {
+  text-align:left;
+  line-height: 2;
+  list-style: decimal;
+  margin-left: 50px;
+  padding-left: 50px;
+  font-variant: small-caps;
+  text-transform: capitalize;
 }
 
-.wrapped-iframe{
+.silverbak{
+  background-color: var(--ion-color-primary)!important;
+
+}
+
+
+.blackback {
+  background-color: var(--ion-color-dark);
+  padding-left: 45px;
+  height: 40vh;
+}
+.payservice{
+align-self:flex-start;
+}
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width:100%;
+}
+
+.video-container::after {
+  margin-top: 56.25%;
+  display: block;
+  content: '';
+}
+
+.video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
-}
-
-.blackback {
-  background-color: #1b1b1b;
 }

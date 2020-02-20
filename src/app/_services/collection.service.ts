@@ -11,10 +11,11 @@ import { User } from '../_models/user';
 })
 
 export class CollectionService {
-  usersRef: AngularFirestoreCollection<User>;
+  // usersRef: AngularFirestoreCollection<User>;
   users: Observable<any>;
   admins: Observable<any>;
   members: Observable<any>;
+  wttsa: Observable<any>;
 
   constructor(
     private db: AngularFirestore,
@@ -22,6 +23,11 @@ export class CollectionService {
     private afAuth: AngularFireAuth
   ) {}
 
+  getAcapulcoCollection() {
+    return this.db
+      .collection('Acapulco', ref => ref)
+      .valueChanges();
+  }
   getUsersCollection() {
     return this.db
       .collection('users', ref => ref.where('role', '==', 'USER'))

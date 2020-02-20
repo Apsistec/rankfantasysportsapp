@@ -1,17 +1,20 @@
-import { AuthService } from '../_services/auth.service';
+import { AuthService } from "../_services/auth.service";
 import {
   Directive,
   Input,
+  OnDestroy,
   OnInit,
   TemplateRef,
   ViewContainerRef
-} from '@angular/core';
+} from "@angular/core";
+import { Subscription } from "rxjs";
 
 @Directive({
-  selector: '[appHasPermission]'
+  selector: "[appHasPermission]"
 })
-export class HasPermissionDirective implements OnInit {
-  @Input('appHasPermission') permissions: string[];
+export class HasPermissionDirective implements OnInit, OnDestroy {
+  @Input("appHasPermission") permissions: string[];
+  subs: Subscription;
 
   constructor(
     private auth: AuthService,
@@ -20,12 +23,15 @@ export class HasPermissionDirective implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.auth.currentUser.subscribe(user => {
+    this.subs = this.auth.currentUser.subscribe(user => {
       if (this.auth.hasPermissions(this.permissions)) {
         this.viewContainer.createEmbeddedView(this.templateRef);
       } else {
         this.viewContainer.clear();
       }
     });
+  }
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

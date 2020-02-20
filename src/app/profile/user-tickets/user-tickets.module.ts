@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { UserTicketsPage } from './user-tickets.page';
-import { SharedModule } from '../../_shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 const routes: Routes = [
   {
     path: '',

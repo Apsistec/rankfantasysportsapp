@@ -1,41 +1,47 @@
 import { AuthService } from './_services/auth.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  IonContent,
-  ModalController,
-  Platform,
-  ToastController
-} from '@ionic/angular';
-import { PrivacyDialogComponent } from './_shared/privacy-dialog/privacy-dialog.component';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { IonContent, Platform, ToastController } from '@ionic/angular';
+import { ModalService } from './_services/modal.service';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Subscription } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
-import { TermsDialogComponent } from './_shared/terms-dialog/terms-dialog.component';
+// import { FcmService } from '@services/fcm.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
-  // animations: [slideInAnimation]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
   titleId;
+  subs: Subscription;
+  year;
 
   constructor(
     private swUpdate: SwUpdate,
     public auth: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private modalController: ModalController,
     private statusBar: StatusBar,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private modal: ModalService
+    // private fcm: FcmService,
   ) {
     this.initializeApp();
   }
 
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+      // this.fcm.getPermission().subscribe();
+      // this.fcm.listenToMessages().subscribe();
+    });
+  }
   ngOnInit(): void {
-    this.swUpdate.available.subscribe(async res => {
+    this.subs = this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
         showCloseButton: true,
@@ -50,28 +56,15 @@ export class AppComponent implements OnInit {
         .then(() => this.swUpdate.activateUpdate())
         .then(() => window.location.reload());
     });
+
+    this.getYear();
   }
 
-  async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsDialogComponent
-    });
-    return modal.present();
+  getYear() {
+    this.year = new Date().getFullYear();
   }
 
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyDialogComponent
-    });
-    return modal.present();
-  }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleBlackTranslucent();
-      this.splashScreen.hide();
-    });
-  }
 
   onScroll(event) {
     this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
@@ -82,5 +75,16 @@ export class AppComponent implements OnInit {
 
   signOut() {
     this.auth.SignOut();
+  }
+
+  authModal() {
+    this.modal.loginModal();
+  }
+  dismis() {
+    this.modal.dismiss();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

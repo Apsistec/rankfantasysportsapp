@@ -12,6 +12,19 @@ import { AuthService } from '../../_services/auth.service';
 export class HeaderComponent implements OnInit {
   @Input() titleId: string;
 
+
+
+
+
+
+
+  showGetStartedButton;
+  mobile;
+
+
+
+
+
   user: User;
   button = document.querySelector('ion-button');
 
@@ -35,5 +48,20 @@ export class HeaderComponent implements OnInit {
       cssClass: 'popoverUser'
     });
     return popover.present();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  openModal() {
+
   }
 }

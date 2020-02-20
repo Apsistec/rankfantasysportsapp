@@ -2,41 +2,44 @@
 <ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" fullscreen>
   <ion-grid>
     <ion-row>
-      <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4" size-xl="4" offset-xl="4">
+      <ion-col class="ion-no-padding" offset-lg="3">
         <!-- Twitter Card -->
-        <ion-card class="ion-padding" color="dark">
+        <ion-card class="ion-padding twit" color="dark">
           <ion-card-content>
             <ion-card-header>
               <ion-card-title>
-                <ion-text color="secondary" class="ion-text-uppercase">
+                <ion-text color="primary" class="ion-text-uppercase">
                   RF$&trade; tweets
                 </ion-text>
               </ion-card-title>
               <ion-card-subtitle>
-                <ion-text color="warning">
+                <ion-text>
                   Recent @rankfsports Tweets
                 </ion-text>
               </ion-card-subtitle>
             </ion-card-header>
-            <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}" [opts]="{
+            <ngx-twitter-timeline
+              [data]="{sourceType: 'url', url: 'https://twitter.com/rankfsports'}"
+              [opts]="{
                 chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'],
                 theme: 'dark',
-                tweetLimit: '19',
+                tweetLimit: '3',
                 borderColor: '#02ed25',
                 ariaPolite: 'assertive'
-              }">
+              }"
+            >
             </ngx-twitter-timeline>
-            <ion-button expand="block" color="danger" strong shape="round" routerLink="/tweets">
+            <ion-button expand="block" strong routerLink="/tweets">
               <ion-ripple-effect></ion-ripple-effect>
-              <ion-text color="gold" style=" text-shadow:  .1em .15em .25em rgb(104, 0, 173);">
+              <ion-text>
                 RF$&trade; Tweets
               </ion-text>
-              <ion-icon name="logo-twitter" slot="end" color="twittr"></ion-icon>
+              <ion-icon name="logo-twitter" slot="end"></ion-icon>
             </ion-button>
           </ion-card-content>
         </ion-card>
         <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
-          <ion-fab-button id="scrollToTop" color="warning" size="small" (click)="ScrollToTop()">
+          <ion-fab-button id="scrollToTop" size="small" (click)="ScrollToTop()">
             <ion-icon name="arrow-dropup"></ion-icon>
           </ion-fab-button>
         </ion-fab>

@@ -12,36 +12,42 @@ import { NowComponent } from '../tables/now/now.component';
 import { PgaComponent } from '../tables/pga/pga.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { RegModalComponent } from './reg-modal/reg-modal.component';
 import { RouterModule } from '@angular/router';
 import { TennisComponent } from '../tables/tennis/tennis.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TicketComponent } from './tickets/ticket.component';
 import { SharedDirectivesModule } from '../_directives/shared-directives.module';
-import { StarComponent } from './star/star.component';
+import { RegisterElementComponent } from './register-element/register-element.component';
+import { LoginElementComponent } from './login-element/login-element.component';
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { ForgotPasswordElementComponent } from './forgot-password-element/forgot-password-element.component';
+import { CbbComponent } from 'app/tables/cbb/cbb.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    RegModalComponent,
     TermsDialogComponent,
     TicketComponent,
     PrivacyDialogComponent,
     PopoverComponent,
     NowComponent,
     NflComponent,
+    CbbComponent,
     CfbComponent,
     PgaComponent,
     NbaComponent,
     TennisComponent,
-    StarComponent
+    ForgotPasswordElementComponent,
+    AuthModalComponent,
+    RegisterElementComponent,
+    LoginElementComponent
   ],
 
   entryComponents: [
     TicketComponent,
     TermsDialogComponent,
-    RegModalComponent,
+    AuthModalComponent,
     PrivacyDialogComponent,
     PopoverComponent
   ],
@@ -60,19 +66,22 @@ import { StarComponent } from './star/star.component';
     SharedDirectivesModule,
     NgxTwitterTimelineModule,
     HeaderComponent,
+    AuthModalComponent,
+    ForgotPasswordElementComponent,
     PopoverComponent,
     FooterComponent,
-    RegModalComponent,
+    RegisterElementComponent,
+    LoginElementComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,
     TicketComponent,
     NowComponent,
     NflComponent,
     CfbComponent,
+    CbbComponent,
     PgaComponent,
     NbaComponent,
     TennisComponent,
-    StarComponent
   ]
 })
 export class SharedModule {}

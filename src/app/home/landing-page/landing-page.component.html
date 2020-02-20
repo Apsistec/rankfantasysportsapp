@@ -1,48 +1,48 @@
-<ion-card class="hero">
+     <ion-grid class="ion-no-padding ">
+        <ion-row>
 
-  <div class="top-nav">
-    <a routerLink="/home">Home</a>
-    <a routerLink="/faq">About</a>
-    <a routerLink="'/profile">Support</a>
-    <a routerLink="/tools">Tools</a>
-    <a routerLink="/sports-categories">Tables</a>
-    <!-- <a routerLink="#contact">Contact</a> -->
-    <!-- <a routerLink="#news">News</a> -->
-    <!-- <a routerLink="#vlog">vLog</a> -->
-    <!-- <a routerLink="#more">More</a>
-    <a routerLink="#logo">Logo</a>
-    <a routerLink="#friends">Friends</a>
-    <a routerLink="#partners">Partners</a>
-    <a routerLink="#people">People</a>
-    <a routerLink="#work">Work</a> -->
-  </div>
+      <ion-col  class="hero heading ion-align-items-center ion-no-padding ion-text-center">
 
-  <div class="center-content">
-    <div>
-      <img height="=100%" width="100%" src="../../assets/img/logo.jpg" />
-    </div>
-    <div>
-      <ion-text class="ion-text-capitalize center-landing">
-        <h1>try any Pro Package
-          <!-- <ion-text color="tertiary" class="brilliant">
-            <b>free</b>
-          </ion-text> -->
-          for
-          <ion-text color="tertiary">
-            <b>
-              One Week free
-            </b>
+
+
+        <div style="overflow:auto; float:right;padding-right:20px; padding-top:20px;">
+            <ion-button fill="clear" size="small" (click)="openModal()">
+              <ion-text color="white">
+                Log In
+              </ion-text>
+            </ion-button>
+        </div>
+        <div class="cta">
+<ion-text>
+    <h1>
+    Get our Pro Package
+    <strong>
+      One Week free
+  </strong>
+  </h1>
+
+  <h2>
+    Hand Picked Data - DFS Expert Curation - Win First!
+  </h2>
+</ion-text>
+        <ion-button
+          fill="solid"
+          color="danger"
+          size="large"
+          routerLink="/membership"
+        >
+          <ion-text>
+            <ion-text style="font-size: large; ">
+              >> Start My 7 Day Trial
+            </ion-text>
+            <br />
+            <ion-text style="font-size: small;">
+              No Risk - Win Before You Pay
+            </ion-text>
           </ion-text>
-        </h1>
-      </ion-text>
-    </div>
-    <div style="padding-top: 35px;">
-    <ion-button size="large" fill="solid" color="success" routerLink="/purchase">
-      <ion-text color="tertiary">
-        Get Started
-      </ion-text>
-    </ion-button>
-    </div>
-  </div>
+        </ion-button>
+      </div>
 
-</ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

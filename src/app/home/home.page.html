@@ -1,146 +1,290 @@
-<app-header [titleId]="titleId"></app-header>
-<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true">
-  <ion-grid>
+<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" color="white">
+  <ion-grid class="ion-no-padding">
+    <!-- Row 1 -->
+    <ion-row style="border-bottom: 6px groove var(--ion-color-silver);">
+      <ion-col class="ion-text-center ion-no-padding">
 
-    <!--Landing-page -->
-    <ion-row class="align-items-stretch justify-content-center">
-      <ion-col>
+        <!--Landing-page -->
         <app-landing-page></app-landing-page>
       </ion-col>
     </ion-row>
 
     <!--Icon Row-->
-    <ion-row>
-      <ion-col>
-        <app-icon-row></app-icon-row>
+    <ion-row
+      class="ion-text-center ion-text-wrap ion-justify-content-center"
+    >
+      <ion-col class="topicon">
+          <ion-text>
+            <h3>
+              Helping You Win Is Our Business
+            </h3>
+          </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class=" ion-text-center ion-text-wrap ion-justify-content-center">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
+        <img src="../../../assets/img/football.png" />
+
+        <h5>
+          <ion-text>
+            DraftKings Sports & Data
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            NFL, NBA (March Madness), CFB, GOLF & TENNIS
+          </ion-text>
+        </h6>
+      </ion-col>
+    </ion-row>
+<ion-row>
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
+        <img src="../../../assets/img/dashboard.webp" />
+
+        <h5>
+          <ion-text>
+            Advanced Stats
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            Tournament Rankings, all DK relevant stats, power rankings,
+            Moneyline and Bracketology
+          </ion-text>
+        </h6>
+      </ion-col>
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
+        <img src="../../../assets/img/brains.webp" />
+
+        <h5>
+          <ion-text>
+            Custom Picks and Projections
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            Value Rankings, cheat sheets, and Hand-picked data to give you the
+            edge without wasting time
+          </ion-text>
+        </h6>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
+    >
+      <ion-col  size-sm="12" size-md="10" size-lg="6" size-xl="6" class="topicon">
+        <img src="../../../assets/img/price-tag.webp" />
+
+        <h5>
+          <ion-text>
+            Industry Best Pricing
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            We offer the best price for sports advice on the web!
+          </ion-text>
+        </h6>
+      </ion-col>
+      <ion-col  size-sm="12" size-md="10" size-lg="6" size-xl="6" class="topicon">
+        <img src="../../../assets/img/world.webp" />
+
+        <h5>
+          <ion-text>
+            Weekly and Season-long
+          </ion-text>
+        </h5>
+        <h6>
+          <ion-text>
+            Whether your playing a one-off contest or are in a season-long
+            league, we've got you covered
+          </ion-text>
+        </h6>
       </ion-col>
     </ion-row>
 
-    <!-- Informa -->
-    <ion-row class="justify-content-stretch">
-      <ion-col>
-        <app-informa></app-informa>
+    <!-- Video Row -->
+    <ion-row style="height:50vh; width:100vw;" class="silverbak ion-align-items-center ion-text-center ion-justify-content-center">
+
+  <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
+    <div class="youtube">
+      <ion-text>
+            <h4>
+              Watch The Video To See How
+              <br />
+              We Stay Consistently Profitable -
+              <ion-text style="font-weight: 900;">
+                Fast!
+              </ion-text>
+            </h4>
+            <h5>
+              What is your time worth to you?
+            </h5>
+          </ion-text>
+        </div>
       </ion-col>
+
+      <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
+        <div class="video-container">
+          <iframe
+          [src]="trustedVideoUrl4"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          >
+        </iframe>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+
+    <!--Testimonials Row -->
+    <ion-row class="ion-margin ion-padding ion-text-center ion-justify-content-center">
+      <app-endorsements></app-endorsements>
     </ion-row>
 
     <!-- Phonetest -->
-    <ion-row class="align-items-stretch justify-content-center">
-      <ion-col>
-        <app-phonetest></app-phonetest>
+
+    <ion-row
+      style="padding: 10px 0; border-top: 3px groove var(--ion-color-silver); border-bottom: 3px groove var(--ion-color-silver);" class="ion-justify-content-around">
+      <ion-col
+
+        size-sm="12"
+        size-md="5"
+        size-lg="5"
+        size-xl="5"
+        class="ion-align-self-center"
+      >
+      <div class="ion-text-center">
+        <ion-text>
+          <h3>
+            Signing Up As Easy As 1, 2, 3...
+          </h3>
+        </ion-text>
+        <ion-text class="ion-text-start">
+            <ul>
+              <li>
+              Click "Start My 7 Day Trial" Button Below
+              </li>
+              <li>
+              Register Your Account Info
+              </li>
+              <li>
+              Submit your Credit Card Details
+              </li>
+            </ul>
+        </ion-text>
+        <hr />
+        <ion-button
+          fill="solid"
+          color="danger"
+          size="large"
+          routerLink="/membership"
+        >
+          <ion-text>
+            Start My 7 Day Trial
+          </ion-text>
+        </ion-button>
+      </div>
+      </ion-col>
+      <ion-col
+
+        size-sm="12"
+        size-md="5"
+        size-lg="5"
+        size-xl="5"
+        class="ion-align-self-center">
+      <div class="ion-text-center">
+        <img src="../../assets/img/phone.png" />
+      </div>
       </ion-col>
     </ion-row>
 
-
     <!-- Devices Row -->
-
-    <ion-row class="align-items-stretch justify-content-center">
+    <ion-row>
       <ion-col>
         <app-devices></app-devices>
       </ion-col>
     </ion-row>
 
     <!-- Row 6 aka Footer -->
-    <ion-row class="blackback align-items-stretch justify-content-center">
-      <ion-col size="10" offset="1">
-        <ion-grid>
-          <ion-row class="align-items-center">
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding align-self-center">
-              <ion-list>
-                <ion-list-header>
-                  <h5>
-                    <ion-text color="secondary">
-                      Pages
-                    </ion-text>
-                  </h5>
-                </ion-list-header>
-                <h6>
-                  <ion-text color="white">
-                    Page1
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Page2
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Page3
-                  </ion-text>
-                </h6>
-              </ion-list>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="6" size="6" class="ion-padding align-self-center">
-              <ion-list>
-                <ion-list-header>
-                  <h5>
-                    <ion-text color="secondary">
-                      Sports
-                    </ion-text>
-                  </h5>
-                </ion-list-header>
-                <h6>
-                  <ion-text color="white">
-                    Sport 1
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Sport 2
-                  </ion-text>
-                </h6>
-                <h6>
-                  <ion-text color="white">
-                    Sport 3
-                  </ion-text>
-                </h6>
-              </ion-list>
-            </ion-col>
-            <ion-col size-xl="4" size-lg="4" size-md="4" size-sm="12" size="12" class="ion-padding align-self-end">
-              <ion-list>
-                <ion-list-header>
-                  <h5>
-                    <ion-text color="secondary">
-                      Location
-                    </ion-text>
-                  </h5>
-                </ion-list-header>
-                <p>
-                  <ion-text color="white">
-                    2406 14th St
-                    <br>
-                    Suite A
-                    <br>
-                    Lubbock TX 79401
-                  </ion-text>
-                </p>
-              </ion-list>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+    <ion-row class="ion-justify-content-center blackback ion-text-center">
+      <ion-col
+
+        size-sm="12"
+        size-md="4"
+        size-lg="4"
+        size-xl="4"
+        class="ion-align-self-center ion-no-padding ion-text-start"
+      >
+        <h4>
+          <ion-text color="silver">
+            Location
+          </ion-text>
+        </h4>
+        <p>
+          <ion-text color="white">
+            2406 14th St
+            <br />
+            Suite A
+            <br />
+            Lubbock TX 79401
+          </ion-text>
+        </p>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-align-self-center" size="auto">
+        <div class="payservice">
+          <img
+            src="../../assets/img/1.png"
+            style="height: 45px; width: 75px;"
+          />
+          <img
+            src="../../assets/img/2.png"
+            style="height: 45px; width: 75px;"
+          />
+          <img
+            src="../../assets/img/14.png"
+            style="height: 45px; width: 75px;"
+          />
+          <img
+            src="../../assets/img/22.png"
+            style="height: 45px; width: 75px;"
+          />
+        </div>
+
+        <div class="ion-text-end" style="align-content: flex-end;">
+          <img
+            src="../../assets/img/stripe_solid_white_powered_by.svg"
+            height="40px"
+            href="https://www.stripe.com"
+          />
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-align-self-center">
+        <div class="terms">
+          <ion-button
+            size="small"
+            color="white"
+            fill="clear"
+            (click)="showModalTerms()"
+          >
+            <ion-text>
+              Terms
+            </ion-text>
+          </ion-button>
+          <ion-button
+            size="small"
+            color="white"
+            fill="clear"
+            (click)="showModalPrivacy()"
+          >
+            <ion-text>
+              Privacy
+            </ion-text>
+          </ion-button>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-fab vertical="bottom" horizontal="start" edge slot="fixed">
-    <ion-fab-button color="silver">
-      <ion-icon color="success" name="share"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="facebk" target="_blank" size="small" href="https://www.facebook.com/RankFantasySports/">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="twittr" target="_blank" size="small" href="https://twitter.com/rankfsports">
-        <ion-icon name="logo-twitter" color="white"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="instagram" target="_blank" size="small" href="https://www.instagram.com/rankfsports">
-        <ion-icon name="logo-instagram" color="white"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
-    <ion-fab-button id="scrollToTop" [hidden]="!scrolledDown" color="warning" size="small" (click)="ScrollToTop()">
-      <ion-icon name="arrow-dropup"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
-<app-footer></app-footer>

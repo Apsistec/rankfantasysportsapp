@@ -1,21 +1,11 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": [
-      "moment",
-      "jquery",
-      "stripe-v3"
-    ]
-  },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ],
-  "paths": {
-    "jszip": ["../node_modules/jszip/dist/jszip.min.js"]
-  }
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./"
+},
+//  "angularCompilerOptions": {
+//    "enableIvy": true
+//  },
+  "exclude": ["test.ts", "**/*.spec.ts"]
 }

@@ -1,34 +1,47 @@
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { environment } from '../environments/environment';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { InterceptorService } from './_services/interceptor.service';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { MyErrorHandler } from './_services/error-handler.service';
-import { RouteReuseStrategy } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AngularFireModule } from '@angular/fire';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { AngularFirePerformanceModule } from '@angular/fire/performance';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-// import { AngularSlickgridModule } from 'angular-slickgrid';
-import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageModule } from './home/home.module';
+import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MaterialModule } from './material/material.module';
+import { NgModule } from '@angular/core';
+import { PrimaryInterceptorService } from './_services/primary-interceptor.service';
+import { RouteReuseStrategy } from '@angular/router';
+import { SafePipe } from './_pipes/safe.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StartModalComponent } from './home/start-modal/start-modal.component';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
-// import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-// import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SafePipe,
+    StartModalComponent,
+    AnalyticsComponent,
+  ],
+  entryComponents: [
+    StartModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,24 +49,42 @@ import { HomePageModule } from './home/home.module';
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFirePerformanceModule,
     AngularFireFunctionsModule,
+    AngularFireStorageModule,
     AngularFireMessagingModule,
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireAnalyticsModule,
+    MaterialModule,
     HttpClientModule,
+    HttpClientJsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    JwSocialButtonsModule,
+    AppRoutingModule,
+    ServiceWorkerModule.register('/app/ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     HomePageModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LayoutModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
-    { provide: ErrorHandler, useClass: MyErrorHandler },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PrimaryInterceptorService,
+      multi: true,
+    },
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false },
+    },
   ],
   exports: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

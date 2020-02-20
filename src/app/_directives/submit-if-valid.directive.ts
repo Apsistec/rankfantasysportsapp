@@ -1,26 +1,25 @@
-import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Directive, EventEmitter, HostListener, Output } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 @Directive({
-  selector: '[tsSubmitIfValid]'
+  // tslint:disable-next-line: directive-selector
+  selector: "[tsSubmitIfValid]"
 })
 export class SubmitIfValidDirective {
-  @Output('tsSubmitIfValid') valid = new EventEmitter<void>(); // tslint:disable-line:no-output-rename
+  @Output("tsSubmitIfValid") valid = new EventEmitter<void>(); // tslint:disable-line:no-output-rename
 
-  constructor(private formRef: NgForm) {
-  }
+  constructor(private formRef: NgForm) {}
 
-  @HostListener('click')
+  @HostListener("click")
   handleClick() {
     this.markFieldsAsDirty();
     this.emitIfValid();
   }
 
   private markFieldsAsDirty() {
-    Object.keys(this.formRef.controls)
-      .forEach(fieldName =>
-        this.formRef.controls[fieldName].markAsDirty()
-      );
+    Object.keys(this.formRef.controls).forEach(fieldName =>
+      this.formRef.controls[fieldName].markAsDirty()
+    );
   }
 
   private emitIfValid() {

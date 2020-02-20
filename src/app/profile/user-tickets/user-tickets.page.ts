@@ -1,9 +1,9 @@
-import { TicketService } from '../../_services/ticket.service';
-import { AuthService } from '../../_services/auth.service';
+import { TicketService } from '@services/ticket.service';
+import { AuthService } from '@services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { TicketComponent } from '../../_shared/tickets/ticket.component';
+import { TicketComponent } from '@shared/tickets/ticket.component';
 
 @Component({
   selector: 'app-user-tickets',

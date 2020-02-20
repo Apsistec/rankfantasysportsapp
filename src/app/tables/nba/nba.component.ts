@@ -3,12 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-nba',
   templateUrl: './nba.component.html',
-  styleUrls: ['./nba.component.scss'],
+  styleUrls: ['./nba.component.scss']
 })
 export class NbaComponent implements OnInit {
   titleId = 'NBA Tables';
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

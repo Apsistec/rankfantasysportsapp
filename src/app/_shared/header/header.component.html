@@ -1,26 +1,94 @@
-<ion-header >
-  <ion-toolbar color="medium">
-    <!-- <ion-buttons slot="start">
-    <ion-menu-button  color="silver">
-    </ion-menu-button>
+<ion-header>
+
+  <!-- Mobile 1st toolbar -->
+  <ion-toolbar color="medium" *ngIf="mobile">
+    <ion-buttons slot="start">
+      <ion-menu-button color="silver"> </ion-menu-button>
     </ion-buttons>
-      <ion-text color="secondary" class="ion-text-wrap">
-        {{ titleId }}
-      </ion-text>
-    <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
-        <ion-item type="button" color="dark" (click)="presentPopover($event)" detail="false" lines="none">
-          <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
-          <ion-avatar>
-            <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
-          </ion-avatar>
-        </ion-item>
-      </ng-container>
+
+    <ion-item *ngIf="auth.afAuth.user | async as user; else getStarted"
+        slot="end"
+        type="button"
+        color="medium"
+        (click)="presentPopover($event)"
+        detail="false"
+        lines="none"
+        >
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+        </ion-avatar>
+      </ion-item>
+
     <ng-template #getStarted>
-      <ion-button slot="end" color="tertiary" *ngIf="isHomePage" routerLink="/purchase">
-        <ion-text color="warning">
-          Get Started
+      <ion-button
+      slot="end"
+      *ngIf="showGetStartedButton"
+      color="success"
+      (click)="openModal()"
+      style="margin-right:20px;top:30px"
+      >
+      <ion-text color="white" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
+        Get Started
         </ion-text>
       </ion-button>
-    </ng-template> -->
+    </ng-template>
   </ion-toolbar>
+
+<!-- Desktop 1st toolbar Version of Top Nav -->
+  <ion-toolbar color="medium" *ngIf="!mobile">
+    <ion-buttons slot="start">
+      <ion-menu-button color="silver"> </ion-menu-button>
+    </ion-buttons>
+
+    <div class="top-nav">
+      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; align-self:center;">
+
+
+        <a routerLink="/home" routerLinkActive="router-link-active">Home</a>
+      <a routerLink="/faq" routerLinkActive="router-link-active">FAQ</a>
+      <a routerLink="/testimonials" routerLinkActive="router-link-active">Testimonials</a>
+      <a routerLink="/how-to" routerLinkActive="router-link-active">How-to</a>
+      <a routerLink="/tables" routerLinkActive="router-link-active">Stats & Projections</a>
+      </ion-text>
+
+    </div>
+    <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
+      <ion-item
+        slot="end"
+        type="button"
+        color="medium"
+        (click)="presentPopover($event)"
+        detail="false"
+        lines="none"
+      >
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+        </ion-avatar>
+      </ion-item>
+    </ng-container>
+  </ion-toolbar>
+
+  <!-- 2nd toolbar for title -->
+  <ion-toolbar color="medium" style="--min-height:20px; border-bottom: 3px solid white;" >
+    <ion-text class="ion-padding-start ion-text-capitalize ion-text-wrap ion-text-center" style="font-size:large; font-weight:700; font-variant:small-caps; align-self:center;">
+      {{ titleId }}
+    </ion-text>
+    <ng-template #getStarted>
+      <ion-button
+        slot="end"
+        *ngIf="showGetStartedButton"
+        color="success"
+        (click)="openModal()"
+        class="ion-padding-end"
+        style="margin-right:20px;top:30px"
+      >
+      <ion-text color="white" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
+        Log In or Get Started
+        </ion-text>
+      </ion-button>
+    </ng-template>
+  </ion-toolbar>
+  <!-- <ion-toolbar color="white" style="height:3px;"></ion-toolbar> -->
 </ion-header>

@@ -12,7 +12,9 @@ export class TweetsPage {
   titleId = 'Recent RF$ Tweets';
   scrolledDown = false;
 
-  constructor() {}
+  constructor() {
+
+  }
 
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
