@@ -8,7 +8,6 @@ import { ProfilePage } from './profile.page';
 import { RouterModule, Routes } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedModule } from '../_shared/shared.module';
-// import { AppModule } from '..//app.module';
 
 const routes: Routes = [
   {
@@ -20,7 +19,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     SharedModule,
-    // AppModule,
     CommonModule,
     FormsModule,
     IonicModule,

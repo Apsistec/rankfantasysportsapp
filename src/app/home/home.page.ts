@@ -102,7 +102,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
   async functionPop() {
     const user = await this.auth.getUser();
-    const user1 = await this.auth.getCurrentUser();
+    console.log(user);
     if (user !== null) {
       this.route.navigateByUrl('/profile');
     } {

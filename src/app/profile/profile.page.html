@@ -6,7 +6,7 @@
         class="ion-no-padding ion-text-center ion-align-items-center"
         size-sm="5"
       >
-        <ng-container *ngIf="auth.user | async as user">
+        <ng-container *ngIf="auth.afAuth.user | async as user" >
           <ion-card color="primary" class="ion-text-center">
             <ion-card-header>
               <ion-card-title class="ion-text-center">

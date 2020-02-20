@@ -31,7 +31,7 @@ export class ProfilePage implements OnInit {
 
  async getStripeDataIfValidUser() {
     this.user = await this.auth.getUser();
-      if (this.user.stripeCustomerId) {
+      if (this.user.stripeCustomerId != null) {
         this.stripeService.getSubscriptions();
       } else {
         return false;
