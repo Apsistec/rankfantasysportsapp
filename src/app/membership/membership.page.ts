@@ -32,7 +32,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
   titleId = 'RF$\u2122 Pro Memberships';
 
   user;
-  @ViewChild(WizardComponent, {static: true}) public wizard: WizardComponent;
+  @ViewChild(WizardComponent, {static: false}) public wizard: WizardComponent;
 
 
   showDetails: boolean;
@@ -68,7 +68,6 @@ export class MembershipPage implements OnInit, AfterViewInit {
   ngOnInit() {
     this.showDetails = true;
 
-    this.checkLoggedInStatus();
 
     this.stripe = Stripe(environment.stripeKey);
 
@@ -97,7 +96,10 @@ export class MembershipPage implements OnInit, AfterViewInit {
     });
   }
 
-ngAfterViewInit() {}
+ngAfterViewInit() {
+  this.checkLoggedInStatus();
+
+}
 
   // checkIt() {
   //   this.isChecked = !this.isChecked;

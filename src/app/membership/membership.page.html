@@ -1,26 +1,19 @@
 <ion-content>
-  <ion-toolbar style="background-color: transparent;">
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
+  <!-- <ion-toolbar style="background-color: transparent;"> -->
 
 
-    <ion-item *ngIf="auth.afAuth.user | async as user"
-        slot="end"
-        type="button"
-        color="medium"
-        (click)="presentPopover($event)"
-        detail="false"
-        lines="none"
-        >
-        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+    <div style="display:inline-flex; float:right;" *ngIf="auth.afAuth.user | async as user"
+        (click)="presentPopover($event)" >
+        <ion-icon name="arrow-dropdown"></ion-icon>
         <ion-avatar>
           <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
         </ion-avatar>
-      </ion-item>
+      </div>
 
 
-  </ion-toolbar>
 
-  <ion-grid class="ion-no-padding">
-    <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
       <ion-col
         class=" ion-align-self-center ion-no-padding ion-no-margin"
         size-sm="12"
@@ -185,7 +178,7 @@
 
                     <form #check novalidate (ngSubmit)="onSubmit(check)">
 
-                      <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" /> Checked + Change
+                      <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" />
                     </form>
 
                       <ion-label color="success" class="ion-text-wrap">
