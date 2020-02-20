@@ -1,7 +1,7 @@
 <ion-menu side="start" menuId="first" contentId="content1" type="push" >
   <ion-header>
     <ion-menu-toggle>
-      <ion-toolbar color="medium" style="height:84px;">
+      <ion-toolbar color="primary" style="height:84px;">
         <img
           src="../assets/img/logo.jpg"
           height="84px"
@@ -9,11 +9,11 @@
        </ion-toolbar>
     </ion-menu-toggle>
   </ion-header>
-  <ion-content id="main" color="medium">
+  <ion-content id="main" color="primary">
     <ion-menu-toggle>
       <ion-list >
         <ion-item-group>
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/home" routerLinkActive="router-link-active"
@@ -23,7 +23,7 @@
             <ion-text>Home</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/profile" routerLinkActive="router-link-active"
@@ -34,7 +34,7 @@
             <ion-text>Profile</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/pricing" routerLinkActive="router-link-active"
@@ -46,7 +46,7 @@
           </ion-item>
 
           <ng-template #notSubscribed >
-            <ion-item color="silver"
+            <ion-item color="light"
               button
               lines="none"
               routerLink="/membership"
@@ -57,7 +57,7 @@
             </ion-item>
           </ng-template>
           <ng-template #login>
-            <ion-item color="silver"
+            <ion-item color="light"
               button
               lines="none"
               (click)="authModal()"
@@ -68,7 +68,7 @@
             </ion-item>
           </ng-template>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/how-to" routerLinkActive="router-link-active"
@@ -78,7 +78,7 @@
             <ion-text>How To Use RF$&trade;</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/testimonials" routerLinkActive="router-link-active"
@@ -88,7 +88,7 @@
             <ion-text>Testimonials</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/faq" routerLinkActive="router-link-active"
@@ -98,7 +98,7 @@
             <ion-text>FAQ</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             (click)="signOut()"
@@ -120,10 +120,10 @@
             style="font-weight: 900;"
           >
             <ion-text>Stats & Projections</ion-text>
-            <ion-button size="small" style="padding-right: 10px;" color="tertiary" routerLink="/tables">All Tables</ion-button>
+            <ion-button size="small" style="padding-right: 10px;" color="secondary" routerLink="/tables">All Tables</ion-button>
           </ion-list-header>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/now" routerLinkActive="router-link-active"
@@ -133,7 +133,7 @@
             <ion-text>Happening Now</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/tennis" routerLinkActive="router-link-active"
@@ -142,7 +142,7 @@
            <ion-icon color="dark" slot="start" name="tennisball"></ion-icon>
             <ion-text>Tennis</ion-text>
           </ion-item>
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/golf" routerLinkActive="router-link-active"
@@ -152,7 +152,7 @@
             <ion-text>PGA</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/nfl" routerLinkActive="router-link-active"
@@ -162,7 +162,7 @@
             <ion-text>NFL</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/cfb" routerLinkActive="router-link-active"
@@ -172,7 +172,7 @@
             <ion-text>CFB</ion-text>
           </ion-item>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/nba" routerLinkActive="router-link-active"
@@ -181,7 +181,7 @@
            <ion-icon color="dark" slot="start" name="basketball"></ion-icon>
             <ion-text>NBA</ion-text>
           </ion-item>
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tables/cbb" routerLinkActive="router-link-active"
@@ -197,7 +197,7 @@
             <ion-text>DFS Toolbox</ion-text>
           </ion-list-header>
 
-          <ion-item color="silver"
+          <ion-item color="light"
             button
             lines="none"
             routerLink="/tweets" routerLinkActive="router-link-active"
@@ -207,7 +207,7 @@
             <ion-text color="dark">Tweets</ion-text>
           </ion-item>
 
-          <ion-item color="silver" button lines="none" disabled class="ion-text-uppercase">
+          <ion-item color="light" button lines="none" disabled class="ion-text-uppercase">
            <ion-icon color="dark"  slot="start" name="trending-up"></ion-icon>
             <ion-text>Line-up Optimizers<sup>*</sup></ion-text>
           </ion-item>

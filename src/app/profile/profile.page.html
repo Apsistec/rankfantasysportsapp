@@ -5,7 +5,7 @@
       <ion-col size-sm="5" >
         <ng-container *ngIf="auth.user | async as user" >
 
-        <ion-card color="primary"  class="ion-text-center" >
+        <ion-card color="medium"  class="ion-text-center" >
           <ion-card-header>
        <ion-card-title class="ion-text-center" >
          <ion-text color="secondary"  >
@@ -22,7 +22,7 @@
           </ion-col>
           <ion-col class="ion-text-start">
               <ion-card-title>
-                <ion-text color="warning" >
+                <ion-text color="dark" >
                   <h2>
                       {{ user.displayName || 'User' }}
                   </h2>
@@ -43,7 +43,7 @@
 
           </ion-item>
         <ion-card-content>
-        <ion-button strong size="small" shape="round" color="warning" (click)="presentSettingsModal()">
+        <ion-button strong size="small" shape="round" color="dark" (click)="presentSettingsModal()">
             <ion-text>
             Edit User
           </ion-text>
@@ -55,7 +55,7 @@
     </ion-card>
 
 
-    <ion-card color="primary" class="ion-text-center ion-padding" >
+    <ion-card color="medium" class="ion-text-center ion-padding" >
       <ion-card-header>
         <ion-card-title>
 
@@ -84,7 +84,7 @@
         <h2 color="secondary">
           Status:
         </h2>
-        <h3 color="warning">
+        <h3 color="dark">
           {{ subs.data[0].status | uppercase }}
             </h3>
           </ion-label>
@@ -92,7 +92,7 @@
         <h2 color="secondary" *ngIf="subs.data[0].status === 'trialing'">
           Trial Ends:
         </h2>
-      <h3 color="warning" *ngIf="subs.data[0].status === 'trialing'">
+      <h3 color="dark" *ngIf="subs.data[0].status === 'trialing'">
       {{ subs.data[0].trial_end * 1000 | date }}
     </h3>
   </ion-label>
@@ -100,7 +100,7 @@
           <h2 color="secondary">
             Subscription Fee:
           </h2>
-          <h3 color="warning">
+          <h3 color="dark">
             {{ subs.data[0].plan.amount / 100 | currency }}
           </h3>
         </ion-label>
@@ -110,7 +110,7 @@
         <h2 color="secondary">
           Created:
         </h2>
-        <h3 color="warning">
+        <h3 color="dark">
           {{ subs.data[0].start_date * 1000 | date }}
         </h3>
       </ion-label>
@@ -118,7 +118,7 @@
           <h2 color="secondary">
           Billing Start:
           </h2>
-          <h3 color="warning">
+          <h3 color="dark">
             {{ subs.data[0].current_period_start * 1000 | date }}
           </h3>
         </ion-label>
@@ -127,7 +127,7 @@
           <h2 color="secondary">
             Billing End:
           </h2>
-          <h3 color="warning">
+          <h3 color="dark">
             {{ subs.data[0].current_period_end * 1000| date }}
           </h3>
         </ion-label>
@@ -150,7 +150,7 @@
 
 
 <!-- Admin Dash -->
-<ion-card class="ion-text-center" color="primary" *ngIf="user.role === 'ADMIN'">
+<ion-card class="ion-text-center" color="medium" *ngIf="user.role === 'ADMIN'">
   <ion-card-header>
   <ion-card-title>
     <ion-text color="secondary">
@@ -158,13 +158,13 @@
      </ion-text>
       </ion-card-title>
       <ion-card-subtitle>
-        <ion-text color="warning">
+        <ion-text color="dark">
          Reports & Admin Functions
         </ion-text>
       </ion-card-subtitle>
   </ion-card-header>
       <ion-card-content>
-        <ion-button size="small" shape="round" color="warning" routerLink="/admin">
+        <ion-button size="small" shape="round" color="dark" routerLink="/admin">
           <ion-icon slot="end" color="dark" name="glasses"></ion-icon>
           <ion-icon slot="start" color="dark" name="glasses"></ion-icon>
           <ion-text color="success">
@@ -175,7 +175,7 @@
     </ion-card>
 
     <!-- User Dashboard-->
-    <ion-card class="ion-padding ion-text-center" color="primary" *ngIf="user.role === 'USER'">
+    <ion-card class="ion-padding ion-text-center" color="medium" *ngIf="user.role === 'USER'">
       <ion-card-header>
       <ion-card-title>
         <ion-text color="secondary">
@@ -183,7 +183,7 @@
          </ion-text>
           </ion-card-title>
         <ion-card-subtitle>
-          <ion-text color="warning">
+          <ion-text color="dark">
             Request Support, Make a Feature Request, or a General Inquiry
           </ion-text>
           </ion-card-subtitle>
@@ -195,7 +195,7 @@
           </p>
             </ion-text>
             <hr>
-            <ion-button shape="round" color="warning" routerLink="/user">
+            <ion-button shape="round" color="dark" routerLink="/user">
               <ion-icon slot="start" color="dark" name="bug"></ion-icon>
               <ion-icon slot="end" color="dark" name="bug"></ion-icon>
               <ion-text color="success">
@@ -206,7 +206,7 @@
         </ion-card>
 
         <!-- Account Management -->
-              <ion-card class="ion-text-center" color="primary" *ngIf="user.plan === 'gold' || 'silver' || 'bronze'">
+              <ion-card class="ion-text-center" color="medium" *ngIf="user.plan === 'gold' || 'silver' || 'bronze'">
               <ion-card-header>
               <ion-card-title>
                 <ion-text color="secondary">
@@ -217,20 +217,20 @@
             <ion-card-content>
               <ng-container *ngIf="stripeService.subscriptions | async as subs">
 
-                <ion-button size="small" shape="round" color="tertiary" [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
-                  <ion-text color="white">
+                <ion-button size="small" shape="round" color="secondary" [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
+                  <ion-text color="light">
                     Current Invoice
                   </ion-text>
                 </ion-button>
                 <ion-button size="small" shape="round" color="secondary" (click)="presentInvoicesModal()">
-                  <ion-text color="white">
+                  <ion-text color="light">
                     Invoice History
                   </ion-text>
                 </ion-button>
                 <br>
                 <hr>
                 <ion-button size="small" shape="round" color="danger" (click)="presentCancelSubModal()">
-                  <ion-text color="white">
+                  <ion-text color="light">
                   Cancel Subscription
                   </ion-text>
                 </ion-button>
@@ -241,7 +241,7 @@
 
 
 <!-- Theme -->
-          <ion-card class="ion-text-center"  color="primary">
+          <ion-card class="ion-text-center"  color="medium">
               <ion-card-header>
                 <ion-card-title color="secondary">
                 <strong>
@@ -252,29 +252,29 @@
               </ion-card-title>
             </ion-card-header>
             <ion-card-content>
-                  <ion-text color="warning">
+                  <ion-text color="dark">
                     <strong>
                       Current Theme Colors
                     </strong>
                   </ion-text>
 
                 <hr>
-            <ion-button  size="small"  expand="full" strong size="small" color="tertiary">Accent One</ion-button>
+            <ion-button  size="small"  expand="full" strong size="small" color="secondary">Accent One</ion-button>
             <ion-button  size="small"  expand="full" strong size="small" color="light">Accent Two</ion-button>
             <ion-button  size="small"  expand="full" strong size="small" color="medium">Accent Three</ion-button>
-            <ion-button  size="small"  expand="full" strong size="small" color="primary">Card Background</ion-button>
+            <ion-button  size="small"  expand="full" strong size="small" color="medium">Card Background</ion-button>
             <ion-button  size="small"  expand="full" strong size="small" color="secondary">Heading/Title</ion-button>
-            <ion-button  size="small"  expand="full" strong size="small" color="warning">titles</ion-button>
+            <ion-button  size="small"  expand="full" strong size="small" color="dark">titles</ion-button>
             <hr>
                   <ion-card-subtitle>
-              <ion-text color="warning">
+              <ion-text color="dark">
                   Unique Themes
               </ion-text>
             </ion-card-subtitle>
 
 
             <ion-card-subtitle>
-              <ion-text color="warning">
+              <ion-text color="dark">
                   Pro Team Themes
               </ion-text>
             </ion-card-subtitle>

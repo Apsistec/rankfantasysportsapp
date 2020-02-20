@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="medium">
     <ion-buttons slot="start">
       <ion-button (click)="close()">
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>
-      <ion-text color="primary">
+      <ion-text color="medium">
         Ticket Details
       </ion-text>
     </ion-title>
@@ -16,12 +16,12 @@
   <ion-card color="light">
     <ion-card-header>
       <ion-card-title *ngIf="!id">
-        <ion-text color="primary">
+        <ion-text color="medium">
           New Ticket
         </ion-text>
       </ion-card-title>
       <ion-card-title *ngIf="id">
-        <ion-text color="primary"> Ticket: #{{ id }} </ion-text>
+        <ion-text color="medium"> Ticket: #{{ id }} </ion-text>
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>
@@ -51,8 +51,8 @@
               <ion-icon name="radio-button-off"></ion-icon>
             </ion-segment-button>
             <ion-segment-button value="1" layout="icon-end">
-              <ion-icon color="primary" name="done-all"></ion-icon>
-              <ion-label color="primary">Fixed</ion-label>
+              <ion-icon color="medium" name="done-all"></ion-icon>
+              <ion-label color="medium">Fixed</ion-label>
             </ion-segment-button>
           </ion-segment>
         </ion-item>

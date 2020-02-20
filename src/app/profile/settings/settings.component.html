@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col >
-          <ion-card color="primary">
+          <ion-card color="medium">
             <ion-card-header class="ion-text-center">
                   <ion-card-title>
                     <ion-text color="secondary">
@@ -11,7 +11,7 @@
                     </ion-text>
                   </ion-card-title>
                   <ion-card-subtitle>
-                    <ion-text color="warning">
+                    <ion-text color="dark">
                       Edit your Name, Email & Photo
                     </ion-text>
                   </ion-card-subtitle>
@@ -24,13 +24,13 @@
                         Display Name
                       </ion-text>
                     </ion-label>
-                    <ion-input  color="warning" [(ngModel)]="user.displayName"></ion-input>
+                    <ion-input  color="dark" [(ngModel)]="user.displayName"></ion-input>
                     <br>
                   </ion-item>
                   <ion-note >Update name then Submit</ion-note>
                   <br>
 
-                  <ion-button size="small" (click)="updateUser()" color="warning" shape="round">Submit Name</ion-button>
+                  <ion-button size="small" (click)="updateUser()" color="dark" shape="round">Submit Name</ion-button>
 
                   <ion-item>
                     <ion-label position="floating">
@@ -38,12 +38,12 @@
                         Email
                       </ion-text>
                     </ion-label>
-                    <ion-input color="warning" [(ngModel)]="user.email"></ion-input>
-                    
+                    <ion-input color="dark" [(ngModel)]="user.email"></ion-input>
+
                   </ion-item>
                   <ion-note >Update email then submit</ion-note>
                   <br>
-                  <ion-button size="small" (click)="updateEmail()" color="warning" shape="round">Submit Email</ion-button>
+                  <ion-button size="small" (click)="updateEmail()" color="dark" shape="round">Submit Email</ion-button>
 
                 </ion-list>
 
@@ -55,8 +55,8 @@
                         </ion-text>
                       </ion-title>
                       <h5>
-                        <ion-text color="warning">
-                         You can use any linked account to login 
+                        <ion-text color="dark">
+                         You can use any linked account to login
                         </ion-text>
                       </h5>
                     </ion-list-header>
@@ -91,5 +91,5 @@
           </ion-col>
           </ion-row>
         </ion-grid>
-        
+
       </ion-content>

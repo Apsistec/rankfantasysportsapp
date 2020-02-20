@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card color="primary">
+        <ion-card color="medium">
           <ion-card-header>
             <ion-card-title>
               <ion-text color="secondary">
@@ -16,7 +16,7 @@
       <ion-icon name="radio-button-off" color="danger" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
       <ion-label >
-        <ion-text color="warning">
+        <ion-text color="dark">
           <h2>{{ ticket.title }}</h2>
         </ion-text>
         <ion-text color="light">
@@ -34,7 +34,7 @@
 </ion-grid>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="deepo" (click)="openTicketModal()">
-      <ion-icon color="tertiary" name="add"></ion-icon>
+      <ion-icon color="secondary" name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
