@@ -33,7 +33,7 @@ const routes: Routes = [
     ProfilePage,
     InvoicesComponent,
     CancelSubscriptionComponent,
-    SettingsComponent,
+    SettingsComponent
   ]
 })
 export class ProfilePageModule {}

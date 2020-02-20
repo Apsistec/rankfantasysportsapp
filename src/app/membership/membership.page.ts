@@ -7,6 +7,8 @@ import { ModalService } from '../_services/modal.service';
 import { SeoService } from '@services/seo.service';
 import { SpinnerService } from '@services/spinner.service';
 import { WizardComponent } from 'angular-archwizard';
+import { PopoverComponent } from '@shared/popover/popover.component';
+
 
 import {
   Component,
@@ -15,6 +17,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -51,6 +54,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
     private message: MessageService,
     public modal: ModalService,
     private seo: SeoService,
+    private popoverController: PopoverController
     ) {
       this.seo.addTwitterCard(
         this.titleId,
@@ -99,17 +103,17 @@ ngAfterViewInit() {}
   //   this.isChecked = !this.isChecked;
   // }
 
-  async onSubmit(stripe: NgForm) {
+  async onSubmit(form) {
     if (this.isChecked) {
-      this.bumpUpOrder().then(() => {
-        this.subscribeUser(stripe);
+      this.bumpUpOrder(form).then(() => {
+        this.subscribeUser(form);
       });
     }{
-      this.subscribeUser(stripe);
+      this.subscribeUser(form);
     }
   }
 
-  async subscribeUser(stripe) {
+  async subscribeUser(stripe: NgForm) {
     const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
       this.spinner.dismissSpinner();
@@ -133,7 +137,7 @@ ngAfterViewInit() {}
     }
   }
 
-  async bumpUpOrder() {
+  async bumpUpOrder(check: NgForm) {
     const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
     } else {
@@ -151,7 +155,7 @@ ngAfterViewInit() {}
 
   checkLoggedInStatus() {
     const user = this.auth.getCurrentUser();
-    if (user != null) {
+    if (user !== null) {
       this.wizard.goToStep(1);
     }
   }
@@ -159,6 +163,16 @@ ngAfterViewInit() {}
 
   switchAuthMode() {
     this.isRegister = !this.isRegister;
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true,
+      cssClass: 'popoverUser'
+    });
+    return popover.present();
   }
 }
 

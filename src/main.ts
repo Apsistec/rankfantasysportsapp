@@ -1,3 +1,5 @@
+/*tslint:disable:no-import-side-effect*/
+
 import 'hammerjs';
 import './polyfills';
 import { enableProdMode } from '@angular/core';

@@ -1,5 +1,24 @@
 <ion-content>
-  <a class="home" routerLink='/home'></a>
+  <ion-toolbar style="background-color: transparent;">
+
+
+    <ion-item *ngIf="auth.afAuth.user | async as user"
+        slot="end"
+        type="button"
+        color="medium"
+        (click)="presentPopover($event)"
+        detail="false"
+        lines="none"
+        >
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+        </ion-avatar>
+      </ion-item>
+
+
+  </ion-toolbar>
+
   <ion-grid class="ion-no-padding">
     <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
       <ion-col
@@ -164,7 +183,8 @@
                   <ion-item color="warning">
                     <ion-icon appBlink name="arrow-round-forward" color="danger" slot="start"></ion-icon>
 
-                    <form>
+                    <form #check novalidate (ngSubmit)="onSubmit(check)">
+
                       <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" /> Checked + Change
                     </form>
 

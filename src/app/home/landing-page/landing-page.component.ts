@@ -1,6 +1,6 @@
 import { AuthService } from '@services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Config } from '@ionic/angular';
+import { Config, PopoverController } from '@ionic/angular';
 import { ModalService } from '@services/modal.service';
 import { ThemeService } from '@services/theme.service';
 
@@ -16,7 +16,7 @@ export class LandingPageComponent implements OnInit {
     private config: Config,
     public auth: AuthService,
     private theme: ThemeService,
-    public modal: ModalService
+    public modal: ModalService,
   ) {}
 
   ngOnInit() {

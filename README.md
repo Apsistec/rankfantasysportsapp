@@ -39,7 +39,7 @@ What is RankFantasySports.com?
 * Purchase is for all Stripe related actions which uses CLoud Functions to facilitate securely
 * Testimonials uses the swiper carousel to display the list of slides/images of latest winning screenshots
 * Auth-stage holds all user related pages components and side menus, both before and after authentication
-* Shared holds all of the components, overlays, and modals that are used on more than one or even every page
+* _shared holds all of the components, overlays, and modals that are used on more than one or even every page
 * sports-categories holds all of the available product categories and
 * Nested under each category in sports-categories are the affiliated **for purchase data-table pages**
 * user-tickets is the user trouble ticket area for users to make requests for changes, bug reports, user issues
@@ -47,16 +47,16 @@ What is RankFantasySports.com?
 
 ## Table of Contents
 
-- [RFSports](#RFSports)
-  - [Rank Fantasy $ports&trade; PWA](#rank-fantasy-portstrade-pwa)
-    - [Tech Stack](#tech-stack)
-  - [Structure of App](#structure-of-app)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Documentation](#documentation)
-  - [Contributing](#contributing)
-  - [Contributors/People](#contributorspeople)
-  - [Support](#support)
+* [RFSports](#RFSports)
+  * [Rank Fantasy $ports&trade; PWA](#rank*fantasy-portstrade-pwa)
+    * [Tech Stack](#tech-stack)
+  * [Structure of App](#structure-of-app)
+  * [Table of Contents](#table-of-contents)
+  * [Installation](#installation)
+  * [Documentation](#documentation)
+  * [Contributing](#contributing)
+  * [Contributors/People](#contributorspeople)
+  * [Support](#support)
 
 ## Installation
 

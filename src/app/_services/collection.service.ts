@@ -16,7 +16,7 @@ export class CollectionService {
   admins: Observable<any>;
   members: Observable<any>;
   wttsa: Observable<any>;
-  
+
   constructor(
     private db: AngularFirestore,
     private auth: AuthService,

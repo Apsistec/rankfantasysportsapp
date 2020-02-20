@@ -1,6 +1,3 @@
-/***************************************************************************************************
- * BROWSER POLYFILLS
- */
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -14,7 +11,7 @@
  * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
  * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
  *
- * Learn more in https://angular.io/guide/browser-support
+ * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
@@ -47,7 +44,7 @@ import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 
 /**
- * Required to support Web Animations `@angular/platform-browser/animations`.
+ * Required to support Web Animations `@angular/animation`.
  * Needed for: All but Chrome, Firefox and Opera. http://caniuse.com/#feat=web-animation
  **/
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.

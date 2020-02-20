@@ -37,7 +37,7 @@ export class SettingsComponent implements OnInit {
       duration: 5000,
       position: 'top',
       cssClass: 'successT',
-     
+
     });
     await toast.present();
     return this.router.navigateByUrl('/auth/profile');

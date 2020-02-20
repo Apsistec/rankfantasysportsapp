@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TicketComponent } from '../../_shared/tickets/ticket.component';
 import { CollectionService } from '../../_services/collection.service';
-import { AngularFireFunctions } from '@angular/fire/functions';
+
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,18 +13,18 @@ import { AngularFireFunctions } from '@angular/fire/functions';
   styleUrls: ['./admin-dashboard.page.scss']
 })
 export class AdminDashboardPage implements OnInit {
+
   tickets: Observable<any>;
   titleId = 'RF$\u2122 Admin Dashboard';
-  admins: Observable<any>;
-  users: Observable<any>;
-  members: Observable<any>;
+  admins;
+  users;
+  members;
 
   constructor(
     public auth: AuthService,
     private ticket: TicketService,
     private modalCtrl: ModalController,
-    private collection: CollectionService,
-    private fun: AngularFireFunctions
+    private collection: CollectionService
   ) {}
 
   ngOnInit() {
@@ -44,13 +44,6 @@ export class AdminDashboardPage implements OnInit {
     await ticketModal.present();
   }
 
-  sendEmail() {
-    const callable = this.fun.httpsCallable('genericEmail');
-    callable({
-      text: 'Sending email with Angular and SendGrid is fun!',
-      subject: 'Email from Angular'
-    }).subscribe();
-  }
 
   SignOut() {
     this.auth.SignOut();

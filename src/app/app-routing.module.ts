@@ -7,11 +7,9 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo
   } from '@angular/fire/auth-guard';
-import { MailComponent } from './profile/mail/mail.component';
 import { NgModule } from '@angular/core';
 import { PaidMemberGuard } from '@guards/paid-member.guard';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
 
 const adminOnly = () => hasCustomClaim('admin');
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
@@ -45,7 +43,6 @@ const appRoutes: Routes = [
       import('./sales-funnel/how-to/how-to.module').then(m => m.HowToPageModule)
   },
 
-  { path: 'mail', component: MailComponent },
 
   { path: 'analytics', component: AnalyticsComponent },
   { path: 'about', component: AboutComponent },

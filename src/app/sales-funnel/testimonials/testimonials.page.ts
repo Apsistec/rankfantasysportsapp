@@ -1,6 +1,5 @@
-import { SeoService } from '@services/seo.service';
 import { Component } from '@angular/core';
-// import { ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { Slides } from './slides';
 
 @Component({
@@ -8,9 +7,11 @@ import { Slides } from './slides';
   templateUrl: 'testimonials.page.html',
   styleUrls: ['testimonials.page.scss']
 })
+
 export class TestimonialsPage {
-  titleId = 'RF$\u2122 Credibility';
+  titleId = 'RF$\u2122 Credibility' ;
   slides = Slides;
+  imgDescription = 'Submitted by RF$ PRO Members';
   slide: any;
   slideOpts = {
     centeredSlides: true,
@@ -22,13 +23,6 @@ export class TestimonialsPage {
     mousewheel: true
   };
 
-  constructor(
-    private seo: SeoService
-  ) {
-    this.seo.addTwitterCard(
-      this.titleId,
-      'This is the testimonials page for those who want to learn first hand from members how they have had success with their Rank Fantasy Sports Pro Subscription',
-      '../../../assets/img/rfs-logo.svg'
-    );
-  }
+  constructor(public modalController: ModalController) { }
+
 }

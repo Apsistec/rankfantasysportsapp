@@ -2,7 +2,7 @@
 * Shows how you can use CSS to style your Element's container.
 */
 .tech {
-  background:url(../../assets/img/rfs-logo.svg), rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
+  background:url(../../assets/img/icon-192x192.png), rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
   min-height: 100vh;
   width: 100vw;
   background-size: 80px, cover;
@@ -84,17 +84,17 @@ inputError{
   background-color: lightgrey !important;
 }
 
-.resp-container {
-    width: 94%;
-    height: 17rem;
+// .resp-container {
+//     width: 94%;
+//     height: 17rem;
 
-}
+// }
 
-.resp-iframe {
-    height: 17rem;
-    overflow: hidden;
-    width: 100%;
-}
+// .resp-iframe {
+//     height: 17rem;
+//     overflow: hidden;
+//     width: 100%;
+// }
 
 ul{
   display: block;

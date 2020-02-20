@@ -1,5 +1,5 @@
-<app-header [titleId]="titleId"></app-header>
-<ion-content>
+<app-header [titleId]= "titleId"></app-header>
+<ion-content class="ion-fullscreen">
   <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let slide of slides">
       <ion-card>
@@ -9,5 +9,5 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
-</ion-content>
+  </ion-content>
 <app-footer></app-footer>

@@ -1,33 +1,27 @@
-import { AuthModalComponent } from './auth-modal/auth-modal.component';
-import { CbbComponent } from '../tables/cbb/cbb.component';
 import { CfbComponent } from '../tables/cfb/cfb.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
-import { ForgotPasswordElementComponent } from './forgot-password-element/forgot-password-element.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
-import { LoginElementComponent } from './login-element/login-element.component';
-import { MailComponent } from '..//profile/mail/mail.component';
-import { NbaComponent } from '..//tables/nba/nba.component';
-import { NflComponent } from '..//tables/nfl/nfl.component';
+import { NbaComponent } from '../tables/nba/nba.component';
+import { NflComponent } from '../tables/nfl/nfl.component';
 import { NgModule } from '@angular/core';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-import { NowComponent } from '..//tables/now/now.component';
-import { PgaComponent } from '..//tables/pga/pga.component';
+import { NowComponent } from '../tables/now/now.component';
+import { PgaComponent } from '../tables/pga/pga.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { RegisterElementComponent } from './register-element/register-element.component';
 import { RouterModule } from '@angular/router';
-import { ShareButtonsModule } from '@ngx-share/buttons';
-import { SharedDirectivesModule } from '../_directives/shared-directives.module';
-import { TennisComponent } from '..//tables/tennis/tennis.component';
+import { TennisComponent } from '../tables/tennis/tennis.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TicketComponent } from './tickets/ticket.component';
-import { ToHttpsPipe } from './../_pipes/to-https.pipe';
-import { ArchwizardModule } from 'angular-archwizard';
-import '../../icons';
-
+import { SharedDirectivesModule } from '../_directives/shared-directives.module';
+import { RegisterElementComponent } from './register-element/register-element.component';
+import { LoginElementComponent } from './login-element/login-element.component';
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { ForgotPasswordElementComponent } from './forgot-password-element/forgot-password-element.component';
+import { CbbComponent } from 'app/tables/cbb/cbb.component';
 
 @NgModule({
   declarations: [
@@ -39,31 +33,26 @@ import '../../icons';
     PopoverComponent,
     NowComponent,
     NflComponent,
-    CfbComponent,
     CbbComponent,
+    CfbComponent,
     PgaComponent,
-    ToHttpsPipe,
     NbaComponent,
     TennisComponent,
-    CbbComponent,
-    MailComponent,
-    LoginElementComponent,
-    RegisterElementComponent,
+    ForgotPasswordElementComponent,
     AuthModalComponent,
-    ForgotPasswordElementComponent
+    RegisterElementComponent,
+    LoginElementComponent
   ],
 
   entryComponents: [
     TicketComponent,
     TermsDialogComponent,
+    AuthModalComponent,
     PrivacyDialogComponent,
-    PopoverComponent,
-    AuthModalComponent
+    PopoverComponent
   ],
 
   imports: [
-    ArchwizardModule,
-    ShareButtonsModule,
     NgxTwitterTimelineModule,
     IonicModule,
     FormsModule,
@@ -74,28 +63,25 @@ import '../../icons';
   ],
 
   exports: [
-    RegisterElementComponent,
-    LoginElementComponent,
-    ShareButtonsModule,
     SharedDirectivesModule,
     NgxTwitterTimelineModule,
     HeaderComponent,
+    AuthModalComponent,
+    ForgotPasswordElementComponent,
     PopoverComponent,
     FooterComponent,
+    RegisterElementComponent,
+    LoginElementComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,
-    ToHttpsPipe,
     TicketComponent,
     NowComponent,
     NflComponent,
-    CbbComponent,
     CfbComponent,
+    CbbComponent,
     PgaComponent,
     NbaComponent,
     TennisComponent,
-    MailComponent,
-    AuthModalComponent,
-    ForgotPasswordElementComponent
   ]
 })
 export class SharedModule {}

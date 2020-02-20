@@ -12,7 +12,6 @@ export class SpinnerService {
     const load = await this.loadingCtrl.create({
       spinner: 'circles',
       message: 'Please wait...',
-     
     });
     load.present();
   }

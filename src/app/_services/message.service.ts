@@ -31,7 +31,6 @@ export class MessageService {
       keyboardClose: true,
       duration: 4000,
       showCloseButton: true,
-
     });
     return toast.present();
   }
@@ -46,7 +45,6 @@ export class MessageService {
       keyboardClose: true,
       duration: 3000,
       showCloseButton: true,
-
     });
     await toast.present();
   }
@@ -63,7 +61,6 @@ export class MessageService {
       duration: 3000,
       showCloseButton: true,
       keyboardClose: true,
-
     });
     await toast.present();
   }
@@ -170,7 +167,6 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Invalid Request',
       message: 'You are already Subscribed',
-
       buttons: ['OK']
     });
     await alert.present();
@@ -213,7 +209,6 @@ export class MessageService {
     const alert = await this.alertCtrl.create({
       header: 'Are You Sure?',
       subHeader: 'Changes were NOT saved',
-
       message: 'Press Save to resume editing or press OK to close',
       backdropDismiss: false,
       buttons: [

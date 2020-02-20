@@ -1,6 +1,5 @@
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
-import { Component, OnInit } from '@angular/core';
-import { SeoService } from '@services/seo.service';
 
 @Component({
   selector: 'app-how-to',
@@ -8,18 +7,9 @@ import { SeoService } from '@services/seo.service';
   styleUrls: ['./how-to.page.scss']
 })
 export class HowToPage implements OnInit {
-  titleId = 'How To Use RF$\u2122';
+  titleId = 'How To... RF$\u2122';
 
-  constructor(
-    public auth: AuthService,
-    private seo: SeoService
-    ) {
-      this.seo.addTwitterCard(
-        this.titleId,
-        'This is the How To page for new visitors and those who want to know how to sign up for a Rank Fantasy Sports Pro Subscription',
-        '../../../assets/img/rfs-logo.svg'
-      );
-    }
+  constructor(public auth: AuthService) {}
 
   ngOnInit() {}
 }

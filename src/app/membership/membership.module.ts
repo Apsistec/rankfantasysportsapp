@@ -8,7 +8,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MembershipPage } from './membership.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '../_shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Routes = [
   {

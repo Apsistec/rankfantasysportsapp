@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { auth } from 'firebase/app';
 import { BehaviorSubject, from, Observable, of } from 'rxjs';
-import { environment } from '@environments/environment';
+import { environment } from '..//../environments/environment';
 import { first, map, switchMap, take } from 'rxjs/operators';
 import { Injectable, NgZone } from '@angular/core';
 import { MessageService } from './message.service';
@@ -75,7 +75,6 @@ export class AuthService {
     // can "dismiss" itself and optionally pass back data
     this.modalCtrl.dismiss();
   }
-
 
 
   // Authentication

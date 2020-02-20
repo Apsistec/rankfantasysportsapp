@@ -24,6 +24,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
+
   slide: any;
   slideOpts = {
     centeredSlides: true,
@@ -37,6 +38,8 @@ export class HomePage implements OnInit, AfterViewInit {
   video4: any = {
     url: 'https://www.youtube.com/embed/APeaBlagSNc'
   };
+
+  trustedVideoUrl: SafeResourceUrl;
 
   constructor(
     private modalController: ModalController,
@@ -73,7 +76,6 @@ export class HomePage implements OnInit, AfterViewInit {
   onScroll(event) {
     this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
   }
-
   ScrollToTop() {
     this.ionContent.scrollToTop(1500);
   }
