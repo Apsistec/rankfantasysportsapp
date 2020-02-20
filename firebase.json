@@ -9,22 +9,7 @@
   "hosting": [
     {
       "target": "main",
-      "public": "dist/www",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "uploader",
-      "public": "dist/ekcel",
+      "public": "www",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -37,6 +22,7 @@
         }
       ]
     }
+
   ],
   "firestore": {
     "rules": "firestore.rules",

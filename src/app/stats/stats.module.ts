@@ -5,11 +5,9 @@ import { InjuriesComponent } from './injuries/injuries.component';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material/material.module';
 import { NgModule } from '@angular/core';
-import { PlayerActiveDetailComponent } from './player-active-detail/player-active-detail.component';
 import { SharedModule } from '@shared/shared.module';
 import { StatsPage } from './stats.page';
 import { StatsPageRoutingModule } from './stats-routing.module';
-import { TestComponent } from './test/test.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,13 +19,9 @@ import { TestComponent } from './test/test.component';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    StatsPageRoutingModule  ],
-    entryComponents: [],
-    declarations: [
-    StatsPage,
-    InjuriesComponent,
-    PlayerActiveDetailComponent,
-    TestComponent
-  ]
+    StatsPageRoutingModule
+  ],
+  entryComponents: [],
+  declarations: [StatsPage, InjuriesComponent]
 })
 export class StatsPageModule {}

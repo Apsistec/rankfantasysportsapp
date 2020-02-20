@@ -106,21 +106,21 @@
         formControlName="password"
       ></ion-input>
       <ion-button
-        item-end
-        (click)="hidePass = !hidePass"
-        *ngIf="hidePass"
-        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
-      >
-        <ion-icon name="eye" size="large" color="white"> </ion-icon>
-      </ion-button>
-      <ion-button
-        item-end
-        (click)="hidePass = !hidePass"
-        *ngIf="!hidePass"
-        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
-      >
-        <ion-icon name="eye-off" size="large" color="white"> </ion-icon>
-      </ion-button>
+      item-end
+      (click)="hidePass = !hidePass"
+      *ngIf="hidePass"
+      style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+    >
+      <ion-icon size="large" name="eye" color="white"> </ion-icon>
+    </ion-button>
+    <ion-button
+      item-end
+      (click)="hidePass = !hidePass"
+      *ngIf="!hidePass"
+      style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+    >
+      <ion-icon size="large" name="eye-off" color="white"> </ion-icon>
+    </ion-button>
     </ion-item>
     <div
       *ngIf="
@@ -155,13 +155,13 @@
   <hr />
   <hr />
 
-  <ion-button awNextStep>Step</ion-button>
 
 
   <ion-button
     [disabled]="registerForm.invalid"
     color="danger"
     type="submit"
+
   >
     <ion-icon
       slot="start"

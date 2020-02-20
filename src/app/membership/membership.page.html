@@ -14,7 +14,6 @@
       >
         <ion-card
           color="primary"
-          style="border: 3px solid white; border-radius: 10px;"
         >
           <ion-card-content>
 
@@ -27,11 +26,11 @@
               >
     <!-- Sign  Up form -->
               <ng-container *ngIf="isRegister">
-                <app-register-element  (stepsStepped)="onStepForward($event)" ></app-register-element>
+                <app-register-element (readyToStep)="navigateToStep()"></app-register-element>
               </ng-container>
     <!-- Login form -->
               <ng-container *ngIf="!isRegister">
-                <app-login-element (stepsStepped)="onStepForward($event)"></app-login-element>
+                <app-login-element (readyToStep)="navigateToStep()"></app-login-element>
               </ng-container>
                 <ion-button color="light" size="small" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Login' : 'Sign Up' }}?</ion-button>
       <!-- Step 2  Pay     -->
@@ -78,10 +77,10 @@
                           RFS Pro Package
                         </ion-text>
                         <br />
-                        <ion-text *ngIf="checked">
+                        <ion-text *ngIf="isChecked">
                           ***
                         </ion-text>
-                        <ion-text *ngIf="!checked">
+                        <ion-text *ngIf="!isChecked">
                           1-ON-1 Training
                         </ion-text>
                         <br />
@@ -95,15 +94,15 @@
                         <ion-text> $9.99/<sub>Month</sub> </ion-text>
                         <br />
 
-                        <ion-text *ngIf="!checked">
+                        <ion-text *ngIf="!isChecked">
                           $57.00
                         </ion-text>
                         <br />
                         <br />
-                        <ion-text *ngIf="!checked">
+                        <ion-text *ngIf="!isChecked">
                           $57.00
                         </ion-text>
-                        <ion-text *ngIf="checked">
+                        <ion-text *ngIf="isChecked">
                           $0.00
                         </ion-text>
                       </ion-col>
@@ -164,11 +163,11 @@
 
                   <ion-item color="warning">
                     <ion-icon appBlink name="arrow-round-forward" color="danger" slot="start"></ion-icon>
-                    <ion-checkbox
-                    slot="start"
-                        [checked]="checked"
-                        (click)="isChecked()"
-                      ></ion-checkbox>
+
+                    <form>
+                      <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" /> Checked + Change
+                    </form>
+
                       <ion-label color="success" class="ion-text-wrap">
                         Enhance My Trial
                       </ion-label>
@@ -248,10 +247,10 @@
       <ion-col
         *ngIf="showDetails"
         class=" ion-align-self-center ion-no-margin ion-no-padding"
-        size-sm="12"
-        size-md="12"
-        size-lg="4"
-        size-xl="4"
+        size-sm="6"
+        size-md="6"
+        size-lg="3"
+        size-xl="3"
         >
         <ion-card
           style="top:20%;background: rgb(0,0,0);

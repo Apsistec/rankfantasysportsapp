@@ -83,8 +83,9 @@ export class AppComponent implements OnInit, OnDestroy {
   dismis() {
     this.modal.dismiss();
   }
-  
+
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }
 }
+

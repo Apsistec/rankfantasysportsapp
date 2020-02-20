@@ -1,29 +1,19 @@
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from '../_services/auth.service';
-import { BlinkDirective } from '@directives/blink.directive';
 import { environment } from '../../environments/environment.prod';
-import { FormBuilder, FormControl, NgForm, Validators } from '@angular/forms';
-import { interval, Subscription } from 'rxjs';
-import { IonContent, ModalController } from '@ionic/angular';
-import { MembershipPageModule } from './membership.module';
+import { NgForm } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalService } from '../_services/modal.service';
-import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
-import { Router } from '@angular/router';
 import { SeoService } from '@services/seo.service';
 import { SpinnerService } from '@services/spinner.service';
-import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
 import { WizardComponent } from 'angular-archwizard';
 
 import {
   Component,
-  HostBinding,
   AfterViewInit,
   ElementRef,
-  Input,
   OnInit,
   ViewChild,
-  OnDestroy,
 } from '@angular/core';
 declare var Stripe: stripe.StripeStatic;
 
@@ -39,17 +29,14 @@ export class MembershipPage implements OnInit, AfterViewInit {
   titleId = 'RF$\u2122 Pro Memberships';
 
   user;
+  @ViewChild(WizardComponent, {static: true}) public wizard: WizardComponent;
 
-  loading = false;
-
-  @ViewChild(WizardComponent, {static: false})
-  public wizard: WizardComponent;
 
   showDetails: boolean;
   hideProduct: boolean;
 
   // blinker: Subscription;
-  checked: boolean;
+  isChecked = false;
   card;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   stripe: stripe.Stripe;
@@ -57,16 +44,13 @@ export class MembershipPage implements OnInit, AfterViewInit {
   confirmation;
   cardErrors;
 
-  @Input()register;
-  @Input()login;
-
   constructor(
     public functions: AngularFireFunctions,
     private spinner: SpinnerService,
     public auth: AuthService,
     private message: MessageService,
     public modal: ModalService,
-    private seo: SeoService
+    private seo: SeoService,
     ) {
       this.seo.addTwitterCard(
         this.titleId,
@@ -76,20 +60,15 @@ export class MembershipPage implements OnInit, AfterViewInit {
       }
 
 
-      ngOnInit() {
-        this.showDetails = true;
-      }
 
+  ngOnInit() {
+    this.showDetails = true;
 
+    this.checkLoggedInStatus();
 
+    this.stripe = Stripe(environment.stripeKey);
 
-
-      ngAfterViewInit() {
-
-
-        this.stripe = Stripe(environment.stripeKey);
-
-        const elements = this.stripe.elements();
+    const elements = this.stripe.elements();
     const style = {
       base: {
         color: '#227733',
@@ -114,12 +93,23 @@ export class MembershipPage implements OnInit, AfterViewInit {
     });
   }
 
-  isChecked() {
-    this.checked = !this.checked;
-  }
+ngAfterViewInit() {}
 
+  // checkIt() {
+  //   this.isChecked = !this.isChecked;
+  // }
 
   async onSubmit(stripe: NgForm) {
+    if (this.isChecked) {
+      this.bumpUpOrder().then(() => {
+        this.subscribeUser(stripe);
+      });
+    }{
+      this.subscribeUser(stripe);
+    }
+  }
+
+  async subscribeUser(stripe) {
     const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
       this.spinner.dismissSpinner();
@@ -139,37 +129,36 @@ export class MembershipPage implements OnInit, AfterViewInit {
       this.spinner.dismissSpinner();
       stripe.reset();
       this.message.subscribedToast();
-      this.wizard.goToStep(2);
+        this.wizard.goToStep(2);
     }
   }
 
-  // async handleForm(e) {
-    //   e.preventDefault();
+  async bumpUpOrder() {
+    const { source, error } = await this.stripe.createSource(this.card);
+    if (error) {
+    } else {
+        // Send the token to your server.
+        const user = await this.auth.getUser();
+        const fun = this.functions.httpsCallable('stripeCreateCharge');
+        this.confirmation = await fun({ source: source.id, uid: user.uid, amount: '999' }).toPromise();
+    }
+  }
 
-    //   const { source, error } = await this.stripe.createSource(this.card);
+  // wizard for signed in user to skip to step 2
+  navigateToStep() {
+    this.wizard.goToStep(1);
+  }
 
-    //   if (error) {
-      //     // Inform the customer that there was an error.
-      //     const cardErrors = error.message;
-      //   } else {
-        //     // Send the token to your server.
-        //     this.loading = true;
-        //     const user = await this.auth.getUser();
-        //     const fun = this.functions.httpsCallable('stripeCreateCharge');
-        //     this.confirmation = await fun({ source: source.id, uid: user.uid, amount: this.amount }).toPromise();
-        //     this.loading = false;
-
-        //   }
-
-        // wizard for signed in user to skip to step 2
-      navigateToStep() {
-
-      }
+  checkLoggedInStatus() {
+    const user = this.auth.getCurrentUser();
+    if (user != null) {
+      this.wizard.goToStep(1);
+    }
+  }
 
 
-
-        switchAuthMode() {
-          this.isRegister = !this.isRegister;
-        }
-      }
+  switchAuthMode() {
+    this.isRegister = !this.isRegister;
+  }
+}
 

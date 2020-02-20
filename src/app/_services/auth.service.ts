@@ -38,12 +38,12 @@ export class AuthService {
  this.user = this.afAuth.authState.pipe(
   switchMap(user => {
     if (user) {
-      return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+      return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
     } else {
-      return of(null)
+      return of(null);
     }
   })
-)
+);
 
     // this.user = this.afAuth.authState.pipe(
     //   switchMap(user => {
@@ -104,35 +104,25 @@ export class AuthService {
   /* Sign up email*/
 
 
-  registerUser(value) {
-    return new Promise<any>((resolve, reject) => {
-      this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
-      .then(
-        res => resolve(res),
-        err => reject(err));
+  async registerUser(value) {
+    this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
+    .then(async (data: any) => {
+      await this.afs
+        .doc<User>(`users/${data.user.uid}`)
+        .set(
+          {
+            displayName: value.firstName + ' ' + value.lastName,
+            email: data.user.email,
+            uid: data.user.uid,
+            role: 'USER',
+            permissions: ['delete-ticket'],
+            photoURL: data.user.photoURL
+          },
+          { merge: true }
+        );
     });
-   }
+  }
 
-  // SignUp(credentials) {
-  //   return this.afAuth.auth
-  //     .createUserWithEmailAndPassword(credentials.email, credentials.password)
-  //     .then(res => {
-  //       this.afs.doc<User>(`users/${res.user.uid}`).set(
-  //         {
-  //           displayName: credentials.firstName + ' ' + credentials.lastName,
-  //           email: res.user.email,
-  //           uid: res.user.uid,
-  //           role: 'USER',
-  //           permissions: ['delete-ticket'],
-  //           photoURL: res.user.photoURL,
-  //         },
-  //         { merge: true }
-  //       );
-  //     })
-  //     .catch(async err => {
-  //       await this.message.errorAlert(err);
-  //     });
-  // }
 
   // Auth logic to Login using federated auth providers
   async AuthLogin(provider: any) {
@@ -336,23 +326,4 @@ export class AuthService {
   }
 
 
-
-  // Token Http INterceptor
-    // Used by the http interceptor to set the auth header
-    // getUserIdToken(): Observable<string> {
-    //   return fromPromise ( this.afAuth.auth.currentUser.getIdToken() );
-    // }
-
-
-    ///// STRIPE CONNECT //////
-
-
-    // Login popup window
-    stripeLogin() {
-      // const popup = window.open(`${environment.functionsURL}/stripeRedirect`, '_blank', 'height=700,width=800')
-    }
-    // Signin with a custom token from
-    customSignIn(token) {
-      return this.afAuth.auth.signInWithCustomToken(token).then(() => window.close())
-    }
 }

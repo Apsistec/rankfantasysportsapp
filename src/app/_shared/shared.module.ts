@@ -25,6 +25,7 @@ import { TennisComponent } from '..//tables/tennis/tennis.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TicketComponent } from './tickets/ticket.component';
 import { ToHttpsPipe } from './../_pipes/to-https.pipe';
+import { ArchwizardModule } from 'angular-archwizard';
 import '../../icons';
 
 
@@ -61,6 +62,7 @@ import '../../icons';
   ],
 
   imports: [
+    ArchwizardModule,
     ShareButtonsModule,
     NgxTwitterTimelineModule,
     IonicModule,

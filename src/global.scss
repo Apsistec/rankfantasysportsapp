@@ -1,3 +1,4 @@
+/* autoprefixer grid: autoplace */
 // for unicode characters
 @charset 'utf-8';
 
@@ -20,22 +21,7 @@
 
 @import '~@ngx-share/button/themes/default/default-theme';
 
-
-
-// Local Globals
-
-// body {
-//   font-family: Roboto, Arial, sans-serif;
-//   margin: 0;
-// }
-// .basic-container {
-//   padding: 30px;
-// }
-// .version-info {
-//   font-size: 8pt;
-//   float: right;
-// }
-
+:root {
 // Toasts each status
 .successT {
   --background: #d0ffe5;
@@ -73,7 +59,6 @@
   --border-radius: '10px';
   --width: '300px';
   --height: '48px';
-
 }
 
 .infoT {
@@ -86,15 +71,13 @@
   --border-radius: '10px';
   --width: '0px';
   --height: '48px';
-
-
 }
 
 
 
 
-::-webkit-scrollb%ar,
-*::-webkit-scrollbar {
+::scrollbar,
+*::scrollbar {
   display: none;
 }
 
@@ -102,8 +85,6 @@ a:hover {
   cursor: auto;
 }
 
-:root {
-  // All modals
 
 
   // Register Modal CSS
@@ -155,5 +136,9 @@ a:hover {
   .popoverUser{
     --background: var(ion-color-primary)!important;
   }
+
+  Adding Font for Body 
+  html, body { height: 100%; }
+  body { margin: 0; font-family: 'Roboto', sans-serif; }
 }
 
