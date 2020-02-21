@@ -140,5 +140,11 @@ a:hover {
   Adding Font for Body
   html, body { height: 100%; }
   body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+  ion-card{
+        border: 3px solid var(--ion-color-white);
+
+    border-radius: 18px 18px 18px 18px;
+  }
 }
 

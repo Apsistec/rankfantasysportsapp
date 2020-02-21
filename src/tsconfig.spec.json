@@ -5,12 +5,8 @@
     "baseUrl": "./",
     "types": [
       "jasmine",
-<<<<<<< HEAD
       "node",
       "jest"
-=======
-      "node"
->>>>>>> master
     ]
   },
   "files": [

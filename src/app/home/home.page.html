@@ -21,8 +21,8 @@
           </ion-text>
       </ion-col>
     </ion-row>
-    <ion-row class=" ion-text-center ion-text-wrap ion-justify-content-center">
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
+    <ion-row class=" ion-text-center ion-text-wrap ion-no-padding ion-no-margin ion-justify-content-center">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
         <img src="../../../assets/img/football.png" />
 
         <h5>
@@ -38,7 +38,7 @@
       </ion-col>
     </ion-row>
 <ion-row>
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
         <img src="../../../assets/img/dashboard.webp" />
 
         <h5>
@@ -53,7 +53,7 @@
           </ion-text>
         </h6>
       </ion-col>
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
         <img src="../../../assets/img/brains.webp" />
 
         <h5>
@@ -72,7 +72,7 @@
     <ion-row
       class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
     >
-      <ion-col  size-sm="12" size-md="10" size-lg="6" size-xl="6" class="topicon">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
         <img src="../../../assets/img/price-tag.webp" />
 
         <h5>
@@ -86,7 +86,7 @@
           </ion-text>
         </h6>
       </ion-col>
-      <ion-col  size-sm="12" size-md="10" size-lg="6" size-xl="6" class="topicon">
+      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
         <img src="../../../assets/img/world.webp" />
 
         <h5>
@@ -216,22 +216,21 @@
         size-md="4"
         size-lg="4"
         size-xl="4"
-        class="ion-align-self-center ion-no-padding ion-text-start"
-      >
-        <h4>
-          <ion-text color="silver">
+        class="ion-align-self-center ion-no-padding ion-text-start">
+          <ion-text style="text-transform: capitalize; font-variant: small-caps; font-size: x-large;">
+          <ion-text color="silver" style="font-weight: 900;">
             Location
           </ion-text>
-        </h4>
-        <p>
-          <ion-text color="light">
+
+          <hr />
+          <ion-text color="light" style="font-weight: 700;">
             2406 14th St
             <br />
             Suite A
             <br />
             Lubbock TX 79401
           </ion-text>
-        </p>
+        </ion-text>
       </ion-col>
       <ion-col class="ion-no-padding ion-align-self-center" size="auto">
         <div class="payservice">
@@ -264,7 +263,7 @@
       <ion-col class="ion-no-padding ion-align-self-center">
         <div class="terms">
           <ion-button
-            size="small"
+            size="large"
             color="light"
             fill="clear"
             (click)="showModalTerms()"
@@ -274,7 +273,7 @@
             </ion-text>
           </ion-button>
           <ion-button
-            size="small"
+            size="large"
             color="light"
             fill="clear"
             (click)="showModalPrivacy()"

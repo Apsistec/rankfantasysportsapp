@@ -4,15 +4,14 @@
   <!-- <ion-toolbar style="background-color: transparent;"> -->
 
 
-    <div style="display:inline-flex; float:right;" *ngIf="auth.afAuth.user | async as user"
-        (click)="presentPopover($event)" >
-        <ion-icon name="arrow-dropdown"></ion-icon>
-        <ion-avatar>
-          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
+    <ng-container style="display:inline-flex; float:right;" *ngIf="auth.afAuth.user | async as user" (click)="presentPopover($event)" >
+    <ion-item>
+      <ion-icon name="arrow-dropdown"></ion-icon>
+      <ion-avatar>
+        <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
         </ion-avatar>
-      </div>
-
-
+        </ion-item>
+        </ng-container>
 
       <ion-col
         class=" ion-align-self-center ion-no-padding ion-no-margin"
@@ -180,7 +179,7 @@
 
                       <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" />
                     </form>
-
+                      &nbsp;
                       <ion-label color="success" class="ion-text-wrap">
                         Enhance My Trial
                       </ion-label>
