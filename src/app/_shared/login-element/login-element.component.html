@@ -1,19 +1,21 @@
 <form #login  [formGroup]="loginForm" (ngSubmit)="onSubmit(login)" novalidate>
-  <hr />
+
   <ion-card-title>
     <ion-text
       style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;" class="ion-text-capitalize"
     >
-      Log In to Rank Fantasy Sports
+      Log In to
+      <br >
+      Rank Fantasy Sports
     </ion-text>
   </ion-card-title>
-  <hr />
+  <ion-card-subtitle>
   <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
     Before using your <strong>Pro Plan</strong>, you need to log in to Rank
     Fantasy Sports
   </ion-text>
-  <hr />
-  <ion-card color="silver">
+  </ion-card-subtitle>>
+  <ion-card color="silver" class="ion-no-padding ion-no-margin">
     <ion-item color="light">
       <ion-label position="floating">Email</ion-label>
       <ion-input
@@ -55,17 +57,21 @@
         item-end
         (click)="hidePass = !hidePass"
         *ngIf="hidePass"
-        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+        style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+        color="dark"
+        fill="clear"
       >
-        <ion-icon size="large" name="eye" color="light"> </ion-icon>
+        <ion-icon size="large" name="eye"> </ion-icon>
       </ion-button>
       <ion-button
         item-end
         (click)="hidePass = !hidePass"
         *ngIf="!hidePass"
-        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+        style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+        color="dark"
+        fill="clear"
       >
-        <ion-icon size="large" name="eye-off" color="light"> </ion-icon>
+        <ion-icon size="large" name="eye-off"> </ion-icon>
       </ion-button>
     </ion-item>
     <div

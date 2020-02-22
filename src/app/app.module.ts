@@ -13,7 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomePageModule } from './home/home.module';
 import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
@@ -29,9 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StartModalComponent } from './home/start-modal/start-modal.component';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-
-
-
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +39,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
   ],
   entryComponents: [
     StartModalComponent,
-  ],
+      ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -60,12 +57,12 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     HttpClientJsonpModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     JwSocialButtonsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('/app/ngsw-worker.js', {
       enabled: environment.production,
     }),
-    HomePageModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,

@@ -64,7 +64,7 @@
 .infoT {
   --background: #ffffff;
   --color: #121212;
-  --button-color: var(--ion-color-facebk);
+  --button-color: var(--ion-color-secondary);
   --box-shadow: '0 3px 6px rgba(0, 0, 0, 0.36), 0 3px 6px rgba(0, 0, 0, 0.49)';
   --border-color: var(--ion-color-success);
   --border-width: '2px';
@@ -82,7 +82,7 @@
 }
 
 a:hover {
-  cursor: auto;
+  cursor: pointer;
 }
 
 
@@ -116,35 +116,52 @@ a:hover {
   }
 
 
-  .router-link-active{
-    color: var(--ion-color-tertiary) !important;
-    font-weight: 900 !important;
-    font-variant:small-caps !important;
-  }
-
-  // ion-card{
-  //   border-radius: 18px 18px 18px 18px;
-  //   border: 3px solid var(--ion-color-white);
-  //   box-shadow: 5px 10px 12px #070707;
-  // }
-
-  ion-card-title{
-    font-variant: small-caps;
-    font-weight: 800;
-    text-transform:capitalize;
-  }
   .popoverUser{
-    --background: var(ion-color-primary)!important;
+    --background: var(--ion-color-medium) !important;
   }
 
-  Adding Font for Body
-  html, body { height: 100%; }
-  body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+  .router-link-active{
+    font-weight: 800 !important;
+    font-size: large !important;
+  }
+
+
+  ion-card-title, ion-title{
+    font-variant: small-caps !important;
+    font-weight: 900 !important;
+    line-height: 1.5 !important;
+    font-size: xx-large !important;
+    text-transform: capitalize !important;
+    color: var(--ion-color-secondary) !important;
+  }
+
+  ion-subtitle, ion-card-subtitle{
+    font-variant: small-caps !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    font-size: large !important;
+    text-transform: capitalize !important;
+    color: var(--ion-color-dark) !important;
+  }
+
+  ion-header{
+    padding: 15px 0;
+  }
+
+
+  // Adding Font for Body
+  // html, body { height: 100%; }
+  // body { margin: 0; font-family: 'Roboto', sans-serif; }
 
   ion-card{
-        border: 3px solid var(--ion-color-white);
-
+    border: 3px solid var(--ion-color-light);
     border-radius: 18px 18px 18px 18px;
   }
+        // ion-card{
+        //   border-radius: 18px 18px 18px 18px;
+        //   border: 3px solid var(--ion-color-white);
+        //   box-shadow: 5px 10px 12px #070707;
+        // }
 }
 

@@ -1,5 +1,5 @@
 <app-header [titleId]= "titleId"></app-header>
-<ion-content color="dark">
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-grid>
@@ -18,7 +18,7 @@
       <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
       <ion-label >
-        <ion-text color="twittr">
+        <ion-text color="dark">
           <h2>{{ ticket.title }}</h2>
         </ion-text>
         <ion-text color="light">
@@ -26,7 +26,7 @@
         </ion-text>
       </ion-label>
       <ion-label slot="start">
-        <ion-note color="msoft" >
+        <ion-note color="dark" >
           {{ ticket.id }}
         </ion-note>
         <br>
@@ -54,7 +54,7 @@
                   </ion-avatar>
                 &nbsp; &nbsp;
                 <ion-label >
-                  <ion-text color="twittr">
+                  <ion-text color="dark">
                     {{ admin.displayName }}
                   </ion-text>
                   <br>
@@ -79,7 +79,7 @@
                     </ion-label>
                   </ion-card-subtitle>
                   <ion-toolbar>
-                      <ion-searchbar color="facebk" inputmode="search" type="search" autocomplete="'on'" animated="true" style="border-radius: 5em;">
+                      <ion-searchbar inputmode="search" type="search" autocomplete="'on'" animated="true" style="border-radius: 5em;">
                       </ion-searchbar>
                     <br>
                     <ion-text color="dark">
@@ -94,21 +94,21 @@
                 </ion-avatar>
                 &nbsp; &nbsp;
                 <ion-label>
-                  <ion-text color="msoft">
+                  <ion-text color="dark">
                     {{ user.displayName }}
                   </ion-text>
                   <br>
-                  <ion-note color="twittr">
+                  <ion-note color="dark">
                     {{ user.email }}
                   </ion-note>
                   <br>
-                    <ion-note  [hidden]="!user.gold" color="gold">
+                    <ion-note  [hidden]="!user.gold" color="dark">
                       Gold
                     </ion-note>
                     <ion-note [hidden]="!user.silver" color="silver">
                       Silver
                     </ion-note>
-                    <ion-note [hidden]="!user.bronze" color="bronze" >
+                    <ion-note [hidden]="!user.bronze" color="dark" >
                       Bronze
                     </ion-note>
                   </ion-label>

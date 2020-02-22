@@ -12,16 +12,16 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content full-screen="true">
   <ion-card color="light">
     <ion-card-header>
       <ion-card-title *ngIf="!id">
-        <ion-text color="medium">
+        <ion-text>
           New Ticket
         </ion-text>
       </ion-card-title>
       <ion-card-title *ngIf="id">
-        <ion-text color="medium"> Ticket: #{{ id }} </ion-text>
+        <ion-text> Ticket: #{{ id }} </ion-text>
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>

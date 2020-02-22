@@ -28,7 +28,7 @@ export const createSubscription = async ( uid: string, source: string, plan: str
         items: [{ plan }],
         trial_from_plan: true,
 
-    }, { idempotency_key })
+    }, { idempotency_key });
 
     // Add the plan to existing subscriptions
     const docData = {

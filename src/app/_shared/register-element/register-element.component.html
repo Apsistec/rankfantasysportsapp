@@ -1,20 +1,25 @@
 <form #reg [formGroup]="registerForm" (ngSubmit)="registerUser(reg)" novalidate>
-  <hr />
-  <hr />
+
+
   <ion-card-title>
     <ion-text
       style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;"  class="ion-text-capitalize"
     >
-      Sign Up at Rank Fantasy Sports
+      Sign Up at
+      <br>
+      Rank Fantasy Sports
     </ion-text>
   </ion-card-title>
-  <hr />
-  <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
-    Before starting your <strong>Pro Plan</strong>, you need to sign up at Rank
-    Fantasy Sports
-  </ion-text>
-  <hr />
-  <ion-card color="silver">
+
+  <ion-card-subtitle>
+
+    <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
+      Before starting your <strong>Pro Plan</strong>, you need to sign up at Rank
+      Fantasy Sports
+    </ion-text>
+  </ion-card-subtitle>
+
+  <ion-card class="ion-no-padding ion-no-margin" color="silver">
     <ion-item color="light">
       <ion-label position="floating">First Name</ion-label>
       <ion-input
@@ -106,20 +111,22 @@
         formControlName="password"
       ></ion-input>
       <ion-button
-      item-end
       (click)="hidePass = !hidePass"
       *ngIf="hidePass"
-      style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+      fill="clear"
+      color="dark"
+      style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
     >
-      <ion-icon size="large" name="eye" color="light"> </ion-icon>
+      <ion-icon size="large" name="eye" > </ion-icon>
     </ion-button>
     <ion-button
-      item-end
+      fill="clear"
+      color="dark"
       (click)="hidePass = !hidePass"
       *ngIf="!hidePass"
-      style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+      style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
     >
-      <ion-icon size="large" name="eye-off" color="light"> </ion-icon>
+      <ion-icon size="large" name="eye-off"> </ion-icon>
     </ion-button>
     </ion-item>
     <div
@@ -153,7 +160,7 @@
     </div>
   </ion-card>
   <hr />
-  <hr />
+
 
 
 
@@ -177,13 +184,13 @@
   <sub
     >By continuing, you are indicating that you accept our
     <a (click)="modalService.showModalTerms()">
-      <ion-text color="facebk">
+      <ion-text color="secondary">
         Terms of Service
       </ion-text>
     </a>
     and
     <a (click)="modalService.showModalPrivacy()">
-      <ion-text color="facebk">
+      <ion-text color="secondary">
         Privacy Policy
       </ion-text>
     </a>

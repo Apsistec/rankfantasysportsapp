@@ -2,6 +2,19 @@
 // http://ionicframework.com/docs/theming/
 /** Ionic CSS Variables **/
 
+
+$customColors: ('secondary', 'silver');
+@each $color in $customColors {
+  .ion-color-#{$color} {
+    --ion-color-base: var(--ion-color-#{$color}) !important;
+    --ion-color-base-rgb: var(--ion-color-#{$color}-rgb) !important;
+    --ion-color-contrast: var(--ion-color-#{$color}-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-#{$color}-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-#{$color}-shade) !important;
+    --ion-color-tint: var(--ion-color-#{$color}-tint) !important;
+  }
+}
+
 :root {
   --ion-color-primary: #762886;
   --ion-color-primary-rgb: 118,40,134;
@@ -66,19 +79,12 @@
   --ion-color-light-shade: #e0e0e0;
   --ion-color-light-tint: #ffffff;
 
-  --ion-color-facebk: #4267B2;
-  --ion-color-facebk-rgb: 66,103,178;
-  --ion-color-facebk-contrast: #ffffff;
-  --ion-color-facebk-contrast-rgb: 255,255,255;
-  --ion-color-facebk-shade: #3a5b9d;
-  --ion-color-facebk-tint: #5576ba;
-
-  --ion-color-twittr: #1DA1F2;
-  --ion-color-twittr-rgb: 29,161,242;
-  --ion-color-twittr-contrast: #000000;
-  --ion-color-twittr-contrast-rgb: 0,0,0;
-  --ion-color-twittr-shade: #1a8ed5;
-  --ion-color-twittr-tint: #34aaf3;
+  --ion-color-secondary: #4267B2;
+  --ion-color-secondary-rgb: 66,103,178;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #3a5b9d;
+  --ion-color-secondary-tint: #5576ba;
 
   --ion-color-silver: #b5b5bd;
   --ion-color-silver-rgb: 181,181,189;
@@ -88,17 +94,6 @@
   --ion-color-silver-tint: #bcbcc4;
   }
 
-$customColors: ('facebk', 'silver');
-@each $color in $customColors {
-  .ion-color-#{$color} {
-    --ion-color-base: var(--ion-color-#{$color}) !important;
-    --ion-color-base-rgb: var(--ion-color-#{$color}-rgb) !important;
-    --ion-color-contrast: var(--ion-color-#{$color}-contrast) !important;
-    --ion-color-contrast-rgb: var(--ion-color-#{$color}-contrast-rgb) !important;
-    --ion-color-shade: var(--ion-color-#{$color}-shade) !important;
-    --ion-color-tint: var(--ion-color-#{$color}-tint) !important;
-  }
-}
 
 /*
  * Dark Colors
@@ -169,6 +164,20 @@ $customColors: ('facebk', 'silver');
   --ion-color-light-shade: #1e2023;
   --ion-color-light-tint: #383a3e;
 
+  --ion-color-secondary: #4267B2;
+  --ion-color-secondary-rgb: 66,103,178;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #3a5b9d;
+  --ion-color-secondary-tint: #5576ba;
+
+  --ion-color-silver: #b5b5bd;
+  --ion-color-silver-rgb: 181,181,189;
+  --ion-color-silver-contrast: #000000;
+  --ion-color-silver-contrast-rgb: 0,0,0;
+  --ion-color-silver-shade: #9f9fa6;
+  --ion-color-silver-tint: #bcbcc4;
+ }
   /*
  * iOS Dark Theme
  * -------------------------------------------
@@ -251,4 +260,33 @@ ion-item {
   --transition: none;
 }
 
-}
+//Angular Arch-Wizard Stepper
+
+// color definitions
+
+$aw-colors: (
+  '_': (
+    'default': (
+      'border-color-default': #e1e4dc,
+      'background-color-default': null,
+      'symbol-color-default': #ffffff,
+      'border-color-hover': #91ff00,
+      'background-color-hover': #d6ffa1,
+      'symbol-color-hover': #d6ffa1,
+    ),
+    'current': (
+      'border-color-default': #cccccc,
+      'background-color-default': #b8acfc,
+      'symbol-color-default': #ffffff,
+      'border-color-hover': #0004ff,
+      'background-color-hover': #6946ca,
+      'symbol-color-hover': #a9a0f5,
+    )
+  )
+);
+
+// big definitions for making dots smaller in our case
+$wz-big-dot-width: 30px !default;
+$wz-big-dot-height: 30px !default;
+
+@import '../../node_modules/angular-archwizard/archwizard.css';

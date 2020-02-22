@@ -1,5 +1,5 @@
 <app-header [titleId]= "titleId"></app-header>
-<ion-content >
+<ion-content full-screen="true" >
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -33,7 +33,7 @@
 </ion-row>
 </ion-grid>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="deepo" (click)="openTicketModal()">
+    <ion-fab-button color="dark" (click)="openTicketModal()">
       <ion-icon color="secondary" name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -1,17 +1,28 @@
-     <ion-grid class="ion-no-padding ">
-        <ion-row>
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col  class="hero ion-align-items-center ion-no-padding">
+<!-- Brand Icon- Top Left-->
+    <div style="position:absolute; top:26px; left:30px; cursor:pointer; z-index: 99;" routerLink="/home">
+      <img src="../../assets/img/icon-192x192.png" width="55px"  height="55px">
+    </div>
 
-      <ion-col  class="hero heading ion-align-items-center ion-no-padding ion-text-center">
+<!-- User Login Button/User Image with Popover- top right -->
+    <div *ngIf="auth.afAuth.user | async as user; else login">
+      <a (click)="presentPopover($event)" style="position:absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
+        <ion-avatar >
+        <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"  width="55px"  height="55px" />
+        </ion-avatar>
+      </a>
+    </div>
+        <ng-template #login >
+          <ion-button color="light" fill="clear" size="medium" (click)="openModal()" style="position: absolute;  z-index: 99; right:30px; top:30px;">
+            <ion-text>
+              Log In
+            </ion-text>
+          </ion-button>
+        </ng-template>
 
 
-
-        <div style="overflow:auto; float:right;padding-right:20px; padding-top:30%;">
-            <ion-button fill="clear" size="small" (click)="openModal()">
-              <ion-text color="light">
-                Log In
-              </ion-text>
-            </ion-button>
-        </div>
         <div class="cta">
 <ion-text>
     <h1>
@@ -25,12 +36,14 @@
     Hand Picked Data - DFS Expert Curation - Win First!
   </h2>
 </ion-text>
-        <ion-button
-          fill="solid"
-          color="danger"
+    <div class="cta-button">
+
+      <ion-button
+      fill="solid"
+      color="danger"
           size="large"
           routerLink="/membership"
-        >
+          >
           <ion-text>
             <ion-text style="font-size: large; ">
               >> Start My 7 Day Trial
@@ -41,6 +54,7 @@
             </ion-text>
           </ion-text>
         </ion-button>
+        </div>
       </div>
 
       </ion-col>

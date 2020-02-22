@@ -1,49 +1,50 @@
-<ion-content>
+<ion-content full-screen="true">
   <ion-grid class="ion-no-padding">
     <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
-  <!-- <ion-toolbar style="background-color: transparent;"> -->
 
 
-    <ng-container style="display:inline-flex; float:right;" *ngIf="auth.afAuth.user | async as user" (click)="presentPopover($event)" >
-    <ion-item>
-      <ion-icon name="arrow-dropdown"></ion-icon>
-      <ion-avatar>
-        <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" />
-        </ion-avatar>
-        </ion-item>
-        </ng-container>
+      <div style="position:absolute; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
+        <img src="../../assets/img/icon-192x192.png" width="55px"  height="55px">
+      </div>
+      <div *ngIf="auth.afAuth.user | async as user"  >
+        <a (click)="presentPopover($event)" style="position:absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
+          <ion-avatar >
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"  width="55px"  height="55px" />
+          </ion-avatar>
+        </a>
+      </div>
 
       <ion-col
         class=" ion-align-self-center ion-no-padding ion-no-margin"
         size-sm="12"
-        size-md="8"
-        offset-md="2"
+        size-md="12"
         size-lg="4"
-        offset-lg="2"
+        offset-lg="1"
         size-xl="4"
-        offset-xl="2"
+        offset-xl="1"
       >
         <ion-card
           color="medium"
+          class="ion-no-padding"
         >
           <ion-card-content>
 
 
   <!-- Step 1 Log In Sign Up -->
-            <aw-wizard navBarLayout="large-filled-symbols">
+            <aw-wizard navBarLayout="large-filled-symbols" navigationMode="free">
               <aw-wizard-step
-                stepTitle="Sign Up / Log In"
+                stepTitle="{{ isRegister ?  'Sign Up' : 'Log In' }}"
                 [navigationSymbol]="{ symbol: 1 }"
               >
     <!-- Sign  Up form -->
               <ng-container *ngIf="isRegister">
-                <app-register-element (readyToStep)="navigateToStep()"></app-register-element>
+                <app-register-element></app-register-element>
               </ng-container>
     <!-- Login form -->
               <ng-container *ngIf="!isRegister">
-                <app-login-element (readyToStep)="navigateToStep()"></app-login-element>
+                <app-login-element ></app-login-element>
               </ng-container>
-                <ion-button color="light" size="small" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Login' : 'Sign Up' }}?</ion-button>
+                <ion-button color="medium" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Log In' : 'Sign Up' }}?</ion-button>
       <!-- Step 2  Pay     -->
               </aw-wizard-step>
               <aw-wizard-step
@@ -52,7 +53,7 @@
               >
                 <hr />
                 <ion-card-title>
-                  <ion-text class="ion-text-wrap"
+                  <ion-text color="secondary" class="ion-text-wrap"
                     style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed; line-height: 1;"
                   >
                     Payment Details
@@ -60,38 +61,28 @@
                 </ion-card-title>
 
                 <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                      <ion-text style="font-size: large; font-weight: 600;">
-                        <u>
-                          Items
-                        </u>
-                      </ion-text>
-
-                      <br />
-                    </ion-col>
-                    <ion-col>
-                      <ion-text style="font-size: large; font-weight: 600;">
-                        <u>
-                          Price
-                        </u>
-                      </ion-text>
-                    </ion-col>
-                  </ion-row>
                   <ion-card
-                    color="light"
-                    style="padding-left:17%; border: 3px solid black;text-align: left;"
+                  color="light"
+                  style="padding-left:10px;text-align: left;"
                   >
-                    <ion-row>
-                      <ion-col>
+                          <ion-row class="ion-align-items-around">
+                    <ion-col size="6">
+
+
+                        <ion-text style="font-weight:600;">
+                          <u>
+                            Items
+                          </u>
+                        </ion-text>
+                        <br />
                         <ion-text>
                           RFS Pro Package
                         </ion-text>
                         <br />
-                        <ion-text *ngIf="isChecked">
+                        <ion-text *ngIf="!theCheckbox">
                           ***
                         </ion-text>
-                        <ion-text *ngIf="!isChecked">
+                        <ion-text *ngIf="theCheckbox">
                           1-ON-1 Training
                         </ion-text>
                         <br />
@@ -100,25 +91,33 @@
                           Total $ Today
                         </ion-text>
                       </ion-col>
-
-                      <ion-col>
+                      <ion-col siz="6">
+                        <ion-text style="font-weight: 600;">
+                          <u>
+                            Price
+                          </u>
+                        </ion-text>
+                      <br />
                         <ion-text> $9.99/<sub>Month</sub> </ion-text>
                         <br />
+                        <ion-text *ngIf="!theCheckbox">
+                          ***
+                        </ion-text>
 
-                        <ion-text *ngIf="!isChecked">
+                        <ion-text *ngIf="theCheckbox">
                           $57.00
                         </ion-text>
                         <br />
                         <br />
-                        <ion-text *ngIf="!isChecked">
+                        <ion-text *ngIf="theCheckbox">
                           $57.00
                         </ion-text>
-                        <ion-text *ngIf="isChecked">
+                        <ion-text *ngIf="!theCheckbox">
                           $0.00
                         </ion-text>
                       </ion-col>
                     </ion-row>
-                  </ion-card>
+                    </ion-card>
                 </ion-grid>
                 <div style="display: flex;">
                   <img
@@ -153,21 +152,17 @@
                     fill="solid"
                     color="secondary"
                   >
-                    <ion-text color="light" style="text-shadow: 1px 1px black;">
-                      <ion-icon
-                        slot="start"
-                        color="dark"
-                        name="arrow-round-forward"
-                      ></ion-icon>
+                    <ion-text color="tertiary">
                       Get Started Now!
                     </ion-text>
                   </ion-button>
                 </form>
+                <hr />
 
 
                 <!-- bumpup offer -->
                 <ion-card
-                  class="ion-text-start ion-text-wrap "
+                  class="ion-text-start ion-text-wrap ion-no-margin"
                   style="border: 4px black dotted;background-color:palegoldenrod;"
                 >
                 <ion-card-content>
@@ -175,12 +170,10 @@
                   <ion-item color="dark">
                     <ion-icon appBlink name="arrow-round-forward" color="danger" slot="start"></ion-icon>
 
-                    <form #check novalidate (ngSubmit)="onSubmit(check)">
+                    <input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"/>
 
-                      <input type="checkbox" [checked]="!isChecked" (change)="isChecked = !isChecked" />
-                    </form>
                       &nbsp;
-                      <ion-label color="success" class="ion-text-wrap">
+                      <ion-label color="success" class="ion-text-wrap ion-text-start">
                         Enhance My Trial
                       </ion-label>
                     </ion-item>
@@ -211,7 +204,7 @@
                   <img src="../../../assets/img/logo.jpg" />
                   <ion-card-header>
                     <ion-card-title>
-                      <ion-text color="medium" class="ion-text-center ion-text-capitalize" style="font-variant:small-caps;">
+                      <ion-text  class="ion-text-center ion-text-capitalize" style="font-variant:small-caps;">
                         <strong>
                           Welcome to RF$&trade;
                         </strong>
@@ -230,7 +223,7 @@
 
                       <hr />
                       <ul>
-                        <ion-text class="ion-text-capitalize" style="font-variant:small-caps;">
+                        <ion-text class="ion-text-capitalize" style="font-variant:small-caps; font-size:large; font-weight: 700;">
                           <li>The RF$&trade; Data Tables</li>
                           <li>View Account Details</li>
                           <li>Update Profile</li>
@@ -240,7 +233,7 @@
                         </ion-text>
                       </ul>
                     </ion-text>
-                    <ion-button expand="block" routerLink="/profile">
+                    <ion-button expand="block" color="secondary" routerLink="/profile">
                       <ion-icon slot="start" name="person"></ion-icon>
                       <ion-text>
                         Goto My Profile
@@ -258,36 +251,44 @@
 
       <ion-col
         *ngIf="showDetails"
-        class=" ion-align-self-center ion-no-margin ion-no-padding"
+        class=" ion-align-self-center ion-no-padding"
         size-sm="6"
+        offset-sm="2"
         size-md="6"
         size-lg="3"
+        offset-lg="1"
         size-xl="3"
+        offset-xl="1"
         >
         <ion-card
-          style="top:20%;background: rgb(0,0,0);
-      background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 100%);"
+          style="margin-top:100px;background: rgb(0,0,0);
+      background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.7) 100%);"
         >
           <ion-card-header style="background-color:transparent !important;">
             <ion-card-subtitle>
-              <ion-text class="ion-text-wrap ion-text-center" color="light">
-                Price after your complimentary trial
+              <ion-text class="ion-text-wrap ion-text-center ion-text-capitalize" style="font-weight:800;" color="light">
+                Price after
+                <br>
+                your complimentary trial
               </ion-text>
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-title style="background-color:transparent !important;">
             <ion-text
-              color="light"
+
               class="ion-text-no-wrap ion-text-capitalize"
+              style="font-weight:800;"
             >
               $9.99
               <sub>per month</sub>
               <hr />
             </ion-text>
           </ion-card-title>
-          <ion-text color="light" class="ion-text-start">
+          <ion-text color="light">
             <ion-text>
-              Features:
+              <u>
+                Features:
+              </u>
             </ion-text>
             <ul>
               <li>
@@ -370,7 +371,7 @@
             sign in with the same email address each time. All payments are
             handled by
             <a href="https://www.stripe.com">
-              <ion-text color="facebk">
+              <ion-text color="secondary">
                 Stripe
               </ion-text>
             </a>
@@ -387,13 +388,13 @@
             further payments will be processed. For more details, please read
             our
             <a (click)="modal.showModalTerms()">
-              <ion-text color="facebk">
+              <ion-text color="secondary">
                 Terms
               </ion-text>
             </a>
             . The security of your information is our priority. Please read our
             <a (click)="modal.showModalPrivacy()">
-              <ion-text color="facebk">
+              <ion-text color="secondary">
                 Privacy
               </ion-text>
             </a>

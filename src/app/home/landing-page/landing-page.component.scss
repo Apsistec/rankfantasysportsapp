@@ -1,43 +1,43 @@
 
 .hero{
-  background: url(../../../assets/img/icon-192x192.png), rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
+  background: rgba(0, 0, 0, 0.6) url(../../../assets/img/fans.png);
   height: 60vh;
   width: 100vw;
-  background-size: 80px, cover;
-  background-position: top 0.5% left 0.5%, center;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
 
 .cta {
+  position: relative;
   color:white;
-  top: 20%;
+  top: 35%;
   text-align: center;
   position: relative;
-
 }
-ion-text{
-  text-align: center;
+
+.cta-button{
+  margin-top: 2.5vh;
 }
-    h1{
-      font-size: xx-large;
-      font-variant: small-caps;
-    }
 
-    h3{
-      font-size: large;
-      font-variant: small-caps;
-    }
-    .free{
-      font-weight: 900;
-      font-size: xx-large;
-      text-transform: capitalize;
-      font-variant: small-caps;
-    }
 
-// .heading
-// {
-//     position: relative;
-// }
+h1{
+  font-size: xx-large;
+  font-variant: small-caps;
+}
+
+h3{
+  font-size: large;
+  font-variant: small-caps;
+}
+.free{
+  font-weight: 900;
+  font-size: xx-large;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+
 
 

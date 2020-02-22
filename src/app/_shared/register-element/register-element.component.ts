@@ -10,6 +10,8 @@ import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalService } from '@services/modal.service';
 import { SpinnerService } from '@services/spinner.service';
+import { WizardComponent } from 'angular-archwizard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-element',
@@ -17,10 +19,11 @@ import { SpinnerService } from '@services/spinner.service';
   styleUrls: ['./register-element.component.scss'],
 })
 export class RegisterElementComponent implements OnInit {
+  // @ViewChild(WizardComponent, {static: false}) public wizard: WizardComponent;
 
   registerForm;
   hidePass: boolean;
-  @Output() readyToStep = new EventEmitter();
+  // @Output() readyToStep = new EventEmitter();
 
 
   constructor(
@@ -29,6 +32,7 @@ export class RegisterElementComponent implements OnInit {
     public auth: AuthService,
     private message: MessageService,
     public modalService: ModalService,
+    private router: Router
   ) { }
 
 
@@ -73,7 +77,7 @@ export class RegisterElementComponent implements OnInit {
       await this.message.registerSuccessToast().then(() => {
         reg.reset();
         this.spinner.dismissSpinner();
-        this.takeNextStep();
+        this.router.navigateByUrl('/membership')
       });
     } catch (error) {
       this.message.errorAlert(error.message);
@@ -83,7 +87,7 @@ export class RegisterElementComponent implements OnInit {
   }
 
 
-    takeNextStep() {
-      this.readyToStep.emit();
-    }
+    // takeNextStep() {
+    //   this.readyToStep.emit();
+    // }
   }

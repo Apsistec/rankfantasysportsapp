@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { ThemeService } from '../_services/theme.service';
 import { ModalController } from '@ionic/angular';
@@ -15,7 +15,7 @@ import { StripeService } from '../_services/stripe.service';
 })
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
-  user;
+  @Input() user: any;
   // subscriptions;
 
   constructor(
@@ -31,14 +31,14 @@ export class ProfilePage implements OnInit {
 
  async getStripeDataIfValidUser() {
     this.user = await this.auth.getUser();
-      if (this.user.stripeCustomerId != null) {
+      if (this.user.stripeCustomerId !== null) {
         this.stripeService.getSubscriptions();
       } else {
         return false;
       }
     }
 
-
+// Themes
   enableDark() {
     this.theme.enableDark();
   }
@@ -46,6 +46,8 @@ export class ProfilePage implements OnInit {
   enableLight() {
     this.theme.enableLight();
   }
+
+// Stripe Account Administration Modals
   async presentCancelSubModal() {
     const modal = await this.modalCtrl.create({
       component: CancelSubscriptionComponent,
@@ -59,6 +61,8 @@ export class ProfilePage implements OnInit {
     });
     return modal.present();
   }
+
+  // App User Settings Modal
   async presentSettingsModal() {
     const modal = await this.modalCtrl.create({
       component: SettingsComponent,
@@ -66,6 +70,7 @@ export class ProfilePage implements OnInit {
     return modal.present();
   }
 
+  // dismiss Modals
   async onDismissModal() {
     return this.modalCtrl.dismiss();
   }

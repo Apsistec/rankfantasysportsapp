@@ -1,5 +1,3 @@
-import { AboutComponent } from './home/about/about.component';
-import { AnalyticsComponent } from './analytics/analytics.component';
 import {
   AngularFireAuthGuard,
   canActivate,
@@ -22,7 +20,7 @@ const appRoutes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home.module').then(m => m.HomePageModule),
+      import('./home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'tables',
@@ -40,12 +38,8 @@ const appRoutes: Routes = [
   {
     path: 'how-to',
     loadChildren: () =>
-      import('./sales-funnel/how-to/how-to.module').then(m => m.HowToPageModule)
+      import('./how-to/how-to.module').then(m => m.HowToPageModule)
   },
-
-
-  { path: 'analytics', component: AnalyticsComponent },
-  { path: 'about', component: AboutComponent },
 
   {
     path: 'membership',
@@ -56,7 +50,7 @@ const appRoutes: Routes = [
   {
     path: 'faq',
     loadChildren: () =>
-      import('./sales-funnel/faq/faq.module').then(m => m.FaqPageModule)
+      import('./faq/faq.module').then(m => m.FaqPageModule)
   },
   {
     path: 'user',
@@ -79,7 +73,7 @@ const appRoutes: Routes = [
   {
     path: 'tweets',
     loadChildren: () =>
-      import('./sales-funnel/tweets/tweets.module').then(
+      import('./tweets/tweets.module').then(
         m => m.TweetsPageModule
       )
   },
@@ -87,7 +81,7 @@ const appRoutes: Routes = [
   {
     path: 'testimonials',
     loadChildren: () =>
-      import('./sales-funnel/testimonials/testimonials.module').then(
+      import('./testimonials/testimonials.module').then(
         m => m.TestimonialsPageModule
       )
   },

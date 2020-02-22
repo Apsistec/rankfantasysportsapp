@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
 import { SwUpdate } from '@angular/service-worker';
+import { StripeService } from '@services/stripe.service';
+
 // import { FcmService } from '@services/fcm.service';
 
 @Component({
@@ -26,7 +28,9 @@ export class AppComponent implements OnInit, OnDestroy {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private toastCtrl: ToastController,
-    private modal: ModalService
+    private modal: ModalService,
+    public stripeService: StripeService
+
     // private fcm: FcmService,
   ) {
     this.initializeApp();

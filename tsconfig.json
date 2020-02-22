@@ -16,11 +16,13 @@
       "node_modules/@types"
     ],
     "types": [
-      "stripe-v3"
+      "stripe-v3",
+      "jest"
     ],
     "lib": [
       "es2018",
-      "dom"
+      "dom",
+      "esnext"
     ],
     "paths": {
       "@services/*": ["app/_services/*"],

@@ -1,15 +1,18 @@
 <ion-menu side="start" menuId="first" contentId="content1" type="push" >
   <ion-header>
     <ion-menu-toggle>
-      <ion-toolbar color="primary" style="height:84px;">
-        <img
-          src="../assets/img/logo.jpg"
-          height="84px"
-          slot="start" routerLink="/home" />
+      <ion-toolbar color="medium" style="height:80px;">
+        <ion-buttons>
+
+          <img
+          src="../assets/img/icon-192x192.png"
+          width="70"
+          routerLink="/home" />
+        </ion-buttons>
        </ion-toolbar>
     </ion-menu-toggle>
   </ion-header>
-  <ion-content id="main" color="primary">
+  <ion-content  full-screen="true" id="main" color="primary">
     <ion-menu-toggle>
       <ion-list >
         <ion-item-group>
@@ -20,7 +23,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="home"></ion-icon>
-            <ion-text>Home</ion-text>
+            <ion-label>Home</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -31,18 +34,18 @@
             *ngIf="auth.afAuth.user | async"
           >
            <ion-icon color="dark" slot="start" name="contact"></ion-icon>
-            <ion-text>Profile</ion-text>
+            <ion-label>Profile</ion-label>
           </ion-item>
 
           <ion-item color="light"
             button
             lines="none"
             routerLink="/pricing" routerLinkActive="router-link-active"
-            *ngIf="auth.isSubscribed; else notSubscribed"
+            *ngIf="stripeService.subscriptions; else notSubscribed"
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="logo-usd"></ion-icon>
-            <ion-text>Pricing</ion-text>
+            <ion-label>Pricing</ion-label>
           </ion-item>
 
           <ng-template #notSubscribed >
@@ -53,7 +56,7 @@
               class="ion-text-uppercase"
             >
              <ion-icon color="dark" slot="start" name="logo-usd"></ion-icon>
-              <ion-text>Free Trial</ion-text>
+              <ion-label>Free Trial</ion-label>
             </ion-item>
           </ng-template>
           <ng-template #login>
@@ -64,7 +67,7 @@
               class="ion-text-uppercase"
             >
              <ion-icon color="dark" slot="start" name="log-in"></ion-icon>
-              <ion-text color="primary">Log In</ion-text>
+              <ion-label>Log In</ion-label>
             </ion-item>
           </ng-template>
 
@@ -75,7 +78,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="star"></ion-icon>
-            <ion-text>How To Use RF$&trade;</ion-text>
+            <ion-label>How To Use RF$&trade;</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -85,7 +88,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="trophy"></ion-icon>
-            <ion-text>Testimonials</ion-text>
+            <ion-label>Testimonials</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -95,7 +98,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="help"></ion-icon>
-            <ion-text>FAQ</ion-text>
+            <ion-label>FAQ</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -110,7 +113,7 @@
               slot="start"
               name="log-out"
             ></ion-icon>
-            <ion-text color="danger">Logout</ion-text>
+            <ion-label color="danger">Logout</ion-label>
           </ion-item>
         </ion-item-group>
         <ion-item-group>
@@ -119,7 +122,7 @@
             class="ion-text-uppercase"
             style="font-weight: 900;"
           >
-            <ion-text>Stats & Projections</ion-text>
+            <ion-label>Stats & Projections</ion-label>
             <ion-button size="small" style="padding-right: 10px;" color="secondary" routerLink="/tables">All Tables</ion-button>
           </ion-list-header>
 
@@ -130,7 +133,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="stats"></ion-icon>
-            <ion-text>Happening Now</ion-text>
+            <ion-label>Happening Now</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -140,7 +143,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="tennisball"></ion-icon>
-            <ion-text>Tennis</ion-text>
+            <ion-label>Tennis</ion-label>
           </ion-item>
           <ion-item color="light"
             button
@@ -149,7 +152,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="radio-button-off"></ion-icon>
-            <ion-text>PGA</ion-text>
+            <ion-label>PGA</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -159,7 +162,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="american-football"></ion-icon>
-            <ion-text>NFL</ion-text>
+            <ion-label>NFL</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -169,7 +172,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark"slot="start" name="american-football"></ion-icon>
-            <ion-text>CFB</ion-text>
+            <ion-label>CFB</ion-label>
           </ion-item>
 
           <ion-item color="light"
@@ -179,7 +182,7 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="basketball"></ion-icon>
-            <ion-text>NBA</ion-text>
+            <ion-label>NBA</ion-label>
           </ion-item>
           <ion-item color="light"
             button
@@ -188,13 +191,13 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark" slot="start" name="basketball"></ion-icon>
-            <ion-text>CBB</ion-text>
+            <ion-label>CBB</ion-label>
           </ion-item>
         </ion-item-group>
         <ion-item-group>
           <ion-list-header color="primary" class="ion-text-uppercase"
             style="font-weight: 900;">
-            <ion-text>DFS Toolbox</ion-text>
+            <ion-label>DFS Toolbox</ion-label>
           </ion-list-header>
 
           <ion-item color="light"
@@ -204,17 +207,17 @@
             class="ion-text-uppercase"
           >
            <ion-icon color="dark"  slot="start" name="logo-twitter"></ion-icon>
-            <ion-text color="dark">Tweets</ion-text>
+            <ion-label color="dark">Tweets</ion-label>
           </ion-item>
 
           <ion-item color="light" button lines="none" disabled class="ion-text-uppercase">
            <ion-icon color="dark"  slot="start" name="trending-up"></ion-icon>
-            <ion-text>Line-up Optimizers<sup>*</sup></ion-text>
+            <ion-label>Line-up Optimizers<sup>*</sup></ion-label>
           </ion-item>
           <div style="margin-right:7px;">
-            <ion-text color="dark">
+            <ion-label color="dark">
               <ion-note>*<sub>Coming Soon</sub> </ion-note>
-            </ion-text>
+            </ion-label>
           </div>
         </ion-item-group>
       </ion-list>
@@ -222,14 +225,14 @@
   </ion-content>
   <ion-footer>
     <ion-toolbar class="ion-text-center" color="dark" style="--min-height:30px;">
-      <ion-text style="font-size: 12px;font-variant: petite-caps;">
+      <ion-label style="font-size: 12px;font-variant: petite-caps;">
           Made with
           <img
             style="height:20px;width:auto;"
             src="../../../assets/img/flagUSA.png"
           />
           by RF$ &copy;{{ year }}
-        </ion-text>
+        </ion-label>
     </ion-toolbar>
   </ion-footer>
 </ion-menu>

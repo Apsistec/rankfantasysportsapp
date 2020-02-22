@@ -6,9 +6,8 @@ import { MessageService } from '@services/message.service';
 import { ModalService } from '../_services/modal.service';
 import { SeoService } from '@services/seo.service';
 import { SpinnerService } from '@services/spinner.service';
-import { WizardComponent } from 'angular-archwizard';
+import { WizardComponent   } from 'angular-archwizard';
 import { PopoverComponent } from '@shared/popover/popover.component';
-
 
 import {
   Component,
@@ -16,8 +15,9 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
+  AfterContentInit,
 } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, LoadingController } from '@ionic/angular';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -25,27 +25,28 @@ declare var Stripe: stripe.StripeStatic;
   templateUrl: './membership.page.html',
   styleUrls: ['./membership.page.scss']
 })
-// tslint:disable-next-line: component-class-suffix
 export class MembershipPage implements OnInit, AfterViewInit {
 
   isRegister = true;
   titleId = 'RF$\u2122 Pro Memberships';
 
   user;
-  @ViewChild(WizardComponent, {static: false}) public wizard: WizardComponent;
-
+  @ViewChild(WizardComponent, {static: true}) public wizard: WizardComponent;
 
   showDetails: boolean;
   hideProduct: boolean;
 
   // blinker: Subscription;
-  isChecked = false;
   card;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   stripe: stripe.Stripe;
 
-  confirmation;
+  confirmation1;
+  confirmation0;
   cardErrors;
+  isLoading = false;
+  marked = false;
+  theCheckbox = false;
 
   constructor(
     public functions: AngularFireFunctions,
@@ -54,7 +55,9 @@ export class MembershipPage implements OnInit, AfterViewInit {
     private message: MessageService,
     public modal: ModalService,
     private seo: SeoService,
-    private popoverController: PopoverController
+    private spin: LoadingController,
+    private popoverController: PopoverController,
+    // private checkn: CheckboxControlValueAccessor
     ) {
       this.seo.addTwitterCard(
         this.titleId,
@@ -67,7 +70,6 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.showDetails = true;
-
 
     this.stripe = Stripe(environment.stripeKey);
 
@@ -94,73 +96,96 @@ export class MembershipPage implements OnInit, AfterViewInit {
     this.card.addEventListener('change', ({ error }) => {
       this.cardErrors = error && error.message;
     });
+
   }
 
-ngAfterViewInit() {
-  this.checkLoggedInStatus();
+  ngAfterViewInit() {
 
-}
+    this.checkLoggedInStatus();
 
-  // checkIt() {
-  //   this.isChecked = !this.isChecked;
-  // }
 
-  async onSubmit(form) {
-    if (this.isChecked) {
-      this.bumpUpOrder(form).then(() => {
-        this.subscribeUser(form);
-      });
-    }{
-      this.subscribeUser(form);
-    }
   }
 
-  async subscribeUser(stripe: NgForm) {
-    const { source, error } = await this.stripe.createSource(this.card);
-    if (error) {
-      this.spinner.dismissSpinner();
-      stripe.reset();
-      // Inform the customer that there was an error.
-      const cardErrors = error.message;
-      window.alert(cardErrors);
-    } else {
-      this.spinner.loadSpinner();
-      const user = await this.auth.getUser();
-      const fun = this.functions.httpsCallable('stripeCreateSubscription');
-      this.confirmation = await fun({
-        source: source.id,
-        uid: user.uid,
-        plan: 'plan_Gl53WD33vJA3uR'
-      }).toPromise();
-      this.spinner.dismissSpinner();
-      stripe.reset();
-      this.message.subscribedToast();
-        this.wizard.goToStep(2);
-    }
-  }
 
-  async bumpUpOrder(check: NgForm) {
-    const { source, error } = await this.stripe.createSource(this.card);
-    if (error) {
-    } else {
-        // Send the token to your server.
-        const user = await this.auth.getUser();
-        const fun = this.functions.httpsCallable('stripeCreateCharge');
-        this.confirmation = await fun({ source: source.id, uid: user.uid, amount: '999' }).toPromise();
-    }
-  }
 
   // wizard for signed in user to skip to step 2
-  navigateToStep() {
-    this.wizard.goToStep(1);
-  }
+  // navigateToStep() {
+  //   this.wizard.goToStep(1);
+  // }
+
 
   checkLoggedInStatus() {
-    const user = this.auth.getCurrentUser();
+    const user = this.auth.getUser();
     if (user !== null) {
       this.wizard.goToStep(1);
     }
   }
+
+  // firebase analytics in node_modules indexed,d.ts
+
+  // logEvent(
+  //   eventName: 'add_payment_info',
+  //   eventParams?: { [key: string]: any },
+  //   options?: firebase.analytics.AnalyticsCallOptions
+  // ): void;
+
+
+
+
+  // checkmark value
+  toggleVisibility(e) {
+    this.marked = e.target.checked;
+  }
+
+  // Stripe single charge and stripe subscription logic (subscription only / or both)
+  async onSubmit(stripe: NgForm) {
+    this.spinner.loadSpinner();
+    const { source, error } = await this.stripe.createSource(this.card);
+    if (error) {
+      this.spinner.dismissSpinner();
+      const cardErrors = error.message;
+      // stripe.reset();
+      window.alert(cardErrors);
+
+    } else {
+      if (this.theCheckbox) {
+        const user = await this.auth.getUser();
+        const fun0 = this.functions.httpsCallable('stripeCreateCharge');
+        this.confirmation0 = await fun0({ source: source.id, uid: user.uid, amount: '5700' }).toPromise();
+        if (this.confirmation0) {
+          const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
+          this.confirmation1 = await fun1({
+            source: source.id,
+            uid: user.uid,
+            plan: 'bronze'
+          }).toPromise();
+          if (this.confirmation0 && this.confirmation1) {
+            stripe.reset();
+            this.message.subscribedToast();
+            this.spinner.dismissSpinner();
+            this.wizard.goToStep(2);
+          }
+        }
+      } else if (!this.theCheckbox) {
+        const user = await this.auth.getUser();
+        const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
+        this.confirmation1 = await fun1({
+          source: source.id,
+          uid: user.uid,
+          plan: 'bronze'
+        })
+        .toPromise();
+        if (this.confirmation1) {
+          stripe.reset();
+          this.spinner.dismissSpinner();
+          this.message.subscribedToast();
+          this.wizard.goToStep(2);
+        }
+      }
+    }
+  }
+
+
 
 
   switchAuthMode() {
@@ -174,7 +199,7 @@ ngAfterViewInit() {
       translucent: true,
       cssClass: 'popoverUser'
     });
-    return popover.present();
+    popover.present();
   }
 }
 

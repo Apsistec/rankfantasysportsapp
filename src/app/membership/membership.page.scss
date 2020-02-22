@@ -2,11 +2,11 @@
 * Shows how you can use CSS to style your Element's container.
 */
 .tech {
-  background:url(../../assets/img/icon-192x192.png), rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
+  background:rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
   min-height: 100vh;
   width: 100vw;
-  background-size: 80px, cover;
-  background-position: top 0.5% left 0.5%, center;
+  background-size:cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .home{

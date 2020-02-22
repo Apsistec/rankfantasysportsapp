@@ -13,7 +13,7 @@
     <ion-row
       class="ion-text-center ion-text-wrap ion-justify-content-center"
     >
-      <ion-col class="topicon">
+      <ion-col class="toprow ion-text-center">
           <ion-text>
             <h3>
               Helping You Win Is Our Business
@@ -21,8 +21,8 @@
           </ion-text>
       </ion-col>
     </ion-row>
-    <ion-row class=" ion-text-center ion-text-wrap ion-no-padding ion-no-margin ion-justify-content-center">
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
+    <ion-row class="ion-text-wrap ion-no-padding ion-no-margin ion-justify-content-center">
+      <ion-col  size-sm="12" size-md="12" size-lg="6" size-xl="4" class="padtopbot ion-text-center ion-align-self-center">
         <img src="../../../assets/img/football.png" />
 
         <h5>
@@ -36,9 +36,8 @@
           </ion-text>
         </h6>
       </ion-col>
-    </ion-row>
-<ion-row>
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
+
+      <ion-col  size-sm="12" size-md="12" size-lg="6" size-xl="4" class="padtopbot ion-text-center ion-align-self-center">
         <img src="../../../assets/img/dashboard.webp" />
 
         <h5>
@@ -53,7 +52,7 @@
           </ion-text>
         </h6>
       </ion-col>
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
+      <ion-col  size-sm="12" size-md="12" size-lg="6" offset-lg="3" size-xl="4" class="padtopbot ion-text-center ion-align-self-center">
         <img src="../../../assets/img/brains.webp" />
 
         <h5>
@@ -72,7 +71,7 @@
     <ion-row
       class="padtopbot ion-text-center ion-text-wrap ion-justify-content-center"
     >
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
+      <ion-col  size-sm="12" size-md="12" size-lg="4" size-xl="4" class="padtopbot ion-align-self-center">
         <img src="../../../assets/img/price-tag.webp" />
 
         <h5>
@@ -86,7 +85,7 @@
           </ion-text>
         </h6>
       </ion-col>
-      <ion-col  size-sm="12" size-md="4" size-lg="4" size-xl="4" class="topicon ion-align-items-center">
+      <ion-col  size-sm="12" size-md="12" size-lg="4" size-xl="4" class="padtopbot ion-text-center ion-align-self-center">
         <img src="../../../assets/img/world.webp" />
 
         <h5>
@@ -104,9 +103,9 @@
     </ion-row>
 
     <!-- Video Row -->
-    <ion-row style="height:50vh; width:100vw;" class="silverbak ion-align-items-center ion-text-center ion-justify-content-center">
+    <ion-row class="silverbak  ion-text-wrap">
 
-  <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
+  <ion-col  size-sm="12" size-md="12" size-lg="6" size-xl="6" class="ion-align-self-center ion-text-wrap   ion-text-center">
     <div class="youtube">
       <ion-text>
             <h4>
@@ -124,7 +123,7 @@
         </div>
       </ion-col>
 
-      <ion-col  size-sm="12" size-md="5" size-lg="5" size-xl="5">
+      <ion-col  size-sm="12" size-md="12" size-lg="6" size-xl="6" class="ion-align-self-center ion-text-wrap ion-text-center">
         <div class="video-container">
           <iframe
           [src]="trustedVideoUrl4"
@@ -140,23 +139,24 @@
 
 
     <!--Testimonials Row -->
-    <ion-row class="ion-margin ion-padding ion-text-center ion-justify-content-center">
+    <ion-row >
       <app-endorsements></app-endorsements>
     </ion-row>
 
     <!-- Phonetest -->
 
     <ion-row
-      style="padding: 10px 0; border-top: 3px groove var(--ion-color-silver); border-bottom: 3px groove var(--ion-color-silver);" class="ion-justify-content-around">
+      style="padding: 10px 0; border-top: 3px groove var(--ion-color-silver); border-bottom: 3px groove var(--ion-color-silver);"
+        class="ion-justify-content-center">
       <ion-col
 
         size-sm="12"
-        size-md="5"
-        size-lg="5"
-        size-xl="5"
-        class="ion-align-self-center"
+        size-md="12"
+        size-lg="6"
+        size-xl="6"
+        class="ion-align-self-center ion-wrap-reverse ion-text-center"
       >
-      <div class="ion-text-center">
+      <div>
         <ion-text>
           <h3>
             Signing Up As Easy As 1, 2, 3...
@@ -191,21 +191,21 @@
       <ion-col
 
         size-sm="12"
-        size-md="5"
-        size-lg="5"
-        size-xl="5"
-        class="ion-align-self-center">
-      <div class="ion-text-center">
-        <img src="../../assets/img/phone.png" />
+        size-md="12"
+        size-lg="6"
+        size-xl="6"
+        class="ion-align-self-center ion-wrap-reverse ion-text-center">
+      <div>
+        <img style="min-width: 200px; padding-top: 30px;" src="../../assets/img/phone.png" />
       </div>
       </ion-col>
     </ion-row>
 
     <!-- Devices Row -->
     <ion-row>
-      <ion-col>
+      <!-- <ion-col> -->
         <app-devices></app-devices>
-      </ion-col>
+      <!-- </ion-col> -->
     </ion-row>
 
     <!-- Row 6 aka Footer -->
@@ -213,18 +213,18 @@
       <ion-col
 
         size-sm="12"
-        size-md="4"
+        size-md="12"
         size-lg="4"
         size-xl="4"
         class="ion-align-self-center ion-no-padding ion-text-start">
-          <ion-text style="text-transform: capitalize; font-variant: small-caps; font-size: x-large;">
-          <ion-text color="silver" style="font-weight: 900;">
+          <ion-text>
+          <ion-text color="silver" style="font-weight: 900;text-transform: capitalize; font-variant: small-caps; font-size: x-large;">
             Location
           </ion-text>
 
           <hr />
-          <ion-text color="light" style="font-weight: 700;">
-            2406 14th St
+          <ion-text color="light" style="font-size:large; font-weight: 600;">
+            2406 14<sup>th</sup> Street
             <br />
             Suite A
             <br />
@@ -236,26 +236,26 @@
         <div class="payservice">
           <img
             src="../../assets/img/1.png"
-            style="height: 45px; width: 75px;"
+            style="height: 40px; width: 65px;"
           />
           <img
             src="../../assets/img/2.png"
-            style="height: 45px; width: 75px;"
+            style="height: 40px; width: 65px;"
           />
           <img
             src="../../assets/img/14.png"
-            style="height: 45px; width: 75px;"
+            style="height: 40px; width: 65px;"
           />
           <img
             src="../../assets/img/22.png"
-            style="height: 45px; width: 75px;"
+            style="height: 40px; width: 65px;"
           />
         </div>
 
-        <div class="ion-text-end" style="align-content: flex-end;">
+        <div class="ion-text-end" style="align-content: flex-end; padding-right: 10px; cursor: pointer;">
           <img
             src="../../assets/img/stripe_solid_white_powered_by.svg"
-            height="40px"
+            height="45px"
             href="https://www.stripe.com"
           />
         </div>

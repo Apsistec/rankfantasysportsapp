@@ -1,5 +1,4 @@
 {
-  "extends": ["tslint-angular"],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -86,6 +85,8 @@
     "no-output-rename": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "component-class-suffix": [true, "Component", "Page", "View"]
+
   }
 }

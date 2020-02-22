@@ -17,7 +17,6 @@ import { timeout } from 'rxjs/operators';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss']
 })
-// tslint:disable-next-line: component-class-suffix
 export class HomePage implements OnInit, AfterViewInit {
   titleId = 'RF$\u2122 Home';
   core;
@@ -106,7 +105,8 @@ export class HomePage implements OnInit, AfterViewInit {
     const user = await this.auth.getUser();
     console.log(user);
     if (user !== null) {
-      this.route.navigateByUrl('/profile');
+      // this.route.navigateByUrl('/profile');
+      return true;
     } {
       const popupState = await this.storage.get('popModalState');
       if (popupState !== 'shown') {

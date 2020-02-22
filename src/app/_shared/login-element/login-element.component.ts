@@ -6,7 +6,7 @@ import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SpinnerService } from '@services/spinner.service';
-import { GoToStepDirective, ArchwizardModule, WizardStep, WizardStepComponent, WizardComponent } from 'angular-archwizard';
+import { WizardComponent } from 'angular-archwizard';
 
 @Component({
   selector: 'app-login-element',
@@ -18,6 +18,7 @@ export class LoginElementComponent implements OnInit {
   user;
 
   loginForm;
+  // @ViewChild(WizardComponent, {static: false}) public wizard: WizardComponent;
 
 
   @Output() readyToStep = new EventEmitter();
@@ -48,30 +49,25 @@ export class LoginElementComponent implements OnInit {
     });
   }
 
-  dismissModal() {
-    this.modal.dismiss();
-  }
 
   async onSubmit(login: NgForm) {
     this.spinner.loadSpinner();
-    this.auth.SignIn(this.loginForm.value).subscribe(
+    this.auth.signIn(this.loginForm.value).subscribe(
       data => {
         this.message.isLoggedInToast();
         this.spinner.dismissSpinner();
-        this.dismissModal();
+        this.modal.dismiss();
         login.reset();
         if (data.role === 'ADMIN') {
           this.router.navigateByUrl('/admin');
         } else if (data.plan && (data.status === 'active' || 'trialing')) {
           this.router.navigateByUrl('/profile');
         } else {
-          this.takeNextStep();
-          this.router.navigateByUrl('/membership');
-        }
+          this.router.navigateByUrl('/membership')        }
       },
       async err => {
         this.spinner.dismissSpinner();
-        login.reset();
+        this.modal.dismiss();
         this.message.errorAlert(err.message);
       }
     );
@@ -81,9 +77,11 @@ export class LoginElementComponent implements OnInit {
   //   this.takeNextStep();
   // }
 
-  takeNextStep() {
-    this.readyToStep.emit();
-  }
+  // takeNextStep() {
+  //   this.readyToStep.emit();
+  //   // this.router.navigateByUrl('/membership');
+
+  // }
 
   // switchAuthMode() {
   //   this.registerMode.emit();

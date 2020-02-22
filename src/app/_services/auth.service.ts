@@ -22,6 +22,10 @@ export class AuthService {
   userId: string;
   planId: string;
   isSubscribed: boolean;
+  userRole: any = 'USER';
+  userPermissions: string[] = ['delete-ticket'];
+
+
 
   constructor(
     public afs: AngularFirestore,
@@ -57,28 +61,16 @@ export class AuthService {
   }
 
 
-  async getUser() {
-    return this.afAuth.authState.pipe(first()).toPromise();
-  }
 
-  async getCurrentUser(): Promise<any> {
-    return await of(this.user).toPromise();
-  }
-
-  get isLoggedIn(): boolean {
-    const user = this.getCurrentUser();
-    return (user !== null) ? true : false;
-  }
-
+  // using the injected ModalController this page
+  // can "dismiss" itself and optionally pass back data
   modalDismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
     this.modalCtrl.dismiss();
   }
 
 
-  // Authentication
-  SignIn(credentials): Observable<any> {
+  // Log In- email and password
+  signIn(credentials): Observable<any> {
     return from(
       this.afAuth.auth.signInWithEmailAndPassword(
         credentials.email,
@@ -101,36 +93,23 @@ export class AuthService {
   }
 
   /* Sign up email*/
-
-
   async registerUser(value) {
-    this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
+    return this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
     .then(async (data: any) => {
-      await this.afs
-        .doc<User>(`users/${data.user.uid}`)
-        .set(
-          {
-            displayName: value.firstName + ' ' + value.lastName,
-            email: data.user.email,
-            uid: data.user.uid,
-            role: 'USER',
-            permissions: ['delete-ticket'],
-            photoURL: data.user.photoURL
-          },
-          { merge: true }
-        );
+      await this.setUserData(data);
+      this.router.navigateByUrl('/membership')
     });
   }
 
 
   // Auth logic to Login using federated auth providers
-  async AuthLogin(provider: any) {
-    this.afAuth.auth
+  oauthLogin(provider: any) {
+    return this.afAuth.auth
       .signInWithPopup(provider)
       .then(data => {
         if (!data.user) {
           this.message.noExistFederatedUserAlert();
-          this.SignOut();
+          this.afAuth.idTokenResult
         } else {
           this.message.federatedLoginToast(data.user);
           this.afs.doc(`users/${data.user.uid}`).update(data.user);
@@ -145,25 +124,13 @@ export class AuthService {
   }
 
   // Auth logic to Register using federated auth providers
-  async AuthRegister(provider: any) {
+  async oauthRegister(provider: any) {
     return this.afAuth.auth
       .signInWithPopup(provider)
       .then(async (data: any) => {
-        await this.afs
-          .doc<User>(`users/${data.user.uid}`)
-          .set(
-            {
-              displayName: data.user.displayName,
-              email: data.user.email,
-              uid: data.user.uid,
-              role: 'USER',
-              permissions: ['delete-ticket'],
-              photoURL: data.user.photoURL
-            },
-            { merge: true }
-          )
-          .then(async () => {
-            await this.ngZone.run(() => {
+        await this.setUserData(data)
+          .then(() => {
+            return this.ngZone.run(() => {
               this.router.navigateByUrl('/membership');
             });
           });
@@ -173,44 +140,60 @@ export class AuthService {
       });
   }
 
+  // Set User Data in Firestore
+  setUserData(data) {
+    return this.afs
+      .doc<User>(`users/${data.user.uid}`)
+      .set(
+        {
+          displayName: data.user.displayName,
+          email: data.user.email,
+          uid: data.user.uid,
+          role: this.userRole,
+          permissions: this.userPermissions,
+          photoURL: data.user.photoURL
+        },
+        { merge: true }
+      );
+  }
+
   // Register in with Google
-  async GoogleRegister() {
-    return this.AuthRegister(new auth.GoogleAuthProvider());
+  GoogleRegister() {
+    return this.oauthRegister(new auth.GoogleAuthProvider());
   }
 
   // Register in with Twitter
   TwitterRegister() {
-    return this.AuthRegister(new auth.TwitterAuthProvider());
+    return this.oauthRegister(new auth.TwitterAuthProvider());
   }
 
   // Register in with Facebook
   FacebookRegister() {
-    return this.AuthRegister(new auth.FacebookAuthProvider());
+    return this.oauthRegister(new auth.FacebookAuthProvider());
   }
 
   // MicrosoftRegister() {
-  //   return this.AuthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
+  //   return this.oauthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
   // }
 
-  // Signin Login Federated
-  // Sign in with Google
+  // Log In with Google
   GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+    return this.oauthLogin(new auth.GoogleAuthProvider());
   }
-  // Sign in with Twitter
+  // Log In with Twitter
   TwitterAuth() {
-    return this.AuthLogin(new auth.TwitterAuthProvider());
+    return this.oauthLogin(new auth.TwitterAuthProvider());
   }
 
-  // Sign in with Facebook
+  // Log In with Facebook
   FacebookAuth() {
-    return this.AuthLogin(new auth.FacebookAuthProvider());
+    return this.oauthLogin(new auth.FacebookAuthProvider());
   }
 
   // For working with Azure AD app to query Microsoft Graph using Excel API and MS Javascript after getting a token from MSAL
   MicrosoftAuth() {
     const provider = new auth.OAuthProvider('microsoft.com');
-    return this.AuthLogin(provider);
+    return this.oauthLogin(provider);
     provider.setCustomParameters({
       tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1',
     });
@@ -227,6 +210,7 @@ export class AuthService {
       tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02',
     });
     provider.addScope('user.read, files.read');
+    // Tenant
     // rfs-test@appspot.gserviceaccount.com
   }
 
@@ -253,17 +237,77 @@ export class AuthService {
 
 
 
+  // User Exists Verification
+  async getUser() {
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
+  async getCurrentUser(): Promise<any> {
+    return await of(this.user).toPromise();
+  }
+
+  get isLoggedIn(): boolean {
+    const user = this.getCurrentUser();
+    return (user !== null) ? true : false;
+  }
+
+  // // Current and Valid Subscription Check
+
+  // isCurrentSubscriber(user: User): boolean {
+  //   const validStatus = 'active' || 'trialing';
+  //   return this.checkCurrentStatus(user, validStatus);
+  // }
+
+  // private async isCurrentSub() {
+  //   const user = await this.getCurrentUser();
+  //   // const user = await this.getUser();
+  //   this.isSubscribed =
+  //     (user.plan === 'bronze') ? true : false;
+  // }
+
+  // private checkCurrentStatus(user: User, validStatus: string): boolean {
+  //   if (user !== null) {
+  //     for (const valid of validStatus) {
+  //       if (user[valid]) {
+  //         return true;
+  //       }
+  //     }
+  //   } {
+  //   return false;
+  //   }
+  // }
+
+
+  // Permissions Check for Trouble Tickets and Admin Dashboard
+
+  // tslint:disable-next-line: member-ordering
+  hasPermissions(permissions: string[]): boolean {
+    for (const perm of permissions) {
+      if (
+        !this.currentUser.value ||
+        !this.currentUser.value.permissions.includes(perm)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
 // User Roles to coincide with backend server permissions/rules
+  // tslint:disable-next-line: member-ordering
   canRead(user: User): boolean {
     const allowed = 'ADMIN' || 'EDITOR' || 'USER';
     return this.checkAuthorization(user, allowed);
   }
 
+  // tslint:disable-next-line: member-ordering
   canEdit(user: User): boolean {
     const allowed = 'ADMIN' || 'EDITOR';
     return this.checkAuthorization(user, allowed);
   }
 
+  // tslint:disable-next-line: member-ordering
   canDelete(user: User): boolean {
     const allowed = 'ADMIN';
     return this.checkAuthorization(user, allowed);
@@ -281,48 +325,5 @@ export class AuthService {
     }
     return false;
   }
-
-  // Current and Valid Subscription Check
-
-  isCurrentSubscriber(user: User): boolean {
-    const validStatus = 'active' || 'trialing';
-    return this.checkCurrentStatus(user, validStatus);
-  }
-
-  private checkCurrentStatus(user: User, validStatus: string): boolean {
-    if (!user) {
-      return false;
-    }
-    for (const valid of validStatus) {
-      if (user[valid]) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-
-  // Permissions Check for Trouble Tickets and Admin Dashboard
-
-  hasPermissions(permissions: string[]): boolean {
-    for (const perm of permissions) {
-      if (
-        !this.currentUser.value ||
-        !this.currentUser.value.permissions.includes(perm)
-      ) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-
-  async isCurrentSub() {
-    const user = await this.getCurrentUser();
-    // const user = await this.getUser();
-    this.isSubscribed =
-      (user.plan === 'bronze') ? true : false;
-  }
-
 
 }
