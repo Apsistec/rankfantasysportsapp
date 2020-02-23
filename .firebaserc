@@ -2,7 +2,9 @@
   "projects": {
     "staging": "rfs-test",
     "default": "rfs-test",
-    "styling": "rfs-test"
+    "styling": "rfs-test",
+    "anyalias": "rankfantasysports-test",
+    "fixing": "rfs-test"
   },
   "targets": {
     "rfs-test": {

@@ -11,7 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./popover.component.scss']
 })
 export class PopoverComponent {
-  
+
   page;
   @Input()user: User;
 
@@ -25,7 +25,7 @@ export class PopoverComponent {
   // code for logout
   async logOut() {
     await this.dismissPopover();
-      this.auth.SignOut();
+      this.auth.signOut();
   }
 
   async goToProfile() {

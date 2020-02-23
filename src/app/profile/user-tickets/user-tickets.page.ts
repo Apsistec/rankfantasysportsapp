@@ -31,6 +31,6 @@ export class UserTicketsPage implements OnInit {
   }
 
   signOut() {
-    this.auth.SignOut();
+    this.auth.signOut();
   }
 }

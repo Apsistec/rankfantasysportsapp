@@ -1,8 +1,4 @@
 
-<ion-content full-screen="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col >
           <ion-card color="medium">
             <ion-card-header class="ion-text-center">
                   <ion-card-title>
@@ -17,7 +13,6 @@
                   </ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
-                  <ion-list lines="none" *ngIf="user">
                     <ion-item >
                     <ion-label position="floating">
                       <ion-text color="secondary">
@@ -45,10 +40,7 @@
                   <br>
                   <ion-button size="small" (click)="updateEmail()" color="dark" shape="round">Submit Email</ion-button>
 
-                </ion-list>
 
-                  <ion-list>
-                    <ion-list-header>
                       <ion-title>
                         <ion-label color="secondary">
                           Link Your Social Media Accounts
@@ -59,7 +51,6 @@
                          You can use any linked account to login
                         </ion-text>
                       </h5>
-                    </ion-list-header>
                   <ion-item>
                     <ion-button color="danger" size="small" shape="round" (click)=linkGoogle()>
                       Link Your Google Account
@@ -80,7 +71,6 @@
                       Link Your Microsoft Account
                     </ion-button>Work In Progress
                   </ion-item> -->
-                </ion-list>
                 <ion-button (click)="closeModal()">
                   <ion-text>
                     Close
@@ -88,8 +78,4 @@
                 </ion-button>
               </ion-card-content>
             </ion-card>
-          </ion-col>
-          </ion-row>
-        </ion-grid>
-
-      </ion-content>
+ 

@@ -5,9 +5,10 @@
   background:rgba(0, 0, 0, 0.85) url(../../assets/img/tech.jpg);
   min-height: 100vh;
   width: 100vw;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment:fixed;
 }
 .home{
   top: 0.5%;
@@ -62,39 +63,27 @@ inputError{
  .StripeElement {
   box-sizing: border-box;
   height: 40px;
-  padding: 10px 12px;
+  padding: 10px;
   border: 1px solid transparent;
   border-radius: 4px;
-  background-color: lightgrey;
-  box-shadow: 0 1px 3px 0 #6094d3;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px 0 #34073fd0;
 
   transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus {
-  box-shadow: 0 1px 3px 0 #59718a;
+  box-shadow: 0 1px 5px 0 #9e009e;
 }
 
 .StripeElement--invalid {
-  border-color: #fa755a;
-  color: #fa755a;
+  border-color: #cf2908;
+  color: #7e1500;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: lightgrey !important;
+  background-color: rgb(143, 110, 110) !important;
 }
-
-// .resp-container {
-//     width: 94%;
-//     height: 17rem;
-
-// }
-
-// .resp-iframe {
-//     height: 17rem;
-//     overflow: hidden;
-//     width: 100%;
-// }
 
 ul{
   display: block;

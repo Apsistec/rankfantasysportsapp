@@ -1,6 +1,22 @@
 <app-header [titleId]="titleId"></app-header>
 <ion-content  full-screen="true" class="text-wrap">
-  <ion-grid>
+
+
+  <div *ngIf="auth.user$ | async; then authenticated else purchase">
+
+  </div>
+
+
+  <ng-template #purchase class="ion-text-center ion-align-items-center">
+    <ion-button color="danger" size="small" routerLink="/membership">
+      <ion-text>
+        Buy Pro Package
+      </ion-text>
+    </ion-button>
+  </ng-template>
+
+
+  <ion-grid #authenticated *ngIf="auth.user$ | async as user">
     <ion-row>
       <ion-col size-sm="5">
 
@@ -16,7 +32,8 @@
             <ion-grid>
               <ion-row>
 
-                <ng-container *ngIf="auth.user | async as user">
+
+
                 <ion-col size-lg="4">
                     <ion-img style="width:120px; height:120px; position:relative;"
                       [src]="user.photoURL || '../../assets/img/dummy-user.png'"></ion-img>
@@ -36,7 +53,6 @@
                       {{ user.email }}
                     </ion-text>
                   </ion-col>
-                </ng-container>
                 </ion-row>
               </ion-grid>
             </ion-item>
@@ -47,7 +63,7 @@
                 </ion-text>
               </ion-button>
               &nbsp;
-              <ion-button size="small" color="danger" (click)="auth.SignOut()">Logout</ion-button>
+              <ion-button size="small" color="danger" (click)="auth.signOut()">Logout</ion-button>
 
             </ion-card-content>
           </ion-card>
@@ -64,7 +80,20 @@
             </ion-card-header>
             <ion-card-content class="ion-text-center">
 
-              <ng-container *ngIf="stripeService.subscriptions | async as subs; else purchase">
+              <div *ngIf="stripeService.subscriptions | async; then subData; else buy">
+
+              </div>
+
+
+  <ng-template #buy class="ion-text-center ion-align-items-center">
+    <ion-button color="danger" size="small" routerLink="/membership">
+      <ion-text>
+        Buy Pro Package
+      </ion-text>
+    </ion-button>
+  </ng-template>
+
+              <ng-container #subData *ngIf="stripeService.subscriptions | async as subs">
                 <ion-grid>
                   <ion-row class="ion-justify-content-around">
                     <ion-col size-sm="5">
@@ -135,20 +164,15 @@
 
               </ng-container>
 
+
+
             </ion-card-content>
           </ion-card>
 
-          <ng-template #purchase class="ion-text-center ion-align-items-center">
-            <ion-button color="danger" size="small" routerLink="/membership">
-              <ion-text>
-                Buy Pro Package
-              </ion-text>
-            </ion-button>
-          </ng-template>
 
 
           <!-- Admin Dash -->
-          <ion-card class="ion-text-center" color="medium" *ngIf="user !== null && user.role === 'ADMIN'">
+          <ion-card class="ion-text-center" color="medium" *ngIf="user.role === 'ADMIN'">
             <ion-card-header>
               <ion-card-title>
                 <ion-text color="secondary">
@@ -173,7 +197,7 @@
           </ion-card>
 
           <!-- Support Dashboard-->
-          <ion-card class="ion-padding ion-text-center" color="medium" *ngIf="user !== null && user.role === 'USER'">
+          <ion-card class="ion-padding ion-text-center" color="medium" *ngIf="user.role === 'USER'">
             <ion-card-header>
               <ion-card-title>
                 <ion-text color="secondary">
@@ -188,7 +212,7 @@
             </ion-card-header>
 
             <hr>
-            <ion-button color="dark" routerLink="/user">
+            <ion-button color="secondary" routerLink="/user">
               <ion-icon slot="start" color="tertiary" name="bug"></ion-icon>
               <ion-icon slot="end" color="tertiary" name="bug"></ion-icon>
               <ion-text>
@@ -241,8 +265,8 @@
               </strong>
             </ion-card-title>
           <ion-card-content>
-            <ion-button (click)="enableDark()" size="small" color="dark">Dark</ion-button>
-            <ion-button (click)="enableLight()" size="small" color="light">Light</ion-button>
+            <ion-button (click)="enableDark()" color="dark">Dark</ion-button>
+            <ion-button (click)="enableLight()" color="light">Light</ion-button>
           </ion-card-content>
         </ion-card>
 

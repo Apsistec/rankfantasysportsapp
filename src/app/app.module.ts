@@ -29,12 +29,16 @@ import { StartModalComponent } from './home/start-modal/start-modal.component';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { SharedModule } from '@shared/shared.module';
+// import { PaidGuard } from '@guards/paid.guard';
+// import { AuthGuard } from '@guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     SafePipe,
     StartModalComponent,
+    // AuthGuard,
+    // PaidGuard,
     AnalyticsComponent,
   ],
   entryComponents: [

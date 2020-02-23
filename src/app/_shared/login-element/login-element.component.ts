@@ -6,7 +6,6 @@ import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SpinnerService } from '@services/spinner.service';
-import { WizardComponent } from 'angular-archwizard';
 
 @Component({
   selector: 'app-login-element',
@@ -52,42 +51,24 @@ export class LoginElementComponent implements OnInit {
 
   async onSubmit(login: NgForm) {
     this.spinner.loadSpinner();
-    this.auth.signIn(this.loginForm.value).subscribe(
-      data => {
-        this.message.isLoggedInToast();
-        this.spinner.dismissSpinner();
-        this.modal.dismiss();
-        login.reset();
-        if (data.role === 'ADMIN') {
-          this.router.navigateByUrl('/admin');
-        } else if (data.plan && (data.status === 'active' || 'trialing')) {
-          this.router.navigateByUrl('/profile');
-        } else {
-          this.router.navigateByUrl('/membership')        }
-      },
-      async err => {
+    return this.auth.signIn(this.loginForm.value).then (() => {
+      this.message.isLoggedInToast();
+      this.spinner.dismissSpinner();
+      this.modal.dismiss();
+      login.reset();
+      if (this.user.role === 'ADMIN') {
+        this.router.navigateByUrl('/admin');
+      } else if (this.user.plan && (this.user.status === 'active' || 'trialing')) {
+        this.router.navigateByUrl('/profile');
+      } else {
+        this.router.navigateByUrl('/membership')        }
+    }, (async (err) => {
         this.spinner.dismissSpinner();
         this.modal.dismiss();
         this.message.errorAlert(err.message);
       }
-    );
+    )
+    )
   }
 
-  // finishLogin() {
-  //   this.takeNextStep();
-  // }
-
-  // takeNextStep() {
-  //   this.readyToStep.emit();
-  //   // this.router.navigateByUrl('/membership');
-
-  // }
-
-  // switchAuthMode() {
-  //   this.registerMode.emit();
-  // }
-
-  // onPasswordReset() {
-  //   this.passwordReset.emit();
-  // }
 }

@@ -78,7 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   signOut() {
-    this.auth.SignOut();
+    this.auth.signOut();
   }
 
   authModal() {

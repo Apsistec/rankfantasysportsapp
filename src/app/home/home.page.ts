@@ -10,7 +10,7 @@ import { StartModalComponent } from '..//home/start-modal/start-modal.component'
 import { StorageService } from './../_services/storage.service';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { timeout } from 'rxjs/operators';
-
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +32,7 @@ export class HomePage implements OnInit, AfterViewInit {
       delay: 4000
     }
   };
-  user: any;
+  user: User;
   trustedVideoUrl4: SafeResourceUrl;
   video4: any = {
     url: 'https://www.youtube.com/embed/APeaBlagSNc'
@@ -56,6 +56,9 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
   ngOnInit() {
+    this.auth.user$.subscribe(user => this.user = user)
+
+
     this.functionPop();
   }
 
@@ -102,12 +105,9 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async functionPop() {
-    const user = await this.auth.getUser();
-    console.log(user);
-    if (user !== null) {
-      // this.route.navigateByUrl('/profile');
+    if (this.user !== null) {
       return true;
-    } {
+    } else {
       const popupState = await this.storage.get('popModalState');
       if (popupState !== 'shown') {
         setTimeout (() => {

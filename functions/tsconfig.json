@@ -9,7 +9,7 @@
     "strictNullChecks": false,
     "target": "es2015",
     "types": [
-      "stripe-v3",
+      "stripe",
       "jest"
     ]
   },

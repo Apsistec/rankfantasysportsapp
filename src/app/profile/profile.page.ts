@@ -6,6 +6,12 @@ import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscr
 import { InvoicesComponent } from './invoices/invoices.component';
 import { SettingsComponent } from './settings/settings.component';
 import { StripeService } from '../_services/stripe.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { switchMap,  first } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { User } from '@models/user';
 
 
 @Component({
@@ -15,28 +21,49 @@ import { StripeService } from '../_services/stripe.service';
 })
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
-  @Input() user: any;
+  // @Input() user: any;
   // subscriptions;
-
+  user: Observable<User>;
+  planId;
+  subscriptions;
   constructor(
     private theme: ThemeService,
     private modalCtrl: ModalController,
     public auth: AuthService,
-    public stripeService: StripeService
-  ) {}
+    public afAuth: AngularFireAuth,
+    public stripeService: StripeService,
+    public afs: AngularFirestore,
+    private functions: AngularFireFunctions,
+    public stripe: StripeService
+  ) {
+    //// Get auth data, then get firestore user document || null
+    this.user = this.afAuth.authState.pipe(
+     switchMap(user => {
+       if (user !== null) {
+         return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+       } else {
+         return of(null);
+       }
+     })
+   );
+ }
+
+  //  async getCurrentUser(): Promise<any> {
+  //    return this.user.pipe(first()).toPromise();
+  //  }
+
+  //  get isLoggedIn(): boolean {
+  //    return (this.user === null ) ? true : false;
+  //  }
+
+  //  getUser(): Promise<any> {
+  //    return this.afAuth.authState.pipe(first()).toPromise();
+  //  }
 
   ngOnInit() {
-    this.getStripeDataIfValidUser();
+    // this.getStripeDataIfValidUser();
   }
 
- async getStripeDataIfValidUser() {
-    this.user = await this.auth.getUser();
-      if (this.user.stripeCustomerId !== null) {
-        this.stripeService.getSubscriptions();
-      } else {
-        return false;
-      }
-    }
 
 // Themes
   enableDark() {
@@ -75,16 +102,6 @@ export class ProfilePage implements OnInit {
     return this.modalCtrl.dismiss();
   }
 
-  // Coupons
 
-  // const couponForm = document.getElementById('couponForm');
-  // const couponFun = fun.httpsCallable('stripeGetCoupon');
-
-  // couponForm.onblur = async() => {
-  //   const val = couponForm.value;
-  //   console.log(val)
-  //   const coupon = await couponFun({ coupon: val });
-  //   console.log(coupon);
-  //   alert(`sweet! ${coupon.data.name}`)
-  // }
+ 
 }

@@ -1,4 +1,3 @@
-
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -17,7 +16,7 @@
     ],
     "types": [
       "stripe-v3",
-      "jest"
+  
     ],
     "lib": [
       "es2018",

@@ -6,8 +6,8 @@ import {
   redirectUnauthorizedTo
   } from '@angular/fire/auth-guard';
 import { NgModule } from '@angular/core';
-import { PaidMemberGuard } from '@guards/paid-member.guard';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@guards/auth.guard';
 
 const adminOnly = () => hasCustomClaim('admin');
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./lineup-builder/lineup-builder.module').then(
         m => m.LineupBuilderPageModule
-      )
+      ), canActivate: [AuthGuard],
   },
 
   {
@@ -58,17 +58,17 @@ const appRoutes: Routes = [
       import('./profile/settings/user-tickets/user-tickets.module').then(
         m => m.UserTicketsPageModule
       ),
-    // canActivate: [AngularFireAuthGuard],
-    data: { role: 'USER' }
+      canActivate: [AuthGuard],
+      data: { role: 'USER' }
   },
   {
     path: 'admin',
     loadChildren: () =>
       import('./profile/admin-dashboard/admin-dashboard.module').then(
         m => m.AdminDashboardPageModule
-      ),
+      ),  canActivate: [AuthGuard] ,
     data: { role: 'ADMIN' }
-    // ...canActivate(adminOnly)
+
   },
   {
     path: 'tweets',
@@ -89,12 +89,14 @@ const appRoutes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./profile/profile.module').then(m => m.ProfilePageModule),
+   canActivate: [AuthGuard] ,
   },
 
   {
     path: 'stats',
     loadChildren: () =>
-      import('./stats/stats.module').then(m => m.StatsPageModule)
+      import('./stats/stats.module').then(m => m.StatsPageModule),
+    canActivate: [AuthGuard] ,
   },
 
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

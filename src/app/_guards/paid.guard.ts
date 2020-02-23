@@ -10,13 +10,14 @@ import { Injectable } from '@angular/core';
 import { map, take } from 'rxjs/operators';
 import { MessageService } from '../_services/message.service';
 import { Observable } from 'rxjs';
+import { StripeService } from '@services/stripe.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PaidMemberGuard implements CanActivate {
+export class PaidGuard implements CanActivate {
   constructor(
-    private auth: AuthService,
+    private stripe: StripeService,
     private router: Router,
     private message: MessageService
   ) {}
@@ -29,22 +30,16 @@ export class PaidMemberGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.auth.user.pipe(
-      take(1),
-      map(user => {
-        if (!user) {
-          this.router.navigateByUrl('/login');
-          return false;
-        } else {
-          if (user.plan && (user.plan === 'gold' || 'silver' || 'bronze')) {
-            return true;
-          } else {
-            this.message.needPaymentAlert();
+      return this.stripe.subscriptions.pipe(
+        take(1),
+        map(paidSub => {
+          if (!paidSub) {
             this.router.navigateByUrl('/membership');
             return false;
+          } else {
+            return true;
           }
-        }
-      })
-    );
-  }
+        })
+      )
+    }
 }

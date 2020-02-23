@@ -1,4 +1,4 @@
-<ion-header translucent="true">
+<ion-header >
 
   <!-- Mobile 1st toolbar -->
   <ion-toolbar color="primary" *ngIf="mobile">
@@ -40,10 +40,12 @@
   <ion-toolbar color="primary" *ngIf="!mobile">
     <ion-buttons slot="start">
       <ion-menu-button color="silver"> </ion-menu-button>
+      <ion-text color="light" style="font-size:large; font-weight: 800;">
+        {{ titleId }}
+      </ion-text>
     </ion-buttons>
-
     <div class="top-nav">
-      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; align-self:center;">
+      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; padding-left:40px;">
 
 
         <a routerLink="/home" routerLinkActive="router-link-active">Home</a>
@@ -84,51 +86,7 @@
     </ng-template>
   </ion-toolbar>
 
-  <!-- 2nd toolbar for title -->
-  <ion-toolbar color="primary" style="--min-height:25px; border-bottom: 2px solid var(--ion-color-secondary);" >
-    <ion-buttons collapse="true" slot="start">
-      <ion-button>Click Me</ion-button>
-      </ion-buttons>
-      <ion-title size="large">
-      {{ titleId }}
-      </ion-title>
-      <ng-template #getStarted>
-      <ion-button
-        slot="end"
-        *ngIf="showGetStartedButton"
-        color="success"
-        (click)="openModal()"
-        class="ion-padding-end"
-        style="margin-right:30px;position: relative; top:10px"
-      >
-      <ion-text color="light" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
-        Log In or Get Started
-        </ion-text>
-      </ion-button>
-    </ng-template>
-  </ion-toolbar>
+
 </ion-header>
 
-
-<!-- <ion-header translucent="true">
-  <ion-toolbar>
-    <ion-buttons collapse="true" slot="end">
-      <ion-button>Click Me</ion-button>
-    </ion-buttons>
-    <ion-title>Settings</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content fullscreen="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-buttons collapse="true" slot="end">
-        <ion-button>Click Me</ion-button>
-      </ion-buttons>
-      <ion-title size="large">Settings</ion-title>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-searchbar></ion-searchbar>
-    </ion-toolbar>
-  </ion-header> -->
 

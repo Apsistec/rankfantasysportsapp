@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
 import { map, take, tap } from 'rxjs/operators';
 import { MessageService } from '../_services/message.service';
 import { Observable } from 'rxjs';
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CanReadGuard implements CanActivate {
   constructor(
     private auth: AuthService,
@@ -17,7 +18,7 @@ export class CanReadGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
-    return this.auth.user.pipe(
+    return this.auth.user$.pipe(
       take(1),
       map(user => (user && this.auth.canRead(user) ? true : false)), // <-- important line
       tap(canView => {

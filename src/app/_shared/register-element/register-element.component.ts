@@ -1,16 +1,13 @@
 import { AuthService } from '@services/auth.service';
 import {
   Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild
+   OnInit,
+
   } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalService } from '@services/modal.service';
 import { SpinnerService } from '@services/spinner.service';
-import { WizardComponent } from 'angular-archwizard';
 import { Router } from '@angular/router';
 
 @Component({

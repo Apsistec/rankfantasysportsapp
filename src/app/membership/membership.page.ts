@@ -18,6 +18,8 @@ import {
   AfterContentInit,
 } from '@angular/core';
 import { PopoverController, LoadingController } from '@ionic/angular';
+import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { User } from '@models/user';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -30,7 +32,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
   isRegister = true;
   titleId = 'RF$\u2122 Pro Memberships';
 
-  user;
+  user: User;
   @ViewChild(WizardComponent, {static: true}) public wizard: WizardComponent;
 
   showDetails: boolean;
@@ -57,7 +59,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
     private seo: SeoService,
     private spin: LoadingController,
     private popoverController: PopoverController,
-    // private checkn: CheckboxControlValueAccessor
+    private afs: AngularFirestore
     ) {
       this.seo.addTwitterCard(
         this.titleId,
@@ -69,6 +71,10 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
+
+    this.auth.user$.subscribe(user => this.user = user)
+
+
     this.showDetails = true;
 
     this.stripe = Stripe(environment.stripeKey);
@@ -79,7 +85,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
         color: '#227733',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontSize: '14px',
         '::placeholder': {
           color: '#121212'
         }
@@ -115,19 +121,12 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
 
   checkLoggedInStatus() {
-    const user = this.auth.getUser();
-    if (user !== null) {
+    if (this.user !== null) {
       this.wizard.goToStep(1);
     }
   }
 
-  // firebase analytics in node_modules indexed,d.ts
 
-  // logEvent(
-  //   eventName: 'add_payment_info',
-  //   eventParams?: { [key: string]: any },
-  //   options?: firebase.analytics.AnalyticsCallOptions
-  // ): void;
 
 
 
@@ -138,7 +137,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
   }
 
   // Stripe single charge and stripe subscription logic (subscription only / or both)
-  async onSubmit(stripe: NgForm) {
+  async handleForm(e) {
     this.spinner.loadSpinner();
     const { source, error } = await this.stripe.createSource(this.card);
     if (error) {
@@ -149,34 +148,30 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
     } else {
       if (this.theCheckbox) {
-        const user = await this.auth.getUser();
         const fun0 = this.functions.httpsCallable('stripeCreateCharge');
-        this.confirmation0 = await fun0({ source: source.id, uid: user.uid, amount: '5700' }).toPromise();
+        this.confirmation0 = await fun0({ source: source.id, uid: this.user.uid, amount: '5700' }).toPromise();
         if (this.confirmation0) {
           const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
           this.confirmation1 = await fun1({
             source: source.id,
-            uid: user.uid,
+            uid: this.user.uid,
             plan: 'bronze'
           }).toPromise();
           if (this.confirmation0 && this.confirmation1) {
-            stripe.reset();
             this.message.subscribedToast();
             this.spinner.dismissSpinner();
             this.wizard.goToStep(2);
           }
         }
       } else if (!this.theCheckbox) {
-        const user = await this.auth.getUser();
         const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
         this.confirmation1 = await fun1({
           source: source.id,
-          uid: user.uid,
+          uid: this.user.uid,
           plan: 'bronze'
         })
         .toPromise();
         if (this.confirmation1) {
-          stripe.reset();
           this.spinner.dismissSpinner();
           this.message.subscribedToast();
           this.wizard.goToStep(2);
@@ -184,6 +179,24 @@ export class MembershipPage implements OnInit, AfterViewInit {
       }
     }
   }
+
+
+
+  private updateUserData(user) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
+
+    const data = {
+          displayName: user.displayName,
+          email: user.email,
+          uid: user.uid,
+          role: 'USER',
+          permissions: ['delete-ticket'],
+          photoURL: user.photoURL
+        }
+    return userRef.set(data, { merge: true })
+
+  }
+
 
 
 
