@@ -25,7 +25,7 @@
                   <ion-note >Update name then Submit</ion-note>
                   <br>
 
-                  <ion-button size="small" (click)="updateUser()" color="dark" shape="round">Submit Name</ion-button>
+                  <ion-button size="small" (click)="updateUser(user.displayName)" color="dark" shape="round">Update Name</ion-button>
 
                   <ion-item>
                     <ion-label position="floating">
@@ -38,7 +38,7 @@
                   </ion-item>
                   <ion-note >Update email then submit</ion-note>
                   <br>
-                  <ion-button size="small" (click)="updateEmail()" color="dark" shape="round">Submit Email</ion-button>
+                  <ion-button size="small" (click)="updateEmail(user.email)" color="dark" shape="round">Update Email</ion-button>
 
 
                       <ion-title>
@@ -78,4 +78,3 @@
                 </ion-button>
               </ion-card-content>
             </ion-card>
- 

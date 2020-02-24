@@ -1,52 +1,54 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    function isAdmin() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
-    }
-    function isSuperSub() {
-    	return userExists() && isSignedIn() && isCurrentSub();
-    }
-    function isCurrentSub() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status
-    }
+		
     function isSignedIn() {
     	return request.auth != null;
     }
-   	function userExists() {
-      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    
+    function isTrialing() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'trialing';
+    }
+    
+    function isActive() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
+    }
+    
+    function isUser() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'USER';
+    }
+    
+    function isAdmin() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
     }
 
+    function isSubscriber() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'SUBSCRIBER';
+    }
+    
+    function isRegistered() {
+    	return isAdmin() || isSubscriber() || isUser();
+    }
+
+    function isValidMember() {
+    	return isRegistered() && isSignedIn() && (isActive() || isTrialing());
+    }
         match /{document=**} {
-          allow read, write: if isSuperSub() || isAdmin();
+          allow read: if isValidMember() || isAdmin();
+          allow write: if isAdmin();
       	}
         match /users/{userId} {
         	allow read, create, update: if request.auth.uid == userId || isAdmin();
           allow delete: if isAdmin();
       	}
         match /tickets/{ticket} {
-          allow read: if request.auth.uid != null || isAdmin();
-          allow create: if request.auth.uid != null || isAdmin();
-          allow update, delete: if isAdmin();
-     		}
-     		match /users/{userId} {
-    			allow write: if userExists() && belongsTo(userId);
-				}
-          function belongsTo(userId) {
-                return request.auth.uid == userId
-              }
-        match /posts/{postId} {
-          allow write: if requestMatchesUID();
-          allow update: if requestMatchesUID() && resourceMatchesUID();
-          allow delete: if resourceMatchesUID();
-      	}
-          function requestMatchesUID() {
-              return request.auth.uid == request.resource.data.uid;
-          }
-          function resourceMatchesUID() {
-              return request.auth.uid == resource.data.uid;
-          }
-
+          allow read, create, update: if isRegistered() || isAdmin();
+          allow delete: if isAdmin();
+     }
+        match /posts/{post} {
+          allow read, create, update: if isRegistered() || isAdmin();
+          allow delete: if isAdmin();
+     }
+     
 	 }
 }

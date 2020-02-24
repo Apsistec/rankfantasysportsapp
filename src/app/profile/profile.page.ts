@@ -21,11 +21,14 @@ import { User } from '@models/user';
 })
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
-  // @Input() user: any;
-  // subscriptions;
+
   user: Observable<User>;
   planId;
-  subscriptions;
+  authenticated;
+  atp;
+  buy;
+  purchase;
+  
   constructor(
     private theme: ThemeService,
     private modalCtrl: ModalController,
@@ -47,22 +50,9 @@ export class ProfilePage implements OnInit {
      })
    );
  }
+ngOnInit(){
 
-  //  async getCurrentUser(): Promise<any> {
-  //    return this.user.pipe(first()).toPromise();
-  //  }
-
-  //  get isLoggedIn(): boolean {
-  //    return (this.user === null ) ? true : false;
-  //  }
-
-  //  getUser(): Promise<any> {
-  //    return this.afAuth.authState.pipe(first()).toPromise();
-  //  }
-
-  ngOnInit() {
-    // this.getStripeDataIfValidUser();
-  }
+}
 
 
 // Themes
@@ -103,5 +93,5 @@ export class ProfilePage implements OnInit {
   }
 
 
- 
+
 }

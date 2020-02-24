@@ -5,7 +5,7 @@ import { FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { SpinnerService } from '@services/spinner.service';
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-login-element',
@@ -14,10 +14,9 @@ import { SpinnerService } from '@services/spinner.service';
 })
 export class LoginElementComponent implements OnInit {
   hidePass: boolean;
-  user;
+  user: User;
 
   loginForm;
-  // @ViewChild(WizardComponent, {static: false}) public wizard: WizardComponent;
 
 
   @Output() readyToStep = new EventEmitter();
@@ -25,7 +24,6 @@ export class LoginElementComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public auth: AuthService,
-    private spinner: SpinnerService,
     private router: Router,
     private message: MessageService,
     private modal: ModalController,
@@ -33,6 +31,9 @@ export class LoginElementComponent implements OnInit {
 
 
   ngOnInit() {
+    this.auth.user$.subscribe(user => this.user = user)
+
+
     this.hidePass = true;
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -50,25 +51,23 @@ export class LoginElementComponent implements OnInit {
 
 
   async onSubmit(login: NgForm) {
-    this.spinner.loadSpinner();
-    return this.auth.signIn(this.loginForm.value).then (() => {
-      this.message.isLoggedInToast();
-      this.spinner.dismissSpinner();
-      this.modal.dismiss();
-      login.reset();
-      if (this.user.role === 'ADMIN') {
-        this.router.navigateByUrl('/admin');
-      } else if (this.user.plan && (this.user.status === 'active' || 'trialing')) {
-        this.router.navigateByUrl('/profile');
-      } else {
-        this.router.navigateByUrl('/membership')        }
-    }, (async (err) => {
-        this.spinner.dismissSpinner();
-        this.modal.dismiss();
-        this.message.errorAlert(err.message);
-      }
-    )
-    )
+    await this.auth.signIn(this.loginForm.value)
+    await this.message.isLoggedInToast();
+    await this.modal.dismiss();
+    if (this.user.role === 'ADMIN') {
+      this.router.navigateByUrl('/admin');
+    } else if (this.user.plan && (this.user.status === 'active' || 'trialing')) {
+      this.router.navigateByUrl('/profile');
+    } else {
+      this.router.navigateByUrl('/membership')        
+    }
   }
+    // , (async (err) => {
+    //     this.modal.dismiss();
+    //     this.message.errorAlert(err.message);
+    //   }
+    // )
+  //   )
+  // }
 
 }

@@ -17,6 +17,7 @@ import { User } from '../_models/user';
   providedIn: 'root',
 })
 export class AuthService {
+  credential;
   user$: Observable<User>;
   currentUser = new BehaviorSubject(null);
   userId: string;
@@ -71,9 +72,8 @@ export class AuthService {
 
   // Log In- email and password
   async signIn(credentials) {
-    const credential = await this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
-    this.router.navigateByUrl('/membership')
-     return this.updateUserData(credential.user);
+    this.credential = await this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
+     return this.updateUserData(this.credential.user);
   }
 
   // Set User Data in Firestore

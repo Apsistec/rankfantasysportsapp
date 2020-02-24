@@ -1,15 +1,15 @@
 <ion-content full-screen="true">
   <ion-grid class="ion-no-padding">
-    <ion-row class="ion-text-center ion-text-wrap ion-no-margin ion-no-padding ion-wrap-reverse tech">
+    <ion-row class=" ion-wrap-reverse tech">
 
 
-      <div style="position:absolute; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
-        <img src="../../assets/img/icon-192x192.png" style="width:50px;height:50px">
+      <div style="position:fixed; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
+        <img src="../../assets/img/icon-192x192.png" style="width:60px;height:60px">
       </div>
       <div *ngIf="auth.afAuth.user | async as user"  >
-        <a (click)="presentPopover($event)" style="position:absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
+        <a (click)="presentPopover($event)" style="position:fixed; top:30px; z-index:99; right:30px; cursor:pointer;">
           <ion-avatar >
-          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" style="width:50px;height:50px"/>
+          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" style="width:60px;height:60px"/>
           </ion-avatar>
         </a>
       </div>
@@ -25,7 +25,7 @@
       >
         <ion-card
           color="medium"
-          class="ion-no-padding"
+          class="ion-no-padding ion-text-center"
         >
           <ion-card-content>
 
@@ -140,7 +140,7 @@
 
                 <form #stripe novalidate (submit)="handleForm($event)">
                   <div class="form-row">
-                    <label for="card-element">Debit or Credit Card</label>
+                    
 
                     <div id="card-element" #cardElement>
                         <!-- A Stripe Element will be inserted here. -->
@@ -165,7 +165,7 @@
                     fill="solid"
                     color="secondary"
                   >
-                    <ion-text color="primary">
+                    <ion-text color="light">
                       Get Started Now!
                     </ion-text>
                   </ion-button>
@@ -264,7 +264,7 @@
 
       <ion-col
         *ngIf="showDetails"
-        class=" ion-align-self-center ion-no-padding"
+        class=" ion-align-self-center ion-no-padding ion-text-center"
         size-sm="6"
         offset-sm="2"
         size-md="6"
@@ -357,7 +357,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row >
       <ion-col class="ion-padding bottom">
         <ion-text>
           <p>

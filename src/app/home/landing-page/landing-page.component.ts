@@ -14,7 +14,7 @@ export class LandingPageComponent implements OnInit {
   core;
 
   constructor(
-    private config: Config,
+    // private config: Config,
     public auth: AuthService,
     private theme: ThemeService,
     public modal: ModalService,
@@ -22,7 +22,8 @@ export class LandingPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.core = this.config.get('mode') === 'core';
+    // this.core = this.config.get('mode') === 'core';
+    
   }
 
   async presentPopover(ev: any) {

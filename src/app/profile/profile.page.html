@@ -2,7 +2,7 @@
 <ion-content  full-screen="true" class="text-wrap">
 
 
-  <div *ngIf="auth.user$ | async; then authenticated else purchase">
+  <div *ngIf="auth.user$ | async; then atp else purchase">
 
   </div>
 
@@ -15,8 +15,8 @@
     </ion-button>
   </ng-template>
 
-
-  <ion-grid #authenticated *ngIf="auth.user$ | async as user">
+  <ng-template #atp *ngIf="auth.user$ | async as user" >
+  <ion-grid  >
     <ion-row>
       <ion-col size-sm="5">
 
@@ -254,9 +254,8 @@
               </ng-container>
             </ion-card-content>
           </ion-card>
-
-        <!-- Theme -->
-        <ion-card class="ion-text-center" color="medium">
+          <!-- Theme -->
+          <ion-card class="ion-text-center" color="medium">
             <ion-card-title>
               <strong>
                 <ion-text color="secondary">
@@ -264,11 +263,11 @@
                 </ion-text>
               </strong>
             </ion-card-title>
-          <ion-card-content>
-            <ion-button (click)="enableDark()" color="dark">Dark</ion-button>
-            <ion-button (click)="enableLight()" color="light">Light</ion-button>
-          </ion-card-content>
-        </ion-card>
+            <ion-card-content>
+              <ion-button (click)="enableDark()" color="dark">Dark</ion-button>
+              <ion-button (click)="enableLight()" color="light">Light</ion-button>
+            </ion-card-content>
+          </ion-card>
 
       </ion-col>
       <ion-col>
@@ -289,6 +288,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+</ng-template>
 
 </ion-content>
 <app-footer></app-footer>

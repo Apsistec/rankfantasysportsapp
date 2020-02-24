@@ -49,21 +49,21 @@ export class SettingsComponent implements OnInit {
   async updateUser(displayName) {
     await this.afs
       .doc(`users/${this.afAuth.auth.currentUser.uid}`)
-      .update({ displayName: displayName });
+      .update({ displayName });
     this.updateToast();
   }
 
   async updateEmail(email) {
     await this.afs
       .doc(`users/${this.afAuth.auth.currentUser.uid}`)
-      .update({ email: email });
+      .update({ email });
     this.updateToast();
   }
 
   async updateUserPhoto(photoURL) {
     await this.afs
       .doc(`users/${this.afAuth.auth.currentUser.uid}`)
-      .update({ photoURL: photoURL });
+      .update({ photoURL });
     this.updateToast();
   }
 

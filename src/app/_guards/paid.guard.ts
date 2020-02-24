@@ -17,7 +17,7 @@ import { StripeService } from '@services/stripe.service';
 })
 export class PaidGuard implements CanActivate {
   constructor(
-    private stripe: StripeService,
+    private auth: AuthService,
     private router: Router,
     private message: MessageService
   ) {}
@@ -30,13 +30,18 @@ export class PaidGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      return this.stripe.subscriptions.pipe(
+      return this.auth.user$.pipe(
         take(1),
-        map(paidSub => {
-          if (!paidSub) {
+        map(user => {
+          if(!user) {
+            this.message.needPaymentAlert();
             this.router.navigateByUrl('/membership');
             return false;
-          } else {
+          } else if(!user.status) {
+            this.message.needPaymentAlert();
+            this.router.navigateByUrl('/membership');
+            return false;
+          } else if(user.status === ('active' || 'trialing')) {
             return true;
           }
         })

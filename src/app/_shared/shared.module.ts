@@ -1,5 +1,5 @@
 import { AuthModalComponent } from './auth-modal/auth-modal.component';
-import { CbbComponent } from 'app/tables/cbb/cbb.component';
+import { CbbComponent } from '../tables/cbb/cbb.component';
 import { CfbComponent } from '../tables/cfb/cfb.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';

@@ -1,8 +1,8 @@
+import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/app';
 import { map, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -29,8 +29,8 @@ export class TicketService {
     if (id) {
       return this.db.doc(`tickets/${id}`).update(info);
     } else {
-      info['creator'] = this.auth.currentUser.value.id;
-      info['created_at'] = firebase.firestore.FieldValue.serverTimestamp();
+      info.creator = this.auth.currentUser.value.id;
+      info.created_at = firebase.firestore.FieldValue.serverTimestamp();
       return this.db.collection('tickets').add(info);
     }
   }

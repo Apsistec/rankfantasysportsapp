@@ -1,10 +1,11 @@
 {
   "projects": {
-    "staging": "rfs-test",
+    "staging": "rankfantasysports-test-9370b",
     "default": "rfs-test",
     "styling": "rfs-test",
     "anyalias": "rankfantasysports-test",
-    "fixing": "rfs-test"
+    "fixing": "rfs-test",
+    "finish": "rankfantasysports-test-9370b"
   },
   "targets": {
     "rfs-test": {

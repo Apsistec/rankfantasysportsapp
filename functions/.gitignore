@@ -5,9 +5,4 @@
 # Typescript v1 declaration files
 typings/
 
-/node_modules
-serviceAccountKey.json
-service-account.json
-jest*
-/lib
-test/
+node_modules/

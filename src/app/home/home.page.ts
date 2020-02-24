@@ -56,7 +56,6 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
   ngOnInit() {
-    this.auth.user$.subscribe(user => this.user = user)
 
 
     this.functionPop();
@@ -105,16 +104,13 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async functionPop() {
-    if (this.user !== null) {
-      return true;
-    } else {
-      const popupState = await this.storage.get('popModalState');
-      if (popupState !== 'shown') {
-        setTimeout (() => {
-          this.showPopModal();
-        }, 4000);
-      }
+    const popupState = await this.storage.get('popModalState');
+    if (popupState !== 'shown') {
+      setTimeout (() => {
+        this.showPopModal();
+      }, 4000);
     }
   }
+  
 
 }
