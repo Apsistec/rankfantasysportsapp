@@ -7,13 +7,6 @@
   </div>
 
 
-  <ng-template #purchase class="ion-text-center ion-align-items-center">
-    <ion-button color="danger" size="small" routerLink="/membership">
-      <ion-text>
-        Buy Pro Package
-      </ion-text>
-    </ion-button>
-  </ng-template>
 
   <ng-template #atp *ngIf="auth.user$ | async as user" >
   <ion-grid  >
@@ -288,6 +281,19 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+</ng-template>
+
+
+<ng-template #purchase class="ion-text-center ion-align-items-center">
+  <ion-card color="silver"> 
+    <ion-card-title>It doesn't have to be this way
+      Get Your RFS Pro Membership today and join the fun!</ion-card-title>
+      <ion-button color="danger" routerLink="/membership">
+      <ion-text>
+        Get Your Free 7 Day Trial
+      </ion-text>
+    </ion-button>
+  </ion-card>
 </ng-template>
 
 </ion-content>

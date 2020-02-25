@@ -47,7 +47,7 @@ export class RegisterElementComponent implements OnInit {
           Validators.maxLength(25)
         ]
       ],
-      firstName: [
+      userName: [
         '',
         [
           Validators.required,
@@ -55,36 +55,25 @@ export class RegisterElementComponent implements OnInit {
           Validators.maxLength(25)
         ]
       ],
-      lastName: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
-          Validators.maxLength(25)
-        ]
-      ]
+     
     });
 
   }
 
-  async registerUser(reg: NgForm) {
+  async registerUser() {
     try {
-      this.spinner.loadSpinner();
-      this.auth.registerUser(this.registerForm.value);
-      await this.message.registerSuccessToast().then(() => {
-        reg.reset();
-        this.spinner.dismissSpinner();
-        this.router.navigateByUrl('/membership')
-      });
+      // tslint:disable-next-line: no-floating-promises
+      await this.auth.registerUser(this.registerForm.value );
+      // tslint:disable-next-line: no-void-expression
+      return this.modalService.dismiss();
     } catch (error) {
-      this.message.errorAlert(error.message);
-      this.spinner.dismissSpinner();
-      reg.reset();
+      await this.message.errorAlert(error.message);
     }
-  }
+ 
 
 
     // takeNextStep() {
     //   this.readyToStep.emit();
     // }
   }
+}

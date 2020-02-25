@@ -21,55 +21,30 @@
 
   <ion-card class="ion-no-padding ion-no-margin" color="silver">
     <ion-item color="light">
-      <ion-label position="floating">First Name</ion-label>
+      <ion-label position="floating">userName</ion-label>
       <ion-input
         debounce="300"
         style="width: 95%;"
-        formControlName="firstName"
+        formControlName="userName"
         type="text"
         inputmode="text"
       ></ion-input>
     </ion-item>
     <div
       *ngIf="
-        registerForm.controls['firstName'].invalid &&
-        (registerForm.controls['firstName'].dirty ||
-          registerForm.controls['firstName'].touched)
+        registerForm.controls['userName'].invalid &&
+        (registerForm.controls['userName'].dirty ||
+          registerForm.controls['userName'].touched)
       "
     >
-      <div *ngIf="registerForm.controls['firstName'].errors.required">
+      <div *ngIf="registerForm.controls['userName'].errors.required">
         <ion-text class="inputError" color="danger">
-          First Name is required.
+          Name is required.
         </ion-text>
       </div>
     </div>
 
-    <ion-item color="light">
-      <ion-label position="floating">Last Name</ion-label>
-      <ion-input
-        debounce="300"
-        formControlName="lastName"
-        autocapitalize="on"
-        type="text"
-        inputmode="text"
-        style="width: 95%;"
-      ></ion-input>
-    </ion-item>
-    <div
-      *ngIf="
-        registerForm.controls['lastName'].invalid &&
-        (registerForm.controls['lastName'].dirty ||
-          registerForm.controls['lastName'].touched)
-      "
-      class="alert alert-danger"
-    >
-      <div *ngIf="registerForm.controls['lastName'].errors.required">
-        <ion-text color="danger" class="inputError">
-          Last Name is required.
-        </ion-text>
-      </div>
-    </div>
-
+    
     <ion-item color="light">
       <ion-label position="floating">Email</ion-label>
       <ion-input

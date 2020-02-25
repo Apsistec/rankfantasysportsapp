@@ -22,12 +22,12 @@ import { User } from '@models/user';
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
 
-  user: Observable<User>;
   planId;
   authenticated;
   atp;
   buy;
   purchase;
+  user
   
   constructor(
     private theme: ThemeService,
@@ -39,7 +39,7 @@ export class ProfilePage implements OnInit {
     private functions: AngularFireFunctions,
     public stripe: StripeService
   ) {
-    //// Get auth data, then get firestore user document || null
+    // Get auth data, then get firestore user document || null
     this.user = this.afAuth.authState.pipe(
      switchMap(user => {
        if (user !== null) {
@@ -50,9 +50,12 @@ export class ProfilePage implements OnInit {
      })
    );
  }
+
 ngOnInit(){
 
+  this.auth.user$.subscribe(user => this.user = user)  
 }
+
 
 
 // Themes

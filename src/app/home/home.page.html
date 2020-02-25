@@ -164,8 +164,8 @@
             As Easy As 1, 2, 3...
           </h3>
         </ion-text>
-        <ion-text class="ion-text-start">
-            <ul>
+        <ion-text class="ion-text-center">
+            <ol>
               <li>
               Click "Start My 7 Day Trial" Button Below
               </li>
@@ -175,7 +175,7 @@
               <li>
               Submit your Credit Card Details
               </li>
-            </ul>
+            </ol>
         </ion-text>
         <hr />
         <ion-button
@@ -254,22 +254,27 @@
           />
         </div>
 
-        <div class="ion-text-end" style="align-content: flex-end; padding-right: 10px; cursor: pointer;">
+        <div class="ion-text-end" style="align-content: flex-end; padding-right: 10px;">
           <img
             src="../../assets/img/stripe_solid_white_powered_by.svg"
             height="45px"
-            href="https://www.stripe.com"
           />
         </div>
       </ion-col>
       <ion-col class=" ion-align-self-center">
-        <div class="terms">
-          <ion-button
+        
+        
+        <div class="ion-text-center" style="align-content: center; padding-bottom: 10px; ;">        
+          <img src="../../assets/img/fsga.png" style="position:relative; max-width:200px;" >
+          
+        </div>
+        <div class="ion-text-center" style="align-content: center; padding: 10px 10px 10 px 0;">
+            <ion-button
             size="large"
             color="light"
             fill="clear"
             (click)="showModalTerms()"
-          >
+            >
             <ion-text>
               Terms
             </ion-text>

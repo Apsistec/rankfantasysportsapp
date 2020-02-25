@@ -3,11 +3,11 @@
     <ion-row class=" ion-wrap-reverse tech">
 
 
-      <div style="position:fixed; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
+      <div style="position: absolute; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
         <img src="../../assets/img/icon-192x192.png" style="width:60px;height:60px">
       </div>
       <div *ngIf="auth.afAuth.user | async as user"  >
-        <a (click)="presentPopover($event)" style="position:fixed; top:30px; z-index:99; right:30px; cursor:pointer;">
+        <a (click)="presentPopover($event)" style="position: absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
           <ion-avatar >
           <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'" style="width:60px;height:60px"/>
           </ion-avatar>
@@ -38,13 +38,311 @@
               >
     <!-- Sign  Up form -->
               <ng-container *ngIf="isRegister">
-                <app-register-element></app-register-element>
-              </ng-container>
+                <form [formGroup]="registerForm" (ngSubmit)="registerUser()" novalidate>
+
+
+                  <ion-card-title>
+                    <ion-text
+                      style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;"  class="ion-text-capitalize"
+                    >
+                      Sign Up at
+                      <br>
+                      Rank Fantasy Sports
+                    </ion-text>
+                  </ion-card-title>
+                
+                  <ion-card-subtitle>
+                
+                    <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
+                      Before starting your <strong>Pro Plan</strong>, you need to sign up at Rank
+                      Fantasy Sports
+                    </ion-text>
+                  </ion-card-subtitle>
+                
+                  <ion-card class="ion-no-padding ion-no-margin" color="silver">
+                    <ion-item color="light">
+                      <ion-label position="floating">Name</ion-label>
+                      <ion-input
+                        debounce="300"
+                        style="width: 95%;"
+                        formControlName="userName"
+                        type="text"
+                        inputmode="text"
+                      ></ion-input>
+                    </ion-item>
+                    <div
+                      *ngIf="
+                        registerForm.controls['userName'].invalid &&
+                        (registerForm.controls['userName'].dirty ||
+                          registerForm.controls['userName'].touched)
+                      "
+                    >
+                      <div *ngIf="registerForm.controls['userName'].errors.required">
+                        <ion-text class="inputError" color="danger">
+                          Name is required.
+                        </ion-text>
+                      </div>
+                    </div>
+                
+                    
+                    <ion-item color="light">
+                      <ion-label position="floating">Email</ion-label>
+                      <ion-input
+                        debounce="300"
+                        style="width: 95%;"
+                        type="email"
+                        inputmode="email"
+                        formControlName="email"
+                      ></ion-input>
+                    </ion-item>
+                    <div
+                      *ngIf="
+                        registerForm.controls['email'].invalid &&
+                        (registerForm.controls['email'].dirty ||
+                          registerForm.controls['email'].touched)
+                      "
+                      class="alert alert-danger"
+                    >
+                      <div *ngIf="registerForm.controls['email'].errors.required">
+                        <ion-text color="danger" class="inputError">
+                          Email is required.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="registerForm.controls['email'].errors.email">
+                        <ion-text color="danger" class="inputError">
+                          Email is not Valid.
+                        </ion-text>
+                      </div>
+                    </div>
+                    <ion-item color="light">
+                      <ion-label position="floating">Password</ion-label>
+                      <ion-input
+                        debounce="300"
+                        id="password"
+                        style="width: 89%;"
+                        [type]="hidePass ? 'password' : 'text'"
+                        inputmode="text"
+                        formControlName="password"
+                      ></ion-input>
+                      <ion-button
+                      (click)="hidePass = !hidePass"
+                      *ngIf="hidePass"
+                      fill="clear"
+                      color="dark"
+                      style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+                    >
+                      <ion-icon size="large" name="eye" > </ion-icon>
+                    </ion-button>
+                    <ion-button
+                      fill="clear"
+                      color="dark"
+                      (click)="hidePass = !hidePass"
+                      *ngIf="!hidePass"
+                      style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+                    >
+                      <ion-icon size="large" name="eye-off"> </ion-icon>
+                    </ion-button>
+                    </ion-item>
+                    <div
+                      *ngIf="
+                        registerForm.controls['password'].invalid &&
+                        (registerForm.controls['password'].dirty ||
+                          registerForm.controls['password'].touched)
+                      "
+                      class="alert alert-danger"
+                    >
+                      <div *ngIf="registerForm.controls['password'].errors.required">
+                        <ion-text color="danger" class="inputError">
+                          Password is required.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="registerForm.controls['password'].hasError('minlength')">
+                        <ion-text color="danger" class="inputError">
+                          Password must be at least 8 characters long.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="registerForm.controls['password'].errors.maxlength">
+                        <ion-text color="danger" class="inputError">
+                          Password must be less than 25 characters long.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="registerForm.controls['password'].errors.pattern">
+                        <ion-text color="danger" class="inputError">
+                          Password must contain 1 uppercase, 1 lowercase and 1 digit.
+                        </ion-text>
+                      </div>
+                    </div>
+                  </ion-card>
+                  <hr />
+                
+                
+                
+                
+                  <ion-button
+                    [disabled]="registerForm.invalid"
+                    color="danger"
+                    type="submit"
+                
+                  >
+                    <ion-icon
+                      slot="start"
+                      color="light"
+                      name="arrow-round-forward"
+                      slot="start"
+                    ></ion-icon>
+                    <ion-text class="ion-text-wrap">
+                      YES! Register My Account Info!
+                    </ion-text>
+                  </ion-button>
+                  <br />
+                  <sub
+                    >By continuing, you are indicating that you accept our
+                    <a (click)="modal.showModalTerms()">
+                      <ion-text color="secondary">
+                        Terms of Service
+                      </ion-text>
+                    </a>
+                    and
+                    <a (click)="modal.showModalPrivacy()">
+                      <ion-text color="secondary">
+                        Privacy Policy
+                      </ion-text>
+                    </a>
+                  </sub>
+                  <hr />
+                
+                </form>
+                              </ng-container>
     <!-- Login form -->
               <ng-container *ngIf="!isRegister">
-                <app-login-element ></app-login-element>
-              </ng-container>
-                <ion-button color="tertiary" fill="clear" size="large" (click)="switchAuthMode()">Need to {{ isRegister ? 'Log In' : 'Sign Up' }}?</ion-button>
+                <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
+                  <ion-card-title>
+                    <ion-text
+                      style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;" class="ion-text-capitalize"
+                    >
+                      Log In to
+                      <br >
+                      Rank Fantasy Sports
+                    </ion-text>
+                  </ion-card-title>
+                  <ion-card-subtitle>
+                  <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
+                    Before using your <strong>Pro Plan</strong>, you need to log in to Rank
+                    Fantasy Sports
+                  </ion-text>
+                  </ion-card-subtitle>
+                  <ion-card color="silver" class="ion-no-padding ion-no-margin">
+                    <ion-item color="light">
+                      <ion-label position="floating">Email</ion-label>
+                      <ion-input
+                        debounce="300"
+                        style="width: 95%; text-transform: lowercase;"                                                                                                                                                                                                                                                           type="email"
+                        inputmode="email"
+                        formControlName="email"
+                      ></ion-input>
+                    </ion-item>
+                    <div
+                      *ngIf="
+                        loginForm.controls['email'].invalid &&
+                        (loginForm.controls['email'].dirty ||
+                          loginForm.controls['email'].touched)"
+                      class="alert alert-danger"
+                    >
+                      <div *ngIf="loginForm.controls['email'].errors.required">
+                        <ion-text color="danger" class="inputError">
+                          Email is required.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="loginForm.controls['email'].errors.email">
+                        <ion-text color="danger" class="inputError">
+                          Email is not Valid.
+                        </ion-text>
+                      </div>
+                    </div>
+                    <ion-item color="light">
+                      <ion-label position="floating">Password</ion-label>
+                      <ion-input
+                        debounce="300"
+                        id="password"
+                        style="width: 89%;"
+                        [type]="hidePass ? 'password' : 'text'"
+                        inputmode="text"
+                        formControlName="password"
+                      ></ion-input>
+                      <ion-button
+                        item-end
+                        (click)="hidePass = !hidePass"
+                        *ngIf="hidePass"
+                        style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+                        color="dark"
+                        fill="clear"
+                      >
+                        <ion-icon size="large" name="eye"> </ion-icon>
+                      </ion-button>
+                      <ion-button
+                        item-end
+                        (click)="hidePass = !hidePass"
+                        *ngIf="!hidePass"
+                        style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+                        color="dark"
+                        fill="clear"
+                      >
+                        <ion-icon size="large" name="eye-off"> </ion-icon>
+                      </ion-button>
+                    </ion-item>
+                    <div
+                      *ngIf="
+                        loginForm.controls['password'].invalid &&
+                        (loginForm.controls['password'].dirty ||
+                          loginForm.controls['password'].touched)
+                      "
+                      class="alert alert-danger"
+                    >
+                      <div *ngIf="loginForm.controls['password'].errors.required">
+                        <ion-text color="danger" class="inputError">
+                          Password is required.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="loginForm.controls['password'].hasError('minlength')">
+                        <ion-text color="danger" class="inputError">
+                          Password must be at least 8 characters long.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="loginForm.controls['password'].errors.maxlength">
+                        <ion-text color="danger" class="inputError">
+                          Password must be less than 25 characters long.
+                        </ion-text>
+                      </div>
+                      <div *ngIf="loginForm.controls['password'].errors.pattern">
+                        <ion-text color="danger" class="inputError">
+                          Password must contain 1 uppercase, 1 lowercase and 1 digit.
+                        </ion-text>
+                      </div>
+                    </div>
+                  </ion-card>
+                  <hr />
+                
+                  <ion-button
+                    [disabled]="loginForm.invalid"
+                    color="danger"
+                    style="width: 70%;"
+                    type="submit"
+                    >
+                    <ion-icon
+                      slot="start"
+                      color="light"
+                      name="arrow-round-forward"
+                      slot="start"
+                    ></ion-icon>
+                    <ion-text>
+                      Log In
+                    </ion-text>
+                  </ion-button>
+                
+                </form>
+                              </ng-container>
+                <ion-button color="secondary" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Log In' : 'Sign Up' }}?</ion-button>
       <!-- Step 2  Pay     -->
               </aw-wizard-step>
               <aw-wizard-step
@@ -267,7 +565,7 @@
         class=" ion-align-self-center ion-no-padding ion-text-center"
         size-sm="6"
         offset-sm="2"
-        size-md="6"
+        size-md="8"
         size-lg="3"
         offset-lg="1"
         size-xl="3"

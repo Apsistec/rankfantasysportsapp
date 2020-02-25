@@ -1,14 +1,13 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: 'AIzaSyAs0b9IhJ9cg8aNnlcX1Ow7pX7Mm59JSEQ',
-    authDomain: 'rankfantasysports-test-9370b.firebaseapp.com',
-    databaseURL: 'https://rankfantasysports-test-9370b.firebaseio.com',
-    projectId: 'rankfantasysports-test-9370b',
-    storageBucket: 'rankfantasysports-test-9370b.appspot.com',
-    messagingSenderId: '213691529206',
-    appId: '1:213691529206:web:d9c874f68af66c3301f9d7',
-    measurementId: 'G-Q3185DTHJP'
+    apiKey: "AIzaSyBgINWmkM9J9ZyNZlZqDuQX6gNJb8vJqt8",
+    authDomain: "rfs-admin.firebaseapp.com",
+    databaseURL: "https://rfs-admin.firebaseio.com",
+    projectId: "rfs-admin",
+    storageBucket: "rfs-admin.appspot.com",
+    messagingSenderId: "18796027021",
+    appId: "1:18796027021:web:01829a717c8a1d285bd6c4"
   },
   stripeKey: 'pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook',
   // tableUrl:

@@ -16,7 +16,9 @@
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
 
     <!-- PWA required -->
-    <link rel="manifest" href="manifest.json"/>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#1976d2">
+  
     <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
@@ -75,30 +77,38 @@
     </noscript> -->
     <!-- End Facebook Pixel Code -->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-J9Q6WVLYF7"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-J9Q6WVLYF7');
-    </script> -->
-    <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#1976d2">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#1976d2">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#1976d2">
-</head>
   <body>
+
+
     <app-root></app-root>
+
+
     <noscript>To use this application, enable javascript in your browser
       settings.</noscript>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+ 
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+ 
+ <script>
+   // Your web app's Firebase configuration
+   var firebaseConfig = {
+     apiKey: "AIzaSyBgINWmkM9J9ZyNZlZqDuQX6gNJb8vJqt8",
+     authDomain: "rfs-admin.firebaseapp.com",
+     databaseURL: "https://rfs-admin.firebaseio.com",
+     projectId: "rfs-admin",
+     storageBucket: "rfs-admin.appspot.com",
+     messagingSenderId: "18796027021",
+     appId: "1:18796027021:web:01829a717c8a1d285bd6c4",
+     measurementId: "G-J1ZP1SP170"
+   };
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   firebase.analytics();
+ </script>
   </body>
 </html>

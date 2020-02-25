@@ -1,7 +1,8 @@
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from '../_services/auth.service';
 import { environment } from '../../environments/environment.prod';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators, FormBuilder } from '@angular/forms';
+// tslint:disable-next-line: no-implicit-dependencies
 import { MessageService } from '@services/message.service';
 import { ModalService } from '../_services/modal.service';
 import { SeoService } from '@services/seo.service';
@@ -20,6 +21,7 @@ import {
 import { PopoverController, LoadingController } from '@ionic/angular';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { User } from '@models/user';
+import { Router } from '@angular/router';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -42,13 +44,17 @@ export class MembershipPage implements OnInit, AfterViewInit {
   card;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   stripe: stripe.Stripe;
-
+  loginForm;
   confirmation1;
   confirmation0;
   cardErrors;
   isLoading = false;
   marked = false;
   theCheckbox = false;
+  hidePass;
+  registerForm;
+
+
 
   constructor(
     public functions: AngularFireFunctions,
@@ -59,7 +65,10 @@ export class MembershipPage implements OnInit, AfterViewInit {
     private seo: SeoService,
     private spin: LoadingController,
     private popoverController: PopoverController,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private fb: FormBuilder,
+    private router: Router
+  
     ) {
       this.seo.addTwitterCard(
         this.titleId,
@@ -72,8 +81,42 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    this.auth.user$.subscribe(user => this.user = user)
+    this.hidePass = true;
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+          Validators.maxLength(25)
+        ]
+      ],
+      userName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[_A-z0-9]*((-|s)*[_A-z0-9])*$'),
+          Validators.maxLength(25)
+        ]
+      ],
+    });
+    this.hidePass = true;
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+          Validators.maxLength(25)
+        ]
+      ]
+    });
 
+  
 
     this.showDetails = true;
 
@@ -107,6 +150,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
 
+    // tslint:disable-next-line: no-floating-promises
     this.checkLoggedInStatus();
 
 
@@ -114,21 +158,14 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
 
 
-  // wizard for signed in user to skip to step 2
-  // navigateToStep() {
-  //   this.wizard.goToStep(1);
-  // }
+  async checkLoggedInStatus() {
+    await this.auth.user$.subscribe(user => this.user = user)
 
-
-  checkLoggedInStatus() {
-    if (this.user !== null) {
+    if (this.user) {
       this.wizard.goToStep(1);
     }
   }
-
-
-
-
+  
 
 
   // checkmark value
@@ -150,19 +187,16 @@ export class MembershipPage implements OnInit, AfterViewInit {
       if (this.theCheckbox) {
         const fun0 = this.functions.httpsCallable('stripeCreateCharge');
         this.confirmation0 = await fun0({ source: source.id, uid: this.user.uid, amount: '5700' }).toPromise();
-        if (this.confirmation0) {
-          const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
+        const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
           this.confirmation1 = await fun1({
             source: source.id,
             uid: this.user.uid,
             plan: 'bronze'
           }).toPromise();
-          if (this.confirmation0 && this.confirmation1) {
-            this.message.subscribedToast();
-            this.spinner.dismissSpinner();
-            this.wizard.goToStep(2);
-          }
-        }
+            await this.message.subscribedToast();
+            await this.spinner.dismissSpinner();
+            // tslint:disable-next-line: no-void-expression
+            return this.wizard.goToStep(2);
       } else if (!this.theCheckbox) {
         const fun1 = this.functions.httpsCallable('stripeCreateSubscription');
         this.confirmation1 = await fun1({
@@ -179,26 +213,16 @@ export class MembershipPage implements OnInit, AfterViewInit {
       }
     }
   }
+  
 
+    
+    async onSubmit() {
+      return this.auth.signIn(this.loginForm.value).then((data) => {
+        (this.auth.isSubscribed) ? this.router.navigateByUrl('/profile') : this.wizard.goToStep(1);        
+     })
+    }
 
-
-  private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
-
-    const data = {
-          displayName: user.displayName,
-          email: user.email,
-          uid: user.uid,
-          role: 'USER',
-          permissions: ['delete-ticket'],
-          photoURL: user.photoURL
-        }
-    return userRef.set(data, { merge: true })
-
-  }
-
-
-
+  
 
 
   switchAuthMode() {
@@ -214,5 +238,18 @@ export class MembershipPage implements OnInit, AfterViewInit {
     });
     popover.present();
   }
+
+
+  async registerUser() {
+    try {
+      // tslint:disable-next-line: no-floating-promises
+      await this.auth.registerUser(this.registerForm.value).then(() => {
+        this.wizard.goToStep(1);
+      });
+    } catch (error) {
+      this.message.errorAlert(error.message);
+    }
+  }
+
 }
 

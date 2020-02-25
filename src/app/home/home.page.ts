@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonContent } from '@ionic/angular';
-import { ModalController } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { Router } from '@angular/router';
 import { SeoService } from '@services/seo.service';

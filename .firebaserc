@@ -1,6 +1,6 @@
 {
   "projects": {
-    "staging": "rankfantasysports-test-9370b",
+    "staging": "rfs-admin",
     "default": "rfs-test",
     "styling": "rfs-test",
     "anyalias": "rankfantasysports-test",
@@ -15,6 +15,23 @@
         ],
         "uploader": [
           "rfs-uploader"
+        ]
+      }
+    },
+    "rankfantasysports-test-9370b": {
+      "hosting": {
+        "main": [
+          "rfs-testing"
+        ],
+        "rfstest1": [
+          "rfs-test"
+        ]
+      }
+    },
+    "rfs-admin": {
+      "hosting": {
+        "rfstest1": [
+          "test-rfs"
         ]
       }
     }

@@ -1,6 +1,5 @@
 import { AuthService } from '@services/auth.service';
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
@@ -51,23 +50,13 @@ export class LoginElementComponent implements OnInit {
 
 
   async onSubmit(login: NgForm) {
-    await this.auth.signIn(this.loginForm.value)
-    await this.message.isLoggedInToast();
-    await this.modal.dismiss();
-    if (this.user.role === 'ADMIN') {
-      this.router.navigateByUrl('/admin');
-    } else if (this.user.plan && (this.user.status === 'active' || 'trialing')) {
-      this.router.navigateByUrl('/profile');
-    } else {
-      this.router.navigateByUrl('/membership')        
-    }
-  }
-    // , (async (err) => {
-    //     this.modal.dismiss();
-    //     this.message.errorAlert(err.message);
-    //   }
-    // )
-  //   )
-  // }
+    try {
+          await this.auth.signIn(this.loginForm.value)
+          await this.modal.dismiss();
+        } catch (error) {
+          await this.message.errorAlert(error.message);
+        }
+  
 
+}
 }

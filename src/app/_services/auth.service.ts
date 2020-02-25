@@ -1,10 +1,9 @@
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { auth } from 'firebase/app';
 import { BehaviorSubject, from, Observable, of } from 'rxjs';
 import { environment } from '..//../environments/environment';
-import { first, map, switchMap, take } from 'rxjs/operators';
+import { first, map, switchMap, take, tap } from 'rxjs/operators';
 import { Injectable, NgZone } from '@angular/core';
 import { MessageService } from './message.service';
 import { ModalController, NavController } from '@ionic/angular';
@@ -26,7 +25,8 @@ export class AuthService {
   userRole: any = 'USER';
   userPermissions: string[] = ['delete-ticket'];
 
-
+  import 
+  ref: AngularFirestoreDocument<unknown>;
 
   constructor(
     public afs: AngularFirestore,
@@ -38,7 +38,9 @@ export class AuthService {
     private modalCtrl: ModalController,
     private navCtrl: NavController,
     private spinner: SpinnerService
-  ) {this.user$ = this.afAuth.authState.pipe(
+  ) {
+    
+    this.user$ = this.afAuth.authState.pipe(
     switchMap(user => {
         // Logged in
       if (user) {
@@ -61,19 +63,24 @@ export class AuthService {
   }
 
   /* Sign up email*/
-  async registerUser(value) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
-    .then(async (data: any) => {
-      await this.updateUserData(data);
-      this.router.navigateByUrl('/membership')
-    });
+  registerUser(credentials) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password).then( async( data ) => {
+      await this.updateUserData(data.user);
+      await this.message.registerSuccessToast()
+      return this.router.navigateByUrl('/membership');
+    })
   }
-
-
+  
+  
+  
   // Log In- email and password
   async signIn(credentials) {
-    this.credential = await this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password);
-     return this.updateUserData(this.credential.user);
+    this.credential = await this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password).then(async (data) => {
+      await this.updateUserData(data.user);
+      await this.message.isLoggedInToast();
+      return this.router.navigateByUrl('/membership');
+
+    })
   }
 
   // Set User Data in Firestore
@@ -81,13 +88,13 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
 
     const data = {
-          displayName: user.displayName,
+          displayName: user.userName,
           email: user.email,
           uid: user.uid,
           role: 'USER',
           permissions: ['delete-ticket'],
           photoURL: user.photoURL
-        }
+    }
     return userRef.set(data, { merge: true })
 
   }
@@ -133,12 +140,12 @@ export class AuthService {
 // User Roles to coincide with backend server permissions/rules
 
 canRead(user: User): boolean {
-  const allowed = ['ADMIN', 'EDITOR', 'SUBSCRIBER']
+  const allowed = ['ADMIN', 'SUBSCRIBER']
   return this.checkAuthorization(user, allowed)
 }
 
 canEdit(user: User): boolean {
-  const allowed = ['ADMIN', 'EDITOR']
+  const allowed = ['ADMIN', 'SUBSCRIBER']
   return this.checkAuthorization(user, allowed)
 }
 
@@ -146,6 +153,9 @@ canDelete(user: User): boolean {
   const allowed = ['ADMIN']
   return this.checkAuthorization(user, allowed)
 }
+
+/** Returns true whenever the user is authenticated */
+get authenticated() { return this.authenticated; }
 
 
 
@@ -159,6 +169,7 @@ private checkAuthorization(user: User, allowedRoles: string[]): boolean {
   }
   return false
 }
+  
 
 
   // /* Sign up email*/
