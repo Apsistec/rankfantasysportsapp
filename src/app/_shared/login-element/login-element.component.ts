@@ -1,12 +1,10 @@
 import { AuthService } from '@services/auth.service';
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MessageService } from '@services/message.service';
-import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { SpinnerService } from '@services/spinner.service';
-import { GoToStepDirective, ArchwizardModule, WizardStep, WizardStepComponent, WizardComponent } from 'angular-archwizard';
+import { User } from '@models/user';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-element',
@@ -14,8 +12,8 @@ import { GoToStepDirective, ArchwizardModule, WizardStep, WizardStepComponent, W
   styleUrls: ['./login-element.component.scss'],
 })
 export class LoginElementComponent implements OnInit {
-  hidePass: boolean;
-  user;
+  hide: boolean;
+  user: User;
 
   loginForm;
 
@@ -25,15 +23,16 @@ export class LoginElementComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public auth: AuthService,
-    private spinner: SpinnerService,
     private router: Router,
     private message: MessageService,
-    private modal: ModalController,
+    private modal: ModalController
   ) {}
 
 
   ngOnInit() {
-    this.hidePass = true;
+
+
+    this.hide = true;
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -48,48 +47,17 @@ export class LoginElementComponent implements OnInit {
     });
   }
 
-  dismissModal() {
-    this.modal.dismiss();
+
+  async login() {
+    try{
+      this.modal.dismiss();
+      const user = await this.auth.SignIn(this.loginForm.value.email, this.loginForm.value.password);
+      (this.auth.isSubscribed) ? this.router.navigateByUrl('/profile') : this.router.navigateByUrl('/membership');        
+    } catch (error) {
+      await this.message.errorAlert(error.message);
+    }
   }
+  
 
-  async onSubmit(login: NgForm) {
-    this.spinner.loadSpinner();
-    this.auth.SignIn(this.loginForm.value).subscribe(
-      data => {
-        this.message.isLoggedInToast();
-        this.spinner.dismissSpinner();
-        this.dismissModal();
-        login.reset();
-        if (data.role === 'ADMIN') {
-          this.router.navigateByUrl('/admin');
-        } else if (data.plan && (data.status === 'active' || 'trialing')) {
-          this.router.navigateByUrl('/profile');
-        } else {
-          this.takeNextStep();
-          this.router.navigateByUrl('/membership');
-        }
-      },
-      async err => {
-        this.spinner.dismissSpinner();
-        login.reset();
-        this.message.errorAlert(err.message);
-      }
-    );
-  }
-
-  // finishLogin() {
-  //   this.takeNextStep();
-  // }
-
-  takeNextStep() {
-    this.readyToStep.emit();
-  }
-
-  // switchAuthMode() {
-  //   this.registerMode.emit();
-  // }
-
-  // onPasswordReset() {
-  //   this.passwordReset.emit();
-  // }
 }
+

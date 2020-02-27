@@ -9,6 +9,7 @@ import { MembershipPage } from './membership.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
+// import { AuthModalComponent } from '@shared/auth-modal/auth-modal.component';
 
 const routes: Routes = [
   {
@@ -29,11 +30,13 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes),
   ],
-  providers: [
-  ],
   declarations: [
     MembershipPage,
-    BlinkDirective
+    BlinkDirective,
+    // AuthModalComponent
   ],
+  entryComponents: [
+    // AuthModalComponent
+  ]
 })
 export class MembershipPageModule {}

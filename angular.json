@@ -18,7 +18,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/firebase-messaging-sw.js",
               {
@@ -31,7 +31,7 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
-              "src/manifest.json"
+              "src/manifest.webmanifest"
             ],
             "styles": [
               {
@@ -40,18 +40,10 @@
               {
                 "input": "src/global.scss"
               },
-              "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "./node_modules/font-awesome/css/font-awesome.css",
-              "./node_modules/flatpickr/dist/flatpickr.css",
-              "./node_modules/angular-slickgrid/lib/multiple-select/multiple-select.css",
-              "./node_modules/angular-slickgrid/styles/css/slickgrid-theme-bootstrap.css"
+                "node_modules/angular-archwizard/archwizard.css"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/jquery-ui-dist/jquery-ui.min.js",
-              "./node_modules/slickgrid/lib/jquery.event.drag-2.3.0.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./node_modules/angular-slickgrid/lib/multiple-select/multiple-select.js"
+
             ],
             "es5BrowserSupport": true
           },
@@ -78,9 +70,7 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ],
-              "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json"
+              ]
             },
             "ci": {
               "progress": false
@@ -112,7 +102,7 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [],
             "scripts": [],
@@ -122,7 +112,7 @@
                 "input": "src/assets",
                 "output": "/assets"
               },
-              "src/manifest.json"
+              "src/manifest.webmanifest"
             ]
           },
           "configurations": {
@@ -135,7 +125,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
             "exclude": ["**/node_modules/**"]
           }
         },

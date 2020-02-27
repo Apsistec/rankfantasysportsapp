@@ -1,23 +1,32 @@
 .top{
-    width:70%;
-    padding-bottom: 30px;
-}
-.bottom{
-    width:80%;
-    padding-bottom: 30px;
+  position: relative;
+  width:70%;
+  padding-bottom: 30px;
 }
 
-h5{
-    font-size: x-large;
-    font-variant: small-caps;
-    font-weight: 700;
-    font-stretch:condensed;
+.bottom{
+  position: relative;
+  width:60%;
+  padding-bottom: 30px;
+}
+
+.text{
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
 h3{
-    font-size: x-large;
-    margin-bottom: 40px;
-    font-weight: 900;
-  }
+  font-size: xx-large;
+  margin-bottom: 30px;
+  font-weight: 900;
+}
+.tyler{
+  width: 40%;
+  height:40%;
+  position: relative;;
+}
 
-
+img{
+  justify-self:center;
+  min-width:200px;
+}

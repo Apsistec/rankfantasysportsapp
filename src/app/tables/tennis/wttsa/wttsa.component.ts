@@ -68,4 +68,5 @@ export class WttsaComponent implements AfterViewInit, OnInit {
   trackByUid(index, item) {
     return item.uid;
   }
+
 }

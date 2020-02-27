@@ -1,9 +1,13 @@
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { CbbComponent } from '../tables/cbb/cbb.component';
 import { CfbComponent } from '../tables/cfb/cfb.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { ForgotPasswordElementComponent } from './forgot-password-element/forgot-password-element.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
+import { LoginElementComponent } from './login-element/login-element.component';
 import { NbaComponent } from '../tables/nba/nba.component';
 import { NflComponent } from '../tables/nfl/nfl.component';
 import { NgModule } from '@angular/core';
@@ -13,15 +17,10 @@ import { PgaComponent } from '../tables/pga/pga.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
 import { RouterModule } from '@angular/router';
+import { SharedDirectivesModule } from '../_directives/shared-directives.module';
 import { TennisComponent } from '../tables/tennis/tennis.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TicketComponent } from './tickets/ticket.component';
-import { SharedDirectivesModule } from '../_directives/shared-directives.module';
-import { RegisterElementComponent } from './register-element/register-element.component';
-import { LoginElementComponent } from './login-element/login-element.component';
-import { AuthModalComponent } from './auth-modal/auth-modal.component';
-import { ForgotPasswordElementComponent } from './forgot-password-element/forgot-password-element.component';
-import { CbbComponent } from 'app/tables/cbb/cbb.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +38,8 @@ import { CbbComponent } from 'app/tables/cbb/cbb.component';
     NbaComponent,
     TennisComponent,
     ForgotPasswordElementComponent,
-    AuthModalComponent,
-    RegisterElementComponent,
-    LoginElementComponent
+    LoginElementComponent,
+    AuthModalComponent
   ],
 
   entryComponents: [
@@ -64,13 +62,12 @@ import { CbbComponent } from 'app/tables/cbb/cbb.component';
 
   exports: [
     SharedDirectivesModule,
+    AuthModalComponent,
     NgxTwitterTimelineModule,
     HeaderComponent,
-    AuthModalComponent,
     ForgotPasswordElementComponent,
     PopoverComponent,
     FooterComponent,
-    RegisterElementComponent,
     LoginElementComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,
@@ -81,7 +78,7 @@ import { CbbComponent } from 'app/tables/cbb/cbb.component';
     CbbComponent,
     PgaComponent,
     NbaComponent,
-    TennisComponent,
+    TennisComponent
   ]
 })
 export class SharedModule {}

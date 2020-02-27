@@ -1,15 +1,16 @@
-<ion-header>
+<ion-header >
 
   <!-- Mobile 1st toolbar -->
-  <ion-toolbar color="medium" *ngIf="mobile">
+  <ion-toolbar color="primary" *ngIf="mobile">
     <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
       <ion-menu-button color="silver"> </ion-menu-button>
     </ion-buttons>
 
     <ion-item *ngIf="auth.afAuth.user | async as user; else getStarted"
         slot="end"
         type="button"
-        color="medium"
+        color="primary"
         (click)="presentPopover($event)"
         detail="false"
         lines="none"
@@ -26,9 +27,9 @@
       *ngIf="showGetStartedButton"
       color="success"
       (click)="openModal()"
-      style="margin-right:20px;top:30px"
+      style="margin-right:30px;position: relative; top:10px"
       >
-      <ion-text color="white" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
+      <ion-text color="light" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
         Get Started
         </ion-text>
       </ion-button>
@@ -36,13 +37,15 @@
   </ion-toolbar>
 
 <!-- Desktop 1st toolbar Version of Top Nav -->
-  <ion-toolbar color="medium" *ngIf="!mobile">
+  <ion-toolbar color="primary" *ngIf="!mobile">
     <ion-buttons slot="start">
       <ion-menu-button color="silver"> </ion-menu-button>
+      <ion-text color="light" style="font-size:large; font-weight: 800; padding-left:25px">
+        {{ titleId }}
+      </ion-text>
     </ion-buttons>
-
     <div class="top-nav">
-      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; align-self:center;">
+      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; padding-left:40px;">
 
 
         <a routerLink="/home" routerLinkActive="router-link-active">Home</a>
@@ -57,7 +60,7 @@
       <ion-item
         slot="end"
         type="button"
-        color="medium"
+        color="primary"
         (click)="presentPopover($event)"
         detail="false"
         lines="none"
@@ -68,27 +71,22 @@
         </ion-avatar>
       </ion-item>
     </ng-container>
-  </ion-toolbar>
-
-  <!-- 2nd toolbar for title -->
-  <ion-toolbar color="medium" style="--min-height:20px; border-bottom: 3px solid white;" >
-    <ion-text class="ion-padding-start ion-text-capitalize ion-text-wrap ion-text-center" style="font-size:large; font-weight:700; font-variant:small-caps; align-self:center;">
-      {{ titleId }}
-    </ion-text>
     <ng-template #getStarted>
       <ion-button
-        slot="end"
-        *ngIf="showGetStartedButton"
-        color="success"
-        (click)="openModal()"
-        class="ion-padding-end"
-        style="margin-right:20px;top:30px"
+      slot="end"
+      *ngIf="showGetStartedButton"
+      color="success"
+      (click)="openModal()"
+      style="margin-right:30px;position: relative; top:10px"
       >
-      <ion-text color="white" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
-        Log In or Get Started
+      <ion-text color="light" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
+        Get Started
         </ion-text>
       </ion-button>
     </ng-template>
   </ion-toolbar>
-  <!-- <ion-toolbar color="white" style="height:3px;"></ion-toolbar> -->
+
+
 </ion-header>
+
+

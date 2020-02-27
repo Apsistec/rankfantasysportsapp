@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SpinnerService } from './spinner.service';
+import { User } from '@models/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StripeService {
+export class StripeService implements OnInit{
+
+  user: User;
   subscriptions: Observable<any>;
   confirmation; // : Observable<any>;
   invoices: Observable<any>;
@@ -22,29 +25,31 @@ export class StripeService {
     private spinner: SpinnerService
   ) {}
 
+  ngOnInit() {
+  }
+
   async subscribeUser(source, planId) {
-    const user = await this.auth.getCurrentUser();
+
     const fun = this.functions.httpsCallable('stripeCreateSubscription');
     this.confirmation = await fun({
       source: source.id,
-      uid: user.uid,
+      uid: this.user.uid,
       plan: planId
     }).toPromise();
   }
 
   async getSubscriptions() {
-    const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeGetSubscriptions');
-    this.subscriptions = fun({ uid: user.uid });
+    this.subscriptions = fun({ uid: this.user.uid });
   }
 
   async cancelSubscription() {
     this.spinner.loadSpinner();
-    const user = await this.auth.getCurrentUser();
+
     const fun = this.functions.httpsCallable('stripeCancelSubscription');
     this.confirmation = await fun({
-      uid: user.uid,
-      subId: user.subId
+      uid: this.user.uid,
+      subId: this.user.subId
     })
       .toPromise()
       .then(() => {
@@ -59,8 +64,20 @@ export class StripeService {
   }
 
   async getInvoices() {
-    const user = await this.auth.getCurrentUser();
     const fun = this.functions.httpsCallable('stripeGetInvoices');
-    this.invoices = fun({ uid: user.uid });
+    this.invoices = fun({ uid: this.user.uid });
   }
+
+  // Coupons
+
+  // const couponForm = document.getElementById('couponForm');
+  // const couponFun = fun.httpsCallable('stripeGetCoupon');
+
+  // couponForm.onblur = async() => {
+  //   const val = couponForm.value;
+  //   console.log(val)
+  //   const coupon = await couponFun({ coupon: val });
+  //   console.log(coupon);
+  //   alert(`sweet! ${coupon.data.name}`)
+  // }
 }

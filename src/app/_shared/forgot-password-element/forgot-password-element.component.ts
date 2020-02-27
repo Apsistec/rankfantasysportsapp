@@ -19,7 +19,7 @@ export class ForgotPasswordElementComponent implements OnInit {
   ngOnInit() {}
 
   async onSubmit(passReset: NgForm) {
-    this.auth.resetPassword(passReset.value.email);
+    this.auth.ResetPassword(passReset.value.email);
   }
 
   changeLoginMode() {

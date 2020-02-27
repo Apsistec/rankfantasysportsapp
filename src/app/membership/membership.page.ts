@@ -1,23 +1,18 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from '../_services/auth.service';
-import { environment } from '../../environments/environment.prod';
-import { NgForm } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { ModalService } from '../_services/modal.service';
 import { SeoService } from '@services/seo.service';
-import { SpinnerService } from '@services/spinner.service';
 import { WizardComponent } from 'angular-archwizard';
 import { PopoverComponent } from '@shared/popover/popover.component';
 
-
-import {
-  Component,
-  AfterViewInit,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { Component, OnChanges, AfterViewInit, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { PopoverController, LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
+// import { StorageService } from '@services/storage.service';
+import { User } from '@models/user';
 declare var Stripe: stripe.StripeStatic;
 
 @Component({
@@ -25,60 +20,111 @@ declare var Stripe: stripe.StripeStatic;
   templateUrl: './membership.page.html',
   styleUrls: ['./membership.page.scss']
 })
-// tslint:disable-next-line: component-class-suffix
-export class MembershipPage implements OnInit, AfterViewInit {
-
+export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
   isRegister = true;
   titleId = 'RF$\u2122 Pro Memberships';
 
+  @ViewChild(WizardComponent, { static: true }) public wizard: WizardComponent;
   user;
-  @ViewChild(WizardComponent, {static: true}) public wizard: WizardComponent;
-
-
   showDetails: boolean;
   hideProduct: boolean;
-
-  // blinker: Subscription;
-  isChecked = false;
+  isLoggedIn: boolean = false;
   card;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   stripe: stripe.Stripe;
-
+  uid;
   confirmation;
+  amount = 0;
+  confirmation0;
   cardErrors;
+  isLoading = false;
+
+  marked = false;
+  theCheckbox = false;
+  hide = true;
+  loginForm: FormGroup;
+  registerForm: FormGroup;
+  userId;
+  source;
 
   constructor(
     public functions: AngularFireFunctions,
-    private spinner: SpinnerService,
     public auth: AuthService,
     private message: MessageService,
     public modal: ModalService,
     private seo: SeoService,
-    private popoverController: PopoverController
-    ) {
-      this.seo.addTwitterCard(
-        this.titleId,
-        'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
-        '../../../assets/img/rfs-logo.svg'
-        );
-      }
-
-
-
+    private popoverController: PopoverController,
+    private fb: FormBuilder,
+    private router: Router,
+    private afAuth: AngularFireAuth
+  ) {
+    this.seo.addTwitterCard(
+      this.titleId,
+      'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
+      '../../../assets/img/rfs-logo.svg'
+      );
+      this.user = this.afAuth.auth.currentUser;
+  }
+  
   ngOnInit() {
+
+
+    if (this.auth.authenticated && this.auth.isSubscribed) {
+      this.router.navigate['profile'];
+    } else if (this.auth.authenticated) {
+      this.wizard.goToStep(1);
+    } else {
+      this.wizard.goToStep(0);
+    }
+
+    console.log(this.auth.user);
+    console.log(this.auth.currentUser);
+    console.log(this.auth.currentUserId);
+    console.log(this.auth.authenticated);
+
+    // (this.auth.authenticated)? this.wizard.goToStep(1) : this.wizard.goToStep(0);
+    
+    this.amount = this.theCheckbox? +'5700' : +'000';
+    
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+          Validators.maxLength(25)
+        ]
+      ]
+    });
+    
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      displayName: ['', [Validators.required, Validators.minLength(3)]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+          Validators.maxLength(25)
+        ]
+      ]
+    });
+    
+    this.hide = true;
     this.showDetails = true;
-
-    this.checkLoggedInStatus();
-
-    this.stripe = Stripe(environment.stripeKey);
-
+    
+    // Stripe Details
+    this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
     const elements = this.stripe.elements();
     const style = {
       base: {
         color: '#227733',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontSize: '14px',
         '::placeholder': {
           color: '#121212'
         }
@@ -88,7 +134,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
         iconColor: '#f73008'
       }
     };
-
+    
     // Create an instance of the card Element.
     this.card = elements.create('card', { style: style });
     this.card.mount(this.cardElement.nativeElement);
@@ -96,69 +142,90 @@ export class MembershipPage implements OnInit, AfterViewInit {
       this.cardErrors = error && error.message;
     });
   }
-
-ngAfterViewInit() {}
-
-  // checkIt() {
-  //   this.isChecked = !this.isChecked;
-  // }
-
-  async onSubmit(form) {
-    if (this.isChecked) {
-      this.bumpUpOrder(form).then(() => {
-        this.subscribeUser(form);
-      });
-    }{
-      this.subscribeUser(form);
-    }
+  
+  ngAfterViewInit() {
+ 
+      if (this.auth.authenticated && this.auth.isSubscribed) {
+        this.router.navigate['profile'];
+      } else if (this.auth.authenticated) {
+        this.wizard.goToStep(1);
+      } else {
+        this.wizard.goToStep(0);
+      }
   }
+  
+  ngOnChanges() {
 
-  async subscribeUser(stripe: NgForm) {
+  }  
+  
+  
+  
+  // checkmark value
+  toggleVisibility(e) {
+    this.marked = e.target.checked;
+  }
+  
+  
+  async handleForm(e) {
+    e.preventDefault();
+    
     const { source, error } = await this.stripe.createSource(this.card);
+    
     if (error) {
-      this.spinner.dismissSpinner();
-      stripe.reset();
       // Inform the customer that there was an error.
       const cardErrors = error.message;
-      window.alert(cardErrors);
     } else {
-      this.spinner.loadSpinner();
-      const user = await this.auth.getUser();
+      // Send the token to your server.
+      this.isLoading = true;
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
-      this.confirmation = await fun({
-        source: source.id,
-        uid: user.uid,
-        plan: 'plan_Gl53WD33vJA3uR'
-      }).toPromise();
-      this.spinner.dismissSpinner();
-      stripe.reset();
-      this.message.subscribedToast();
-        this.wizard.goToStep(2);
+      this.confirmation = await fun({ source: source.id, uid: this.auth.currentUserId, plan: 'bronze' }).toPromise();
+      this.isLoading = false;
+      this.wizard.goToStep(2);
     }
   }
+  
+  
 
-  async bumpUpOrder(check: NgForm) {
-    const { source, error } = await this.stripe.createSource(this.card);
-    if (error) {
-    } else {
-        // Send the token to your server.
-        const user = await this.auth.getUser();
-        const fun = this.functions.httpsCallable('stripeCreateCharge');
-        this.confirmation = await fun({ source: source.id, uid: user.uid, amount: '999' }).toPromise();
-    }
+  firstStep() {
+    this.wizard.goToStep(0);
   }
 
-  // wizard for signed in user to skip to step 2
-  navigateToStep() {
+  nextStep() {
     this.wizard.goToStep(1);
   }
 
-  checkLoggedInStatus() {
-    const user = this.auth.getCurrentUser();
-    if (user !== null) {
-      this.wizard.goToStep(1);
+  
+  async Login() {
+    try{  
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
+      const res = await this.auth.SignIn(email, password);
+      this.nextStep();
+      this.message.isLoggedInToast();
+    } catch {
+        error => {
+          this.message.errorAlert(error.message);
+        }
     }
   }
+
+  async registerUser() {
+    try{
+
+      const email = this.registerForm.value.email;
+      const displayName = this.registerForm.value.displayName;
+      const password = this.registerForm.value.password;
+      const res = await this.auth.SignUp(this.registerForm.value);
+      this.nextStep();
+      this.message.registerSuccessToast();
+    } catch {
+        error => {
+          this.message.errorAlert(error.message);
+        }
+    }
+
+  }
+   
 
 
   switchAuthMode() {
@@ -172,7 +239,6 @@ ngAfterViewInit() {}
       translucent: true,
       cssClass: 'popoverUser'
     });
-    return popover.present();
+    popover.present();
   }
 }
-

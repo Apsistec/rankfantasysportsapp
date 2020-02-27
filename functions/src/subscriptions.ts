@@ -1,9 +1,9 @@
 import * as functions from 'firebase-functions';
 import { assert, assertUID, catchErrors } from './helpers';
-import { attachSource } from './sources';
-import { db, stripe } from './config';
+import { stripe, db } from './config'; 
 import { getCustomer } from './customers';
-import { v4 as uuid } from 'uuid';
+import { attachSource } from './sources';
+
 
 /**
 Gets a user's subscriptions
@@ -16,8 +16,8 @@ export const getSubscriptions = async(uid: string) => {
 /**
 Creates and charges user for a new subscription
 */
-export const createSubscription = async ( uid: string, source: string, plan: string, coupon?: string, idempotency_key?: string ) => {
-
+export const createSubscription = async(uid:string, source:string, plan: string, coupon?: string, idempotency_key?: string) => {
+ 
     const customer = await getCustomer(uid);
 
     await attachSource(uid, source);
@@ -25,18 +25,17 @@ export const createSubscription = async ( uid: string, source: string, plan: str
     const subscription = await stripe.subscriptions.create({
         customer,
         coupon,
-        items: [{ plan }],
-        trial_from_plan: true,
-
-    }, { idempotency_key })
+        items: [
+            {
+              plan,
+            },
+        ],
+    },   { idempotency_key });
 
     // Add the plan to existing subscriptions
     const docData = {
-
-      [plan]: true,
-      [subscription.id]: 'active',
-      'plan': [plan],
-      [subscription.id]: [subscription.status]
+        [plan]: true,
+        [subscription.id]: 'active',
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
@@ -52,9 +51,8 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
     const subscription  = await stripe.subscriptions.del(subId);
 
     const docData = {
-      [subscription.plan.id]: false,
-      [subscription.id]:'cancelled',
-      'status': [subscription.status],
+        [subscription.plan.id]: false,
+        [subscription.id]: 'canceled'
     }
 
     await db.doc(`users/${uid}`).set(docData, { merge: true });
@@ -65,11 +63,12 @@ export async function cancelSubscription(uid: string, subId: string): Promise<an
 /////// DEPLOYABLE FUNCTIONS ////////
 
 export const stripeCreateSubscription = functions.https.onCall( async (data, context) => {
-    const idempotency_key = uuid();
     const uid = assertUID(context);
+    console.log(1, data)
     const source = assert(data, 'source');
     const plan = assert(data, 'plan');
-    return catchErrors( createSubscription(uid, source, plan, data.coupon, idempotency_key) );
+    const idempotency_key = data.itempotency_key;
+    return catchErrors( createSubscription(uid, source, plan, data.coupon, idempotency_key ) );
 });
 
 export const stripeCancelSubscription = functions.https.onCall( async (data, context) => {

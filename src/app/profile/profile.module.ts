@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { ProfilePage } from './profile.page';
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from './settings/settings.component';
 import { SharedModule } from '../_shared/shared.module';
 
 const routes: Routes = [
@@ -27,13 +26,11 @@ const routes: Routes = [
   entryComponents: [
     CancelSubscriptionComponent,
     InvoicesComponent,
-    SettingsComponent
   ],
   declarations: [
     ProfilePage,
     InvoicesComponent,
     CancelSubscriptionComponent,
-    SettingsComponent
   ]
 })
 export class ProfilePageModule {}

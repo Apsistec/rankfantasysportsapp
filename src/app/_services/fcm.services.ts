@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 import * as app from 'firebase/app';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { from } from 'rxjs';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class FcmService {
     private fun: AngularFireFunctions,
     private toastController: ToastController,
     private firebaseNative: Firebase,
-    private platform: Platform
+    private platform: Platform,
+    private message: MessageService
   ) {
     try {
       const _messaging = app.messaging();
@@ -37,7 +39,9 @@ export class FcmService {
       showCloseButton: true,
       closeButtonText: 'dismiss'
     });
-    toast.present();
+    await toast.present().catch(err => {
+      return this.message.errorAlert(err);
+    });
   }
 
   getPermission() {
@@ -47,11 +51,50 @@ export class FcmService {
     } else {
       token$ = this.getPermissionWeb();
     }
+
     return token$.pipe(
       tap(token => {
         this.token = token;
       })
     );
+  }
+
+
+  listenToMessages(): any {
+    let messages$;
+    if (this.platform.is('cordova')) {
+      messages$ = this.firebaseNative.onNotificationOpen();
+    } else {
+      messages$ = this.afMessaging.messages;
+    }
+
+    return messages$.pipe(tap(v => this.showMessages(v)));
+  }
+
+
+  sub(topic): any {
+    this.fun
+    .httpsCallable('subscribeToTopic')({ topic, token: this.token })
+    .pipe(tap(_ => this.makeToast(`subscribed to ${topic}`)))
+    .subscribe();
+  }
+
+  unsub(topic) {
+    this.fun
+    .httpsCallable('unsubscribeFromTopic')({ topic, token: this.token })
+    .pipe(tap(_ => this.makeToast(`unsubscribed from ${topic}`)))
+    .subscribe();
+  }
+
+  private showMessages(payload) {
+    let body;
+    if (this.platform.is('android')) {
+      body = payload.body;
+    } else {
+      body = payload.notification.body;
+    }
+
+    this.makeToast(body);
   }
 
   private getPermissionWeb() {
@@ -69,40 +112,5 @@ export class FcmService {
 
     return token;
   }
-
-  listenToMessages() {
-    let messages$;
-    if (this.platform.is('cordova')) {
-      messages$ = this.firebaseNative.onNotificationOpen();
-    } else {
-      messages$ = this.afMessaging.messages;
-    }
-
-    return messages$.pipe(tap(v => this.showMessages(v)));
-  }
-
-  private showMessages(payload) {
-    let body;
-    if (this.platform.is('android')) {
-      body = payload.body;
-    } else {
-      body = payload.notification.body;
-    }
-
-    this.makeToast(body);
-  }
-
-  sub(topic) {
-    this.fun
-      .httpsCallable('subscribeToTopic')({ topic, token: this.token })
-      .pipe(tap(_ => this.makeToast(`subscribed to ${topic}`)))
-      .subscribe();
-  }
-
-  unsub(topic) {
-    this.fun
-      .httpsCallable('unsubscribeFromTopic')({ topic, token: this.token })
-      .pipe(tap(_ => this.makeToast(`unsubscribed from ${topic}`)))
-      .subscribe();
-  }
 }
+

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Config, PopoverController } from '@ionic/angular';
 import { ModalService } from '@services/modal.service';
 import { ThemeService } from '@services/theme.service';
+import { PopoverComponent } from '@shared/popover/popover.component';
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,17 +13,30 @@ import { ThemeService } from '@services/theme.service';
 })
 export class LandingPageComponent implements OnInit {
   core;
-
+  user: User;
   constructor(
-    private config: Config,
+    // private config: Config,
     public auth: AuthService,
     private theme: ThemeService,
     public modal: ModalService,
+    private popoverController: PopoverController
   ) {}
 
   ngOnInit() {
-    this.core = this.config.get('mode') === 'core';
+    // this.core = this.config.get('mode') === 'core';
+    
   }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true,
+      cssClass: 'popoverUser'
+    });
+    popover.present();
+  }
+
   openModal() {
     this.modal.loginModal();
   }

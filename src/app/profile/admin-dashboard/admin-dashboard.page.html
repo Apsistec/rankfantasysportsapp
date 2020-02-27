@@ -1,11 +1,11 @@
 <app-header [titleId]= "titleId"></app-header>
-<ion-content color="dark">
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-grid>
         <ion-row>
             <ion-col size="9" >
-        <ion-card color="primary">
+        <ion-card color="medium">
           <ion-card-header>
             <ion-card-title>
               <ion-label color="secondary">
@@ -18,7 +18,7 @@
       <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
       <ion-label >
-        <ion-text color="twittr">
+        <ion-text color="dark">
           <h2>{{ ticket.title }}</h2>
         </ion-text>
         <ion-text color="light">
@@ -26,11 +26,11 @@
         </ion-text>
       </ion-label>
       <ion-label slot="start">
-        <ion-note color="msoft" >
+        <ion-note color="dark" >
           {{ ticket.id }}
         </ion-note>
         <br>
-        <ion-note color="warning" >
+        <ion-note color="dark" >
           {{ ticket.created_at?.seconds*1000 | date: 'MMM d H:HH' }}
         </ion-note>
       </ion-label>
@@ -39,7 +39,7 @@
 </ion-card>
 </ion-col>
         <ion-col size="3">
-          <ion-card color="primary">
+          <ion-card color="medium">
               <ion-card-header>
                 <ion-card-title>
                   <ion-label color="secondary">
@@ -54,11 +54,11 @@
                   </ion-avatar>
                 &nbsp; &nbsp;
                 <ion-label >
-                  <ion-text color="twittr">
+                  <ion-text color="dark">
                     {{ admin.displayName }}
                   </ion-text>
                   <br>
-                  <ion-note color="warning">
+                  <ion-note color="dark">
                     {{ admin.email }}
                   </ion-note>
                 </ion-label>
@@ -66,7 +66,7 @@
             </ion-list>
           </ion-card>
 
-          <ion-card color="primary">
+          <ion-card color="medium">
                 <ion-card-header>
                   <ion-card-title>
                     <ion-label color="secondary">
@@ -74,15 +74,15 @@
                     </ion-label>
                   </ion-card-title>
                   <ion-card-subtitle>
-                    <ion-label color="warning">
+                    <ion-label color="dark">
                       Unpaid, Current & Cancelled
                     </ion-label>
                   </ion-card-subtitle>
                   <ion-toolbar>
-                      <ion-searchbar color="facebk" inputmode="search" type="search" autocomplete="'on'" animated="true" style="border-radius: 5em;">
+                      <ion-searchbar inputmode="search" type="search" autocomplete="'on'" animated="true" style="border-radius: 5em;">
                       </ion-searchbar>
                     <br>
-                    <ion-text color="warning">
+                    <ion-text color="dark">
                       <sup class="ion-text-center ion-text-wrap">Search by any field</sup>
                     </ion-text>
                     </ion-toolbar>
@@ -94,21 +94,21 @@
                 </ion-avatar>
                 &nbsp; &nbsp;
                 <ion-label>
-                  <ion-text color="msoft">
+                  <ion-text color="dark">
                     {{ user.displayName }}
                   </ion-text>
                   <br>
-                  <ion-note color="twittr">
+                  <ion-note color="dark">
                     {{ user.email }}
                   </ion-note>
                   <br>
-                    <ion-note  [hidden]="!user.gold" color="gold">
+                    <ion-note  [hidden]="!user.gold" color="dark">
                       Gold
                     </ion-note>
                     <ion-note [hidden]="!user.silver" color="silver">
                       Silver
                     </ion-note>
-                    <ion-note [hidden]="!user.bronze" color="bronze" >
+                    <ion-note [hidden]="!user.bronze" color="dark" >
                       Bronze
                     </ion-note>
                   </ion-label>

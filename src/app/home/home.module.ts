@@ -1,6 +1,4 @@
-import { LoginElementComponent } from './../_shared/login-element/login-element.component';
 import { EndorsementsComponent } from './endorsements/endorsements.component';
-import { AboutComponent } from './about/about.component';
 import { CommonModule } from '@angular/common';
 import { DevicesComponent } from './devices/devices.component';
 import { HomePage } from './home.page';
@@ -9,6 +7,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../_shared/shared.module';
+// import { AuthModalComponent } from '@shared/auth-modal/auth-modal.component';
 
 const routes: Routes = [
   {
@@ -21,9 +20,9 @@ const routes: Routes = [
   declarations: [
     HomePage,
     LandingPageComponent,
-    AboutComponent,
     EndorsementsComponent,
     DevicesComponent,
+    // AuthModalComponent
   ],
 
   imports: [
@@ -33,6 +32,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   entryComponents: [
+    // AuthModalComponent
    ]
 })
-export class HomePageModule {}
+export class HomeModule {}

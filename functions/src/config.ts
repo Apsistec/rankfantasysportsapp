@@ -1,8 +1,7 @@
-import * as admin from 'firebase-admin';
-import * as functions from 'firebase-functions';
-import * as Stripe from 'stripe';
-// Initialize Firebase Admin
 
+// Initialize Firebase Admin
+import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
 admin.initializeApp();
 
 // Initialize Cloud Firestore Database
@@ -14,5 +13,5 @@ db.settings(settings);
 export const stripeSecret = functions.config().stripe.secret;
 
 // Export Stripe
+import * as Stripe from 'stripe'; 
 export const stripe = new Stripe(stripeSecret);
-// stripe.setMaxNetworkRetries(3);

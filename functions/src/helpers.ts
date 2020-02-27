@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 /**
 Validates data payload of a callable function
 */
-export const assert = (data: any, key: string) => {
+export const assert = (data: any, key:string) => {
     if (!data[key]) {
         throw new functions.https.HttpsError('invalid-argument', `function called without ${key} data`);
     } else {
@@ -12,7 +12,7 @@ export const assert = (data: any, key: string) => {
 }
 
 /**
-Validates auth context for callable function
+Validates auth context for callable function 
 */
 export const assertUID = (context: any) => {
     if (!context.auth) {
@@ -21,7 +21,6 @@ export const assertUID = (context: any) => {
         return context.auth.uid;
     }
 }
-
 
 /**
 Sends a descriptive error response when running a callable function

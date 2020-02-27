@@ -1,24 +1,22 @@
-<form #login  [formGroup]="loginForm" (ngSubmit)="onSubmit(login)" novalidate>
-  <hr />
+<form [formGroup]="loginForm" (submit)="login()" >
+
   <ion-card-title>
-    <ion-text
-      style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;" class="ion-text-capitalize"
-    >
-      Log In to Rank Fantasy Sports
+    <ion-text  >
+    Rank Fantasy Sports
+     Log In
     </ion-text>
   </ion-card-title>
-  <hr />
-  <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
-    Before using your <strong>Pro Plan</strong>, you need to log in to Rank
-    Fantasy Sports
+  <ion-card-subtitle>
+  <ion-text  >
+    You need to log in before using your <strong>Pro Plan</strong>
   </ion-text>
-  <hr />
-  <ion-card color="silver">
+  </ion-card-subtitle>
+  <ion-card color="light" class="ion-padding ion-margin">
     <ion-item color="light">
       <ion-label position="floating">Email</ion-label>
       <ion-input
         debounce="300"
-        style="width: 95%;"                                                                                                                                                                                                                                                           type="email"
+        style="width: 95%; text-transform: lowercase;"                                                                                                                                                                                                                                                           type="email"
         inputmode="email"
         formControlName="email"
       ></ion-input>
@@ -47,25 +45,29 @@
         debounce="300"
         id="password"
         style="width: 89%;"
-        [type]="hidePass ? 'password' : 'text'"
+        [type]="hide ? 'password' : 'text'"
         inputmode="text"
         formControlName="password"
       ></ion-input>
       <ion-button
         item-end
-        (click)="hidePass = !hidePass"
-        *ngIf="hidePass"
-        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+        (click)="hide = !hide"
+        *ngIf="hide"
+        style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+        color="dark"
+        fill="clear"
       >
-        <ion-icon size="large" name="eye" color="white"> </ion-icon>
+        <ion-icon  name="eye"> </ion-icon>
       </ion-button>
       <ion-button
         item-end
-        (click)="hidePass = !hidePass"
-        *ngIf="!hidePass"
-        style="position: absolute; right: 15px; bottom: 10px; background: transparent;"
+        (click)="hide = !hide"
+        *ngIf="!hide"
+        style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
+        color="dark"
+        fill="clear"
       >
-        <ion-icon size="large" name="eye-off" color="white"> </ion-icon>
+        <ion-icon  name="eye-off"> </ion-icon>
       </ion-button>
     </ion-item>
     <div
@@ -98,17 +100,16 @@
       </div>
     </div>
   </ion-card>
-  <hr />
-
+           
   <ion-button
     [disabled]="loginForm.invalid"
     color="danger"
-    style="width: 70%;"
+    expand="full"                  
     type="submit"
     >
     <ion-icon
       slot="start"
-      color="white"
+      color="light"
       name="arrow-round-forward"
       slot="start"
     ></ion-icon>

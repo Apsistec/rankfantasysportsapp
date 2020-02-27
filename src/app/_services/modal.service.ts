@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { AuthModalComponent } from '@shared/auth-modal/auth-modal.component';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ import { AuthModalComponent } from '@shared/auth-modal/auth-modal.component';
 export class ModalService {
 
   constructor(
-    private modalController: ModalController
+    private modalController: ModalController,
+    private message: MessageService
   ) { }
 
   async showModalTerms() {
@@ -18,7 +20,9 @@ export class ModalService {
       component: TermsDialogComponent,
       cssClass: 'modalcss'
     });
-    return modal.present();
+    return modal.present().catch(err => {
+      return this.message.errorAlert(err);
+    });;
   }
 
   async showModalPrivacy() {
@@ -26,7 +30,9 @@ export class ModalService {
       component: PrivacyDialogComponent,
       cssClass: 'modalcss'
     });
-    return modal.present();
+    return modal.present().catch(err => {
+      return this.message.errorAlert(err);
+    });
   }
   async loginModal() {
     const modal = await this.modalController.create({
@@ -35,7 +41,9 @@ export class ModalService {
       backdropDismiss: false,
       showBackdrop: true
     });
-    return modal.present();
+    return modal.present().catch(err => {
+      return this.message.errorAlert(err);
+    });
   }
 
   dismiss() {

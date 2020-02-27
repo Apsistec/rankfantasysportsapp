@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '@services/message.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { StorageService } from '@services/storage.service';
+import { StorageService } from '../../_services/storage.service';
 
 
 @Component({
@@ -15,8 +15,8 @@ export class StartModalComponent implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private router: Router,
-    private storage: StorageService,
-    private message: MessageService
+    private message: MessageService,
+    private storage: StorageService
   ) { }
 
   ngOnInit() {

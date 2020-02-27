@@ -1,23 +1,20 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonContent } from '@ionic/angular';
-import { ModalController } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular';
 import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { Router } from '@angular/router';
 import { SeoService } from '@services/seo.service';
 import { StartModalComponent } from '..//home/start-modal/start-modal.component';
 import { StorageService } from './../_services/storage.service';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
-import { timeout } from 'rxjs/operators';
-
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss']
 })
-// tslint:disable-next-line: component-class-suffix
 export class HomePage implements OnInit, AfterViewInit {
   titleId = 'RF$\u2122 Home';
   core;
@@ -33,7 +30,7 @@ export class HomePage implements OnInit, AfterViewInit {
       delay: 4000
     }
   };
-  user: any;
+  user: User;
   trustedVideoUrl4: SafeResourceUrl;
   video4: any = {
     url: 'https://www.youtube.com/embed/APeaBlagSNc'
@@ -57,6 +54,8 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
   ngOnInit() {
+
+
     this.functionPop();
   }
 
@@ -103,18 +102,13 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async functionPop() {
-    const user = await this.auth.getUser();
-    console.log(user);
-    if (user !== null) {
-      this.route.navigateByUrl('/profile');
-    } {
-      const popupState = await this.storage.get('popModalState');
-      if (popupState !== 'shown') {
-        setTimeout (() => {
-          this.showPopModal();
-        }, 4000);
-      }
+    const popupState = await this.storage.get('popModalState');
+    if (popupState !== 'shown') {
+      setTimeout (() => {
+        this.showPopModal();
+      }, 4000);
     }
   }
+  
 
 }

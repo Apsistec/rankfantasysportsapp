@@ -1,7 +1,13 @@
 {
   "projects": {
-    "staging": "rfs-test",
-    "default": "rfs-test"
+    "staging": "rfs-admin",
+    "default": "rfs-test",
+    "styling": "rfs-test",
+    "anyalias": "rankfantasysports-test",
+    "fixing": "rfs-test",
+    "finish": "rfs-winning",
+    "testing": "rfs-admin",
+    "staginh": "rfs-admin"
   },
   "targets": {
     "rfs-test": {
@@ -11,6 +17,30 @@
         ],
         "uploader": [
           "rfs-uploader"
+        ]
+      }
+    },
+    "rankfantasysports-test-9370b": {
+      "hosting": {
+        "main": [
+          "rfs-testing"
+        ],
+        "rfstest1": [
+          "rfs-test"
+        ]
+      }
+    },
+    "rfs-admin": {
+      "hosting": {
+        "rfstest1": [
+          "test-rfs"
+        ]
+      }
+    },
+    "rfs-winning": {
+      "hosting": {
+        "rfstest1": [
+          "rfs-winning"
         ]
       }
     }

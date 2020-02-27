@@ -1,4 +1,3 @@
-/*tslint:disable:no-import-side-effect*/
 
 import 'hammerjs';
 import './polyfills';

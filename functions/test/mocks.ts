@@ -21,7 +21,7 @@ export const getMockSource = async () => {
 }
 
 export const mockUser = async () => {
-    const user = { uid: Date.now().toString(), email: 'stripetest@example.com' };
+    const user = { uid: Date.now().toString(), email: 'doug@billybob.com' };
     await updateUser(user.uid, user);
     return user;
 }
