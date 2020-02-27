@@ -1,15 +1,14 @@
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable, NgZone} from '@angular/core';
 import { MessageService } from './message.service';
 import { Router } from '@angular/router';
-import { StorageService } from './storage.service';
 import { User } from 'firebase';
 import { User as fullUser } from '@models/user';
 import * as firebase from 'firebase/app'
-import { tap } from 'rxjs/operators';
+import { tap, take, map } from 'rxjs/operators';
 
 
 export interface UserCredentials {
@@ -22,6 +21,8 @@ export interface UserCredentials {
   providedIn: 'root',
 })
 export class AuthService {
+  user$: Observable<fullUser>;
+  
   currentBehaviorUser = new BehaviorSubject(null);
   isSubscribed: boolean;
   displayName;
@@ -34,7 +35,6 @@ export class AuthService {
     private router: Router,
     private ngZone: NgZone,
     private message: MessageService,
-    private storage: StorageService,
   ) { 
   this.afAuth.authState.subscribe(res => {
     this.user = res;
@@ -70,19 +70,19 @@ SignIn(email, password) {
     }).catch((err) => {
       this.message.errorAlert(err.message);
     });
-  }
+  } 
 
   // navigate upon login
   async navigateEntryUser() {
-    if (this.user['role'] === 'ADMIN') {
+    if (this.currentUser.role === 'ADMIN') {
       this.router.navigateByUrl('/admin');
     } else {
-      if (this.user['role'] === 'USER') {
+      if (this.currentUser.role === 'USER') {
         const sub = (this.user['gold'] || this.user['silver'] || this.user['bronze']);
         if (sub) {
-          this.router.navigateByUrl('/auth/profile');
+          this.router.navigateByUrl('/profile');
         } else {
-          this.router.navigateByUrl('/purchase');
+          this.router.navigateByUrl('/home');
         }
       }
     }
@@ -101,6 +101,8 @@ SignIn(email, password) {
           subStatus: null,
           created: firebase.firestore.FieldValue.serverTimestamp()
         });
+      }).catch((err) => {
+        this.message.errorAlert(err.message)
       });
   }
 
@@ -116,12 +118,6 @@ SignIn(email, password) {
     }).catch((error) => {
       this.message.errorAlert(error.message);
     })
-  }
-
-  // Returns true when user is looged in
-  get isLoggedIn(): boolean {
-    const user = this.storage.getObject('user');
-    return (user !== null) ? true : false;
   }
 
 
@@ -156,7 +152,6 @@ SignIn(email, password) {
   // Sign-out 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      this.storage.remove('user');
       this.message.signOutToast().then(() => {
         this.router.navigate(['home']);
       })
@@ -164,51 +159,95 @@ SignIn(email, password) {
   }
 
 
-  // Permissions Check for Trouble Tickets and Admin Dashboard
-  hasPermissions(permissions: string[]): boolean {
-    for (const perm of permissions) {
-      if (
-        !this.currentBehaviorUser.value ||
-        !this.currentBehaviorUser.value.permissions.includes(perm)
-      ) {
-        return false;
-      }
-    }
-    return true;
-  }
-
 
 // User Roles to coincide with backend server permissions/rules
 
-  canRead(user: fullUser): boolean {
-    const allowed = ['ADMIN', 'SUBSCRIBER']
-    return this.checkAuthorization(user, allowed)
+bronze() {
+  return this.user$
+    .pipe(
+      take(1),
+      map(user => user && user.bronze)
+    )
+    .toPromise();
+}
+
+async isBronze() {
+  const bronze = await this.bronze();
+  const isPaidBronze = !!bronze;
+  if (!isPaidBronze) {
+    return false;
+  } else {
+    return isPaidBronze;
   }
+}
 
-  canEdit(user: fullUser): boolean {
-    const allowed = ['ADMIN', 'SUBSCRIBER']
-    return this.checkAuthorization(user, allowed)
+silver() {
+  return this.user$
+    .pipe(
+      take(1),
+      map(user => user && user.silver)
+    )
+    .toPromise();
+}
+
+async isSilver() {
+  const silver = await this.silver();
+  const isPaidSilver = !!silver;
+  if (!isPaidSilver) {
+    return false;
+  } else {
+    return isPaidSilver;
   }
+}
 
-  canDelete(user: fullUser): boolean {
-    const allowed = ['ADMIN']
-    return this.checkAuthorization(user, allowed)
+gold() {
+  return this.user$
+    .pipe(
+      take(1),
+      map(user => user && user.gold)
+    )
+    .toPromise();
+}
+
+async isGold() {
+  const gold = await this.gold();
+  const isPaidGold = !!gold;
+  if (!isPaidGold) {
+    return false;
+  } else {
+    return isPaidGold;
   }
-
-  // /** Returns true whenever the user is authenticated */
-  // get authenticated() { return this.authenticated; }
+}
 
 
 
-  // determines if user has matching role
-  private checkAuthorization(user: fullUser, allowedRoles: string[]): boolean {
-    if (!user) { return false }
-    for (const role of allowedRoles) {
-      if ( user.role[role] ) {
-        return true
-      }
+// get isAdmin(): boolean {
+//   const user = this.afs.doc(`users/${this.user.uid}`)
+// }
+
+canRead(user: any): boolean {
+  return this.checkAuthorization(user);
+}
+
+// determines if user is a member
+private checkAuthorization(user: any): boolean {
+  if (!user) { return false; }
+  {
+    if ( user.bronze || user.gold || user.silver ) {
+      return true;
     }
-    return false
   }
+  return false;
+}
+
+hasPermissions(permissions: string[]): boolean {
+  for (const perm of permissions) {
+    if (!this.currentUser.value || !this.currentUser.value.permissions.includes(perm)) {
+      return false;
+    }
+  }
+  return true;
+}
+
     
 }

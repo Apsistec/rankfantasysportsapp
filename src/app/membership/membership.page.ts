@@ -8,7 +8,7 @@ import { SeoService } from '@services/seo.service';
 import { WizardComponent } from 'angular-archwizard';
 import { PopoverComponent } from '@shared/popover/popover.component';
 
-import { Component, AfterViewInit, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, AfterViewInit, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PopoverController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 // import { StorageService } from '@services/storage.service';
@@ -20,7 +20,7 @@ declare var Stripe: stripe.StripeStatic;
   templateUrl: './membership.page.html',
   styleUrls: ['./membership.page.scss']
 })
-export class MembershipPage implements OnInit, AfterViewInit {
+export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
   isRegister = true;
   titleId = 'RF$\u2122 Pro Memberships';
 
@@ -41,46 +41,51 @@ export class MembershipPage implements OnInit, AfterViewInit {
 
   marked = false;
   theCheckbox = false;
-  hide;
+  hide = true;
   loginForm: FormGroup;
   registerForm: FormGroup;
   userId;
   source;
-  ;
-  dataForm: FormGroup;
-  cart = [];
+
   constructor(
     public functions: AngularFireFunctions,
     public auth: AuthService,
-    // private storage: StorageService,
     private message: MessageService,
     public modal: ModalService,
     private seo: SeoService,
     private popoverController: PopoverController,
     private fb: FormBuilder,
     private router: Router,
-    private loadingCtrl: LoadingController,
     private afAuth: AngularFireAuth
   ) {
     this.seo.addTwitterCard(
       this.titleId,
       'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
       '../../../assets/img/rfs-logo.svg'
-    );
-    this.user = this.afAuth.auth.currentUser;
+      );
+      this.user = this.afAuth.auth.currentUser;
   }
-
+  
   ngOnInit() {
-    console.log(this.auth.user);
 
-    console.log(this.auth.currentBehaviorUser);
+
+    if (this.auth.authenticated && this.auth.isSubscribed) {
+      this.router.navigate['profile'];
+    } else if (this.auth.authenticated) {
+      this.wizard.goToStep(1);
+    } else {
+      this.wizard.goToStep(0);
+    }
+
+    console.log(this.auth.user);
     console.log(this.auth.currentUser);
     console.log(this.auth.currentUserId);
     console.log(this.auth.authenticated);
-      (this.auth.authenticated)? this.wizard.goToStep(1) : this.wizard.goToStep(0);
 
+    // (this.auth.authenticated)? this.wizard.goToStep(1) : this.wizard.goToStep(0);
+    
     this.amount = this.theCheckbox? +'5700' : +'000';
-
+    
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -93,7 +98,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
         ]
       ]
     });
-
+    
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       displayName: ['', [Validators.required, Validators.minLength(3)]],
@@ -107,10 +112,10 @@ export class MembershipPage implements OnInit, AfterViewInit {
         ]
       ]
     });
-
+    
     this.hide = true;
     this.showDetails = true;
-
+    
     // Stripe Details
     this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
     const elements = this.stripe.elements();
@@ -129,7 +134,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
         iconColor: '#f73008'
       }
     };
-
+    
     // Create an instance of the card Element.
     this.card = elements.create('card', { style: style });
     this.card.mount(this.cardElement.nativeElement);
@@ -137,7 +142,7 @@ export class MembershipPage implements OnInit, AfterViewInit {
       this.cardErrors = error && error.message;
     });
   }
-
+  
   ngAfterViewInit() {
  
       if (this.auth.authenticated && this.auth.isSubscribed) {
@@ -147,69 +152,20 @@ export class MembershipPage implements OnInit, AfterViewInit {
       } else {
         this.wizard.goToStep(0);
       }
-
-
   }
+  
+  ngOnChanges() {
 
-  // async presentLoading() {
-  //   const loadingElement = await this.loadingCtrl.create({
-  //     message: 'Please wait...',
-  //     spinner: 'crescent'
-  //   });
-  //   await loadingElement.present();
-  // }
-
-  // async onDismissLoader() {
-  //   await this.loadingCtrl.dismiss();
-  // }
-
-
-
+  }  
+  
+  
+  
   // checkmark value
   toggleVisibility(e) {
     this.marked = e.target.checked;
   }
-
-  // Stripe single charge and stripe subscription logic (subscription only / or both)
-  // async subHandler() {
-  //   console.log('first' + this.user);
-  //   this.presentLoading();
-  //   const { source, error } = await this.stripe.createSource(this.card);
-  //   console.log('aftersource' + this.user.uid);
-  //   if (error) {
-  //     this.onDismissLoader();
-  //     const cardErrors = error.message;
-  //     window.alert(cardErrors);
-  //   } else {
-  //     const user = this.getUserI();
-  //     console.log('b4fun' + this.userId );
-  //     const fun = this.functions.httpsCallable('stripeCreateSubscription');
-  //         this.confirmation = await fun({
-  //           source: source.id,
-  //           uid: this.user.uid,
-  //           plan: 'bronze'
-  //         }).toPromise();
-  //         console.log('afterconfirm'+ this.user);
-  //         this.onDismissLoader();
-  //         this.message.subscribedToast();
-  //         this.wizard.goToStep(2);
-  //       }
-
-  //     }
-
-  // async buyNow() {
-  //  try{
-  //       const source  = await this.stripe.createSource(this.card);
-  //       this. presentLoading();
-  //       const fun = this.functions.httpsCallable('stripeCreateSubscription');
-  //       this.confirmation = await fun({ source: source, uid: this.afAuth.auth.currentBehaviorUser.uid, plan: 'bronze' }).toPromise();
-  //       this.onDismissLoader();
-  //   } catch (error) {
-  //     // Inform the customer that there was an error.
-  //     const cardErrors = error.message;
-  //   }
-  // }
-
+  
+  
   async handleForm(e) {
     e.preventDefault();
     

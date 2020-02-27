@@ -4,7 +4,6 @@ import { FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MessageService } from '@services/message.service';
 import { Router } from '@angular/router';
 import { User } from '@models/user';
-import { StorageService } from '@services/storage.service';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -26,7 +25,6 @@ export class LoginElementComponent implements OnInit {
     public auth: AuthService,
     private router: Router,
     private message: MessageService,
-    private storage: StorageService,
     private modal: ModalController
   ) {}
 
@@ -50,11 +48,10 @@ export class LoginElementComponent implements OnInit {
   }
 
 
-  async onSubmit(form: NgForm) {
+  async login() {
     try{
       this.modal.dismiss();
-      const user = await this.auth.SignIn(form.value.email, form.value.password);
-      this.storage.set('loggedInStatus', 'isLoggedIn');
+      const user = await this.auth.SignIn(this.loginForm.value.email, this.loginForm.value.password);
       (this.auth.isSubscribed) ? this.router.navigateByUrl('/profile') : this.router.navigateByUrl('/membership');        
     } catch (error) {
       await this.message.errorAlert(error.message);

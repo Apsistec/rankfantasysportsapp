@@ -8,7 +8,6 @@ import { SeoService } from '@services/seo.service';
 import { StartModalComponent } from '..//home/start-modal/start-modal.component';
 import { StorageService } from './../_services/storage.service';
 import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
-import { timeout } from 'rxjs/operators';
 import { User } from '@models/user';
 
 @Component({
