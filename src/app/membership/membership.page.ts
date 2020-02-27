@@ -193,26 +193,39 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
   nextStep() {
     this.wizard.goToStep(1);
   }
+
+  
   async Login() {
-  try{  
-    const email = this.loginForm.value.email;
-    const password = this.loginForm.value.password;
-    const res = await this.auth.SignIn(email, password);
-    this.nextStep();
-    this.message.isLoggedInToast();
-  } catch {
-    error => this.message.errorAlert(error.message);
+    try{  
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
+      const res = await this.auth.SignIn(email, password);
+      this.nextStep();
+      this.message.isLoggedInToast();
+    } catch {
+        error => {
+          this.message.errorAlert(error.message);
+        }
+    }
   }
-}
 
   async registerUser() {
-    const email = this.registerForm.value.email;
-    const displayName = this.registerForm.value.displayName;
-    const password = this.registerForm.value.password;
-    const res = await this.auth.SignUp(this.registerForm.value);
-    this.nextStep();
-    this.message.registerSuccessToast();
-  } 
+    try{
+
+      const email = this.registerForm.value.email;
+      const displayName = this.registerForm.value.displayName;
+      const password = this.registerForm.value.password;
+      const res = await this.auth.SignUp(this.registerForm.value);
+      this.nextStep();
+      this.message.registerSuccessToast();
+    } catch {
+        error => {
+          this.message.errorAlert(error.message);
+        }
+    }
+
+  }
+   
 
 
   switchAuthMode() {
