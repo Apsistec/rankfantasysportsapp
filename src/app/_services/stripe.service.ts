@@ -12,7 +12,6 @@ import { User } from '@models/user';
 })
 export class StripeService implements OnInit{
 
-
   user: User;
   subscriptions: Observable<any>;
   confirmation; // : Observable<any>;
@@ -27,7 +26,6 @@ export class StripeService implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.auth.user$.subscribe(user => this.user = user)
   }
 
   async subscribeUser(source, planId) {

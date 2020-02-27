@@ -28,8 +28,7 @@ Takes a Firebase user and creates a Stripe customer account
 */
 export const createCustomer = async(uid: any) => {
     const customer = await stripe.customers.create({
-        metadata: { firebaseUID: uid },
-       
+        metadata: { firebaseUID: uid }
     })
 
     await updateUser(uid, { stripeCustomerId: customer.id })

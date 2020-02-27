@@ -10,7 +10,8 @@ import { Injectable } from '@angular/core';
 import { map, take } from 'rxjs/operators';
 import { MessageService } from '../_services/message.service';
 import { Observable } from 'rxjs';
-import { StripeService } from '@services/stripe.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { User as fullUser } from '@models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class PaidGuard implements CanActivate {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private message: MessageService
+    private message: MessageService,
+    private afs: AngularFirestore
   ) {}
 
   canActivate(
@@ -30,9 +32,9 @@ export class PaidGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      return this.auth.user$.pipe(
+      return this.afs.doc<fullUser>(`users/${this.auth.currentUserId}`).valueChanges().pipe(
         take(1),
-        map(user => {
+        map(user=> {
           if(!user) {
             this.message.needPaymentAlert();
             this.router.navigateByUrl('/membership');

@@ -6,7 +6,7 @@ export interface PlayerActiveDetail {
     jersey: number;
     positioncategory: string;
     position: string;
-    userName: string;
+    name: string;
     height: number;
     weight: number;
     birthdate: string;

@@ -19,7 +19,7 @@ export class InterceptorService implements HttpInterceptor {
   /**
    * @constructs
    */
-  constructor() {}
+  constructor() { }
 
   /**
    * Intercepts HTTP requests and adds no-cache headers to ensure that the URI resource returned is

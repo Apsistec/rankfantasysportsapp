@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "noImplicitReturns": false,
-    "noUnusedLocals": false,
-    "strict": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "outDir": "lib",
     "sourceMap": true,
-    "target": "es2017",
-    "lib": [
-      "esnext.asynciterable"
-    ],
-    "types": [
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "es2015",
+  "types": [
       "jest",
       "stripe"
     ],

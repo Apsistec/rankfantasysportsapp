@@ -1,19 +1,19 @@
-import {
-  AngularFireAuthGuard,
-  canActivate,
-  hasCustomClaim,
-  redirectLoggedInTo,
-  redirectUnauthorizedTo
-  } from '@angular/fire/auth-guard';
+// import {
+  // AngularFireAuthGuard,
+  // canActivate,
+  // hasCustomClaim,
+  // redirectLoggedInTo,
+  // redirectUnauthorizedTo
+  // } from '@angular/fire/auth-guard';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@guards/auth.guard';
 
-const adminOnly = () => hasCustomClaim('admin');
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
-const redirectLoggedInToProfile = () => redirectLoggedInTo(['items']);
-const belongsToTables = next => hasCustomClaim(`account-${next.params.id}`);
-const belongsToCategories = next => hasCustomClaim(`account-${next.params.id}`);
+// const adminOnly = () => hasCustomClaim('admin');
+// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);
+// const redirectLoggedInToProfile = () => redirectLoggedInTo(['items']);
+// const belongsToTables = next => hasCustomClaim(`account-${next.params.id}`);
+// const belongsToCategories = next => hasCustomClaim(`account-${next.params.id}`);
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
   {
     path: 'user',
     loadChildren: () =>
-      import('./profile/settings/user-tickets/user-tickets.module').then(
+      import('./profile/user-tickets/user-tickets.module').then(
         m => m.UserTicketsPageModule
       ),
       canActivate: [AuthGuard],
@@ -88,9 +88,8 @@ const appRoutes: Routes = [
   {
     path: 'profile',
     loadChildren: () =>
-      import('./profile/profile.module').then(m => m.ProfilePageModule),
-   canActivate: [AuthGuard] ,
-  },
+      import('./profile/profile.module').then(m => m.ProfilePageModule)
+      },
 
   {
     path: 'stats',

@@ -37,7 +37,7 @@ export class MessageService {
 
   async isLoggedInToast() {
     const toast = await this.toastCtrl.create({
-      header: 'Login Successful',
+      header: 'Log In Successful',
       message:
         'Welcome Back!',
       cssClass: 'successT',
@@ -51,7 +51,7 @@ export class MessageService {
 
   async federatedLoginToast(data: any) {
     const toast = await this.toastCtrl.create({
-      header: 'Login Successful',
+      header: 'Log In Successful',
       message:
         ' Welcome back ' +
         data.user.displayName +

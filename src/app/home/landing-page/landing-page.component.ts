@@ -4,6 +4,7 @@ import { Config, PopoverController } from '@ionic/angular';
 import { ModalService } from '@services/modal.service';
 import { ThemeService } from '@services/theme.service';
 import { PopoverComponent } from '@shared/popover/popover.component';
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,7 +13,7 @@ import { PopoverComponent } from '@shared/popover/popover.component';
 })
 export class LandingPageComponent implements OnInit {
   core;
-
+  user: User;
   constructor(
     // private config: Config,
     public auth: AuthService,

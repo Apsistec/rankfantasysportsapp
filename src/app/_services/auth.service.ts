@@ -1,33 +1,33 @@
-import * as firebase from 'firebase/app';
+import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { BehaviorSubject, from, Observable, of } from 'rxjs';
-import { environment } from '..//../environments/environment';
-import { first, map, switchMap, take, tap } from 'rxjs/operators';
-import { Injectable, NgZone } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Injectable, NgZone} from '@angular/core';
 import { MessageService } from './message.service';
-import { ModalController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { SpinnerService } from './spinner.service';
 import { StorageService } from './storage.service';
-import { User } from '../_models/user';
+import { User } from 'firebase';
+import { User as fullUser } from '@models/user';
+import * as firebase from 'firebase/app'
+import { tap } from 'rxjs/operators';
+
+
+export interface UserCredentials {
+  displayName: string;
+  email: string;
+  password: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  credential;
-  user$: Observable<User>;
-  currentUser = new BehaviorSubject(null);
-  userId: string;
-  planId: string;
+  currentBehaviorUser = new BehaviorSubject(null);
   isSubscribed: boolean;
-  userRole: any = 'USER';
-  userPermissions: string[] = ['delete-ticket'];
-
-  import 
-  ref: AngularFirestoreDocument<unknown>;
-
+  displayName;
+  name;
+  user: User = null;
+  // ref: AngularFirestoreDocument<unknown>;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -35,100 +35,141 @@ export class AuthService {
     private ngZone: NgZone,
     private message: MessageService,
     private storage: StorageService,
-    private modalCtrl: ModalController,
-    private navCtrl: NavController,
-    private spinner: SpinnerService
-  ) {
-    
-    this.user$ = this.afAuth.authState.pipe(
-    switchMap(user => {
-        // Logged in
-      if (user) {
-        return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-      } else {
-        // Logged out
-        return of(null);
+  ) { 
+  this.afAuth.authState.subscribe(res => {
+    this.user = res;
+    if (this.user) {
+      this.afs.doc(`users/${this.currentUserId}`).valueChanges().pipe(
+        tap(res => {
+          this.name = res['name'];
+        })
+      ).subscribe();
+    }
+  })
+  }
+
+  get authenticated(): boolean {
+    return this.user !== null;
+  }
+ 
+  get currentUser(): any {
+    return this.authenticated ? this.user : null;
+  }
+ 
+  get currentUserId(): string {
+    return this.authenticated ? this.user.uid : '';
+  }
+
+
+// Authentication
+SignIn(email, password) {
+  this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      this.message.isLoggedInToast();
+      this.navigateEntryUser();
+    }).catch((err) => {
+      this.message.errorAlert(err.message);
+    });
+  }
+
+  // navigate upon login
+  async navigateEntryUser() {
+    if (this.user['role'] === 'ADMIN') {
+      this.router.navigateByUrl('/admin');
+    } else {
+      if (this.user['role'] === 'USER') {
+        const sub = (this.user['gold'] || this.user['silver'] || this.user['bronze']);
+        if (sub) {
+          this.router.navigateByUrl('/auth/profile');
+        } else {
+          this.router.navigateByUrl('/purchase');
+        }
       }
-    })
-  )
-}
-
-
-
-
-  // using the injected ModalController this page
-  // can "dismiss" itself and optionally pass back data
-  modalDismiss() {
-    this.modalCtrl.dismiss();
+    }
   }
 
-  /* Sign up email*/
-  registerUser(credentials) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password).then( async( data ) => {
-      await this.updateUserData(data.user);
-      await this.message.registerSuccessToast()
-      return this.router.navigateByUrl('/membership');
-    })
-  }
-  
-  
-  
-  // Log In- email and password
-  async signIn(credentials) {
-    this.credential = await this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password).then(async (data) => {
-      await this.updateUserData(data.user);
-      await this.message.isLoggedInToast();
-      return this.router.navigateByUrl('/membership');
-
-    })
-  }
-
-  // Set User Data in Firestore
-  private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
-
-    const data = {
-          displayName: user.userName,
-          email: user.email,
-          uid: user.uid,
+  SignUp(credentials: UserCredentials) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password)
+      .then((res) => {
+        return this.afs.doc(`users/${res.user.uid}`).set({
+          displayName: credentials.displayName,
+          email: res.user.email,
+          uid: res.user.uid,
           role: 'USER',
           permissions: ['delete-ticket'],
-          photoURL: user.photoURL
-    }
-    return userRef.set(data, { merge: true })
-
-  }
-
-  async signOut() {
-    await this.afAuth.auth.signOut();
-    this.router.navigate(['/home']);
-  }
-
-
-  // Reset Password
-  async resetPassword(email: string) {
-    await this.afAuth.auth
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        this.router.navigateByUrl('/home');
-        this.message.resetPasswordAlert();
-      })
-      .catch(err => {
-        return this.message.errorAlert(err);
+          photoURL: res.user.photoURL,
+          subStatus: null,
+          created: firebase.firestore.FieldValue.serverTimestamp()
+        });
       });
   }
 
 
+  
 
 
+  // Recover password
+  ResetPassword(passwordResetEmail) {
+    return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+    .then(() => {
+      this.message.resetPasswordAlert();
+    }).catch((error) => {
+      this.message.errorAlert(error.message);
+    })
+  }
+
+  // Returns true when user is looged in
+  get isLoggedIn(): boolean {
+    const user = this.storage.getObject('user');
+    return (user !== null) ? true : false;
+  }
+
+
+  // Sign in with Gmail
+  GoogleAuth() {
+    return this.AuthLogin(new auth.GoogleAuthProvider());
+  }
+
+  // Auth providers
+  AuthLogin(provider) {
+    return this.afAuth.auth.signInWithPopup(provider)
+    .then((result) => {
+      this.message.isLoggedInToast().then(() => {
+        if (!this.isSubscribed){
+          this.router.navigate[('membership')]
+        }
+        if (this.isSubscribed) {
+          this.ngZone.run(() => {
+            this.router.navigate(['profile']);
+          })
+        }
+      });
+    }).catch((error) => {
+      this.message.errorAlert(error.message)
+    })
+  }
+
+
+
+
+
+  // Sign-out 
+  SignOut() {
+    return this.afAuth.auth.signOut().then(() => {
+      this.storage.remove('user');
+      this.message.signOutToast().then(() => {
+        this.router.navigate(['home']);
+      })
+    })
+  }
 
 
   // Permissions Check for Trouble Tickets and Admin Dashboard
   hasPermissions(permissions: string[]): boolean {
     for (const perm of permissions) {
       if (
-        !this.currentUser.value ||
-        !this.currentUser.value.permissions.includes(perm)
+        !this.currentBehaviorUser.value ||
+        !this.currentBehaviorUser.value.permissions.includes(perm)
       ) {
         return false;
       }
@@ -139,147 +180,35 @@ export class AuthService {
 
 // User Roles to coincide with backend server permissions/rules
 
-canRead(user: User): boolean {
-  const allowed = ['ADMIN', 'SUBSCRIBER']
-  return this.checkAuthorization(user, allowed)
-}
-
-canEdit(user: User): boolean {
-  const allowed = ['ADMIN', 'SUBSCRIBER']
-  return this.checkAuthorization(user, allowed)
-}
-
-canDelete(user: User): boolean {
-  const allowed = ['ADMIN']
-  return this.checkAuthorization(user, allowed)
-}
-
-/** Returns true whenever the user is authenticated */
-get authenticated() { return this.authenticated; }
-
-
-
-// determines if user has matching role
-private checkAuthorization(user: User, allowedRoles: string[]): boolean {
-  if (!user) { return false }
-  for (const role of allowedRoles) {
-    if ( user.role[role] ) {
-      return true
-    }
+  canRead(user: fullUser): boolean {
+    const allowed = ['ADMIN', 'SUBSCRIBER']
+    return this.checkAuthorization(user, allowed)
   }
-  return false
-}
-  
 
+  canEdit(user: fullUser): boolean {
+    const allowed = ['ADMIN', 'SUBSCRIBER']
+    return this.checkAuthorization(user, allowed)
+  }
 
-  // /* Sign up email*/
-  // async registerUser(value) {
-  //   return this.afAuth.auth.createUserWithEmailAndPassword(value.email, value.password)
-  //   .then(async (data: any) => {
-  //     await this.updateUserData(data);
-  //     this.router.navigateByUrl('/membership')
-  //   });
-  // }
+  canDelete(user: fullUser): boolean {
+    const allowed = ['ADMIN']
+    return this.checkAuthorization(user, allowed)
+  }
 
-
-  // // Auth logic to Login using federated auth providers
-  // oauthLogin(provider: any) {
-  //   return this.afAuth.auth
-  //     .signInWithPopup(provider)
-  //     .then(data => {
-  //       if (!data.user) {
-  //         this.message.noExistFederatedUserAlert();
-  //         // tslint:disable-next-line: no-unused-expression
-  //         this.afAuth.idTokenResult
-  //       } else {
-  //         this.message.federatedLoginToast(data.user);
-  //         this.afs.doc(`users/${data.user.uid}`).update(data.user);
-  //         this.ngZone.run(() => {
-  //           this.router.navigateByUrl('/profile');
-  //         });
-  //       }
-  //     })
-  //     .catch(err => {
-  //       return this.message.errorAlert(err);
-  //     });
-  // }
-
-  // // Auth logic to Register using federated auth providers
-  //
-  // async oauthRegister(provider: any) {
-  //   return this.afAuth.auth
-  //     .signInWithPopup(provider)
-  //     .then(async (data: any) => {
-  //       await this.setUserData(data)
-  //         .then(() => {
-  //           return this.ngZone.run(() => {
-  //             this.router.navigateByUrl('/membership');
-  //           });
-  //         });
-  //     })
-  //     .catch(err => {
-  //       this.message.errorAlert(err);
-  //     });
-  // }
+  // /** Returns true whenever the user is authenticated */
+  // get authenticated() { return this.authenticated; }
 
 
 
-  // // Register in with Google
-  // GoogleRegister() {
-  //   return this.oauthRegister(new auth.GoogleAuthProvider());
-  // }
-
-  // // Register in with Twitter
-  // TwitterRegister() {
-  //   return this.oauthRegister(new auth.TwitterAuthProvider());
-  // }
-
-  // // Register in with Facebook
-  // FacebookRegister() {
-  //   return this.oauthRegister(new auth.FacebookAuthProvider());
-  // }
-
-  // // MicrosoftRegister() {
-  // //   return this.oauthRegister(new firebase.auth.OAuthProvider('microsoft.com'));
-  // // }
-
-  // // Log In with Google
-  // GoogleAuth() {
-  //   return this.oauthLogin(new auth.GoogleAuthProvider());
-  // }
-  // // Log In with Twitter
-  // TwitterAuth() {
-  //   return this.oauthLogin(new auth.TwitterAuthProvider());
-  // }
-
-  // // Log In with Facebook
-  // FacebookAuth() {
-  //   return this.oauthLogin(new auth.FacebookAuthProvider());
-  // }
-
-  // // For working with Azure AD app to query Microsoft Graph using Excel API and MS Javascript after getting a token from MSAL
-  // MicrosoftAuth() {
-  //   const provider = new auth.OAuthProvider('microsoft.com');
-  //   return this.oauthLogin(provider);
-  //   provider.setCustomParameters({
-  //     tenant: '775e45e1-79ea-465a-b26d-24ec063c54d1',
-  //   });
-  //   provider.addScope('files.read');
-  // }
-
-  // // related to Settings Page for joining additional Profiles to User
-  // async linkGoogle() {
-  //   this.spinner.loadSpinner();
-  //   const provider = await new auth.GoogleAuthProvider();
-  //   auth().currentUser.linkWithPopup(provider);
-  //   this.spinner.dismissSpinner();
-  //   provider.setCustomParameters({
-  //     tenant: '8b3cfe6b-4ec4-41af-be3d-4f41fd41da02',
-  //   });
-  //   provider.addScope('user.read, files.read');
-  //   // Tenant
-  //   // rfs-test@appspot.gserviceaccount.com
-  // }
-
-
+  // determines if user has matching role
+  private checkAuthorization(user: fullUser, allowedRoles: string[]): boolean {
+    if (!user) { return false }
+    for (const role of allowedRoles) {
+      if ( user.role[role] ) {
+        return true
+      }
+    }
+    return false
+  }
+    
 }

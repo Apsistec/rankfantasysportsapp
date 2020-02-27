@@ -5,7 +5,7 @@ import { ModalService } from './_services/modal.service';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
-import { SwUpdate } from '@angular/service-worker';
+// import { SwUpdate } from '@angular/service-worker';
 import { StripeService } from '@services/stripe.service';
 
 // import { FcmService } from '@services/fcm.service';
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   year;
 
   constructor(
-    private swUpdate: SwUpdate,
+    // private swUpdate: SwUpdate,
     public auth: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -45,21 +45,21 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit(): void {
-    this.subs = this.swUpdate.available.subscribe(async res => {
-      const toast = await this.toastCtrl.create({
-        message: 'Update available!',
-        showCloseButton: true,
-        position: 'bottom',
-        closeButtonText: `Reload`
-      });
+    // this.subs = this.swUpdate.available.subscribe(async res => {
+    //   const toast = await this.toastCtrl.create({
+    //     message: 'Update available!',
+    //     showCloseButton: true,
+    //     position: 'bottom',
+    //     closeButtonText: `Reload`
+    //   });
 
-      await toast.present();
+    //   await toast.present();
 
-      toast
-        .onDidDismiss()
-        .then(() => this.swUpdate.activateUpdate())
-        .then(() => window.location.reload());
-    });
+    //   toast
+    //     .onDidDismiss()
+    //     .then(() => this.swUpdate.activateUpdate())
+    //     .then(() => window.location.reload());
+    // });
 
     this.getYear();
   }
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   signOut() {
-    this.auth.signOut();
+    this.auth.SignOut();
   }
 
   authModal() {

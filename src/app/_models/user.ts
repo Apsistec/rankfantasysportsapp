@@ -9,11 +9,12 @@ export interface User {
   uid: string;
   photoURL: string;
   email: string;
-  role?: string;
+  created: string;
+  role: string;
   permissions?: string[];
-  stripeCustomerId?: string;
+  stripeCustomerId: string;
   plan?: string;
-  status?: string;
+  status: string;
   subId?: string;
   provider?: ProviderUserInfo;
   gold?: boolean;

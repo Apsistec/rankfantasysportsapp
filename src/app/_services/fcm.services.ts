@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 import * as app from 'firebase/app';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { from } from 'rxjs';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class FcmService {
     private fun: AngularFireFunctions,
     private toastController: ToastController,
     private firebaseNative: Firebase,
-    private platform: Platform
+    private platform: Platform,
+    private message: MessageService
   ) {
     try {
       const _messaging = app.messaging();
@@ -37,7 +39,9 @@ export class FcmService {
       showCloseButton: true,
       closeButtonText: 'dismiss'
     });
-    await toast.present();
+    await toast.present().catch(err => {
+      return this.message.errorAlert(err);
+    });
   }
 
   getPermission() {

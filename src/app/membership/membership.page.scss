@@ -73,6 +73,13 @@ inputError{
   transition: box-shadow 150ms ease;
 }
 
+
+ 
+#card-errors {
+  text-align: center;
+  color: var(--ion-color-danger);
+  margin: 10px;
+}
 .StripeElement--focus {
   box-shadow: 0 1px 5px 0 #9e009e;
 }

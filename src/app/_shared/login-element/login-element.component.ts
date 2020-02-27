@@ -2,9 +2,10 @@ import { AuthService } from '@services/auth.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MessageService } from '@services/message.service';
-import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { User } from '@models/user';
+import { StorageService } from '@services/storage.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-element',
@@ -12,7 +13,7 @@ import { User } from '@models/user';
   styleUrls: ['./login-element.component.scss'],
 })
 export class LoginElementComponent implements OnInit {
-  hidePass: boolean;
+  hide: boolean;
   user: User;
 
   loginForm;
@@ -25,15 +26,15 @@ export class LoginElementComponent implements OnInit {
     public auth: AuthService,
     private router: Router,
     private message: MessageService,
-    private modal: ModalController,
+    private storage: StorageService,
+    private modal: ModalController
   ) {}
 
 
   ngOnInit() {
-    this.auth.user$.subscribe(user => this.user = user)
 
 
-    this.hidePass = true;
+    this.hide = true;
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -49,14 +50,17 @@ export class LoginElementComponent implements OnInit {
   }
 
 
-  async onSubmit(login: NgForm) {
-    try {
-          await this.auth.signIn(this.loginForm.value)
-          await this.modal.dismiss();
-        } catch (error) {
-          await this.message.errorAlert(error.message);
-        }
+  async onSubmit(form: NgForm) {
+    try{
+      this.modal.dismiss();
+      const user = await this.auth.SignIn(form.value.email, form.value.password);
+      this.storage.set('loggedInStatus', 'isLoggedIn');
+      (this.auth.isSubscribed) ? this.router.navigateByUrl('/profile') : this.router.navigateByUrl('/membership');        
+    } catch (error) {
+      await this.message.errorAlert(error.message);
+    }
+  }
   
 
 }
-}
+

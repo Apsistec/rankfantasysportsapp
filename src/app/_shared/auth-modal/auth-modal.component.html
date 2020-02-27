@@ -8,24 +8,21 @@
   </ion-fab-button>
 </ion-fab>
   <!-- <img style="max-height: 150px;" src="../../../assets/img/logo.jpg" /> -->
-<!-- <ng-container *ngIf="isReset">
-  <app-forgot-password-element (changeLogin)="switchLoginMode($event)"></app-forgot-password-element>
-</ng-container> -->
-  <!-- Sign  Up form -->
+<ng-container *ngIf="isReset">
+  <app-forgot-password-element (changeLogin)="switchResetMode($event)"></app-forgot-password-element>
+</ng-container>
+<!-- Login form -->
   <ng-container *ngIf="isLogin">
     <hr />
     <app-login-element ></app-login-element>
     <hr />
   </ng-container>
-  <!-- Login form -->
-  <ng-container *ngIf="!isLogin">
-    <app-register-element></app-register-element>
-  </ng-container>
+
   <hr />
   <!-- <ion-button fill="clear" size="small" color="light" (click)="onPasswordReset()">
     Forgot Password?
   </ion-button> -->
-  <ion-button color="light" size="large" fill="clear" (click)="switchAuthMode()">
+  <ion-button color="secondary"  fill="clear" (click)=goToMembership()>>
    Need to {{ isLogin ? 'Sign Up': 'Log In' }}?
   </ion-button>
 

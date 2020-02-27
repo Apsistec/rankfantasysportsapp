@@ -29,14 +29,14 @@ export class TicketService {
     if (id) {
       return this.db.doc(`tickets/${id}`).update(info);
     } else {
-      info.creator = this.auth.currentUser.value.id;
+      info.creator = this.auth.currentBehaviorUser.value.id;
       info.created_at = firebase.firestore.FieldValue.serverTimestamp();
       return this.db.collection('tickets').add(info);
     }
   }
 
   getUserTickets() {
-    const id = this.auth.currentUser.value.id;
+    const id = this.auth.currentBehaviorUser.value.id;
     return this.db
       .collection('tickets', ref => ref.where('creator', '==', id))
       .snapshotChanges()

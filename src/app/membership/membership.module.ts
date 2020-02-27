@@ -30,8 +30,6 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes),
   ],
-  providers: [
-  ],
   declarations: [
     MembershipPage,
     BlinkDirective,

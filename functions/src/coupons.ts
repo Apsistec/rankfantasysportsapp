@@ -16,4 +16,3 @@ export const stripeGetCoupon= functions.https.onCall( async (data, context) => {
     const coupon = assert(data, 'coupon');
     return catchErrors(getCoupon(coupon));
 });
-  

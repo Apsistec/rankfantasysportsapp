@@ -4,14 +4,12 @@ import { ThemeService } from '../_services/theme.service';
 import { ModalController } from '@ionic/angular';
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
 import { InvoicesComponent } from './invoices/invoices.component';
-import { SettingsComponent } from './settings/settings.component';
 import { StripeService } from '../_services/stripe.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { switchMap,  first } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireFunctions } from '@angular/fire/functions';
 import { User } from '@models/user';
+import { switchMap, tap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 
 @Component({
@@ -21,43 +19,27 @@ import { User } from '@models/user';
 })
 export class ProfilePage implements OnInit {
   titleId = 'RF$\u2122 User Profile';
-
   planId;
-  authenticated;
   atp;
   buy;
   purchase;
-  user
+  user: User;
   
   constructor(
     private theme: ThemeService,
     private modalCtrl: ModalController,
     public auth: AuthService,
     public afAuth: AngularFireAuth,
-    public stripeService: StripeService,
     public afs: AngularFirestore,
-    private functions: AngularFireFunctions,
-    public stripe: StripeService
-  ) {
-    // Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState.pipe(
-     switchMap(user => {
-       if (user !== null) {
-         return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
-       } else {
-         return of(null);
-       }
-     })
-   );
- }
+    public stripe: StripeService,
+  ) {   
+   
+    }
 
 ngOnInit(){
 
-  this.auth.user$.subscribe(user => this.user = user)  
+
 }
-
-
-
 // Themes
   enableDark() {
     this.theme.enableDark();
@@ -66,6 +48,7 @@ ngOnInit(){
   enableLight() {
     this.theme.enableLight();
   }
+
 
 // Stripe Account Administration Modals
   async presentCancelSubModal() {
@@ -83,12 +66,12 @@ ngOnInit(){
   }
 
   // App User Settings Modal
-  async presentSettingsModal() {
-    const modal = await this.modalCtrl.create({
-      component: SettingsComponent,
-    });
-    return modal.present();
-  }
+  // async presentSettingsModal() {
+  //   const modal = await this.modalCtrl.create({
+  //     component: SettingsComponent,
+  //   });
+  //   return modal.present();
+  // }
 
   // dismiss Modals
   async onDismissModal() {

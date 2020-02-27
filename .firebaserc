@@ -5,7 +5,9 @@
     "styling": "rfs-test",
     "anyalias": "rankfantasysports-test",
     "fixing": "rfs-test",
-    "finish": "rankfantasysports-test-9370b"
+    "finish": "rfs-winning",
+    "testing": "rfs-admin",
+    "staginh": "rfs-admin"
   },
   "targets": {
     "rfs-test": {
@@ -32,6 +34,13 @@
       "hosting": {
         "rfstest1": [
           "test-rfs"
+        ]
+      }
+    },
+    "rfs-winning": {
+      "hosting": {
+        "rfstest1": [
+          "rfs-winning"
         ]
       }
     }

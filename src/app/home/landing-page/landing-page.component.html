@@ -7,10 +7,10 @@
     </div>
 
 <!-- User Login Button/User Image with Popover- top right -->
-    <div *ngIf="auth.afAuth.user | async as user; else login">
+    <div *ngIf="auth.afAuth.user | async; else login">
       <a (click)="presentPopover($event)" style="position: absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
         <ion-avatar >
-        <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"  style="width:60px;height:60px"/>
+        <img [src]="auth.currentUser.photoURL || '../../../assets/img/dummy-user.png'"  style="width:60px;height:60px"/>
         </ion-avatar>
       </a>
     </div>
@@ -27,10 +27,8 @@
 <ion-text>
     <h1>
     Get our Pro Package
-    <strong>
-      One Week free
-  </strong>
-  </h1>
+        One Week free
+    </h1>
 
   <h2>
     Hand Picked Data - DFS Expert Curation - Win First!

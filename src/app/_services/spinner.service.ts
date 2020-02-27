@@ -8,17 +8,16 @@ import { RouterEvent } from '@angular/router';
 export class SpinnerService {
   isLoading = false;
   constructor(private loadingCtrl: LoadingController) {}
-
+  
   async loadSpinner() {
-    const load = await this.loadingCtrl.create({
+    const load = await this.loadingCtrl
+    .create({ 
       spinner: 'circles',
       duration: 5000,
-    }).then(a => {
-      a.present().then(() => {
-        console.log('presented');
-        if (!this.isLoading) {
-          a.dismiss().then(() => console.log('abort presenting'));
-        }
+    })
+    .then(a => {a.present()
+      .then(() => {
+        if (!this.isLoading) {a.dismiss()}
       });
     });
 
@@ -26,6 +25,7 @@ export class SpinnerService {
 
   async dismissSpinner() {
     this.isLoading = false;
-    return await this.loadingCtrl.dismiss().then(() => console.log('dismissed'));
+    
+    await this.loadingCtrl.dismiss().then(() => console.log('dismissed'));
   }
 }

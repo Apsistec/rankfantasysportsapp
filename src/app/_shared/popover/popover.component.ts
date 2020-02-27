@@ -25,7 +25,7 @@ export class PopoverComponent {
   // code for logout
   async logOut() {
     await this.dismissPopover();
-      this.auth.signOut();
+      this.auth.SignOut();
   }
 
   async goToProfile() {

@@ -1,21 +1,17 @@
-<form #login  [formGroup]="loginForm" (ngSubmit)="onSubmit(login)" novalidate>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
 
   <ion-card-title>
-    <ion-text
-      style="font-size: x-large; font-weight: 800; font-variant: small-caps; font-stretch: condensed;" class="ion-text-capitalize"
-    >
-      Log In to
-      <br >
-      Rank Fantasy Sports
+    <ion-text  >
+    Rank Fantasy Sports
+     Log In
     </ion-text>
   </ion-card-title>
   <ion-card-subtitle>
-  <ion-text  class="ion-text-capitalize" style="font-variant: small-caps;">
-    Before using your <strong>Pro Plan</strong>, you need to log in to Rank
-    Fantasy Sports
+  <ion-text  >
+    You need to log in before using your <strong>Pro Plan</strong>
   </ion-text>
-  </ion-card-subtitle>>
-  <ion-card color="silver" class="ion-no-padding ion-no-margin">
+  </ion-card-subtitle>
+  <ion-card color="light" class="ion-padding ion-margin">
     <ion-item color="light">
       <ion-label position="floating">Email</ion-label>
       <ion-input
@@ -49,29 +45,29 @@
         debounce="300"
         id="password"
         style="width: 89%;"
-        [type]="hidePass ? 'password' : 'text'"
+        [type]="hide ? 'password' : 'text'"
         inputmode="text"
         formControlName="password"
       ></ion-input>
       <ion-button
         item-end
-        (click)="hidePass = !hidePass"
-        *ngIf="hidePass"
+        (click)="hide = !hide"
+        *ngIf="hide"
         style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
         color="dark"
         fill="clear"
       >
-        <ion-icon size="large" name="eye"> </ion-icon>
+        <ion-icon  name="eye"> </ion-icon>
       </ion-button>
       <ion-button
         item-end
-        (click)="hidePass = !hidePass"
-        *ngIf="!hidePass"
+        (click)="hide = !hide"
+        *ngIf="!hide"
         style="position: absolute; right: 15px; bottom: 15px; background: transparent;"
         color="dark"
         fill="clear"
       >
-        <ion-icon size="large" name="eye-off"> </ion-icon>
+        <ion-icon  name="eye-off"> </ion-icon>
       </ion-button>
     </ion-item>
     <div
@@ -104,12 +100,11 @@
       </div>
     </div>
   </ion-card>
-  <hr />
-
+           
   <ion-button
     [disabled]="loginForm.invalid"
     color="danger"
-    style="width: 70%;"
+    expand="full"                  
     type="submit"
     >
     <ion-icon

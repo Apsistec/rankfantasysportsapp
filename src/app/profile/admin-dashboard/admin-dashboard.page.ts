@@ -46,6 +46,6 @@ export class AdminDashboardPage implements OnInit {
 
 
   signOut() {
-    this.auth.signOut();
+    this.auth.SignOut();
   }
 }

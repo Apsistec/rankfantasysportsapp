@@ -16,7 +16,6 @@ import { NowComponent } from '../tables/now/now.component';
 import { PgaComponent } from '../tables/pga/pga.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { RegisterElementComponent } from './register-element/register-element.component';
 import { RouterModule } from '@angular/router';
 import { SharedDirectivesModule } from '../_directives/shared-directives.module';
 import { TennisComponent } from '../tables/tennis/tennis.component';
@@ -39,7 +38,6 @@ import { TicketComponent } from './tickets/ticket.component';
     NbaComponent,
     TennisComponent,
     ForgotPasswordElementComponent,
-    RegisterElementComponent,
     LoginElementComponent,
     AuthModalComponent
   ],
@@ -70,7 +68,6 @@ import { TicketComponent } from './tickets/ticket.component';
     ForgotPasswordElementComponent,
     PopoverComponent,
     FooterComponent,
-    RegisterElementComponent,
     LoginElementComponent,
     PrivacyDialogComponent,
     TermsDialogComponent,

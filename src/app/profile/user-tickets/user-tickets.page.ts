@@ -30,7 +30,7 @@ export class UserTicketsPage implements OnInit {
     await modal.present();
   }
 
-  signOut() {
-    this.auth.signOut();
+  SignOut() {
+    this.auth.SignOut();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 
@@ -10,12 +11,13 @@ import { ModalController } from '@ionic/angular';
 })
 export class AuthModalComponent implements OnInit {
   isLogin = true;
-  // isReset = false;
-  // isRegister = false;
+  isReset = false;
+  isRegister = false;
   // forgot;
 
   constructor(
-    public modal: ModalController
+    public modal: ModalController,
+    private route: Router
   ) {}
 
 
@@ -27,13 +29,16 @@ export class AuthModalComponent implements OnInit {
   }
 
 
-
+  goToMembership() {
+    this.route.navigateByUrl('/membership');
+    this.modal.dismiss();
+  }
 
   switchAuthMode() {
     this.isLogin = !this.isLogin;
   }
 
-  // switchResetMode() {
-  //   this.isReset = !this.isReset;
-  // }
+  switchResetMode() {
+    this.isReset = !this.isReset;
+  }
 }
