@@ -7,13 +7,10 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": false,
-    "target": "es2015",
+    "target": "es2017",
   "types": [
       "jest",
       "stripe"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
     ]
   },
   "compileOnSave": true,
