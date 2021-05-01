@@ -12,7 +12,8 @@
         "titleBar.inactiveForeground": "#15202b99",
         "statusBar.background": "#d19b81",
         "statusBarItem.hoverBackground": "#c37d5c",
-        "statusBar.foreground": "#15202b"
+        "statusBar.foreground": "#15202b",
+        "activityBar.activeBackground": "#dfb9a6"
     },
     "peacock.color": "#d19b81",
     "jshint.options": {"esversion": 6}
