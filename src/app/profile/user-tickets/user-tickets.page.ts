@@ -1,9 +1,10 @@
-import { TicketService } from '@services/ticket.service';
-import { AuthService } from '@services/auth.service';
+import { Observable } from 'rxjs';
+
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { TicketComponent } from '@shared/tickets/ticket.component';
+import { AuthService } from '../../_services/auth.service';
+import { TicketService } from '../../_services/ticket.service';
+import { TicketComponent } from '../../_shared/tickets/ticket.component';
 
 @Component({
   selector: 'app-user-tickets',
@@ -14,7 +15,7 @@ export class UserTicketsPage implements OnInit {
   tickets: Observable<any>;
   titleId = 'RF$\u2122 User Dashboard';
   constructor(
-    public auth: AuthService,
+    public authService: AuthService,
     private modalCtrl: ModalController,
     private ticket: TicketService
   ) {}
@@ -31,6 +32,6 @@ export class UserTicketsPage implements OnInit {
   }
 
   SignOut() {
-    this.auth.SignOut();
+   this.authService.SignOut();
   }
 }

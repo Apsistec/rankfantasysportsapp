@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { PopoverComponent } from '../popover/popover.component';
-import { PopoverController, ModalController } from '@ionic/angular';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { ModalService } from '../../_services/modal.service';
+
 import { User } from '../../_models/user';
 import { AuthService } from '../../_services/auth.service';
-import { ModalService } from '@services/modal.service';
+import { PopoverComponent } from '../popover/popover.component';
 
 @Component({
   selector: 'app-header',
@@ -15,13 +16,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @Input() titleId: string;
 
   user: User;
-  button = document.querySelector('ion-button');
+  button= document.querySelector('ion-button');
 
   mobile;
   showGetStartedButton: Boolean;
 
   constructor(
-    public auth: AuthService,
+    public authService: AuthService,
     private popoverController: PopoverController,
     private modal: ModalService
   ) {}
@@ -44,7 +45,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   get isPurchasePage(): boolean {
     return this.titleId === 'RF$\u2122 Pro Memberships' ? true : false;
   }
-  
+
   get isProfilePage(): boolean {
     return this.titleId === 'RF$\u2122 User Profile' ? true : false;
   }

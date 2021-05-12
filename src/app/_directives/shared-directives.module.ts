@@ -1,7 +1,8 @@
-import { CommonModule } from "@angular/common";
-import { HasPermissionDirective } from "./has-permission.directive";
-import { NgModule } from "@angular/core";
-import { SubmitIfValidDirective } from "./submit-if-valid.directive";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { HasPermissionDirective } from './has-permission.directive';
+import { SubmitIfValidDirective } from './submit-if-valid.directive';
 
 @NgModule({
   declarations: [HasPermissionDirective, SubmitIfValidDirective],

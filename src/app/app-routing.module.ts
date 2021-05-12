@@ -4,10 +4,10 @@
   // hasCustomClaim,
   // redirectLoggedInTo,
   // redirectUnauthorizedTo
-  // } from '@angular/fire/auth-guard';
+// } from '@angular/fire/auth-guard';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '@guards/auth.guard';
+import { AuthGuard } from './_guards/auth.guard';
 
 // const adminOnly = () => hasCustomClaim('admin');
 // const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);

@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { CollectionService } from './../../../_services/collection.service';
-import { IonContent } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
+import { IonContent } from '@ionic/angular';
+
+import { CollectionService } from '../../../_services/collection.service';
 
 @Component({
   selector: 'app-wttsa',
@@ -13,8 +13,8 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./wttsa.component.css']
 })
 export class WttsaComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   // @ViewChild(MatTable, {static: false}) table: MatTable<WttsaItem>;
   dataSource: MatTableDataSource<any>;
   titleId   = 'Women\'s Tennis Tournament Stat Archives';

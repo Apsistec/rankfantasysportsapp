@@ -1,6 +1,7 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+
 import { Table } from '../_models/table.model';
 import { TableService } from '../_services/table.service';
 

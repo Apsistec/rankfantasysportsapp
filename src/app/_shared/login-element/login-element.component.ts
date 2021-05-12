@@ -1,10 +1,10 @@
-import { AuthService } from '@services/auth.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, Validators, NgForm } from '@angular/forms';
-import { MessageService } from '@services/message.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '@models/user';
 import { ModalController } from '@ionic/angular';
+import { User } from '../../_models/user';
+import { AuthService } from '../../_services/auth.service';
+import { MessageService } from '../../_services/message.service';
 
 @Component({
   selector: 'app-login-element',
@@ -22,7 +22,7 @@ export class LoginElementComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public auth: AuthService,
+    public authService: AuthService,
     private router: Router,
     private message: MessageService,
     private modal: ModalController
@@ -51,13 +51,13 @@ export class LoginElementComponent implements OnInit {
   async login() {
     try{
       this.modal.dismiss();
-      const user = await this.auth.SignIn(this.loginForm.value.email, this.loginForm.value.password);
-      (this.auth.isSubscribed) ? this.router.navigateByUrl('/profile') : this.router.navigateByUrl('/membership');        
+      const user = await this.authService.SignIn(this.loginForm.value.email, this.loginForm.value.password);
+      (this.authService.isSubscribed) ? this.router.navigateByUrl('/profile') : this.router.navigateByUrl('/membership');
     } catch (error) {
       await this.message.errorAlert(error.message);
     }
   }
-  
+
 
 }
 

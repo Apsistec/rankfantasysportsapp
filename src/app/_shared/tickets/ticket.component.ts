@@ -1,7 +1,8 @@
-import { AuthService } from '../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController, NavParams } from '@ionic/angular';
+
+import { AuthService } from '../../_services/auth.service';
 import { TicketService } from '../../_services/ticket.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class TicketComponent implements OnInit {
     private loadingCtrl: LoadingController,
     private ticket: TicketService,
     private navParam: NavParams,
-    public auth: AuthService
+    public authService: AuthService
   ) {}
 
   ngOnInit() {

@@ -1,14 +1,15 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IonContent, ModalController } from '@ionic/angular';
-import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
 import { Router } from '@angular/router';
-import { SeoService } from '@services/seo.service';
-import { StartModalComponent } from '..//home/start-modal/start-modal.component';
-import { StorageService } from './../_services/storage.service';
-import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
-import { User } from '@models/user';
+import { IonContent, ModalController } from '@ionic/angular';
+import { User } from '../_models/user';
+import { SeoService } from '../_services/seo.service';
+import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
+import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
+
+import { AuthService } from '../_services/auth.service';
+import { StorageService } from '../_services/storage.service';
+import { StartModalComponent } from '../home/start-modal/start-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +42,7 @@ export class HomePage implements OnInit, AfterViewInit {
   constructor(
     private modalController: ModalController,
     private domSanitizer: DomSanitizer,
-    public auth: AuthService,
+    public authService: AuthService,
     private seo: SeoService,
     private storage: StorageService,
     private route: Router
@@ -109,6 +110,6 @@ export class HomePage implements OnInit, AfterViewInit {
       }, 4000);
     }
   }
-  
+
 
 }

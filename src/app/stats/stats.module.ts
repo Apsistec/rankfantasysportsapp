@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { InjuriesComponent } from './injuries/injuries.component';
-import { IonicModule } from '@ionic/angular';
-import { MaterialModule } from '../material/material.module';
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared/shared.module';
-import { StatsPage } from './stats.page';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { SharedModule } from '../_shared/shared.module';
+
+import { MaterialModule } from '../material/material.module';
+import { InjuriesComponent } from './injuries/injuries.component';
 import { StatsPageRoutingModule } from './stats-routing.module';
+import { StatsPage } from './stats.page';
+
 @NgModule({
   imports: [
     CommonModule,

@@ -1,15 +1,18 @@
 import { ArchwizardModule } from 'angular-archwizard';
-import { BlinkDirective } from '@directives/blink.directive';
+
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { MaterialModule } from '../material/material.module';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MembershipPage } from './membership.page';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
-// import { AuthModalComponent } from '@shared/auth-modal/auth-modal.component';
+import { BlinkDirective } from '../_directives/blink.directive';
+import { IonicModule } from '@ionic/angular';
+import { SharedModule } from '../_shared/shared.module';
+
+import { MaterialModule } from '../material/material.module';
+import { MembershipPage } from './membership.page';
+
+// import { AuthModalComponent } from '../../auth-modal/auth-modal.component';
 
 const routes: Routes = [
   {

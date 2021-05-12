@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+
 import { SharedModule } from '../_shared/shared.module';
 import { TestimonialsPage } from './testimonials.page';
 

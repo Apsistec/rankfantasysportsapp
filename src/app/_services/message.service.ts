@@ -1,5 +1,5 @@
-import { AlertController, ToastController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class MessageService {
       position: 'middle',
       keyboardClose: true,
       duration: 4000,
-      showCloseButton: true,
+      
     });
     return toast.present();
   }
@@ -44,7 +44,7 @@ export class MessageService {
       position: 'middle',
       keyboardClose: true,
       duration: 3000,
-      showCloseButton: true,
+
     });
     await toast.present();
   }
@@ -59,7 +59,7 @@ export class MessageService {
       cssClass: 'successT',
       position: 'middle',
       duration: 3000,
-      showCloseButton: true,
+
       keyboardClose: true,
     });
     await toast.present();
@@ -73,7 +73,7 @@ export class MessageService {
         'Thank You for Stopping By!',
       position: 'middle',
       duration: 3000,
-      showCloseButton: true,
+
 
       keyboardClose: true,
 
@@ -89,7 +89,7 @@ export class MessageService {
       duration: 3000,
       position: 'middle',
       cssClass: 'successT',
-      showCloseButton: true,
+
 
       keyboardClose: true,
 
@@ -105,7 +105,7 @@ export class MessageService {
         'You are subscribed! Thank You!',
       position: 'middle',
       duration: 3000,
-      showCloseButton: true,
+
       keyboardClose: true,
 
     });
@@ -120,7 +120,7 @@ export class MessageService {
         ' You are already Subscribed',
       position: 'middle',
       duration: 3000,
-      showCloseButton: true,
+
 
       keyboardClose: true,
 

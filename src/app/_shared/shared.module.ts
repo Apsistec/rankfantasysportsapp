@@ -1,24 +1,28 @@
-import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+
+import { SharedDirectivesModule } from '../_directives/shared-directives.module';
 import { CbbComponent } from '../tables/cbb/cbb.component';
 import { CfbComponent } from '../tables/cfb/cfb.component';
-import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
-import { ForgotPasswordElementComponent } from './forgot-password-element/forgot-password-element.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { IonicModule } from '@ionic/angular';
-import { LoginElementComponent } from './login-element/login-element.component';
 import { NbaComponent } from '../tables/nba/nba.component';
 import { NflComponent } from '../tables/nfl/nfl.component';
-import { NgModule } from '@angular/core';
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { NowComponent } from '../tables/now/now.component';
 import { PgaComponent } from '../tables/pga/pga.component';
+import { TennisComponent } from '../tables/tennis/tennis.component';
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { FooterComponent } from './footer/footer.component';
+import {
+    ForgotPasswordElementComponent
+} from './forgot-password-element/forgot-password-element.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginElementComponent } from './login-element/login-element.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
-import { RouterModule } from '@angular/router';
-import { SharedDirectivesModule } from '../_directives/shared-directives.module';
-import { TennisComponent } from '../tables/tennis/tennis.component';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog.component';
 import { TicketComponent } from './tickets/ticket.component';
 

@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router
-} from '@angular/router';
-import { AuthService } from '@services/auth.service';
-import { MessageService } from '@services/message.service';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
+import { MessageService } from '../_services/message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaidGuard implements CanActivate {
   constructor(
-    private auth: AuthService,
+    private authService: AuthService,
     private router: Router,
     private message: MessageService
   ) {}
@@ -22,10 +17,10 @@ export class PaidGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-    // const bronze = await this.auth.bronze();
-    // const silver = await this.auth.silver();
-    // const gold = await this.auth.gold();
-    const isMember = !!(this.auth.bronze || this.auth.gold || this.auth.silver);
+    // const bronze = await this.authService.bronze();
+    // const silver = await this.authService.silver();
+    // const gold = await this.authService.gold();
+    const isMember = !!(this.authService.bronze ||this.authService.gold ||this.authService.silver);
 
     if (!isMember) {
       this.message.needPaymentAlert();

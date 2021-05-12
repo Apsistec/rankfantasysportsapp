@@ -9,7 +9,7 @@
 </ion-fab>
   <!-- <img style="max-height: 150px;" src="../../../assets/img/logo.jpg" /> -->
 <ng-container *ngIf="isReset">
-  <app-forgot-password-element (changeLogin)="switchResetMode($event)"></app-forgot-password-element>
+  <app-forgot-password-element (changeLogin)="switchResetMode()"></app-forgot-password-element>
 </ng-container>
 <!-- Login form -->
   <ng-container *ngIf="isLogin">

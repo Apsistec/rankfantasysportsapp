@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+
 import { StripeService } from '../../_services/stripe.service';
 
 @Component({

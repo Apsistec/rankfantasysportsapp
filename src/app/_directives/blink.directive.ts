@@ -1,6 +1,7 @@
-import { Directive, OnInit, OnDestroy, HostBinding } from '@angular/core';
+import { merge, Observable, timer } from 'rxjs';
 import { mapTo, takeWhile } from 'rxjs/operators';
-import { Observable, timer, merge } from 'rxjs';
+
+import { Directive, HostBinding, OnDestroy, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appBlink]'

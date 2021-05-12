@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { LoadingController, ModalController } from '@ionic/angular';
+
 import { AuthService } from '../../_services/auth.service';
 import { StripeService } from '../../_services/stripe.service';
 
@@ -16,7 +17,7 @@ export class CancelSubscriptionComponent implements OnInit {
     public functions: AngularFireFunctions,
     public load: LoadingController,
     public modalCtrl: ModalController,
-    public auth: AuthService,
+    public authService: AuthService,
     public stripeService: StripeService
   ) {}
   ngOnInit() {}

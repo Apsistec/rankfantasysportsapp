@@ -1,5 +1,5 @@
 <app-header [titleId]="titleId"></app-header>
-<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" fullscreen>
+<ion-content (ionScroll)="onScroll($event)" [scrollEvents]="true" fullscreen="true">
   <ion-grid>
     <ion-row>
       <ion-col class="ion-no-padding" offset-lg="3">
@@ -23,9 +23,8 @@
               [opts]="{
                 chrome: ['transparent', 'noheader', 'nofooter', 'noscrollbar'],
                 theme: 'dark',
-                tweetLimit: '3',
-                borderColor: '#02ed25',
-                ariaPolite: 'assertive'
+                tweetLimit: 3,
+                borderColor: '#02ed25'
               }"
             >
             </ngx-twitter-timeline>
@@ -38,7 +37,7 @@
             </ion-button>
           </ion-card-content>
         </ion-card>
-        <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+        <ion-fab vertical="bottom" horizontal="end" edge="true"slot="fixed">
           <ion-fab-button id="scrollToTop" size="small" (click)="ScrollToTop()">
             <ion-icon name="arrow-dropup"></ion-icon>
           </ion-fab-button>

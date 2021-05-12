@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { AngularFireMessaging } from '@angular/fire/messaging';
-import { AngularFireFunctions } from '@angular/fire/functions';
-import { ToastController, Platform } from '@ionic/angular';
-import { tap } from 'rxjs/operators';
-
 // Fixing temporary bug in AngularFire
 import * as app from 'firebase/app';
-import { Firebase } from '@ionic-native/firebase/ngx';
 import { from } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+import { Injectable } from '@angular/core';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { AngularFireMessaging } from '@angular/fire/messaging';
+import { Firebase } from '@ionic-native/firebase/ngx';
+import { Platform, ToastController } from '@ionic/angular';
+
 import { MessageService } from './message.service';
 
 @Injectable({

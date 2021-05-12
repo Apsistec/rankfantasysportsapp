@@ -1,8 +1,10 @@
-import { SeoService } from '@services/seo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Faqs } from './faqs';
-import { AuthService } from '../_services/auth.service';
 import { IonContent } from '@ionic/angular';
+import { SeoService } from '../_services/seo.service';
+
+import { AuthService } from '../_services/auth.service';
+import { Faqs } from './faqs';
+
 // import { Plugins } from '@capacitor/core';
 // const { Clipboard } = Plugins;
 @Component({
@@ -17,7 +19,7 @@ export class FaqPage implements OnInit {
   scrolledDown = false;
 
   constructor(
-    public auth: AuthService,
+    public authService: AuthService,
     private seo: SeoService
     ) {
       this.seo.addTwitterCard(

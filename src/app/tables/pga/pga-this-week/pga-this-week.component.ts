@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-pga-this-week',
   templateUrl: './pga-this-week.component.html',

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
-
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth-modal',
@@ -15,19 +13,13 @@ export class AuthModalComponent implements OnInit {
   isRegister = false;
   // forgot;
 
-  constructor(
-    public modal: ModalController,
-    private route: Router
-  ) {}
-
-
+  constructor(public modal: ModalController, private route: Router) {}
 
   ngOnInit() {}
 
   modalDismiss() {
     this.modal.dismiss();
   }
-
 
   goToMembership() {
     this.route.navigateByUrl('/membership');

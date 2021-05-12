@@ -1,35 +1,32 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Injectable } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { Router } from '@angular/router';
+import { User } from '../_models/user';
+
 import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { SpinnerService } from './spinner.service';
-import { User } from '@models/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StripeService implements OnInit{
-
+export class StripeService {
   user: User;
   subscriptions: Observable<any>;
   confirmation; // : Observable<any>;
   invoices: Observable<any>;
 
   constructor(
-    private auth: AuthService,
+    private authService: AuthService,
     private functions: AngularFireFunctions,
     private message: MessageService,
     private router: Router,
     private spinner: SpinnerService
   ) {}
 
-  ngOnInit() {
-  }
-
   async subscribeUser(source, planId) {
-
     const fun = this.functions.httpsCallable('stripeCreateSubscription');
     this.confirmation = await fun({
       source: source.id,
@@ -57,7 +54,7 @@ export class StripeService implements OnInit{
         this.message.unsubscribedAlert();
         this.router.navigate(['/home']);
       })
-      .catch(error => {
+      .catch((error) => {
         this.spinner.dismissSpinner();
         this.message.errorAlert(error.message);
       });

@@ -1,8 +1,11 @@
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+
 import { Table } from '../_models/table.model';
+
 // tslint:disable: prefer-conditional-expression
 
 @Injectable({

@@ -7,7 +7,7 @@
       <ion-menu-button color="silver"> </ion-menu-button>
     </ion-buttons>
 
-    <ion-item *ngIf="auth.afAuth.user | async as user; else getStarted"
+    <ion-item *ngIf="authService.afAuth.user | async as user; else getStarted"
         slot="end"
         type="button"
         color="primary"
@@ -56,7 +56,7 @@
       </ion-text>
 
     </div>
-    <ng-container *ngIf="auth.afAuth.user | async as user; else getStarted">
+    <ng-container *ngIf="authService.afAuth.user | async as user; else getStarted">
       <ion-item
         slot="end"
         type="button"

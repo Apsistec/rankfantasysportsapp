@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
+
+import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 import { MessageService } from './message.service';
 

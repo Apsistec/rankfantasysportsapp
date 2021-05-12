@@ -1,29 +1,28 @@
 <app-header [titleId]="titleId"></app-header>
 <ion-content  full-screen="true" class="text-wrap">
-  
-  
-  <div *ngIf="user | async then atp; else login"> </div>
-  
-  <ng-template #atp *ngIf="user | async" >
-    <ion-grid  >
+
+
+  <div *ngIf="authService.user$ | async then atp; else login">
+
+
+    <ng-template #atp *ngIf="authService.user$ | async as user" >
+      <ion-grid  >
       <ion-row>
         <ion-col size-sm="5">
-          
+
           <ion-card color="medium" class="ion-text-center">
             <ion-card-header>
               <ion-card-title class="ion-text-center">
-              <ion-text color="secondary">
-                User Profile
-              </ion-text>
-            </ion-card-title>
+                <ion-text color="secondary">
+                  User Profile
+                </ion-text>
+              </ion-card-title>
           </ion-card-header>
           <img style="width:120px; height:120px; position:relative;" [src]="user.photoURL || '../../assets/img/dummy-user.png'">
           <ion-item color="medium" lines="none">
             <ion-grid>
               <ion-row>
-                
-                
-                
+
                 <ion-col size-lg="4">
                 </ion-col>
                 <ion-col size-lg="4" class="ion-text-start">
@@ -34,7 +33,7 @@
                       </h2>
                     </ion-text>
                   </ion-card-title>
-                  
+
                   <ion-text color="dark">
                     {{ user.role }}
                     <hr />
@@ -51,7 +50,7 @@
                 </ion-text>
               </ion-button> -->
               &nbsp;
-              <ion-button size="small" color="danger" (click)="auth.SignOut()">Logout</ion-button>
+              <ion-button size="small" color="danger" (click)="authService.SignOut()">Logout</ion-button>
 
             </ion-card-content>
           </ion-card>
@@ -68,9 +67,8 @@
             </ion-card-header>
             <ion-card-content class="ion-text-center">
 
-              <div *ngIf="stripe.subscriptions | async; then subData; else buy">
+              <!-- <div *ngIf="stripe.subscriptions | async then subData else buy"> -->
 
-              </div>
 
 
   <ng-template #buy class="ion-text-center ion-align-items-center">
@@ -81,7 +79,7 @@
     </ion-button>
   </ng-template>
 
-              <ng-container #subData *ngIf="stripe.subscriptions | async as subs">
+  <ng-template #subData *ngIf="stripe.subscriptions | async as subs else buy">
                 <ion-grid>
                   <ion-row class="ion-justify-content-around">
                     <ion-col size-sm="5">
@@ -150,17 +148,18 @@
                   </ion-row>
                 </ion-grid>
 
-              </ng-container>
+              </ng-template>
+            <!-- </div> -->
 
 
 
-            </ion-card-content>
-          </ion-card>
+          </ion-card-content>
+        </ion-card>
 
 
 
-          <!-- Admin Dash -->
-          <ion-card class="ion-text-center" color="medium" *ngIf="user.role === 'ADMIN'">
+        <!-- Admin Dash -->
+        <ion-card class="ion-text-center" color="medium" *ngIf="user.role === 'ADMIN'">
             <ion-card-header>
               <ion-card-title>
                 <ion-text color="secondary">
@@ -222,8 +221,8 @@
               <ng-container *ngIf="stripe.subscriptions | async as subs; else purchase">
 
                 <ion-button size="small" color="secondary"
-                  [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
-                  <ion-text color="light">
+                [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
+                <ion-text color="light">
                     Current Invoice
                   </ion-text>
                 </ion-button>
@@ -245,17 +244,17 @@
           <!-- Theme -->
           <ion-card class="ion-text-center" color="medium">
             <ion-card-title>
-                <ion-text color="secondary">
+              <ion-text color="secondary">
                   Theme Options
                 </ion-text>
-            </ion-card-title>
-            <ion-card-content>
-              <ion-button (click)="enableDark()" color="dark">Dark</ion-button>
-              <ion-button (click)="enableLight()" color="light">Light</ion-button>
-            </ion-card-content>
+              </ion-card-title>
+              <ion-card-content>
+                <ion-button (click)="enableDark()" color="dark">Dark</ion-button>
+                <ion-button (click)="enableLight()" color="light">Light</ion-button>
+              </ion-card-content>
           </ion-card>
 
-      </ion-col>
+        </ion-col>
       <ion-col>
         <app-now></app-now>
 
@@ -276,21 +275,22 @@
   </ion-grid>
 </ng-template>
 
+
+</div>
 <ng-template #login >
-  <ion-card class="ion-text-center ion-padding ion-align-items-center" color="silver"> 
+  <ion-card class="ion-text-center ion-padding ion-align-items-center" color="silver">
     <ion-card-title>
       It doesn't have to be this way
     </ion-card-title>
     <ion-card-subtitle>
-      Get Your RFS Pro Membership today and join the Winning Team!
+      Get Your Game Work Pro Membership today and join the Winning Team!
     </ion-card-subtitle>
-      <ion-button color="danger" routerLink="/membership">
+    <ion-button color="danger" routerLink="/membership">
       <ion-text>
         Get Your Free 7 Day Trial
       </ion-text>
     </ion-button>
   </ion-card>
 </ng-template>
-
 </ion-content>
 <app-footer></app-footer>

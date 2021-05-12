@@ -1,6 +1,5 @@
 import { ProviderUserInfo } from './user';
 
-
 export class Widget {
   displayName: string;
   uid: string;

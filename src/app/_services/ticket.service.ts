@@ -1,10 +1,12 @@
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService } from './auth.service';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Injectable } from '@angular/core';
-import { map, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { map, take, takeUntil } from 'rxjs/operators';
+
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class TicketService {
 
   constructor(
     private db: AngularFirestore,
-    private auth: AuthService,
+    private authService: AuthService,
     private afAuth: AngularFireAuth
   ) {
     this.afAuth.authState.subscribe(user => {
@@ -29,14 +31,14 @@ export class TicketService {
     if (id) {
       return this.db.doc(`tickets/${id}`).update(info);
     } else {
-      info.creator = this.auth.currentBehaviorUser.value.id;
+      info.creator =this.authService.currentBehaviorUser.value.id;
       info.created_at = firebase.firestore.FieldValue.serverTimestamp();
       return this.db.collection('tickets').add(info);
     }
   }
 
   getUserTickets() {
-    const id = this.auth.currentBehaviorUser.value.id;
+    const id =this.authService.currentBehaviorUser.value.id;
     return this.db
       .collection('tickets', ref => ref.where('creator', '==', id))
       .snapshotChanges()

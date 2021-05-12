@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { AuthService } from './auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { User } from '../_models/user';
+
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class CollectionService {
 
   constructor(
     private db: AngularFirestore,
-    private auth: AuthService,
+    private authService: AuthService,
     private afAuth: AngularFireAuth
   ) {}
 

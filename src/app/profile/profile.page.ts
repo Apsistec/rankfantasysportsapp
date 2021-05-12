@@ -1,16 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
-import { ThemeService } from '../_services/theme.service';
-import { ModalController } from '@ionic/angular';
-import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { StripeService } from '../_services/stripe.service';
+
+
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { User } from '@models/user';
-import { switchMap, tap, map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { ModalController } from '@ionic/angular';
 
+import { AuthService } from '../_services/auth.service';
+import { StripeService } from '../_services/stripe.service';
+import { ThemeService } from '../_services/theme.service';
+import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
+import { InvoicesComponent } from './invoices/invoices.component';
 
 @Component({
   selector: 'app-profile',
@@ -23,17 +22,17 @@ export class ProfilePage implements OnInit {
   atp;
   buy;
   purchase;
-  user: User;
-  
+
+
   constructor(
     private theme: ThemeService,
     private modalCtrl: ModalController,
-    public auth: AuthService,
+    public authService: AuthService,
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore,
     public stripe: StripeService,
-  ) {   
-   
+  ) {
+
     }
 
 ngOnInit(){

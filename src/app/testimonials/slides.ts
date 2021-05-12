@@ -1,4 +1,4 @@
-import { Slide } from '@models/slide.model';
+import { Slide } from '../_models/slide.model';
 
 export const Slides: Slide[] = [
   { img: 'assets/images/189.PNG' },

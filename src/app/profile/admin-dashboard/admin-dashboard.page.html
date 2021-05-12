@@ -1,4 +1,4 @@
-<app-header [titleId]= "titleId"></app-header>
+<app-header [titleId]="titleId"></app-header>
 <ion-content>
   <ion-grid>
     <ion-row>
@@ -14,7 +14,7 @@
       </ion-card-title>
     </ion-card-header>
     <ion-list>
-    <ion-item button *ngFor="let ticket of tickets | async" class="ion-text-wrap" (click)="openTicket(ticket.id)">
+    <ion-item type="button"*ngFor="let ticket of tickets | async" class="ion-text-wrap" (click)="openTicket(ticket.id)">
       <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
         <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
       <ion-label >
@@ -79,7 +79,7 @@
                     </ion-label>
                   </ion-card-subtitle>
                   <ion-toolbar>
-                      <ion-searchbar inputmode="search" type="search" autocomplete="'on'" animated="true" style="border-radius: 5em;">
+                      <ion-searchbar inputmode="search" type="search" autocomplete="'on'" style="border-radius: 5em;">
                       </ion-searchbar>
                     <br>
                     <ion-text color="dark">
@@ -122,7 +122,7 @@
   </ion-row>
   </ion-grid>
   </ion-content>
-<ion-footer translucent>
+<ion-footer >
   <ion-toolbar color="medium">
    </ion-toolbar>
 </ion-footer>

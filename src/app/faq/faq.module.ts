@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { FaqPage } from './faq.page';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { MatExpansionModule } from '@angular/material';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { RouterModule, Routes } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+
 import { SharedModule } from '../_shared/shared.module';
+import { FaqPage } from './faq.page';
 
 const routes: Routes = [
   {

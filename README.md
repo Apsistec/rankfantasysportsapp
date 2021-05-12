@@ -1,4 +1,4 @@
-# RFSports
+# rankfantasysports
 
 A subscription based cross-platform web-app delivering a unique suite of highly relevent, effective NFL, NCAA, NBA, PGA, & Tennis data-tables enabling daily fantasy sports players to efficiently create DFS platform lineups that win more and more often!
 
@@ -47,7 +47,7 @@ What is RankFantasySports.com?
 
 ## Table of Contents
 
-* [RFSports](#RFSports)
+* [rankfantasysports](#rankfantasysports)
   * [Rank Fantasy $ports&trade; PWA](#rank*fantasy-portstrade-pwa)
     * [Tech Stack](#tech-stack)
   * [Structure of App](#structure-of-app)

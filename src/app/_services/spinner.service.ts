@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { RouterEvent } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

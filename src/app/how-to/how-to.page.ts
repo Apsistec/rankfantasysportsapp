@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from '../_services/auth.service';
 export class HowToPage implements OnInit {
   titleId = 'How To... RF$\u2122';
 
-  constructor(public auth: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {}
 }

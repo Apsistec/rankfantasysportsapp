@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.rankfantasysports.app" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>RFSports</name>
+    <name>rankfantasysports</name>
     <description>Rank Fantasy Sports is the premier app for Daily Fantasy Sports players who Win.</description>
     <author email="support@rankfantasysports.com" href="https://rankfantasysports.com/">Doug White</author>
     <content src="index.html" />
@@ -98,7 +98,7 @@
     </platform>
     <plugin name="cordova-plugin-facebook4" spec="^6.0.0">
         <variable name="APP_ID" value="2210948012321581" />
-        <variable name="APP_NAME" value="rfsports" />
+        <variable name="APP_NAME" value="rankfantasysports" />
         <variable name="FACEBOOK_HYBRID_APP_EVENTS" value="false" />
         <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="5.2.0" />
     </plugin>

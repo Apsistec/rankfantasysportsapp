@@ -1,33 +1,34 @@
-import { AnalyticsComponent } from './analytics/analytics.component';
-import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
-import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireFunctionsModule, FUNCTIONS_REGION } from '@angular/fire/functions';
-import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { environment } from '../environments/environment';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { IonicStorageModule } from '@ionic/storage';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MaterialModule } from './material/material.module';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { PrimaryInterceptorService } from './_services/primary-interceptor.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
-import { SafePipe } from './_pipes/safe.pipe';
 // import { ServiceWorkerModule } from '@angular/service-worker';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StartModalComponent } from './home/start-modal/start-modal.component';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { SharedModule } from '@shared/shared.module';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
+// import { SharedModule } from '../../shared.module';
+
+import { environment } from '../environments/environment';
+import { SafePipe } from './_pipes/safe.pipe';
+import { PrimaryInterceptorService } from './_services/primary-interceptor.service';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { StartModalComponent } from './home/start-modal/start-modal.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { SharedModule } from '@shared/shared.module';
     HttpClientJsonpModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    // SharedModule,
     AppRoutingModule,
     // ServiceWorkerModule.register('/app/ngsw-worker.js', {
       // enabled: environment.production,
@@ -66,7 +67,6 @@ import { SharedModule } from '@shared/shared.module';
     LayoutModule,
   ],
   providers: [
-    { provide: FUNCTIONS_REGION, useValue: 'us-centeral1' },
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -1,14 +1,16 @@
-import { AuthService } from './_services/auth.service';
+import { Subscription } from 'rxjs';
+
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { IonContent, Platform, ToastController } from '@ionic/angular';
-import { ModalService } from './_services/modal.service';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Subscription } from 'rxjs';
+import { IonContent, Platform, ToastController } from '@ionic/angular';
 // import { SwUpdate } from '@angular/service-worker';
-import { StripeService } from '@services/stripe.service';
+import { StripeService } from './_services/stripe.service';
 
-// import { FcmService } from '@services/fcm.service';
+import { AuthService } from './_services/auth.service';
+import { ModalService } from './_services/modal.service';
+
+// import { FcmService } from '../../fcm.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     // private swUpdate: SwUpdate,
-    public auth: AuthService,
+    public authService: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -78,7 +80,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   signOut() {
-    this.auth.SignOut();
+    this.authService.SignOut();
   }
 
   authModal() {

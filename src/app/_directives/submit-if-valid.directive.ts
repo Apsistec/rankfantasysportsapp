@@ -1,5 +1,5 @@
-import { Directive, EventEmitter, HostListener, Output } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Directive({
   // tslint:disable-next-line: directive-selector

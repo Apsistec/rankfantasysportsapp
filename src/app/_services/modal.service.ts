@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { TermsDialogComponent } from '@shared/terms-dialog/terms-dialog.component';
-import { PrivacyDialogComponent } from '@shared/privacy-dialog/privacy-dialog.component';
-import { AuthModalComponent } from '@shared/auth-modal/auth-modal.component';
+import { AuthModalComponent } from '../_shared/auth-modal/auth-modal.component';
+import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
+import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
+
 import { MessageService } from './message.service';
 
 @Injectable({

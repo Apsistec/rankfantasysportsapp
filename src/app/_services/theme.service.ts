@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+
 // import * as Color from 'color';
 import { StorageService } from './storage.service';
 

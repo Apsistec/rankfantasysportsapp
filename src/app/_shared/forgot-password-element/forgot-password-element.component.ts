@@ -1,7 +1,7 @@
-import { AuthService } from '@services/auth.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MessageService } from '@services/message.service';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../../_services/auth.service';
+import { MessageService } from '../../_services/message.service';
 
 @Component({
   selector: 'app-forgot-password-element',
@@ -13,13 +13,13 @@ export class ForgotPasswordElementComponent implements OnInit {
 
   constructor(
     public message: MessageService,
-    public auth: AuthService,
+    public authService: AuthService,
   ) {}
 
   ngOnInit() {}
 
   async onSubmit(passReset: NgForm) {
-    this.auth.ResetPassword(passReset.value.email);
+   this.authService.ResetPassword(passReset.value.email);
   }
 
   changeLoginMode() {

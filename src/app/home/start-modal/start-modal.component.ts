@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '@services/message.service';
-import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { StorageService } from '../../_services/storage.service';
+import { ModalController } from '@ionic/angular';
+import { MessageService } from '../../_services/message.service';
 
+import { StorageService } from '../../_services/storage.service';
 
 @Component({
   selector: 'app-start-modal',

@@ -1,11 +1,12 @@
-import { ModalController } from '@ionic/angular';
-import { TicketService } from '../../_services/ticket.service';
-import { AuthService } from '../../_services/auth.service';
-import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TicketComponent } from '../../_shared/tickets/ticket.component';
-import { CollectionService } from '../../_services/collection.service';
 
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { AuthService } from '../../_services/auth.service';
+import { CollectionService } from '../../_services/collection.service';
+import { TicketService } from '../../_services/ticket.service';
+import { TicketComponent } from '../../_shared/tickets/ticket.component';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -21,7 +22,7 @@ export class AdminDashboardPage implements OnInit {
   members;
 
   constructor(
-    public auth: AuthService,
+    public authService: AuthService,
     private ticket: TicketService,
     private modalCtrl: ModalController,
     private collection: CollectionService
@@ -46,6 +47,6 @@ export class AdminDashboardPage implements OnInit {
 
 
   signOut() {
-    this.auth.SignOut();
+   this.authService.SignOut();
   }
 }

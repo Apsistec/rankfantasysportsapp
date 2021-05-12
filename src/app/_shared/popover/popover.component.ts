@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
-import { AuthService } from '../../_services/auth.service';
-import { Router } from '@angular/router';
-import { User } from '@models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { User } from '../../_models/user';
+
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'popover-component',
@@ -19,13 +20,13 @@ export class PopoverComponent {
     private popoverController: PopoverController,
     public afAuth: AngularFireAuth,
     private router: Router,
-    private auth: AuthService
+    private authService: AuthService
   ) {}
 
   // code for logout
   async logOut() {
     await this.dismissPopover();
-      this.auth.SignOut();
+     this.authService.SignOut();
   }
 
   async goToProfile() {

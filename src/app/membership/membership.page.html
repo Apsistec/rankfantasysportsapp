@@ -1,13 +1,13 @@
 <ion-content full-screen="true">
-  
+
   <ion-grid >
     <ion-row class=" ion-wrap-reverse tech">
-      
-      
+
+
       <div style="position: absolute; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
         <img src="../../assets/img/icon-192x192.png" style="width:60px;height:60px">
       </div>
-      <div *ngIf="auth.afAuth.user | async as user">
+      <div *ngIf="authService.afAuth.user | async as user">
         <a (click)="presentPopover($event)" style="position: absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
           <ion-avatar >
           <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"  style="width:60px;height:60px"/>
@@ -35,7 +35,7 @@
             <aw-wizard navBarLayout="large-filled-symbols" navigationMode="free">
               <aw-wizard-step
                 stepTitle="{{ isRegister ?  'Sign Up' : 'Log In' }}"
-                [navigationSymbol]="{ symbol: 1 }"
+                [navigationSymbol]="{ symbol: '1' }"
               >
     <!-- Sign  Up form -->
               <ng-container *ngIf="isRegister">
@@ -54,26 +54,26 @@
                   <ion-card color="light" class="ion-padding ion-margin">
                     <ion-item color="light">
                       <ion-label  color="dark" position="floating">Name</ion-label>
-                      <ion-input autofocus formControlName="displayName" type="text" autocapitalize="on" inputmode="text" required></ion-input>
+                      <ion-input autofocus formControlName="displayName" type="text" autocapitalize="on" inputmode="text" required="true" ></ion-input>
                 </ion-item>
                 <div *ngIf="registerForm.controls['displayName'].invalid && (registerForm.controls['displayName'].dirty || registerForm.controls['displayName'].touched)"
                 class="alert alert-danger">
                         <div *ngIf="registerForm.controls['displayName'].errors.required">
                             <ion-text color="danger">
-                              Name is required.
+                              Name is required="true" .
                               </ion-text>
                         </div>
                       </div>
-              
+
                 <ion-item color="light" >
                       <ion-label  color="dark"  position="floating">Email</ion-label>
-                      <ion-input  style="width: 95%;" type="email" inputmode="email" formControlName="email" required></ion-input>
+                      <ion-input  style="width: 95%;" type="email" inputmode="email" formControlName="email" required="true" ></ion-input>
                   </ion-item>
                   <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
                           class="alert alert-danger">
                           <div *ngIf="registerForm.controls['email'].errors.required">
                          <ion-text color="danger" >
-                             Email is required.
+                             Email is required="true" .
                           </ion-text>
                       </div>
                       <div *ngIf="registerForm.controls['email'].errors.email">
@@ -84,7 +84,7 @@
                 </div>
                     <ion-item color="light">
                       <ion-label color="dark"  position="floating">Password</ion-label>
-                      <ion-input id="password" style="width: 89%;" [type]="hide ? 'password' : 'text'" class="form-control" inputmode="text" formControlName="password" required></ion-input>
+                      <ion-input id="password" style="width: 89%;" [type]="hide ? 'password' : 'text'" class="form-control" inputmode="text" formControlName="password" required="true" ></ion-input>
                       <ion-button color="dark" fill="clear" shape="round" item-end (click)="hide = !hide" *ngIf="hide" style="position: absolute; right: 5px; bottom: 5px; background: transparent;">
                         <ion-icon name="eye" >
                       </ion-icon>
@@ -98,7 +98,7 @@
                       class="alert alert-danger">
                         <div *ngIf="registerForm.controls['password'].errors.required">
                          <ion-text color="danger" >
-                             Password is required.
+                             Password is required="true" .
                           </ion-text>
                       </div>
                         <div *ngIf="registerForm.controls['password'].hasError('minlength')">
@@ -123,7 +123,7 @@
                             <ion-text>
                                Sign Up
                   </ion-text>
-                    
+
                   </ion-button>
                 </form>
                               </ng-container>
@@ -161,7 +161,7 @@
                     >
                       <div *ngIf="loginForm.controls['email'].errors.required">
                         <ion-text color="danger" class="inputError">
-                          Email is required.
+                          Email is required="true" .
                         </ion-text>
                       </div>
                       <div *ngIf="loginForm.controls['email'].errors.email">
@@ -211,7 +211,7 @@
                     >
                       <div *ngIf="loginForm.controls['password'].errors.required">
                         <ion-text color="danger" class="inputError">
-                          Password is required.
+                          Password is required="true" .
                         </ion-text>
                       </div>
                       <div *ngIf="loginForm.controls['password'].hasError('minlength')">
@@ -231,11 +231,11 @@
                       </div>
                     </div>
                   </ion-card>
-                           
+
                   <ion-button
                     [disabled]="loginForm.invalid"
                     color="danger"
-                    expand="full"                  
+                    expand="full"
                     type="submit"
                     >
                     <ion-icon
@@ -248,7 +248,7 @@
                       Log In
                     </ion-text>
                   </ion-button>
-                
+
                 </form>
                               </ng-container>
                 <ion-button color="secondary" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Log In' : 'Sign Up' }}?</ion-button>
@@ -256,7 +256,7 @@
               </aw-wizard-step>
               <aw-wizard-step
                 stepTitle="Enter Card Info"
-                [navigationSymbol]="{ symbol: 2 }"
+                [navigationSymbol]="{ symbol: '2' }"
               >
                 <hr />
                 <ion-card-title>
@@ -283,7 +283,7 @@
                         </ion-text>
                         <br />
                         <ion-text>
-                          RFS Pro Package
+                          Game Work Pro Package
                         </ion-text>
                         <br />
                         <ion-text *ngIf="!theCheckbox">
@@ -347,26 +347,26 @@
 
                 <form (submit)="handleForm($event)">
                   <div class="form-row">
-                    
-                    
-                    
+
+
+
                     <div id="card-element" #cardElement>
                       <!-- A Stripe Element will be inserted here. -->
                     </div>
-                    
-                    
+
+
                     <!-- Used to display Element errors. -->
                     <p class="has-text-danger">{{ cardErrors }}</p>
                   </div>
-                  
+
                   <hr>
-                  
+
                   <ion-button color="secondary" expand="full" type="submit" class="button is-success">Subscribe</ion-button>
                 </form>
                 <ion-spinner  *ngIf="isLoading" class="notification is-info">Loading....</ion-spinner>
-                
-                
-                
+
+
+
                 <hr />
 
 
@@ -408,7 +408,7 @@
       <!-- Step 3 Done -->
               <aw-wizard-completion-step
                 stepTitle="Done!"
-                [navigationSymbol]="{ symbol: 3 }"
+                [navigationSymbol]="{ symbol: '3' }"
               >
                 <ion-card color="light">
                   <img src="../../../assets/img/logo.jpg" />
@@ -513,7 +513,7 @@
               <li>
                 <ion-text>
                   <p>
-                    RFS Aggregated information
+                    Game Work Aggregated information
                   </p>
                 </ion-text>
               </li>
@@ -521,7 +521,7 @@
               <li>
                 <ion-text>
                   <p>
-                    Advanced RFS Stats
+                    Advanced Game Work Stats
                   </p>
                 </ion-text>
               </li>
@@ -559,7 +559,7 @@
       <ion-col class="ion-padding bottom">
         <ion-text>
           <p>
-            * A valid Credit or Debit card in your name is required for account
+            * A valid Credit or Debit card in your name is required="true"  for account
             authorization, and further verification may be requeseted if
             necessary to validate the subscription service. During the One Week
             (7 day) Free trial period, your card will not be charged, however
@@ -615,5 +615,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
 </ion-content>

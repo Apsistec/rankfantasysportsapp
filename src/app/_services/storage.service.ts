@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { MessageService } from '@services/message.service';
 import { Storage } from '@ionic/storage';
+import { MessageService } from './message.service';
+
 @Injectable({
   providedIn: 'root'
 })

@@ -1,12 +1,13 @@
-import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { InvoicesComponent } from './invoices/invoices.component';
-import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
-import { ProfilePage } from './profile.page';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+
 import { SharedModule } from '../_shared/shared.module';
+import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { ProfilePage } from './profile.page';
 
 const routes: Routes = [
   {

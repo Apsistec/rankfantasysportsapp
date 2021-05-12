@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 
-
 // import { EditDialogPage } from '../../tables/edit-dialog/edit-dialog.page';
 
 @Component({

@@ -30,7 +30,7 @@
     >
       <div *ngIf="loginForm.controls['email'].errors.required">
         <ion-text color="danger" class="inputError">
-          Email is required.
+          Email is required="true" .
         </ion-text>
       </div>
       <div *ngIf="loginForm.controls['email'].errors.email">
@@ -80,7 +80,7 @@
     >
       <div *ngIf="loginForm.controls['password'].errors.required">
         <ion-text color="danger" class="inputError">
-          Password is required.
+          Password is required="true" .
         </ion-text>
       </div>
       <div *ngIf="loginForm.controls['password'].hasError('minlength')">
@@ -100,11 +100,11 @@
       </div>
     </div>
   </ion-card>
-           
+
   <ion-button
     [disabled]="loginForm.invalid"
     color="danger"
-    expand="full"                  
+    expand="full"
     type="submit"
     >
     <ion-icon
