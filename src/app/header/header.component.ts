@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { ModalService } from '../../_services/modal.service';
 
-import { User } from '../../_models/user';
-import { AuthService } from '../../_services/auth.service';
-import { PopoverComponent } from '../popover/popover.component';
+import { User } from '../_models/user';
+import { AuthService } from '../_services/auth.service';
+import { ModalService } from '../_services/modal.service';
+import { PopoverComponent } from '../_shared/popover/popover.component';
 
 @Component({
   selector: 'app-header',

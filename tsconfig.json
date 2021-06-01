@@ -1,22 +1,45 @@
+// {
+//   "compileOnSave": false,
+//   "compilerOptions": {
+//     "baseUrl": "./",
+//     "outDir": "./dist/out-tsc",
+//     "sourceMap": true,
+//     "declaration": false,
+//     "module": "es2020",
+//     "moduleResolution": "node",
+//     "downlevelIteration": true,
+//     "emitDecoratorMetadata": true,
+//     "allowSyntheticDefaultImports": true,
+//     "experimentalDecorators": true,
+//     "importHelpers": true,
+//     "target": "es2015",
+//     "lib": [
+//       "es2018",
+//       "dom"    ]
+//   },
+//     "angularCompilerOptions": {
+//     "enableI18nLegacyMessageIdFormat": false,
+//     "strictInjectionParameters": true,
+//     "strictInputAccessModifiers": true,
+//     "strictTemplates": true
+//   }
+// }
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "experimentalDecorators": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2020",
-    "moduleResolution": "node",
     "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"    ]
+    "module": "es2020",
+    "lib": ["es2018", "dom"]
   },
-    "angularCompilerOptions": {
+  "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

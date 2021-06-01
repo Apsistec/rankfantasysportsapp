@@ -13,5 +13,7 @@ db.settings(settings);
 export const stripeSecret = functions.config().stripe.secret;
 
 // Export Stripe
-import * as Stripe from 'stripe'; 
-export const stripe = new Stripe(stripeSecret);
+import Stripe from 'stripe';
+export const stripe = new Stripe(stripeSecret, {
+  apiVersion: '2020-08-27'
+});

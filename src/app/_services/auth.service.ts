@@ -1,15 +1,15 @@
-import { User } from 'firebase';
-import * as firebase from 'firebase/app';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, take, tap } from 'rxjs/operators';
+import firebase from 'firebase/app';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, switchMap, take, tap } from 'rxjs/operators';
 
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { User as fullUser } from '../_models/user';
 
+import { User } from '../_models/user';
 import { MessageService } from './message.service';
+import { ModalService } from './modal.service';
 
 export interface UserCredentials {
   displayName: string;
@@ -21,36 +21,31 @@ export interface UserCredentials {
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<fullUser>;
+  user$: Observable<User>;
 
   currentBehaviorUser = new BehaviorSubject(null);
   isSubscribed: boolean;
   displayName;
   name;
-  user: User = null;
+  user;
   // ref: AngularFirestoreDocument<unknown>;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     private router: Router,
     private ngZone: NgZone,
-    private message: MessageService
+    private message: MessageService,
+    private modal: ModalService,
   ) {
-    this.afAuth.authState.subscribe((res) => {
-      this.user = res;
-      if (this.user && this.user !== null) {
-        this.afs
-          .doc(`users/${this.currentUserId}`)
-          .valueChanges()
-          .pipe(
-            // tslint:disable-next-line: no-shadowed-variable
-            tap((res) => {
-              this.name = res['name'];
-            })
-          )
-          .subscribe();
-      }
-    });
+    this.user = this.afAuth.authState.pipe(
+      switchMap((user) => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
   }
 
   get authenticated(): boolean {
@@ -94,25 +89,46 @@ export class AuthService {
     }
   }
 
-  SignUp(credentials: UserCredentials) {
+  SignUp(displayName: string, email: string, password: string) {
+    this.displayName = displayName;
     return this.afAuth
-      .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then((res) => {
-        return this.afs.doc(`users/${res.user.uid}`).set({
-          displayName: credentials.displayName,
-          email: res.user.email,
-          uid: res.user.uid,
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential: firebase.auth.UserCredential) => {
+        this.modal.dismiss();
+        this.router.navigateByUrl('/home');
+        this.message.registerSuccessToast();
+        this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
+          uid: userCredential.user.uid,
+          displayName: this.displayName,
+          email: userCredential.user.email,
           role: 'USER',
           permissions: ['delete-ticket'],
-          photoURL: res.user.photoURL,
-          subStatus: null,
-          created: firebase.firestore.FieldValue.serverTimestamp()
+          photoURL: userCredential.user.photoURL,
+          created: userCredential.user.metadata.creationTime,
         });
       })
-      .catch((err) => {
-        this.message.errorAlert(err.message);
-      });
+      .catch((error) => this.message.errorAlert(error.message));
   }
+
+  // SignUp(credentials: UserCredentials) {
+  //   return this.afAuth
+  //     .createUserWithEmailAndPassword(credentials.email, credentials.password)
+  //     .then((res) => {
+  //       return this.afs.doc(`users/${res.user.uid}`).set({
+  //         displayName: credentials.displayName,
+  //         email: res.user.email,
+  //         uid: res.user.uid,
+  //         role: 'USER',
+  //         permissions: ['delete-ticket'],
+  //         photoURL: res.user.photoURL,
+  //         subStatus: null,
+  //         created: firebase.firestore.FieldValue.serverTimestamp()
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       this.message.errorAlert(err.message);
+  //     });
+  // }
 
   // Recover password
   ResetPassword(passwordResetEmail) {

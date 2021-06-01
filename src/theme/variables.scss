@@ -250,29 +250,8 @@ ion-item {
 
 // color definitions
 
-$aw-colors: (
-  '_': (
-    'default': (
-      'border-color-default': #e1e4dc,
-      'background-color-default': null,
-      'symbol-color-default': #ffffff,
-      'border-color-hover': #91ff00,
-      'background-color-hover': #d6ffa1,
-      'symbol-color-hover': #d6ffa1,
-    ),
-    'current': (
-      'border-color-default': #cccccc,
-      'background-color-default': #b8acfc,
-      'symbol-color-default': #ffffff,
-      'border-color-hover': #0004ff,
-      'background-color-hover': #6946ca,
-      'symbol-color-hover': #a9a0f5,
-    )
-  )
-);
+
 
 // big definitions for making dots smaller in our case
-$wz-big-dot-width: 30px !default;
-$wz-big-dot-height: 30px !default;
 
-@import '../../node_modules/angular-archwizard/archwizard.css';
+@import '../../node_modules/angular-archwizard/archwizard.scss';

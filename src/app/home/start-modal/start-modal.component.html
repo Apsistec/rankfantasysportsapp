@@ -1,34 +1,35 @@
-<ion-card
-  style="background-color:white;"
-  class="ion-margin ion-text-capitalize ion-text-center"
->
+
 <ion-fab style="top:0px;right:0px" vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button color="light" size="small" (click)="dismiss()">
-    <ion-icon name="close-circle"></ion-icon>
-  </ion-fab-button>
+  <!-- <ion-fab-button color="light" size="small" > -->
+    <ion-icon name="close-sharp" size="large" (click)="dismiss()"></ion-icon>
+  <!-- </ion-fab-button> -->
 </ion-fab>
 
-  <ion-card-header color="light" >
-    <ion-title class="aboveprice">
-      <ion-text class="ion-text-wrap ion-text-center" color="dark">
-        Price after your complimentary trial
-      </ion-text>
+  <ion-header color="light" class="ion-text-center ">
+    <ion-title class="ion-text-uppercase " >
+      Pricing
     </ion-title>
-    <ion-button size="large" color="dark" routerLink="/membership">
+
+    <ion-text class="ion-text-uppercase ion-text-center" color="dark">
+      After your complimentary trial
+    </ion-text>
+    <br>
+    <ion-button size="large" color="dark" routerLink="/membership" >
       <ion-text class="ion-text-no-wrap ion-text-capitalize"  style="font-weight: 900;">
 
-          $9.99
-          <sub>per month</sub>
+        $9.99
+        <sub>per month</sub>
 
       </ion-text>
     </ion-button>
 
-  </ion-card-header>
-  <ion-card-content>
+  </ion-header>
+  <div class="ion-text-center ion-padding-horizontal">
 
-    <ion-list>
-      <ion-item-group class="ion-text-start">
-    <ion-text color="secondary" style="font-weight: 800;">
+
+      <ion-list>
+        <ion-item-group class="ion-text-start">
+          <ion-text color="secondary" style="font-weight: 800;">
             Features:
           </ion-text>
           <ion-item lines="inset">
@@ -79,19 +80,19 @@
             </ion-text>
           </ion-item>
         </ion-item-group>
-        </ion-list>
-            <ion-button
-            size="large"
-            class="ion-text-wrap ion-text-center"
-            fill="solid"
-            color="danger"
-            (click)="gotoPurchase()"
-            >
-            <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
-              Claim Your 7 Free days
-            </ion-text>
-          </ion-button>
+      </ion-list>
+      <ion-button
+      size="large"
+      class="ion-text-wrap ion-text-center"
+      fill="solid"
+      color="danger"
+      (click)="gotoPurchase()"
+      >
+      <ion-text class="ion-text-wrap ion-text-capitalize" style="font-variant: small-caps;">
+        Start 7 Day Trial
+      </ion-text>
+    </ion-button>
 
-    </ion-card-content>
-  </ion-card>
 
+
+</div>

@@ -1,14 +1,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyCCDgm1uoUnKNmeUeck_vRwkI8wbiRrmvY",
-    authDomain: "rankfantasysports-app.firebaseapp.com",
-    projectId: "rankfantasysports-app",
-    storageBucket: "rankfantasysports-app.appspot.com",
-    messagingSenderId: "730928216570",
-    appId: "1:730928216570:web:90e0550a7f668655e74c43",
-    measurementId: "G-815BG0Z4DT"
-  },
+    apiKey: 'AIzaSyCCDgm1uoUnKNmeUeck_vRwkI8wbiRrmvY',
+    authDomain: 'rankfantasysports-app.firebaseapp.com',
+    projectId: 'rankfantasysports-app',
+    storageBucket: 'rankfantasysports-app.appspot.com',
+    messagingSenderId: '730928216570',
+    appId: '1:730928216570:web:960586f68e5fd21fe74c43',
+    measurementId: 'G-J6ZH2MDX4W'
+  }
 };
 
 

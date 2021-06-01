@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from '../_guards/auth.guard';
 import { PaidGuard } from '../_guards/paid.guard';
-
 import { CbbComponent } from './cbb/cbb.component';
 import { CfbComponent } from './cfb/cfb.component';
 import { NbaComponent } from './nba/nba.component';

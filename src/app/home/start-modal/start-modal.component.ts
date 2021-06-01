@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { MessageService } from '../../_services/message.service';
 
-import { StorageService } from '../../_services/storage.service';
+import { MessageService } from '../../_services/message.service';
+// import { StorageService } from '../../_services/storage.service';
 
 @Component({
   selector: 'app-start-modal',
@@ -16,11 +16,9 @@ export class StartModalComponent implements OnInit {
     private modalCtrl: ModalController,
     private router: Router,
     private message: MessageService,
-    private storage: StorageService
   ) { }
 
   ngOnInit() {
-    this.storage.set('popModalState', 'shown');
 
   }
 

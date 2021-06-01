@@ -45,7 +45,7 @@
       </ion-text>
     </ion-buttons>
     <div class="top-nav">
-      <ion-text color="silver" class="ion-text-capitalize" style="font-weight: 700; font-variant:small-caps; padding-left:40px;">
+      <ion-text color="silver" class="ion-text-uppercase" style="font-weight: 700; padding-left:40px;">
 
 
         <a routerLink="/home" routerLinkActive="router-link-active">Home</a>
@@ -76,8 +76,8 @@
       slot="end"
       *ngIf="showGetStartedButton"
       color="success"
-      (click)="openModal()"
-      style="margin-right:30px;position: relative; top:10px"
+      routerLink="/membership"
+      style="margin-right:30px;position: relative;"
       >
       <ion-text color="light" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
         Get Started
@@ -88,5 +88,3 @@
 
 
 </ion-header>
-
-

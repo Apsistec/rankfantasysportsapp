@@ -1,5 +1,5 @@
 // Fixing temporary bug in AngularFire
-import * as app from 'firebase/app';
+import firebase from 'firebase/app';
 import { from } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -26,8 +26,8 @@ export class FcmService {
     private message: MessageService
   ) {
     try {
-      const _messaging = app.messaging();
-      _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
+      const _messaging = firebase.messaging();
+      // _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
       _messaging.onMessage = _messaging.onMessage.bind(_messaging);
     } catch (e) {}
   }
@@ -37,8 +37,6 @@ export class FcmService {
       message,
       duration: 5000,
       position: 'top',
-      showCloseButton: true,
-      closeButtonText: 'dismiss'
     });
     await toast.present().catch(err => {
       return this.message.errorAlert(err);
@@ -114,4 +112,3 @@ export class FcmService {
     return token;
   }
 }
-

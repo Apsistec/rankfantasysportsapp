@@ -1,3 +1,4 @@
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 import { CommonModule } from '@angular/common';
@@ -19,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
 import {
     ForgotPasswordElementComponent
 } from './forgot-password-element/forgot-password-element.component';
-import { HeaderComponent } from './header/header.component';
 import { LoginElementComponent } from './login-element/login-element.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyDialogComponent } from './privacy-dialog/privacy-dialog.component';
@@ -28,7 +28,6 @@ import { TicketComponent } from './tickets/ticket.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
     FooterComponent,
     TermsDialogComponent,
     TicketComponent,
@@ -43,16 +42,10 @@ import { TicketComponent } from './tickets/ticket.component';
     TennisComponent,
     ForgotPasswordElementComponent,
     LoginElementComponent,
-    AuthModalComponent
+    AuthModalComponent,
   ],
 
-  entryComponents: [
-    TicketComponent,
-    TermsDialogComponent,
-    AuthModalComponent,
-    PrivacyDialogComponent,
-    PopoverComponent
-  ],
+  entryComponents: [TicketComponent, TermsDialogComponent, AuthModalComponent, PrivacyDialogComponent, PopoverComponent],
 
   imports: [
     NgxTwitterTimelineModule,
@@ -61,14 +54,14 @@ import { TicketComponent } from './tickets/ticket.component';
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    ShareButtonsModule,
   ],
 
   exports: [
     SharedDirectivesModule,
     AuthModalComponent,
     NgxTwitterTimelineModule,
-    HeaderComponent,
     ForgotPasswordElementComponent,
     PopoverComponent,
     FooterComponent,
@@ -82,7 +75,6 @@ import { TicketComponent } from './tickets/ticket.component';
     CbbComponent,
     PgaComponent,
     NbaComponent,
-    TennisComponent
-  ]
+    TennisComponent,  ]
 })
 export class SharedModule {}

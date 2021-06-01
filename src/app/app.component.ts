@@ -1,14 +1,14 @@
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
 
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonContent, Platform, ToastController } from '@ionic/angular';
-// import { SwUpdate } from '@angular/service-worker';
-import { StripeService } from './_services/stripe.service';
 
 import { AuthService } from './_services/auth.service';
 import { ModalService } from './_services/modal.service';
+// import { SwUpdate } from '@angular/service-worker';
+import { StripeService } from './_services/stripe.service';
 
 // import { FcmService } from '../../fcm.service';
 
@@ -16,11 +16,11 @@ import { ModalService } from './_services/modal.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnInit, OnDestroy {
-  @ViewChild(IonContent, { static: true }) ionContent: IonContent;
+export class AppComponent implements OnInit {
+  // @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
   titleId;
-  subs: Subscription;
+  // subs: Subscription;
   year;
 
   constructor(
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private toastCtrl: ToastController,
+    // private toastCtrl: ToastController,
     private modal: ModalService,
     public stripeService: StripeService
 
@@ -63,34 +63,25 @@ export class AppComponent implements OnInit, OnDestroy {
     //     .then(() => window.location.reload());
     // });
 
-    this.getYear();
-  }
-
-  getYear() {
     this.year = new Date().getFullYear();
   }
 
+  // onScroll(event) {
+  //   this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
+  // }
+  // ScrollToTop() {
+  //   this.ionContent.scrollToTop(1500);
+  // }
 
+  // signOut() {
+  //   this.authService.SignOut();
+  // }
 
-  onScroll(event) {
-    this.scrolledDown = event.detail.scrollTop > 200 ? true : false;
-  }
-  ScrollToTop() {
-    this.ionContent.scrollToTop(1500);
-  }
+  // dismis() {
+  //   this.modal.dismiss();
+  // }
 
-  signOut() {
-    this.authService.SignOut();
-  }
-
-  authModal() {
-    this.modal.loginModal();
-  }
-  dismis() {
-    this.modal.dismiss();
-  }
-
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subs.unsubscribe();
+  // }
 }

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+
 import { AuthService } from '../../_services/auth.service';
 import { MessageService } from '../../_services/message.service';
 
@@ -14,6 +16,7 @@ export class ForgotPasswordElementComponent implements OnInit {
   constructor(
     public message: MessageService,
     public authService: AuthService,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {}
@@ -23,6 +26,6 @@ export class ForgotPasswordElementComponent implements OnInit {
   }
 
   changeLoginMode() {
-    this.LoginMode.emit();
+    this.modalController.dismiss();
   }
 }

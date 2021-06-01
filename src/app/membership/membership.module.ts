@@ -5,11 +5,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { RouterModule, Routes } from '@angular/router';
-import { BlinkDirective } from '../_directives/blink.directive';
 import { IonicModule } from '@ionic/angular';
-import { SharedModule } from '../_shared/shared.module';
 
-import { MaterialModule } from '../material/material.module';
+import { BlinkDirective } from '../_directives/blink.directive';
+import { SharedModule } from '../_shared/shared.module';
+// import { MaterialModule } from '../material/material.module';
 import { MembershipPage } from './membership.page';
 
 // import { AuthModalComponent } from '../../auth-modal/auth-modal.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
     MatStepperModule,
     IonicModule,
     ArchwizardModule,
-    MaterialModule,
+    // MaterialModule,
     SharedModule,
     RouterModule.forChild(routes),
   ],

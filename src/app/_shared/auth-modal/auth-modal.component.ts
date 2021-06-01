@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { ModalService } from 'src/app/_services/modal.service';
 
 @Component({
   selector: 'app-auth-modal',
@@ -13,7 +14,7 @@ export class AuthModalComponent implements OnInit {
   isRegister = false;
   // forgot;
 
-  constructor(public modal: ModalController, private route: Router) {}
+  constructor(public modal: ModalController, private route: Router, private modalService: ModalService) {}
 
   ngOnInit() {}
 
@@ -32,5 +33,12 @@ export class AuthModalComponent implements OnInit {
 
   switchResetMode() {
     this.isReset = !this.isReset;
+  }
+
+  launchResetModal(){
+    this.modal.dismiss().then(()=> {
+      this.modalService.resetModal();
+    })
+
   }
 }

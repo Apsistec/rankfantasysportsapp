@@ -3,10 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ToHttpsPipe } from '../_pipes/to-https.pipe';
 
+import { ToHttpsPipe } from '../_pipes/to-https.pipe';
 import { SharedModule } from '../_shared/shared.module';
-import { MaterialModule } from '../material/material.module';
 import { TableDetailComponent } from '../tables/table-detail/table-detail.component';
 import { PowerRankingsComponent } from './cfb/power-rankings/power-rankings.component';
 import { ScorePredictionsComponent } from './cfb/score-predictions/score-predictions.component';
@@ -28,7 +27,6 @@ import { MtrdsComponent } from './tennis/mtrds/mtrds.component';
 import { MttsaComponent } from './tennis/mttsa/mttsa.component';
 import { WhcbarComponent } from './tennis/whcbar/whcbar.component';
 import { WtrdsComponent } from './tennis/wtrds/wtrds.component';
-import { WttsaComponent } from './tennis/wttsa/wttsa.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +52,8 @@ import { WttsaComponent } from './tennis/wttsa/wttsa.component';
     MtrdsComponent,
     WtrdsComponent,
     MttsaComponent,
-    WttsaComponent,
     WhcbarComponent,
     MhcbarComponent
-
   ],
   entryComponents: [],
   imports: [
@@ -68,7 +64,6 @@ import { WttsaComponent } from './tennis/wttsa/wttsa.component';
     SharedModule,
     HttpClientModule,
     TableRoutingModule,
-    MaterialModule
   ],
   exports: []
 })

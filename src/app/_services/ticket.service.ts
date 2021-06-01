@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import { Subject } from 'rxjs';
 import { map, take, takeUntil } from 'rxjs/operators';
 

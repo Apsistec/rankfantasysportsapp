@@ -14,28 +14,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
-// import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
-// import { SharedModule } from '../../shared.module';
 
 import { environment } from '../environments/environment';
 import { SafePipe } from './_pipes/safe.pipe';
 import { PrimaryInterceptorService } from './_services/primary-interceptor.service';
-import { AnalyticsComponent } from './analytics/analytics.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartModalComponent } from './home/start-modal/start-modal.component';
-import { MaterialModule } from './material/material.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SafePipe,
     StartModalComponent,
-    AnalyticsComponent,
+    HeaderComponent
   ],
   entryComponents: [
     StartModalComponent,
@@ -52,16 +51,15 @@ import { MaterialModule } from './material/material.module';
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
     AngularFireAnalyticsModule,
-    MaterialModule,
+    YouTubePlayerModule,
     HttpClientModule,
     HttpClientJsonpModule,
     FormsModule,
     ReactiveFormsModule,
-    // SharedModule,
     AppRoutingModule,
-    // ServiceWorkerModule.register('/app/ngsw-worker.js', {
-      // enabled: environment.production,
-    // }),
+    ServiceWorkerModule.register('/app/ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,

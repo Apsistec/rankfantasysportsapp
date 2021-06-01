@@ -1,7 +1,4 @@
-<ion-card
-  color="medium"
-  class="ion-no-margin ion-text-capitalize ion-text-center ion-padding"
->
+
 <ion-fab style="top:0px;right:0px" vertical="top" horizontal="end" slot="fixed">
   <ion-fab-button color="light" size="small" (click)="modalDismiss()">
     <ion-icon name="close-circle"></ion-icon>
@@ -22,8 +19,8 @@
   <!-- <ion-button fill="clear" size="small" color="light" (click)="onPasswordReset()">
     Forgot Password?
   </ion-button> -->
-  <ion-button color="secondary"  fill="clear" (click)=goToMembership()>>
+  <ion-button color="secondary"  fill="clear" (click)=goToMembership()>
    Need to {{ isLogin ? 'Sign Up': 'Log In' }}?
   </ion-button>
-
-</ion-card>
+ <ion-button fill="clear" color="secondary" (click)="launchResetModal()">Reset Password?</ion-button>
+<!-- </ion-card> -->

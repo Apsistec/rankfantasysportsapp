@@ -1,5 +1,3 @@
-/* autoprefixer grid: autoplace */
-// for unicode characters
 @charset 'utf-8';
 
 // http://ionicframework.com/docs/theming/
@@ -14,12 +12,9 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-// Material Themes
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 // NGX-Share
-
-@import '~@ngx-share/button/themes/default/default-theme';
+@import '~ngx-sharebuttons/themes/default/default-theme';
 
 :root {
 // Toasts each status
@@ -95,12 +90,14 @@ a:hover {
 // Purchase Modal
   .startmodal{
 
-    --box-shadow:none;
     overflow: scroll !important;
   }
 
   .modal-wrapper{
-    --background: transparent !important;
+    border: 2px solid white;
+    border-radius: 15px;
+        background-color: var(--ion-color-light);
+
     --max-height: 85%;
     --max-width: 85%;
   }
@@ -117,8 +114,7 @@ a:hover {
 
 
   .router-link-active{
-    font-weight: 800 !important;
-    font-size: large !important;
+   --color: blue;
   }
 
 
@@ -142,7 +138,7 @@ a:hover {
   html, body { height: 100%; }
   body { margin: 0; font-family: 'Roboto', sans-serif; }
 
-  ion-card{
+  .card{
     border: 3px solid var(--ion-color-light);
     border-radius: 18px 18px 18px 18px;
   }

@@ -1,3 +1,18 @@
+// {
+//   "extends": "./tsconfig.json",
+//   "compilerOptions": {
+//     "outDir": "./out-tsc/app",
+//     "types": [
+//     ]
+//   },
+//   "include": [
+//     "src/**/*.ts"
+//   ],
+//   "exclude": [
+//     "src/test.ts",
+//     "src/**/*.spec.ts"
+//   ]
+// }
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
@@ -6,11 +21,7 @@
       "stripe-v3"
     ]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/test.ts",
-    "src/**/*.spec.ts"
-  ]
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["src/**/*.spec.ts"]
 }

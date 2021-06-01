@@ -1,17 +1,17 @@
 import { WizardComponent } from 'angular-archwizard';
 
-import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
-import { MessageService } from '../_services/message.service';
-import { SeoService } from '../_services/seo.service';
-import { PopoverComponent } from '../_shared/popover/popover.component';
 
 import { AuthService } from '../_services/auth.service';
+import { MessageService } from '../_services/message.service';
 import { ModalService } from '../_services/modal.service';
+import { SeoService } from '../_services/seo.service';
+import { PopoverComponent } from '../_shared/popover/popover.component';
 
 declare var Stripe: stripe.StripeStatic;
 
@@ -20,7 +20,7 @@ declare var Stripe: stripe.StripeStatic;
   templateUrl: './membership.page.html',
   styleUrls: ['./membership.page.scss']
 })
-export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
+export class MembershipPage implements OnInit, OnChanges {
   isRegister = true;
   titleId = 'RF$\u2122 Pro Memberships';
 
@@ -33,12 +33,11 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
   stripe: stripe.Stripe;
   uid;
-  confirmation;
+  subscription;
   amount = 0;
-  confirmation0;
   cardErrors;
   isLoading = false;
-
+  price;
   marked = false;
   theCheckbox = false;
   hide = true;
@@ -62,26 +61,20 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
       this.titleId,
       'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
       '../../../assets/img/rfs-logo.svg'
-      );
-      this.user = this.afAuth.currentUser;
+    );
+    this.user = this.afAuth.currentUser;
   }
 
   ngOnInit() {
-
-
-    if (this.authService.authenticated &&this.authService.isSubscribed) {
+    if (this.authService.authenticated && this.authService.isSubscribed) {
       this.router.navigate['profile'];
-    } else if (this.authService.authenticated) {
-      this.wizard.goToStep(1);
     } else {
       this.wizard.goToStep(0);
     }
 
-
-
     // (this.authService.authenticated)? this.wizard.goToStep(1) : this.wizard.goToStep(0);
 
-    this.amount = this.theCheckbox? +'5700' : +'000';
+    this.amount = this.theCheckbox ? +'5700' : +'000';
 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -114,7 +107,7 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
     this.showDetails = true;
 
     // Stripe Details
-    this.stripe = Stripe('pk_test_mFFXjOh5rHb7VLruDV39tGE200iVUj9Ook');
+    this.stripe = Stripe('pk_test_Rm4QbcP0thjADBses4DnzU5600K3q0XqMA');
     const elements = this.stripe.elements();
     const style = {
       base: {
@@ -140,28 +133,14 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
     });
   }
 
-  ngAfterViewInit() {
-
-      if (this.authService.authenticated &&this.authService.isSubscribed) {
-        this.router.navigate['profile'];
-      } else if (this.authService.authenticated) {
-        this.wizard.goToStep(1);
-      } else {
-        this.wizard.goToStep(0);
-      }
-  }
-
-  ngOnChanges() {
-
-  }
 
 
+  ngOnChanges() {}
 
   // checkmark value
   toggleVisibility(e) {
     this.marked = e.target.checked;
   }
-
 
   async handleForm(e) {
     e.preventDefault();
@@ -174,14 +153,17 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
     } else {
       // Send the token to your server.
       this.isLoading = true;
+      if (this.theCheckbox === true) {
+        this.price = 'price_1Ix0urKgDdcItEX8yB5ES8yL';
+      }
       const fun = this.functions.httpsCallable('stripeCreateSubscription');
-      this.confirmation = await fun({ source: source.id, uid:this.authService.user.uid, plan: 'bronze' }).toPromise();
+      await fun({ source: source.id, uid: this.authService.user.uid, plan: 'prod_JaB0GVUd3VjPCL', price: this.price }).subscribe((res) => {
+        this.subscription = res;
+      });
       this.isLoading = false;
       this.wizard.goToStep(2);
     }
   }
-
-
 
   firstStep() {
     this.wizard.goToStep(0);
@@ -191,39 +173,34 @@ export class MembershipPage implements OnInit, AfterViewInit, OnChanges {
     this.wizard.goToStep(1);
   }
 
-
   async Login() {
-    try{
+    try {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
       const res = await this.authService.SignIn(email, password);
       this.nextStep();
       this.message.isLoggedInToast();
     } catch {
-        error => {
-          this.message.errorAlert(error.message);
-        }
+      (error) => {
+        this.message.errorAlert(error.message);
+      };
     }
   }
 
   async registerUser() {
-    try{
-
+    try {
       const email = this.registerForm.value.email;
       const displayName = this.registerForm.value.displayName;
       const password = this.registerForm.value.password;
-      const res = await this.authService.SignUp(this.registerForm.value);
+      const res = await this.authService.SignUp(displayName, email, password);
       this.nextStep();
       this.message.registerSuccessToast();
     } catch {
-        error => {
-          this.message.errorAlert(error.message);
-        }
+      (error) => {
+        this.message.errorAlert(error.message);
+      };
     }
-
   }
-
-
 
   switchAuthMode() {
     this.isRegister = !this.isRegister;

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../_shared/shared.module';
@@ -23,18 +24,13 @@ const routes: Routes = [
     HomePage,
     LandingPageComponent,
     EndorsementsComponent,
-    DevicesComponent,
+    DevicesComponent
     // AuthModalComponent
   ],
 
-  imports: [
-    CommonModule,
-    IonicModule,
-    SharedModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [CommonModule, YouTubePlayerModule, IonicModule, SharedModule, RouterModule.forChild(routes)],
   entryComponents: [
     // AuthModalComponent
-   ]
+  ]
 })
 export class HomeModule {}

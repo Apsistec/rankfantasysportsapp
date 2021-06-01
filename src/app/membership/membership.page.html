@@ -7,13 +7,7 @@
       <div style="position: absolute; z-index: 99;; top:26px; left:30px;cursor:pointer;" routerLink="/home">
         <img src="../../assets/img/icon-192x192.png" style="width:60px;height:60px">
       </div>
-      <div *ngIf="authService.afAuth.user | async as user">
-        <a (click)="presentPopover($event)" style="position: absolute; top:30px; z-index:99; right:30px; cursor:pointer;">
-          <ion-avatar >
-          <img [src]="user.photoURL || '../../../assets/img/dummy-user.png'"  style="width:60px;height:60px"/>
-          </ion-avatar>
-        </a>
-      </div>
+
       <ion-col
         class=" ion-align-self-center ion-no-padding ion-no-margin"
         size-sm="12"
@@ -26,7 +20,7 @@
       >
         <ion-card
           color="medium"
-          class=" ion-text-center"
+          class=" ion-text-center card"
         >
           <ion-card-content>
 
@@ -60,7 +54,7 @@
                 class="alert alert-danger">
                         <div *ngIf="registerForm.controls['displayName'].errors.required">
                             <ion-text color="danger">
-                              Name is required="true" .
+                              Name is required
                               </ion-text>
                         </div>
                       </div>
@@ -73,12 +67,12 @@
                           class="alert alert-danger">
                           <div *ngIf="registerForm.controls['email'].errors.required">
                          <ion-text color="danger" >
-                             Email is required="true" .
+                             Email is required
                           </ion-text>
                       </div>
                       <div *ngIf="registerForm.controls['email'].errors.email">
                           <ion-text color="danger" >
-                              Email is not Valid.
+                              Email is not Valid
                           </ion-text>
                         </div>
                 </div>
@@ -98,22 +92,22 @@
                       class="alert alert-danger">
                         <div *ngIf="registerForm.controls['password'].errors.required">
                          <ion-text color="danger" >
-                             Password is required="true" .
+                             Password is required
                           </ion-text>
                       </div>
                         <div *ngIf="registerForm.controls['password'].hasError('minlength')">
                             <ion-text color="danger" >
-                                Password must be at least 8 characters long.
+                                Password must be at least 8 characters long
                           </ion-text>
                         </div>
                         <div *ngIf="registerForm.controls['password'].errors.maxlength">
                             <ion-text color="danger" >
-                           Password must be less than 25 characters long.
+                           Password must be less than 25 characters long
                           </ion-text>
                       </div>
                       <div *ngIf="registerForm.controls['password'].errors.pattern">
                          <ion-text color="danger" >
-                             Password must contain 1 uppercase, 1 lowercase and 1 digit.
+                             Password must contain 1 uppercase, 1 lowercase and 1 digit
                           </ion-text>
                       </div>
                         </div>
@@ -252,6 +246,7 @@
                 </form>
                               </ng-container>
                 <ion-button color="secondary" fill="clear" (click)="switchAuthMode()">Need to {{ isRegister ? 'Log In' : 'Sign Up' }}?</ion-button>
+                <ion-button  color="secondary"  fill="clear" (click)="modal.resetModal()">Reset Password?</ion-button>
       <!-- Step 2  Pay     -->
               </aw-wizard-step>
               <aw-wizard-step
@@ -402,8 +397,7 @@
                 </ion-card>
 
                 <ion-button fill="clear" color="secondary" awPreviousStep
-                  >Need to Start Over?</ion-button
-                >
+                  >Need to Start Over?</ion-button>
               </aw-wizard-step>
       <!-- Step 3 Done -->
               <aw-wizard-completion-step
@@ -416,12 +410,12 @@
                     <ion-card-title>
                       <ion-text  class="ion-text-center ion-text-capitalize">
                         <strong>
-                          Welcome to RF$&trade;
+                          Success!!!
                         </strong>
                       </ion-text>
                     </ion-card-title>
                     <ion-card-subtitle>
-
+                      Welcome to RF$&trade;
                     </ion-card-subtitle>
                   </ion-card-header>
                   <ion-card-content>
@@ -430,6 +424,7 @@
                           Thank you! Your Rank Fantasy Sports trial account has officially started! This 7 day trial is provided to you at no cost for the next 7 days! Your card will be chaged $9.99 at the end of the trial period, and will be continue to be charged each following month.
                       </p>
                       <hr />
+                      <pre>{{subscription | json}}</pre>
 
                       <hr />
                       <ul>
@@ -471,7 +466,7 @@
         size-xl="3"
         pull-xl="3"
         >
-        <ion-card
+        <ion-card class="card"
           style="margin-top:100px;background: rgb(0,0,0);
       background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.7) 100%);"
         >

@@ -7,7 +7,9 @@
 // } from '@angular/fire/auth-guard';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from './_guards/auth.guard';
+import { ForgotPasswordElementComponent } from './_shared/forgot-password-element/forgot-password-element.component';
 
 // const adminOnly = () => hasCustomClaim('admin');
 // const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);
@@ -39,6 +41,9 @@ const appRoutes: Routes = [
     path: 'how-to',
     loadChildren: () =>
       import('./how-to/how-to.module').then(m => m.HowToPageModule)
+  },
+  {
+    path: 'reset', component: ForgotPasswordElementComponent
   },
 
   {

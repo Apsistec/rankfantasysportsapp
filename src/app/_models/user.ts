@@ -12,13 +12,12 @@ export interface User {
   created: string;
   role: string;
   permissions?: string[];
-  stripeCustomerId: string;
+  stripeCustomerId?: string;
   plan?: string;
-  status: string;
+  status?: string;
   subId?: string;
   provider?: ProviderUserInfo;
   gold?: boolean;
   silver?: boolean;
   bronze?: boolean;
 }
-

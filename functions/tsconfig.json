@@ -9,9 +9,7 @@
     "strictNullChecks": false,
     "target": "es2017",
   "types": [
-      "jest",
-      "stripe"
-    ]
+      "jest"    ]
   },
   "compileOnSave": true,
   "include": [

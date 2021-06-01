@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+
 import { User } from '../../_models/user';
 import { AuthService } from '../../_services/auth.service';
 import { MessageService } from '../../_services/message.service';

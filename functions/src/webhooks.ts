@@ -4,18 +4,19 @@ import * as functions from 'firebase-functions';
 export const stripeWebhookSignature = functions.config().stripe.webhook_signature;
 
 export const webhookHandler = async (data: any) => {
-  const customerId = data.customer;
-  const subId = data.subscription; 
-  const customer = await stripe.customers.retrieve(customerId);
-  const uid = customer.metadata.firebaseUID;
+  // const customerId = data.customer;
+  const subId = data.subscription;
+  // const customer = await stripe.customers.retrieve(customerId);
+  // const uid = await stripe.charges.retrieve({expand: metadata})
+  const uid = data.metadata.firebaseUID;
 
   const subscription = await stripe.subscriptions.retrieve(subId);
 
-  const isActive = subscription.status === 'active';
+  // const active = subscription.status === 'active';
 
   const docData = {
-    [subscription.plan.id]: isActive,
-    [subscription.id]: subscription.status,
+    [subscription.id]: [subscription.status],
+    "plan": subscription.items.data,
   }
 
   return await db.doc(`users/${uid}`).set(docData, { merge: true });

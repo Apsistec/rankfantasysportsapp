@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
-import { SeoService } from '../_services/seo.service';
 
 import { AuthService } from '../_services/auth.service';
+import { SeoService } from '../_services/seo.service';
 import { Faqs } from './faqs';
 
 // import { Plugins } from '@capacitor/core';
