@@ -15,7 +15,7 @@ import { NflComponent } from '../tables/nfl/nfl.component';
 import { NowComponent } from '../tables/now/now.component';
 import { PgaComponent } from '../tables/pga/pga.component';
 import { TennisComponent } from '../tables/tennis/tennis.component';
-import { AuthModalComponent } from './auth-modal/auth-modal.component';
+// import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import { FooterComponent } from './footer/footer.component';
 import {
     ForgotPasswordElementComponent
@@ -42,10 +42,10 @@ import { TicketComponent } from './tickets/ticket.component';
     TennisComponent,
     ForgotPasswordElementComponent,
     LoginElementComponent,
-    AuthModalComponent,
+    // AuthModalComponent,
   ],
 
-  entryComponents: [TicketComponent, TermsDialogComponent, AuthModalComponent, PrivacyDialogComponent, PopoverComponent],
+  entryComponents: [TicketComponent, TermsDialogComponent, PrivacyDialogComponent, PopoverComponent],
 
   imports: [
     NgxTwitterTimelineModule,
@@ -60,7 +60,7 @@ import { TicketComponent } from './tickets/ticket.component';
 
   exports: [
     SharedDirectivesModule,
-    AuthModalComponent,
+    // AuthModalComponent,
     NgxTwitterTimelineModule,
     ForgotPasswordElementComponent,
     PopoverComponent,

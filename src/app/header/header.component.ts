@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
 import { User } from '../_models/user';
@@ -11,15 +11,15 @@ import { PopoverComponent } from '../_shared/popover/popover.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
 
-  @Input() titleId: string;
+  // @Input() titleId: string;
 
   user: User;
-  button= document.querySelector('ion-button');
+  // button= document.querySelector('ion-button');
 
   mobile;
-  showGetStartedButton: Boolean;
+  showGetStartedButton= true;
 
   constructor(
     public authService: AuthService,
@@ -33,22 +33,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
-    this.showGetStartedButton = !this.isHomePage && !this.isPurchasePage;
-  }
 
-  // Returns true when user is looged in and home page is verified
-  get isHomePage(): boolean {
-    return this.titleId === 'RF$\u2122 Home' ? true : false;
-  }
-
-  get isPurchasePage(): boolean {
-    return this.titleId === 'RF$\u2122 Pro Memberships' ? true : false;
-  }
-
-  get isProfilePage(): boolean {
-    return this.titleId === 'RF$\u2122 User Profile' ? true : false;
-  }
 
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
@@ -60,7 +45,5 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     return popover.present();
   }
 
-  openModal() {
-    this.modal.loginModal();
-  }
+
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { AuthModalComponent } from '../_shared/auth-modal/auth-modal.component';
+// import { AuthModalComponent } from '../_shared/auth-modal/auth-modal.component';
 import { ForgotPasswordElementComponent } from '../_shared/forgot-password-element/forgot-password-element.component';
 import { PrivacyDialogComponent } from '../_shared/privacy-dialog/privacy-dialog.component';
 import { TermsDialogComponent } from '../_shared/terms-dialog/terms-dialog.component';
@@ -36,17 +36,17 @@ export class ModalService {
       return this.message.errorAlert(err);
     });
   }
-  async loginModal() {
-    const modal = await this.modalController.create({
-      component: AuthModalComponent,
-      cssClass: 'auth-modal-css',
-      backdropDismiss: false,
-      showBackdrop: true
-    });
-    return modal.present().catch(err => {
-      return this.message.errorAlert(err);
-    });
-  }
+  // async loginModal() {
+  //   const modal = await this.modalController.create({
+  //     component: AuthModalComponent,
+  //     cssClass: 'auth-modal-css',
+  //     backdropDismiss: false,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch(err => {
+  //     return this.message.errorAlert(err);
+  //   });
+  // }
   async resetModal() {
     const modal = await this.modalController.create({
       component: ForgotPasswordElementComponent,

@@ -26,7 +26,7 @@
       slot="end"
       *ngIf="showGetStartedButton"
       color="success"
-      (click)="openModal()"
+      routerLink="/membership"
       style="margin-right:30px;position: relative; top:10px"
       >
       <ion-text color="light" class="ion-text-capitalize" style="font-weight: 700;font-variant:small-caps; align-self:center">
@@ -38,12 +38,7 @@
 
 <!-- Desktop 1st toolbar Version of Top Nav -->
   <ion-toolbar color="primary" *ngIf="!mobile">
-    <ion-buttons slot="start">
-      <ion-menu-button color="silver"> </ion-menu-button>
-      <ion-text color="light" style="font-size:large; font-weight: 800; padding-left:25px">
-        {{ titleId }}
-      </ion-text>
-    </ion-buttons>
+
     <div class="top-nav">
       <ion-text color="silver" class="ion-text-uppercase" style="font-weight: 700; padding-left:40px;">
 

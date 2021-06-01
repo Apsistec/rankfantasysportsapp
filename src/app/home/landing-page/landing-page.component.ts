@@ -38,9 +38,7 @@ export class LandingPageComponent implements OnInit {
     popover.present();
   }
 
-  openModal() {
-    this.modal.loginModal();
-  }
+
   dismiss() {
     this.modal.dismiss();
   }

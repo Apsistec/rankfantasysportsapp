@@ -35,7 +35,7 @@ export class AuthService {
     private router: Router,
     private ngZone: NgZone,
     private message: MessageService,
-    private modal: ModalService,
+    private modal: ModalService
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -52,13 +52,13 @@ export class AuthService {
     return this.user !== null;
   }
 
-  get currentUser(): any {
-    return this.authenticated ? this.user : null;
-  }
+  // get currentUser(): any {
+  //   return this.authenticated ? this.user : null;
+  // }
 
-  get currentUserId(): string {
-    return this.authenticated ? this.user.uid : '';
-  }
+  // get currentUserId(): string {
+  //   return this.authenticated ? this.user.uid : '';
+  // }
 
   // Authentication
   SignIn(email, password) {
@@ -75,16 +75,11 @@ export class AuthService {
 
   // navigate upon login
   async navigateEntryUser() {
-    if (this.currentUser.role === 'ADMIN') {
+    if (this.user.role === 'ADMIN') {
       this.router.navigateByUrl('/admin');
     } else {
-      if (this.currentUser.role === 'USER') {
-        const sub = this.user['gold'] || this.user['silver'] || this.user['bronze'];
-        if (sub) {
-          this.router.navigateByUrl('/profile');
-        } else {
-          this.router.navigateByUrl('/home');
-        }
+      if (this.user['gold'] || this.user['silver'] || this.user['bronze'] === true) {
+        this.router.navigateByUrl('/profile');
       }
     }
   }
@@ -93,42 +88,20 @@ export class AuthService {
     this.displayName = displayName;
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredential: firebase.auth.UserCredential) => {
-        this.modal.dismiss();
-        this.router.navigateByUrl('/home');
+      .then((res) => {
         this.message.registerSuccessToast();
-        this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
-          uid: userCredential.user.uid,
+        this.afs.doc<User>(`users/${res.user.uid}`).set({
+          uid: res.user.uid,
           displayName: this.displayName,
-          email: userCredential.user.email,
+          email: res.user.email,
           role: 'USER',
           permissions: ['delete-ticket'],
-          photoURL: userCredential.user.photoURL,
-          created: userCredential.user.metadata.creationTime,
+          photoURL: res.user.photoURL,
+          created: res.user.metadata.creationTime
         });
       })
       .catch((error) => this.message.errorAlert(error.message));
   }
-
-  // SignUp(credentials: UserCredentials) {
-  //   return this.afAuth
-  //     .createUserWithEmailAndPassword(credentials.email, credentials.password)
-  //     .then((res) => {
-  //       return this.afs.doc(`users/${res.user.uid}`).set({
-  //         displayName: credentials.displayName,
-  //         email: res.user.email,
-  //         uid: res.user.uid,
-  //         role: 'USER',
-  //         permissions: ['delete-ticket'],
-  //         photoURL: res.user.photoURL,
-  //         subStatus: null,
-  //         created: firebase.firestore.FieldValue.serverTimestamp()
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       this.message.errorAlert(err.message);
-  //     });
-  // }
 
   // Recover password
   ResetPassword(passwordResetEmail) {
@@ -136,32 +109,6 @@ export class AuthService {
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
         this.message.resetPasswordAlert();
-      })
-      .catch((error) => {
-        this.message.errorAlert(error.message);
-      });
-  }
-
-  // Sign in with Gmail
-  GoogleAuth() {
-    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
-  }
-
-  // Auth providers
-  AuthLogin(provider) {
-    return this.afAuth
-      .signInWithPopup(provider)
-      .then((result) => {
-        this.message.isLoggedInToast().then(() => {
-          if (!this.isSubscribed) {
-            this.router.navigate['membership'];
-          }
-          if (this.isSubscribed) {
-            this.ngZone.run(() => {
-              this.router.navigate(['profile']);
-            });
-          }
-        });
       })
       .catch((error) => {
         this.message.errorAlert(error.message);
@@ -240,26 +187,26 @@ export class AuthService {
   //   const user = this.afs.doc(`users/${this.user.uid}`)
   // }
 
-  canRead(user: any): boolean {
-    return this.checkAuthorization(user);
+  canRead(): boolean {
+    return this.checkAuthorization();
   }
 
   // determines if user is a member
-  private checkAuthorization(user: any): boolean {
-    if (!user) {
+  private checkAuthorization(): boolean {
+    if (!this.user) {
       return false;
     }
     {
-      if (user.bronze || user.gold || user.silver) {
+      if (this.user.bronze || this.user.gold || this.user.silver === true) {
         return true;
       }
+      return false;
     }
-    return false;
   }
 
   hasPermissions(permissions: string[]): boolean {
     for (const perm of permissions) {
-      if (!this.currentUser.value || !this.currentUser.value.permissions.includes(perm)) {
+      if (!this.user.permissions.includes(perm)) {
         return false;
       }
     }
