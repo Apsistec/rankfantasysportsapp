@@ -39,9 +39,7 @@
               },
               {
                 "input": "src/global.scss"
-              },
-                "node_modules/angular-archwizard/archwizard.css"
-            ],
+              }            ],
             "scripts": [
 
             ]

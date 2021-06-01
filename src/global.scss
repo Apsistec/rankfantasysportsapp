@@ -13,11 +13,12 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 
+/* Ng-archwizard stepper */
+@import "../node_modules/angular-archwizard/styles/archwizard.scss";
+
 // NGX-Share
 @import '~ngx-sharebuttons/themes/default/default-theme';
 
-:root {
-// Toasts each status
 .successT {
   --background: #d0ffe5;
   --color: #121212;
@@ -30,6 +31,7 @@
   --height: '48px';
 
 }
+
 .dangerT {
   --background: #ffc4c4;
   --color: #121212;
@@ -43,6 +45,7 @@
   --height: '48px';
 
 }
+
 .warningT {
   --background: #fbffd4;
   --color: #121212;
@@ -87,25 +90,17 @@ a:hover {
     --min-height: 80%;
   }
 
-// Purchase Modal
-  .startmodal{
 
-    overflow: scroll !important;
-  }
 
   .modal-wrapper{
-    border: 2px solid white;
-    border-radius: 15px;
-        background-color: var(--ion-color-light);
+    // --border: 2px solid black;
+    --border-radius: 15px;
+    // background-color: var(--ion-color-light);
 
-    --max-height: 85%;
-    --max-width: 85%;
+    // --max-height: 85%;
+    // --max-width: 85%;
   }
 
-  .auth-modal-css{
-    --box-shadow:none;
-      overflow: scroll !important;
-  }
 
 
   .popoverUser{
@@ -118,30 +113,54 @@ a:hover {
   }
 
 
-  ion-card-title, ion-title{
+       ion-card-title, ion-title{
     font-weight: 900 !important;
-    line-height: 1 !important;
-    font-size: xx-large !important;
-    // text-transform: capitalize !important;
+    font-size: 26px !important;
     color: var(--ion-color-secondary) !important;
   }
 
   ion-subtitle, ion-card-subtitle{
     font-weight: 700 !important;
-    line-height: 1.3 !important;
-    font-size: large !important;
+    font-size: 20px !important;
     color: var(--ion-color-dark) !important;
   }
-
-
-  Adding Font for Body
-  html, body { height: 100%; }
-  body { margin: 0; font-family: 'Roboto', sans-serif; }
 
   .card{
     border: 3px solid var(--ion-color-light);
     border-radius: 18px 18px 18px 18px;
   }
 
+  .custom-line-css aw-wizard-navigation-bar.horizontal li::after {
+  height: 4px !important;
+}
 
+.custom-line-css aw-wizard-navigation-bar {
+  ul.steps-indicator {
+    li {
+      a {
+        div.label {
+          color: #ffffff !important;
+        }
+      }
+    }
+    li.current {
+      a {
+        div.step-indicator {
+          background-color: var(--ion-color-primary) !important;
+        }
+
+        div.label {
+          border-bottom: 2px solid #ffffff !important;
+        }
+      }
+    }
+  }
+}
+
+aw-wizard.wizzard {
+  aw-wizard-navigation-bar.horizontal ul.steps-indicator {
+    li.done:not(.editing):not(:last-child):after {
+      background-color: var(--ion-color-success) !important;
+    }
+  }
 }

@@ -26,8 +26,8 @@
 
 
   <!-- Step 1 Log In Sign Up -->
-            <aw-wizard navBarLayout="large-filled-symbols" navigationMode="free">
-              <aw-wizard-step
+            <aw-wizard class="wizzard" navBarLayout="large-filled-symbols" navigationMode="free">
+              <aw-wizard-step class="custom-line-css"
                 stepTitle="{{ isRegister ?  'Sign Up' : 'Log In' }}"
                 [navigationSymbol]="{ symbol: '1' }"
               >

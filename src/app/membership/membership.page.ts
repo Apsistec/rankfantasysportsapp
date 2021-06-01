@@ -62,18 +62,19 @@ export class MembershipPage implements OnInit, OnChanges {
       'This page is where you can sign up for a 7 day free trial and purchase a Rank Fantasy Sports Pro Subscription for $9.99 per month',
       '../../../assets/img/rfs-logo.svg'
     );
-    this.user = this.afAuth.currentUser;
+    this.user = this.authService.user;
   }
 
   ngOnInit() {
-    if (this.authService.authenticated && this.authService.isSubscribed) {
-      this.router.navigate['profile'];
-    } else {
+    if (!this.user.uid){
       this.wizard.goToStep(0);
-    }
-
-    // (this.authService.authenticated)? this.wizard.goToStep(1) : this.wizard.goToStep(0);
-
+    }{
+      if (this.user['gold'] || this.user['silver'] || this.user['bronze'] === true) {
+        this.router.navigate['profile'];
+      }else {
+        this.wizard.goToStep(1);
+      }
+}
     this.amount = this.theCheckbox ? +'5700' : +'000';
 
     this.loginForm = this.fb.group({

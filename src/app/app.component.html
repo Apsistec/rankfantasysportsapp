@@ -63,7 +63,7 @@
             <ion-item color="light"
               type="button"
               lines="none"
-              (click)="authModal()"
+              routerLink="/membership"
               class="ion-text-uppercase"
             >
              <ion-icon color="dark" slot="start" name="log-in"></ion-icon>
@@ -104,7 +104,7 @@
           <ion-item color="light"
             type="button"
             lines="none"
-            (click)="signOut()"
+            (click)="authService.SignOut()"
             class="ion-text-uppercase"
             *ngIf="authService.user$ | async as user; else login"
           >

@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "rankfantasysports",
     "public": "www",
     "ignore": [
       "firebase.json",
