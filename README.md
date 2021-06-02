@@ -155,9 +155,9 @@ Start Documentation Server
 > To get started...
 
 **Step 1** Install Repo
-  
+
 * [ ] **Option :one:**
-  
+
   :trident: Fork this repo:
 
     ```http
@@ -165,7 +165,7 @@ Start Documentation Server
   ```
 
 * [ ] **Option :two:**
-  
+
   Clone this repo to your local machine:
 
     ```shell
@@ -223,4 +223,4 @@ Start Documentation Server
 
 ***
 
-Copyright 2019 © [RankFantasySports](http://rankfantasysports.com)
+Copyright 2021 © [RankFantasySports](http://rankfantasysports.com)
