@@ -222,5 +222,6 @@ Start Documentation Server
 * [Slack Channnel](https://rankfantasysports.slack.com)
 
 ***
+fixed
 
 Copyright 2021 © [RankFantasySports](http://rankfantasysports.com)
