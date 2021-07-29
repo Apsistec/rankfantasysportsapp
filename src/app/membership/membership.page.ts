@@ -132,6 +132,7 @@ export class MembershipPage implements OnInit, OnChanges {
     this.card.addEventListener('change', ({ error }) => {
       this.cardErrors = error && error.message;
     });
+
   }
 
 
