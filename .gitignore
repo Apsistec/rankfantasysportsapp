@@ -44,3 +44,4 @@ documentation/
 resources/
 functions/
 sendgrid.env
+/src/environments/environment.prod.ts
