@@ -1,4 +1,4 @@
-# rankfantasysports
+# rankfantasysportsapp
 
 A subscription based cross-platform web-app delivering a unique suite of highly relevent, effective NFL, NCAA, NBA, PGA, & Tennis data-tables enabling daily fantasy sports players to efficiently create DFS platform lineups that win more and more often!
 
